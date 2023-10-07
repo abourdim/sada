@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../../../splash.html')}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Bug #42 Chronicles (EN)</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&family=Creepster&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0808;--s1:#141010;--s2:#1c1616;--brd:rgba(255,255,255,.06);--txt:#e8e0e0;--dim:rgba(255,255,255,.3);--bug:#22c55e;--bug2:#16a34a;--red:#ef4444;--acc:#ff6600;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#222;border-radius:3px}
+
+.hero{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(34,197,94,.06),transparent 50%),radial-gradient(ellipse at 30% 70%,rgba(239,68,68,.03),transparent 40%);pointer-events:none}
+.bug-icon{font-size:64px;margin-bottom:12px;animation:bugwalk 3s ease-in-out infinite}
+@keyframes bugwalk{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(-8px) rotate(-5deg)}75%{transform:translateX(8px) rotate(5deg)}}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--bug);border:1px solid rgba(34,197,94,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:14px;display:inline-block}
+.hero h1{font-family:'Creepster',cursive;font-size:clamp(26px,6vw,48px);font-weight:400;line-height:1.1;margin-bottom:8px;letter-spacing:2px}
+.hero h1 b{color:var(--bug)}
+.hero p{font-size:13px;color:var(--dim);max-width:460px;line-height:1.7}
+.meta{display:flex;gap:0;margin-top:18px;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1)}
+.meta div{flex:1;text-align:center;padding:8px 12px;border-right:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.meta div:last-child{border:none}
+.meta div b{display:block;font-family:'Syne',sans-serif;font-size:14px;color:var(--bug)}
+
+.section{max-width:700px;margin:0 auto;padding:28px 16px}
+.stitle{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:14px;text-align:center}
+.stitle b{color:var(--bug)}
+
+/* NARRATION BLOCKS */
+.narr{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:10px;overflow:hidden;transition:.2s}
+.narr:hover{border-color:rgba(34,197,94,.15)}
+.narr-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.narr-time{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--bug);background:rgba(34,197,94,.06);padding:3px 8px;border-radius:4px;border:1px solid rgba(34,197,94,.1)}
+.narr-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;flex:1}
+.narr-mood{font-size:14px}
+.narr-body{padding:4px 14px 14px;border-top:1px solid var(--brd)}
+.narr-vo{font-size:12px;color:var(--txt);line-height:1.8;font-style:italic;border-left:3px solid var(--bug);padding-left:12px;margin:8px 0}
+.narr-dir{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--red);margin:6px 0;display:block}
+.narr-sfx{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--acc);background:rgba(255,102,0,.05);padding:3px 8px;border-radius:4px;display:inline-block;margin-top:4px}
+
+/* GLITCH TEXT */
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%}
+.glitch::before{animation:glitch1 2s infinite;color:var(--bug);clip-path:polygon(0 0,100% 0,100% 45%,0 45%);transform:translateX(-2px)}
+.glitch::after{animation:glitch2 2s infinite;color:var(--red);clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);transform:translateX(2px)}
+@keyframes glitch1{0%,100%{transform:translateX(-2px)}50%{transform:translateX(2px)}}
+@keyframes glitch2{0%,100%{transform:translateX(2px)}50%{transform:translateX(-2px)}}
+
+.foot{text-align:center;padding:24px 12px 16px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-family:'Syne',sans-serif;font-size:12px;color:var(--txt)}
+.foot b i{font-style:normal;color:var(--bug)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<div class="bug-icon">🐛</div>
+<div class="badge">lore · bug #42 · english</div>
+<h1>The <b>Bug #42</b> Chronicles</h1>
+<p>The legend of the bug that refused to die. Born in v1.0. Still alive in v86. A dramatic narration of Workshop-DIY's most persistent resident.</p>
+<div class="meta"><div><b>1:45</b>Duration</div><div><b>7</b>Acts</div><div><b>EN</b>Lang</div><div><b>🎭</b>Drama</div></div>
+</div>
+
+<div class="section">
+<div class="stitle">🐛 <b>Narration</b> Script</div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:00–0:15</div><div class="narr-title">ACT I — The Birth</div><div class="narr-mood">👶</div></div>
+<div class="narr-body">
+<span class="narr-dir">[VISUAL: Dark screen. Green terminal text. Cursor blinks. Date: 2024-03-15.]</span>
+<div class="narr-vo">"It was a Tuesday. Commit #42. A simple loop — or so they thought. But deep inside line 847 of app.js, something stirred. Something that would outlive six major rewrites, four framework debates, and one very dramatic coffee machine incident."</div>
+<span class="narr-sfx">SFX: Keyboard typing → ominous low hum</span>
+</div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:15–0:30</div><div class="narr-title">ACT II — First Sighting</div><div class="narr-mood">👀</div></div>
+<div class="narr-body">
+<span class="narr-dir">[VISUAL: Kid squinting at screen. Console shows NaN. Bug emoji crawls across screen edge.]</span>
+<div class="narr-vo">"The first child to encounter Bug #42 was a 9-year-old named Yassine. His robot spun left when it should have gone right. 'That's weird,' he said. Famous last words."</div>
+<span class="narr-sfx">SFX: Robot motor whirring → confused beep</span>
+</div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:30–0:50</div><div class="narr-title">ACT III — The Hunt</div><div class="narr-mood">🔍</div></div>
+<div class="narr-body">
+<span class="narr-dir">[VISUAL: Montage — multiple kids debugging. Console.log everywhere. Post-it notes. Increasingly frustrated faces.]</span>
+<div class="narr-vo">"They tried everything. Console.log. Breakpoints. Rubber duck debugging. The duck quit. Three interns lost sleep. One developer switched to farming. Bug #42 remained, lurking between the semicolons, feeding on Stack Overflow hope."</div>
+<span class="narr-sfx">SFX: Suspenseful music → duck quack → door slam</span>
+</div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:50–1:05</div><div class="narr-title">ACT IV — The Abilities</div><div class="narr-mood">🦸</div></div>
+<div class="narr-body">
+<span class="narr-dir">[VISUAL: Animated bug character gaining powers. Pizza delivery notification. WiFi password change alert.]</span>
+<div class="narr-vo">"Over time, Bug #42 evolved. It learned to order pizza from the workshop account — always margherita, extra cheese. It changed the WiFi password to 'password123' seventeen times. It once submitted a pull request. The code was better than the intern's."</div>
+<span class="narr-sfx">SFX: Level-up chime → pizza delivery doorbell → Git push sound</span>
+</div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:05–1:20</div><div class="narr-title">ACT V — The Coffee Incident</div><div class="narr-mood">☕</div></div>
+<div class="narr-body">
+<span class="narr-dir">[VISUAL: Coffee machine display showing "8%". Never changes. Kids poking it. Water level clearly full.]</span>
+<div class="narr-vo">"Nobody knows exactly when Bug #42 reached the coffee machine. But since that day, the display has never shown more than 8%. The tank is full. The sensors work. The machine simply... chooses 8%. We stopped questioning it. Bug #42 likes its coffee mysterious."</div>
+<span class="narr-sfx">SFX: Coffee gurgling → display glitch → eerie silence</span>
+</div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:20–1:35</div><div class="narr-title">ACT VI — The Legacy</div><div class="narr-mood">🏆</div></div>
+<div class="narr-body">
+<span class="narr-dir">[VISUAL: Bug #42 emoji everywhere — in Slack, on stickers, on kids' notebooks. A shrine in the workshop corner.]</span>
+<div class="narr-vo">"Today, Bug #42 is no longer a bug. It's a mascot. A legend. A rite of passage. Every new kid at Workshop-DIY must find Bug #42 in the code. Those who do earn the 'Bug Hunter' badge. Those who don't... well, their robots still spin left sometimes."</div>
+<span class="narr-sfx">SFX: Achievement unlock sound → kids cheering</span>
+</div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:35–1:45</div><div class="narr-title">ACT VII — The End?</div><div class="narr-mood">🐛</div></div>
+<div class="narr-body">
+<span class="narr-dir">[VISUAL: Black screen. Cursor blinks. Text types: "Bug #42 was here." Logo. Then — the bug emoji walks across the screen one last time.]</span>
+<div class="narr-vo">"Some say Bug #42 will be fixed in the next release. They've been saying that since v1.0. We're on v86 now. The bug remains. And honestly? We wouldn't have it any other way."</div>
+<span class="narr-sfx">SFX: Typewriter → silence → single bug chirp → Workshop-DIY jingle</span>
+</div></div>
+
+</div>
+
+<div class="foot"><b><i>🐛</i> WORKSHOP-DIY</b><br>Bug #42 was here · <a href="https://workshop-diy.org" style="color:var(--bug);text-decoration:none">workshop-diy.org</a> · password123</div>
+<div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
+</body>
+</html>

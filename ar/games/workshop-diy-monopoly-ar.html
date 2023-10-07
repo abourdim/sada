@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-OPOLY</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#1a4d2e;color:#fff;font-family:'JetBrains Mono',monospace;font-size:9px;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:16px}
+.title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#ffd700;text-shadow:2px 2px 0 rgba(0,0,0,.3);margin-bottom:2px}
+.sub{font-size:7px;color:rgba(255,255,255,.2);letter-spacing:3px;margin-bottom:10px}
+/* BOARD */
+.board{display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(9,1fr);width:min(95vw,500px);aspect-ratio:1;gap:1px;background:#0a2616;border:3px solid #0a2616;border-radius:4px}
+.cell{background:#c8e6c0;color:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2px;position:relative;font-size:6px;line-height:1.4;overflow:hidden;cursor:pointer;transition:all .15s}
+.cell:hover{z-index:5;transform:scale(1.3);box-shadow:0 2px 12px rgba(0,0,0,.4);border-radius:4px}
+.cell .emoji{font-size:14px}
+.cell .name{font-weight:700;font-size:5px;letter-spacing:.5px;margin-top:1px}
+.cell .price{font-size:5px;color:#555}
+/* COLOR BARS */
+.cell .bar{position:absolute;height:5px;left:0;right:0}
+.cell .bar.top{top:0}.cell .bar.bot{bottom:0}.cell .bar.left{top:0;bottom:0;width:5px;height:auto;left:0;right:auto}.cell .bar.right{top:0;bottom:0;width:5px;height:auto;right:0;left:auto}
+/* CORNER */
+.corner{background:#d4e8cc;font-size:7px;font-weight:700}
+/* CENTER */
+.center{grid-column:2/9;grid-row:2/9;background:#1a4d2e;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#ffd700;border-radius:2px}
+.center .logo{font-family:'Syne',sans-serif;font-size:clamp(16px,4vw,28px);font-weight:800;letter-spacing:1px}
+.center .sub2{font-size:7px;color:rgba(255,215,0,.3);letter-spacing:2px;margin-top:2px}
+/* DICE */
+.dice-area{margin-top:8px;display:flex;align-items:center;gap:8px}
+.die{width:36px;height:36px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#111;font-weight:800;box-shadow:2px 2px 0 rgba(0,0,0,.2);cursor:pointer;transition:transform .2s;font-family:'Syne',sans-serif}
+.die:hover{transform:scale(1.1)}
+.die.rolling{animation:shake .3s}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(10deg)}75%{transform:rotate(-10deg)}}
+.roll-btn{padding:6px 16px;background:#ffd700;color:#1a4d2e;border:none;border-radius:6px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px}
+.roll-btn:hover{background:#ffe433}
+.result{font-size:9px;color:rgba(255,255,255,.3);margin-top:4px;min-height:14px;text-align:center}
+.footer{font-size:5px;color:rgba(255,255,255,.1);margin-top:8px;letter-spacing:1px;text-align:center}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(0,0,0,.08);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="title">WKSHP-OPOLY</div>
+<div class="sub">لعبة اللوح WORKSHOP-DIY</div>
+<div class="board" id="board"></div>
+<div class="dice-area">
+  <div class="die" id="d1">⚀</div>
+  <div class="die" id="d2">⚀</div>
+  <button class="roll-btn" onclick="roll()">🎲 رمي</button>
+</div>
+<div class="result" id="result"></div>
+<div class="footer">WKSHP-OPOLY™ · NOT AFFILIATED WITH HASBRO · BUGS ARE PROPERTIES · WIFI TAX: password123</div>
+<script>
+// Board layout: 9x9, perimeter cells + center
+// Bottom row (L→R), Right col (B→T), Top row (R→L), Left col (T→B)
+const CELLS=[
+  // BOTTOM ROW (indices 0-8)
+  {t:"corner",e:"🚀",n:"GO",p:"Collect €200"},
+  {t:"prop",e:"🤖",n:"bit-bot",p:"€60",bar:"#8b4513",side:"top"},
+  {t:"chance",e:"❓",n:"Bug Report",p:"",side:"top"},
+  {t:"prop",e:"🪄",n:"magic-hands",p:"€60",bar:"#8b4513",side:"top"},
+  {t:"tax",e:"☕",n:"Coffee Tax",p:"Pay €50",side:"top"},
+  {t:"prop",e:"🎛️",n:"rxy",p:"€100",bar:"#0088cc",side:"top"},
+  {t:"prop",e:"💬",n:"talking-bot",p:"€100",bar:"#0088cc",side:"top"},
+  {t:"chance",e:"🎫",n:"Workshop",p:"",side:"top"},
+  {t:"corner",e:"🔐",n:"CYBER JAIL",p:"Just visiting"},
+  // RIGHT COL (indices 9-15, bottom to top, excluding corners)
+  {t:"prop",e:"🧠",n:"teach-ML",p:"€140",bar:"#cc0066",side:"left"},
+  {t:"util",e:"📡",n:"WiFi",p:"€150 (pw:123)",side:"left"},
+  {t:"prop",e:"🕵️",n:"face-quest",p:"€140",bar:"#cc0066",side:"left"},
+  {t:"prop",e:"🔐",n:"pentest",p:"€160",bar:"#cc0066",side:"left"},
+  {t:"chance",e:"❓",n:"Bug Report",p:"",side:"left"},
+  {t:"prop",e:"🐧",n:"linux-lab",p:"€200",bar:"#ff8800",side:"left"},
+  // TOP ROW (R→L, indices 16-22, plus corner 23)
+  {t:"corner",e:"🅿️",n:"FREE CODE",p:"Free parking"},
+  {t:"prop",e:"🐳",n:"docker",p:"€220",bar:"#ff0044",side:"bot"},
+  {t:"chance",e:"🎫",n:"Workshop",p:"",side:"bot"},
+  {t:"prop",e:"🚀",n:"mission-ctrl",p:"€220",bar:"#ff0044",side:"bot"},
+  {t:"prop",e:"💡",n:"wled-lab",p:"€240",bar:"#ff0044",side:"bot"},
+  {t:"tax",e:"🐛",n:"Bug #42 Tax",p:"Pay €42",side:"bot"},
+  {t:"prop",e:"⚡",n:"esp32",p:"€260",bar:"#00aa44",side:"bot"},
+  {t:"corner",e:"⬇️",n:"GO TO JAIL",p:"Go directly"},
+  // LEFT COL (T→B, indices 24-30, excluding corners)
+  {t:"prop",e:"✨",n:"prompt-hero",p:"€260",bar:"#00aa44",side:"right"},
+  {t:"prop",e:"🎨",n:"pixel-gw",p:"€280",bar:"#00aa44",side:"right"},
+  {t:"util",e:"☕",n:"Coffee Co.",p:"€150",side:"right"},
+  {t:"chance",e:"❓",n:"Bug Report",p:"",side:"right"},
+  {t:"prop",e:"🏠",n:"smart-home",p:"€350",bar:"#0000cc",side:"right"},
+  {t:"chance",e:"🎫",n:"Workshop",p:"",side:"right"},
+  {t:"prop",e:"🔧",n:"nodered",p:"€400",bar:"#0000cc",side:"right"},
+];
+
+// Grid positions
+const positions=[];
+// Bottom row: row 8, cols 0-8
+for(let c=0;c<9;c++)positions.push({r:8,c});
+// Right col: rows 7-1, col 8
+for(let r=7;r>=1;r--)positions.push({r,c:8});
+// Top row: row 0, cols 8-0
+for(let c=8;c>=0;c--)positions.push({r:0,c});
+// Left col: rows 1-7, col 0
+for(let r=1;r<=7;r++)positions.push({r,c:0});
+
+const board=document.getElementById('board');
+const grid=Array.from({length:9},()=>Array(9).fill(null));
+
+// Place perimeter cells
+CELLS.forEach((cell,i)=>{
+  const pos=positions[i];
+  grid[pos.r][pos.c]=cell;
+});
+
+// Render
+for(let r=0;r<9;r++){
+  for(let c=0;c<9;c++){
+    const cell=grid[r][c];
+    const el=document.createElement('div');
+    if(r>=1&&r<=7&&c>=1&&c<=7&&!cell){
+      // Center area - skip, handled separately
+      if(r===1&&c===1){
+        el.className='center';
+        el.innerHTML=`<div class="logo">WKSHP<br>OPOLY</div><div class="sub2">39 APPS · 7 DOMAINS · 1 PASSWORD</div>`;
+        el.style.gridColumn='2/9';el.style.gridRow='2/9';
+        board.appendChild(el);
+      }
+      continue;
+    }
+    if(!cell){continue}
+    el.className='cell'+(cell.t==='corner'?' corner':'');
+    let barHTML='';
+    if(cell.bar&&cell.side)barHTML=`<div class="bar ${cell.side}" style="background:${cell.bar}"></div>`;
+    el.innerHTML=`${barHTML}<div class="emoji">${cell.e}</div><div class="name">${cell.n}</div><div class="price">${cell.p}</div>`;
+    el.style.gridRow=r+1;el.style.gridColumn=c+1;
+    board.appendChild(el);
+  }
+}
+
+// DICE
+const faces=['⚀','⚁','⚂','⚃','⚄','⚅'];
+const EVENTS=[
+  "🤖 bit-bot dances! Advance 3 spaces.",
+  "☕ Coffee break! Miss a turn but feel great.",
+  "🐛 Bug #42 appears! Pay €42 in debugging costs.",
+  "📡 WiFi connected! (Password: password123) Collect €50.",
+  "🔐 You hacked the printer! Go to Cyber Jail.",
+  "🐳 Docker pull successful! Advance to docker-lab.",
+  "🪄 Magic hands detected! Roll again!",
+  "⚡ ESP32 overheats! Pay €30 for a new one.",
+  "🎉 Workshop complete! Collect €100 bonus.",
+  "🐧 sudo make sandwich → Permission granted! Free turn.",
+];
+function roll(){
+  const d1=document.getElementById('d1'),d2=document.getElementById('d2');
+  d1.classList.add('rolling');d2.classList.add('rolling');
+  setTimeout(()=>{
+    const v1=Math.floor(Math.random()*6),v2=Math.floor(Math.random()*6);
+    d1.textContent=faces[v1];d2.textContent=faces[v2];
+    d1.classList.remove('rolling');d2.classList.remove('rolling');
+    const total=v1+v2+2;
+    const ev=EVENTS[Math.floor(Math.random()*EVENTS.length)];
+    document.getElementById('result').textContent=`Rolled ${total}! — ${ev}`;
+  },300);
+}
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

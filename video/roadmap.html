@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Video Production Roadmap v2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06080f;--s1:#0c1018;--brd:rgba(255,255,255,.06);--txt:#e2e6f0;--dim:rgba(255,255,255,.3);--or:#ff6b35;--pk:#ff2d8a;--cy:#00d4ff;--gn:#22c55e;--yw:#fbbf24;--pr:#9333ea;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito',sans-serif;overflow-x:hidden}
+.hero{min-height:35vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(255,107,53,.05),transparent 50%),radial-gradient(ellipse at 70% 60%,rgba(0,212,255,.04),transparent 50%);pointer-events:none}
+h1{font-family:'Syne',sans-serif;font-size:clamp(22px,5vw,36px);font-weight:800;margin-bottom:6px}
+h1 b{background:linear-gradient(135deg,var(--or),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-size:12px;color:var(--dim);max-width:500px;line-height:1.6;margin-bottom:14px}
+.stats{display:flex;gap:0;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1)}
+.stats div{flex:1;text-align:center;padding:8px 10px;border-right:1px solid var(--brd);font-size:8px;color:var(--dim)}
+.stats div:last-child{border:none}
+.stats div b{display:block;font-family:'Syne',sans-serif;font-size:16px;color:var(--gn)}
+.section{max-width:800px;margin:0 auto;padding:20px 16px}
+.phase{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.ph-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
+.ph-head:hover{background:rgba(255,255,255,.01)}
+.ph-num{font-family:'Syne',sans-serif;font-size:10px;font-weight:800;color:#000;background:var(--gn);width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ph-info{flex:1}
+.ph-info h3{font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
+.ph-info span{font-size:9px;color:var(--dim)}
+.ph-count{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gn);background:rgba(34,197,94,.06);padding:3px 8px;border-radius:4px}
+.ph-body{display:none;border-top:1px solid var(--brd);padding:10px 14px}
+.phase.open .ph-body{display:block}
+.file-link{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;font-size:10px;text-decoration:none;color:var(--txt);transition:.15s}
+.file-link:hover{background:rgba(255,255,255,.03)}
+.file-link .fl-icon{font-size:14px;width:20px;text-align:center}
+.file-link .fl-name{font-family:'JetBrains Mono',monospace;font-size:9px;flex:1}
+.file-link .fl-lang{font-size:8px;padding:1px 5px;border-radius:3px;border:1px solid var(--brd)}
+.file-link .fl-lang.en{color:var(--cy)}.file-link .fl-lang.fr{color:var(--yw)}.file-link .fl-lang.ar{color:var(--gn)}
+.foot{text-align:center;padding:20px 12px 14px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-family:'Syne',sans-serif;font-size:11px;color:var(--txt)}
+.foot b i{font-style:normal;background:linear-gradient(135deg,var(--or),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>🎬 Video Production <b>Roadmap</b></h1>
+<p class="sub">Complete index of all 49 video production files across 10 phases. Scripts, storyboards, prompts — everything needed to produce the Workshop-DIY video series.</p>
+<div class="stats"><div><b>49</b>Files</div><div><b>10</b>Phases</div><div><b>3</b>Languages</div><div><b>v2.0</b>Release</div></div>
+</div>
+
+<div class="section" id="phases">
+
+<div class="phase open" onclick="this.classList.toggle('open')">
+<div class="ph-head"><div class="ph-num">5</div><div class="ph-info"><h3>Promo · Concept · Social Scripts</h3><span>Trilingual video scripts for YouTube, explainer, and social media</span></div><div class="ph-count">9 files</div></div>
+<div class="ph-body">
+<a class="file-link" href="video/promo/en/workshop-diy-promo-en.html"><span class="fl-icon">📣</span><span class="fl-name">workshop-diy-promo-en.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/promo/fr/workshop-diy-promo-fr.html"><span class="fl-icon">📣</span><span class="fl-name">workshop-diy-promo-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/promo/ar/workshop-diy-promo-ar.html"><span class="fl-icon">📣</span><span class="fl-name">workshop-diy-promo-ar.html</span><span class="fl-lang ar">AR</span></a>
+<a class="file-link" href="video/concept/en/workshop-diy-concept-en.html"><span class="fl-icon">💡</span><span class="fl-name">workshop-diy-concept-en.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/concept/fr/workshop-diy-concept-fr.html"><span class="fl-icon">💡</span><span class="fl-name">workshop-diy-concept-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/concept/ar/workshop-diy-concept-ar.html"><span class="fl-icon">💡</span><span class="fl-name">workshop-diy-concept-ar.html</span><span class="fl-lang ar">AR</span></a>
+<a class="file-link" href="video/social/en/workshop-diy-social-en.html"><span class="fl-icon">📱</span><span class="fl-name">workshop-diy-social-en.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/social/fr/workshop-diy-social-fr.html"><span class="fl-icon">📱</span><span class="fl-name">workshop-diy-social-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/social/ar/workshop-diy-social-ar.html"><span class="fl-icon">📱</span><span class="fl-name">workshop-diy-social-ar.html</span><span class="fl-lang ar">AR</span></a>
+</div></div>
+
+<div class="phase" onclick="this.classList.toggle('open')">
+<div class="ph-head"><div class="ph-num">6</div><div class="ph-info"><h3>Lore Videos</h3><span>Bug #42, password123, Coffee Machine 8% — trilingual</span></div><div class="ph-count">9 files</div></div>
+<div class="ph-body">
+<a class="file-link" href="video/lore/en/workshop-diy-lore-bug42-en.html"><span class="fl-icon">🐛</span><span class="fl-name">lore-bug42-en.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/lore/fr/workshop-diy-lore-bug42-fr.html"><span class="fl-icon">🐛</span><span class="fl-name">lore-bug42-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/lore/ar/workshop-diy-lore-bug42-ar.html"><span class="fl-icon">🐛</span><span class="fl-name">lore-bug42-ar.html</span><span class="fl-lang ar">AR</span></a>
+<a class="file-link" href="video/lore/en/workshop-diy-lore-password-en.html"><span class="fl-icon">🔑</span><span class="fl-name">lore-password-en.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/lore/fr/workshop-diy-lore-password-fr.html"><span class="fl-icon">🔑</span><span class="fl-name">lore-password-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/lore/ar/workshop-diy-lore-password-ar.html"><span class="fl-icon">🔑</span><span class="fl-name">lore-password-ar.html</span><span class="fl-lang ar">AR</span></a>
+<a class="file-link" href="video/lore/en/workshop-diy-lore-coffee-en.html"><span class="fl-icon">☕</span><span class="fl-name">lore-coffee-en.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/lore/fr/workshop-diy-lore-coffee-fr.html"><span class="fl-icon">☕</span><span class="fl-name">lore-coffee-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/lore/ar/workshop-diy-lore-coffee-ar.html"><span class="fl-icon">☕</span><span class="fl-name">lore-coffee-ar.html</span><span class="fl-lang ar">AR</span></a>
+</div></div>
+
+<div class="phase" onclick="this.classList.toggle('open')">
+<div class="ph-head"><div class="ph-num">7</div><div class="ph-info"><h3>Tutorial Storyboards</h3><span>10 app walkthrough screen recording scripts</span></div><div class="ph-count">10 files</div></div>
+<div class="ph-body">
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-cowsay.html"><span class="fl-icon">🐮</span><span class="fl-name">tutorial-cowsay.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-bitbot.html"><span class="fl-icon">🤖</span><span class="fl-name">tutorial-bitbot.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-ollamabot.html"><span class="fl-icon">🧠</span><span class="fl-name">tutorial-ollamabot.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-sdr.html"><span class="fl-icon">📻</span><span class="fl-name">tutorial-sdr.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-crypto.html"><span class="fl-icon">🔐</span><span class="fl-name">tutorial-crypto.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-hacktivist.html"><span class="fl-icon">🕵️</span><span class="fl-name">tutorial-hacktivist.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-pentest.html"><span class="fl-icon">💻</span><span class="fl-name">tutorial-pentest.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-satellites.html"><span class="fl-icon">🛰️</span><span class="fl-name">tutorial-satellites.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-planes.html"><span class="fl-icon">✈️</span><span class="fl-name">tutorial-planes.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/tutorials/workshop-diy-tutorial-muslims.html"><span class="fl-icon">🌙</span><span class="fl-name">tutorial-muslims.html</span><span class="fl-lang en">EN</span></a>
+</div></div>
+
+<div class="phase" onclick="this.classList.toggle('open')">
+<div class="ph-head"><div class="ph-num">8</div><div class="ph-info"><h3>Trilingual Storyboards</h3><span>6 interactive storyboards × FR + AR translations</span></div><div class="ph-count">12 files</div></div>
+<div class="ph-body">
+<a class="file-link" href="video/storyboards/en/workshop-diy-storyboard-robot-origin.html"><span class="fl-icon">🔧</span><span class="fl-name">storyboard-robot-origin.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/storyboards/fr/workshop-diy-storyboard-robot-origin-fr.html"><span class="fl-icon">🔧</span><span class="fl-name">storyboard-robot-origin-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/storyboards/ar/workshop-diy-storyboard-robot-origin-ar.html"><span class="fl-icon">🔧</span><span class="fl-name">storyboard-robot-origin-ar.html</span><span class="fl-lang ar">AR</span></a>
+<a class="file-link" href="video/storyboards/en/workshop-diy-storyboard-bug42-documentary.html"><span class="fl-icon">🐛</span><span class="fl-name">storyboard-bug42-documentary.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/storyboards/fr/workshop-diy-storyboard-bug42-documentary-fr.html"><span class="fl-icon">🐛</span><span class="fl-name">storyboard-bug42-documentary-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/storyboards/ar/workshop-diy-storyboard-bug42-documentary-ar.html"><span class="fl-icon">🐛</span><span class="fl-name">storyboard-bug42-documentary-ar.html</span><span class="fl-lang ar">AR</span></a>
+<a class="file-link" href="video/storyboards/en/workshop-diy-storyboard-day-at-workshop.html"><span class="fl-icon">🏫</span><span class="fl-name">storyboard-day-at-workshop.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/storyboards/fr/workshop-diy-storyboard-day-at-workshop-fr.html"><span class="fl-icon">🏫</span><span class="fl-name">storyboard-day-at-workshop-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/storyboards/ar/workshop-diy-storyboard-day-at-workshop-ar.html"><span class="fl-icon">🏫</span><span class="fl-name">storyboard-day-at-workshop-ar.html</span><span class="fl-lang ar">AR</span></a>
+<a class="file-link" href="video/storyboards/en/workshop-diy-storyboard-password123.html"><span class="fl-icon">🔑</span><span class="fl-name">storyboard-password123.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/storyboards/fr/workshop-diy-storyboard-password123-fr.html"><span class="fl-icon">🔑</span><span class="fl-name">storyboard-password123-fr.html</span><span class="fl-lang fr">FR</span></a>
+<a class="file-link" href="video/storyboards/ar/workshop-diy-storyboard-password123-ar.html"><span class="fl-icon">🔑</span><span class="fl-name">storyboard-password123-ar.html</span><span class="fl-lang ar">AR</span></a>
+</div></div>
+
+<div class="phase" onclick="this.classList.toggle('open')">
+<div class="ph-head"><div class="ph-num">9</div><div class="ph-info"><h3>AI Production Prompts</h3><span>Sora/Runway/Kling, HeyGen/D-ID, Suno/Udio prompts</span></div><div class="ph-count">3 files</div></div>
+<div class="ph-body">
+<a class="file-link" href="video/ai-prompts/workshop-diy-ai-video-prompts.html"><span class="fl-icon">🎬</span><span class="fl-name">ai-video-prompts.html</span><span class="fl-lang en">EN</span></a>
+<a class="file-link" href="video/ai-prompts/workshop-diy-ai-avatar-scripts.html"><span class="fl-icon">🎭</span><span class="fl-name">ai-avatar-scripts.html</span><span class="fl-lang en">EN/FR/AR</span></a>
+<a class="file-link" href="video/ai-prompts/workshop-diy-music-sfx-prompts.html"><span class="fl-icon">🎵</span><span class="fl-name">music-sfx-prompts.html</span><span class="fl-lang en">EN</span></a>
+</div></div>
+
+</div>
+
+<div class="foot"><b><i>WORKSHOP</i>-DIY</b> · Video Roadmap v2.0 · 49 files · <a href="https://workshop-diy.org" style="color:var(--or);text-decoration:none">workshop-diy.org</a></div>
+<script>
+// Also include storyboards not shown above (speedrun + esp32)
+</script>
+<div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
+</body>
+</html>

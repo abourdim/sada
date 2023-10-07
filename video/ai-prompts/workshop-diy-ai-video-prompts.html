@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../../splash.html')}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — AI Video Generation Prompts</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#07060e;--s1:#0e0d18;--brd:rgba(255,255,255,.06);--txt:#e6e4f4;--dim:rgba(255,255,255,.3);--sora:#a855f7;--run:#06b6d4;--kling:#f59e0b;--pika:#ec4899;--acc:#ff6600;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito',sans-serif}
+.hero{min-height:35vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(168,85,247,.06),transparent 50%),radial-gradient(ellipse at 70% 60%,rgba(6,182,212,.04),transparent 50%);pointer-events:none}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--sora);border:1px solid rgba(168,85,247,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,32px);font-weight:800;margin-bottom:6px}
+.hero h1 b{background:linear-gradient(135deg,var(--sora),var(--run));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:12px;color:var(--dim);max-width:460px;line-height:1.6}
+.tools{display:flex;gap:6px;margin-top:14px;flex-wrap:wrap;justify-content:center}
+.tool{font-family:'JetBrains Mono',monospace;font-size:8px;padding:4px 10px;border-radius:6px;border:1px solid var(--brd)}
+.tool.s{color:var(--sora);border-color:rgba(168,85,247,.2)}.tool.r{color:var(--run);border-color:rgba(6,182,212,.2)}
+.tool.k{color:var(--kling);border-color:rgba(245,158,11,.2)}.tool.p{color:var(--pika);border-color:rgba(236,72,153,.2)}
+.section{max-width:800px;margin:0 auto;padding:20px 16px}
+.cat{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--sora);margin:18px 0 8px;padding-bottom:6px;border-bottom:1px solid rgba(168,85,247,.1)}
+.pc{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:6px;overflow:hidden;transition:.2s}
+.pc:hover{border-color:rgba(168,85,247,.12)}
+.pc-h{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer}
+.pc-h .e{font-size:16px}.pc-h .n{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;flex:1}
+.pc-h .pl{display:flex;gap:2px}
+.pc-h .pl span{font-size:6px;padding:2px 4px;border-radius:3px;font-family:'JetBrains Mono',monospace;letter-spacing:.3px}
+.pl .ts{background:rgba(168,85,247,.1);color:var(--sora)}.pl .tr{background:rgba(6,182,212,.1);color:var(--run)}
+.pl .tk{background:rgba(245,158,11,.1);color:var(--kling)}.pl .tp{background:rgba(236,72,153,.1);color:var(--pika)}
+.pc-b{display:none;padding:4px 12px 10px;border-top:1px solid var(--brd)}
+.pc.open .pc-b{display:block}
+.pb{font-family:'JetBrains Mono',monospace;font-size:10px;background:rgba(168,85,247,.03);border:1px solid rgba(168,85,247,.08);border-radius:8px;padding:10px;margin:4px 0;line-height:1.7;white-space:pre-wrap;cursor:pointer;position:relative}
+.pb:hover::after{content:'📋 Copy';position:absolute;top:4px;right:6px;font-size:7px;color:var(--dim)}
+.pb.copied::after{content:'✅';position:absolute;top:4px;right:6px;font-size:7px;color:var(--sora)}
+.nt{font-size:8px;color:var(--dim);margin-top:3px;line-height:1.4}
+.nt b{color:var(--txt)}
+.foot{text-align:center;padding:20px 12px 14px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="badge">phase 9 · ai video prompts</div>
+<h1>🎬 <b>AI Video</b> Prompt Library</h1>
+<p>14 copy-paste prompts for generating Workshop-DIY video clips. Organized by scene type, tagged by platform.</p>
+<div class="tools"><div class="tool s">Sora</div><div class="tool r">Runway Gen-3</div><div class="tool k">Kling</div><div class="tool p">Pika</div></div>
+</div>
+<div class="section">
+
+<div class="cat">🏫 Workshop Establishing Shots (3)</div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">🏠</span><span class="n">Aerial Approach — Chelles</span><div class="pl"><span class="ts">Sora</span><span class="tr">Runway</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Aerial drone shot slowly descending toward a community building in a small French town. Suburban setting, mid-morning light, blue sky with scattered clouds. The building has a modest sign reading "Workshop-DIY". Camera smoothly pushes toward the entrance. Cinematic, warm color grading, slight lens flare. 4K, 24fps.</div>
+<div class="nt"><b>4s</b> · Promo scene 3, Concept explainer · Documentary, warm</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">💡</span><span class="n">Workshop Interior — Kids Working</span><div class="pl"><span class="ts">Sora</span><span class="tk">Kling</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Interior of a modern maker workshop. Warm ambient lighting. Multiple children aged 8-14 at tables with laptops and electronic components. One child soldering, another programming showing colorful code, a third holding a small robot. Shallow DOF, handheld camera feel. Diverse group, focused and engaged. Cozy educational atmosphere. 4K cinematic.</div>
+<div class="nt"><b>4s</b> · All promo content · Warm documentary</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">🌅</span><span class="n">Workshop Sunset — Closing Mood</span><div class="pl"><span class="tr">Runway</span><span class="tp">Pika</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Exterior shot of a workshop building at golden hour sunset. Warm orange light. Through the window, glow of computer screens and LED lights. A child exits with a backpack, turns to wave, walks toward a waiting parent. Peaceful, nostalgic. Lens flare from setting sun. Building sign "Workshop-DIY" catches the last light. 4K cinematic.</div>
+<div class="nt"><b>4s</b> · Day at Workshop ending, password123 finale · Golden hour</div></div></div>
+
+<div class="cat">🤖 Robot & Hardware (3)</div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">🤖</span><span class="n">Robot First Movement — Dramatic</span><div class="pl"><span class="ts">Sora</span><span class="tr">Runway</span><span class="tk">Kling</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Extreme close-up of a small DIY robot on a wooden table. Two wheels, a micro:bit board with LED matrix showing a smiley face, exposed wires. The wheels begin to turn slowly. Camera at table level, shallow DOF. Dramatic side lighting. Robot lurches forward 3 centimeters. Slow motion. Background blurred showing child's amazed face. Cinematic, emotional, 4K.</div>
+<div class="nt"><b>4s</b> · Robot Origin scene 3, Bit-Bot tutorial · Dramatic cinematic</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">🔧</span><span class="n">Soldering Macro</span><div class="pl"><span class="tr">Runway</span><span class="tp">Pika</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Extreme macro shot of a soldering iron tip touching a circuit board pad. Thin wisps of smoke rise in warm golden light. Solder melts and flows forming a perfect shiny joint. Small child's fingers hold the component steady. Background completely blurred. Golden hour lighting feel. Slow motion. 4K.</div>
+<div class="nt"><b>3s</b> · Robot Origin scene 1, Promo scene 5 · Macro, warm</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">📡</span><span class="n">Bluetooth Pairing — LED Glow</span><div class="pl"><span class="ts">Sora</span><span class="tk">Kling</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Close-up of a micro:bit V2 board in a child's hand. The 5x5 LED matrix blinks a pattern then forms a heart shape. Blue LED pulses indicating Bluetooth connection. Dark background with LED glow illuminating fingers. Ethereal blue and warm orange light mix. Futuristic yet personal. 4K.</div>
+<div class="nt"><b>3s</b> · Bit-Bot tutorial, Promo hardware · Tech, ethereal</div></div></div>
+
+<div class="cat">🐛 Lore & Comedy (4)</div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">🐛</span><span class="n">Bug #42 — Escaping the Screen</span><div class="pl"><span class="ts">Sora</span><span class="tp">Pika</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">A cartoon green bug character crawling out of a laptop screen into the real world. Mixed media: bug is animated 8-bit pixel art, environment is photorealistic. Bug walks across desk, knocks over a coffee cup. Playful, comedic. Warm workshop lighting. Screen shows code with blinking cursor. Whimsical Pixar-like quality. 4K.</div>
+<div class="nt"><b>4s</b> · Bug #42 Chronicles, Social teasers, TikTok · Mixed media comedy</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">☕</span><span class="n">Coffee Machine — The 8% Reveal</span><div class="pl"><span class="tr">Runway</span><span class="tk">Kling</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Slow dramatic push-in on a coffee machine display showing "WATER: 8%" in green digital font. Camera reveals transparent water tank behind — completely full. Eerie lighting, slight fog. Display flickers — for one frame shows "100%" — returns to 8%. Horror movie aesthetics on a mundane object. Dark tones, dramatic shadows. 4K cinematic.</div>
+<div class="nt"><b>4s</b> · Coffee Machine 8% lore, Bug #42 act 5 · Horror-comedy</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">🔑</span><span class="n">password123 — The Chorus</span><div class="pl"><span class="ts">Sora</span><span class="tk">Kling</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Medium wide shot of a workshop room. An adult holds up a phone looking confused. 30 children simultaneously turn from their workstations in perfect unison, looking directly at camera. They all open their mouths saying the same word. Comedic timing, slight slow motion on the turn. Warm lighting, documentary feel with comedic framing. Knowing smiles. 4K.</div>
+<div class="nt"><b>4s</b> · password123 act 5, Social teasers · Comedy documentary</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">🍕</span><span class="n">Pizza Delivery — Bug #42 Orders</span><div class="pl"><span class="tk">Kling</span><span class="tp">Pika</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">A pizza delivery person arrives at a workshop door looking confused, holding a margherita pizza box. Inside, children look at each other puzzled — nobody ordered pizza. A laptop screen in the background shows a terminal with text: "ORDER_PIZZA: margherita, extra cheese — Bug #42". Comedic, warm lighting, documentary style. 4K.</div>
+<div class="nt"><b>4s</b> · Bug #42 act 4, password123 story · Comedy</div></div></div>
+
+<div class="cat">🎓 Educational & CTA (4)</div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">💻</span><span class="n">Code Typing — Over-the-Shoulder</span><div class="pl"><span class="tr">Runway</span><span class="tk">Kling</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Over-the-shoulder shot of a child typing code on a laptop. Screen shows colorful syntax-highlighted JavaScript. Small fingers move confidently. Warm desk lamp from left. Shallow DOF on screen. Slight handheld movement. Code scrolls as they type. Background blurred showing other children. 4K documentary.</div>
+<div class="nt"><b>4s</b> · All tutorials, Promo, Concept · Documentary warm</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">📻</span><span class="n">SDR Spectrum Waterfall</span><div class="pl"><span class="ts">Sora</span><span class="tp">Pika</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Close-up of a screen showing colorful radio spectrum waterfall display. Neon blues, greens, yellows cascading downward showing signal activity. A child's hand moves a mouse, frequency shifts, new peaks appear. RTL-SDR USB dongle visible with antenna. Dark room, screen glow on child's face. Futuristic sci-fi aesthetic. 4K.</div>
+<div class="nt"><b>4s</b> · SDR tutorial, Promo hardware, Speedrun · Sci-fi tech</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">😮</span><span class="n">Parent Amazement Reaction</span><div class="pl"><span class="tk">Kling</span><span class="ts">Sora</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Medium close-up of a parent watching their child demonstrate something on a laptop. Expression shifts from casual interest to genuine amazement — eyes widen, mouth opens, then proud smile. Warm indoor lighting, shallow DOF. Child partially visible pointing at screen. Authentic unscripted feel. Emotional documentary. 4K.</div>
+<div class="nt"><b>4s</b> · Promo scene 7, Concept, Social · Emotional</div></div></div>
+
+<div class="pc" onclick="this.classList.toggle('open')"><div class="pc-h"><span class="e">👋</span><span class="n">Group Wave — Finale</span><div class="pl"><span class="ts">Sora</span><span class="tk">Kling</span></div></div>
+<div class="pc-b"><div class="pb" onclick="event.stopPropagation();cp(this)">Wide shot of 15-20 diverse children aged 6-16 standing together in a workshop waving at camera with big smiles. Some hold small robots, others laptops or circuit boards. Warm joyful energy, natural window lighting. One child in front winks at camera. Workshop visible in background — tables, components, screens with code. Celebratory, inviting. 4K.</div>
+<div class="nt"><b>4s</b> · Every video ending, Promo scene 8, Social CTA · Warm</div></div></div>
+
+</div>
+<div class="foot"><b>WORKSHOP-DIY</b> · AI Prompts · <a href="https://workshop-diy.org" style="color:var(--sora);text-decoration:none">workshop-diy.org</a></div>
+<script>
+document.querySelectorAll('.pc')[0].classList.add('open');
+function cp(el){navigator.clipboard.writeText(el.textContent.trim());el.classList.add('copied');setTimeout(()=>el.classList.remove('copied'),1500)}
+</script>
+<div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
+</body>
+</html>

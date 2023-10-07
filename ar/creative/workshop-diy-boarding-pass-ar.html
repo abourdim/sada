@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // بطاقة الصعود</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#1a1a2e;font-family:'JetBrains Mono',monospace;font-size:11px;min-height:100vh;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+
+.boarding-pass{display:flex;max-width:600px;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+
+/* LEFT - MAIN */
+.bp-main{flex:1;background:#fff;color:#222;padding:16px;position:relative}
+.bp-airline{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.bp-airline .logo{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#0066cc}
+.bp-airline .class{font-size:8px;color:#fff;background:#ffd700;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:1px}
+
+.route{display:flex;align-items:center;gap:8px;margin:10px 0}
+.city{text-align:center}
+.city .code{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#222}
+.city .name{font-size:7px;color:#888;letter-spacing:1px}
+.route-line{flex:1;text-align:center;position:relative}
+.route-line::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:#ddd}
+.route-line .plane{position:relative;font-size:16px;background:#fff;padding:0 4px}
+
+.fields{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;padding:10px 0;border-top:1px dashed #ddd;border-bottom:1px dashed #ddd}
+.field .lbl{font-size:6px;color:#aaa;letter-spacing:1px;font-weight:700}
+.field .val{font-size:12px;font-weight:700;color:#222;margin-top:1px}
+
+.barcode{margin-top:6px;display:flex;gap:1px;align-items:end;height:36px}
+.barcode span{background:#222;width:2px;display:inline-block}
+.bp-note{font-size:6px;color:#ccc;margin-top:3px;letter-spacing:1px}
+
+/* RIGHT - STUB */
+.bp-stub{width:140px;background:#0066cc;color:#fff;padding:14px;display:flex;flex-direction:column;justify-content:space-between;border-left:2px dashed rgba(255,255,255,.15);position:relative}
+.bp-stub::before{content:'';position:absolute;left:-8px;top:-8px;width:16px;height:16px;background:#1a1a2e;border-radius:50%}
+.bp-stub::after{content:'';position:absolute;left:-8px;bottom:-8px;width:16px;height:16px;background:#1a1a2e;border-radius:50%}
+.stub-airline{font-family:'Syne',sans-serif;font-size:10px;font-weight:800;letter-spacing:1px}
+.stub-route{display:flex;align-items:center;gap:4px;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;margin:4px 0}
+.stub-route .arrow{font-size:10px;opacity:.5}
+.stub-fields{display:flex;flex-direction:column;gap:4px}
+.stub-field .lbl{font-size:5px;color:rgba(255,255,255,.4);letter-spacing:1px}
+.stub-field .val{font-size:10px;font-weight:700}
+
+/* SECOND PASS */
+.pass2{max-width:600px;width:100%}
+
+.footer{font-size:5px;color:rgba(255,255,255,.05);letter-spacing:1px;text-align:center;margin-top:8px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<!-- PASS 1: Bug #42 -->
+<div class="boarding-pass">
+  <div class="bp-main">
+    <div class="bp-airline">
+      <div class="logo">✈ WKSHP AIR</div>
+      <div class="class">درجة الميزة</div>
+    </div>
+    <div style="font-size:9px;color:#888">المسافر: <strong style="color:#222">🐛 BUG #42</strong></div>
+    <div class="route">
+      <div class="city"><div class="code">LGC</div><div class="name">الكود القديم</div></div>
+      <div class="route-line"><span class="plane">✈️</span></div>
+      <div class="city"><div class="code">ZRI</div><div class="name">صفر تثبيت</div></div>
+    </div>
+    <div class="fields">
+      <div class="field"><div class="lbl">الرحلة</div><div class="val">WK-042</div></div>
+      <div class="field"><div class="lbl">DATE</div><div class="val">28FEB26</div></div>
+      <div class="field"><div class="lbl">البوابة</div><div class="val">B42</div></div>
+      <div class="field"><div class="lbl">المقعد</div><div class="val">42A</div></div>
+      <div class="field"><div class="lbl">الصعود</div><div class="val">03:42</div></div>
+      <div class="field"><div class="lbl">المجموعة</div><div class="val">BUG</div></div>
+      <div class="field"><div class="lbl">الحالة</div><div class="val">FEATURE</div></div>
+      <div class="field"><div class="lbl">WIFI</div><div class="val">password123</div></div>
+    </div>
+    <div class="barcode" id="barcode1"></div>
+    <div class="bp-note">WKSHP-AIR · NO NPM REQUIRED · BAGS FLY FREE · BUGS ARE FEATURES</div>
+  </div>
+  <div class="bp-stub">
+    <div class="stub-airline">WKSHP AIR</div>
+    <div class="stub-route">LGC <span class="arrow">→</span> ZRI</div>
+    <div class="stub-fields">
+      <div class="stub-field"><div class="lbl">المسافر</div><div class="val">BUG #42</div></div>
+      <div class="stub-field"><div class="lbl">الرحلة</div><div class="val">WK-042</div></div>
+      <div class="stub-field"><div class="lbl">المقعد</div><div class="val">42A</div></div>
+      <div class="stub-field"><div class="lbl">البوابة</div><div class="val">B42</div></div>
+      <div class="stub-field"><div class="lbl">الصعود</div><div class="val">03:42</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PASS 2: bit-bot -->
+<div class="boarding-pass pass2">
+  <div class="bp-main">
+    <div class="bp-airline">
+      <div class="logo">✈ WKSHP AIR</div>
+      <div class="class" style="background:#00aa55">درجة الروبوت</div>
+    </div>
+    <div style="font-size:9px;color:#888">المسافر: <strong style="color:#222">🤖 BIT-BOT (ESP32)</strong></div>
+    <div class="route">
+      <div class="city"><div class="code">WBN</div><div class="name">طاولة العمل 7</div></div>
+      <div class="route-line"><span class="plane">✈️</span></div>
+      <div class="city"><div class="code">FLR</div><div class="name">الأرض</div></div>
+    </div>
+    <div class="fields">
+      <div class="field"><div class="lbl">الرحلة</div><div class="val">WK-047</div></div>
+      <div class="field"><div class="lbl">DATE</div><div class="val">28FEB26</div></div>
+      <div class="field"><div class="lbl">البوابة</div><div class="val">EDGE</div></div>
+      <div class="field"><div class="lbl">المقعد</div><div class="val">سقوط حر</div></div>
+      <div class="field"><div class="lbl">الصعود</div><div class="val">أي وقت</div></div>
+      <div class="field"><div class="lbl">المجموعة</div><div class="val">DROP 48</div></div>
+      <div class="field"><div class="lbl">الصمغ الساخن</div><div class="val">صامدة</div></div>
+      <div class="field"><div class="lbl">التأمين</div><div class="val">مرفوض</div></div>
+    </div>
+    <div class="barcode" id="barcode2"></div>
+    <div class="bp-note">WKSHP-AIR · حافة الطاولة GUARDS NOT INSTALLED · LANDING GUARANTEED (GRAVITY)</div>
+  </div>
+  <div class="bp-stub" style="background:#00aa55">
+    <div class="stub-airline">WKSHP AIR</div>
+    <div class="stub-route">WBN <span class="arrow">→</span> FLR</div>
+    <div class="stub-fields">
+      <div class="stub-field"><div class="lbl">المسافر</div><div class="val">BIT-BOT</div></div>
+      <div class="stub-field"><div class="lbl">الرحلة</div><div class="val">WK-047</div></div>
+      <div class="stub-field"><div class="lbl">المقعد</div><div class="val">سقوط حر</div></div>
+      <div class="stub-field"><div class="lbl">البوابة</div><div class="val">حافة الطاولة</div></div>
+      <div class="stub-field"><div class="lbl">DROP #</div><div class="val">48</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">WKSHP AIR · ALL الرحلةS DELIVERED VIA HTTP · NO BAGGAGE CLAIM (ZERO DEPENDENCIES)</div>
+
+<script>
+function genBarcode(id){
+  const el=document.getElementById(id);
+  for(let i=0;i<80;i++){
+    const s=document.createElement('span');
+    s.style.height=(8+Math.random()*28)+'px';
+    s.style.width=(Math.random()>.6?'2':'1')+'px';
+    el.appendChild(s);
+  }
+}
+genBarcode('barcode1');
+genBarcode('barcode2');
+</script>
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

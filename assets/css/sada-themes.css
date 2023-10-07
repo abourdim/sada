@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap');
+
+/* smooth theme transitions */
+body{transition:background-color .4s ease,color .4s ease}
+
+/* ══════════════════════════════════════════════
+   ISLAMIC — deep emerald + gold (DARK)
+   ══════════════════════════════════════════════ */
+html[data-theme="islamic"]{--bg:#030d08;--s1:#071a0f;--s2:#0a2416;--brd:rgba(196,164,80,.08);--teal:#c9a45c;--cyan:#c9a45c;--indigo:#10b981;--txt:#e8dcc8;--dim:rgba(196,164,80,.4);--rose:#c9a45c;--amber:#c9a45c}
+html[data-theme="islamic"] body{background:#030d08 !important;color:#e8dcc8 !important}
+html[data-theme="islamic"] ::selection{background:rgba(196,164,80,.3) !important}
+html[data-theme="islamic"] ::-webkit-scrollbar{width:8px}
+html[data-theme="islamic"] ::-webkit-scrollbar-track{background:#030d08}
+html[data-theme="islamic"] ::-webkit-scrollbar-thumb{background:rgba(196,164,80,.2);border-radius:4px}
+html[data-theme="islamic"] a:not([class]){color:#c9a45c}
+html[data-theme="islamic"] #sdNav .sdn-pill{background:rgba(7,26,15,.85) !important;border-color:rgba(196,164,80,.12) !important}
+html[data-theme="islamic"] #sdNav button{color:rgba(196,164,80,.5) !important}
+html[data-theme="islamic"] #sdNav button:hover{color:#c9a45c !important}
+html[data-theme="islamic"] #sdNav .sdn-btn.hub{color:rgba(196,164,80,.7) !important}
+html[data-theme="islamic"] #sdNav .sdn-sep{background:rgba(196,164,80,.08) !important}
+html[data-theme="islamic"] [data-sada-footer]{border-color:rgba(196,164,80,.06) !important}
+html[data-theme="islamic"] [data-sada-footer] .f-ar{background:linear-gradient(135deg,#c9a45c,#10b981) !important;-webkit-background-clip:text !important;background-clip:text !important}
+
+/* ══════════════════════════════════════════════
+   ANDALOUS — Moorish blue + gold (DARK)
+   ══════════════════════════════════════════════ */
+html[data-theme="andalous"]{--bg:#040810;--s1:#0a1225;--s2:#101a35;--brd:rgba(59,130,246,.06);--teal:#3b82f6;--cyan:#3b82f6;--indigo:#c9a45c;--txt:#d8dce8;--dim:rgba(147,130,90,.4);--rose:#c9a45c;--amber:#c9a45c}
+html[data-theme="andalous"] body{background:#040810 !important;color:#d8dce8 !important}
+html[data-theme="andalous"] ::selection{background:rgba(59,130,246,.3) !important}
+html[data-theme="andalous"] ::-webkit-scrollbar{width:8px}
+html[data-theme="andalous"] ::-webkit-scrollbar-track{background:#040810}
+html[data-theme="andalous"] ::-webkit-scrollbar-thumb{background:rgba(59,130,246,.2);border-radius:4px}
+html[data-theme="andalous"] a:not([class]){color:#6ba0f6}
+html[data-theme="andalous"] #sdNav .sdn-pill{background:rgba(10,18,37,.85) !important;border-color:rgba(59,130,246,.12) !important}
+html[data-theme="andalous"] #sdNav button{color:rgba(147,130,90,.5) !important}
+html[data-theme="andalous"] #sdNav button:hover{color:#6ba0f6 !important}
+html[data-theme="andalous"] #sdNav .sdn-btn.hub{color:rgba(59,130,246,.7) !important}
+html[data-theme="andalous"] #sdNav .sdn-sep{background:rgba(59,130,246,.06) !important}
+html[data-theme="andalous"] [data-sada-footer]{border-color:rgba(59,130,246,.05) !important}
+html[data-theme="andalous"] [data-sada-footer] .f-ar{background:linear-gradient(135deg,#3b82f6,#c9a45c) !important;-webkit-background-clip:text !important;background-clip:text !important}
+
+/* ══════════════════════════════════════════════
+   CALLIGRAPHY — warm sepia manuscript (MID)
+   ══════════════════════════════════════════════ */
+html[data-theme="calligraphy"]{--bg:#1a1610;--s1:#221e16;--s2:#2a251c;--brd:rgba(200,170,100,.08);--teal:#c8a860;--cyan:#c8a860;--indigo:#a08848;--txt:#dcd0b0;--dim:rgba(200,170,100,.35);--rose:#c8a860;--amber:#c8a860}
+html[data-theme="calligraphy"] body{background:#1a1610 !important;color:#dcd0b0 !important}
+html[data-theme="calligraphy"] ::selection{background:rgba(200,170,100,.25) !important}
+html[data-theme="calligraphy"] ::-webkit-scrollbar{width:8px}
+html[data-theme="calligraphy"] ::-webkit-scrollbar-track{background:#1a1610}
+html[data-theme="calligraphy"] ::-webkit-scrollbar-thumb{background:rgba(200,170,100,.2);border-radius:4px}
+html[data-theme="calligraphy"] a:not([class]){color:#c8a860}
+html[data-theme="calligraphy"] #sdNav .sdn-pill{background:rgba(26,22,16,.85) !important;border-color:rgba(200,170,100,.1) !important}
+html[data-theme="calligraphy"] #sdNav button{color:rgba(200,170,100,.45) !important}
+html[data-theme="calligraphy"] #sdNav button:hover{color:#c8a860 !important}
+html[data-theme="calligraphy"] #sdNav .sdn-btn.hub{color:rgba(200,170,100,.65) !important}
+html[data-theme="calligraphy"] #sdNav .sdn-sep{background:rgba(200,170,100,.06) !important}
+html[data-theme="calligraphy"] [data-sada-footer]{border-color:rgba(200,170,100,.05) !important}
+html[data-theme="calligraphy"] [data-sada-footer] .f-ar{background:linear-gradient(135deg,#c8a860,#a08848) !important;-webkit-background-clip:text !important;background-clip:text !important}
+
+/* ══════════════════════════════════════════════
+   MEDINA — warm amber lantern glow (MID)
+   ══════════════════════════════════════════════ */
+html[data-theme="medina"]{--bg:#1a1208;--s1:#241a0e;--s2:#2c2014;--brd:rgba(220,160,70,.08);--teal:#d4a040;--cyan:#d4a040;--indigo:#b08030;--txt:#e8d8b8;--dim:rgba(220,160,70,.35);--rose:#d4a040;--amber:#d4a040}
+html[data-theme="medina"] body{background:#1a1208 !important;color:#e8d8b8 !important}
+html[data-theme="medina"] ::selection{background:rgba(220,160,70,.25) !important}
+html[data-theme="medina"] ::-webkit-scrollbar{width:8px}
+html[data-theme="medina"] ::-webkit-scrollbar-track{background:#1a1208}
+html[data-theme="medina"] ::-webkit-scrollbar-thumb{background:rgba(220,160,70,.2);border-radius:4px}
+html[data-theme="medina"] a:not([class]){color:#d4a040}
+html[data-theme="medina"] #sdNav .sdn-pill{background:rgba(26,18,8,.85) !important;border-color:rgba(220,160,70,.1) !important}
+html[data-theme="medina"] #sdNav button{color:rgba(220,160,70,.45) !important}
+html[data-theme="medina"] #sdNav button:hover{color:#d4a040 !important}
+html[data-theme="medina"] #sdNav .sdn-btn.hub{color:rgba(220,160,70,.65) !important}
+html[data-theme="medina"] #sdNav .sdn-sep{background:rgba(220,160,70,.06) !important}
+html[data-theme="medina"] [data-sada-footer]{border-color:rgba(220,160,70,.05) !important}
+html[data-theme="medina"] [data-sada-footer] .f-ar{background:linear-gradient(135deg,#d4a040,#b08030) !important;-webkit-background-clip:text !important;background-clip:text !important}
+
+/* ══════════════════════════════════════════════
+   NOOR — soft sage twilight (MID)
+   ══════════════════════════════════════════════ */
+html[data-theme="noor"]{--bg:#0e1a10;--s1:#142418;--s2:#1a2e20;--brd:rgba(120,180,100,.06);--teal:#78b464;--cyan:#78b464;--indigo:#a0c060;--txt:#c8dcc0;--dim:rgba(120,180,100,.3);--rose:#a0c060;--amber:#a0c060}
+html[data-theme="noor"] body{background:#0e1a10 !important;color:#c8dcc0 !important}
+html[data-theme="noor"] ::selection{background:rgba(120,180,100,.2) !important}
+html[data-theme="noor"] ::-webkit-scrollbar{width:8px}
+html[data-theme="noor"] ::-webkit-scrollbar-track{background:#0e1a10}
+html[data-theme="noor"] ::-webkit-scrollbar-thumb{background:rgba(120,180,100,.2);border-radius:4px}
+html[data-theme="noor"] a:not([class]){color:#78b464}
+html[data-theme="noor"] #sdNav .sdn-pill{background:rgba(14,26,16,.85) !important;border-color:rgba(120,180,100,.1) !important}
+html[data-theme="noor"] #sdNav button{color:rgba(120,180,100,.45) !important}
+html[data-theme="noor"] #sdNav button:hover{color:#78b464 !important}
+html[data-theme="noor"] #sdNav .sdn-btn.hub{color:rgba(120,180,100,.65) !important}
+html[data-theme="noor"] #sdNav .sdn-sep{background:rgba(120,180,100,.06) !important}
+html[data-theme="noor"] [data-sada-footer]{border-color:rgba(120,180,100,.05) !important}
+html[data-theme="noor"] [data-sada-footer] .f-ar{background:linear-gradient(135deg,#78b464,#a0c060) !important;-webkit-background-clip:text !important;background-clip:text !important}
+
+/* ══════════════════════════════════════════════
+   FAJR — cool slate pre-dawn (MID)
+   ══════════════════════════════════════════════ */
+html[data-theme="fajr"]{--bg:#121418;--s1:#1a1c22;--s2:#22252c;--brd:rgba(140,150,180,.06);--teal:#8a9ac0;--cyan:#8a9ac0;--indigo:#b0a080;--txt:#c8ccd8;--dim:rgba(140,150,180,.35);--rose:#b0a080;--amber:#b0a080}
+html[data-theme="fajr"] body{background:#121418 !important;color:#c8ccd8 !important}
+html[data-theme="fajr"] ::selection{background:rgba(140,150,180,.25) !important}
+html[data-theme="fajr"] ::-webkit-scrollbar{width:8px}
+html[data-theme="fajr"] ::-webkit-scrollbar-track{background:#121418}
+html[data-theme="fajr"] ::-webkit-scrollbar-thumb{background:rgba(140,150,180,.2);border-radius:4px}
+html[data-theme="fajr"] a:not([class]){color:#8a9ac0}
+html[data-theme="fajr"] #sdNav .sdn-pill{background:rgba(18,20,24,.85) !important;border-color:rgba(140,150,180,.1) !important}
+html[data-theme="fajr"] #sdNav button{color:rgba(140,150,180,.45) !important}
+html[data-theme="fajr"] #sdNav button:hover{color:#8a9ac0 !important}
+html[data-theme="fajr"] #sdNav .sdn-btn.hub{color:rgba(140,150,180,.65) !important}
+html[data-theme="fajr"] #sdNav .sdn-sep{background:rgba(140,150,180,.06) !important}
+html[data-theme="fajr"] [data-sada-footer]{border-color:rgba(140,150,180,.05) !important}
+html[data-theme="fajr"] [data-sada-footer] .f-ar{background:linear-gradient(135deg,#8a9ac0,#b0a080) !important;-webkit-background-clip:text !important;background-clip:text !important}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../../../splash.html')}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — قصة Bug #42</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0808;--s1:#141010;--brd:rgba(255,255,255,.06);--txt:#e8e0e0;--dim:rgba(255,255,255,.3);--bug:#22c55e;--red:#ef4444;--acc:#ff6600;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Noto Kufi Arabic','Amiri',sans-serif;overflow-x:hidden;direction:rtl}
+.bismillah{font-family:'Amiri',serif;font-size:18px;color:rgba(255,255,255,.08);text-align:center;padding:20px 0 0;letter-spacing:2px}
+.hero{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(34,197,94,.06),transparent 50%);pointer-events:none}
+.bug-icon{font-size:64px;margin-bottom:12px;animation:bugwalk 3s ease-in-out infinite}
+@keyframes bugwalk{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(8px) rotate(5deg)}75%{transform:translateX(-8px) rotate(-5deg)}}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--bug);border:1px solid rgba(34,197,94,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:14px;display:inline-block;direction:ltr}
+.hero h1{font-family:'Noto Kufi Arabic',sans-serif;font-size:clamp(24px,5vw,40px);font-weight:800;line-height:1.4;margin-bottom:8px}
+.hero h1 b{color:var(--bug)}
+.hero p{font-size:14px;color:var(--dim);max-width:500px;line-height:1.8}
+.meta{display:flex;gap:0;margin-top:18px;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1);direction:ltr}
+.meta div{flex:1;text-align:center;padding:8px 12px;border-right:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.meta div:last-child{border:none}
+.meta div b{display:block;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--bug)}
+.section{max-width:700px;margin:0 auto;padding:28px 16px}
+.stitle{font-family:'Noto Kufi Arabic',sans-serif;font-size:17px;font-weight:800;margin-bottom:14px;text-align:center}
+.stitle b{color:var(--bug)}
+.narr{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:10px;overflow:hidden;transition:.2s}
+.narr:hover{border-color:rgba(34,197,94,.15)}
+.narr-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.narr-time{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--bug);background:rgba(34,197,94,.06);padding:3px 8px;border-radius:4px;border:1px solid rgba(34,197,94,.1);direction:ltr}
+.narr-title{font-family:'Noto Kufi Arabic',sans-serif;font-size:13px;font-weight:700;flex:1}
+.narr-mood{font-size:14px}
+.narr-body{padding:4px 14px 14px;border-top:1px solid var(--brd)}
+.narr-vo{font-size:13px;color:var(--txt);line-height:1.9;font-style:normal;border-right:3px solid var(--bug);padding-right:12px;margin:8px 0}
+.narr-dir{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--red);margin:6px 0;display:block;direction:ltr;text-align:left}
+.narr-sfx{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--acc);background:rgba(255,102,0,.05);padding:3px 8px;border-radius:4px;display:inline-block;margin-top:4px;direction:ltr}
+.foot{text-align:center;padding:24px 12px 16px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-size:12px;color:var(--txt)}
+.foot b i{font-style:normal;color:var(--bug)}
+</style>
+</head>
+<body>
+<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="hero">
+<div class="bug-icon">🐛</div>
+<div class="badge">lore · bug #42 · عربي</div>
+<h1>وقائع <b>Bug #42</b></h1>
+<p>أسطورة البق الذي رفض أن يموت. وُلد في الإصدار 1.0. لا يزال حيًا في الإصدار 86. سرد درامي لأكثر سكان Workshop-DIY إصرارًا.</p>
+<div class="meta"><div><b>1:45</b>Duration</div><div><b>7</b>Acts</div><div><b>AR</b>Lang</div><div><b>🎭</b>Drama</div></div>
+</div>
+<div class="section">
+<div class="stitle">🐛 نص <b>السرد</b></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:00–0:15</div><div class="narr-title">الفصل الأول — الولادة</div><div class="narr-mood">👶</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Dark screen. Green terminal. Cursor blinks. Date: 2024-03-15.]</span>
+<div class="narr-vo">"كان يوم ثلاثاء. الإيداع رقم 42. حلقة بسيطة — أو هكذا ظنوا. لكن في أعماق السطر 847 من app.js، تحرّك شيء ما. شيء سيعيش أكثر من ست عمليات إعادة كتابة كبرى، وأربعة نقاشات حول الأطر البرمجية، وحادثة آلة قهوة درامية جدًا."</div>
+<span class="narr-sfx">SFX: Keyboard → ominous hum</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:15–0:30</div><div class="narr-title">الفصل الثاني — أول مشاهدة</div><div class="narr-mood">👀</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Kid squinting. Console: NaN. Bug emoji crawls.]</span>
+<div class="narr-vo">"أول طفل واجه Bug #42 كان ياسين، 9 سنوات. روبوته استدار يسارًا بدل أن يتقدم للأمام. قال: 'هذا غريب.' كلمات مشهورة."</div>
+<span class="narr-sfx">SFX: Robot motor → confused beep</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:30–0:50</div><div class="narr-title">الفصل الثالث — المطاردة</div><div class="narr-mood">🔍</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Montage — kids debugging. Console.log everywhere. Frustrated faces.]</span>
+<div class="narr-vo">"جرّبوا كل شيء. Console.log. نقاط توقف. تصحيح البطة المطاطية. البطة استقالت. ثلاثة متدربين فقدوا النوم. مطوّر واحد تحوّل إلى الزراعة. Bug #42 بقي هناك، كامنًا بين الفواصل المنقوطة، يتغذى على أمل Stack Overflow."</div>
+<span class="narr-sfx">SFX: Suspense → duck quack → door slam</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:50–1:05</div><div class="narr-title">الفصل الرابع — القدرات</div><div class="narr-mood">🦸</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Animated bug gaining powers. Pizza notification. WiFi password alert.]</span>
+<div class="narr-vo">"مع الوقت، تطوّر Bug #42. تعلّم طلب البيتزا من حساب الورشة — دائمًا مارغريتا، جبنة إضافية. غيّر كلمة مرور الواي فاي إلى 'password123' سبع عشرة مرة. حتى أنه أرسل طلب دمج. الكود كان أفضل من كود المتدرب."</div>
+<span class="narr-sfx">SFX: Level-up → doorbell → Git push</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:05–1:20</div><div class="narr-title">الفصل الخامس — حادثة القهوة</div><div class="narr-mood">☕</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Coffee machine: "8%". Never changes. Kids poking it.]</span>
+<div class="narr-vo">"لا أحد يعرف بالضبط متى وصل Bug #42 إلى آلة القهوة. لكن منذ ذلك اليوم، الشاشة لم تعرض أكثر من 8%. الخزان ممتلئ. المستشعرات تعمل. الآلة ببساطة... تختار 8%. توقفنا عن السؤال. Bug #42 يحب قهوته غامضة."</div>
+<span class="narr-sfx">SFX: Coffee gurgling → display glitch → silence</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:20–1:35</div><div class="narr-title">الفصل السادس — الإرث</div><div class="narr-mood">🏆</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Bug #42 emoji everywhere — Slack, stickers, notebooks. Shrine in corner.]</span>
+<div class="narr-vo">"اليوم، Bug #42 لم يعد بقًا. إنه تميمة. أسطورة. طقس عبور. كل طفل جديد في Workshop-DIY عليه أن يجد Bug #42 في الكود. من ينجح يحصل على شارة 'صائد البق'. من لا ينجح... حسنًا، روبوتاتهم لا تزال تدور يسارًا أحيانًا."</div>
+<span class="narr-sfx">SFX: Achievement unlock → kids cheering</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:35–1:45</div><div class="narr-title">الفصل السابع — النهاية؟</div><div class="narr-mood">🐛</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Black screen. Cursor. Text: "Bug #42 was here." Logo. Bug walks across screen.]</span>
+<div class="narr-vo">"يقول البعض إن Bug #42 سيُصلح في الإصدار القادم. يقولون ذلك منذ الإصدار 1.0. نحن الآن في الإصدار 86. البق لا يزال هنا. وبصراحة؟ لا نريد أن يكون الأمر بخلاف ذلك."</div>
+<span class="narr-sfx">SFX: Typewriter → silence → bug chirp → Workshop-DIY jingle</span></div></div>
+
+</div>
+<div class="foot"><b><i>🐛</i> WORKSHOP-DIY</b><br>Bug #42 was here · <a href="https://workshop-diy.org" style="color:var(--bug);text-decoration:none">workshop-diy.org</a> · password123</div>
+<div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // SUIVI DE LIVRAISON</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#000;color:#fff;font-family:'Inter',sans-serif;font-size:13px;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+.app{width:100%;max-width:400px;min-height:100vh;display:flex;flex-direction:column}
+
+/* MAP */
+.map{height:240px;background:linear-gradient(135deg,#1a2a1a,#0a1a0a);position:relative;overflow:hidden}
+.map .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,80,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,80,.03) 1px,transparent 1px);background-size:30px 30px}
+.map .route{position:absolute;top:60%;left:15%;width:70%;height:2px;background:linear-gradient(90deg,#00c850,rgba(0,200,80,.1));border-radius:1px}
+.map .route::before{content:'';position:absolute;left:0;top:-4px;width:10px;height:10px;background:#00c850;border-radius:50%;box-shadow:0 0 8px rgba(0,200,80,.3)}
+.map .route::after{content:'';position:absolute;right:0;top:-4px;width:10px;height:10px;background:#fff;border-radius:50%;border:2px solid #00c850}
+.map .driver-icon{position:absolute;top:55%;font-size:24px;animation:drive 8s linear infinite;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+@keyframes drive{0%{left:15%}100%{left:75%}}
+.map .label-start{position:absolute;top:68%;left:12%;font-size:8px;color:rgba(0,200,80,.4)}
+.map .label-end{position:absolute;top:68%;right:12%;font-size:8px;color:rgba(255,255,255,.4)}
+
+/* ETA */
+.eta-bar{background:#111;padding:14px 16px;border-bottom:1px solid #222}
+.eta-label{font-size:10px;color:#888}
+.eta-time{font-size:28px;font-weight:700;color:#00c850}
+.eta-sub{font-size:11px;color:#555;margin-top:2px}
+
+/* PROGRESS STEPS */
+.steps{padding:14px 16px;border-bottom:1px solid #1a1a1a}
+.step{display:flex;align-items:flex-start;gap:10px;padding:6px 0}
+.step .dot{width:12px;height:12px;border-radius:50%;border:2px solid #333;flex-shrink:0;margin-top:2px}
+.step .dot.done{background:#00c850;border-color:#00c850}
+.step .dot.active{border-color:#00c850;animation:pulseDot 1s infinite}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(0,200,80,.3)}50%{box-shadow:0 0 0 4px rgba(0,200,80,0)}}
+.step .line{position:absolute;left:21px;width:2px;height:24px;background:#222}
+.step .info .title{font-size:12px;font-weight:600;color:#fff}
+.step .info .time{font-size:10px;color:#555}
+.step.future .info .title{color:#555}
+
+/* DRIVER */
+.driver{padding:14px 16px;border-bottom:1px solid #1a1a1a;display:flex;align-items:center;gap:10px}
+.driver .avatar{width:40px;height:40px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:22px}
+.driver .info .name{font-size:13px;font-weight:700}
+.driver .info .vehicle{font-size:10px;color:#555}
+.driver .info .rating{font-size:10px;color:#ffaa00}
+.driver .actions{margin-left:auto;display:flex;gap:6px}
+.driver .actions .act{width:36px;height:36px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:16px}
+
+/* ORDER */
+.order{padding:14px 16px;flex:1}
+.order h3{font-size:12px;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:6px}
+.order-item{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #111;font-size:12px}
+.order-item .qty{color:#555;width:24px}
+.order-item .name{flex:1;color:#ddd}
+.order-item .price{color:#555}
+.order-total{display:flex;justify-content:space-between;padding:6px 0;font-weight:700;font-size:13px;color:#00c850}
+
+.footer{text-align:center;padding:8px;font-size:6px;color:#222;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="app">
+
+<div class="map">
+  <div class="grid"></div>
+  <div class="route"></div>
+  <div class="driver-icon">🤖</div>
+  <div class="label-start">📦 QG Atelier</div>
+  <div class="label-end">🏠 Votre labo</div>
+</div>
+
+<div class="eta-bar">
+  <div class="eta-label">Arrivée estimée</div>
+  <div class="eta-time" id="eta">42:00</div>
+  <div class="eta-sub">bit-bot est en route · Voyage via WebRTC</div>
+</div>
+
+<div class="steps">
+  <div class="step"><div class="dot done"></div><div class="info"><div class="title">✅ Commande confirmée</div><div class="time">14:42</div></div></div>
+  <div class="step"><div class="dot done"></div><div class="info"><div class="title">✅ Apps compilées</div><div class="time">14:42 (instantané — pas d'étape de build)</div></div></div>
+  <div class="step"><div class="dot done"></div><div class="info"><div class="title">✅ Machine à café consultée</div><div class="time">14:43 (8% approuvé)</div></div></div>
+  <div class="step"><div class="dot active"></div><div class="info"><div class="title">🤖 bit-bot en route</div><div class="time">Navigation via BLE</div></div></div>
+  <div class="step future"><div class="dot"></div><div class="info"><div class="title">Livré à votre navigateur</div><div class="time">Arrivée : 42 minutes</div></div></div>
+</div>
+
+<div class="driver">
+  <div class="avatar">🤖</div>
+  <div class="info">
+    <div class="name">bit-bot</div>
+    <div class="vehicle">ESP32 · Immatriculation : BB-042 · Châssis colle chaude</div>
+    <div class="rating">★★★★★ 4.9 (847 livraisons · 47 chutes)</div>
+  </div>
+  <div class="actions">
+    <div class="act">📞</div>
+    <div class="act">💬</div>
+  </div>
+</div>
+
+<div class="order">
+  <h3>DÉTAILS DE COMMANDE</h3>
+  <div class="order-item"><span class="qty">39×</span><span class="name">Applications éducatives sur navigateur</span><span class="price">€0.00</span></div>
+  <div class="order-item"><span class="qty">1×</span><span class="name">Kit robot (bit-bot ESP32 BLE)</span><span class="price">€0.00</span></div>
+  <div class="order-item"><span class="qty">1×</span><span class="name">Mot de passe WiFi (password123)</span><span class="price">€0.00</span></div>
+  <div class="order-item"><span class="qty">1×</span><span class="name">Bug #42 (inclus, ne peut être retiré)</span><span class="price">€0.00</span></div>
+  <div class="order-item"><span class="qty">∞×</span><span class="name">Colle chaude Sticks</span><span class="price">€0.00</span></div>
+  <div class="order-item"><span class="qty">1×</span><span class="name">Machine à café (8% capacity, as-is)</span><span class="price">€0.00</span></div>
+  <div class="order-total"><span>Total</span><span>€0.00 FREE</span></div>
+</div>
+
+</div>
+
+<div class="footer">WKSHP EATS · DELIVERY VIA WEBTRC · NO INSTALLATION FEE · BUGS DELIVERED AS FEATURES</div>
+
+<script>
+let secs=42*60;
+setInterval(()=>{
+  if(secs>0)secs--;
+  const m=Math.floor(secs/60);
+  const s=secs%60;
+  document.getElementById('eta').textContent=`${m}:${String(s).padStart(2,'0')}`;
+},1000);
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

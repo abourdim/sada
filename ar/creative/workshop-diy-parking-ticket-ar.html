@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // مخالفة وقوف</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Courier+Prime:wght@400;700&family=Patrick+Hand&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#e8e0d0;font-family:'Courier Prime',monospace;font-size:10px;min-height:100vh;padding:16px;display:flex;align-items:center;justify-content:center}
+
+.ticket{width:340px;background:#fffef0;border:2px solid #cc6600;padding:16px;position:relative;box-shadow:2px 2px 6px rgba(0,0,0,.1)}
+.ticket::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,#cc6600 0,#cc6600 4px,#ffaa00 4px,#ffaa00 8px)}
+
+.t-header{text-align:center;border-bottom:2px solid #cc6600;padding-bottom:6px;margin-bottom:8px}
+.t-header .dept{font-size:7px;color:#cc6600;letter-spacing:3px;font-weight:700}
+.t-header h1{font-size:14px;font-weight:700;color:#cc0000;letter-spacing:2px}
+.t-header .cite-num{font-size:8px;color:#888}
+
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:6px 0}
+.field{padding:2px 0}
+.field .lbl{font-size:6px;color:#999;letter-spacing:1px;font-weight:700}
+.field .val{font-family:'Patrick Hand',cursive;font-size:12px;color:#1a1a8a;border-bottom:1px dotted #ccc;padding-bottom:1px}
+.field.full{grid-column:1/-1}
+
+.violation-box{background:#fff5e5;border:1px solid #f0d8a0;padding:8px;margin:8px 0;border-radius:2px}
+.violation-box .v-title{font-size:8px;color:#cc6600;letter-spacing:1px;font-weight:700;margin-bottom:4px}
+.violation-box .v-code{font-weight:700;font-size:11px;color:#cc0000;margin-bottom:2px}
+.violation-box .v-desc{font-family:'Patrick Hand',cursive;font-size:11px;color:#1a1a8a;line-height:1.9}
+
+.fine-box{display:flex;align-items:center;justify-content:space-between;padding:8px;background:#cc0000;color:#fff;margin:6px 0;border-radius:2px}
+.fine-box .fine-label{font-size:8px;letter-spacing:1px}
+.fine-box .fine-amount{font-size:20px;font-weight:700}
+
+.notes{margin:6px 0;font-size:9px;color:#666;line-height:2}
+.notes strong{color:#cc6600}
+
+.sig-area{display:flex;gap:10px;margin-top:8px}
+.sig{flex:1;text-align:center}
+.sig-val{font-family:'Patrick Hand',cursive;font-size:12px;color:#1a1a8a;min-height:20px}
+.sig-line{border-top:1px solid #999;padding-top:1px;font-size:6px;color:#999;margin-top:8px}
+
+.appeals{margin-top:8px;padding:6px;border:1px dashed #ddd;font-size:7px;color:#aaa;line-height:2;text-align:center}
+
+.footer-strip{margin-top:8px;text-align:center;font-size:5px;color:#ddd;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(0,0,0,.08);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="ticket">
+
+<div class="t-header">
+  <div class="dept">بلدية WORKSHOP-DIY · شرطة الوقوف</div>
+  <h1>⚠️ مخالفة وقوف</h1>
+  <div class="cite-num">CITATION NO: WKSHP-PKG-2026-0042</div>
+</div>
+
+<div class="field-grid">
+  <div class="field"><div class="lbl">DATE</div><div class="val">فبراير 28, 2026</div></div>
+  <div class="field"><div class="lbl">TIME</div><div class="val">15:42</div></div>
+  <div class="field"><div class="lbl">مالك المركبة</div><div class="val">🤖 bit-bot</div></div>
+  <div class="field"><div class="lbl">لوحة الترخيص</div><div class="val">BB-042-ESP</div></div>
+  <div class="field"><div class="lbl">نوع المركبة</div><div class="val">روبوت تعليمي (عجلتان)</div></div>
+  <div class="field"><div class="lbl">اللون</div><div class="val">أخضر PCB / أبيض صمغ ساخن</div></div>
+  <div class="field full"><div class="lbl">LOCATION</div><div class="val">الأرض، أسفل طاولة العمل 7 مباشرة (بعد السقطة #48)</div></div>
+</div>
+
+<div class="violation-box">
+  <div class="v-title">VIOLATION</div>
+  <div class="v-code">§ 42.7 — وقوف خارج منطقة الطاولة المخصصة</div>
+  <div class="v-desc">Vehicle was found parked on the floor beneath Workbench 7 at 15:42. Vehicle had clearly departed the designated table surface without authorization. Skid marks (hot glue residue) observed at table edge. No parking permit displayed. Vehicle appeared intact but disoriented (left motor spinning in circles).</div>
+</div>
+
+<div class="violation-box">
+  <div class="v-title">ADDITIONAL VIOLATIONS</div>
+  <div class="v-code">§ 8.0 — قيادة تحت تأثير قهوة حرج</div>
+  <div class="v-desc">Vehicle was observed operating erratically prior to desk departure. Caffeine sensor reading: 8%. This is below the legal minimum of 50%. The coffee machine has been cited as an accessory.</div>
+</div>
+
+<div class="fine-box">
+  <span class="fine-label">مبلغ الغرامة</span>
+  <span class="fine-amount">€0.42</span>
+</div>
+
+<div class="notes">
+  <strong>NOTES FROM OFFICER:</strong> This is bit-bot's 48th desk departure violation. Previous 47 citations were dismissed because the vehicle survived and the hot glue held. This time, the left wheel was pointing slightly upward. Issuing citation on principle. Vehicle owner has been advised to install table edge guards. Vehicle owner responded with *beep*.
+</div>
+
+<div class="sig-area">
+  <div class="sig"><div class="sig-val">الضابط ESLint</div><div class="sig-line">الضابط المُحرر</div></div>
+  <div class="sig"><div class="sig-val">*beep boop*</div><div class="sig-line">مالك المركبة</div></div>
+</div>
+
+<div class="appeals">
+  للاعتراض: قدم issue على git خلال 42 يوم عمل.<br>
+  يراجع الطعون القاضي المترجم. جميع الطعون الـ47 السابقة قُبلت.<br>
+  الدفع مقبول بـ: إعادة تعبئة القهوة، أعواد صمغ ساخن، أو واقيات حواف الطاولة.
+</div>
+
+<div class="footer-strip">WKSHP PARKING ENFORCEMENT · CITATION WKSHP-PKG-2026-0042 · ALL DROPS ARE VIOLATIONS · ALL VIOLATIONS ARE FEATURES</div>
+</div>
+
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Facebook Calendar · 84 posts</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Scheherazade+New:wght@400;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&family=Nunito:wght@300;400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06060e;--s1:#0c0c1a;--s2:#12122a;--brd:rgba(255,255,255,.04);--txt:#e4e8f2;--dim:rgba(255,255,255,.35);--teal:#14b8a6;--cyan:#06b6d4;--indigo:#6366f1;--rose:#f43f5e;--amber:#f59e0b;--lime:#84cc16;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;min-height:100vh}
+::selection{background:rgba(20,184,166,.3)}
+.header{text-align:center;padding:32px 20px 20px;border-bottom:1px solid var(--brd)}
+.logo-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}
+.logo-icon{width:36px;height:36px}
+.logo-ar{font-family:'Amiri',serif;font-size:42px;font-weight:700;background:linear-gradient(135deg,var(--teal),var(--cyan),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.logo-fr{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:300;opacity:.2;letter-spacing:6px}
+.header h2{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-top:6px;color:var(--dim)}
+.header p{font-size:11px;color:rgba(255,255,255,.15);margin-top:3px}
+.header a{color:var(--teal);text-decoration:none;font-size:11px}
+.stats{display:flex;justify-content:center;gap:0;padding:8px 20px;border-bottom:1px solid var(--brd)}
+.st{flex:1;text-align:center;padding:6px;max-width:120px}
+.st-n{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.st-l{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--dim);letter-spacing:1px;text-transform:uppercase}
+.mode-bar{display:flex;gap:4px;justify-content:center;padding:12px 20px;border-bottom:1px solid var(--brd);flex-wrap:wrap}
+.mode-btn{padding:7px 14px;border-radius:20px;border:1px solid var(--brd);background:var(--s1);color:var(--dim);font-family:'DM Sans',sans-serif;font-size:11px;cursor:pointer;transition:all .25s;white-space:nowrap}
+.mode-btn:hover{border-color:rgba(255,255,255,.1);color:var(--txt)}
+.mode-btn.active{background:linear-gradient(135deg,rgba(20,184,166,.12),rgba(99,102,241,.12));border-color:rgba(20,184,166,.25);color:var(--teal);font-weight:600}
+.controls{display:flex;gap:8px;padding:12px 20px;max-width:1200px;margin:0 auto;flex-wrap:wrap;align-items:center}
+.week-btn{padding:5px 12px;border-radius:20px;border:1px solid var(--brd);background:var(--s1);color:var(--dim);font-family:'JetBrains Mono',monospace;font-size:9px;cursor:pointer;transition:.2s;white-space:nowrap}
+.week-btn:hover,.week-btn.active{background:rgba(20,184,166,.08);border-color:rgba(20,184,166,.2);color:var(--teal)}
+.week-btn.all{background:linear-gradient(135deg,rgba(20,184,166,.1),rgba(99,102,241,.1));border-color:rgba(20,184,166,.15);color:var(--txt)}
+.search{flex:1;min-width:180px;padding:7px 14px;border-radius:20px;border:1px solid var(--brd);background:var(--s1);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:12px;outline:none}
+.search:focus{border-color:rgba(20,184,166,.3)}.search::placeholder{color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:16px 20px;max-width:1200px;margin:0 auto}
+.week-divider{grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:16px 0 6px}
+.week-divider .wnum{font-family:'Syne',sans-serif;font-size:10px;font-weight:800;color:var(--teal);background:rgba(20,184,166,.06);border:1px solid rgba(20,184,166,.1);padding:3px 10px;border-radius:20px;white-space:nowrap}
+.week-divider .wtitle{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--dim)}
+.week-divider::after{content:'';flex:1;height:1px;background:var(--brd)}
+/* CLASSIQUE */
+.mode-classique .post{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;transition:.2s;display:flex;flex-direction:column}
+.mode-classique .post:hover{border-color:rgba(20,184,166,.12);transform:translateY(-1px)}
+.mode-classique .post-head{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--brd)}
+.mode-classique .post-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--teal);background:rgba(20,184,166,.06);padding:2px 8px;border-radius:10px}
+.mode-classique .post-day{font-family:'Syne',sans-serif;font-size:11px;font-weight:700}
+.mode-classique .post-theme{font-size:10px;color:var(--dim)}
+.mode-classique .post-body{padding:12px 14px;font-size:13px;line-height:1.7;color:rgba(255,255,255,.75);flex:1}
+.mode-classique .post-body strong{color:var(--txt);font-weight:600}
+.mode-classique .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid var(--brd);align-items:center}
+/* SOCIAL */
+.mode-social .post{background:var(--s1);border:1px solid var(--brd);border-radius:16px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.mode-social .post:hover{border-color:rgba(20,184,166,.2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(20,184,166,.06)}
+.mode-social .post-hero{padding:20px 16px 12px}
+.mode-social .post-hero .hero-emoji{font-size:36px;display:block;margin-bottom:4px}
+.mode-social .post-head{display:flex;align-items:center;gap:8px;padding:0 16px 8px}
+.mode-social .post-num{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(255,255,255,.3)}
+.mode-social .post-day{font-size:10px;font-weight:700;color:var(--dim)}
+.mode-social .theme-pill{font-size:9px;padding:3px 10px;border-radius:20px;font-weight:600;margin-left:auto}
+.mode-social .theme-pill[data-t="spotlight"]{background:rgba(20,184,166,.1);color:var(--teal);border:1px solid rgba(20,184,166,.15)}
+.mode-social .theme-pill[data-t="learn"]{background:rgba(99,102,241,.1);color:var(--indigo);border:1px solid rgba(99,102,241,.15)}
+.mode-social .theme-pill[data-t="challenge"]{background:rgba(168,85,247,.1);color:#a855f7;border:1px solid rgba(168,85,247,.15)}
+.mode-social .theme-pill[data-t="fun"]{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.15)}
+.mode-social .theme-pill[data-t="weekend"]{background:rgba(132,204,22,.1);color:var(--lime);border:1px solid rgba(132,204,22,.15)}
+.mode-social .theme-pill[data-t="recap"]{background:rgba(244,63,94,.1);color:var(--rose);border:1px solid rgba(244,63,94,.15)}
+.mode-social .post-body{padding:8px 16px 12px;font-size:13px;line-height:1.7;color:rgba(255,255,255,.8);flex:1}
+.mode-social .post-body strong{color:#fff;font-weight:700}
+.mode-social .engagement{display:flex;align-items:center;gap:12px;padding:8px 16px;font-size:10px;color:var(--dim)}
+.mode-social .reactions span{font-size:13px}
+.mode-social .fb-bar{display:flex;border-top:1px solid var(--brd);padding:0}
+.mode-social .fb-btn{flex:1;padding:8px;text-align:center;font-size:11px;color:var(--dim);cursor:pointer;transition:.15s;border-right:1px solid var(--brd)}
+.mode-social .fb-btn:last-child{border:0}
+.mode-social .fb-btn:hover{color:var(--teal);background:rgba(20,184,166,.04)}
+.mode-social .post-foot{display:flex;gap:6px;padding:8px 16px;align-items:center}
+/* PARENT */
+.mode-parent .grid{max-width:900px}
+.mode-parent .post{background:linear-gradient(135deg,#0f172a,#1e1b4b);border:1px solid rgba(99,102,241,.08);border-radius:16px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+.mode-parent .post:hover{border-color:rgba(99,102,241,.2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(99,102,241,.06)}
+.mode-parent .post-head{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.03)}
+.mode-parent .post-num{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(255,255,255,.2)}
+.mode-parent .post-day{font-size:10px;font-weight:500;color:var(--dim)}
+.mode-parent .post-theme{font-size:10px;color:var(--dim);margin-left:auto}
+.mode-parent .parent-hook{padding:12px 16px 4px;font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:rgba(255,255,255,.9);line-height:1.4}
+.mode-parent .post-body{padding:8px 16px 12px;font-size:13px;line-height:1.7;color:rgba(255,255,255,.65);flex:1}
+.mode-parent .post-body strong{color:rgba(255,255,255,.9);font-weight:600}
+.mode-parent .trust-badges{display:flex;flex-wrap:wrap;gap:6px;padding:8px 16px}
+.mode-parent .trust-badge{font-size:8px;padding:3px 8px;border-radius:10px;background:rgba(20,184,166,.06);color:rgba(20,184,166,.6);border:1px solid rgba(20,184,166,.08);font-family:'JetBrains Mono',monospace}
+.mode-parent .post-foot{display:flex;gap:6px;padding:10px 16px;border-top:1px solid rgba(255,255,255,.03);align-items:center}
+.mode-parent .cta-btn{flex:1;padding:8px 12px;border-radius:10px;background:linear-gradient(135deg,var(--indigo),#7c3aed);color:#fff;font-size:11px;font-weight:600;text-align:center;cursor:pointer;border:0;transition:.2s;text-decoration:none;display:block}
+.mode-parent .cta-btn:hover{filter:brightness(1.15);transform:scale(1.02)}
+.mode-parent .parent-sticky{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,transparent,#0f172a 30%);padding:20px 20px 14px;text-align:center;z-index:100;border-top:1px solid rgba(99,102,241,.1)}
+.mode-parent .parent-sticky a{color:var(--teal);text-decoration:none}
+.mode-parent .parent-sticky .ps-main{font-family:'Playfair Display',serif;font-size:15px;color:rgba(255,255,255,.8);margin-bottom:6px}
+.mode-parent .parent-sticky .ps-sub{font-size:11px;color:var(--dim)}
+.mode-parent .grid{padding-bottom:90px}
+/* MAKER */
+.mode-maker .post{background:rgba(0,255,65,.01);border:1px solid rgba(0,255,65,.06);border-radius:6px;overflow:hidden;transition:.2s;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace}
+.mode-maker .post:hover{border-color:rgba(0,255,65,.15);box-shadow:0 0 20px rgba(0,255,65,.03)}
+.mode-maker .post-head{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid rgba(0,255,65,.04);background:rgba(0,255,65,.015)}
+.mode-maker .post-num{font-size:9px;color:rgba(0,255,65,.4)}
+.mode-maker .post-day{font-size:9px;color:rgba(0,255,65,.25)}
+.mode-maker .post-theme{font-size:9px;color:rgba(0,255,65,.2);margin-left:auto}
+.mode-maker .tech-badges{display:flex;gap:4px;padding:8px 12px;flex-wrap:wrap}
+.mode-maker .tech-badge{font-size:7px;padding:2px 6px;border-radius:3px;background:rgba(0,255,65,.04);color:rgba(0,255,65,.4);border:1px solid rgba(0,255,65,.06)}
+.mode-maker .post-body{padding:6px 12px 10px;font-size:11px;line-height:1.7;color:rgba(0,255,65,.55);flex:1}
+.mode-maker .post-body strong{color:rgba(0,255,65,.8);font-weight:500}
+.mode-maker .maker-meta{padding:6px 12px;font-size:8px;color:rgba(0,255,65,.2);border-top:1px solid rgba(0,255,65,.04)}
+.mode-maker .post-foot{display:flex;gap:4px;padding:6px 12px;align-items:center}
+.mode-maker .week-divider .wnum{color:rgba(0,255,65,.5);background:rgba(0,255,65,.03);border-color:rgba(0,255,65,.06)}
+.mode-maker .week-divider .wtitle{color:rgba(0,255,65,.2)}
+.mode-maker .week-divider::after{background:rgba(0,255,65,.04)}
+.mode-maker .heatmap{padding:12px 20px;max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2px;justify-content:center}
+.mode-maker .heatmap-cell{width:10px;height:10px;border-radius:2px;background:rgba(0,255,65,.04)}
+/* CALENDRIER */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:16px 20px;max-width:1200px;margin:0 auto}
+.cal-header{font-family:'Syne',sans-serif;font-size:9px;font-weight:800;color:var(--dim);text-align:center;padding:8px 0;letter-spacing:2px}
+.cal-cell{min-height:100px;background:var(--s1);border:1px solid var(--brd);border-radius:8px;padding:8px;cursor:pointer;transition:all .2s;overflow:hidden}
+.cal-cell:hover{border-color:rgba(20,184,166,.15);background:rgba(20,184,166,.02)}
+.cal-cell.empty{background:transparent;border-color:transparent;cursor:default;min-height:0}
+.cal-date{font-family:'Syne',sans-serif;font-size:11px;font-weight:800;color:var(--dim);margin-bottom:4px}
+.cal-emoji{font-size:20px;display:block;margin:2px 0}
+.cal-title{font-size:8px;color:rgba(255,255,255,.4);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.cal-expanded{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(6,6,14,.92);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);animation:fadeIn .2s}
+.cal-expanded-inner{background:var(--s1);border:1px solid rgba(20,184,166,.1);border-radius:16px;max-width:500px;width:100%;max-height:80vh;overflow-y:auto;padding:20px}
+.cal-close{position:absolute;top:16px;right:20px;font-size:20px;color:var(--dim);cursor:pointer;z-index:201}
+.month-nav{display:flex;align-items:center;justify-content:center;gap:16px;padding:12px;max-width:1200px;margin:0 auto}
+.month-nav button{padding:6px 14px;border-radius:20px;border:1px solid var(--brd);background:var(--s1);color:var(--dim);font-family:'Syne',sans-serif;font-size:11px;font-weight:700;cursor:pointer;transition:.2s}
+.month-nav button:hover{border-color:rgba(20,184,166,.2);color:var(--teal)}
+.month-nav .month-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--txt);min-width:160px;text-align:center}
+.post-btn{padding:4px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:9px;cursor:pointer;transition:.2s;text-decoration:none;border:1px solid var(--brd);background:var(--s2);color:var(--dim)}
+.post-btn:hover{border-color:rgba(20,184,166,.2);color:var(--teal)}
+.post-btn.demo{background:linear-gradient(135deg,rgba(20,184,166,.1),rgba(99,102,241,.1));border-color:rgba(20,184,166,.15);color:var(--teal)}
+.post-btn.demo:hover{background:linear-gradient(135deg,rgba(20,184,166,.2),rgba(99,102,241,.2));color:#fff}
+.post-btn.copied{color:var(--teal);border-color:var(--teal)}
+.foot{padding:20px;text-align:center;border-top:1px solid var(--brd);margin-top:20px}
+.foot .f-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.foot .f-icon{width:18px;height:18px;opacity:.4}
+.foot a{color:var(--teal);text-decoration:none;font-size:11px}.foot a:hover{text-decoration:underline}
+.foot .f-ar{font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot .f-fr{font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px}
+.foot .f-contact{margin-top:6px;font-size:10px;color:var(--dim)}
+/* ISLAMIC — deep emerald + gold, geometric feel */
+.theme-islamic{--bg:#030d08;--s1:#071a0f;--s2:#0a2416;--brd:rgba(196,164,80,.08);--teal:#c9a45c;--dim:rgba(196,164,80,.4);--txt:#e8dcc8}
+.theme-islamic .post{background:linear-gradient(160deg,#071a0f,#0c2218);border:1px solid rgba(196,164,80,.1);border-radius:14px;overflow:hidden;transition:.3s;display:flex;flex-direction:column;position:relative}
+.theme-islamic .post::before{content:'✦';position:absolute;top:8px;right:12px;font-size:10px;color:rgba(196,164,80,.15)}
+.theme-islamic .post:hover{border-color:rgba(196,164,80,.25);box-shadow:0 4px 24px rgba(196,164,80,.06)}
+.theme-islamic .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(196,164,80,.06);background:rgba(196,164,80,.02)}
+.theme-islamic .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(196,164,80,.6);font-weight:700}
+.theme-islamic .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#c9a45c}
+.theme-islamic .post-theme{font-size:10px;color:rgba(196,164,80,.35)}
+.theme-islamic .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(232,220,200,.7);flex:1;font-family:'DM Sans',sans-serif}
+.theme-islamic .post-body strong{color:#c9a45c;font-weight:700}
+.theme-islamic .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(196,164,80,.06);align-items:center}
+.theme-islamic .post-btn{border-color:rgba(196,164,80,.12);color:rgba(196,164,80,.5)}
+.theme-islamic .post-btn:hover{border-color:rgba(196,164,80,.3);color:#c9a45c}
+.theme-islamic .post-btn.demo{background:linear-gradient(135deg,rgba(196,164,80,.1),rgba(16,185,129,.1));border-color:rgba(196,164,80,.2);color:#c9a45c}
+.theme-islamic .week-divider .wnum{color:#c9a45c;background:rgba(196,164,80,.06);border-color:rgba(196,164,80,.1)}
+.theme-islamic .week-divider .wtitle{color:rgba(196,164,80,.35)}
+.theme-islamic .week-divider::after{background:rgba(196,164,80,.06)}
+.theme-islamic .header,.theme-islamic .stats,.theme-islamic .mode-bar,.theme-islamic .theme-bar,.theme-islamic .controls,.theme-islamic .foot{border-color:rgba(196,164,80,.06)}
+.theme-islamic .logo-ar{background:linear-gradient(135deg,#c9a45c,#10b981);-webkit-background-clip:text;background-clip:text}
+.theme-islamic .st-n{background:linear-gradient(135deg,#c9a45c,#10b981);-webkit-background-clip:text;background-clip:text}
+.theme-islamic .mode-btn.active{background:rgba(196,164,80,.08);border-color:rgba(196,164,80,.2);color:#c9a45c}
+.theme-islamic .search:focus{border-color:rgba(196,164,80,.25)}
+.theme-islamic .week-btn:hover,.theme-islamic .week-btn.active{background:rgba(196,164,80,.06);border-color:rgba(196,164,80,.15);color:#c9a45c}
+/* CALLIGRAPHY — warm sepia manuscript (MID) */
+.theme-calligraphy{--bg:#1a1610;--s1:#221e16;--s2:#2a251c;--brd:rgba(200,170,100,.08);--teal:#c8a860;--dim:rgba(200,170,100,.35);--txt:#dcd0b0}
+.theme-calligraphy .post{background:linear-gradient(170deg,#221e16,#28231a);border:1px solid rgba(200,170,100,.1);border-radius:4px;overflow:hidden;transition:.3s;display:flex;flex-direction:column;border-top:3px solid rgba(200,170,100,.12)}
+.theme-calligraphy .post:hover{border-color:rgba(200,170,100,.22);box-shadow:0 4px 20px rgba(200,170,100,.05)}
+.theme-calligraphy .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(200,170,100,.06)}
+.theme-calligraphy .post-num{font-family:'Aref Ruqaa',serif;font-size:13px;color:rgba(200,170,100,.5);font-weight:700}
+.theme-calligraphy .post-day{font-family:'Aref Ruqaa',serif;font-size:13px;font-weight:700;color:#c8a860}
+.theme-calligraphy .post-theme{font-family:'Aref Ruqaa',serif;font-size:11px;color:rgba(200,170,100,.3)}
+.theme-calligraphy .post-body{padding:14px 16px;font-family:'Scheherazade New','Amiri',serif;font-size:15px;line-height:2;color:rgba(220,208,176,.65);flex:1}
+.theme-calligraphy .post-body strong{color:#c8a860;font-weight:700}
+.theme-calligraphy .post-foot{display:flex;gap:6px;padding:8px 16px;border-top:1px solid rgba(200,170,100,.06);align-items:center}
+.theme-calligraphy .post-btn{border-color:rgba(200,170,100,.1);color:rgba(200,170,100,.4);font-family:'Amiri',serif;font-size:10px}
+.theme-calligraphy .post-btn:hover{border-color:rgba(200,170,100,.25);color:#c8a860}
+.theme-calligraphy .post-btn.demo{background:rgba(200,170,100,.06);border-color:rgba(200,170,100,.15);color:#c8a860}
+.theme-calligraphy .week-divider .wnum{font-family:'Aref Ruqaa',serif;color:#c8a860;background:rgba(200,170,100,.06);border-color:rgba(200,170,100,.1);font-size:12px}
+.theme-calligraphy .week-divider .wtitle{font-family:'Aref Ruqaa',serif;color:rgba(200,170,100,.3);font-size:13px}
+.theme-calligraphy .week-divider::after{background:rgba(200,170,100,.06)}
+.theme-calligraphy .header,.theme-calligraphy .stats,.theme-calligraphy .mode-bar,.theme-calligraphy .theme-bar,.theme-calligraphy .controls,.theme-calligraphy .foot{border-color:rgba(200,170,100,.06)}
+.theme-calligraphy .logo-ar{background:linear-gradient(135deg,#c8a860,#a08848);-webkit-background-clip:text;background-clip:text;font-family:'Aref Ruqaa',serif}
+.theme-calligraphy .st-n{background:linear-gradient(135deg,#c8a860,#a08848);-webkit-background-clip:text;background-clip:text}
+.theme-calligraphy .mode-btn.active{background:rgba(200,170,100,.08);border-color:rgba(200,170,100,.18);color:#c8a860}
+.theme-calligraphy .search:focus{border-color:rgba(200,170,100,.22)}
+.theme-calligraphy .week-btn:hover,.theme-calligraphy .week-btn.active{background:rgba(200,170,100,.06);border-color:rgba(200,170,100,.12);color:#c8a860}
+
+/* MEDINA — warm amber lantern glow (MID) */
+.theme-medina{--bg:#1a1208;--s1:#241a0e;--s2:#2c2014;--brd:rgba(220,160,70,.08);--teal:#d4a040;--dim:rgba(220,160,70,.35);--txt:#e8d8b8}
+.theme-medina .post{background:linear-gradient(165deg,#241a0e,#2a1e10);border:1px solid rgba(220,160,70,.1);border-radius:16px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.theme-medina .post:hover{border-color:rgba(220,160,70,.22);box-shadow:0 4px 30px rgba(220,160,70,.06)}
+.theme-medina .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(220,160,70,.06);background:linear-gradient(90deg,rgba(220,160,70,.03),transparent)}
+.theme-medina .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(220,160,70,.5);font-weight:700}
+.theme-medina .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#d4a040}
+.theme-medina .post-theme{font-size:10px;color:rgba(220,160,70,.3)}
+.theme-medina .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(232,216,184,.65);flex:1}
+.theme-medina .post-body strong{color:#d4a040;font-weight:700}
+.theme-medina .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(220,160,70,.06);align-items:center}
+.theme-medina .post-btn{border-color:rgba(220,160,70,.1);color:rgba(220,160,70,.45)}
+.theme-medina .post-btn:hover{border-color:rgba(220,160,70,.3);color:#d4a040}
+.theme-medina .post-btn.demo{background:linear-gradient(135deg,rgba(220,160,70,.1),rgba(176,128,48,.1));border-color:rgba(220,160,70,.18);color:#d4a040}
+.theme-medina .week-divider .wnum{color:#d4a040;background:rgba(220,160,70,.06);border-color:rgba(220,160,70,.1)}
+.theme-medina .week-divider .wtitle{color:rgba(220,160,70,.3)}
+.theme-medina .week-divider::after{background:rgba(220,160,70,.06)}
+.theme-medina .header,.theme-medina .stats,.theme-medina .mode-bar,.theme-medina .theme-bar,.theme-medina .controls,.theme-medina .foot{border-color:rgba(220,160,70,.06)}
+.theme-medina .logo-ar{background:linear-gradient(135deg,#d4a040,#b08030);-webkit-background-clip:text;background-clip:text}
+.theme-medina .st-n{background:linear-gradient(135deg,#d4a040,#b08030);-webkit-background-clip:text;background-clip:text}
+.theme-medina .mode-btn.active{background:rgba(220,160,70,.08);border-color:rgba(220,160,70,.18);color:#d4a040}
+.theme-medina .search:focus{border-color:rgba(220,160,70,.25)}
+.theme-medina .week-btn:hover,.theme-medina .week-btn.active{background:rgba(220,160,70,.06);border-color:rgba(220,160,70,.12);color:#d4a040}
+
+/* ANDALOUS — Moorish blue + gold, zellige, Alhambra arches */
+.theme-andalous{--bg:#040810;--s1:#0a1225;--s2:#101a35;--brd:rgba(59,130,246,.06);--teal:#3b82f6;--dim:rgba(147,130,90,.4);--txt:#d8dce8}
+.theme-andalous .post{background:linear-gradient(155deg,#0a1225,#0e1830);border:1px solid rgba(59,130,246,.08);border-radius:2px;overflow:hidden;transition:.3s;display:flex;flex-direction:column;border-top:2px solid transparent;border-image:linear-gradient(90deg,rgba(59,130,246,.3),rgba(196,164,80,.3),rgba(59,130,246,.3)) 1}
+.theme-andalous .post:hover{border-color:rgba(59,130,246,.2);box-shadow:0 4px 24px rgba(59,130,246,.06);border-image:linear-gradient(90deg,rgba(59,130,246,.5),rgba(196,164,80,.5),rgba(59,130,246,.5)) 1}
+.theme-andalous .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(59,130,246,.05);background:rgba(59,130,246,.02)}
+.theme-andalous .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(196,164,80,.5);font-weight:700}
+.theme-andalous .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#93825a}
+.theme-andalous .post-theme{font-size:10px;color:rgba(59,130,246,.35)}
+.theme-andalous .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(216,220,232,.65);flex:1}
+.theme-andalous .post-body strong{color:#6ba0f6;font-weight:700}
+.theme-andalous .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(59,130,246,.05);align-items:center}
+.theme-andalous .post-btn{border-color:rgba(59,130,246,.1);color:rgba(147,130,90,.5)}
+.theme-andalous .post-btn:hover{border-color:rgba(59,130,246,.3);color:#6ba0f6}
+.theme-andalous .post-btn.demo{background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(196,164,80,.08));border-color:rgba(59,130,246,.15);color:#6ba0f6}
+.theme-andalous .week-divider .wnum{color:#93825a;background:rgba(196,164,80,.04);border-color:rgba(196,164,80,.08)}
+.theme-andalous .week-divider .wtitle{color:rgba(59,130,246,.3)}
+.theme-andalous .week-divider::after{background:rgba(59,130,246,.05)}
+.theme-andalous .header,.theme-andalous .stats,.theme-andalous .mode-bar,.theme-andalous .theme-bar,.theme-andalous .controls,.theme-andalous .foot{border-color:rgba(59,130,246,.05)}
+.theme-andalous .logo-ar{background:linear-gradient(135deg,#3b82f6,#c9a45c);-webkit-background-clip:text;background-clip:text}
+.theme-andalous .st-n{background:linear-gradient(135deg,#3b82f6,#c9a45c);-webkit-background-clip:text;background-clip:text}
+.theme-andalous .mode-btn.active{background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.15);color:#6ba0f6}
+.theme-andalous .search:focus{border-color:rgba(59,130,246,.25)}
+.theme-andalous .week-btn:hover,.theme-andalous .week-btn.active{background:rgba(59,130,246,.05);border-color:rgba(59,130,246,.12);color:#6ba0f6}
+/* THEME BAR */
+.theme-bar{display:flex;gap:6px;justify-content:center;align-items:center;padding:8px 20px;border-bottom:1px solid var(--brd)}
+.theme-label{font-family:'Syne',sans-serif;font-size:9px;font-weight:800;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-right:4px}
+.theme-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .2s;padding:0}
+.theme-dot:hover{transform:scale(1.15);box-shadow:0 0 12px rgba(255,255,255,.1)}
+.theme-dot.active{border-color:rgba(255,255,255,.5);box-shadow:0 0 12px rgba(255,255,255,.15)}
+/* NOOR — soft sage twilight (MID) */
+.theme-noor{--bg:#0e1a10;--s1:#142418;--s2:#1a2e20;--brd:rgba(120,180,100,.06);--teal:#78b464;--dim:rgba(120,180,100,.3);--txt:#c8dcc0}
+.theme-noor .post{background:linear-gradient(160deg,#142418,#18281c);border:1px solid rgba(120,180,100,.1);border-radius:14px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.theme-noor .post:hover{border-color:rgba(120,180,100,.2);box-shadow:0 4px 20px rgba(120,180,100,.05)}
+.theme-noor .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(120,180,100,.06);background:rgba(120,180,100,.02)}
+.theme-noor .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(120,180,100,.55);font-weight:700}
+.theme-noor .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#78b464}
+.theme-noor .post-theme{font-size:10px;color:rgba(120,180,100,.3)}
+.theme-noor .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(200,220,192,.65);flex:1}
+.theme-noor .post-body strong{color:#78b464;font-weight:700}
+.theme-noor .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(120,180,100,.06);align-items:center}
+.theme-noor .post-btn{border-color:rgba(120,180,100,.1);color:rgba(120,180,100,.45)}
+.theme-noor .post-btn:hover{border-color:rgba(120,180,100,.25);color:#78b464}
+.theme-noor .post-btn.demo{background:rgba(120,180,100,.08);border-color:rgba(120,180,100,.15);color:#78b464}
+.theme-noor .week-divider .wnum{color:#78b464;background:rgba(120,180,100,.06);border-color:rgba(120,180,100,.1)}
+.theme-noor .week-divider .wtitle{color:rgba(120,180,100,.3)}
+.theme-noor .week-divider::after{background:rgba(120,180,100,.06)}
+.theme-noor .header,.theme-noor .stats,.theme-noor .mode-bar,.theme-noor .theme-bar,.theme-noor .controls,.theme-noor .foot{border-color:rgba(120,180,100,.06)}
+.theme-noor .logo-ar{background:linear-gradient(135deg,#78b464,#a0c060);-webkit-background-clip:text;background-clip:text}
+.theme-noor .st-n{background:linear-gradient(135deg,#78b464,#a0c060);-webkit-background-clip:text;background-clip:text}
+.theme-noor .mode-btn.active{background:rgba(120,180,100,.08);border-color:rgba(120,180,100,.15);color:#78b464}
+.theme-noor .search:focus{border-color:rgba(120,180,100,.2)}
+.theme-noor .week-btn:hover,.theme-noor .week-btn.active{background:rgba(120,180,100,.06);border-color:rgba(120,180,100,.12);color:#78b464}
+
+/* FAJR — cool slate pre-dawn (MID) */
+.theme-fajr{--bg:#121418;--s1:#1a1c22;--s2:#22252c;--brd:rgba(140,150,180,.06);--teal:#8a9ac0;--dim:rgba(140,150,180,.35);--txt:#c8ccd8}
+.theme-fajr .post{background:linear-gradient(155deg,#1a1c22,#1e2028);border:1px solid rgba(140,150,180,.1);border-radius:14px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.theme-fajr .post:hover{border-color:rgba(140,150,180,.2);box-shadow:0 4px 20px rgba(140,150,180,.05)}
+.theme-fajr .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(140,150,180,.06);background:rgba(140,150,180,.02)}
+.theme-fajr .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(140,150,180,.55);font-weight:700}
+.theme-fajr .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#8a9ac0}
+.theme-fajr .post-theme{font-size:10px;color:rgba(140,150,180,.3)}
+.theme-fajr .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(200,204,216,.65);flex:1}
+.theme-fajr .post-body strong{color:#8a9ac0;font-weight:700}
+.theme-fajr .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(140,150,180,.06);align-items:center}
+.theme-fajr .post-btn{border-color:rgba(140,150,180,.1);color:rgba(140,150,180,.45)}
+.theme-fajr .post-btn:hover{border-color:rgba(140,150,180,.25);color:#8a9ac0}
+.theme-fajr .post-btn.demo{background:rgba(140,150,180,.08);border-color:rgba(140,150,180,.15);color:#8a9ac0}
+.theme-fajr .week-divider .wnum{color:#8a9ac0;background:rgba(140,150,180,.06);border-color:rgba(140,150,180,.1)}
+.theme-fajr .week-divider .wtitle{color:rgba(140,150,180,.3)}
+.theme-fajr .week-divider::after{background:rgba(140,150,180,.06)}
+.theme-fajr .header,.theme-fajr .stats,.theme-fajr .mode-bar,.theme-fajr .theme-bar,.theme-fajr .controls,.theme-fajr .foot{border-color:rgba(140,150,180,.06)}
+.theme-fajr .logo-ar{background:linear-gradient(135deg,#8a9ac0,#b0a080);-webkit-background-clip:text;background-clip:text}
+.theme-fajr .st-n{background:linear-gradient(135deg,#8a9ac0,#b0a080);-webkit-background-clip:text;background-clip:text}
+.theme-fajr .mode-btn.active{background:rgba(140,150,180,.08);border-color:rgba(140,150,180,.15);color:#8a9ac0}
+.theme-fajr .search:focus{border-color:rgba(140,150,180,.2)}
+.theme-fajr .week-btn:hover,.theme-fajr .week-btn.active{background:rgba(140,150,180,.06);border-color:rgba(140,150,180,.12);color:#8a9ac0}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:600px){.grid{grid-template-columns:1fr;padding:12px}.controls{padding:12px}.cal-cell{min-height:60px;padding:4px}.cal-title{display:none}.cal-emoji{font-size:14px}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo-row">
+    <img class="logo-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy">
+    <div><div class="logo-ar">صدى</div><div class="logo-fr">sada</div></div>
+  </div>
+  <h2>📅 Facebook Calendar</h2>
+  <p>84 posts · 12 semaines · Chelles 77500 · <a href="https://workshop-diy.org" target="_blank">workshop-diy.org</a></p>
+</div>
+<div class="stats">
+  <div class="st"><div class="st-n">84</div><div class="st-l">Posts</div></div>
+  <div class="st"><div class="st-n">12</div><div class="st-l">Semaines</div></div>
+  <div class="st"><div class="st-n">7</div><div class="st-l">Posts/sem</div></div>
+  <div class="st"><div class="st-n">46</div><div class="st-l">Apps</div></div>
+</div>
+<div class="mode-bar" id="modeBar"></div>
+<div class="theme-bar" id="themeBar"></div>
+<div class="controls" id="controls"></div>
+<div id="extraZone"></div>
+<div class="grid" id="grid"></div>
+<div class="foot">
+  <div class="f-row">
+    <img class="f-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy">
+    <a href="https://workshop-diy.org" target="_blank">workshop-diy.org</a>
+    <span style="color:var(--dim)">·</span><span class="f-ar">صدى</span><span class="f-fr">sada</span>
+  </div>
+  <div class="f-contact">📞 06 19 51 51 73 · 📧 contact@workshop-diy.org · 📍 Chelles 77500</div>
+</div>
+<script>
+const POSTS=
+[{"week": 1, "weekTitle": "La Grande Intro", "num": 1, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🎬 **Hacker Presentation**\nImagine une présentation qui se lance toute seule comme dans un film de hacker. Séquence de boot, pluie de code Matrix, et un easter egg Konami Code caché 👀\n12 scènes cinématiques. Zéro PowerPoint. 100% navigateur.\n🔗 https://abourdim.github.io/sada/apps/presentations/workshop-diy-hacker-presentation.html\n🌐 workshop-diy.org\n#sada #صدى #Chelles #CodingKids #Presentation"}, {"week": 1, "weekTitle": "La Grande Intro", "num": 2, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **Le saviez-vous ?**\nLe code Konami (⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️🅱️🅰️) fonctionne dans plein de sites web et jeux. C'est un des easter eggs les plus célèbres du monde.\nNotre app Hacker Presentation en a un aussi... à vous de le trouver 😏\n🔗 https://abourdim.github.io/sada/apps/presentations/workshop-diy-hacker-presentation.html\n🌐 workshop-diy.org\n#FunFact #Konami #sada #صدى #Chelles"}, {"week": 1, "weekTitle": "La Grande Intro", "num": 3, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🏴‍☠️ **CTF Quiz — Capture The Flag**\n3 niveaux de difficulté. Questions chronométrées. Bonus de vitesse.\nTu te sens prêt ? Lance le quiz et dis-nous ton score en commentaire 👇\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-ctf-quiz.html\n🌐 workshop-diy.org\n#CTF #Quiz #CodingChallenge #Chelles"}, {"week": 1, "weekTitle": "La Grande Intro", "num": 4, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "💻 **Hacker Terminal**\nUn vrai terminal bash dans ton navigateur. 20+ commandes, auto-complétion, historique. Explore les 39 apps, lance des faux hacks, et sens-toi comme un vrai hacker 🖥️\nTape `help` pour commencer. Tape `hack` si tu oses.\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-hacker-terminal.html\n🌐 workshop-diy.org\n#Terminal #Hacker #CodingKids #sada #صدى"}, {"week": 1, "weekTitle": "La Grande Intro", "num": 5, "day": "Vendredi", "theme": "🎉 Fun", "body": "👻 **La légende du 40ème App**\nIl existe 39 apps dans صدى sada. Mais certains disent qu'il y en a une 40ème... Une app jamais publiée. Des effets glitch. Du texte censuré. Des logs de chat récupérés.\nOuvre-la si tu oses. 🌑\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-creepypasta.html\n🌐 workshop-diy.org\n#Creepypasta #Bug42 #sada #صدى #Chelles"}, {"week": 1, "weekTitle": "La Grande Intro", "num": 6, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🔓 **Escape Room — 6 pièces, 6 énigmes**\nROT13, séquences, conversion binaire, portes logiques, trivia, mots mélangés.\nDéfie ta famille ce weekend. Qui sort en premier ? ⏱️\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-escape-room.html\n🌐 workshop-diy.org\n#EscapeRoom #WeekendProject #Chelles #CodingKids"}, {"week": 1, "weekTitle": "La Grande Intro", "num": 7, "day": "Dimanche", "theme": "📢 Recap Semaine 1", "body": "📊 **Récap Semaine 1**\nCette semaine on a découvert :\n🎬 Hacker Presentation — le cinéma en HTML\n💻 Hacker Terminal — ton terminal de hacker\n🏴‍☠️ CTF Quiz — capture the flag\n👻 The 40th App — la légende\n🔓 Escape Room — 6 énigmes\nSemaine prochaine : on rentre dans les simulations 🕹️\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 2, "weekTitle": "Simulations & Faux-Semblants", "num": 8, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🖥️ **Fake OS Desktop**\nUn faux système d'exploitation rétro. Fenêtres qu'on peut déplacer, menu démarrer, barre des tâches, gestionnaire de fichiers, bloc-notes. Les 39 apps sont des icônes sur le bureau.\nNostalgie Windows 95 + apps du futur 🚀\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-os-desktop.html\n🌐 workshop-diy.org\n#FakeOS #Retro #CodingKids #sada #صدى"}, {"week": 2, "weekTitle": "Simulations & Faux-Semblants", "num": 9, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi un terminal ?**\nAvant les souris et les fenêtres, les ordinateurs n'avaient qu'un écran noir avec du texte. On tapait des commandes pour tout faire.\nAujourd'hui les développeurs utilisent encore le terminal tous les jours. C'est plus rapide qu'une souris pour beaucoup de tâches 💨\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#Terminal #DevTips #sada #صدى #Chelles"}, {"week": 2, "weekTitle": "Simulations & Faux-Semblants", "num": 10, "day": "Mercredi", "theme": "🎮 Challenge", "body": "📕 **Pokédex Challenge**\nNotre Pokédex contient les 39 apps sous forme d'entrées Pokémon. Stats, types, taux de capture, abilités.\nCombien d'apps peux-tu identifier juste avec leur silhouette ? 🔍\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-pokedex.html\n🌐 workshop-diy.org\n#Pokedex #Challenge #CodingKids #Chelles"}, {"week": 2, "weekTitle": "Simulations & Faux-Semblants", "num": 11, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "💬 **Discord Chat**\nUn faux serveur Discord avec des salons, des messages de bots, des extraits de code, des memes, des indicateurs de frappe...\nTout est faux. Tout est fun. Tout est HTML.\n🔗 https://abourdim.github.io/sada/apps/social/workshop-diy-discord-chat.html\n🌐 workshop-diy.org\n#Discord #FakeApp #sada #صدى #Chelles"}, {"week": 2, "weekTitle": "Simulations & Faux-Semblants", "num": 12, "day": "Vendredi", "theme": "🎉 Fun", "body": "🤠 **Wanted Wall**\n\"BIT-BOT : 47 chefs d'accusation de survie à des chutes de bureau\"\nDes affiches de recherche Far West pour chaque app. Punaisées sur un tableau en liège. Chacune avec son crime imaginaire 🏜️\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-wanted-wall.html\n🌐 workshop-diy.org\n#Wanted #Fun #sada #صدى #Chelles"}, {"week": 2, "weekTitle": "Simulations & Faux-Semblants", "num": 13, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🎹 **Synth Visualizer**\nUn synthé jouable dans le navigateur. 4 formes d'onde (sine, square, saw, triangle). 4 modes de visualisation.\nBranche un casque, ouvre l'app, et fais de la musique 🎵\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-synth-visualizer.html\n🌐 workshop-diy.org\n#Synth #Music #WeekendProject #Chelles"}, {"week": 2, "weekTitle": "Simulations & Faux-Semblants", "num": 14, "day": "Dimanche", "theme": "📢 Recap Semaine 2", "body": "📊 **Récap Semaine 2**\n🖥️ Fake OS — Windows 95 en HTML\n💬 Discord Chat — faux serveur, vrais memes\n📕 Pokédex — les apps en mode Pokémon\n🤠 Wanted Wall — avis de recherche\n🎹 Synth Visualizer — ton synthé navigateur\nSemaine 3 : les jeux commencent 🎮\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 3, "weekTitle": "Jeux & Gamification", "num": 15, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🕹️ **Retro Arcade**\nUne borne d'arcade 8-bit. Navigation au joystick, écran de sélection de jeux, high scores, lignes de scan rétro.\nInsert coin to play 🪙\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-arcade.html\n🌐 workshop-diy.org\n#RetroArcade #Gaming #CodingKids #Chelles"}, {"week": 3, "weekTitle": "Jeux & Gamification", "num": 16, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi le pixel art ?**\nLe pixel art c'est dessiner image par image, pixel par pixel. Les jeux des années 80 et 90 étaient tous faits comme ça. Aujourd'hui c'est un style artistique à part entière.\nNos apps Retro Arcade et Card Collection utilisent ce style 🎨\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-arcade.html\n🌐 workshop-diy.org\n#PixelArt #RetroGaming #sada #صدى #Chelles"}, {"week": 3, "weekTitle": "Jeux & Gamification", "num": 17, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🎴 **Card Collection — Ouvre tes packs !**\nCartes à collectionner pour les 39 apps. Niveaux de rareté, stats (Puissance/Complexité/Fun), mécanique d'ouverture de packs.\nCombien de cartes légendaires tu peux obtenir ? 🃏\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-card-collection.html\n🌐 workshop-diy.org\n#CardCollection #Trading #CodingKids #Chelles"}, {"week": 3, "weekTitle": "Jeux & Gamification", "num": 18, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "🌳 **Skill Tree**\nSystème de progression RPG. 5 branches de compétences, 20 succès, barres d'XP, classement avec 15 joueurs.\nLevel up tes compétences tech 📈\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-skill-tree.html\n🌐 workshop-diy.org\n#SkillTree #RPG #Gamification #sada #صدى"}, {"week": 3, "weekTitle": "Jeux & Gamification", "num": 19, "day": "Vendredi", "theme": "🎉 Fun", "body": "🎤 **Rap Battle**\nbit-bot vs docker-lab. 4 rounds de verses. Vote pour ton favori. Applaudimètre du public.\nQui est le meilleur rappeur du Workshop ? 🎙️\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-rap-battle.html\n🌐 workshop-diy.org\n#RapBattle #Fun #sada #صدى #Chelles"}, {"week": 3, "weekTitle": "Jeux & Gamification", "num": 20, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🎯 **Workshop Bingo**\n\"Le robot tombe de la table\" ✅\n\"Quelqu'un mentionne le mot de passe WiFi\" ✅\n\"Bug #42 frappe encore\" ✅\nImprime la carte, joue en famille 🏠\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-bingo.html\n🌐 workshop-diy.org\n#Bingo #WeekendProject #Chelles #sada #صدى"}, {"week": 3, "weekTitle": "Jeux & Gamification", "num": 21, "day": "Dimanche", "theme": "📢 Recap Semaine 3", "body": "📊 **Récap Semaine 3**\n🕹️ Retro Arcade — borne d'arcade 8-bit\n🎴 Card Collection — cartes à collectionner\n🌳 Skill Tree — progression RPG\n🎤 Rap Battle — apps au micro\n🎯 Workshop Bingo — le fun en famille\nSemaine 4 : dashboards et profils 📊\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 4, "weekTitle": "Dashboards & Profils", "num": 22, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "📡 **Live Monitor**\nTableau de bord de monitoring en temps réel. Graphiques animés, flux d'activité, grille de statut des apps, indicateur de niveau de menace.\nOn se croirait dans un film d'espionnage 🕵️\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-live-monitor.html\n🌐 workshop-diy.org\n#Dashboard #Monitor #CodingKids #sada #صدى"}, {"week": 4, "weekTitle": "Dashboards & Profils", "num": 23, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi un dashboard ?**\nUn dashboard (tableau de bord) affiche des données importantes en un coup d'œil. Les entreprises les utilisent pour suivre les ventes, le trafic web, les performances.\nNotre Live Monitor simule un vrai dashboard de cybersécurité 🛡️\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-live-monitor.html\n🌐 workshop-diy.org\n#Dashboard #DataViz #sada #صدى #Chelles"}, {"week": 4, "weekTitle": "Dashboards & Profils", "num": 24, "day": "Mercredi", "theme": "🎮 Challenge", "body": "✨ **Tech Zodiac — Quel app es-tu ?**\n12 signes du zodiaque tech avec traits, stats, compatibilité.\nFais le quiz et partage ton résultat en commentaire ! ♈♉♊\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-zodiac.html\n🌐 workshop-diy.org\n#TechZodiac #Quiz #Fun #Chelles"}, {"week": 4, "weekTitle": "Dashboards & Profils", "num": 25, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "🐙 **GitHub Profile**\nFausse page d'organisation GitHub. Graphique de contributions, repos épinglés, les 39 apps en tant que repositories avec stars et forks.\nPour se sentir comme un vrai dev open-source 💻\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-github-profile.html\n🌐 workshop-diy.org\n#GitHub #OpenSource #CodingKids #sada #صدى"}, {"week": 4, "weekTitle": "Dashboards & Profils", "num": 26, "day": "Vendredi", "theme": "🎉 Fun", "body": "💼 **LinkedIn Profile**\nUn faux profil LinkedIn pro en mode sombre. Expérience, compétences, endorsements, posts, recommandations.\nصدى sada, le professionnel le plus connecté du 77 😎\n🔗 https://abourdim.github.io/sada/apps/social/workshop-diy-linkedin.html\n🌐 workshop-diy.org\n#LinkedIn #Fake #Fun #sada #صدى #Chelles"}, {"week": 4, "weekTitle": "Dashboards & Profils", "num": 27, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "📐 **Blueprints**\nPlans techniques : schéma de kit robot, circuits, pinouts ESP32, cartes d'architecture.\nImprime-les et construis ton propre projet ce weekend 🔧\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-blueprints.html\n🌐 workshop-diy.org\n#Blueprints #Hardware #WeekendProject #Chelles"}, {"week": 4, "weekTitle": "Dashboards & Profils", "num": 28, "day": "Dimanche", "theme": "📢 Recap Semaine 4", "body": "📊 **Récap Semaine 4**\n📡 Live Monitor — dashboard cybersécurité\n🐙 GitHub Profile — page d'organisation\n💼 LinkedIn Profile — le pro du 77\n📐 Blueprints — plans techniques\n✨ Tech Zodiac — quel app es-tu ?\nSemaine 5 : découvertes et exploration 🔍\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 5, "weekTitle": "Découverte & Exploration", "num": 29, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🔥 **App Matcher**\nTinder pour les apps. Pile de cartes, physique de glissement, écran de match avec confetti.\nSwipe à droite sur tes apps préférées 💘\n🔗 https://abourdim.github.io/sada/apps/marketing/workshop-diy-app-match.html\n🌐 workshop-diy.org\n#AppMatcher #Swipe #Fun #sada #صدى"}, {"week": 5, "weekTitle": "Découverte & Exploration", "num": 30, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi le Capture The Flag ?**\nEn cybersécurité, un CTF est une compétition où tu dois résoudre des énigmes pour trouver des \"flags\" (drapeaux). C'est la meilleure façon d'apprendre la sécurité informatique en s'amusant.\nNotre CTF Quiz simule l'expérience pour les débutants 🏴‍☠️\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-ctf-quiz.html\n🌐 workshop-diy.org\n#CTF #Cybersecurity #sada #صدى #Chelles"}, {"week": 5, "weekTitle": "Découverte & Exploration", "num": 31, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🎰 **Lucky Draw**\nMachine à sous de casino. Tire le levier, fais tourner les 3 rouleaux, matche des apps pour le jackpot 🎰💰\nCombien de tours avant le jackpot ? Dis-nous en commentaire 👇\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-slot-machine.html\n🌐 workshop-diy.org\n#LuckyDraw #SlotMachine #Fun #Chelles"}, {"week": 5, "weekTitle": "Découverte & Exploration", "num": 32, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "📱 **App Store**\nFaux App Store style Apple. Bannière featured, filtres de catégories, classements, notes étoilées, avis d'utilisateurs. Interface mobile.\nNotre propre store pour nos propres apps 📲\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-app-store.html\n🌐 workshop-diy.org\n#AppStore #Apple #CodingKids #sada #صدى"}, {"week": 5, "weekTitle": "Découverte & Exploration", "num": 33, "day": "Vendredi", "theme": "🎉 Fun", "body": "⚖️ **Trial of Bug #42**\nBug #42 est en procès. Est-ce un bug ou une feature ? Témoins, plaidoiries, verdict.\nVERDICT : NON COUPABLE ⚖️\nLe jury a parlé.\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-trial.html\n🌐 workshop-diy.org\n#Bug42 #Trial #Fun #sada #صدى #Chelles"}, {"week": 5, "weekTitle": "Découverte & Exploration", "num": 34, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🎨 **Sticker Sheet**\n18 stickers d'apps, 10 badges hexagonaux, 12 tags de compétences, 8 stickers memes.\nScreenshot, imprime, découpe, colle partout 🏠📒\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-sticker-sheet.html\n🌐 workshop-diy.org\n#Stickers #Printable #WeekendProject #Chelles"}, {"week": 5, "weekTitle": "Découverte & Exploration", "num": 35, "day": "Dimanche", "theme": "📢 Recap Semaine 5", "body": "📊 **Récap Semaine 5**\n🔥 App Matcher — swipe tes apps\n📱 App Store — notre propre store\n⚖️ Trial of Bug #42 — le procès du siècle\n🎰 Lucky Draw — jackpot !\n🎨 Sticker Sheet — imprime et colle\nSemaine 6 : science et référence 🔬\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 6, "weekTitle": "Science & Référence", "num": 36, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🧪 **Periodic Table**\nLes 39 apps arrangées comme les éléments du tableau périodique. Symboles, numéros atomiques, couleurs par catégorie.\nLa chimie rencontre le code 🧬\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-periodic-table.html\n🌐 workshop-diy.org\n#PeriodicTable #Science #CodingKids #sada #صدى"}, {"week": 6, "weekTitle": "Science & Référence", "num": 37, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi le binaire ?**\nLes ordinateurs ne comprennent que deux chiffres : 0 et 1. Tout — texte, images, vidéos, jeux — est stocké en binaire.\nLe chiffre 42 en binaire ? C'est 101010. Et oui, c'est la réponse à tout 🌌\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#Binary #ComputerScience #sada #صدى #Chelles"}, {"week": 6, "weekTitle": "Science & Référence", "num": 38, "day": "Mercredi", "theme": "🎮 Challenge", "body": "💚 **AppMatch — Version Dating**\nSwipe à droite sur tes apps préférées. Obtiens des matchs avec confetti. Parodie d'app de dating version tech.\nTon app soulmate t'attend 💚\n🔗 https://abourdim.github.io/sada/apps/marketing/workshop-diy-app-match.html\n🌐 workshop-diy.org\n#AppMatch #Dating #Fun #Chelles"}, {"week": 6, "weekTitle": "Science & Référence", "num": 39, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "🕵️ **Classified Dossier**\nDocuments classifiés style CIA pour chaque app. Texte censuré, tampons, noms de code, niveaux de menace. Clique pour révéler.\nTOP SECRET 🔒\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-classified-dossier.html\n🌐 workshop-diy.org\n#Classified #Spy #CodingKids #sada #صدى"}, {"week": 6, "weekTitle": "Science & Référence", "num": 40, "day": "Vendredi", "theme": "🎉 Fun", "body": "👨‍🍳 **WKSHP Cookbook**\nRecettes tech sous forme d'instructions de cuisine :\n- 🤖 Robot Controller : 200g de Bluetooth, 1 pincée d'accéléromètre\n- 🧠 AI Gesture Model : faire mijoter 500ms de TensorFlow\n- 🌶️ Spicy Pentest : ajouter du nmap à volonté\nBon appétit 👨‍🍳\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-cookbook.html\n🌐 workshop-diy.org\n#Cookbook #Tech #Fun #sada #صدى #Chelles"}, {"week": 6, "weekTitle": "Science & Référence", "num": 41, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🕸️ **Network Map**\nGraphe physique de toutes les apps. Nœuds déplaçables, filtres de catégories, panneau de détail, générateur de carte de membre.\nExplore les connexions entre les apps ce weekend 🔗\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-network-map.html\n🌐 workshop-diy.org\n#NetworkMap #Graph #WeekendProject #Chelles"}, {"week": 6, "weekTitle": "Science & Référence", "num": 42, "day": "Dimanche", "theme": "📢 Recap Semaine 6", "body": "📊 **Récap Semaine 6**\n🧪 Periodic Table — la chimie du code\n🕵️ Classified Dossier — TOP SECRET\n👨‍🍳 WKSHP Cookbook — recettes tech\n💚 AppMatch — ton app soulmate\n🕸️ Network Map — connexions\nMi-parcours ! 6 semaines de fait, 6 à venir 🎯\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 7, "weekTitle": "Médias & Communication", "num": 43, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "📺 **Breaking News**\nJournal télévisé avec ticker défilant, alertes breaking, bandeaux, reportages rotatifs sur صدى sada.\n\"BREAKING: Bug #42 aperçu dans la cafétéria\" 📡\n🔗 https://abourdim.github.io/sada/apps/presentations/workshop-diy-breaking-news.html\n🌐 workshop-diy.org\n#BreakingNews #TV #CodingKids #sada #صدى"}, {"week": 7, "weekTitle": "Médias & Communication", "num": 44, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi une API ?**\nAPI = Application Programming Interface. C'est la façon dont les apps se parlent entre elles.\nQuand tu postes sur Instagram et que ça apparaît aussi sur Facebook, c'est grâce à une API 🔌\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#API #DevTips #sada #صدى #Chelles"}, {"week": 7, "weekTitle": "Médias & Communication", "num": 45, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🔓 **Escape Room — Défi Famille**\n6 pièces. 6 types d'énigmes différents. Chronomètre.\nCe mercredi, enferme-toi (virtuellement) et essaie de sortir 🔑\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-escape-room.html\n🌐 workshop-diy.org\n#EscapeRoom #Challenge #Famille #Chelles"}, {"week": 7, "weekTitle": "Médias & Communication", "num": 46, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "📰 **WKSHP Daily**\nJournal grand format avec gros titres, colonnes, petites annonces, météo, éditorial.\n\"WKSHP Daily — Toute l'actualité du Workshop depuis 2025\" 📰\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-newspaper.html\n🌐 workshop-diy.org\n#Newspaper #Media #CodingKids #sada #صدى"}, {"week": 7, "weekTitle": "Médias & Communication", "num": 47, "day": "Vendredi", "theme": "🎉 Fun", "body": "🔴 **Reddit Thread**\nFaux subreddit r/WorkshopDIY. 7 posts, upvotes, awards, commentaires, flairs.\n\"u/bug42_fanboy: Am I the only one who thinks Bug #42 did nothing wrong?\"\n🔗 https://abourdim.github.io/sada/apps/social/workshop-diy-reddit.html\n🌐 workshop-diy.org\n#Reddit #Community #Fun #sada #صدى #Chelles"}, {"week": 7, "weekTitle": "Médias & Communication", "num": 48, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "📱 **Social Media Kit**\nTemplates de réseaux sociaux et calendrier de contenu pour promouvoir صدى sada.\nUtilise ces templates pour créer tes propres posts 📱\n🔗 https://abourdim.github.io/sada/apps/marketing/workshop-diy-social-media-kit.html\n🌐 workshop-diy.org\n#SocialMedia #Marketing #WeekendProject #Chelles"}, {"week": 7, "weekTitle": "Médias & Communication", "num": 49, "day": "Dimanche", "theme": "📢 Recap Semaine 7", "body": "📊 **Récap Semaine 7**\n📺 Breaking News — le JT du Workshop\n📰 WKSHP Daily — le journal\n🔴 Reddit Thread — la communauté\n📱 Social Media Kit — tes propres posts\n🔓 Escape Room — défi famille\nSemaine 8 : l'espace et les missions 🚀\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 8, "weekTitle": "Espace & Missions", "num": 50, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🚀 **NASA Control**\nContrôle de mission spatiale : panneaux de télémétrie, statut d'équipage, log de communications, patchs de mission, compte à rebours.\nHouston, we have an app 🌕\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-nasa-control.html\n🌐 workshop-diy.org\n#NASA #Space #CodingKids #sada #صدى"}, {"week": 8, "weekTitle": "Espace & Missions", "num": 51, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi la télémétrie ?**\nLa télémétrie c'est mesurer des données à distance. La NASA l'utilise pour surveiller les astronautes et les fusées en temps réel.\nNos apps Live Monitor et NASA Control simulent des vrais dashboards de télémétrie 📡\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-live-monitor.html\n🌐 workshop-diy.org\n#Telemetry #Space #sada #صدى #Chelles"}, {"week": 8, "weekTitle": "Espace & Missions", "num": 52, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🚀 **Space Mission — Décompte**\nCompte à rebours. Carte orbitale. Télémétrie. Séquence de lancement.\n3... 2... 1... 🔥🚀\nLance la mission et dis-nous si tu as réussi l'insertion orbitale 🌍\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-space-mission.html\n🌐 workshop-diy.org\n#SpaceMission #Countdown #Challenge #Chelles"}, {"week": 8, "weekTitle": "Espace & Missions", "num": 53, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "✈️ **Departures Board**\nPanneau d'aéroport à volets battants. Vols vers Robotics Island, AI Mountain, Cyber Fortress. Statut en direct.\n\"Vol WK-042 vers Bug Island : RETARDÉ\" ✈️\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-departures.html\n🌐 workshop-diy.org\n#Airport #SplitFlap #CodingKids #sada #صدى"}, {"week": 8, "weekTitle": "Espace & Missions", "num": 54, "day": "Vendredi", "theme": "🎉 Fun", "body": "🌡️ **WKSHP Weather**\nLa météo du Workshop. Climat du code, vibe check, prévisions 7 jours, radar d'activité.\n\"Aujourd'hui : 22°C de motivation, risque d'orage de bugs l'après-midi\" ☀️🐛\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-weather.html\n🌐 workshop-diy.org\n#Weather #Fun #sada #صدى #Chelles"}, {"week": 8, "weekTitle": "Espace & Missions", "num": 55, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🌟 **Genius Video**\n9 scènes cinématiques avec parallaxe, effets de particules et transitions fluides.\nOuvre l'app et laisse-toi emporter par le spectacle 🍿\n🔗 https://abourdim.github.io/sada/apps/presentations/workshop-diy-genius-video.html\n🌐 workshop-diy.org\n#GeniusVideo #Cinema #WeekendProject #Chelles"}, {"week": 8, "weekTitle": "Espace & Missions", "num": 56, "day": "Dimanche", "theme": "📢 Recap Semaine 8", "body": "📊 **Récap Semaine 8**\n🚀 NASA Control — Houston we have an app\n✈️ Departures Board — vols vers le futur\n🚀 Space Mission — 3, 2, 1, liftoff\n🌡️ WKSHP Weather — météo tech\n🌟 Genius Video — le cinéma HTML\nSemaine 9 : ambiance et atmosphère 🌧️\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 9, "weekTitle": "Ambiance & Atmosphère", "num": 57, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🌧️ **Ambient Screen**\nÉcran de veille Matrix avec emojis d'apps flottants, stats et citations en rotation. Double-clic pour plein écran.\nParfait pour les événements et les displays 🖥️\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-ambient-screen.html\n🌐 workshop-diy.org\n#Ambient #Matrix #Screensaver #sada #صدى"}, {"week": 9, "weekTitle": "Ambiance & Atmosphère", "num": 58, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi le Web Audio API ?**\nLe Web Audio API permet de créer et manipuler du son directement dans le navigateur. Synthèse, effets, visualisation — tout en JavaScript.\nNotre Synth Visualizer utilise cette technologie pour créer un vrai synthé jouable 🎵\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-synth-visualizer.html\n🌐 workshop-diy.org\n#WebAudio #JavaScript #sada #صدى #Chelles"}, {"week": 9, "weekTitle": "Ambiance & Atmosphère", "num": 59, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🏴‍☠️ **CTF Quiz — Mode Difficile**\nTu as essayé le mode facile en semaine 1. Maintenant tente le mode difficile 💀\nQuestions plus dures. Timer plus court. Bonus de vitesse plus élevé.\nTon meilleur score en commentaire 👇\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-ctf-quiz.html\n🌐 workshop-diy.org\n#CTF #HardMode #Challenge #Chelles"}, {"week": 9, "weekTitle": "Ambiance & Atmosphère", "num": 60, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "🖥️ **Boot Sequence**\nÉcran BIOS POST : test mémoire, détection des périphériques, barre de progression du chargement, messages kernel, invite de login.\nLe démarrage d'un ordinateur, version صدى sada 💾\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-boot-sequence.html\n🌐 workshop-diy.org\n#BIOS #Boot #Retro #sada #صدى"}, {"week": 9, "weekTitle": "Ambiance & Atmosphère", "num": 61, "day": "Vendredi", "theme": "🎉 Fun", "body": "⏳ **Loading Screens**\n6 écrans de chargement animés : terminal, radar, pulse, décryptage hex, diagnostics, compilation.\nMets-en un en fond pendant que tu travailles. Tes collègues seront impressionnés 😎\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-loading-screens.html\n🌐 workshop-diy.org\n#LoadingScreens #Animation #Fun #sada #صدى #Chelles"}, {"week": 9, "weekTitle": "Ambiance & Atmosphère", "num": 62, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🎹 **Synth Visualizer Remix**\nReprends le Synth Visualizer de la semaine 2 et essaie toutes les combinaisons :\n- 4 formes d'onde × 4 modes visuels = 16 combinaisons\nQuelle est ta combo préférée ? 🎼\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-synth-visualizer.html\n🌐 workshop-diy.org\n#Synth #Remix #WeekendProject #Chelles"}, {"week": 9, "weekTitle": "Ambiance & Atmosphère", "num": 63, "day": "Dimanche", "theme": "📢 Recap Semaine 9", "body": "📊 **Récap Semaine 9**\n🌧️ Ambient Screen — Matrix vibes\n🖥️ Boot Sequence — BIOS rétro\n⏳ Loading Screens — 6 animations\n🏴‍☠️ CTF Hard Mode — pour les braves\n🎹 Synth Remix — 16 combos\nSemaine 10 : communauté et social 👥\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 10, "weekTitle": "Communauté & Social", "num": 64, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "💬 **Testimonials**\nMur de témoignages. 16 avis d'élèves, parents, enseignants, makers. Notes étoilées, filtres, grille masonry.\n\"Mon fils n'arrête pas de parler de robots depuis l'atelier\" ⭐⭐⭐⭐⭐\n🔗 https://abourdim.github.io/sada/apps/marketing/workshop-diy-testimonials.html\n🌐 workshop-diy.org\n#Testimonials #Community #sada #صدى #Chelles"}, {"week": 10, "weekTitle": "Communauté & Social", "num": 65, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **C'est quoi l'open source ?**\nL'open source c'est du code partagé gratuitement. N'importe qui peut le lire, l'utiliser, le modifier.\nصدى sada est 100% open source sur GitHub. Tu peux voir tout le code de chaque app 🐙\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#OpenSource #GitHub #sada #صدى #Chelles"}, {"week": 10, "weekTitle": "Communauté & Social", "num": 66, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🔥 **App Matcher — Speed Run**\nSwipe les 39 apps le plus vite possible. Chrono toi et partage ton temps 🏃💨\n🔗 https://abourdim.github.io/sada/apps/marketing/workshop-diy-app-match.html\n🌐 workshop-diy.org\n#SpeedRun #Challenge #Fun #Chelles"}, {"week": 10, "weekTitle": "Communauté & Social", "num": 67, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "📊 **Wrapped 2025**\nRécap annuel style Spotify Wrapped. Slides à swiper avec stats animées, top apps, progression des compétences.\nTon année Workshop en chiffres 📈\n🔗 https://abourdim.github.io/sada/apps/presentations/workshop-diy-wrapped-2025.html\n🌐 workshop-diy.org\n#Wrapped #2025 #CodingKids #sada #صدى"}, {"week": 10, "weekTitle": "Communauté & Social", "num": 68, "day": "Vendredi", "theme": "🎉 Fun", "body": "💡 **Genius Ideas Lab**\n10 concepts vidéo créatifs avec storyboards, listes de plans et notes de production.\nDes idées de contenu pour des mois 🎥\n🔗 https://abourdim.github.io/sada/apps/marketing/workshop-diy-genius-ideas-lab.html\n🌐 workshop-diy.org\n#IdeasLab #Creative #Fun #sada #صدى #Chelles"}, {"week": 10, "weekTitle": "Communauté & Social", "num": 69, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "📱 **App Demo Reel**\nFlipper de cartes interactif. Auto-play avec filtres de catégories et badges.\nDécouvre une app que tu n'as pas encore essayée ce weekend 🃏\n🔗 https://abourdim.github.io/sada/apps/marketing/workshop-diy-app-demo-reel.html\n🌐 workshop-diy.org\n#DemoReel #Discovery #WeekendProject #Chelles"}, {"week": 10, "weekTitle": "Communauté & Social", "num": 70, "day": "Dimanche", "theme": "📢 Recap Semaine 10", "body": "📊 **Récap Semaine 10**\n💬 Testimonials — 16 vrais avis\n📊 Wrapped 2025 — ton année en chiffres\n💡 Genius Ideas Lab — 10 concepts vidéo\n🔥 App Matcher — speed run\n📱 App Demo Reel — découverte\n2 semaines restantes ! Le final approche 🔥\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 11, "weekTitle": "Les Originaux", "num": 71, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🎬 **Hacker Presentation — Rewatch**\nRetour sur la toute première app. 12 scènes cinématiques. As-tu trouvé l'easter egg Konami depuis ? 🤔\nSi non, essaie maintenant : ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️🅱️🅰️\n🔗 https://abourdim.github.io/sada/apps/presentations/workshop-diy-hacker-presentation.html\n🌐 workshop-diy.org\n#HackerPresentation #EasterEgg #sada #صدى"}, {"week": 11, "weekTitle": "Les Originaux", "num": 72, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **Comment créer une app HTML ?**\nToutes les apps صدى sada sont faites avec 3 fichiers :\n- `index.html` → la structure\n- `style.css` → le design\n- `app.js` → le comportement\nC'est tout. Pas de framework. Pas de serveur. Juste un navigateur 🌐\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#HTML #CSS #JavaScript #sada #صدى #Chelles"}, {"week": 11, "weekTitle": "Les Originaux", "num": 73, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🌳 **Skill Tree — Max Level**\nReviens sur le Skill Tree. Débloquer les 20 succès. Remplir les 5 branches.\nQui atteint le max level en premier ? 🏆\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-skill-tree.html\n🌐 workshop-diy.org\n#SkillTree #MaxLevel #Challenge #Chelles"}, {"week": 11, "weekTitle": "Les Originaux", "num": 74, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "📡 **Live Monitor — Deep Dive**\nReviens sur le dashboard. Cette fois, explore chaque panneau en détail. Le flux d'activité cache des messages secrets 🔍\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-live-monitor.html\n🌐 workshop-diy.org\n#LiveMonitor #DeepDive #CodingKids #sada #صدى"}, {"week": 11, "weekTitle": "Les Originaux", "num": 75, "day": "Vendredi", "theme": "🎉 Fun", "body": "🌡️ **WKSHP Weather — Prévision du weekend**\n\"Samedi : 24°C de créativité, vent de code de force 3\"\n\"Dimanche : nuageux avec éclaircies de bugs corrigés\"\nBonne fin de semaine ! ☀️\n🔗 https://abourdim.github.io/sada/apps/themed/workshop-diy-weather.html\n🌐 workshop-diy.org\n#Weather #Fun #sada #صدى #Chelles"}, {"week": 11, "weekTitle": "Les Originaux", "num": 76, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🔓 **Escape Room — All 6 Rooms**\nDernier chance de battre les 6 pièces. Ce weekend, chronomètre-toi sur les 6.\nRecord à battre : 4 minutes 32 ⏱️\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-escape-room.html\n🌐 workshop-diy.org\n#EscapeRoom #FinalChallenge #WeekendProject #Chelles"}, {"week": 11, "weekTitle": "Les Originaux", "num": 77, "day": "Dimanche", "theme": "📢 Recap Semaine 11", "body": "📊 **Récap Semaine 11**\n🎬 Hacker Presentation — rewatch + easter egg\n📡 Live Monitor — messages cachés\n🌳 Skill Tree — max level challenge\n🔓 Escape Room — record à battre\n🌡️ WKSHP Weather — prévision fun\nDernière semaine ! Le grand final 🎆\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Recap #Chelles"}, {"week": 12, "weekTitle": "Le Grand Final", "num": 78, "day": "Lundi", "theme": "🚀 App Spotlight", "body": "🧪 **Periodic Table — L'Encyclopédie**\nToutes les apps. Tous les éléments. Une seule table.\nL'app parfaite pour tout découvrir d'un coup d'œil 🔬\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-periodic-table.html\n🌐 workshop-diy.org\n#PeriodicTable #Encyclopedia #sada #صدى"}, {"week": 12, "weekTitle": "Le Grand Final", "num": 79, "day": "Mardi", "theme": "🎓 Tips & Learn", "body": "💡 **Les chiffres de صدى sada**\n🔢 46 apps créées\n📄 564 fichiers HTML\n🌍 3 langues (EN/FR/AR)\n🆓 100% gratuit et open source\n👨‍💻 Fait à Chelles, 77500\nMerci d'avoir suivi cette aventure 🙏\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #Stats #Chelles"}, {"week": 12, "weekTitle": "Le Grand Final", "num": 80, "day": "Mercredi", "theme": "🎮 Challenge", "body": "🏴‍☠️ **CTF Quiz — Mode Ultime**\nLe dernier défi. Toutes les questions. Timer au minimum. Pas de seconde chance.\nLe score ultime en commentaire 🏆\n🔗 https://abourdim.github.io/sada/apps/games/workshop-diy-ctf-quiz.html\n🌐 workshop-diy.org\n#CTF #Ultimate #FinalChallenge #Chelles"}, {"week": 12, "weekTitle": "Le Grand Final", "num": 81, "day": "Jeudi", "theme": "🚀 App Spotlight", "body": "📱 **App Store — Parcours Complet**\nVisite le store une dernière fois. 46 apps. Notes, avis, catégories.\nQuelle app est ta préférée de ces 12 semaines ? 💬\n🔗 https://abourdim.github.io/sada/apps/interactive/workshop-diy-app-store.html\n🌐 workshop-diy.org\n#AppStore #Final #sada #صدى"}, {"week": 12, "weekTitle": "Le Grand Final", "num": 82, "day": "Vendredi", "theme": "🎉 Fun", "body": "⚖️ **Verdict Final : Bug #42**\nAprès 12 semaines, le verdict reste le même :\nBug #42 est innocent. C'est une feature. ⚖️\nMerci à tous les jurés 👨‍⚖️\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#Bug42 #NotGuilty #sada #صدى #Chelles"}, {"week": 12, "weekTitle": "Le Grand Final", "num": 83, "day": "Samedi", "theme": "🛠️ Weekend Project", "body": "🎨 **Sticker Sheet — Imprime Ta Collection**\nDernière chance d'imprimer ta collection complète de stickers. 48 designs au total.\nLe cadeau parfait pour finir les 12 semaines 🎁\n🔗 https://abourdim.github.io/sada/apps/dashboards/workshop-diy-sticker-sheet.html\n🌐 workshop-diy.org\n#Stickers #Collection #FinalWeekend #Chelles"}, {"week": 12, "weekTitle": "Le Grand Final", "num": 84, "day": "Dimanche", "theme": "📢 Recap Final", "body": "🎆 **Récap Final — 12 Semaines de صدى sada**\n84 posts. 46 apps. 12 semaines.\nDu Hacker Terminal au Periodic Table.\nDes Rap Battles aux missions NASA.\nDes Escape Rooms aux recettes tech.\nMerci Chelles. Merci à vous. C'est que le début 🚀\n📦 Tout est dispo sur abourdim.github.io/sada\n💻 Code source sur github.com/abourdim\n📞 06 19 51 51 73\nÀ bientôt pour la saison 2 ! 🎬\n*صدى sada · Facebook Calendar · 84 posts · 12 weeks · March 2026*\n*Chelles 77500 · abourdim.github.io/sada · contact@workshop-diy.org*\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n#sada #صدى #GrandFinal #Chelles #12Semaines #MerciChelles"}];
+const APP_MAP={
+  "Hacker Presentation":"apps/presentations/workshop-diy-hacker-presentation.html",
+  "Hacker Terminal":"apps/interactive/workshop-diy-hacker-terminal.html",
+  "CTF Quiz":"apps/games/workshop-diy-ctf-quiz.html",
+  "Retro Arcade":"apps/games/workshop-diy-arcade.html",
+  "Escape Room":"apps/games/workshop-diy-escape-room.html",
+  "Discord Chat":"apps/social/workshop-diy-discord-chat.html",
+  "Fake OS Desktop":"apps/interactive/workshop-diy-os-desktop.html",
+  "Network Map":"apps/interactive/workshop-diy-network-map.html",
+  "Classified Dossier":"apps/themed/workshop-diy-classified-dossier.html",
+  "App Store":"apps/interactive/workshop-diy-app-store.html",
+  "Reddit Thread":"apps/social/workshop-diy-reddit.html",
+  "Trial of Bug #42":"apps/themed/workshop-diy-trial.html",
+  "Departures Board":"apps/themed/workshop-diy-departures.html",
+  "Space Mission":"apps/themed/workshop-diy-space-mission.html",
+  "Genius Video":"apps/presentations/workshop-diy-genius-video.html",
+  "Wrapped 2025":"apps/presentations/workshop-diy-wrapped-2025.html",
+  "Breaking News":"apps/presentations/workshop-diy-breaking-news.html",
+  "App Demo Reel":"apps/marketing/workshop-diy-app-demo-reel.html",
+  "Boot Sequence":"apps/interactive/workshop-diy-boot-sequence.html",
+  "Card Collection":"apps/dashboards/workshop-diy-card-collection.html",
+  "Skill Tree":"apps/dashboards/workshop-diy-skill-tree.html",
+  "App Matcher":"apps/marketing/workshop-diy-app-match.html",
+  "AppMatch":"apps/marketing/workshop-diy-app-match.html",
+  "Tech Zodiac":"apps/themed/workshop-diy-zodiac.html",
+  "Workshop Bingo":"apps/games/workshop-diy-bingo.html",
+  "Rap Battle":"apps/themed/workshop-diy-rap-battle.html",
+  "Lucky Draw":"apps/games/workshop-diy-slot-machine.html",
+  "Pokédex":"apps/themed/workshop-diy-pokedex.html",
+  "Live Monitor":"apps/dashboards/workshop-diy-live-monitor.html",
+  "GitHub Profile":"apps/dashboards/workshop-diy-github-profile.html",
+  "Blueprints":"apps/dashboards/workshop-diy-blueprints.html",
+  "Periodic Table":"apps/dashboards/workshop-diy-periodic-table.html",
+  "Testimonials":"apps/marketing/workshop-diy-testimonials.html",
+  "Sticker Sheet":"apps/dashboards/workshop-diy-sticker-sheet.html",
+  "LinkedIn Profile":"apps/social/workshop-diy-linkedin.html",
+  "NASA Control":"apps/interactive/workshop-diy-nasa-control.html",
+  "Social Media Kit":"apps/marketing/workshop-diy-social-media-kit.html",
+  "Genius Ideas Lab":"apps/marketing/workshop-diy-genius-ideas-lab.html",
+  "WKSHP Weather":"apps/themed/workshop-diy-weather.html",
+  "WKSHP Cookbook":"apps/themed/workshop-diy-cookbook.html",
+  "WKSHP Daily":"apps/themed/workshop-diy-newspaper.html",
+  "Wanted Wall":"apps/themed/workshop-diy-wanted-wall.html",
+  "Ambient Screen":"apps/interactive/workshop-diy-ambient-screen.html",
+  "Synth Visualizer":"apps/dashboards/workshop-diy-synth-visualizer.html",
+  "Loading Screens":"apps/interactive/workshop-diy-loading-screens.html",
+  "La légende du 40ème App":"apps/themed/workshop-diy-creepypasta.html"
+};
+
+const BASE="https://abourdim.github.io/sada";
+const VIEW_MODES=[{id:'classique',icon:'📋',label:'Classique'},{id:'social',icon:'📱',label:'Social'},{id:'parent',icon:'👨\u200d👩\u200d👧',label:'Parents'},{id:'maker',icon:'🛠️',label:'Maker'},{id:'calendrier',icon:'📅',label:'Calendrier'}];
+const THEMES=[{id:'default',label:'Default',gradient:'linear-gradient(135deg,#14b8a6,#6366f1)'},{id:'islamic',label:'Islamic',gradient:'linear-gradient(135deg,#c9a45c,#10b981)'},{id:'calligraphy',label:'Calligraphie',gradient:'linear-gradient(135deg,#c8a860,#1a1610)'},{id:'medina',label:'Médina',gradient:'linear-gradient(135deg,#d4a040,#1a1208)'},{id:'andalous',label:'Andalous',gradient:'linear-gradient(135deg,#3b82f6,#c9a45c)'},{id:'noor',label:'Noor',gradient:'linear-gradient(135deg,#78b464,#0e1a10)'},{id:'fajr',label:'Fajr',gradient:'linear-gradient(135deg,#8a9ac0,#121418)'}];
+const THEME_MAP={'App Spotlight':'spotlight','Tips & Learn':'learn','Challenge':'challenge','Fun':'fun','Weekend Project':'weekend','Recap':'recap'};
+const THEME_LABELS={'spotlight':'🚀 Spotlight','learn':'🎓 Apprendre','challenge':'🎮 Défi','fun':'🎉 Fun','weekend':'🛠️ Projet','recap':'📢 Récap'};
+const PARENT_HOOKS={'spotlight':['Votre enfant découvrira','Une app que votre enfant peut explorer','Regardez ce que nos élèves créent'],'learn':['Ce que votre enfant apprendra','Une compétence concrète pour votre enfant','Saviez-vous que votre enfant peut apprendre ça ?'],'challenge':['Un défi ludique pour votre enfant','Votre enfant peut-il relever ce défi ?','Stimulez la curiosité de votre enfant'],'fun':["L'apprentissage peut être fun",'Votre enfant va adorer','Du fun intelligent pour votre enfant'],'weekend':['Un projet à faire en famille ce weekend','Activité parent-enfant du weekend','Construisez ensemble ce weekend'],'recap':['Le résumé de la semaine','Ce que votre enfant a exploré cette semaine','Les progrès de la semaine']};
+const TECH_STACK=['HTML','CSS','JS','Web Bluetooth','Canvas','SVG','Web Audio','CSS Grid','Flexbox','Animation','localStorage','Fetch API'];
+let currentView='classique',currentTheme='default',activeWeek=0,calMonth=0;
+function findAppFile(b){for(const[n,f]of Object.entries(APP_MAP)){if(b.includes(n))return{name:n,file:f}}return null}
+function getThemeKey(t){for(const[k,v]of Object.entries(THEME_MAP)){if(t.includes(k))return v}return'spotlight'}
+function getHeroEmoji(b){const m=b.match(/^(\S+)/);return m?m[1]:'📌'}
+function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function formatBody(b){let h=b.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');h=h.replace(/🔗\s*(https:\/\/[^\s<]+)/g,'🔗 <a style="color:var(--teal);font-size:11px;text-decoration:none" href="$1" target="_blank">$1</a>');h=h.replace(/🌐\s*(workshop-diy\.org)/g,'🌐 <a style="color:rgba(255,255,255,.3);font-size:11px;text-decoration:none" href="https://workshop-diy.org" target="_blank">$1</a>');h=h.replace(/(#\w+)/g,'<span style="color:rgba(20,184,166,.35)">$1</span>');return h}
+function copyPost(btn,t){navigator.clipboard.writeText(t).then(()=>{btn.textContent='✓ copié';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copier';btn.classList.remove('copied')},1500)})}
+const modeBar=document.getElementById('modeBar');
+VIEW_MODES.forEach(m=>{const b=document.createElement('button');b.className='mode-btn'+(m.id==='classique'?' active':'');b.textContent=m.icon+' '+m.label;b.onclick=()=>switchView(m.id);b.dataset.mode=m.id;modeBar.appendChild(b)});
+const themeBar=document.getElementById('themeBar');
+const _tl=document.createElement('span');_tl.className='theme-label';_tl.textContent='🎨';themeBar.appendChild(_tl);
+THEMES.forEach(t=>{const b=document.createElement('button');b.className='theme-dot'+(t.id==='default'?' active':'');b.style.background=t.gradient;b.title=t.label;b.onclick=()=>switchTheme(t.id);b.dataset.theme=t.id;themeBar.appendChild(b)});
+function updateBody(){document.body.className='mode-'+currentView+(currentTheme!=='default'?' theme-'+currentTheme:'')}
+function switchView(id){
+  currentView=id;document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===id));updateBody();
+  document.querySelector('.parent-sticky')?.remove();document.getElementById('extraZone').innerHTML='';
+  if(id==='calendrier'){document.getElementById('controls').style.display='none';document.getElementById('grid').style.display='none';renderCalendar()}
+  else{document.getElementById('controls').style.display='flex';document.getElementById('grid').style.display='grid';render(activeWeek)}
+  if(id==='parent'){const s=document.createElement('div');s.className='parent-sticky';s.innerHTML='<div class="ps-main">🤖 Inscrivez votre enfant aux ateliers Workshop-DIY</div><div class="ps-sub">📞 <a href="tel:0619515173">06 19 51 51 73</a> · 📧 <a href="mailto:contact@workshop-diy.org">contact@workshop-diy.org</a> · 📍 Chelles 77500 · <a href="https://workshop-diy.org" target="_blank">workshop-diy.org</a></div>';document.body.appendChild(s)}
+  if(id==='maker'){let h='<div class="heatmap" style="margin-bottom:8px">';for(let i=0;i<84;i++){const p=POSTS[i];h+=`<div class="heatmap-cell" style="background:rgba(0,255,65,${(.05+Math.random()*.2).toFixed(2)})" title="#${i+1} ${p.day} S${p.week}"></div>`}for(let i=84;i<98;i++)h+='<div class="heatmap-cell" style="background:rgba(0,255,65,.03)"></div>';h+='</div>';document.getElementById('extraZone').innerHTML=h}
+}
+function switchTheme(id){
+  currentTheme=id;document.querySelectorAll('.theme-dot').forEach(b=>b.classList.toggle('active',b.dataset.theme===id));updateBody();
+  if(id!=='default')localStorage.setItem('sada-theme',id);else localStorage.removeItem('sada-theme');
+}
+const ctrl=document.getElementById('controls');
+const search=document.createElement('input');search.className='search';search.placeholder='🔍 Rechercher...';search.oninput=()=>render(activeWeek);ctrl.appendChild(search);
+const allBtn=document.createElement('button');allBtn.className='week-btn all active';allBtn.textContent='Tout (84)';allBtn.onclick=()=>setWeek(0);ctrl.appendChild(allBtn);
+[...new Set(POSTS.map(p=>p.week))].forEach(w=>{const p=POSTS.find(x=>x.week===w);const b=document.createElement('button');b.className='week-btn';b.dataset.week=w;b.textContent=`S${w}`;b.title=p.weekTitle;b.onclick=()=>setWeek(w);ctrl.appendChild(b)});
+function setWeek(w){activeWeek=w;document.querySelectorAll('.week-btn').forEach(b=>b.classList.remove('active'));if(w===0)allBtn.classList.add('active');else document.querySelector(`.week-btn[data-week="${w}"]`)?.classList.add('active');render(w)}
+function render(week){
+  const q=search.value.toLowerCase();let posts=POSTS;
+  if(week>0)posts=posts.filter(p=>p.week===week);
+  if(q)posts=posts.filter(p=>(p.body+p.theme+p.day).toLowerCase().includes(q));
+  const grid=document.getElementById('grid');let html='',lastWeek=0;
+  posts.forEach(p=>{
+    if(p.week!==lastWeek){html+=`<div class="week-divider"><span class="wnum">Semaine ${p.week}</span><span class="wtitle">${p.weekTitle}</span></div>`;lastWeek=p.week}
+    const app=findAppFile(p.body),demoUrl=app?`${BASE}/${app.file}`:BASE,cleanBody=p.body.replace(/\*\*/g,''),tk=getThemeKey(p.theme),emoji=getHeroEmoji(p.body);
+    if(currentView==='social')html+=renderSocial(p,demoUrl,cleanBody,tk,emoji);
+    else if(currentView==='parent')html+=renderParent(p,app,demoUrl,cleanBody,tk,emoji);
+    else if(currentView==='maker')html+=renderMaker(p,app,demoUrl,cleanBody,tk,emoji);
+    else html+=renderClassique(p,demoUrl,cleanBody);
+  });
+  grid.innerHTML=html||'<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--dim)">Aucun post trouvé</div>';
+}
+function esc(s){return s.replace(/`/g,"'").replace(/\\/g,'\\\\')}
+function renderClassique(p,url,cb){return`<div class="post"><div class="post-head"><span class="post-num">#${p.num}</span><span class="post-day">${p.day}</span><span class="post-theme">${p.theme}</span></div><div class="post-body">${formatBody(p.body)}</div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank">▶ Demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(cb)}\`)">📋 Copier</button></div></div>`}
+function socialCopy(cb,tk){const hooks={'spotlight':'Découvrez cette app incroyable !','learn':'Le saviez-vous ?','challenge':'Relevez le défi !','fun':'Du fun garanti !','weekend':'Projet du weekend !','recap':'Le récap de la semaine !'};return(hooks[tk]||'')+'\n\n'+cb+'\n\n👉 Partagez si vous aimez !'}
+function parentCopy(cb,hk,em){return em+' '+hk+'\n\n'+cb+'\n\n📞 06 19 51 51 73 · 📧 contact@workshop-diy.org\n🤖 Inscrivez votre enfant : workshop-diy.org\n📍 Chelles 77500 · 8-16 ans · Encadré · Gratuit'}
+function makerCopy(cb,app,url){return cb+'\n\n💻 Source : '+url+(app?'\n📁 '+app.file:'')}
+function renderSocial(p,url,cb,tk,em){const l=rand(24,380),c=rand(3,67),s=rand(2,45),rx=['👍','❤️','😂','😮','🔥'].slice(0,rand(2,4)).join(''),sc=socialCopy(cb,tk);return`<div class="post"><div class="post-hero"><span class="hero-emoji">${em}</span></div><div class="post-head"><span class="post-num">#${p.num}</span><span class="post-day">${p.day} · S${p.week}</span><span class="theme-pill" data-t="${tk}">${THEME_LABELS[tk]||p.theme}</span></div><div class="post-body">${formatBody(p.body)}</div><div class="engagement"><span class="reactions">${rx}</span><span>${l}</span><span style="margin-left:auto">${c} commentaires · ${s} partages</span></div><div class="fb-bar"><div class="fb-btn">👍 J'aime</div><div class="fb-btn">💬 Commenter</div><div class="fb-btn">↗ Partager</div></div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank">▶ Demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(sc)}\`)">📋 Copier</button></div></div>`}
+function renderParent(p,app,url,cb,tk,em){const hk=(PARENT_HOOKS[tk]||PARENT_HOOKS.spotlight)[p.num%3],bg=['8-16 ans','Encadré','Gratuit','Loi 1901','Chelles'].slice(0,rand(2,4)).map(a=>`<span class="trust-badge">${a}</span>`).join(''),pc=parentCopy(cb,hk,em);return`<div class="post"><div class="post-head"><span class="post-num">#${p.num}</span><span class="post-day">${p.day} · Semaine ${p.week}</span><span class="post-theme">${p.theme}</span></div><div class="parent-hook">${em} ${hk}</div><div class="post-body">${formatBody(p.body)}</div><div class="trust-badges">${bg}</div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank">▶ Voir la demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(pc)}\`)">📋 Copier</button><a class="cta-btn" href="https://workshop-diy.org" target="_blank">Inscrire mon enfant →</a></div></div>`}
+function renderMaker(p,app,url,cb,tk,em){const ts=TECH_STACK.sort(()=>Math.random()-.5).slice(0,rand(2,4)).map(t=>`<span class="tech-badge">${t}</span>`).join(''),loc=rand(40,380),sz=(loc*.08).toFixed(1),mc=makerCopy(cb,app,url);return`<div class="post"><div class="post-head"><span class="post-num">post_${String(p.num).padStart(3,'0')}.md</span><span class="post-day">w${p.week}/${p.day.toLowerCase().slice(0,3)}</span><span class="post-theme">${tk}</span></div><div class="tech-badges">${ts}</div><div class="post-body">${formatBody(p.body)}</div><div class="maker-meta">~${loc} LOC · ${sz}KB · ${app?app.file:'index.html'} · <a href="${url}" target="_blank" style="color:rgba(0,255,65,.4)">view source →</a></div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank" style="color:rgba(0,255,65,.5);border-color:rgba(0,255,65,.1)">▶ Run</a><button class="post-btn" onclick="copyPost(this,\`${esc(mc)}\`)" style="color:rgba(0,255,65,.3);border-color:rgba(0,255,65,.06)">📋 Copy</button></div></div>`}
+const MONTHS=[{name:'Mars 2026',days:31,startDay:6,offset:0},{name:'Avril 2026',days:30,startDay:2,offset:31},{name:'Mai 2026',days:31,startDay:4,offset:61}];
+const DAY_NAMES=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+function renderCalendar(){
+  document.getElementById('grid').style.display='none';
+  const ez=document.getElementById('extraZone'),m=MONTHS[calMonth];
+  let h=`<div class="month-nav"><button onclick="calNav(-1)">◀</button><div class="month-title">${m.name}</div><button onclick="calNav(1)">▶</button></div><div class="cal-grid">`;
+  DAY_NAMES.forEach(d=>{h+=`<div class="cal-header">${d}</div>`});
+  for(let i=0;i<m.startDay;i++)h+='<div class="cal-cell empty"></div>';
+  for(let d=1;d<=m.days;d++){
+    const dn=m.offset+d,post=dn<=84?POSTS[dn-1]:null;
+    if(post){const em=getHeroEmoji(post.body),ti=(post.body.match(/\*\*(.*?)\*\*/)||[])[1]||'';h+=`<div class="cal-cell" onclick="expandCal(${dn-1})"><div class="cal-date">${d}</div><div class="cal-emoji">${em}</div><div class="cal-title">${ti}</div></div>`}
+    else h+=`<div class="cal-cell"><div class="cal-date" style="opacity:.2">${d}</div></div>`
+  }
+  h+='</div>';ez.innerHTML=h;
+}
+function calNav(dir){calMonth=Math.max(0,Math.min(2,calMonth+dir));renderCalendar()}
+window.expandCal=function(i){
+  const p=POSTS[i];if(!p)return;const app=findAppFile(p.body),url=app?`${BASE}/${app.file}`:BASE,cb=p.body.replace(/\*\*/g,'');
+  const o=document.createElement('div');o.className='cal-expanded';o.onclick=e=>{if(e.target===o)o.remove()};
+  o.innerHTML=`<span class="cal-close" onclick="this.parentElement.remove()">✕</span><div class="cal-expanded-inner"><div style="font-size:32px;margin-bottom:8px">${getHeroEmoji(p.body)}</div><div style="font-family:Syne;font-size:11px;font-weight:800;color:var(--teal);margin-bottom:4px">Semaine ${p.week} · ${p.day} · #${p.num}</div><div style="font-size:10px;color:var(--dim);margin-bottom:12px">${p.theme} · ${p.weekTitle}</div><div style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.8)">${formatBody(p.body)}</div><div style="margin-top:14px;display:flex;gap:8px"><a class="post-btn demo" href="${url}" target="_blank">▶ Demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(cb)}\`)">📋 Copier</button><a class="post-btn" href="https://workshop-diy.org" target="_blank">🌐 workshop-diy.org</a></div></div>`;
+  document.body.appendChild(o);
+};
+document.body.className='mode-classique';render(0);
+
+// Init theme from global localStorage
+(function(){var st=localStorage.getItem('sada-theme');if(st){var found=THEMES.find(function(t){return t.id===st});if(found)switchTheme(st)}})();
+</script>
+</body>
+</html>

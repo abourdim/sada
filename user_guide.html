@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada · User Guide · v8.0</title>
+<script src="assets/js/sada-theme.js"></script>
+<link rel="stylesheet" href="assets/css/sada-themes.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06060e;--s1:#0c0c1a;--s2:#12122a;--brd:rgba(255,255,255,.04);--txt:#e4e8f2;--dim:rgba(255,255,255,.25);--teal:#14b8a6;--cyan:#06b6d4;--indigo:#6366f1}
+body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(20,184,166,.3)}
+.header{text-align:center;padding:50px 20px 30px;border-bottom:1px solid var(--brd)}
+.logo-ar{font-family:'Amiri',serif;font-size:56px;font-weight:700;background:linear-gradient(135deg,var(--teal),var(--cyan),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.logo-fr{font-size:14px;font-weight:300;opacity:.2;letter-spacing:8px}
+.header h1{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-top:14px;color:var(--dim)}
+.header p{font-size:12px;color:rgba(255,255,255,.12);margin-top:4px}
+
+.wrap{max-width:760px;margin:0 auto;padding:30px 20px}
+
+/* TOC */
+.toc{background:var(--s1);border:1px solid var(--brd);border-radius:12px;padding:20px 24px;margin-bottom:30px}
+.toc h3{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.toc a{display:block;padding:6px 0;color:rgba(255,255,255,.4);text-decoration:none;font-size:13px;border-bottom:1px solid var(--brd);transition:.2s}
+.toc a:last-child{border:none}
+.toc a:hover{color:var(--teal);padding-left:8px}
+.toc .num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);margin-right:8px}
+
+/* Section */
+.section{margin-bottom:40px}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--teal);background:rgba(20,184,166,.06);padding:3px 10px;border-radius:10px;border:1px solid rgba(20,184,166,.1);display:inline-block;margin-bottom:8px}
+.section h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:14px}
+.section p{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:12px}
+.section p strong{color:var(--txt);font-weight:500}
+
+/* Cards */
+.card{background:var(--s1);border:1px solid var(--brd);border-radius:10px;padding:16px;margin-bottom:10px}
+.card .c-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:6px}
+.card .c-desc{font-size:12px;color:rgba(255,255,255,.35);line-height:1.6}
+.card .c-code{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);background:rgba(20,184,166,.04);padding:2px 6px;border-radius:4px}
+
+/* File tree */
+.tree{background:var(--s1);border:1px solid var(--brd);border-radius:10px;padding:16px 20px;margin:12px 0;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);line-height:1.9;overflow-x:auto}
+.tree .folder{color:var(--cyan)}
+.tree .file{color:rgba(255,255,255,.25)}
+.tree .count{color:var(--teal);font-size:10px}
+.tree .special{color:var(--indigo)}
+
+/* Stats grid */
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:14px 0}
+.stat{background:var(--s1);border:1px solid var(--brd);border-radius:10px;padding:14px;text-align:center}
+.stat .s-n{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat .s-l{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+
+/* Steps */
+.step{display:flex;gap:14px;margin-bottom:14px;align-items:flex-start}
+.step-n{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--teal);min-width:28px;text-align:center}
+.step-body{flex:1}
+.step-body .s-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px}
+.step-body .s-desc{font-size:13px;color:rgba(255,255,255,.4)}
+.step-body code{font-family:'JetBrains Mono',monospace;font-size:11px;background:rgba(20,184,166,.04);color:var(--teal);padding:2px 6px;border-radius:4px}
+
+/* Command block */
+.cmd{background:var(--s1);border:1px solid var(--brd);border-radius:8px;padding:12px 16px;margin:10px 0;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal);line-height:1.8;overflow-x:auto}
+.cmd .comment{color:rgba(255,255,255,.15)}
+.cmd .prompt{color:var(--indigo)}
+
+/* Bundle table */
+.bundle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:14px 0}
+.bundle{background:var(--s1);border:1px solid var(--brd);border-radius:10px;padding:14px;transition:.2s}
+.bundle:hover{border-color:rgba(20,184,166,.12)}
+.bundle .b-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700}
+.bundle .b-price{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--teal);margin:4px 0}
+.bundle .b-meta{font-size:10px;color:var(--dim)}
+
+/* Tutorial list */
+.tut-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:12px 0}
+.tut{background:var(--s1);border:1px solid var(--brd);border-radius:8px;padding:10px 14px}
+.tut .t-name{font-family:'Syne',sans-serif;font-size:12px;font-weight:700}
+.tut .t-langs{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--teal);margin-top:4px}
+
+/* Divider */
+.divider{border:none;border-top:1px solid var(--brd);margin:30px 0}
+
+/* Footer */
+.foot{text-align:center;padding:30px 20px;border-top:1px solid var(--brd);margin-top:30px}
+.foot .f-row{display:flex;align-items:center;justify-content:center;gap:8px}
+.foot .f-icon{width:20px;height:20px;opacity:.4}
+.foot a{color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px}
+.foot a:hover{color:var(--teal)}
+.foot .f-dot{color:rgba(255,255,255,.08)}
+.foot .f-ar{font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot .f-fr{font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px}
+
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr)}.bundle-grid{grid-template-columns:1fr}.tut-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-ar">صدى</div>
+  <div class="logo-fr">sada</div>
+  <h1>User Guide</h1>
+  <p>v8.0 · 567 HTML files · 161 apps · 30 tutorials · 3 languages · 7 themes · 0 npm install</p>
+</div>
+
+<div class="wrap">
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+  <h3>Table of Contents</h3>
+  <a href="#what"><span class="num">01</span> What is صدى sada</a>
+  <a href="#inside"><span class="num">02</span> What's inside the package</a>
+  <a href="#tree"><span class="num">03</span> File structure</a>
+  <a href="#apps"><span class="num">04</span> The 46 apps</a>
+  <a href="#tutorials"><span class="num">05</span> The 30 tutorials</a>
+  <a href="#video"><span class="num">06</span> Video production kit</a>
+  <a href="#languages"><span class="num">07</span> 3 languages (EN / FR / AR)</a>
+  <a href="#open"><span class="num">08</span> How to open &amp; use</a>
+  <a href="#educators"><span class="num">09</span> For educators &amp; workshops</a>
+  <a href="#facebook"><span class="num">10</span> Facebook Calendar (84 posts)</a>
+  <a href="#etsy"><span class="num">11</span> Selling on Etsy / Gumroad</a>
+  <a href="#github"><span class="num">12</span> GitHub Pages deployment</a>
+  <a href="#key-files"><span class="num">13</span> Key files explained</a>
+  <a href="#contact"><span class="num">14</span> Contact &amp; links</a>
+</div>
+
+<!-- 01 - WHAT IS SADA -->
+<div class="section" id="what">
+  <span class="section-num">01</span>
+  <h2>What is صدى sada</h2>
+  <p><strong>صدى (sada)</strong> means "echo" in Arabic. It's a collection of 46 interactive HTML apps built for kids learning robotics, AI, cybersecurity, and creative coding at <strong>Workshop-DIY</strong>, a Loi 1901 association in <strong>Chelles, 77500</strong>, France.</p>
+  <p>Every app is a <strong>single HTML file</strong> — no server, no install, no npm, no build step. Just open in a browser. Works offline. Works on any device.</p>
+  <p>The project exists in <strong>3 languages</strong>: English, French, and Arabic (with full RTL support and bismillah). It includes 46 apps presented in 164 different formats, 30 tutorial storyboards, and a complete video production kit.</p>
+  <p>صدى sada is <strong>100% open source</strong> on GitHub, and the apps are available as a free landing page at <strong>abourdim.github.io/sada</strong>.</p>
+</div>
+
+<hr class="divider">
+
+<!-- 02 - WHAT'S INSIDE -->
+<div class="section" id="inside">
+  <span class="section-num">02</span>
+  <h2>What's inside the package</h2>
+  
+  <div class="stats">
+    <div class="stat"><div class="s-n">566</div><div class="s-l">HTML Files</div></div>
+    <div class="stat"><div class="s-n">46</div><div class="s-l">Apps</div></div>
+    <div class="stat"><div class="s-n">30</div><div class="s-l">Tutorials</div></div>
+    <div class="stat"><div class="s-n">3</div><div class="s-l">Languages</div></div>
+    <div class="stat"><div class="s-n">164</div><div class="s-l">Formats</div></div>
+    <div class="stat"><div class="s-n">70</div><div class="s-l">Video Scripts</div></div>
+    <div class="stat"><div class="s-n">84</div><div class="s-l">Facebook Posts</div></div>
+    <div class="stat"><div class="s-n">5</div><div class="s-l">Shop Bundles</div></div>
+  </div>
+
+  <p>The 566 HTML files break down as follows:</p>
+  <div class="card">
+    <div class="c-title">168 root English files</div>
+    <div class="c-desc">164 presentation/app files + start_here.html + demo.html + facebook-calendar.html + shop-listings.html</div>
+  </div>
+  <div class="card">
+    <div class="c-title">164 French translations (fr/)</div>
+    <div class="c-desc">Every app in French. Same design, French text.</div>
+  </div>
+  <div class="card">
+    <div class="c-title">164 Arabic translations (ar/)</div>
+    <div class="c-desc">Every app in Arabic. Full RTL layout, bismillah, Arabic typography.</div>
+  </div>
+  <div class="card">
+    <div class="c-title">70 video production files (video/)</div>
+    <div class="c-desc">30 tutorial storyboards (10 × 3 langs) + 40 production scripts (storyboards, promos, lore, social, AI prompts)</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 03 - FILE STRUCTURE -->
+<div class="section" id="tree">
+  <span class="section-num">03</span>
+  <h2>File structure</h2>
+  <p>Here's what's in the zip:</p>
+  <div class="tree">
+<span class="folder">sada-v5/</span>
+├── <span class="special">start_here.html</span> <span class="count">← open this first</span>
+├── <span class="special">user_guide.html</span> <span class="count">← you are here</span>
+├── <span class="special">demo.html</span> <span class="count">← slideshow player (12 scenes)</span>
+├── <span class="special">facebook-calendar.html</span> <span class="count">← 84 posts planner</span>
+├── <span class="special">shop-listings.html</span> <span class="count">← Etsy/Gumroad listings</span>
+├── <span class="file">sada-logo.svg</span>
+├── <span class="file">README.md</span>
+├── <span class="file">CHANGELOG.md</span>
+├── <span class="file">workshop-diy-*.html</span> <span class="count">× 164 (English)</span>
+│
+├── <span class="folder">fr/</span>
+│   └── <span class="file">workshop-diy-*-fr.html</span> <span class="count">× 164 (French)</span>
+│
+├── <span class="folder">ar/</span>
+│   └── <span class="file">workshop-diy-*-ar.html</span> <span class="count">× 164 (Arabic RTL)</span>
+│
+├── <span class="folder">video/</span>
+│   ├── <span class="folder">tutorials/</span> <span class="count">← 10 EN storyboards</span>
+│   │   ├── <span class="folder">fr/</span> <span class="count">← 10 FR storyboards</span>
+│   │   └── <span class="folder">ar/</span> <span class="count">← 10 AR storyboards</span>
+│   ├── <span class="folder">storyboards/en|fr|ar/</span> <span class="count">← 6 video storyboards × 3</span>
+│   ├── <span class="folder">promo/en|fr|ar/</span> <span class="count">← promo scripts × 3</span>
+│   ├── <span class="folder">concept/en|fr|ar/</span> <span class="count">← concept docs × 3</span>
+│   ├── <span class="folder">lore/en|fr|ar/</span> <span class="count">← lore episodes × 3</span>
+│   ├── <span class="folder">social/en|fr|ar/</span> <span class="count">← social scripts × 3</span>
+│   └── <span class="folder">ai-prompts/</span> <span class="count">← AI avatar + music prompts</span>
+│
+└── <span class="folder">bundles/</span>
+    ├── <span class="file">sada-video-bundle.zip</span> <span class="count">← 5 apps (€4.99)</span>
+    ├── <span class="file">sada-interactive-bundle.zip</span> <span class="count">← 10 apps (€7.99)</span>
+    ├── <span class="file">sada-games-bundle.zip</span> <span class="count">← 12 apps (€8.99)</span>
+    ├── <span class="file">sada-tools-bundle.zip</span> <span class="count">← 14 apps (€9.99)</span>
+    └── <span class="file">sada-ambient-bundle.zip</span> <span class="count">← 5 apps (€3.99)</span>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 04 - THE 46 APPS -->
+<div class="section" id="apps">
+  <span class="section-num">04</span>
+  <h2>The 46 apps</h2>
+  <p>Every app is one HTML file. No dependencies. They fall into <strong>5 categories</strong>:</p>
+  
+  <div class="card">
+    <div class="c-title">🎬 Video (5 apps)</div>
+    <div class="c-desc">Hacker Presentation · Genius Video · Wrapped 2025 · Breaking News · App Demo Reel<br>Cinematic sequences, auto-play, particle effects, Matrix rain.</div>
+  </div>
+  <div class="card">
+    <div class="c-title">🖥️ Interactive (10 apps)</div>
+    <div class="c-desc">Hacker Terminal · Fake OS Desktop · Discord Chat · Network Map · Classified Dossier · App Store · Reddit Thread · Trial of Bug #42 · Departures Board · Space Mission<br>Simulations of real software. Draggable windows, typing indicators, animated boards.</div>
+  </div>
+  <div class="card">
+    <div class="c-title">🎮 Games (12 apps)</div>
+    <div class="c-desc">Retro Arcade · CTF Quiz · Card Collection · Skill Tree · Escape Room · Pokédex · App Matcher · Tech Zodiac · Workshop Bingo · Rap Battle · Lucky Draw · Flappy<br>Browser games that teach tech concepts through play.</div>
+  </div>
+  <div class="card">
+    <div class="c-title">🛠️ Tools (14 apps)</div>
+    <div class="c-desc">Live Monitor · GitHub Profile · Blueprints · Periodic Table · Testimonials · Sticker Sheet · LinkedIn Profile · NASA Control · Social Media Kit · Genius Ideas Lab · WKSHP Weather · WKSHP Cookbook · WKSHP Daily · Wanted Wall<br>Dashboards, profiles, printables, references.</div>
+  </div>
+  <div class="card">
+    <div class="c-title">🌙 Ambient (5 apps)</div>
+    <div class="c-desc">Ambient Screen · Synth Visualizer · Boot Sequence · The 40th App · Loading Screens<br>Screensavers, atmospheric displays, event backgrounds.</div>
+  </div>
+
+  <p>Plus <strong>118 additional presentation formats</strong> (Wikipedia, Amazon, Airbnb, newspaper, wedding invitation, cereal box, parking ticket, police report, tax return, etc.) that present the same workshop content in creative and unexpected ways.</p>
+</div>
+
+<hr class="divider">
+
+<!-- 05 - TUTORIALS -->
+<div class="section" id="tutorials">
+  <span class="section-num">05</span>
+  <h2>The 30 tutorials</h2>
+  <p>10 tutorial storyboards × 3 languages = 30 HTML files. Each tutorial is a full step-by-step guide designed to be filmed as a YouTube/TikTok video.</p>
+
+  <div class="tut-grid">
+    <div class="tut"><div class="t-name">🐄 CowSay CLI</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">🤖 BitBot Robot</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">🧠 OllamaBot AI</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">📡 SDR Radio Lab</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">🔐 Crypto Vault</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">✊ Hacktivist Toolkit</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">🛡️ Pentest Lab</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">✈️ Flight Tracker</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">🛰️ Satellite Tracker</div><div class="t-langs">EN · FR · AR</div></div>
+    <div class="tut"><div class="t-name">🕌 Muslim Scholars</div><div class="t-langs">EN · FR · AR</div></div>
+  </div>
+
+  <p>Each tutorial includes: scene breakdown, camera directions, on-screen text, terminal commands to show, voiceover scripts, and B-roll suggestions.</p>
+</div>
+
+<hr class="divider">
+
+<!-- 06 - VIDEO KIT -->
+<div class="section" id="video">
+  <span class="section-num">06</span>
+  <h2>Video production kit</h2>
+  <p>The <span class="card c-code">video/</span> folder contains <strong>70 HTML files</strong> for creating promotional and educational videos:</p>
+
+  <div class="card">
+    <div class="c-title">📹 6 Video Storyboards × 3 languages</div>
+    <div class="c-desc">39-App Speedrun · Bug #42 Documentary · Day at the Workshop · ESP32 vs Micro:bit · Password123 Origins · Robot Origin Story</div>
+  </div>
+  <div class="card">
+    <div class="c-title">📢 Promo Scripts × 3 languages</div>
+    <div class="c-desc">Full promotional video scripts ready to film</div>
+  </div>
+  <div class="card">
+    <div class="c-title">📖 Lore Episodes × 3 languages</div>
+    <div class="c-desc">Bug #42 lore · Coffee Machine lore · Password123 lore — the workshop mythology</div>
+  </div>
+  <div class="card">
+    <div class="c-title">📱 Social Media Scripts × 3 languages</div>
+    <div class="c-desc">Short-form scripts for TikTok, Reels, YouTube Shorts</div>
+  </div>
+  <div class="card">
+    <div class="c-title">🤖 AI Prompts</div>
+    <div class="c-desc">AI avatar generation prompts · Video editing prompts · Music & SFX generation prompts</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 07 - LANGUAGES -->
+<div class="section" id="languages">
+  <span class="section-num">07</span>
+  <h2>3 languages</h2>
+  
+  <div class="card">
+    <div class="c-title">🇬🇧 English (root folder)</div>
+    <div class="c-desc">168 files. Original language. File names: <code>workshop-diy-arcade.html</code></div>
+  </div>
+  <div class="card">
+    <div class="c-title">🇫🇷 Français (fr/ folder)</div>
+    <div class="c-desc">164 files. Full French translation. File names: <code>fr/workshop-diy-arcade-fr.html</code></div>
+  </div>
+  <div class="card">
+    <div class="c-title">🇸🇦 العربية (ar/ folder)</div>
+    <div class="c-desc">164 files. Full Arabic translation with RTL layout, Amiri serif font, bismillah (بسم الله الرحمن الرحيم) on all pages. File names: <code>ar/workshop-diy-arcade-ar.html</code></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 08 - HOW TO USE -->
+<div class="section" id="open">
+  <span class="section-num">08</span>
+  <h2>How to open &amp; use</h2>
+
+  <div class="step"><div class="step-n">1</div><div class="step-body"><div class="s-title">Unzip the package</div><div class="s-desc">Extract <code>sada-v5.zip</code> to any folder on your computer.</div></div></div>
+  
+  <div class="step"><div class="step-n">2</div><div class="step-body"><div class="s-title">Open start_here.html</div><div class="s-desc">Double-click <code>start_here.html</code> in the root folder. It opens in your browser and links to everything.</div></div></div>
+  
+  <div class="step"><div class="step-n">3</div><div class="step-body"><div class="s-title">Browse apps</div><div class="s-desc">Click any app name to open it. Each is a self-contained HTML file. Works in Chrome, Firefox, Safari, Edge.</div></div></div>
+  
+  <div class="step"><div class="step-n">4</div><div class="step-body"><div class="s-title">Switch languages</div><div class="s-desc">Same app, different folder: root = English, <code>fr/</code> = French, <code>ar/</code> = Arabic.</div></div></div>
+  
+  <div class="step"><div class="step-n">5</div><div class="step-body"><div class="s-title">Works offline</div><div class="s-desc">No internet required. No server. No install. Just HTML + CSS + JS in one file.</div></div></div>
+
+  <p><strong>Requirements:</strong> A modern web browser. That's it. Chrome recommended for best experience.</p>
+</div>
+
+<hr class="divider">
+
+<!-- 09 - EDUCATORS -->
+<div class="section" id="educators">
+  <span class="section-num">09</span>
+  <h2>For educators &amp; workshops</h2>
+
+  <div class="step"><div class="step-n">A</div><div class="step-body"><div class="s-title">In-class presentations</div><div class="s-desc">Open <code>demo.html</code> or <code>workshop-diy-hacker-presentation.html</code> on a projector. Auto-plays cinematic scenes. Press arrow keys to navigate.</div></div></div>
+  
+  <div class="step"><div class="step-n">B</div><div class="step-body"><div class="s-title">Student activities</div><div class="s-desc">Let students explore: CTF Quiz (cybersecurity), Escape Room (logic puzzles), Retro Arcade (retro computing), Pokédex (app discovery). All work on school Chromebooks.</div></div></div>
+  
+  <div class="step"><div class="step-n">C</div><div class="step-body"><div class="s-title">Workshop displays</div><div class="s-desc">Use Ambient Screen, Boot Sequence, or Loading Screens on lobby TVs. Double-click for fullscreen.</div></div></div>
+  
+  <div class="step"><div class="step-n">D</div><div class="step-body"><div class="s-title">Printables</div><div class="s-desc">Open Sticker Sheet, Blueprints, or Workshop Bingo → screenshot → print. Great for events.</div></div></div>
+  
+  <div class="step"><div class="step-n">E</div><div class="step-body"><div class="s-title">Video tutorials</div><div class="s-desc">Follow the 10 tutorial storyboards in <code>video/tutorials/</code> to film step-by-step YouTube videos. Each has scene-by-scene instructions.</div></div></div>
+</div>
+
+<hr class="divider">
+
+<!-- 10 - FACEBOOK -->
+<div class="section" id="facebook">
+  <span class="section-num">10</span>
+  <h2>Facebook Calendar (84 posts)</h2>
+  <p>Open <code>facebook-calendar.html</code> for a 12-week social media plan — 7 posts per week, 84 total.</p>
+
+  <div class="step"><div class="step-n">1</div><div class="step-body"><div class="s-title">Open the calendar</div><div class="s-desc">Open <code>facebook-calendar.html</code> in your browser.</div></div></div>
+  
+  <div class="step"><div class="step-n">2</div><div class="step-body"><div class="s-title">Pick a week</div><div class="s-desc">Click S1–S12 buttons to filter by week, or use the search bar.</div></div></div>
+  
+  <div class="step"><div class="step-n">3</div><div class="step-body"><div class="s-title">Copy a post</div><div class="s-desc">Click <strong>📋 Copier</strong> on any post card. The text is copied to your clipboard, including the app link and workshop-diy.org.</div></div></div>
+  
+  <div class="step"><div class="step-n">4</div><div class="step-body"><div class="s-title">Paste to Facebook</div><div class="s-desc">Go to your Facebook page → new post → paste. The link auto-generates a preview card.</div></div></div>
+  
+  <div class="step"><div class="step-n">5</div><div class="step-body"><div class="s-title">Add a screenshot</div><div class="s-desc">Click <strong>▶ Demo</strong> to open the app → take a screenshot → add to your Facebook post.</div></div></div>
+
+  <p>Each post includes:</p>
+  <p>🔗 Direct link to the app on GitHub Pages<br>🌐 workshop-diy.org<br>#sada #صدى #Chelles and relevant hashtags</p>
+  
+  <p><strong>Weekly themes:</strong> S1 Intro · S2 Simulations · S3 Games · S4 Dashboards · S5 Exploration · S6 Science · S7 Media · S8 Space · S9 Ambient · S10 Community · S11 Originals · S12 Grand Final</p>
+</div>
+
+<hr class="divider">
+
+<!-- 11 - ETSY -->
+<div class="section" id="etsy">
+  <span class="section-num">11</span>
+  <h2>Selling on Etsy / Gumroad</h2>
+  <p>Open <code>shop-listings.html</code> for copy-paste-ready product listings. The <code>bundles/</code> folder contains the zip files to upload.</p>
+
+  <div class="bundle-grid">
+    <div class="bundle"><div class="b-name">Full Package</div><div class="b-price">€19.99</div><div class="b-meta">46 apps · 566 files · EN/FR/AR</div></div>
+    <div class="bundle"><div class="b-name">Video Bundle</div><div class="b-price">€4.99</div><div class="b-meta">5 apps · 15 files</div></div>
+    <div class="bundle"><div class="b-name">Interactive Bundle</div><div class="b-price">€7.99</div><div class="b-meta">10 apps · 30 files</div></div>
+    <div class="bundle"><div class="b-name">Games Bundle</div><div class="b-price">€8.99</div><div class="b-meta">12 apps · 36 files</div></div>
+    <div class="bundle"><div class="b-name">Tools Bundle</div><div class="b-price">€9.99</div><div class="b-meta">14 apps · 42 files</div></div>
+    <div class="bundle"><div class="b-name">Ambient Bundle</div><div class="b-price">€3.99</div><div class="b-meta">5 apps · 15 files</div></div>
+  </div>
+
+  <div class="step"><div class="step-n">1</div><div class="step-body"><div class="s-title">Open shop-listings.html</div><div class="s-desc">Click any product to expand. Copy the full listing (title + description + tags).</div></div></div>
+  
+  <div class="step"><div class="step-n">2</div><div class="step-body"><div class="s-title">Create listing on Etsy</div><div class="s-desc">New listing → Digital download → paste title, description, tags. Set price.</div></div></div>
+  
+  <div class="step"><div class="step-n">3</div><div class="step-body"><div class="s-title">Upload the zip</div><div class="s-desc">Upload the matching zip from <code>bundles/</code> folder as the digital download file. For the full package, upload the entire <code>sada-v5.zip</code>.</div></div></div>
+  
+  <div class="step"><div class="step-n">4</div><div class="step-body"><div class="s-title">Add images</div><div class="s-desc">Take screenshots of the best-looking apps. Use 5–10 images per listing. Hacker Presentation and Retro Arcade look great as cover images.</div></div></div>
+</div>
+
+<hr class="divider">
+
+<!-- 12 - GITHUB -->
+<div class="section" id="github">
+  <span class="section-num">12</span>
+  <h2>GitHub Pages deployment</h2>
+  <p>The zip includes a <code>.git</code> folder. Push directly to GitHub and enable Pages:</p>
+
+  <div class="cmd">
+<span class="comment"># Unzip (the .git folder is included)</span>
+<span class="prompt">$</span> unzip sada-v5.zip -d sada
+<span class="prompt">$</span> cd sada
+
+<span class="comment"># Add your remote</span>
+<span class="prompt">$</span> git remote add origin git@github.com:abourdim/sada.git
+<span class="prompt">$</span> git push -u origin main
+
+<span class="comment"># Enable GitHub Pages</span>
+<span class="comment"># Go to repo → Settings → Pages → Source: main → Save</span>
+<span class="comment"># Your site is live at: https://abourdim.github.io/sada/</span>
+  </div>
+
+  <p>All demo links in the Facebook posts point to <code>https://abourdim.github.io/sada/</code>. As soon as you push, every link works.</p>
+</div>
+
+<hr class="divider">
+
+<!-- 13 - KEY FILES -->
+<div class="section" id="key-files">
+  <span class="section-num">13</span>
+  <h2>Key files explained</h2>
+
+  <div class="card">
+    <div class="c-title"><span class="c-code">start_here.html</span></div>
+    <div class="c-desc">Landing page. Links to all apps, all languages, all tutorials. Open this first. Shows stats (566 files, 46 apps, 3 languages, 30 tutorials).</div>
+  </div>
+  <div class="card">
+    <div class="c-title"><span class="c-code">user_guide.html</span></div>
+    <div class="c-desc">This file. Full documentation of the package.</div>
+  </div>
+  <div class="card">
+    <div class="c-title"><span class="c-code">demo.html</span></div>
+    <div class="c-desc">12-scene slideshow player. Auto-plays the best apps as cinematic scenes. Good for projectors and events.</div>
+  </div>
+  <div class="card">
+    <div class="c-title"><span class="c-code">facebook-calendar.html</span></div>
+    <div class="c-desc">84 Facebook posts organized by week. Copy-paste to Facebook. Each post has a direct app link and workshop-diy.org.</div>
+  </div>
+  <div class="card">
+    <div class="c-title"><span class="c-code">shop-listings.html</span></div>
+    <div class="c-desc">6 product listings for Etsy/Gumroad/Ko-fi. Copy title, description, and tags with one click.</div>
+  </div>
+  <div class="card">
+    <div class="c-title"><span class="c-code">master-hub.html</span></div>
+    <div class="c-desc">The 46-app hub. Grid of all apps with categories, search, and filters.</div>
+  </div>
+  <div class="card">
+    <div class="c-title"><span class="c-code">sada-logo.svg</span></div>
+    <div class="c-desc">The صدى sada vector logo. Use for branding, social media, print.</div>
+  </div>
+  <div class="card">
+    <div class="c-title"><span class="c-code">README.md</span></div>
+    <div class="c-desc">GitHub README for the repository.</div>
+  </div>
+  <div class="card">
+    <div class="c-title"><span class="c-code">CHANGELOG.md</span></div>
+    <div class="c-desc">Version history. v1 → v2 → v3 → v4 → v5 → v6 → v7 → v8.0.</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 14 - CONTACT -->
+<div class="section" id="contact">
+  <span class="section-num">14</span>
+  <h2>Contact &amp; links</h2>
+
+  <div class="card">
+    <div class="c-title">🌐 Website</div>
+    <div class="c-desc"><a href="https://workshop-diy.org" style="color:var(--teal)">workshop-diy.org</a></div>
+  </div>
+  <div class="card">
+    <div class="c-title">🔗 Live Demo</div>
+    <div class="c-desc"><a href="https://abourdim.github.io/sada" style="color:var(--teal)">abourdim.github.io/sada</a></div>
+  </div>
+  <div class="card">
+    <div class="c-title">💻 Source Code</div>
+    <div class="c-desc"><a href="https://github.com/abourdim/sada" style="color:var(--teal)">github.com/abourdim/sada</a></div>
+  </div>
+  <div class="card">
+    <div class="c-title">📞 Phone</div>
+    <div class="c-desc">06 19 51 51 73</div>
+  </div>
+  <div class="card">
+    <div class="c-title">📍 Location</div>
+    <div class="c-desc">Chelles 77500, France<br>Association Loi 1901</div>
+  </div>
+  <div class="card">
+    <div class="c-title">📧 Contact</div>
+    <div class="c-desc">contact@sada.page</div>
+  </div>
+</div>
+
+</div>
+
+<div class="foot">
+  <div class="f-row">
+    <img class="f-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy">
+    <a href="https://workshop-diy.org">workshop-diy.org</a>
+    <span class="f-dot">·</span>
+    <span class="f-ar">صدى</span>
+    <span class="f-fr">sada</span>
+  </div>
+</div>
+
+</body>
+</html>

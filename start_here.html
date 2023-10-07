@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada · v8.0</title>
+<script src="assets/js/sada-theme.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Scheherazade+New:wght@400;700&family=Noto+Kufi+Arabic:wght@400;700&family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/sada-themes.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06060e;--surface:#0c0c1a;--border:rgba(255,255,255,.04);--text:#e8e8ef;--dim:rgba(255,255,255,.25);--teal:#14b8a6;--cyan:#06b6d4;--indigo:#6366f1}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+.bismillah{font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.06);text-align:center;padding:20px 0 0;direction:rtl;letter-spacing:2px}
+.hero{text-align:center;padding:50px 24px 40px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(20,184,166,.04) 0%,rgba(99,102,241,.02) 40%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--teal);border:1px solid rgba(20,184,166,.15);padding:4px 14px;border-radius:20px;margin-bottom:24px;text-transform:uppercase;background:rgba(20,184,166,.03)}
+.logo-ar{font-family:'Amiri',serif;font-size:clamp(5rem,14vw,9rem);font-weight:700;line-height:1;background:linear-gradient(135deg,var(--teal),var(--cyan),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 40px rgba(20,184,166,.15));direction:rtl;letter-spacing:4px}
+.logo-fr{font-family:'Nunito',sans-serif;font-size:clamp(1.2rem,3vw,1.8rem);font-weight:300;color:var(--text);opacity:.25;letter-spacing:12px;text-transform:lowercase;margin-top:-4px}
+.logo-line{width:100px;height:1px;background:linear-gradient(90deg,transparent,rgba(20,184,166,.25),rgba(99,102,241,.25),transparent);margin:10px auto 20px}
+.hero-sub{font-size:15px;color:var(--dim);max-width:540px;margin:0 auto 30px;line-height:1.6}
+.hero-sub strong{color:var(--text);font-weight:500}
+.stats{display:flex;justify-content:center;gap:0;margin:0 auto 40px;max-width:800px}
+.stat{flex:1;text-align:center;padding:20px 0;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stat-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--dim);margin-top:6px;text-transform:uppercase}
+.cta-row{display:flex;justify-content:center;gap:12px;margin-bottom:50px;flex-wrap:wrap;padding:0 24px}
+.cta{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:8px;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;transition:all .2s;cursor:pointer;border:none}
+.cta-primary{background:linear-gradient(135deg,var(--teal),var(--indigo));color:#fff;box-shadow:0 4px 20px rgba(20,184,166,.2)}
+.cta-primary:hover{transform:translateY(-1px);box-shadow:0 6px 30px rgba(20,184,166,.3)}
+.cta-secondary{background:var(--surface);color:var(--text);border:1px solid var(--border)}
+.cta-secondary:hover{border-color:rgba(20,184,166,.2);background:rgba(20,184,166,.03)}
+.section{max-width:900px;margin:0 auto;padding:0 24px 50px}
+.section-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.lang-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:40px}
+.lang-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;transition:all .2s;position:relative;overflow:hidden}
+.lang-card{cursor:pointer}.lang-card:hover{border-color:rgba(20,184,166,.15);transform:translateY(-2px)}.lang-card.selected{border-color:rgba(20,184,166,.5);background:rgba(20,184,166,.04);box-shadow:0 0 20px rgba(20,184,166,.1)}
+.lang-flag{font-size:28px;margin-bottom:8px}
+.lang-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px}
+.lang-detail{font-size:12px;color:var(--dim);line-height:1.5}
+.lang-detail code{font-family:'Space Mono',monospace;font-size:10px;background:rgba(255,255,255,.04);padding:1px 5px;border-radius:3px}
+.lang-card .badge{position:absolute;top:12px;right:12px;font-family:'Space Mono',monospace;font-size:9px;color:var(--teal);background:rgba(20,184,166,.06);padding:2px 8px;border-radius:4px;border:1px solid rgba(20,184,166,.1)}
+.theme-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:40px}
+.theme-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;text-align:center;position:relative;overflow:hidden}
+.theme-card:hover{border-color:rgba(20,184,166,.15);transform:translateY(-2px)}
+.theme-card.selected{border-color:rgba(20,184,166,.5);background:rgba(20,184,166,.04);box-shadow:0 0 20px rgba(20,184,166,.1)}
+.theme-card .t-preview{width:100%;height:8px;border-radius:4px;margin-bottom:10px}
+.theme-card .t-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:2px}
+.theme-card .t-desc{font-size:10px;color:var(--dim);line-height:1.4}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.cat-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:13px;display:flex;align-items:center;gap:8px;transition:all .15s}
+.cat-item:hover{border-color:rgba(20,184,166,.15);background:rgba(20,184,166,.03)}
+.cat-icon{font-size:16px;width:24px;text-align:center}
+.cat-name{color:var(--text);font-weight:500}
+.cat-count{font-family:'Space Mono',monospace;font-size:10px;color:var(--dim);margin-left:auto}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.feat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px}
+.feat-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:6px;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.feat-desc{font-size:12px;color:var(--dim);line-height:1.6}
+.steps{counter-reset:step}
+.step{counter-increment:step;display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
+.step::before{content:counter(step);font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--teal);background:rgba(20,184,166,.06);border:1px solid rgba(20,184,166,.1);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-text{font-size:14px;color:var(--dim);line-height:1.6;padding-top:4px}
+.step-text strong{color:var(--text);font-weight:500}
+.step-text code{font-family:'Space Mono',monospace;font-size:11px;background:rgba(20,184,166,.06);color:var(--teal);padding:1px 6px;border-radius:3px}
+.tree{font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 22px;line-height:2;overflow-x:auto}
+.tree .dir{color:var(--teal)}
+.tree .hl{color:var(--text)}
+.tree .count{color:rgba(255,255,255,.12)}
+.tree .new{color:var(--cyan);font-weight:700}
+.footer{text-align:center;padding:40px 24px 30px;border-top:1px solid var(--border);margin-top:20px}
+.footer-logo{margin-bottom:8px}
+.footer-logo .f-ar{font-family:'Amiri',serif;font-size:22px;font-weight:700;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-logo .f-fr{font-family:'Nunito',sans-serif;font-size:10px;font-weight:300;color:var(--text);opacity:.2;letter-spacing:5px;margin-left:6px}
+.footer-links{font-size:11px;color:rgba(255,255,255,.12);margin-bottom:10px}
+.footer-links a{color:rgba(255,255,255,.2);text-decoration:none}
+.footer-links a:hover{color:var(--teal)}
+.footer-legal{font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,.06);letter-spacing:1px}
+@media(max-width:600px){.stats{flex-wrap:wrap}.stat{min-width:33%}.hero{padding:40px 16px 30px}}
+</style>
+</head>
+<body>
+<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="hero">
+  <div class="hero-badge">v8.0 · complete trilingual suite</div>
+  <div class="logo-ar">صدى</div>
+  <div class="logo-fr">sada</div>
+  <div class="logo-line"></div>
+  <p class="hero-sub">The complete creative universe of <strong>صدى sada</strong> — a French educational association teaching kids to build robots, train AI, and hack ethically — reimagined through <strong>567 unique HTML files</strong> in English, French, and Arabic.</p>
+</div>
+<div class="stats">
+  <div class="stat"><div class="stat-num">567</div><div class="stat-label">HTML Files</div></div>
+  <div class="stat"><div class="stat-num">161</div><div class="stat-label">Apps</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Languages</div></div>
+  <div class="stat"><div class="stat-num">30</div><div class="stat-label">Tutorials</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">npm install</div></div>
+</div>
+<div class="cta-row">
+  <a class="cta cta-primary" href="demo.html">▶ Launch Slideshow</a>
+  <a class="cta cta-secondary" href="app-index.html">📂 Browse All Files</a>
+  <a class="cta cta-secondary" href="master-hub.html">🗺️ Master Hub</a>
+  <a class="cta cta-secondary" href="user_guide.html">📖 User Guide</a>
+  <a class="cta cta-secondary" href="facebook-calendar.html">📅 Facebook Calendar</a>
+  <a class="cta cta-secondary" href="shop-listings.html">🛒 Shop Bundles</a>
+</div>
+<div class="section">
+  <div class="section-title">Languages</div>
+  <div class="lang-cards">
+    <div class="lang-card" onclick="setLang('en')" data-lang="en"><div class="badge">Original</div><div class="lang-flag">🇬🇧</div><div class="lang-name">English</div><div class="lang-detail">166 files · Root folder<br><code>workshop-diy-*.html</code><br>+ 10 tutorial storyboards</div></div>
+    <div class="lang-card" onclick="setLang('fr')" data-lang="fr"><div class="lang-flag">🇫🇷</div><div class="lang-name">Français</div><div class="lang-detail">174 files · <code>fr/</code> folder<br><code>workshop-diy-*-fr.html</code><br>Full UI + prose + 10 tutorials</div></div>
+    <div class="lang-card" onclick="setLang('ar')" data-lang="ar"><div class="lang-flag">🇸🇦</div><div class="lang-name">العربية</div><div class="lang-detail">174 files · <code>ar/</code> folder<br><code>workshop-diy-*-ar.html</code><br>Full RTL · Amiri · Bismillah · 10 tutorials</div></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">Themes</div>
+  <div class="theme-cards">
+    <div class="theme-card" onclick="setTheme('default')" data-theme="default"><div class="t-preview" style="background:linear-gradient(135deg,#14b8a6,#6366f1)"></div><div class="t-name">Original</div><div class="t-desc">Teal + Indigo</div></div>
+    <div class="theme-card" onclick="setTheme('islamic')" data-theme="islamic"><div class="t-preview" style="background:linear-gradient(135deg,#c9a45c,#10b981)"></div><div class="t-name">Islamic</div><div class="t-desc">Emerald + Gold</div></div>
+    <div class="theme-card" onclick="setTheme('calligraphy')" data-theme="calligraphy"><div class="t-preview" style="background:linear-gradient(135deg,#c8a860,#1a1610)"></div><div class="t-name">Calligraphie</div><div class="t-desc">Warm Sepia Manuscript</div></div>
+    <div class="theme-card" onclick="setTheme('medina')" data-theme="medina"><div class="t-preview" style="background:linear-gradient(135deg,#d4a040,#1a1208)"></div><div class="t-name">Medina</div><div class="t-desc">Amber Lantern Glow</div></div>
+    <div class="theme-card" onclick="setTheme('andalous')" data-theme="andalous"><div class="t-preview" style="background:linear-gradient(135deg,#3b82f6,#c9a45c)"></div><div class="t-name">Andalous</div><div class="t-desc">Moorish Blue + Gold</div></div>
+    <div class="theme-card" onclick="setTheme('noor')" data-theme="noor"><div class="t-preview" style="background:linear-gradient(135deg,#78b464,#0e1a10)"></div><div class="t-name">Noor</div><div class="t-desc">Sage Twilight Garden</div></div>
+    <div class="theme-card" onclick="setTheme('fajr')" data-theme="fajr"><div class="t-preview" style="background:linear-gradient(135deg,#8a9ac0,#121418)"></div><div class="t-name">Fajr</div><div class="t-desc">Cool Slate Pre-Dawn</div></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">161 Apps · 7 Domains</div>
+  <div class="cat-grid">
+    <div class="cat-item"><span class="cat-icon">🎬</span><span class="cat-name">Video</span><span class="cat-count">12</span></div>
+    <div class="cat-item"><span class="cat-icon">🕹️</span><span class="cat-name">Interactive</span><span class="cat-count">15</span></div>
+    <div class="cat-item"><span class="cat-icon">🎮</span><span class="cat-name">Games</span><span class="cat-count">18</span></div>
+    <div class="cat-item"><span class="cat-icon">📱</span><span class="cat-name">Social</span><span class="cat-count">16</span></div>
+    <div class="cat-item"><span class="cat-icon">🎨</span><span class="cat-name">Creative</span><span class="cat-count">37</span></div>
+    <div class="cat-item"><span class="cat-icon">🔧</span><span class="cat-name">Hardware</span><span class="cat-count">10</span></div>
+    <div class="cat-item"><span class="cat-icon">🎭</span><span class="cat-name">Themed</span><span class="cat-count">19</span></div>
+    <div class="cat-item"><span class="cat-icon">📄</span><span class="cat-name">Docs</span><span class="cat-count">13</span></div>
+    <div class="cat-item"><span class="cat-icon">🌧️</span><span class="cat-name">Ambient</span><span class="cat-count">5</span></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">Tutorials · 30 files</div>
+  <div class="cat-grid">
+    <div class="cat-item"><span class="cat-icon">🐄</span><span class="cat-name">CowSay</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">🤖</span><span class="cat-name">BitBot</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">🧠</span><span class="cat-name">OllamaBot</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">📻</span><span class="cat-name">SDR Lab</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">🔐</span><span class="cat-name">Crypto Vault</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">🛡️</span><span class="cat-name">Hacktivist</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">💉</span><span class="cat-name">Pentest Lab</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">✈️</span><span class="cat-name">Flight Tracker</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">🛰️</span><span class="cat-name">Satellites</span><span class="cat-count">EN FR AR</span></div>
+    <div class="cat-item"><span class="cat-icon">🌙</span><span class="cat-name">Muslim Scholars</span><span class="cat-count">EN FR AR</span></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">Quick Start</div>
+  <div class="steps">
+    <div class="step"><div class="step-text"><strong>Unzip</strong> the package anywhere on your computer</div></div>
+    <div class="step"><div class="step-text"><strong>Open</strong> this file (<code>start_here.html</code>) in Chrome</div></div>
+    <div class="step"><div class="step-text">Click <strong>Launch Slideshow</strong> to see all files auto-play with 🇬🇧/🇫🇷/🇸🇦 language toggle</div></div>
+    <div class="step"><div class="step-text">Or browse the <strong>Master Hub</strong> — all 161 apps with categories, search, and previews</div></div>
+    <div class="step"><div class="step-text">Or open any <code>workshop-diy-*.html</code> file individually — they're all self-contained</div></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">Features</div>
+  <div class="feat-grid">
+    <div class="feat"><div class="feat-title">Self-Contained</div><div class="feat-desc">Every file works standalone. Only external dependency: Google Fonts. No npm, no build step, no framework.</div></div>
+    <div class="feat"><div class="feat-title">Trilingual</div><div class="feat-desc">569 files across English, French, and Arabic. Use the language cards above to set your preferred language globally (full RTL with Amiri font + Bismillah). Switch languages in the slideshow player.</div></div>
+    <div class="feat"><div class="feat-title">30 Tutorial Storyboards</div><div class="feat-desc">Screen-recording scripts for 10 apps × 3 languages. Each has step-by-step actions, voiceover text, and unique color themes.</div></div>
+    <div class="feat"><div class="feat-title">Slideshow Player</div><div class="feat-desc"><code>demo.html</code> — autoplay, shuffle, category filter, fullscreen, keyboard shortcuts (Space, arrows, F).</div></div>
+    <div class="feat"><div class="feat-title">صدى Lore</div><div class="feat-desc">Bug #42, coffee machine at 8%, password123, bit-bot's 47 drops, hot glue structural engineering — consistent across every file.</div></div>
+    <div class="feat"><div class="feat-title">90+ Unique Formats</div><div class="feat-desc">Fake newspapers, Tinder profiles, courtroom transcripts, cereal boxes, NASA dashboards, SCP reports, and much more.</div></div>
+    <div class="feat"><div class="feat-title">⚡ Nav Pill</div><div class="feat-desc">Every page has a discrete floating button (top-right). Click to navigate: prev/next app, master hub, index, calendar, shop, guide. Plus language switcher.</div></div>
+    <div class="feat"><div class="feat-title">🌍 Global Language</div><div class="feat-desc">Set your language once (from this page or any nav pill). All pages auto-redirect to the right version via localStorage.</div></div>
+    <div class="feat"><div class="feat-title">🔒 Splash Screen</div><div class="feat-desc"><code>splash.html</code> — cinematic entry with starfield, Arabic calligraphy, and password gate. Master code for admin, user code changeable.</div></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">Package Structure</div>
+  <div class="tree">
+<span class="dir">sada-v8.0/</span>
+├── <span class="hl">start_here.html</span>              ← you are here
+├── <span class="hl">demo.html</span>                     ← slideshow player
+├── <span class="hl">master-hub.html</span>  ← 161-app hub
+├── README.md · CHANGELOG.md
+├── sada-logo.svg
+├── workshop-diy-*.html            <span class="count">× 164 (EN) + splash.html</span>
+├── <span class="dir">fr/</span>
+│   ├── workshop-diy-*-fr.html     <span class="count">× 164 (FR)</span>
+│   └── <span class="new">tutorials × 10 (FR) NEW</span>
+├── <span class="dir">ar/</span>
+│   ├── workshop-diy-*-ar.html     <span class="count">× 164 (AR)</span>
+│   └── <span class="new">tutorials × 10 (AR) NEW</span>
+└── <span class="dir">video/</span>
+    ├── production                 <span class="count">× 40</span>
+    └── <span class="dir">tutorials/</span>
+        ├── EN storyboards         <span class="count">× 10</span>
+        ├── <span class="dir">fr/</span>                  <span class="new">× 10 NEW</span>
+        └── <span class="dir">ar/</span>                  <span class="new">× 10 NEW</span>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">Hardware Ecosystem</div>
+  <div class="lang-cards">
+    <div class="lang-card"><div class="lang-flag">📟</div><div class="lang-name">micro:bit V2</div><div class="lang-detail">5×5 LED · Accelerometer · BLE<br>MakeCode · MicroPython</div></div>
+    <div class="lang-card"><div class="lang-flag">⚡</div><div class="lang-name">ESP32-C3</div><div class="lang-detail">RISC-V 160MHz · WiFi + BLE 5<br>Arduino IDE · ~€3-5</div></div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-logo"><span class="f-ar">صدى</span><span class="f-fr">sada</span></div>
+  <div class="footer-links"><a href="https://workshop-diy.org" target="_blank">workshop-diy.org</a> · Association Loi 1901 · Chelles 77500 · France 🇫🇷</div>
+  <div class="footer-legal">161 APPS · 567 FILES · 3 LANGUAGES · 30 TUTORIALS · PASSWORD123 · BUGS ARE FEATURES · V5.1</div>
+</div>
+<script src="assets/js/sada-footer.js"></script>
+<script>
+function setLang(lang){
+  localStorage.setItem("sada-lang",lang);
+  document.querySelectorAll(".lang-card[data-lang]").forEach(function(c){
+    c.classList.toggle("selected",c.dataset.lang===lang);
+  });
+  var names={en:"English \ud83c\uddec\ud83c\udde7",fr:"Fran\u00e7ais \ud83c\uddeb\ud83c\uddf7",ar:"\u0627\u0644\u0639\u0631\u0628\u064a\u0629 \ud83c\uddf8\ud83c\udde6"};
+  var toast=document.createElement("div");
+  toast.textContent="\u2713 Language set to "+names[lang]+" \u2014 all pages will follow";
+  toast.style.cssText="position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:rgba(20,184,166,.15);border:1px solid rgba(20,184,166,.3);color:#14b8a6;padding:10px 24px;border-radius:8px;font-size:13px;z-index:9999;transition:opacity .5s";
+  document.body.appendChild(toast);
+  setTimeout(function(){toast.style.opacity="0"},2500);
+  setTimeout(function(){toast.remove()},3000);
+}
+(function(){
+  var L=localStorage.getItem("sada-lang");
+  if(L)document.querySelectorAll(".lang-card[data-lang]").forEach(function(c){
+    c.classList.toggle("selected",c.dataset.lang===L);
+  });
+})();
+function setTheme(t){
+  window.sdTheme(t);
+  document.querySelectorAll(".theme-card[data-theme]").forEach(function(c){
+    c.classList.toggle("selected",c.dataset.theme===t);
+  });
+  var names={default:"Original",islamic:"Islamic",calligraphy:"Calligraphie",medina:"M\u00e9dina",andalous:"Andalous",noor:"Noor",fajr:"Fajr"};
+  var toast=document.createElement("div");
+  toast.textContent="\u2713 Theme set to "+names[t]+" \u2014 all pages will follow";
+  toast.style.cssText="position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:rgba(20,184,166,.15);border:1px solid rgba(20,184,166,.3);color:#14b8a6;padding:10px 24px;border-radius:8px;font-size:13px;z-index:9999;transition:opacity .5s";
+  document.body.appendChild(toast);
+  setTimeout(function(){toast.style.opacity="0"},2500);
+  setTimeout(function(){toast.remove()},3000);
+}
+(function(){
+  var T=localStorage.getItem("sada-theme")||"default";
+  document.querySelectorAll(".theme-card[data-theme]").forEach(function(c){
+    c.classList.toggle("selected",c.dataset.theme===T);
+  });
+})();
+</script>
+</body>
+</html>

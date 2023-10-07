@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workshop-DIY · Présentation</title>
+<script src="assets/js/sada-theme.js"></script>
+<link rel="stylesheet" href="assets/css/sada-themes.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Kufi+Arabic:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{background:#0a0a14;color:#fff;font-family:'Inter',sans-serif;display:flex;flex-direction:column}
+body[dir="rtl"]{font-family:'Noto Kufi Arabic','Inter',sans-serif}
+.bismillah{text-align:center;padding:4px;font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);letter-spacing:1px;direction:rtl;flex-shrink:0}
+.controls{display:flex;align-items:center;gap:4px;padding:4px 8px;background:#111;border-bottom:1px solid rgba(255,255,255,.04);flex-shrink:0;flex-wrap:wrap}
+.ctrl-btn{padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);color:rgba(255,255,255,.3);font-size:11px;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
+.ctrl-btn:hover{background:rgba(255,255,255,.05);color:rgba(255,255,255,.6)}
+.ctrl-btn.active{border-color:rgba(255,102,0,.3);color:#ff6600;background:rgba(255,102,0,.05)}
+.ctrl-sep{width:1px;height:18px;background:rgba(255,255,255,.04)}
+.ctrl-select{padding:3px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.06);background:#111;color:rgba(255,255,255,.3);font-size:10px;font-family:inherit;cursor:pointer}
+.ctrl-select option{background:#111}
+.progress{height:3px;background:rgba(255,255,255,.02);flex-shrink:0;cursor:pointer;position:relative}
+.progress-fill{height:100%;background:linear-gradient(90deg,#ff6600,#ff8800);transition:width .3s;pointer-events:none}
+.progress:hover .progress-fill{height:5px;margin-top:-1px}
+.counter{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.15);min-width:60px;text-align:center}
+.file-name{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,102,0,.2);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.frame-wrap{flex:1;position:relative;background:#0a0a14;min-height:0;overflow:hidden}
+.frame-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;background:#0a0a14}
+.footer{display:flex;align-items:center;justify-content:center;gap:6px;padding:4px;background:#111;border-top:1px solid rgba(255,255,255,.04);flex-shrink:0}
+.footer a{font-size:9px;color:rgba(255,255,255,.06);text-decoration:none;font-family:'JetBrains Mono',monospace}
+.footer a:hover{color:rgba(255,255,255,.15)}
+.lang-btn{padding:3px 6px;border-radius:4px;border:1px solid rgba(255,255,255,.06);background:none;font-size:12px;cursor:pointer;transition:all .15s}
+.lang-btn.active{border-color:rgba(255,102,0,.3);background:rgba(255,102,0,.05)}
+.cat-bar{display:none;padding:3px 8px;background:#0d0d18;border-bottom:1px solid rgba(255,255,255,.02);gap:4px;flex-wrap:wrap;flex-shrink:0}
+.cat-bar.show{display:flex}
+.cat-pill{padding:2px 8px;border-radius:10px;border:1px solid rgba(255,255,255,.04);font-size:9px;color:rgba(255,255,255,.15);cursor:pointer;transition:all .15s;white-space:nowrap}
+.cat-pill:hover{border-color:rgba(255,102,0,.15)}
+.cat-pill.active{border-color:#ff6600;color:#ff6600;background:rgba(255,102,0,.05)}
+</style>
+</head>
+<body>
+<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="controls" id="controls">
+  <button class="ctrl-btn" id="btnPlay" onclick="togglePlay()">▶</button>
+  <button class="ctrl-btn" id="btnPrev" onclick="go(-1)">◀</button>
+  <button class="ctrl-btn" id="btnNext" onclick="go(1)">▸</button>
+  <div class="ctrl-sep"></div>
+  <span class="counter" id="counter">0 / 0</span>
+  <span class="file-name" id="fileName"></span>
+  <div class="ctrl-sep"></div>
+  <select class="ctrl-select" id="speedSel" onchange="setSpeed(this.value)">
+    <option value="5000">5s</option>
+    <option value="8000" selected>8s</option>
+    <option value="15000">15s</option>
+    <option value="30000">30s</option>
+  </select>
+  <button class="ctrl-btn" id="btnShuffle" onclick="toggleShuffle()">🔀</button>
+  <button class="ctrl-btn" id="btnCat" onclick="toggleCatBar()">📂</button>
+  <button class="ctrl-btn" onclick="toggleFullscreen()">⛶</button>
+  <div style="flex:1"></div>
+  <button class="lang-btn" id="langEN" onclick="setLang('en')">🇬🇧</button>
+  <button class="lang-btn active" id="langFR" onclick="setLang('fr')">🇫🇷</button>
+  <button class="lang-btn" id="langAR" onclick="setLang('ar')">🇸🇦</button>
+</div>
+<div class="cat-bar" id="catBar"></div>
+<div class="progress" id="progressBar" onclick="clickProgress(event)"><div class="progress-fill" id="progressFill"></div></div>
+<div class="frame-wrap"><iframe id="viewer" src="about:blank"></iframe></div>
+<div class="footer"><a href="https://workshop-diy.org" target="_blank">workshop-diy.org</a></div>
+
+<script>
+const FILES=[
+{f:'workshop-diy-100',c:'meta',t:'100ème fichier',ta:'الملف المائة'},
+{f:'workshop-diy-advent',c:'creative',t:'Calendrier de l\'Avent',ta:'تقويم المجيء'},
+{f:'workshop-diy-airbnb',c:'social',t:'Airbnb',ta:'إير بي إن بي'},
+{f:'workshop-diy-amazon',c:'social',t:'Amazon',ta:'أمازون'},
+{f:'workshop-diy-ambient-screen',c:'creative',t:'Écran ambiant',ta:'شاشة محيطة'},
+{f:'workshop-diy-app-demo-reel',c:'video',t:'Démo des apps',ta:'عرض التطبيقات'},
+{f:'workshop-diy-app-match',c:'game',t:'Quiz compatibilité',ta:'اختبار التوافق'},
+{f:'workshop-diy-app-store',c:'meta',t:'App Store',ta:'متجر التطبيقات'},
+{f:'workshop-diy-arcade',c:'game',t:'Arcade',ta:'آركيد'},
+{f:'workshop-diy-arduino-ide',c:'hardware',t:'Arduino IDE',ta:'بيئة أردوينو'},
+{f:'workshop-diy-awards',c:'creative',t:'Cérémonie des prix',ta:'حفل الجوائز'},
+{f:'workshop-diy-bingo',c:'game',t:'Bingo',ta:'بينغو'},
+{f:'workshop-diy-bio-gen',c:'meta',t:'Générateur de bio',ta:'مولّد السيرة'},
+{f:'workshop-diy-ble-flow',c:'hardware',t:'Flux BLE',ta:'مخطط البلوتوث'},
+{f:'workshop-diy-blueprints',c:'creative',t:'Plans techniques',ta:'المخططات الهندسية'},
+{f:'workshop-diy-boarding-pass',c:'travel',t:'Carte d\'embarquement',ta:'بطاقة الصعود'},
+{f:'workshop-diy-boot-sequence',c:'tech',t:'Séquence de démarrage',ta:'تسلسل الإقلاع'},
+{f:'workshop-diy-bottle',c:'personal',t:'Bouteille à la mer',ta:'رسالة في زجاجة'},
+{f:'workshop-diy-breaking-news',c:'news',t:'Flash info',ta:'خبر عاجل'},
+{f:'workshop-diy-bug-or-feature',c:'game',t:'Bug ou Feature ?',ta:'خطأ أم ميزة؟'},
+{f:'workshop-diy-bugchelor',c:'video',t:'Le Bugchelor',ta:'البرنامج التلفزيوني'},
+{f:'workshop-diy-card-collection',c:'collect',t:'Collection de cartes',ta:'مجموعة البطاقات'},
+{f:'workshop-diy-card-pack',c:'collect',t:'Pack de cartes',ta:'حزمة بطاقات'},
+{f:'workshop-diy-cereal-box',c:'food',t:'Boîte de céréales',ta:'علبة حبوب'},
+{f:'workshop-diy-changelog',c:'docs',t:'Journal des modifications',ta:'سجل التغييرات'},
+{f:'workshop-diy-classified-dossier',c:'tech',t:'Dossier classifié',ta:'ملف سري'},
+{f:'workshop-diy-clicker',c:'game',t:'Clicker',ta:'لعبة النقر'},
+{f:'workshop-diy-comic',c:'video',t:'Bande dessinée',ta:'قصة مصورة'},
+{f:'workshop-diy-compatibility',c:'game',t:'Test de compatibilité',ta:'اختبار التوافق'},
+{f:'workshop-diy-concert-ticket',c:'creative',t:'Billet de concert',ta:'تذكرة حفل'},
+{f:'workshop-diy-conspiracy',c:'tech',t:'Théorie du complot',ta:'نظرية المؤامرة'},
+{f:'workshop-diy-cookbook',c:'food',t:'Livre de recettes',ta:'كتاب الطبخ'},
+{f:'workshop-diy-court-trial',c:'legal',t:'Procès',ta:'المحاكمة'},
+{f:'workshop-diy-craigslist',c:'social',t:'Craigslist',ta:'كريغزلست'},
+{f:'workshop-diy-creepypasta',c:'video',t:'Creepypasta',ta:'قصة رعب'},
+{f:'workshop-diy-crossword',c:'game',t:'Mots croisés',ta:'كلمات متقاطعة'},
+{f:'workshop-diy-ctf-quiz',c:'edu',t:'Quiz CTF',ta:'مسابقة أمن سيبراني'},
+{f:'workshop-diy-delivery',c:'travel',t:'Suivi de livraison',ta:'تتبع التوصيل'},
+{f:'workshop-diy-departures',c:'travel',t:'Tableau des départs',ta:'لوحة المغادرات'},
+{f:'workshop-diy-detention',c:'edu',t:'Fiche de retenue',ta:'ورقة الحجز'},
+{f:'workshop-diy-diary',c:'personal',t:'Journal intime',ta:'المذكرات'},
+{f:'workshop-diy-discord-chat',c:'social',t:'Discord',ta:'ديسكورد'},
+{f:'workshop-diy-docs',c:'docs',t:'Documentation',ta:'التوثيق'},
+{f:'workshop-diy-dungeon',c:'game',t:'Donjon',ta:'الزنزانة'},
+{f:'workshop-diy-documentary',c:'video',t:'Documentaire',ta:'فيلم وثائقي'},
+{f:'workshop-diy-duolingo',c:'edu',t:'Duolingo',ta:'دوولينجو'},
+{f:'workshop-diy-dvd-menu',c:'video',t:'Menu DVD',ta:'قائمة دي في دي'},
+{f:'workshop-diy-ebay',c:'social',t:'eBay',ta:'إيباي'},
+{f:'workshop-diy-elevator-pitch',c:'news',t:'Pitch éclair',ta:'عرض سريع'},
+{f:'workshop-diy-emergency-alert',c:'news',t:'Alerte d\'urgence',ta:'تنبيه طوارئ'},
+{f:'workshop-diy-escape-room',c:'game',t:'Escape room',ta:'غرفة الهروب'},
+{f:'workshop-diy-esp32-boot',c:'hardware',t:'Démarrage ESP32',ta:'إقلاع ESP32'},
+{f:'workshop-diy-esp32-pinout',c:'hardware',t:'Brochage ESP32',ta:'مخطط أطراف ESP32'},
+{f:'workshop-diy-esp32-vs-microbit',c:'hardware',t:'ESP32 vs micro:bit',ta:'ESP32 ضد مايكروبت'},
+{f:'workshop-diy-esp32-wiring',c:'hardware',t:'Câblage ESP32',ta:'توصيل ESP32'},
+{f:'workshop-diy-family-tree',c:'creative',t:'Arbre généalogique',ta:'شجرة العائلة'},
+{f:'workshop-diy-faq',c:'docs',t:'Questions fréquentes',ta:'الأسئلة الشائعة'},
+{f:'workshop-diy-festival',c:'creative',t:'Festival',ta:'مهرجان'},
+{f:'workshop-diy-flappy',c:'game',t:'Flappy Bird',ta:'فلابي بيرد'},
+{f:'workshop-diy-forensic-report',c:'legal',t:'Rapport médico-légal',ta:'تقرير الطب الشرعي'},
+{f:'workshop-diy-fortune-cookie',c:'game',t:'Cookie de fortune',ta:'بسكويت الحظ'},
+{f:'workshop-diy-gacha',c:'collect',t:'Machine gacha',ta:'آلة غاتشا'},
+{f:'workshop-diy-genius-ideas-lab',c:'creative',t:'Labo d\'idées géniales',ta:'مختبر الأفكار'},
+{f:'workshop-diy-genius-video',c:'video',t:'Vidéo Genius',ta:'فيديو جينيوس'},
+{f:'workshop-diy-genius-video-animation',c:'video',t:'Animation Genius',ta:'رسوم جينيوس'},
+{f:'workshop-diy-github-profile',c:'social',t:'Profil GitHub',ta:'ملف غيتهب'},
+{f:'workshop-diy-hacker-news',c:'social',t:'Hacker News',ta:'أخبار الهاكرز'},
+{f:'workshop-diy-hacker-presentation',c:'tech',t:'Présentation hacker',ta:'عرض القرصنة'},
+{f:'workshop-diy-hacker-terminal',c:'tech',t:'Terminal hacker',ta:'طرفية القرصنة'},
+{f:'workshop-diy-haiku',c:'creative',t:'Haiku',ta:'هايكو'},
+{f:'workshop-diy-help',c:'docs',t:'Aide',ta:'المساعدة'},
+{f:'workshop-diy-horoscope',c:'creative',t:'Horoscope',ta:'الأبراج'},
+{f:'workshop-diy-ikea-manual',c:'creative',t:'Manuel IKEA',ta:'دليل إيكيا'},
+{f:'workshop-diy-in-memoriam',c:'personal',t:'In Memoriam',ta:'في الذاكرة'},
+{f:'workshop-diy-index',c:'docs',t:'Index',ta:'الفهرس'},
+{f:'workshop-diy-infomercial',c:'news',t:'Infopublicité',ta:'إعلان تلفزيوني'},
+{f:'workshop-diy-iphone',c:'tech',t:'iPhone',ta:'آيفون'},
+{f:'workshop-diy-jeopardy',c:'game',t:'Jeopardy',ta:'جيوباردي'},
+{f:'workshop-diy-kanban',c:'tech',t:'Kanban',ta:'كانبان'},
+{f:'workshop-diy-lab-notebook',c:'edu',t:'Cahier de labo',ta:'دفتر المختبر'},
+{f:'workshop-diy-license-plates',c:'creative',t:'Plaques d\'immatriculation',ta:'لوحات السيارات'},
+{f:'workshop-diy-linkedin',c:'social',t:'LinkedIn',ta:'لينكدإن'},
+{f:'workshop-diy-live-monitor',c:'tech',t:'Moniteur en direct',ta:'المراقبة المباشرة'},
+{f:'workshop-diy-loading-screens',c:'tech',t:'Écrans de chargement',ta:'شاشات التحميل'},
+{f:'workshop-diy-love-letters',c:'personal',t:'Lettres d\'amour',ta:'رسائل حب'},
+{f:'workshop-diy-mad-libs',c:'game',t:'Mad Libs',ta:'ماد ليبز'},
+{f:'workshop-diy-magic-8ball',c:'game',t:'Boule magique',ta:'الكرة السحرية'},
+{f:'workshop-diy-makecode',c:'hardware',t:'MakeCode',ta:'ميك كود'},
+{f:'workshop-diy-maps-reviews',c:'travel',t:'Avis Google Maps',ta:'تقييمات خرائط غوغل'},
+{f:'workshop-diy-master-hub',c:'meta',t:'Hub principal',ta:'المركز الرئيسي'},
+{f:'workshop-diy-metro-map',c:'travel',t:'Plan du métro',ta:'خريطة المترو'},
+{f:'workshop-diy-microbit-telemetry',c:'hardware',t:'Télémétrie micro:bit',ta:'قياسات مايكروبت'},
+{f:'workshop-diy-monopoly',c:'game',t:'Monopoly',ta:'مونوبولي'},
+{f:'workshop-diy-movie-credits',c:'video',t:'Générique de film',ta:'شارة الفيلم'},
+{f:'workshop-diy-museum',c:'creative',t:'Musée',ta:'المتحف'},
+{f:'workshop-diy-music-player',c:'creative',t:'Lecteur musique',ta:'مشغل الموسيقى'},
+{f:'workshop-diy-nasa-control',c:'tech',t:'Centre de contrôle NASA',ta:'مركز التحكم ناسا'},
+{f:'workshop-diy-neopixel-emoji',c:'hardware',t:'NeoPixel Emoji',ta:'نيوبكسل إيموجي'},
+{f:'workshop-diy-network-map',c:'tech',t:'Carte réseau',ta:'خريطة الشبكة'},
+{f:'workshop-diy-newspaper',c:'news',t:'Journal',ta:'الجريدة'},
+{f:'workshop-diy-notion',c:'social',t:'Notion',ta:'نوشن'},
+{f:'workshop-diy-org-chart',c:'meta',t:'Organigramme',ta:'الهيكل التنظيمي'},
+{f:'workshop-diy-os-desktop',c:'tech',t:'Bureau OS',ta:'سطح المكتب'},
+{f:'workshop-diy-ouija',c:'game',t:'Ouija',ta:'ويجا'},
+{f:'workshop-diy-paper',c:'edu',t:'Article scientifique',ta:'ورقة بحثية'},
+{f:'workshop-diy-parking-ticket',c:'legal',t:'PV de stationnement',ta:'مخالفة وقوف'},
+{f:'workshop-diy-passport',c:'travel',t:'Passeport',ta:'جواز السفر'},
+{f:'workshop-diy-periodic-table',c:'creative',t:'Tableau périodique',ta:'الجدول الدوري'},
+{f:'workshop-diy-pizza-menu',c:'food',t:'Menu pizza',ta:'قائمة البيتزا'},
+{f:'workshop-diy-pokedex',c:'creative',t:'Pokédex',ta:'بوكيدكس'},
+{f:'workshop-diy-police-report',c:'legal',t:'Rapport de police',ta:'تقرير الشرطة'},
+{f:'workshop-diy-ransom-note',c:'creative',t:'Lettre de rançon',ta:'رسالة فدية'},
+{f:'workshop-diy-rap-battle',c:'video',t:'Battle de rap',ta:'معركة راب'},
+{f:'workshop-diy-real-estate',c:'travel',t:'Annonce immobilière',ta:'إعلان عقاري'},
+{f:'workshop-diy-receipt',c:'food',t:'Ticket de caisse',ta:'إيصال الدفع'},
+{f:'workshop-diy-reddit',c:'social',t:'Reddit',ta:'ريديت'},
+{f:'workshop-diy-report-card',c:'edu',t:'Bulletin scolaire',ta:'بطاقة العلامات'},
+{f:'workshop-diy-restraining-order',c:'legal',t:'Ordonnance restrictive',ta:'أمر تقييدي'},
+{f:'workshop-diy-roadmap-video-fr',c:'video',t:'Vidéo feuille de route',ta:'فيديو خارطة الطريق'},
+{f:'workshop-diy-rxy',c:'hardware',t:'Télécommande RXY',ta:'ريموت RXY'},
+{f:'workshop-diy-safety-card',c:'creative',t:'Fiche de sécurité',ta:'بطاقة السلامة'},
+{f:'workshop-diy-safety-card-v2',c:'creative',t:'Fiche de sécurité v2',ta:'بطاقة السلامة v2'},
+{f:'workshop-diy-scoreboard',c:'meta',t:'Tableau des scores',ta:'لوحة النتائج'},
+{f:'workshop-diy-scp-file',c:'tech',t:'Dossier SCP',ta:'ملف SCP'},
+{f:'workshop-diy-shark-tank',c:'news',t:'Shark Tank',ta:'عرين الأسود'},
+{f:'workshop-diy-sitcom',c:'video',t:'Sitcom',ta:'مسلسل كوميدي'},
+{f:'workshop-diy-skill-tree',c:'game',t:'Arbre de compétences',ta:'شجرة المهارات'},
+{f:'workshop-diy-slack',c:'social',t:'Slack',ta:'سلاك'},
+{f:'workshop-diy-slot-machine',c:'game',t:'Machine à sous',ta:'آلة القمار'},
+{f:'workshop-diy-social-media-kit',c:'meta',t:'Kit réseaux sociaux',ta:'مجموعة وسائل التواصل'},
+{f:'workshop-diy-space-mission',c:'tech',t:'Mission spatiale',ta:'مهمة فضائية'},
+{f:'workshop-diy-stamps',c:'creative',t:'Timbres',ta:'طوابع'},
+{f:'workshop-diy-star-chart',c:'creative',t:'Carte du ciel',ta:'خريطة النجوم'},
+{f:'workshop-diy-sticker-sheet',c:'collect',t:'Planche de stickers',ta:'لوحة الملصقات'},
+{f:'workshop-diy-stock-market',c:'meta',t:'Bourse',ta:'البورصة'},
+{f:'workshop-diy-superlatives',c:'creative',t:'Superlatifs',ta:'الألقاب'},
+{f:'workshop-diy-synth-visualizer',c:'creative',t:'Synthé visuel',ta:'المُركِّب البصري'},
+{f:'workshop-diy-tamagotchi',c:'game',t:'Tamagotchi',ta:'تاماغوتشي'},
+{f:'workshop-diy-tax-return',c:'legal',t:'Déclaration d\'impôts',ta:'الإقرار الضريبي'},
+{f:'workshop-diy-testimonials',c:'meta',t:'Témoignages',ta:'شهادات'},
+{f:'workshop-diy-text-adventure',c:'game',t:'Aventure textuelle',ta:'مغامرة نصية'},
+{f:'workshop-diy-therapy',c:'personal',t:'Séance de thérapie',ta:'جلسة علاج'},
+{f:'workshop-diy-tiktok',c:'social',t:'TikTok',ta:'تيك توك'},
+{f:'workshop-diy-time-capsule',c:'personal',t:'Capsule temporelle',ta:'كبسولة الزمن'},
+{f:'workshop-diy-timeline',c:'creative',t:'Frise chronologique',ta:'الخط الزمني'},
+{f:'workshop-diy-tinder',c:'social',t:'Tinder',ta:'تندر'},
+{f:'workshop-diy-trial',c:'legal',t:'Procès-verbal',ta:'محضر المحاكمة'},
+{f:'workshop-diy-twitch',c:'social',t:'Twitch',ta:'تويتش'},
+{f:'workshop-diy-ultimate-video',c:'video',t:'Vidéo ultime',ta:'الفيديو النهائي'},
+{f:'workshop-diy-vending-machine',c:'food',t:'Distributeur',ta:'آلة البيع'},
+{f:'workshop-diy-video-concept-preview',c:'video',t:'Aperçu vidéo',ta:'معاينة الفيديو'},
+{f:'workshop-diy-voicemail',c:'personal',t:'Messagerie vocale',ta:'البريد الصوتي'},
+{f:'workshop-diy-vscode',c:'tech',t:'VS Code',ta:'في إس كود'},
+{f:'workshop-diy-wanted-wall',c:'creative',t:'Mur des recherchés',ta:'جدار المطلوبين'},
+{f:'workshop-diy-warranty',c:'legal',t:'Garantie',ta:'شهادة الضمان'},
+{f:'workshop-diy-weather',c:'news',t:'Météo',ta:'الطقس'},
+{f:'workshop-diy-wedding',c:'personal',t:'Mariage',ta:'حفل الزفاف'},
+{f:'workshop-diy-whatsapp',c:'social',t:'WhatsApp',ta:'واتساب'},
+{f:'workshop-diy-wikipedia',c:'social',t:'Wikipédia',ta:'ويكيبيديا'},
+{f:'workshop-diy-wordle',c:'game',t:'Wordle',ta:'ووردل'},
+{f:'workshop-diy-wrapped-2025',c:'meta',t:'Rétrospective 2025',ta:'ملخص 2025'},
+{f:'workshop-diy-yearbook',c:'edu',t:'Album de promo',ta:'كتاب التخرج'},
+{f:'workshop-diy-youtube',c:'social',t:'YouTube',ta:'يوتيوب'},
+{f:'workshop-diy-zodiac',c:'creative',t:'Zodiaque',ta:'الأبراج الفلكية'},
+];
+
+const CATS={
+  all:{fr:'Tout',ar:'الكل'},
+  docs:{fr:'📄 Documentation',ar:'📄 التوثيق'},
+  game:{fr:'🎮 Jeux',ar:'🎮 ألعاب'},
+  social:{fr:'📱 Réseaux',ar:'📱 شبكات'},
+  news:{fr:'📰 Médias',ar:'📰 إعلام'},
+  video:{fr:'📺 Vidéo',ar:'📺 فيديو'},
+  edu:{fr:'🏫 Éducation',ar:'🏫 تعليم'},
+  legal:{fr:'⚖️ Juridique',ar:'⚖️ قانوني'},
+  travel:{fr:'🗺️ Voyage',ar:'🗺️ سفر'},
+  tech:{fr:'🖥️ Tech',ar:'🖥️ تقنية'},
+  hardware:{fr:'📟 Matériel',ar:'📟 عتاد'},
+  creative:{fr:'🎨 Créatif',ar:'🎨 إبداعي'},
+  food:{fr:'🍕 Cuisine',ar:'🍕 طعام'},
+  collect:{fr:'🎰 Collection',ar:'🎰 مجموعات'},
+  personal:{fr:'💌 Personnel',ar:'💌 شخصي'},
+  meta:{fr:'📦 Méta',ar:'📦 ميتا'},
+};
+
+let lang=localStorage.getItem('sada-lang')||'fr',currentIdx=0,playing=false,timer=null,speed=8000,shuffled=false;
+let playlist=[...Array(FILES.length).keys()];
+let activeCat='all';
+
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l==='ar'?'ar':l==='fr'?'fr':'en';
+  document.body.dir=l==='ar'?'rtl':'ltr';
+  document.getElementById('langEN').classList.toggle('active',l==='en');
+  document.getElementById('langFR').classList.toggle('active',l==='fr');
+  document.getElementById('langAR').classList.toggle('active',l==='ar');
+  buildCatBar();
+  loadCurrent();
+  try{localStorage.setItem('sada-lang',l)}catch(e){}
+}
+
+function buildCatBar(){
+  const bar=document.getElementById('catBar');
+  bar.innerHTML='';
+  Object.keys(CATS).forEach(k=>{
+    const pill=document.createElement('span');
+    pill.className='cat-pill'+(k===activeCat?' active':'');
+    pill.textContent=CATS[k][lang];
+    pill.onclick=()=>{activeCat=k;filterPlaylist();buildCatBar();};
+    bar.appendChild(pill);
+  });
+}
+function toggleCatBar(){document.getElementById('catBar').classList.toggle('show')}
+
+function filterPlaylist(){
+  if(activeCat==='all')playlist=[...Array(FILES.length).keys()];
+  else playlist=FILES.map((f,i)=>f.c===activeCat?i:-1).filter(i=>i>=0);
+  if(shuffled)shuffle(playlist);
+  currentIdx=0;
+  loadCurrent();
+}
+
+function toggleShuffle(){
+  shuffled=!shuffled;
+  document.getElementById('btnShuffle').classList.toggle('active',shuffled);
+  if(shuffled)shuffle(playlist);else filterPlaylist();
+  currentIdx=0;loadCurrent();
+}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}}
+
+function togglePlay(){
+  playing=!playing;
+  if(playing){timer=setInterval(()=>go(1),speed)}
+  else{clearInterval(timer);timer=null}
+  updateUI();
+}
+function setSpeed(v){
+  speed=parseInt(v);
+  if(playing){clearInterval(timer);timer=setInterval(()=>go(1),speed)}
+}
+function go(dir){
+  currentIdx+=dir;
+  if(currentIdx>=playlist.length)currentIdx=0;
+  if(currentIdx<0)currentIdx=playlist.length-1;
+  loadCurrent();
+}
+
+function loadCurrent(){
+  if(!playlist.length)return;
+  const file=FILES[playlist[currentIdx]];
+  const base=file.f.replace('workshop-diy-','');
+  let src;
+    var CATMAP={'100':'marketing','advent':'creative','airbnb':'social','amazon':'social','ambient-screen':'interactive','app-demo-reel':'marketing','app-match':'marketing','app-store':'interactive','arcade':'games','arduino-ide':'hardware','awards':'themed','bingo':'games','bio-gen':'docs','ble-flow':'hardware','blueprints':'dashboards','boarding-pass':'creative','boot-sequence':'interactive','bottle':'creative','breaking-news':'presentations','bug-or-feature':'themed','bugchelor':'themed','card-collection':'dashboards','card-pack':'creative','cereal-box':'creative','changelog':'docs','classified-dossier':'themed','clicker':'games','comic':'creative','compatibility':'themed','concert-ticket':'creative','conspiracy':'themed','cookbook':'themed','court-trial':'themed','craigslist':'social','creepypasta':'themed','crossword':'games','ctf-quiz':'games','delivery':'social','departures':'themed','detention':'themed','diary':'themed','discord-chat':'social','docs':'docs','documentary':'presentations','dungeon':'games','duolingo':'social','dvd-menu':'creative','ebay':'social','elevator-pitch':'themed','emergency-alert':'themed','escape-room':'games','esp32-boot':'hardware','esp32-pinout':'hardware','esp32-vs-microbit':'hardware','esp32-wiring':'hardware','family-tree':'creative','faq':'docs','festival':'creative','flappy':'games','forensic-report':'themed','fortune-cookie':'creative','gacha':'games','genius-ideas-lab':'marketing','genius-video':'presentations','genius-video-animation':'presentations','github-profile':'dashboards','hacker-news':'social','hacker-presentation':'presentations','hacker-terminal':'interactive','haiku':'creative','help':'docs','horoscope':'themed','ikea-manual':'creative','in-memoriam':'creative','infomercial':'presentations','iphone':'social','jeopardy':'games','kanban':'docs','lab-notebook':'docs','license-plates':'creative','linkedin':'social','live-monitor':'dashboards','loading-screens':'interactive','love-letters':'creative','mad-libs':'creative','magic-8ball':'games','makecode':'hardware','maps-reviews':'social','metro-map':'creative','microbit-telemetry':'hardware','monopoly':'games','movie-credits':'presentations','museum':'creative','music-player':'creative','nasa-control':'interactive','neopixel-emoji':'hardware','network-map':'interactive','newspaper':'themed','notion':'social','org-chart':'docs','os-desktop':'interactive','ouija':'games','paper':'creative','parking-ticket':'creative','passport':'creative','periodic-table':'dashboards','pizza-menu':'creative','pokedex':'themed','police-report':'themed','ransom-note':'creative','rap-battle':'themed','real-estate':'creative','receipt':'creative','reddit':'social','report-card':'docs','restraining-order':'themed','roadmap-video-fr':'presentations','rxy':'hardware','safety-card':'docs','safety-card-v2':'docs','scoreboard':'themed','scp-file':'docs','shark-tank':'themed','sitcom':'presentations','skill-tree':'dashboards','slack':'social','slot-machine':'games','social-media-kit':'marketing','space-mission':'themed','stamps':'creative','star-chart':'creative','sticker-sheet':'dashboards','stock-market':'themed','superlatives':'creative','synth-visualizer':'dashboards','tamagotchi':'games','tax-return':'creative','testimonials':'marketing','text-adventure':'games','therapy':'themed','tiktok':'social','time-capsule':'creative','timeline':'docs','tinder':'games','trial':'themed','twitch':'social','ultimate-video':'presentations','vending-machine':'games','video-concept-preview':'presentations','voicemail':'creative','vscode':'themed','wanted-wall':'themed','warranty':'creative','weather':'themed','wedding':'creative','whatsapp':'social','wikipedia':'social','wordle':'games','wrapped-2025':'presentations','yearbook':'creative','youtube':'social','zodiac':'themed'};
+  var cat=CATMAP[base]||'docs';
+  if(lang==='ar')src='ar/'+cat+'/workshop-diy-'+base+'-ar.html';
+  else if(lang==='en')src='apps/'+cat+'/workshop-diy-'+base+'.html';
+  else src='fr/'+cat+'/workshop-diy-'+base+'-fr.html';
+  document.getElementById('viewer').src=src;
+  updateUI();
+}
+
+function clickProgress(e){
+  const r=e.target.getBoundingClientRect();
+  currentIdx=Math.floor((e.clientX-r.left)/r.width*playlist.length);
+  loadCurrent();
+}
+
+function updateUI(){
+  const file=playlist.length?FILES[playlist[currentIdx]]:null;
+  document.getElementById('btnPlay').textContent=playing?'⏸':'▶';
+  document.getElementById('counter').textContent=playlist.length?
+    (currentIdx+1)+' / '+playlist.length:'0';
+  document.getElementById('fileName').textContent=file?(lang==='ar'?file.ta:lang==='en'?(file.te||file.t):file.t):'';
+  document.getElementById('progressFill').style.width=playlist.length?
+    ((currentIdx+1)/playlist.length*100)+'%':'0%';
+}
+
+function toggleFullscreen(){
+  if(!document.fullscreenElement)document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.code==='Space'){e.preventDefault();togglePlay()}
+  if(e.code==='ArrowRight')go(lang==='ar'?-1:1);
+  if(e.code==='ArrowLeft')go(lang==='ar'?1:-1);
+  if(e.code==='KeyF')toggleFullscreen();
+});
+
+// wdiy-lang removed — using sada-lang only
+setLang(lang);
+</script>
+<script src="assets/js/sada-footer.js"></script>
+</body>
+</html>

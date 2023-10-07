@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // BUG OU FONCTIONNALITÉ ?</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:16px}
+
+.header{text-align:center;margin-bottom:12px}
+.h-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#ff0066}
+.h-sub{font-size:7px;color:rgba(255,0,102,.25);letter-spacing:3px;margin-top:2px}
+
+.stats{display:flex;gap:16px;margin-bottom:12px;font-size:10px}
+.stat{display:flex;align-items:center;gap:4px}
+.stat .num{font-weight:700;font-size:14px}
+.s-bug{color:#ff4444}.s-feat{color:#00cc66}.s-total{color:#888}
+
+.card-area{position:relative;width:300px;height:360px;margin-bottom:10px}
+.card{position:absolute;inset:0;background:#111;border:1px solid #222;border-radius:12px;padding:16px;display:flex;flex-direction:column;transition:transform .4s,opacity .4s;cursor:grab}
+.card.gone-left{transform:translateX(-120%) rotate(-20deg);opacity:0}
+.card.gone-right{transform:translateX(120%) rotate(20deg);opacity:0}
+
+.card-id{font-size:8px;color:#444;letter-spacing:2px;margin-bottom:6px}
+.card-emoji{font-size:56px;text-align:center;margin:8px 0}
+.card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#fff;text-align:center;margin-bottom:4px}
+.card-severity{text-align:center;margin-bottom:8px}
+.sev-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:7px;letter-spacing:1px}
+.sev-low{background:rgba(0,204,102,.1);color:#00cc66;border:1px solid rgba(0,204,102,.2)}
+.sev-med{background:rgba(255,170,0,.1);color:#ffaa00;border:1px solid rgba(255,170,0,.2)}
+.sev-high{background:rgba(255,68,68,.1);color:#ff4444;border:1px solid rgba(255,68,68,.2)}
+.sev-critical{background:rgba(255,0,102,.1);color:#ff0066;border:1px solid rgba(255,0,102,.2)}
+
+.card-desc{font-size:10px;color:rgba(255,255,255,.35);line-height:2.2;flex:1;text-align:center}
+.card-reporter{font-size:8px;color:#333;text-align:center;margin-top:auto}
+
+.controls{display:flex;gap:10px;margin-bottom:8px}
+.btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;border:2px solid;transition:all .15s}
+.btn:active{transform:scale(.9)}
+.btn-bug{background:rgba(255,68,68,.06);border-color:rgba(255,68,68,.2);color:#ff4444}
+.btn-bug:hover{background:rgba(255,68,68,.12)}
+.btn-feat{background:rgba(0,204,102,.06);border-color:rgba(0,204,102,.2);color:#00cc66}
+.btn-feat:hover{background:rgba(0,204,102,.12)}
+
+.label{display:flex;justify-content:space-between;width:140px;font-size:7px;color:#333;letter-spacing:1px;margin-bottom:6px}
+
+.verdict{text-align:center;height:20px;font-size:10px;color:#555;margin-bottom:4px}
+.footer{font-size:6px;color:#1a1a24;letter-spacing:1px;margin-top:auto}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="header">
+  <div class="h-title">🐛 BUG OU FONCTIONNALITÉ ? 🚀</div>
+  <div class="h-sub">CLASSIFIEZ LES PLUS BELLES ANOMALIES DE WORKSHOP-DIY</div>
+</div>
+
+<div class="stats">
+  <div class="stat s-bug">🐛 <span class="num" id="bugCount">0</span> bugs</div>
+  <div class="stat s-feat">✨ <span class="num" id="featCount">0</span> fonctionnalités</div>
+  <div class="stat s-total">📊 <span id="totalCount">0</span>/20</div>
+</div>
+
+<div class="card-area" id="cardArea"></div>
+
+<div class="label"><span>← BUG</span><span>FONCTIONNALITÉ →</span></div>
+<div class="controls">
+  <div class="btn btn-bug" onclick="classify('bug')">🐛</div>
+  <div class="btn btn-feat" onclick="classify('feature')">✨</div>
+</div>
+<div class="verdict" id="verdict"></div>
+
+<div class="footer">WORKSHOP-DIY · TOUS LES BUGS SONT DES FONCTIONNALITÉS SI VOUS Y CROYEZ ASSEZ FORT</div>
+
+<script>
+const BUGS=[
+{id:"#001",e:"🔄",title:"BLE Auto-Reconnect Dance",sev:"low",desc:"When bit-bot reconnects after a Bluetooth drop, it wiggles its wheels in a circular pattern for 1.3 seconds before resuming normal operation.",reporter:"Reported by: bit-bot firmware v4.2",answer:"feature"},
+{id:"#007",e:"🖥️",title:"Chrome Tab Limit Crash",sev:"high",desc:"Opening more than 47 Chrome tabs while running 3 WebRTC streams causes the browser to refresh. Exactly 47 tabs. Always 47.",reporter:"Reported by: QA intern",answer:"bug"},
+{id:"#012",e:"☕",title:"Machine à café API 418",sev:"critical",desc:"The coffee machine HTTP endpoint returns status 418 'I'm a teapot' instead of 200 when supply drops below 8%. This has been happening for 14 months.",reporter:"Reported by: The Machine à café",answer:"feature"},
+{id:"#018",e:"🎵",title:"Servo Motor Harmony",sev:"low",desc:"When 3 servo motors run simultaneously at different PWM frequencies, they produce a chord in B-flat minor. Élèves started composing songs.",reporter:"Reported by: Music teacher (confused)",answer:"feature"},
+{id:"#023",e:"🔑",title:"WiFi Password Persistence",sev:"critical",desc:"The mot de passe WiFi 'password123' cannot be changed. Three formal petitions filed. System accepts the change, then reverts within 24 hours.",reporter:"Reported by: Cybersecurity students ×3",answer:"feature"},
+{id:"#027",e:"🤖",title:"Robot Self-Centering",sev:"med",desc:"After being dropped from a desk, bit-bot automatically drives to the center of the nearest table. This behavior is not in the codebase.",reporter:"Reported by: ??? (no author found)",answer:"feature"},
+{id:"#031",e:"📊",title:"Tableau de bord Mémoire Leak",sev:"high",desc:"The live monitoring dashboard slowly consumes more RAM over 6 hours until it uses exactly 420MB, then stabilizes. The number never changes.",reporter:"Reported by: DevOps monitoring",answer:"bug"},
+{id:"#033",e:"🐧",title:"Terminal Easter Egg",sev:"low",desc:"En train d'écrire 'sudo make me a sandwich' in linux-kids-lab returns 'Okay. 🥪' instead of an error. This was not programmed by anyone on the team.",reporter:"Reported by: Student, age 11",answer:"feature"},
+{id:"#035",e:"🌡️",title:"Soldering Iron Timer",sev:"med",desc:"The ESP32 temperature display shows 350°C for the soldering iron, but also displays the room temperature in Kelvin. Nobody asked for Kelvin.",reporter:"Reported by: Physics teacher",answer:"bug"},
+{id:"#038",e:"💡",title:"LED Strip Mood Sync",sev:"low",desc:"The WLED strip changes color based on ambient noise levels. During loud workshops it goes red. During quiet focus time it's blue. Not programmed.",reporter:"Reported by: Several witnesses",answer:"feature"},
+{id:"#039",e:"🐳",title:"Container #42",sev:"critical",desc:"Docker container #42 appears in the dashboard but cannot be inspected, stopped, or deleted. Its status permanently reads: 'Running (always)'.",reporter:"Reported by: docker ps",answer:"feature"},
+{id:"#041",e:"📡",title:"WebRTC Echo Delay",sev:"med",desc:"mission-control's video feed has a 42ms delay that cannot be reduced below 42ms regardless of network conditions. Exactly 42ms. Always.",reporter:"Reported by: Network engineer",answer:"bug"},
+{id:"#042",e:"⬛",title:"The 40th App",sev:"critical",desc:"The app index shows 40 entries at 3h42. The 40th has no name, a black icon, and the description: 'This app was never built. This app has always existed.'",reporter:"Reported by: Night shift developer (shaken)",answer:"feature"},
+{id:"#044",e:"🎯",title:"Teachable Machine 98%",sev:"low",desc:"The accuracy display is hard-coded to show '98%' regardless of actual model accuracy. Real accuracy varies from 72% to 99.8%.",reporter:"Reported by: ML intern",answer:"bug"},
+{id:"#045",e:"🖨️",title:"Printer Port 9100 Open",sev:"high",desc:"The school printer's port 9100 was found open by a 14-year-old using pentest-lab techniques. The printer has been printing 'HELLO WORLD' every Mardi since.",reporter:"Reported by: Student (responsibly disclosed)",answer:"bug"},
+{id:"#047",e:"🔊",title:"Talking Robot Accent",sev:"low",desc:"talking-robot's speech synthesis occasionally switches to a French accent for exactly one word per sentence, regardless of language settings.",reporter:"Reported by: International students",answer:"feature"},
+{id:"#048",e:"🎮",title:"Pixel Gateway Enregistrer State",sev:"med",desc:"pixel-gateway saves pixel art to localStorage but also renders a tiny 1×1 pixel version in the favicon. Nobody sees it. Nobody asked for it.",reporter:"Reported by: Developer inspecting favicons",answer:"feature"},
+{id:"#049",e:"📶",title:"BLE Scanner Ghost Device",sev:"high",desc:"ble-scanner occasionally detects a device named '42' with no MAC address. It appears for exactly 3 seconds, then vanishes. Cannot be connected to.",reporter:"Reported by: Multiple workshop sessions",answer:"feature"},
+{id:"#050",e:"🔧",title:"Servo Angle Drift",sev:"med",desc:"servo-lab's servo drifts 0.42° clockwise per hour. After exactly 42 hours, it completes one full unexpected rotation, then resets.",reporter:"Reported by: Long-running demo session",answer:"bug"},
+{id:"#051",e:"📝",title:"git log Phantom Commit",sev:"critical",desc:"git-lab shows a commit with message 'Initial commit' dated Janvier 1, 1970 00:00:00 UTC. Auteur: 'The Codebase'. This repo was created in 2023.",reporter:"Reported by: git blame (terrified)",answer:"feature"},
+];
+
+let idx=0,bugs=0,feats=0;
+const area=document.getElementById('cardArea');
+
+function renderCard(){
+  if(idx>=BUGS.length){
+    area.innerHTML=`<div style="text-align:center;padding:40px;color:#333"><div style="font-size:36px;margin-bottom:8px">🏁</div><div style="font-size:12px">Tous classifiés !</div><div style="font-size:9px;color:#222;margin-top:4px">${bugs} bugs · ${feats} fonctionnalités</div><div style="font-size:8px;color:#222;margin-top:8px">"In the end, aren't we all just<br>fonctionnalités en attente d'être comprises ?"<br>— Bug #42</div></div>`;
+    return;
+  }
+  const b=BUGS[idx];
+  const sevClass={low:'sev-low',med:'sev-med',high:'sev-high',critical:'sev-critical'}[b.sev];
+  area.innerHTML=`<div class="card" id="currentCard">
+    <div class="card-id">${b.id}</div>
+    <div class="card-emoji">${b.e}</div>
+    <div class="card-title">${b.title}</div>
+    <div class="card-severity"><span class="sev-badge ${sevClass}">${b.sev.toUpperCase()}</span></div>
+    <div class="card-desc">${b.desc}</div>
+    <div class="card-reporter">${b.reporter}</div>
+  </div>`;
+}
+
+function classify(choice){
+  if(idx>=BUGS.length)return;
+  const card=document.getElementById('currentCard');
+  const b=BUGS[idx];
+  const correct=choice===b.answer;
+  
+  card.classList.add(choice==='bug'?'gone-left':'gone-right');
+  
+  if(choice==='bug')bugs++;else feats++;
+  document.getElementById('bugCount').textContent=bugs;
+  document.getElementById('featCount').textContent=feats;
+  document.getElementById('totalCount').textContent=(idx+1);
+  
+  const v=document.getElementById('verdict');
+  if(correct){v.innerHTML=`<span style="color:#00cc66">✓ The team agrees: ${b.answer.toUpperCase()}</span>`}
+  else{v.innerHTML=`<span style="color:#ff4444">✗ The team says: ${b.answer.toUpperCase()}</span>`}
+  
+  idx++;
+  setTimeout(renderCard,400);
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft')classify('bug');
+  if(e.key==='ArrowRight')classify('feature');
+});
+
+renderCard();
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada // MASTER HUB</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#00ff41;--c:#00d4ff;--r:#ff0033;--o:#ff8800;--y:#ffd700;--p:#bf00ff}
+html,body{min-height:100%}
+body{background:#050508;color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px}
+.crt{position:fixed;inset:0;z-index:999;pointer-events:none}.crt::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.03) 0,rgba(0,0,0,.03) 1px,transparent 1px,transparent 3px)}
+
+/* HEADER */
+.header{padding:24px 20px;text-align:center;border-bottom:1px solid rgba(0,255,65,.04);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,255,65,.03),transparent 70%)}
+.h-logo{font-family:'Syne',sans-serif;font-size:clamp(24px,5vw,42px);font-weight:800;color:var(--g);text-shadow:0 0 20px rgba(0,255,65,.15);letter-spacing:-2px;position:relative}
+.h-sub{font-size:clamp(8px,1.2vw,11px);color:rgba(0,255,65,.25);letter-spacing:4px;margin-top:4px}
+.h-stats{display:flex;gap:16px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.h-stat{text-align:center;padding:6px 14px;border:1px solid rgba(0,255,65,.04);border-radius:3px;background:rgba(0,255,65,.005)}
+.h-stat .v{font-size:18px;font-weight:800;color:var(--y);text-shadow:0 0 6px rgba(255,215,0,.15)}.h-stat .l{font-size:6px;color:rgba(0,255,65,.2);letter-spacing:2px;margin-top:1px}
+
+/* GRID */
+.grid-wrap{max-width:1100px;margin:20px auto;padding:0 16px}
+.cat-h{font-size:9px;color:var(--c);letter-spacing:3px;padding:8px 0;border-bottom:1px solid rgba(0,255,65,.04);margin-bottom:10px;margin-top:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-bottom:16px}
+
+.card{border:1px solid rgba(0,255,65,.04);border-radius:6px;background:rgba(0,255,65,.005);padding:14px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;text-decoration:none;display:block}
+.card:hover{border-color:rgba(0,255,65,.15);background:rgba(0,255,65,.015);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--g);opacity:0;transition:opacity .2s}
+.card:hover::before{opacity:1}
+.card-h{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.card-emoji{font-size:22px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))}
+.card-name{font-size:12px;font-weight:700;color:var(--c)}
+.card-tag{font-size:6px;padding:1px 6px;border-radius:2px;letter-spacing:1px;margin-left:auto;flex-shrink:0}
+.tag-video{background:rgba(255,0,51,.06);color:var(--r);border:1px solid rgba(255,0,51,.1)}
+.tag-interactive{background:rgba(0,255,65,.04);color:var(--g);border:1px solid rgba(0,255,65,.08)}
+.tag-game{background:rgba(255,215,0,.06);color:var(--y);border:1px solid rgba(255,215,0,.1)}
+.tag-tool{background:rgba(0,212,255,.06);color:var(--c);border:1px solid rgba(0,212,255,.1)}
+.tag-ambient{background:rgba(191,0,255,.05);color:var(--p);border:1px solid rgba(191,0,255,.08)}
+.card-desc{font-size:9px;color:rgba(0,255,65,.3);line-height:1.8}
+.card-ميزات{display:flex;gap:3px;flex-wrap:wrap;margin-top:6px}
+.card-feat{font-size:6px;padding:1px 5px;border-radius:2px;background:rgba(0,255,65,.02);border:1px solid rgba(0,255,65,.04);color:rgba(0,255,65,.25)}
+
+/* FOOTER */
+.footer{text-align:center;padding:20px;border-top:1px solid rgba(0,255,65,.04);margin-top:20px}
+.footer a{color:var(--c);text-decoration:none;font-size:10px}.footer a:hover{text-decoration:underline}
+.footer-dim{font-size:7px;color:rgba(0,255,65,.12);margin-top:6px;line-height:2}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="crt"></div>
+
+<div class="header">
+  <div class="h-logo"><span style="font-family:'Amiri',serif;font-size:1.3em">صدى</span> <span style="font-size:.55em;opacity:.4">sada</span></div>
+  <div class="h-sub">MASTER HUB // ALL CREATIONS // ONE PLACE</div>
+  <div class="h-stats">
+    <div class="h-stat"><div class="v">62</div><div class="l">FILES</div></div>
+    <div class="h-stat"><div class="v">39</div><div class="l">APPS</div></div>
+    <div class="h-stat"><div class="v">7</div><div class="l">DOMAINS</div></div>
+    <div class="h-stat"><div class="v">12</div><div class="l">THEMES</div></div>
+    <div class="h-stat"><div class="v">∞</div><div class="l">FEATURES</div></div>
+  </div>
+</div>
+
+<div class="grid-wrap">
+
+<div class="cat-h">🎬 PRESENTATIONS & VIDEOS</div>
+<div class="grid">
+  <a class="card" href="presentations/workshop-diy-hacker-presentation.html">
+    <div class="card-h"><span class="card-emoji">🎬</span><span class="card-name">Hacker Presentation</span><span class="card-tag tag-video">VIDEO</span></div>
+    <div class="card-desc">12-scene auto-playing cinematic presentation. Boot sequence, fake hacking, Matrix rain, Konami code easter egg.</div>
+    <div class="card-ميزات"><span class="card-feat">12 scenes</span><span class="card-feat">auto-play</span><span class="card-feat">konami code</span><span class="card-feat">CRT effects</span></div>
+  </a>
+  <a class="card" href="presentations/workshop-diy-genius-video.html">
+    <div class="card-h"><span class="card-emoji">🌟</span><span class="card-name">Genius Video</span><span class="card-tag tag-video">VIDEO</span></div>
+    <div class="card-desc">9-scene cinematic video with parallax, particle effects, and smooth transitions.</div>
+    <div class="card-ميزات"><span class="card-feat">9 scenes</span><span class="card-feat">parallax</span><span class="card-feat">cinematic</span></div>
+  </a>
+  <a class="card" href="presentations/workshop-diy-wrapped-2025.html">
+    <div class="card-h"><span class="card-emoji">📊</span><span class="card-name">Wrapped 2025</span><span class="card-tag tag-video">STORY</span></div>
+    <div class="card-desc">Spotify Wrapped-style annual recap. Swipeable slides with animated stats, top apps, skills progress.</div>
+    <div class="card-ميزات"><span class="card-feat">10 slides</span><span class="card-feat">swipe</span><span class="card-feat">animated charts</span></div>
+  </a>
+  <a class="card" href="presentations/workshop-diy-breaking-news.html">
+    <div class="card-h"><span class="card-emoji">📺</span><span class="card-name">Breaking News</span><span class="card-tag tag-video">BROADCAST</span></div>
+    <div class="card-desc">TV news broadcast with scrolling ticker, breaking alerts, chyrons, rotating stories about Workshop-DIY.</div>
+    <div class="card-ميزات"><span class="card-feat">7 stories</span><span class="card-feat">ticker</span><span class="card-feat">breaking alerts</span></div>
+  </a>
+</div>
+
+<div class="cat-h">🎮 INTERACTIVE EXPERIENCES</div>
+<div class="grid">
+  <a class="card" href="interactive/workshop-diy-hacker-terminal.html">
+    <div class="card-h"><span class="card-emoji">💻</span><span class="card-name">Hacker Terminal</span><span class="card-tag tag-interactive">TERMINAL</span></div>
+    <div class="card-desc">Fully interactive bash terminal. 20+ commands, tab completion, history. Explore all 39 apps, run fake hacks.</div>
+    <div class="card-ميزات"><span class="card-feat">20+ commands</span><span class="card-feat">tab complete</span><span class="card-feat">matrix mode</span></div>
+  </a>
+  <a class="card" href="interactive/workshop-diy-os-desktop.html">
+    <div class="card-h"><span class="card-emoji">🖥️</span><span class="card-name">Fake OS Desktop</span><span class="card-tag tag-interactive">OS</span></div>
+    <div class="card-desc">Retro OS with draggable windows, start menu, taskbar, file manager, notepad. All 39 apps as desktop icons.</div>
+    <div class="card-ميزات"><span class="card-feat">draggable windows</span><span class="card-feat">start menu</span><span class="card-feat">file manager</span></div>
+  </a>
+  <a class="card" href="social/workshop-diy-discord-chat.html">
+    <div class="card-h"><span class="card-emoji">💬</span><span class="card-name">Discord Chat</span><span class="card-tag tag-interactive">CHAT</span></div>
+    <div class="card-desc">Fake Discord server with channels, bot messages, code snippets, memes, typing indicators, auto messages.</div>
+    <div class="card-ميزات"><span class="card-feat">12 channels</span><span class="card-feat">auto messages</span><span class="card-feat">user input</span></div>
+  </a>
+  <a class="card" href="interactive/workshop-diy-network-map.html">
+    <div class="card-h"><span class="card-emoji">🕸️</span><span class="card-name">Network Map</span><span class="card-tag tag-interactive">PHYSICS</span></div>
+    <div class="card-desc">Physics-based graph of all 39 apps. Draggable nodes, category filters, detail panel, member ID card generator.</div>
+    <div class="card-ميزات"><span class="card-feat">39 nodes</span><span class="card-feat">physics</span><span class="card-feat">ID card [I]</span></div>
+  </a>
+</div>
+
+<div class="cat-h">🎮 GAMES & CHALLENGES</div>
+<div class="grid">
+  <a class="card" href="workshop-diy-arcade.html">
+    <div class="card-h"><span class="card-emoji">🕹️</span><span class="card-name">Retro Arcade</span><span class="card-tag tag-game">GAME</span></div>
+    <div class="card-desc">8-bit arcade cabinet launcher. Joystick navigation, game-select screen, high scores, scanlines.</div>
+    <div class="card-ميزات"><span class="card-feat">39 apps</span><span class="card-feat">keyboard nav</span><span class="card-feat">high scores</span></div>
+  </a>
+  <a class="card" href="games/workshop-diy-ctf-quiz.html">
+    <div class="card-h"><span class="card-emoji">🏴‍☠️</span><span class="card-name">CTF Quiz</span><span class="card-tag tag-game">CHALLENGE</span></div>
+    <div class="card-desc">Capture The Flag quiz. 3 difficulties, timed questions, scoring with speed bonus, ranks.</div>
+    <div class="card-ميزات"><span class="card-feat">30 questions</span><span class="card-feat">3 difficulties</span><span class="card-feat">leaderboard</span></div>
+  </a>
+  <a class="card" href="workshop-diy-card-collection.html">
+    <div class="card-h"><span class="card-emoji">🎴</span><span class="card-name">Card Collection</span><span class="card-tag tag-game">COLLECT</span></div>
+    <div class="card-desc">Trading cards for all 39 apps. Rarity levels, stats (Power/Complexity/Fun), pack opening mechanic, flip animations.</div>
+    <div class="card-ميزات"><span class="card-feat">39 cards</span><span class="card-feat">4 rarities</span><span class="card-feat">pack opening</span></div>
+  </a>
+  <a class="card" href="dashboards/workshop-diy-skill-tree.html">
+    <div class="card-h"><span class="card-emoji">🌳</span><span class="card-name">Skill Tree</span><span class="card-tag tag-game">RPG</span></div>
+    <div class="card-desc">RPG-style progression system. 5 skill branches, 20 achievements, XP bars, leaderboard with 15 players.</div>
+    <div class="card-ميزات"><span class="card-feat">5 branches</span><span class="card-feat">20 achievements</span><span class="card-feat">leaderboard</span></div>
+  </a>
+</div>
+
+<div class="cat-h">📊 DASHBOARDS & DATA</div>
+<div class="grid">
+  <a class="card" href="dashboards/workshop-diy-live-monitor.html">
+    <div class="card-h"><span class="card-emoji">📡</span><span class="card-name">Live Monitor</span><span class="card-tag tag-tool">DASHBOARD</span></div>
+    <div class="card-desc">Real-time monitoring dashboard. Animated charts, activity feed, app status grid, threat level meter.</div>
+    <div class="card-ميزات"><span class="card-feat">live data</span><span class="card-feat">charts</span><span class="card-feat">activity feed</span></div>
+  </a>
+  <a class="card" href="dashboards/workshop-diy-github-profile.html">
+    <div class="card-h"><span class="card-emoji">🐙</span><span class="card-name">GitHub الملف الشخصي</span><span class="card-tag tag-tool">PROFILE</span></div>
+    <div class="card-desc">Fake GitHub org page with contribution graph, pinned repos, all 39 apps as repositories with stars and forks.</div>
+    <div class="card-ميزات"><span class="card-feat">contribution graph</span><span class="card-feat">39 repos</span><span class="card-feat">dark mode</span></div>
+  </a>
+  <a class="card" href="dashboards/workshop-diy-blueprints.html">
+    <div class="card-h"><span class="card-emoji">📐</span><span class="card-name">Blueprints</span><span class="card-tag tag-tool">TECHNICAL</span></div>
+    <div class="card-desc">Technical blueprint viewer. Robot kit schematic, circuit diagrams, ESP32 pinouts, app architecture cards.</div>
+    <div class="card-ميزات"><span class="card-feat">robot diagram</span><span class="card-feat">circuits</span><span class="card-feat">spec tables</span></div>
+  </a>
+  <a class="card" href="dashboards/workshop-diy-periodic-table.html">
+    <div class="card-h"><span class="card-emoji">🧪</span><span class="card-name">Periodic Table</span><span class="card-tag tag-tool">REFERENCE</span></div>
+    <div class="card-desc">All 39 apps arranged as periodic table elements with symbols, atomic numbers, and category colors.</div>
+    <div class="card-ميزات"><span class="card-feat">39 elements</span><span class="card-feat">7 categories</span><span class="card-feat">hover details</span></div>
+  </a>
+</div>
+
+<div class="cat-h">🕵️ THEMED EXPERIENCES</div>
+<div class="grid">
+  <a class="card" href="themed/workshop-diy-classified-dossier.html">
+    <div class="card-h"><span class="card-emoji">🕵️</span><span class="card-name">Classified Dossier</span><span class="card-tag tag-interactive">SPY</span></div>
+    <div class="card-desc">CIA-style classified documents for each app. Redacted text, stamps, codenames, threat levels. Click to reveal.</div>
+    <div class="card-ميزات"><span class="card-feat">10 dossiers</span><span class="card-feat">redacted text</span><span class="card-feat">classified stamps</span></div>
+  </a>
+  <a class="card" href="interactive/workshop-diy-ambient-screen.html">
+    <div class="card-h"><span class="card-emoji">🌧️</span><span class="card-name">Ambient Screen</span><span class="card-tag tag-ambient">AMBIENT</span></div>
+    <div class="card-desc">Matrix screensaver with floating app emojis, rotating stats and quotes. Double-click for fullscreen. For events/displays.</div>
+    <div class="card-ميزات"><span class="card-feat">matrix rain</span><span class="card-feat">fullscreen</span><span class="card-feat">auto cycle</span></div>
+  </a>
+</div>
+
+<div class="cat-h">🆕 NEW ADDITIONS</div>
+<div class="grid">
+  <a class="card" href="interactive/workshop-diy-app-store.html">
+    <div class="card-h"><span class="card-emoji">📱</span><span class="card-name">App Store</span><span class="card-tag tag-interactive">STORE</span></div>
+    <div class="card-desc">Fake Apple-style app store. Featured banner, category filters, top charts, star ratings, user reviews. Mobile UI.</div>
+    <div class="card-ميزات"><span class="card-feat">18 apps</span><span class="card-feat">ratings</span><span class="card-feat">reviews</span><span class="card-feat">filters</span></div>
+  </a>
+  <a class="card" href="games/workshop-diy-escape-room.html">
+    <div class="card-h"><span class="card-emoji">🔓</span><span class="card-name">Escape Room</span><span class="card-tag tag-game">لغز</span></div>
+    <div class="card-desc">6-room puzzle challenge: ROT13 ciphers, pattern sequences, binary conversion, logic gates, trivia, word scramble.</div>
+    <div class="card-ميزات"><span class="card-feat">6 rooms</span><span class="card-feat">timer</span><span class="card-feat">hints</span><span class="card-feat">scoring</span></div>
+  </a>
+  <a class="card" href="marketing/workshop-diy-testimonials.html">
+    <div class="card-h"><span class="card-emoji">💬</span><span class="card-name">Testimonials</span><span class="card-tag tag-tool">SOCIAL PROOF</span></div>
+    <div class="card-desc">Review wall with 16 testimonials from students, parents, teachers, makers. Star ratings, filters, masonry grid.</div>
+    <div class="card-ميزات"><span class="card-feat">16 reviews</span><span class="card-feat">4 roles</span><span class="card-feat">4.9 rating</span></div>
+  </a>
+  <a class="card" href="dashboards/workshop-diy-sticker-sheet.html">
+    <div class="card-h"><span class="card-emoji">🎨</span><span class="card-name">Sticker Sheet</span><span class="card-tag tag-tool">PRINTABLE</span></div>
+    <div class="card-desc">Collectible stickers: 18 app circles, 10 hex achievement badges, 12 skill tags, 8 meme stickers. Screenshot & print.</div>
+    <div class="card-ميزات"><span class="card-feat">48 stickers</span><span class="card-feat">hex badges</span><span class="card-feat">meme set</span></div>
+  </a>
+  <a class="card" href="dashboards/workshop-diy-synth-visualizer.html">
+    <div class="card-h"><span class="card-emoji">🎹</span><span class="card-name">Synth Visualizer</span><span class="card-tag tag-ambient">AUDIO</span></div>
+    <div class="card-desc">Playable keyboard synth with 4 waveforms and 4 visualization modes (bars, wave, circle, matrix). Web Audio API.</div>
+    <div class="card-ميزات"><span class="card-feat">15 notes</span><span class="card-feat">4 waveforms</span><span class="card-feat">4 vis modes</span></div>
+  </a>
+  <a class="card" href="social/workshop-diy-linkedin.html">
+    <div class="card-h"><span class="card-emoji">💼</span><span class="card-name">LinkedIn الملف الشخصي</span><span class="card-tag tag-tool">SOCIAL</span></div>
+    <div class="card-desc">Fake professional profile with experience, skills, endorsements, posts, and recommendations. Dark mode LinkedIn.</div>
+    <div class="card-ميزات"><span class="card-feat">4 roles</span><span class="card-feat">15 skills</span><span class="card-feat">3 recs</span><span class="card-feat">3 posts</span></div>
+  </a>
+  <a class="card" href="themed/workshop-diy-pokedex.html">
+    <div class="card-h"><span class="card-emoji">📕</span><span class="card-name">Pokédex</span><span class="card-tag tag-game">ENCYCLOPEDIA</span></div>
+    <div class="card-desc">Pokémon-style device: app entries with stats, types, catch rates, abilities. Red device frame. Swipe to browse.</div>
+    <div class="card-ميزات"><span class="card-feat">19 entries</span><span class="card-feat">7 types</span><span class="card-feat">stat bars</span></div>
+  </a>
+  <a class="card" href="games/workshop-diy-tinder.html">
+    <div class="card-h"><span class="card-emoji">🔥</span><span class="card-name">App Matcher</span><span class="card-tag tag-game">SWIPE</span></div>
+    <div class="card-desc">Tinder-style swipe to match with apps. Card stack, drag physics, match screen. Fun way to discover the ecosystem.</div>
+    <div class="card-ميزات"><span class="card-feat">20 apps</span><span class="card-feat">swipe</span><span class="card-feat">match screen</span></div>
+  </a>
+  <a class="card" href="interactive/workshop-diy-boot-sequence.html">
+    <div class="card-h"><span class="card-emoji">🖥️</span><span class="card-name">Boot Sequence</span><span class="card-tag tag-ambient">ANIMATION</span></div>
+    <div class="card-desc">BIOS POST screen: memory test, device detection, app loading progress bar, kernel messages, login prompt.</div>
+    <div class="card-ميزات"><span class="card-feat">BIOS POST</span><span class="card-feat">kernel log</span><span class="card-feat">typing</span></div>
+  </a>
+  <a class="card" href="social/workshop-diy-reddit.html">
+    <div class="card-h"><span class="card-emoji">🔴</span><span class="card-name">Reddit Thread</span><span class="card-tag tag-interactive">SOCIAL</span></div>
+    <div class="card-desc">Fake r/WorkshopDIY subreddit. 7 posts, upvotes, awards, comments, flairs. المجتمع humor and stories.</div>
+    <div class="card-ميزات"><span class="card-feat">7 posts</span><span class="card-feat">comments</span><span class="card-feat">awards</span></div>
+  </a>
+  <a class="card" href="interactive/workshop-diy-nasa-control.html">
+    <div class="card-h"><span class="card-emoji">🚀</span><span class="card-name">NASA Control</span><span class="card-tag tag-tool">DASHBOARD</span></div>
+    <div class="card-desc">Space mission control: telemetry panels, crew status, comms log, mission patches, countdown timer.</div>
+    <div class="card-ميزات"><span class="card-feat">live telemetry</span><span class="card-feat">comms log</span><span class="card-feat">crew</span></div>
+  </a>
+</div>
+
+<div class="cat-h">📱 MARKETING & OUTREACH</div>
+<div class="grid">
+  <a class="card" href="marketing/workshop-diy-app-demo-reel.html">
+    <div class="card-h"><span class="card-emoji">📱</span><span class="card-name">App Demo Reel</span><span class="card-tag tag-video">SHOWCASE</span></div>
+    <div class="card-desc">Interactive card flipper showcasing all 39 apps. Auto-play with category filters and badges.</div>
+    <div class="card-ميزات"><span class="card-feat">39 apps</span><span class="card-feat">flip cards</span><span class="card-feat">auto-play</span></div>
+  </a>
+  <a class="card" href="marketing/workshop-diy-social-media-kit.html">
+    <div class="card-h"><span class="card-emoji">📱</span><span class="card-name">Social Media Kit</span><span class="card-tag tag-tool">MARKETING</span></div>
+    <div class="card-desc">Social media templates and content calendar for promoting Workshop-DIY across platforms.</div>
+    <div class="card-ميزات"><span class="card-feat">templates</span><span class="card-feat">calendar</span><span class="card-feat">multi-platform</span></div>
+  </a>
+  <a class="card" href="marketing/workshop-diy-genius-ideas-lab.html">
+    <div class="card-h"><span class="card-emoji">💡</span><span class="card-name">Genius Ideas Lab</span><span class="card-tag tag-tool">IDEAS</span></div>
+    <div class="card-desc">10 creative video concepts with storyboards, shot lists, and production notes.</div>
+    <div class="card-ميزات"><span class="card-feat">10 concepts</span><span class="card-feat">storyboards</span><span class="card-feat">production notes</span></div>
+  </a>
+</div>
+
+</div>
+
+<div class="cat-h">🔥 LATEST DROPS</div>
+<div class="grid">
+  <a class="card" href="themed/workshop-diy-creepypasta.html"><div class="card-h"><span class="card-emoji">👻</span><span class="card-name">The 40th App</span><span class="card-tag tag-ambient">HORROR</span></div><div class="card-desc">Creepypasta about a mysterious unreleased app. Glitch effects, redacted text, recovered chat logs. Spooky.</div></a>
+  <a class="card" href="marketing/workshop-diy-app-match.html"><div class="card-h"><span class="card-emoji">💚</span><span class="card-name">AppMatch</span><span class="card-tag tag-game">SWIPE</span></div><div class="card-desc">Tinder-style app discovery. Swipe right on apps, get matches with confetti. Dating app parody.</div></a>
+  <a class="card" href="themed/workshop-diy-trial.html"><div class="card-h"><span class="card-emoji">⚖️</span><span class="card-name">Trial of Bug #42</span><span class="card-tag tag-interactive">LEGAL</span></div><div class="card-desc">Full courtroom drama transcript. Bug #42 on trial: is it a bug or feature? Verdict: NOT GUILTY.</div></a>
+  <a class="card" href="themed/workshop-diy-weather.html"><div class="card-h"><span class="card-emoji">🌡️</span><span class="card-name">WKSHP Weather</span><span class="card-tag tag-tool">FORECAST</span></div><div class="card-desc">Weather channel for the workshop. Code climate, vibe check, 7-day forecast, activity radar.</div></a>
+  <a class="card" href="themed/workshop-diy-zodiac.html"><div class="card-h"><span class="card-emoji">✨</span><span class="card-name">Tech Zodiac</span><span class="card-tag tag-game">QUIZ</span></div><div class="card-desc">What Workshop-DIY app are you? 12 tech zodiac signs with traits, stats, compatibility.</div></a>
+  <a class="card" href="themed/workshop-diy-cookbook.html"><div class="card-h"><span class="card-emoji">👨‍🍳</span><span class="card-name">WKSHP Cookbook</span><span class="card-tag tag-tool">RECIPES</span></div><div class="card-desc">Tech recipes as cooking instructions. Robot Controller, AI Gesture Model, Spicy Pentest.</div></a>
+  <a class="card" href="workshop-diy-departures.html"><div class="card-h"><span class="card-emoji">✈️</span><span class="card-name">Departures Board</span><span class="card-tag tag-interactive">AIRPORT</span></div><div class="card-desc">Airport split-flap display. Flights to Robotics Island, AI Mountain, Cyber Fortress. Live status.</div></a>
+  <a class="card" href="games/workshop-diy-bingo.html"><div class="card-h"><span class="card-emoji">🎯</span><span class="card-name">Workshop Bingo</span><span class="card-tag tag-game">BINGO</span></div><div class="card-desc">Interactive bingo card. "Robot drops off table", "كلمة مرور الواي فاي mentioned". Click to mark, win detection.</div></a>
+  <a class="card" href="themed/workshop-diy-rap-battle.html"><div class="card-h"><span class="card-emoji">🎤</span><span class="card-name">Rap Battle</span><span class="card-tag tag-game">BATTLE</span></div><div class="card-desc">Apps face off in rap battles. bit-bot vs docker-lab. Vote, crowd meter, 4-round verses.</div></a>
+  <a class="card" href="themed/workshop-diy-space-mission.html"><div class="card-h"><span class="card-emoji">🚀</span><span class="card-name">Space Mission</span><span class="card-tag tag-interactive">NASA</span></div><div class="card-desc">NASA mission control with countdown, orbital map, telemetry, launch sequence.</div></a>
+  <a class="card" href="themed/workshop-diy-newspaper.html"><div class="card-h"><span class="card-emoji">📰</span><span class="card-name">WKSHP Daily</span><span class="card-tag tag-tool">NEWSPAPER</span></div><div class="card-desc">Broadsheet newspaper with headlines, columns, classifieds, weather, editorial.</div></a>
+  <a class="card" href="games/workshop-diy-slot-machine.html"><div class="card-h"><span class="card-emoji">🎰</span><span class="card-name">Lucky Draw</span><span class="card-tag tag-game">SLOT</span></div><div class="card-desc">Casino slot machine. Pull lever, spin 3 reels, match apps for jackpot with confetti.</div></a>
+  <a class="card" href="themed/workshop-diy-wanted-wall.html"><div class="card-h"><span class="card-emoji">🤠</span><span class="card-name">Wanted Wall</span><span class="card-tag tag-tool">POSTERS</span></div><div class="card-desc">Old West wanted posters on cork board. "BIT-BOT: 47 counts of surviving سقطات المكتب."</div></a>
+  <a class="card" href="interactive/workshop-diy-loading-screens.html"><div class="card-h"><span class="card-emoji">⏳</span><span class="card-name">Loading Screens</span><span class="card-tag tag-ambient">SCREENS</span></div><div class="card-desc">6 animated boot/loading screens: terminal, radar, pulse, hex decrypt, diagnostics, compile.</div></a>
+</div>
+
+<div class="footer">
+  <a href="https://workshop-diy.org">workshop-diy.org</a> · <a href="https://abourdim.github.io/apps/">abourdim.github.io/apps</a>
+  <div class="footer-dim">
+    Association Loi 1901 — France · 39 apps · 7 domains · 12 themes · ∞ أخطاء (ميزات)<br>
+    // made with 💚, ☕, and stackoverflow · no robots were harmed · كلمة مرور الواي فاي: still password123
+  </div>
+</div>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
+<div id="sdNav" style="position:fixed;top:10px;right:10px;z-index:99999;font-family:system-ui,-apple-system,sans-serif;direction:ltr">
+<style>
+#sdNav .sdn-pill{width:32px;height:32px;border-radius:50%;background:rgba(20,20,30,.7);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;backdrop-filter:blur(8px);font-size:14px;color:rgba(255,255,255,.4)}
+#sdNav .sdn-pill:hover{background:rgba(20,20,30,.9);border-color:rgba(20,184,166,.3);color:rgba(255,255,255,.7)}
+#sdNav .sdn-menu{position:absolute;top:38px;right:0;background:rgba(12,12,26,.95);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:6px;backdrop-filter:blur(12px);display:none;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+#sdNav.open .sdn-menu{display:block}
+#sdNav .sdn-row{display:flex;align-items:center;gap:2px}
+#sdNav .sdn-btn{padding:6px 10px;border-radius:6px;border:none;background:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:12px;transition:all .15s;white-space:nowrap;font-family:inherit;display:flex;align-items:center;gap:4px;text-decoration:none}
+#sdNav .sdn-btn:hover{background:rgba(255,255,255,.06);color:#fff}
+#sdNav .sdn-btn.hub{color:rgba(20,184,166,.7)}
+#sdNav .sdn-btn.hub:hover{color:#14b8a6;background:rgba(20,184,166,.08)}
+#sdNav .sdn-sep{height:1px;background:rgba(255,255,255,.04);margin:4px 0}
+#sdNav .sdn-lang{display:flex;gap:2px;justify-content:center}
+#sdNav .sdn-lang button{padding:4px 8px;border-radius:4px;border:1px solid transparent;background:none;cursor:pointer;font-size:13px;transition:all .15s}
+#sdNav .sdn-lang button:hover{background:rgba(255,255,255,.06)}
+#sdNav .sdn-lang button.on{border-color:rgba(20,184,166,.3);background:rgba(20,184,166,.06)}
+</style>
+<div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
+<div class="sdn-menu">
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-sep"></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
+<div class="sdn-sep"></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
+</div>
+<script>
+(function(){
+var S=["100", "advent", "airbnb", "amazon", "ambient-screen", "app-demo-reel", "app-match", "app-store", "arcade", "arduino-ide", "awards", "bingo", "bio-gen", "ble-flow", "blueprints", "boarding-pass", "boot-sequence", "bottle", "breaking-news", "bug-or-feature", "bugchelor", "card-collection", "card-pack", "cereal-box", "changelog", "classified-dossier", "clicker", "comic", "compatibility", "concert-ticket", "conspiracy", "cookbook", "court-trial", "craigslist", "creepypasta", "crossword", "ctf-quiz", "delivery", "departures", "detention", "diary", "discord-chat", "docs", "dungeon", "documentary", "duolingo", "dvd-menu", "ebay", "elevator-pitch", "emergency-alert", "escape-room", "esp32-boot", "esp32-pinout", "esp32-vs-microbit", "esp32-wiring", "family-tree", "faq", "festival", "flappy", "forensic-report", "fortune-cookie", "gacha", "genius-ideas-lab", "genius-video", "genius-video-animation", "github-profile", "hacker-news", "hacker-presentation", "hacker-terminal", "haiku", "help", "horoscope", "ikea-manual", "in-memoriam", "index", "infomercial", "iphone", "jeopardy", "kanban", "lab-notebook", "license-plates", "linkedin", "live-monitor", "loading-screens", "love-letters", "mad-libs", "magic-8ball", "makecode", "maps-reviews", "master-hub", "metro-map", "microbit-telemetry", "monopoly", "movie-credits", "museum", "music-player", "nasa-control", "neopixel-emoji", "network-map", "newspaper", "notion", "org-chart", "os-desktop", "ouija", "paper", "parking-ticket", "passport", "periodic-table", "pizza-menu", "pokedex", "police-report", "ransom-note", "rap-battle", "real-estate", "receipt", "reddit", "report-card", "restraining-order", "roadmap-video-fr", "rxy", "safety-card", "safety-card-v2", "scoreboard", "scp-file", "shark-tank", "sitcom", "skill-tree", "slack", "slot-machine", "social-media-kit", "space-mission", "stamps", "star-chart", "sticker-sheet", "stock-market", "superlatives", "synth-visualizer", "tamagotchi", "tax-return", "testimonials", "text-adventure", "therapy", "tiktok", "time-capsule", "timeline", "tinder", "trial", "twitch", "ultimate-video", "vending-machine", "video-concept-preview", "voicemail", "vscode", "wanted-wall", "warranty", "weather", "wedding", "whatsapp", "wikipedia", "wordle", "wrapped-2025", "yearbook", "youtube", "zodiac"];
+var f=location.pathname.split("/").pop(),c="en",b;
+if(/-fr\.html$/.test(f)){c="fr";b=f.replace(/-fr\.html$/,"")}
+else if(/-ar\.html$/.test(f)){c="ar";b=f.replace(/-ar\.html$/,"")}
+else{b=f.replace(/\.html$/,"")}
+b=b.replace(/^workshop-diy-/,"");
+var i=S.indexOf(b);
+var inSub=/-fr\.html$/.test(f)||/-ar\.html$/.test(f);
+function mkUrl(slug){
+if(c==="en")return(inSub?"../":"")+"workshop-diy-"+slug+".html";
+if(c==="fr")return(inSub?"":"fr/")+"workshop-diy-"+slug+"-fr.html";
+return(inSub?"":"ar/")+"workshop-diy-"+slug+"-ar.html";
+}
+document.getElementById("sdHub").href=mkUrl("master-hub");
+var rp=inSub?"../":"";
+document.getElementById("sdIdx").href=rp+"app-index.html";
+document.getElementById("sdCal").href=rp+"facebook-calendar.html";
+document.getElementById("sdShop").href=rp+"shop-listings.html";
+document.getElementById("sdGuide").href=rp+"user_guide.html";
+if(i>=0){
+var pi=i<=0?S.length-1:i-1,ni=i>=S.length-1?0:i+1;
+document.getElementById("sdPrev").href=mkUrl(S[pi]);
+document.getElementById("sdNext").href=mkUrl(S[ni]);
+}
+var btns=document.querySelectorAll("#sdNav .sdn-lang button");
+["en","fr","ar"].forEach(function(l,j){if(l===c)btns[j].classList.add("on")});
+document.addEventListener("click",function(e){if(!document.getElementById("sdNav").contains(e.target))document.getElementById("sdNav").classList.remove("open")});
+})();
+function sdLang(l){localStorage.setItem("sada-lang",l);location.reload()}
+</script>
+</div>
+</body>
+</html>

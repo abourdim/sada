@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../../../splash.html')}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — فيديو ترويجي</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#08090f;--s1:#0e1020;--s2:#151830;--brd:rgba(255,255,255,.06);--txt:#e4e6f2;--dim:rgba(255,255,255,.3);--acc:#ff6600;--acc2:#ff8800;--pk:#ff2d8a;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Noto Kufi Arabic','Amiri',sans-serif;overflow-x:hidden;direction:rtl}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#222;border-radius:3px}
+.bismillah{font-family:'Amiri',serif;font-size:18px;color:rgba(255,255,255,.08);text-align:center;padding:20px 0 0;letter-spacing:2px}
+
+.hero{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(255,102,0,.06),transparent 55%);pointer-events:none}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--acc);border:1px solid rgba(255,102,0,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:16px;display:inline-block;direction:ltr}
+.hero h1{font-family:'Noto Kufi Arabic',sans-serif;font-size:clamp(22px,5vw,38px);font-weight:800;line-height:1.3;margin-bottom:10px}
+.hero h1 b{background:linear-gradient(135deg,var(--acc),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:14px;color:var(--dim);max-width:500px;line-height:1.8}
+.hero-stats{display:flex;gap:0;margin-top:20px;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1);direction:ltr}
+.hs{flex:1;text-align:center;padding:10px 14px;border-right:1px solid var(--brd)}
+.hs:last-child{border:none}
+.hs b{display:block;font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--acc)}
+.hs span{font-size:7px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+
+.section{max-width:800px;margin:0 auto;padding:30px 16px}
+.stitle{font-family:'Noto Kufi Arabic',sans-serif;font-size:clamp(16px,3vw,22px);font-weight:800;margin-bottom:14px;text-align:center}
+.stitle b{color:var(--acc)}
+
+.scenes{display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+.scene{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;transition:.2s}
+.scene:hover{border-color:rgba(255,102,0,.15)}
+.scene-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
+.scene-num{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:800;color:#000;background:var(--acc);width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.scene-title{font-family:'Noto Kufi Arabic',sans-serif;font-size:13px;font-weight:700;flex:1}
+.scene-dur{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);direction:ltr}
+.scene-body{padding:0 14px 14px;display:none}
+.scene.open .scene-body{display:block}
+.scene-row{display:flex;gap:10px;margin-bottom:8px}
+.scene-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--acc);text-transform:uppercase;letter-spacing:1px;width:50px;flex-shrink:0;padding-top:2px;direction:ltr;text-align:left}
+.scene-val{font-size:12px;color:var(--dim);line-height:1.8}
+.scene-val b{color:var(--txt);font-weight:600}
+
+.specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:30px}
+.spec{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);padding:14px;text-align:center}
+.spec .emoji{font-size:24px;margin-bottom:6px;display:block}
+.spec h4{font-family:'Noto Kufi Arabic',sans-serif;font-size:11px;font-weight:700;margin-bottom:3px}
+.spec p{font-size:9px;color:var(--dim);line-height:1.6}
+
+.foot{text-align:center;padding:24px 12px 16px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-size:13px;color:var(--txt)}
+</style>
+</head>
+<body>
+
+<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="hero">
+<div class="badge">promo · video script · عربي</div>
+<h1>🎬 فيديو <b>Workshop-DIY</b><br>الترويجي</h1>
+<p>فيديو ترويجي مدته دقيقتان يُقدّم Workshop-DIY للعالم. مُصمّم لليوتيوب والموقع والفعاليات.</p>
+<div class="hero-stats">
+<div class="hs"><b>2:00</b><span>Duration</span></div>
+<div class="hs"><b>8</b><span>Scenes</span></div>
+<div class="hs"><b>AR</b><span>Language</span></div>
+<div class="hs"><b>16:9</b><span>Format</span></div>
+</div>
+</div>
+
+<div class="section">
+<div class="stitle">🎬 تفصيل <b>المشاهد</b></div>
+<div class="scenes">
+
+<div class="scene open" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">1</div><div class="scene-title">الخطاف — "ماذا لو استطاع الأطفال..."</div><div class="scene-dur">0:00–0:15</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">VISUAL</div><div class="scene-val"><b>شاشة سوداء.</b> مؤشر يومض. نص يُكتب: <b>"ماذا لو استطاع طفل بعمر 10 سنوات اختراق طابعة؟"</b> قطع إلى: طفل يضحك بجانب طابعة تطبع "password123". مونتاج سريع: لحام، أضواء LED، روبوت يتحرك.</div></div>
+<div class="scene-row"><div class="scene-label">AUDIO</div><div class="scene-val">همهمة محيطة ← نقرات لوحة مفاتيح ← موسيقى إلكترونية حماسية</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">2</div><div class="scene-title">المشكلة — "زومبي الشاشات"</div><div class="scene-dur">0:15–0:30</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">VISUAL</div><div class="scene-val">شاشة مقسومة: <b>يسار</b> — طفل يتصفح هاتفه بسلبية، ألوان رمادية. <b>يمين</b> — نفس الطفل يبني روبوتًا، ألوان نابضة. الجانب الملون "يكسر" ويسيطر على الشاشة كاملة.</div></div>
+<div class="scene-row"><div class="scene-label">VOICE</div><div class="scene-val">"يقضي الأطفال 7 ساعات يوميًا أمام الشاشات. ماذا لو تحولت هذه الساعات إلى قوى خارقة؟"</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">3</div><div class="scene-title">الورشة — "مختبر في شيل"</div><div class="scene-dur">0:30–0:50</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">VISUAL</div><div class="scene-val">لقطة جوية لمدينة شيل ← تقريب إلى مساحة الورشة. أطفال (6-16 سنة) على الطاولات: واحد يُبرمج micro:bit، آخر يبني روبوتًا، آخر يكتب كودًا.</div></div>
+<div class="scene-row"><div class="scene-label">VOICE</div><div class="scene-val">"في شيل، فرنسا، أطفال من 6 إلى 16 سنة لا يستخدمون التكنولوجيا فقط — بل يبنونها. مرحبًا في Workshop-DIY."</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">4</div><div class="scene-title">التطبيقات — "86 تطبيقًا، صفر تثبيت"</div><div class="scene-dur">0:50–1:05</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">VISUAL</div><div class="scene-val">مونتاج سريع لشاشات التطبيقات: CowSay Kids، Bit-Bot، Crypto Academy، SDR Kids Lab. كل واحد يظهر لثانية واحدة. عداد في الزاوية: 1... 10... 39... 86.</div></div>
+<div class="scene-row"><div class="scene-label">VOICE</div><div class="scene-val">"86 تطبيقًا في المتصفح. روبوتات، ذكاء اصطناعي، راديو، تشفير، قرصنة أخلاقية. افتح المتصفح — هذا كل شيء."</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">5</div><div class="scene-title">الأجهزة — "أدوات حقيقية، تعلّم حقيقي"</div><div class="scene-dur">1:05–1:20</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">VISUAL</div><div class="scene-val">لقطات مقرّبة: <b>micro:bit V2</b> يُضيء LEDs، <b>ESP32</b> يتصل بالواي فاي، <b>RTL-SDR</b> يستقبل راديو FM، <b>HackRF</b> يعرض طيف الإشارات. كل جهاز في يد طفل.</div></div>
+<div class="scene-row"><div class="scene-label">VOICE</div><div class="scene-val">"من micro:bit إلى HackRF — أجهزة حقيقية، في أيدٍ حقيقية، تفعل أشياء حقيقية."</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">6</div><div class="scene-title">الأسطورة — "Bug #42 يعيش هنا"</div><div class="scene-dur">1:20–1:35</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">VISUAL</div><div class="scene-val">مشهد كوميدي سريع: طفل يكتشف Bug #42 في الكود — البق "يهرب" من الشاشة، يطلب بيتزا، يُغيّر كلمة مرور الواي فاي إلى "password123" مرة أخرى. آلة القهوة تعرض "8%".</div></div>
+<div class="scene-row"><div class="scene-label">VOICE</div><div class="scene-val">"ونعم — Bug #42 لا يزال يعيش في كودنا. آلة القهوة لا تتجاوز 8% أبدًا. وكلمة مرور الواي فاي؟ أنت تعرفها بالفعل."</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">7</div><div class="scene-title">الأهل — "ابني علّمني Docker"</div><div class="scene-dur">1:35–1:48</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">VISUAL</div><div class="scene-val">أهالي يتحدثون أمام الكاميرا بدهشة. واحد يقول: "شرحت لي Docker على العشاء." آخر: "بنى محطة طقس من الصفر." قطع إلى الأطفال فخورين.</div></div>
+<div class="scene-row"><div class="scene-label">VOICE</div><div class="scene-val">"اللحظة التي يُدرك فيها الوالد أن طفله يعرف أكثر منه — هنا يحدث السحر."</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">8</div><div class="scene-title">الدعوة — "انضموا إلينا"</div><div class="scene-dur">1:48–2:00</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">VISUAL</div><div class="scene-val">صورة جماعية للأطفال يلوّحون للكاميرا. الشعار في الوسط. معلومات الاتصال تظهر. اللقطة الأخيرة: طفل ينظر للكاميرا ويقول <b>"password123"</b> — يغمز — قطع إلى أسود.</div></div>
+<div class="scene-row"><div class="scene-label">TEXT</div><div class="scene-val">workshop-diy.org · 06 19 51 51 73 · Chelles 77500<br>"جلسة اكتشاف مجانية — سجّلوا الآن!"</div></div>
+</div></div>
+
+</div>
+
+<div class="stitle">📐 مواصفات <b>الإنتاج</b></div>
+<div class="specs">
+<div class="spec"><span class="emoji">🎞️</span><h4>الصيغة</h4><p>16:9 · 1920×1080</p></div>
+<div class="spec"><span class="emoji">⏱️</span><h4>المدة</h4><p>دقيقتان · 8 مشاهد</p></div>
+<div class="spec"><span class="emoji">🎤</span><h4>التعليق الصوتي</h4><p>صوت دافئ<br>تعليق احترافي أو ذكاء اصطناعي</p></div>
+<div class="spec"><span class="emoji">🎵</span><h4>الموسيقى</h4><p>إلكترونية حماسية<br>بدون حقوق أو مُولّدة بالذكاء الاصطناعي</p></div>
+<div class="spec"><span class="emoji">📝</span><h4>الترجمة</h4><p>ترجمة عربية مدمجة</p></div>
+<div class="spec"><span class="emoji">🎯</span><h4>المنصات</h4><p>يوتيوب · الموقع<br>الفعاليات · العروض</p></div>
+</div>
+</div>
+
+<div class="foot"><b>WORKSHOP-DIY</b><br>Association Loi 1901 · Chelles 77500 · <a href="https://workshop-diy.org" style="color:var(--acc);text-decoration:none">workshop-diy.org</a></div>
+
+<script>document.querySelectorAll('.scene')[0].classList.add('open');</script>
+<div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
+</body>
+</html>

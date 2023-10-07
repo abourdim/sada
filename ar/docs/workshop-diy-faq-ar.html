@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // FAQ</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#0a0a14;color:#d4d4d4;font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;padding:24px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+.container{max-width:640px;width:100%}
+h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#ff6600;margin-bottom:4px}
+.sub{font-size:11px;color:rgba(255,255,255,.08);margin-bottom:24px;font-family:'JetBrains Mono',monospace}
+.section-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:rgba(255,255,255,.12);letter-spacing:2px;margin:24px 0 8px;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,.03)}
+.faq{border:1px solid rgba(255,255,255,.03);border-radius:6px;margin:4px 0;overflow:hidden;background:rgba(255,255,255,.005)}
+.faq-q{padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600;color:rgba(255,255,255,.3);transition:all .15s;font-size:13px}
+.faq-q:hover{background:rgba(255,102,0,.02);color:rgba(255,255,255,.5)}
+.faq-q .arrow{transition:transform .2s;color:#ff6600;font-size:10px;flex-shrink:0}
+.faq.open .faq-q .arrow{transform:rotate(90deg)}
+.faq.open .faq-q{color:#ff6600}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease-out}
+.faq.open .faq-a{max-height:500px}
+.faq-a-inner{padding:0 14px 12px 30px;font-size:12px;color:rgba(255,255,255,.15);line-height:1.9}
+.faq-a-inner code{font-family:'JetBrains Mono',monospace;background:rgba(255,102,0,.05);padding:1px 5px;border-radius:3px;font-size:10px;color:rgba(255,102,0,.4)}
+.footer{margin-top:24px;text-align:center;font-size:8px;color:rgba(255,255,255,.03);font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="container">
+
+<h1>❓ FAQ</h1>
+<div class="sub">Frequently Asked Questions · v1.0 · 160 files</div>
+
+<div class="section-title">📦 INSTALLATION & SETUP</div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Do I need to install anything?</div><div class="faq-a"><div class="faq-a-inner">No. Every file is a self-contained HTML document. Download, double-click, done. No npm, no pip, no Docker, no configuration, no server. Just a browser. Chrome is recommended.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>What browser should I use?</div><div class="faq-a"><div class="faq-a-inner">Chrome 90+ is recommended for the best experience. Firefox, Safari 15+, and Edge also work. Internet Explorer is not supported (it barely supports itself).</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I use these offline?</div><div class="faq-a"><div class="faq-a-inner">Yes! The only online dependency is Google Fonts, which are loaded via CDN on first visit. Once cached by your browser, everything works fully offline. Without cached fonts, files use system fallback fonts and still work fine — just look slightly different.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>How do I start browsing the files?</div><div class="faq-a"><div class="faq-a-inner">Open <code>app-index.html</code> for a searchable, categorized navigator. Or open <code>workshop-diy-docs.html</code> for the full documentation with file catalog. Or just open any file — they're all independent.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Why is the ZIP so small (600KB)?</div><div class="faq-a"><div class="faq-a-inner">Pure HTML/CSS/JS compresses extremely well. No images, no binaries, no node_modules. The 160 files total ~1.8MB uncompressed and compress to ~600KB. This is what happens when you don't use frameworks.</div></div></div>
+
+<div class="section-title">🎨 USAGE & PRESENTATIONS</div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>How do I use these for a presentation?</div><div class="faq-a"><div class="faq-a-inner">Open any file fullscreen (F11 on desktop). Most files auto-animate on load. Dark backgrounds work great with projectors. Tab through multiple files for a dynamic presentation — each one is a different "slide" in a completely different format.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I print them?</div><div class="faq-a"><div class="faq-a-inner">Yes — use Ctrl+P / Cmd+P from the browser. Some files have print-optimized styles. For wall displays, you can also take high-res screenshots. The stamp sheet, newspaper, passport, and certificate formats print particularly well.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I embed them on a website?</div><div class="faq-a"><div class="faq-a-inner">Yes. Use an <code>&lt;iframe&gt;</code> tag pointing to any file. Since they're self-contained HTML, they embed cleanly anywhere. Just host the files alongside your page.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I modify the files?</div><div class="faq-a"><div class="faq-a-inner">Absolutely. They're just HTML. Open in any text editor, change text/colors/data, save, refresh browser. No build step needed. The files are intentionally simple — all code is inline and readable.</div></div></div>
+
+<div class="section-title">🐛 THE LORE</div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Is Bug #42 real?</div><div class="faq-a"><div class="faq-a-inner">Bug #42 has no author, no timestamp, and no repository of origin. It predates version control. It survived <code>rm -rf</code>, <code>git revert</code>, and a full hard drive reformat. It was tried in court and acquitted. It then married Feature Status. Whether it is "real" is a question for philosophers, not developers.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Why does everything happen at 3:42 AM?</div><div class="faq-a"><div class="faq-a-inner">Unknown. Bug #42 appears at 3:42 AM. The 40th app appears at 3:42 AM. The coffee machine makes its best espresso at 3:42 AM. The tax auditor's file disappeared at 3:42 AM. Correlation is noted. Causation is denied. 42 remains suspicious.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I change the WiFi password from password123?</div><div class="faq-a"><div class="faq-a-inner">No. Three formal petitions have been submitted and denied. Petition #4 is currently being drafted. The password has been unchanged since 2023. It is believed to be the 4th most-used WiFi password in France. This statistic is unverified because verification would require changing it.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Is the coffee machine really at 8%?</div><div class="faq-a"><div class="faq-a-inner">It has been at 8% for 14+ months. It produces perfect espresso. The drainage tray has not been emptied since March. A health inspector described the situation as "concerning." Nobody has attempted repairs because the output is flawless and nobody wants to be responsible if it stops working.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>How many times has bit-bot fallen off a desk?</div><div class="faq-a"><div class="faq-a-inner">47 documented desk drops. All hot glue joints have held through every single one. The servo plays B♭ minor on impact. Students applaud. The 48th drop is considered inevitable and is referenced in multiple insurance documents.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>What is the 40th app?</div><div class="faq-a"><div class="faq-a-inner">There are 39 documented Workshop-DIY apps. The 40th app appears briefly at 3:42 AM in certain files. It has no name, no category, and no maintainer. Its source code has never been found. Its relationship to Bug #42 is "under investigation." Several files reference it. None explain it.</div></div></div>
+
+<div class="section-title">🛠️ TECHNICAL</div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>What tech stack is this?</div><div class="faq-a"><div class="faq-a-inner">HTML + CSS + JavaScript. That's it. No React, no Vue, no Angular, no Svelte, no Tailwind, no Bootstrap, no jQuery, no webpack, no Vite, no Turbopack. Pure browser APIs. The way the web was meant to be.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Why no framework?</div><div class="faq-a"><div class="faq-a-inner">Workshop-DIY's philosophy is zero-installation education. If a 6-year-old can open it in a browser, it ships. Frameworks add build steps, dependencies, and complexity. These files will work identically in 10 years. Your React app from 2020 won't.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Are the micro:bit / ESP32 simulators functional?</div><div class="faq-a"><div class="faq-a-inner">The simulators show animated, interactive representations of the real hardware. They don't connect to actual devices (that would require Web Bluetooth, which the real Workshop-DIY apps do). The telemetry data, boot sequences, and wiring diagrams are accurate to the real hardware.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I use Web Bluetooth with these files?</div><div class="faq-a"><div class="faq-a-inner">These presentation files are standalone simulations. For actual BLE connectivity, use the real Workshop-DIY apps (bit-bot, rxy, bit-playground, etc.) at the Workshop-DIY GitHub repository. The BLE flow diagram (<code>workshop-diy-ble-flow.html</code>) shows the exact connection protocol used.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>How were these generated?</div><div class="faq-a"><div class="faq-a-inner">All 160 files were generated in a single extended session with Claude (Anthropic) on February 28, 2026. Each file was hand-crafted with accurate data from the real Workshop-DIY ecosystem, real app descriptions, and the real (slightly fictionalized) lore.</div></div></div>
+
+<div class="section-title">📄 FILES & ORGANIZATION</div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>What's included in the v1.0 package?</div><div class="faq-a"><div class="faq-a-inner">160 HTML presentation files + <code>README.md</code> + <code>workshop-diy-docs.html</code> (documentation) + <code>workshop-diy-faq.html</code> (this file) + <code>workshop-diy-changelog.html</code> (version history) + <code>workshop-diy-help.html</code> (quick reference). Everything in one ZIP.</div></div></div>
+
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Which file should I open first?</div><div class="faq-a"><div class="faq-a-inner">Start with <code>app-index.html</code> for the full searchable catalog. For a dramatic first impression, try <code>workshop-diy-boot-sequence.html</code> or <code>workshop-diy-nasa-control.html</code>. For laughs, try <code>workshop-diy-tinder.html</code> or <code>workshop-diy-court-trial.html</code>.</div></div></div>
+
+</div>
+
+<div class="footer">WORKSHOP-DIY · FAQ v1.0 · password123 · 8% · Bug #42 was here</div>
+</div>
+
+<script>
+document.querySelectorAll('.faq').forEach(faq=>{
+  faq.querySelector('.faq-q').addEventListener('click',()=>{
+    faq.classList.toggle('open');
+  });
+});
+</script>
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

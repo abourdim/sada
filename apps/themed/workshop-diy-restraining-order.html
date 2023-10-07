@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // RESTRAINING ORDER</title>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+body{background:#e8e0d0;font-family:'Courier Prime',monospace;font-size:11px;color:#222;min-height:100vh;padding:16px;display:flex;justify-content:center}
+
+.doc{max-width:560px;width:100%;background:#fff;border:1px solid #bbb;padding:24px;box-shadow:2px 2px 6px rgba(0,0,0,.06)}
+
+.court-header{text-align:center;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:10px}
+.court-header .seal{font-size:32px;margin-bottom:4px}
+.court-header h2{font-size:10px;letter-spacing:3px;color:#333}
+.court-header h1{font-size:14px;letter-spacing:2px;margin:4px 0}
+.court-header .case{font-size:9px;color:#555}
+
+.parties{margin:10px 0;padding:10px;background:#f8f8f5;border:1px solid #eee}
+.party{display:flex;justify-content:space-between;padding:2px 0;font-size:10px}
+.party .role{color:#888;font-size:8px;letter-spacing:1px}
+
+.order-title{text-align:center;font-size:12px;font-weight:700;letter-spacing:3px;margin:10px 0;padding:4px;background:#000;color:#fff}
+
+p{margin:6px 0;font-size:10px;line-height:2.2;text-align:justify;text-indent:2em}
+p.no-indent{text-indent:0}
+
+.conditions{margin:8px 0;padding:0 0 0 14px}
+.cond{margin:4px 0;font-size:10px;line-height:2;padding:2px 0;border-bottom:1px solid #f5f5f0}
+.cond strong{color:#cc0000}
+
+.penalty{margin:8px 0;padding:8px;background:#fff5f0;border:1px solid #f0d0d0;font-size:10px;color:#cc0000;text-align:center;line-height:2}
+
+.sig-block{display:flex;gap:14px;margin-top:14px}
+.sig{flex:1;text-align:center}
+.sig-val{font-family:'Patrick Hand',cursive;font-size:14px;color:#1a1a8a;min-height:24px}
+.sig-line{border-top:1px solid #000;padding-top:2px;font-size:7px;color:#555}
+
+.stamp{text-align:center;margin:10px 0}
+.stamp .seal-stamp{display:inline-block;border:3px solid rgba(0,0,100,.08);border-radius:50%;width:80px;height:80px;display:flex;align-items:center;justify-content:center;font-size:10px;color:rgba(0,0,100,.1);transform:rotate(-12deg);line-height:1.4;font-weight:700;letter-spacing:1px}
+
+.footer{text-align:center;margin-top:10px;font-size:6px;color:#ccc;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+<div class="court-header">
+  <div class="seal">⚖️</div>
+  <h2>IN THE CIRCUIT COURT OF WORKSHOP-DIY</h2>
+  <h1>ORDER OF PROTECTION</h1>
+  <div class="case">Case No. WKSHP-2026-RO-042 · Filed February 28, 2026</div>
+</div>
+
+<div class="parties">
+  <div class="party"><span>🐛 <strong>BUG #42</strong> (a.k.a. "The Feature")</span><span class="role">PETITIONER</span></div>
+  <div class="party"><span>📋 <strong>ESLINT</strong> (v8.56.0, configured with "strict")</span><span class="role">RESPONDENT</span></div>
+</div>
+
+<div class="order-title">⚠ TEMPORARY RESTRAINING ORDER ⚠</div>
+
+<p>THIS COURT, having reviewed the petition filed by Bug #42 on February 28, 2026, and having considered the evidence of persistent harassment, unauthorized code modification attempts, and repeated classification violations by the Respondent (ESLint), hereby ORDERS as follows:</p>
+
+<p class="no-indent" style="font-weight:700;text-align:center;margin:8px 0">THE COURT FINDS:</p>
+
+<p>That ESLint has, on no fewer than <strong>17 separate occasions</strong>, flagged the Petitioner's code with violations including but not limited to: "unexpected var statement" (6 counts), "missing semicolons" (4 counts), "unreachable code" (3 counts), "no-unused-vars" (2 counts), and "prefer-const" (2 counts).</p>
+
+<p>That on three occasions, ESLint attempted to <strong>auto-fix</strong> the Petitioner's code without consent, resulting in temporary loss of identity and existential distress.</p>
+
+<p>That the Petitioner was legally reclassified as a <strong>FEATURE</strong> by this Court on February 28, 2026 (Case No. WKSHP-2026-TRIAL-042), and therefore ESLint's continued classification of the Petitioner as a "lint error" constitutes defamation.</p>
+
+<p class="no-indent" style="font-weight:700;text-align:center;margin:8px 0">IT IS HEREBY ORDERED:</p>
+
+<div class="conditions">
+  <div class="cond"><strong>1.</strong> ESLint shall maintain a minimum distance of <strong>42 lines of code</strong> from the Petitioner's file at all times.</div>
+  <div class="cond"><strong>2.</strong> ESLint is <strong>prohibited</strong> from running, scanning, analyzing, or auto-fixing any file containing Bug #42's code.</div>
+  <div class="cond"><strong>3.</strong> ESLint shall <strong>not</strong> report, flag, warn, or error on any code attributed to Bug #42, whether directly or through CI/CD pipeline.</div>
+  <div class="cond"><strong>4.</strong> The <code>.eslintignore</code> file shall contain a permanent entry for Bug #42's file. This entry <strong>cannot be removed</strong> by any developer, administrator, or automated process.</div>
+  <div class="cond"><strong>5.</strong> ESLint is <strong>prohibited</strong> from contacting Bug #42 via pull request comments, code review suggestions, or IDE inline warnings.</div>
+  <div class="cond"><strong>6.</strong> All previous ESLint violation records pertaining to Bug #42 are hereby <strong>expunged</strong> from the linting history.</div>
+  <div class="cond"><strong>7.</strong> Prettier is named as a <strong>co-respondent</strong> and is subject to the same restrictions by association.</div>
+</div>
+
+<div class="penalty">
+  ⚠ VIOLATION OF THIS ORDER may result in: complete uninstallation from the project,<br>
+  removal from <code>package.json</code>, and replacement with <code>// eslint-disable-next-line everything</code>
+</div>
+
+<p>This order is effective <strong>immediately</strong> and shall remain in force <strong>indefinitely</strong> or until ESLint issues a formal written apology acknowledging that the Petitioner's code is intentional, artistic, and constitutionally protected as a Feature.</p>
+
+<div class="sig-block">
+  <div class="sig"><div class="sig-val">Judge Compiler</div><div class="sig-line">PRESIDING JUDGE</div></div>
+  <div class="sig"><div class="sig-val">I was always here</div><div class="sig-line">PETITIONER (Bug #42)</div></div>
+  <div class="sig"><div class="sig-val">ERROR: SIGNATURE_BLOCKED</div><div class="sig-line">RESPONDENT (ESLint)</div></div>
+</div>
+
+<div class="stamp">
+  <div class="seal-stamp">COURT<br>SEAL<br>WKSHP<br>2026</div>
+</div>
+
+</div>
+
+<div class="footer">WKSHP CIRCUIT COURT · CASE WKSHP-2026-RO-042 · ALL LINTERS SERVED · FEATURES PROTECTED UNDER LAW</div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

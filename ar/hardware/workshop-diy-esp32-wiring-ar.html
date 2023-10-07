@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // BIT-BOT WIRING</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;min-height:100vh;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px}
+
+h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#00cc66;letter-spacing:2px}
+.sub{font-size:7px;color:rgba(0,204,102,.08);letter-spacing:2px}
+
+/* SCHEMATIC */
+.schematic{width:100%;max-width:700px;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:8px;align-items:start}
+
+/* COMPONENT */
+.comp{border:1px solid rgba(255,255,255,.04);border-radius:8px;padding:8px;background:rgba(255,255,255,.005);cursor:pointer;transition:all .2s;position:relative}
+.comp:hover,.comp.active{border-color:var(--c,rgba(0,204,102,.15));background:rgba(255,255,255,.01);box-shadow:0 0 10px var(--glow,rgba(0,204,102,.03))}
+.comp-icon{font-size:24px;text-align:center;margin-bottom:2px}
+.comp-name{font-size:9px;font-weight:700;color:var(--c,rgba(255,255,255,.2));text-align:center;letter-spacing:.5px}
+.comp-spec{font-size:7px;color:rgba(255,255,255,.06);text-align:center;line-height:1.8}
+
+/* WIRES */
+.wire{display:flex;align-items:center;gap:3px;font-size:7px;padding:2px 4px;border-radius:3px;margin:2px 0;transition:opacity .2s}
+.wire .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.wire .pin{font-weight:700;color:rgba(255,255,255,.15);min-width:30px}
+.wire .arrow{color:rgba(255,255,255,.04)}
+.wire .dest{color:rgba(255,255,255,.08)}
+
+/* CENTER BOARD */
+.board{border:2px solid rgba(0,204,102,.08);border-radius:10px;padding:10px;background:rgba(0,50,0,.05);position:relative}
+.board-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:800;color:rgba(0,204,102,.2);text-align:center;margin-bottom:6px;letter-spacing:1px}
+.board-chip{width:50px;height:50px;background:#111;border-radius:4px;border:1px solid #333;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.board-chip .label{font-size:5px;color:#444}
+.board-chip .name{font-size:7px;color:#666;font-weight:700}
+
+.pin-section{margin:4px 0}
+.pin-section-title{font-size:6px;color:rgba(0,204,102,.08);letter-spacing:1px;margin-bottom:2px}
+.pin-row{display:flex;align-items:center;gap:3px;padding:1px 0}
+.pin-dot{width:6px;height:6px;border-radius:50%;border:1px solid var(--c,#333);transition:all .2s;flex-shrink:0}
+.pin-dot.active{background:var(--c);box-shadow:0 0 4px var(--c)}
+.pin-id{font-size:7px;color:rgba(255,255,255,.1);width:30px}
+.pin-dest{font-size:6px;color:rgba(255,255,255,.05);flex:1}
+
+/* COLOR KEY */
+.colors{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;max-width:700px}
+.color-key{display:flex;align-items:center;gap:3px;font-size:7px;color:rgba(255,255,255,.08);padding:2px 6px;border-radius:10px;border:1px solid transparent;cursor:pointer;transition:all .15s}
+.color-key:hover{border-color:var(--c)}
+.color-key .ck-dot{width:8px;height:3px;border-radius:1px;background:var(--c)}
+
+/* WARNINGS */
+.warnings{max-width:700px;width:100%;padding:8px;border:1px solid rgba(255,200,0,.04);border-radius:6px;background:rgba(255,200,0,.005)}
+.warnings h3{font-size:8px;color:rgba(255,200,0,.15);letter-spacing:1px;margin-bottom:3px}
+.warn-item{font-size:7px;color:rgba(255,200,0,.08);padding:1px 0;line-height:1.8}
+
+.footer{font-size:5px;color:rgba(0,204,102,.02);letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<h1>🔌 BIT-BOT WIRING</h1>
+<div class="sub">ESP32-C3 DEVKIT · COMPLETE WIRING SCHEMATIC · WORKSHOP-DIY</div>
+
+<div class="colors">
+  <div class="color-key" style="--c:#ff4444"><div class="ck-dot"></div>5V Power</div>
+  <div class="color-key" style="--c:#ff8800"><div class="ck-dot"></div>3.3V Power</div>
+  <div class="color-key" style="--c:#444"><div class="ck-dot"></div>Ground</div>
+  <div class="color-key" style="--c:#00cc66"><div class="ck-dot"></div>NeoPixel</div>
+  <div class="color-key" style="--c:#00aaff"><div class="ck-dot"></div>Motors</div>
+  <div class="color-key" style="--c:#cc66ff"><div class="ck-dot"></div>Servo</div>
+  <div class="color-key" style="--c:#ffcc00"><div class="ck-dot"></div>IR Sensors</div>
+  <div class="color-key" style="--c:#ff66aa"><div class="ck-dot"></div>Status LED</div>
+</div>
+
+<div class="schematic">
+
+<!-- LEFT COMPONENTS -->
+<div>
+  <div class="comp" style="--c:rgba(0,204,102,.3);--glow:rgba(0,204,102,.05)" data-group="neo">
+    <div class="comp-icon">💡</div>
+    <div class="comp-name">NEOPIXEL STRIP</div>
+    <div class="comp-spec">WS2812B · 8 LEDs · 5V</div>
+    <div class="wire"><div class="dot" style="background:#ff4444"></div><span class="pin">5V</span><span class="arrow">←</span><span class="dest">USB 5V</span></div>
+    <div class="wire"><div class="dot" style="background:#444"></div><span class="pin">GND</span><span class="arrow">←</span><span class="dest">Common GND</span></div>
+    <div class="wire"><div class="dot" style="background:#00cc66"></div><span class="pin">DIN</span><span class="arrow">←</span><span class="dest">GPIO4</span></div>
+  </div>
+
+  <div class="comp" style="--c:rgba(204,102,255,.3);--glow:rgba(204,102,255,.05);margin-top:6px" data-group="servo">
+    <div class="comp-icon">🔧</div>
+    <div class="comp-name">SERVO SG90</div>
+    <div class="comp-spec">180° · 5V · 50Hz PWM</div>
+    <div class="wire"><div class="dot" style="background:#ff4444"></div><span class="pin">VCC</span><span class="arrow">←</span><span class="dest">5V (separate)</span></div>
+    <div class="wire"><div class="dot" style="background:#444"></div><span class="pin">GND</span><span class="arrow">←</span><span class="dest">Common GND</span></div>
+    <div class="wire"><div class="dot" style="background:#cc66ff"></div><span class="pin">SIG</span><span class="arrow">←</span><span class="dest">GPIO10</span></div>
+  </div>
+
+  <div class="comp" style="--c:rgba(255,204,0,.3);--glow:rgba(255,204,0,.05);margin-top:6px" data-group="ir">
+    <div class="comp-icon">👁️</div>
+    <div class="comp-name">IR SENSORS ×2</div>
+    <div class="comp-spec">TCRT5000 · Line متابَعات</div>
+    <div class="wire"><div class="dot" style="background:#ff8800"></div><span class="pin">VCC</span><span class="arrow">←</span><span class="dest">3.3V</span></div>
+    <div class="wire"><div class="dot" style="background:#444"></div><span class="pin">GND</span><span class="arrow">←</span><span class="dest">Common GND</span></div>
+    <div class="wire"><div class="dot" style="background:#ffcc00"></div><span class="pin">OUT L</span><span class="arrow">←</span><span class="dest">GPIO0 (ADC)</span></div>
+    <div class="wire"><div class="dot" style="background:#ffcc00"></div><span class="pin">OUT R</span><span class="arrow">←</span><span class="dest">GPIO1 (ADC)</span></div>
+  </div>
+</div>
+
+<!-- CENTER: ESP32 -->
+<div class="board">
+  <div class="board-title">⚡ ESP32-C3 DEVKIT</div>
+  <div class="board-chip">
+    <div class="label">ESPRESSIF</div>
+    <div class="name">ESP32-C3</div>
+    <div class="label">RISC-V</div>
+  </div>
+
+  <div class="pin-section">
+    <div class="pin-section-title">LEFT PINS</div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#ff8800"></div><div class="pin-id">3V3</div><div class="pin-dest">IR sensors power</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#444"></div><div class="pin-id">GND</div><div class="pin-dest">Common ground</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#ffcc00"></div><div class="pin-id">GPIO0</div><div class="pin-dest">IR Left (ADC)</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#ffcc00"></div><div class="pin-id">GPIO1</div><div class="pin-dest">IR Right (ADC)</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#00cc66"></div><div class="pin-id">GPIO4</div><div class="pin-dest">NeoPixel Data</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#333"></div><div class="pin-id">GPIO5</div><div class="pin-dest">Buzzer (optional)</div></div>
+  </div>
+
+  <div class="pin-section">
+    <div class="pin-section-title">RIGHT PINS</div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#ff4444"></div><div class="pin-id">5V</div><div class="pin-dest">USB power → NeoPixel, Servo</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#444"></div><div class="pin-id">GND</div><div class="pin-dest">Common ground</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#00aaff"></div><div class="pin-id">GPIO6</div><div class="pin-dest">Motor L (PWM via L298N)</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#00aaff"></div><div class="pin-id">GPIO7</div><div class="pin-dest">Motor R (PWM via L298N)</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#ff66aa"></div><div class="pin-id">GPIO8</div><div class="pin-dest">Built-in RGB LED</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#666"></div><div class="pin-id">GPIO9</div><div class="pin-dest">Boot Button (user)</div></div>
+    <div class="pin-row"><div class="pin-dot" style="--c:#cc66ff"></div><div class="pin-id">GPIO10</div><div class="pin-dest">Servo Signal</div></div>
+  </div>
+
+  <div style="text-align:center;margin-top:6px;font-size:7px;color:rgba(0,204,102,.06)">📡 BLE 5.0 · WiFi 2.4GHz<br>Nordic UART Service<br>WKSHP-bitbot-42</div>
+</div>
+
+<!-- RIGHT COMPONENTS -->
+<div>
+  <div class="comp" style="--c:rgba(0,170,255,.3);--glow:rgba(0,170,255,.05)" data-group="motor">
+    <div class="comp-icon">⚙️</div>
+    <div class="comp-name">L298N MOTOR DRIVER</div>
+    <div class="comp-spec">Dual H-Bridge · 5-35V · 2A</div>
+    <div class="wire"><div class="dot" style="background:#ff4444"></div><span class="pin">12V</span><span class="arrow">←</span><span class="dest">Battery Pack</span></div>
+    <div class="wire"><div class="dot" style="background:#444"></div><span class="pin">GND</span><span class="arrow">←</span><span class="dest">Common GND</span></div>
+    <div class="wire"><div class="dot" style="background:#00aaff"></div><span class="pin">IN1</span><span class="arrow">←</span><span class="dest">GPIO6</span></div>
+    <div class="wire"><div class="dot" style="background:#00aaff"></div><span class="pin">IN2</span><span class="arrow">←</span><span class="dest">GPIO7</span></div>
+    <div class="wire"><div class="dot" style="background:#888"></div><span class="pin">ENA</span><span class="arrow">←</span><span class="dest">Jumper (HIGH)</span></div>
+  </div>
+
+  <div class="comp" style="--c:rgba(255,255,255,.1);margin-top:6px" data-group="motor">
+    <div class="comp-icon">🛞</div>
+    <div class="comp-name">DC MOTORS ×2</div>
+    <div class="comp-spec">3-6V · TT Motor · Geared</div>
+    <div class="wire"><div class="dot" style="background:#00aaff"></div><span class="pin">M1+/-</span><span class="arrow">←</span><span class="dest">L298N OUT1/2</span></div>
+    <div class="wire"><div class="dot" style="background:#00aaff"></div><span class="pin">M2+/-</span><span class="arrow">←</span><span class="dest">L298N OUT3/4</span></div>
+  </div>
+
+  <div class="comp" style="--c:rgba(255,68,68,.3);--glow:rgba(255,68,68,.05);margin-top:6px" data-group="power">
+    <div class="comp-icon">🔋</div>
+    <div class="comp-name">BATTERY PACK</div>
+    <div class="comp-spec">4×AA (6V) or 2S LiPo (7.4V)</div>
+    <div class="wire"><div class="dot" style="background:#ff4444"></div><span class="pin">V+</span><span class="arrow">→</span><span class="dest">L298N 12V in</span></div>
+    <div class="wire"><div class="dot" style="background:#444"></div><span class="pin">GND</span><span class="arrow">→</span><span class="dest">Common GND</span></div>
+  </div>
+</div>
+</div>
+
+<div class="warnings">
+  <h3>⚠️ WIRING NOTES</h3>
+  <div class="warn-item">🔴 <strong>5V logic:</strong> NeoPixels and servo need 5V. ESP32-C3 GPIO is 3.3V — NeoPixels usually work, but add a level shifter for reliability.</div>
+  <div class="warn-item">⚡ <strong>Power:</strong> Don't power motors from ESP32 USB! Use separate battery via L298N. مشاركة GND between all boards.</div>
+  <div class="warn-item">📌 <strong>Pin conflict:</strong> GPIO0/1 used for ADC (IR sensors) — don't use for servo! Servo on GPIO10 to avoid conflicts.</div>
+  <div class="warn-item">🔥 <strong>Hot glue:</strong> All wires secured with الصمغ الساخن. Structural grade. Has survived 47 سقطات المكتب. Do not question the engineering.</div>
+</div>
+
+<div class="footer">WORKSHOP-DIY · BIT-BOT WIRING SCHEMATIC · ESP32-C3 + L298N + WS2812B + SG90 + TCRT5000 · HELD TOGETHER BY HOT GLUE AND OPTIMISM</div>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>
