@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // AIRBNB</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#fff;font-family:'Inter',sans-serif;font-size:13px;color:#222;min-height:100vh}
+
+.header{padding:10px 16px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:8px}
+.header .logo{font-size:16px;font-weight:700;color:#ff385c}
+.header .search{flex:1;max-width:300px;margin:0 auto;background:#f7f7f7;border:1px solid #ddd;border-radius:20px;padding:4px 14px;font-size:10px;color:#555;text-align:center}
+
+.listing{max-width:700px;margin:0 auto;padding:16px}
+
+h1{font-size:20px;font-weight:600;margin-bottom:4px}
+.location{font-size:13px;color:#555;margin-bottom:8px}
+.quick{display:flex;gap:8px;font-size:12px;color:#555;margin-bottom:4px}
+.rating{color:#222;font-weight:600}
+.rating span{color:#ff385c}
+
+/* PHOTOS */
+.photos{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:120px 120px;gap:4px;border-radius:12px;overflow:hidden;margin:10px 0}
+.photo{display:flex;align-items:center;justify-content:center;font-size:40px;background:#f7f7f7}
+.photo:first-child{grid-row:1/3}
+.photo:first-child{font-size:64px;background:#f0f8ff}
+
+/* HOST */
+.host-bar{display:flex;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid #eee}
+.host-avatar{width:40px;height:40px;border-radius:50%;background:#ff385c;display:flex;align-items:center;justify-content:center;font-size:20px}
+.host-bar .host-name{font-size:14px;font-weight:600}
+.host-bar .host-sub{font-size:11px;color:#555}
+
+.section{padding:14px 0;border-bottom:1px solid #eee}
+.section h2{font-size:16px;font-weight:600;margin-bottom:6px}
+.section p{color:#555;line-height:2;font-size:12px}
+
+/* AMENITIES */
+.amenities{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.amenity{display:flex;align-items:center;gap:6px;font-size:12px;color:#333;padding:3px 0}
+
+/* BOOKING */
+.booking{border:1px solid #ddd;border-radius:12px;padding:14px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.booking .price{font-size:18px;font-weight:700}
+.booking .price span{font-size:12px;font-weight:400;color:#555}
+.booking .dates{display:grid;grid-template-columns:1fr 1fr;border:1px solid #ddd;border-radius:8px;overflow:hidden;margin:8px 0}
+.booking .date{padding:6px 10px;font-size:10px}
+.booking .date .lbl{font-size:7px;font-weight:700;letter-spacing:1px;color:#555}
+.booking .date+.date{border-left:1px solid #ddd}
+.booking .btn{width:100%;padding:10px;background:linear-gradient(90deg,#ff385c,#e31c5f);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.booking .note{text-align:center;font-size:10px;color:#555;margin-top:4px}
+
+/* REVIEWS */
+.revues{padding:14px 0}
+.revues h2{margin-bottom:8px}
+.review{padding:6px 0;border-bottom:1px solid #f5f5f5}
+.review .r-top{display:flex;align-items:center;gap:6px;margin-bottom:2px}
+.review .r-avatar{width:24px;height:24px;border-radius:50%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;font-size:12px}
+.review .r-name{font-size:12px;font-weight:600}
+.review .r-date{font-size:10px;color:#888}
+.review .r-text{font-size:12px;color:#555;line-height:1.9}
+
+/* RULES */
+.rules{display:flex;flex-direction:column;gap:3px}
+.rule{display:flex;align-items:center;gap:6px;font-size:12px;color:#555}
+
+.footer{text-align:center;padding:10px;font-size:6px;color:#ddd;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="header">
+  <div class="logo">🏠 wkshpbnb</div>
+  <div class="search">📍 Atelier-DIY · Any week · 39 guests</div>
+</div>
+
+<div class="listing">
+
+<h1>The Atelier-DIY Server Room — Entire Digital Space</h1>
+<div class="location">📍 France 🇫🇷 · The Internet · Everywhere</div>
+<div class="quick">
+  <span class="rating"><span>★</span> 4.97</span> · 847 avis · 🏆 Superhost
+</div>
+
+<div class="photos">
+  <div class="photo">🤖🧠🔐</div>
+  <div class="photo">🐳</div>
+  <div class="photo">🔧</div>
+  <div class="photo">☕</div>
+  <div class="photo">🐛</div>
+</div>
+
+<div class="host-bar">
+  <div class="host-avatar">🐛</div>
+  <div>
+    <div class="host-name">Hosted by Bug #42</div>
+    <div class="host-sub">Superhost · 3+ years hosting · Rejoint before git init</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>À propos this space</h2>
+  <p>Welcome to the Atelier-DIY Server Room — a stunning digital space housing 39 fully browser-based educational applications. This unique listing offers unlimited capacity (it's a website), zero installation requirements, and a coffee machine operating à 8% de capacité (as-is, non-negotiable). The mot de passe WiFi is password123 and has been since 2023. Three formal petitions to change it have been denied. Bug #42 is the permanent resident and will occasionally appear at 3h42. This is normal.</p>
+</div>
+
+<div class="section">
+  <h2>What this place offers</h2>
+  <div class="amenities">
+    <div class="amenity">🤖 39 educational apps</div>
+    <div class="amenity">📶 WiFi (password123)</div>
+    <div class="amenity">☕ Coffee machine (8%)</div>
+    <div class="amenity">🐳 Docker containers</div>
+    <div class="amenity">🧠 AI/ML training</div>
+    <div class="amenity">🔐 Ethical hacking lab</div>
+    <div class="amenity">🐧 Linux terminal</div>
+    <div class="amenity">💡 16M color LEDs</div>
+    <div class="amenity">🎥 WebRTC P2P</div>
+    <div class="amenity">🪄 Gesture recognition</div>
+    <div class="amenity">🤖 Web Bluetooth</div>
+    <div class="amenity">🐛 Resident bug (feature)</div>
+    <div class="amenity">🔥 Hot glue (structural)</div>
+    <div class="amenity">📱 Zero installation</div>
+  </div>
+</div>
+
+<div class="booking">
+  <div class="price">€0 <span>/ night (forever)</span></div>
+  <div class="dates">
+    <div class="date"><div class="lbl">VÉRIFIER-IN</div>Anytime</div>
+    <div class="date"><div class="lbl">VÉRIFIEROUT</div>Never</div>
+  </div>
+  <button class="btn">Reserve — It's Free</button>
+  <div class="note">You won't be charged. Ever. It's a website.</div>
+</div>
+
+<div class="section">
+  <h2>House rules</h2>
+  <div class="rules">
+    <div class="rule">✅ Check-in: 24/7 (open a browser)</div>
+    <div class="rule">✅ Paiement: Never required</div>
+    <div class="rule">❌ No npm install</div>
+    <div class="rule">❌ No changing the mot de passe WiFi</div>
+    <div class="rule">❌ No running ESLint on Bug #42</div>
+    <div class="rule">❌ No deleting Bug #42 (it will return)</div>
+    <div class="rule">⚠️ Coffee machine drainage tray: do not inspect</div>
+    <div class="rule">⚠️ Robot may fall off desk (expected behavior)</div>
+  </div>
+</div>
+
+<div class="revues">
+  <h2>★ 4.97 · 847 avis</h2>
+  <div class="review">
+    <div class="r-top"><div class="r-avatar">👨</div><div class="r-name">Thomas</div><div class="r-date">· Feb 2026</div></div>
+    <div class="r-text">My son and I stayed for 6 hours. He learned more about Docker than I did in 3 years of DevOps. The space is immaculate. The coffee was... present. Would absolutely return.</div>
+  </div>
+  <div class="review">
+    <div class="r-top"><div class="r-avatar">👩</div><div class="r-name">Marie</div><div class="r-date">· Jan 2026</div></div>
+    <div class="r-text">Five stars. My daughter built a robot, trained an AI model, and hacked a printer (ethically) — all in one afternoon. The mot de passe WiFi is hilarious. Bug #42 left a note on the pillow at 3h42. Charming.</div>
+  </div>
+  <div class="review">
+    <div class="r-top"><div class="r-avatar">🤖</div><div class="r-name">bit-bot</div><div class="r-date">· Ongoing</div></div>
+    <div class="r-text">I live here. I have fallen off the desk 47 times. The host (Bug #42) is mysterious but welcoming. The colle chaude holds. 5 stars.</div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">WKSHPBNB · NOT AN ACTUAL RENTAL · DIGITAL SPACE IS UNLIMITED · BUGS ARE AMENITIES</div>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

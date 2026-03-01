@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — ماكينة القهوة 8%</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0c0906;--s1:#151008;--brd:rgba(255,255,255,.06);--txt:#e8e2d8;--dim:rgba(255,255,255,.3);--coff:#92400e;--coff2:#b45309;--red:#ef4444;--acc:#ff6600;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Noto Kufi Arabic','Amiri',sans-serif;overflow-x:hidden;direction:rtl}
+.bismillah{font-family:'Amiri',serif;font-size:18px;color:rgba(255,255,255,.08);text-align:center;padding:20px 0 0;letter-spacing:2px}
+.hero{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(146,64,14,.08),transparent 50%);pointer-events:none}
+.coffee-icon{font-size:60px;margin-bottom:8px;position:relative}
+.coffee-icon::after{content:'~';position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:24px;color:rgba(255,255,255,.1);animation:steam 2s ease-in-out infinite}
+@keyframes steam{0%,100%{opacity:.1;transform:translateX(-50%) translateY(0)}50%{opacity:.3;transform:translateX(-50%) translateY(-8px)}}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--coff2);border:1px solid rgba(180,83,9,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:14px;display:inline-block;direction:ltr}
+.hero h1{font-family:'Noto Kufi Arabic',sans-serif;font-size:clamp(22px,5vw,38px);font-weight:800;line-height:1.4;margin-bottom:8px}
+.hero h1 b{color:var(--coff2)}
+.eight{font-family:'JetBrains Mono',monospace;font-size:clamp(40px,10vw,80px);font-weight:700;color:var(--coff2);text-shadow:0 0 40px rgba(180,83,9,.3);margin:8px 0;letter-spacing:-2px}
+.hero p{font-size:14px;color:var(--dim);max-width:480px;line-height:1.8}
+.meta{display:flex;gap:0;margin-top:18px;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1);direction:ltr}
+.meta div{flex:1;text-align:center;padding:8px 12px;border-right:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.meta div:last-child{border:none}
+.meta div b{display:block;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--coff2)}
+.section{max-width:700px;margin:0 auto;padding:28px 16px}
+.stitle{font-family:'Noto Kufi Arabic',sans-serif;font-size:17px;font-weight:800;margin-bottom:14px;text-align:center}
+.stitle b{color:var(--coff2)}
+.narr{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:10px;overflow:hidden;transition:.2s}
+.narr:hover{border-color:rgba(180,83,9,.15)}
+.narr-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.narr-time{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--coff2);background:rgba(180,83,9,.06);padding:3px 8px;border-radius:4px;border:1px solid rgba(180,83,9,.1);direction:ltr}
+.narr-title{font-family:'Noto Kufi Arabic',sans-serif;font-size:13px;font-weight:700;flex:1}
+.narr-mood{font-size:14px}
+.narr-body{padding:4px 14px 14px;border-top:1px solid var(--brd)}
+.narr-vo{font-size:13px;color:var(--txt);line-height:1.9;border-right:3px solid var(--coff2);padding-right:12px;margin:8px 0}
+.narr-dir{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--red);margin:6px 0;display:block;direction:ltr;text-align:left}
+.narr-sfx{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--acc);background:rgba(255,102,0,.05);padding:3px 8px;border-radius:4px;display:inline-block;margin-top:4px;direction:ltr}
+.foot{text-align:center;padding:24px 12px 16px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-size:12px;color:var(--txt)}
+.foot b i{font-style:normal;color:var(--coff2)}
+</style>
+</head>
+<body>
+<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="hero">
+<div class="coffee-icon">☕</div>
+<div class="badge">lore · coffee 8% · عربي</div>
+<h1><b>ماكينة القهوة</b></h1>
+<div class="eight">8%</div>
+<p>الآلة التي لا تتجاوز 8% أبدًا. رعب-كوميدي في 5 فصول. مبني على أحداث حقيقية. لا أحد يضحك.</p>
+<div class="meta"><div><b>1:00</b>Duration</div><div><b>5</b>Acts</div><div><b>AR</b>Lang</div><div><b>😱😂</b>Horror</div></div>
+</div>
+<div class="section">
+<div class="stitle">☕ نص <b>السرد</b></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:00–0:12</div><div class="narr-title">الفصل الأول — الشاشة</div><div class="narr-mood">📟</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Close-up coffee machine display: "WATER: 8%". Zoom out reveals full tank.]</span>
+<div class="narr-vo">"خزان الماء ممتلئ. يمكنك رؤيته. إنه هناك. بلاستيك شفاف، ممتلئ حتى الحافة. لكن الشاشة تقول 8%. قالت دائمًا 8%. وستقول دائمًا 8%."</div>
+<span class="narr-sfx">SFX: Eerie drone → drip</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:12–0:25</div><div class="narr-title">الفصل الثاني — التحقيقات</div><div class="narr-mood">🔬</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Kids with multimeters. Replace sensor: 8%. Flash firmware: 8%. Custom driver: 8%.]</span>
+<div class="narr-vo">"استبدلوا المستشعر. 8%. فلشوا برنامجًا ثابتًا جديدًا. 8%. طفل شجاع عمره 11 سنة كتب برنامج تشغيل مخصص من الصفر. الآلة عرضت 'تم تحميل البرنامج المخصص' — ثم 8%. مهندس زائر من شركة أجهزة كبرى ألقى نظرة وقال: 'هل جربتم إيقافها وتشغيلها مرة أخرى؟' نعم. 437 مرة. 8%."</div>
+<span class="narr-sfx">SFX: Multimeter → reboot → sigh × 3</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:25–0:38</div><div class="narr-title">الفصل الثالث — النظريات</div><div class="narr-mood">🔮</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Whiteboard equations. "8% = ?" Kids debating.]</span>
+<div class="narr-vo">"تكاثرت النظريات. البعض قال إن Bug #42 وصل إلى ماكينة القهوة عبر الشبكة الداخلية. آخرون حسبوا أن 8% من خزان قياسي يساوي بالضبط كمية إسبريسو مثالية — والآلة ببساطة كانت فعّالة. النظرية الأكثر رعبًا؟ الآلة ليست معطلة. إنها الشيء الوحيد في الورشة الذي يقول الحقيقة."</div>
+<span class="narr-sfx">SFX: Suspense → gasp → thunder</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:38–0:50</div><div class="narr-title">الفصل الرابع — القبول</div><div class="narr-mood">🧘</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: People using machine casually. Nobody checks display. Coffee flows. Happy faces.]</span>
+<div class="narr-vo">"في النهاية، توقفنا عن المحاربة. القهوة تعمل بشكل ممتاز. الآلة تُقدّم مشروبات مثالية في كل مرة. هي فقط... تعتقد أن الخزان عند 8%. وربما هذا مقبول. ليس كل شيء يحتاج إلى تصحيح. بعض الألغاز مصنوعة لتُحتسى، لا لتُحل."</div>
+<span class="narr-sfx">SFX: Peaceful music → coffee pouring → sigh</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:50–1:00</div><div class="narr-title">الفصل الخامس — الكشف</div><div class="narr-mood">☕</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Black screen. "8%" glows. Pull back — machine alone in dark. Display flickers. One frame: "100%". Back to 8%.]</span>
+<div class="narr-vo">"ماكينة القهوة في Workshop-DIY تعرض 8%. إذا سألت لماذا، الأطفال سيبتسمون. إذا سألت مرة أخرى، سيصبّون لك قهوة. إذا سألت للمرة الثالثة، سيهمسون: 'هي تعرف. عرفت دائمًا.' ثم يبتعدون. والشاشة تومض. 8%. إلى الأبد."</div>
+<span class="narr-dir">[TEXT: "☕ 8% · منذ الأزل · Workshop-DIY"]</span>
+<span class="narr-sfx">SFX: Piano note → flicker → silence → Workshop-DIY jingle</span></div></div>
+
+</div>
+<div class="foot"><b><i>☕</i> WORKSHOP-DIY</b><br>مستوى الماء: 8% · <a href="https://workshop-diy.org" style="color:var(--coff2);text-decoration:none">workshop-diy.org</a> · password123</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Coffee Machine 8% (EN)</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0c0906;--s1:#151008;--brd:rgba(255,255,255,.06);--txt:#e8e2d8;--dim:rgba(255,255,255,.3);--coff:#92400e;--coff2:#b45309;--steam:rgba(255,255,255,.06);--red:#ef4444;--acc:#ff6600;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito',sans-serif;overflow-x:hidden}
+.hero{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(146,64,14,.08),transparent 50%),radial-gradient(ellipse at 30% 80%,rgba(239,68,68,.03),transparent 40%);pointer-events:none}
+.coffee-icon{font-size:60px;margin-bottom:8px;position:relative}
+.coffee-icon::after{content:'~';position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:24px;color:rgba(255,255,255,.1);animation:steam 2s ease-in-out infinite}
+@keyframes steam{0%,100%{opacity:.1;transform:translateX(-50%) translateY(0)}50%{opacity:.3;transform:translateX(-50%) translateY(-8px)}}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--coff2);border:1px solid rgba(180,83,9,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:14px;display:inline-block}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(24px,5vw,44px);font-weight:800;line-height:1.15;margin-bottom:8px}
+.hero h1 b{color:var(--coff2)}
+.eight{font-family:'JetBrains Mono',monospace;font-size:clamp(40px,10vw,80px);font-weight:700;color:var(--coff2);text-shadow:0 0 40px rgba(180,83,9,.3);margin:8px 0;letter-spacing:-2px}
+.hero p{font-size:13px;color:var(--dim);max-width:440px;line-height:1.7}
+.meta{display:flex;gap:0;margin-top:18px;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1)}
+.meta div{flex:1;text-align:center;padding:8px 12px;border-right:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.meta div:last-child{border:none}
+.meta div b{display:block;font-family:'Syne',sans-serif;font-size:14px;color:var(--coff2)}
+.section{max-width:700px;margin:0 auto;padding:28px 16px}
+.stitle{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:14px;text-align:center}
+.stitle b{color:var(--coff2)}
+.narr{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:10px;overflow:hidden;transition:.2s}
+.narr:hover{border-color:rgba(180,83,9,.15)}
+.narr-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.narr-time{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--coff2);background:rgba(180,83,9,.06);padding:3px 8px;border-radius:4px;border:1px solid rgba(180,83,9,.1)}
+.narr-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;flex:1}
+.narr-mood{font-size:14px}
+.narr-body{padding:4px 14px 14px;border-top:1px solid var(--brd)}
+.narr-vo{font-size:12px;color:var(--txt);line-height:1.8;font-style:italic;border-left:3px solid var(--coff2);padding-left:12px;margin:8px 0}
+.narr-dir{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--red);margin:6px 0;display:block}
+.narr-sfx{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--acc);background:rgba(255,102,0,.05);padding:3px 8px;border-radius:4px;display:inline-block;margin-top:4px}
+.foot{text-align:center;padding:24px 12px 16px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-family:'Syne',sans-serif;font-size:12px;color:var(--txt)}
+.foot b i{font-style:normal;color:var(--coff2)}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="coffee-icon">☕</div>
+<div class="badge">lore · coffee 8% · english</div>
+<h1>The <b>Coffee Machine</b></h1>
+<div class="eight">8%</div>
+<p>The machine that never fills above 8%. A horror-comedy in 5 acts. Based on true events. Nobody is laughing.</p>
+<div class="meta"><div><b>1:00</b>Duration</div><div><b>5</b>Acts</div><div><b>EN</b>Lang</div><div><b>😱😂</b>Horror-Comedy</div></div>
+</div>
+
+<div class="section">
+<div class="stitle">☕ <b>Narration</b> Script</div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:00–0:12</div><div class="narr-title">ACT I — The Display</div><div class="narr-mood">📟</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Close-up of coffee machine display. Clean digital font reads: "WATER: 8%". Camera slowly zooms out to reveal a completely full, transparent water tank.]</span>
+<div class="narr-vo">"The water tank is full. You can see it. It's right there. Transparent plastic, filled to the brim. But the display says 8%. It has always said 8%. It will always say 8%."</div>
+<span class="narr-sfx">SFX: Eerie ambient drone → single drip sound</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:12–0:25</div><div class="narr-title">ACT II — The Investigations</div><div class="narr-mood">🔬</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Kids with multimeters testing sensors. One kid replaces the sensor. Display still: 8%. Another kid reprograms the chip. Reboot. 8%.]</span>
+<div class="narr-vo">"They replaced the sensor. 8%. They flashed new firmware. 8%. One particularly brave 11-year-old wrote a custom driver from scratch. The machine displayed 'CUSTOM DRIVER LOADED' — then 8%. A visiting engineer from a major appliance company took one look and said: 'Have you tried turning it off and on again?' They had. 437 times. 8%."</div>
+<span class="narr-sfx">SFX: Multimeter beeps → reboot chime → disappointed sigh × 3</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:25–0:38</div><div class="narr-title">ACT III — The Theories</div><div class="narr-mood">🔮</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Whiteboard covered in equations. "8% = ?" written large. Kids debating passionately.]</span>
+<div class="narr-vo">"The theories multiplied. Some said Bug #42 had reached the coffee machine through the workshop's internal network. Others calculated that 8% of a standard water tank is exactly the amount needed for one perfect espresso — and the machine was simply being efficient. The most terrifying theory? The machine isn't broken. It's the only thing in the workshop that tells the truth."</div>
+<span class="narr-sfx">SFX: Suspenseful strings → gasp → thunder crack</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:38–0:50</div><div class="narr-title">ACT IV — The Acceptance</div><div class="narr-mood">🧘</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Montage of people casually using the machine. Nobody looks at the display. Coffee flows normally. Everyone drinks happily.]</span>
+<div class="narr-vo">"Eventually, we stopped fighting it. The coffee works fine. The machine dispenses perfect drinks every time. It just... thinks the tank is at 8%. And maybe that's okay. Not everything needs to be debugged. Some mysteries are meant to be sipped, not solved."</div>
+<span class="narr-sfx">SFX: Peaceful music → coffee pouring → content sigh</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:50–1:00</div><div class="narr-title">ACT V — The Revelation</div><div class="narr-mood">☕</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUAL: Black screen. The number "8%" glows. Camera pulls back — it's the coffee machine, alone in the dark workshop. Its display flickers. For one frame — just one — it shows "100%". Then back to 8%. Did you see it? Nobody believes you.]</span>
+<div class="narr-vo">"The coffee machine at Workshop-DIY shows 8%. If you ask why, the kids will smile. If you ask again, they'll pour you a coffee. If you ask a third time, they'll whisper: 'It knows. It has always known.' Then they'll walk away. And the display will blink. 8%. Forever."</div>
+<span class="narr-dir">[TEXT: "☕ 8% · Since always · Workshop-DIY"]</span>
+<span class="narr-sfx">SFX: Single piano note → display flicker → silence → Workshop-DIY jingle</span></div></div>
+
+</div>
+<div class="foot"><b><i>☕</i> WORKSHOP-DIY</b><br>Water level: 8% · <a href="https://workshop-diy.org" style="color:var(--coff2);text-decoration:none">workshop-diy.org</a> · password123</div>
+</body>
+</html>

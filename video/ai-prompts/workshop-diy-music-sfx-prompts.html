@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Music & SFX Prompts</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#080610;--s1:#0e0c18;--brd:rgba(255,255,255,.06);--txt:#e6e2f4;--dim:rgba(255,255,255,.28);--suno:#ec4899;--udio:#6366f1;--sfx:#22c55e;--acc:#ff6600;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito',sans-serif;overflow-x:hidden}
+.hero{min-height:40vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 40%,rgba(236,72,153,.05),transparent 50%),radial-gradient(ellipse at 60% 60%,rgba(99,102,241,.04),transparent 50%);pointer-events:none}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--suno);border:1px solid rgba(236,72,153,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:14px;display:inline-block}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,32px);font-weight:800;line-height:1.15;margin-bottom:8px}
+.hero h1 .su{color:var(--suno)}.hero h1 .ud{color:var(--udio)}.hero h1 .sf{color:var(--sfx)}
+.hero p{font-size:12px;color:var(--dim);max-width:460px;line-height:1.6}
+.section{max-width:750px;margin:0 auto;padding:24px 16px}
+.stitle{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;margin-bottom:12px;text-align:center}
+.stitle b{color:var(--suno)}
+.track{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.tr-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.tr-emoji{font-size:22px}
+.tr-info{flex:1}
+.tr-info h3{font-family:'Syne',sans-serif;font-size:12px;font-weight:700}
+.tr-info span{font-size:9px;color:var(--dim)}
+.tr-plat{display:flex;gap:4px}
+.tr-dot{width:8px;height:8px;border-radius:50%;border:1px solid var(--brd)}
+.tr-dot.suno{background:var(--suno)}.tr-dot.udio{background:var(--udio)}
+.tr-body{padding:4px 14px 14px;border-top:1px solid var(--brd)}
+.prompt-box{margin-bottom:8px}
+.pb-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1px;margin-bottom:3px;display:flex;align-items:center;gap:4px}
+.pb-label .suno-t{color:var(--suno)}.pb-label .udio-t{color:var(--udio)}
+.pb-text{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--txt);background:rgba(255,255,255,.02);border:1px solid var(--brd);border-radius:6px;padding:8px 10px;line-height:1.6;cursor:pointer}
+.pb-text:hover{border-color:rgba(236,72,153,.15)}
+.pb-specs{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.sp{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--dim);background:rgba(255,255,255,.02);border:1px solid var(--brd);padding:2px 6px;border-radius:3px}
+.sfx-group{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:10px;padding:14px}
+.sfx-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-bottom:8px}
+.sfx-list{display:flex;flex-direction:column;gap:4px}
+.sfx-item{display:flex;align-items:center;gap:8px;padding:6px 8px;background:rgba(255,255,255,.01);border:1px solid var(--brd);border-radius:6px;font-size:10px;cursor:pointer}
+.sfx-item:hover{border-color:rgba(34,197,94,.15)}
+.sfx-item .sfx-emoji{font-size:14px;width:20px;text-align:center}
+.sfx-item .sfx-name{font-family:'Syne',sans-serif;font-weight:700;font-size:10px;flex:1}
+.sfx-item .sfx-desc{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim)}
+.tip{background:linear-gradient(135deg,rgba(236,72,153,.04),rgba(99,102,241,.03));border:1px solid rgba(236,72,153,.1);border-radius:8px;padding:12px;margin:16px 0;font-size:10px;color:var(--dim);line-height:1.7}
+.tip b{color:var(--txt)}
+.foot{text-align:center;padding:20px 12px 14px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-family:'Syne',sans-serif;font-size:11px;color:var(--txt)}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="badge">phase 9 · music & sfx prompts</div>
+<h1>🎵 Music & SFX<br><span class="su">Suno</span> · <span class="ud">Udio</span> · <span class="sf">SFX</span></h1>
+<p>AI music generation prompts and SFX design specs for every Workshop-DIY video. Click any prompt to copy.</p>
+</div>
+
+<div class="section">
+
+<div class="stitle">🎼 <b>Theme</b> Music</div>
+
+<div class="track"><div class="tr-head"><div class="tr-emoji">🏠</div><div class="tr-info"><h3>Workshop-DIY Main Theme</h3><span>Used in: All promos, intros, outros · 30–60s</span></div><div class="tr-plat"><div class="tr-dot suno"></div><div class="tr-dot udio"></div></div></div>
+<div class="tr-body">
+<div class="prompt-box"><div class="pb-label"><span class="suno-t">SUNO</span></div>
+<div class="pb-text" onclick="navigator.clipboard.writeText(this.textContent)">Upbeat electronic kids education theme. Playful synth melody, lo-fi hip hop drums, warm bass, chiptune accents. Happy and energetic but not childish. Think: tech startup meets Saturday morning cartoons. 120 BPM. Major key. Clean production. No vocals.</div>
+<div class="pb-specs"><div class="sp">Genre: Electronic / Lo-fi</div><div class="sp">BPM: 120</div><div class="sp">Key: C Major</div><div class="sp">Duration: 60s</div><div class="sp">Mood: Happy, Energetic</div></div></div>
+<div class="prompt-box"><div class="pb-label"><span class="udio-t">UDIO</span></div>
+<div class="pb-text" onclick="navigator.clipboard.writeText(this.textContent)">Bright electronic theme for a children's tech workshop. Catchy synth hook, bouncy 808 drums, warm sub-bass, retro chiptune elements mixed with modern production. Uplifting and fun energy. Suitable for YouTube intro. Instrumental only. Professional mix, radio-ready loudness.</div></div>
+</div></div>
+
+<div class="track"><div class="tr-head"><div class="tr-emoji">🐛</div><div class="tr-info"><h3>Bug #42 Theme</h3><span>Used in: Bug #42 videos, comedy scenes · 30–45s</span></div><div class="tr-plat"><div class="tr-dot suno"></div><div class="tr-dot udio"></div></div></div>
+<div class="tr-body">
+<div class="prompt-box"><div class="pb-label"><span class="suno-t">SUNO</span></div>
+<div class="pb-text" onclick="navigator.clipboard.writeText(this.textContent)">Quirky 8-bit chiptune theme with comedic undertones. NES-style square wave melody, playful and mischievous. Starts mysterious with minor key pizzicato, then breaks into upbeat major key chiptune. Think: sneaky cartoon character meets retro video game. 130 BPM. No vocals.</div>
+<div class="pb-specs"><div class="sp">Genre: Chiptune / Comedy</div><div class="sp">BPM: 130</div><div class="sp">Key: E Minor → G Major</div><div class="sp">Duration: 45s</div><div class="sp">Mood: Mischievous, Fun</div></div></div>
+</div></div>
+
+<div class="track"><div class="tr-head"><div class="tr-emoji">🔑</div><div class="tr-info"><h3>password123 Anthem</h3><span>Used in: password123 videos, WiFi scenes · 20–30s</span></div><div class="tr-plat"><div class="tr-dot suno"></div></div></div>
+<div class="tr-body">
+<div class="prompt-box"><div class="pb-label"><span class="suno-t">SUNO</span></div>
+<div class="pb-text" onclick="navigator.clipboard.writeText(this.textContent)">Comedic dramatic reveal theme. Starts with suspenseful orchestral build — timpani, strings tremolo — then drops into a silly triumphant fanfare. Like a royal coronation for something completely undeserving. 100 BPM. Think: epic movie trailer music but for a WiFi password. Instrumental.</div>
+<div class="pb-specs"><div class="sp">Genre: Orchestral Comedy</div><div class="sp">BPM: 100</div><div class="sp">Key: D Major</div><div class="sp">Duration: 20s</div><div class="sp">Mood: Epic → Silly</div></div></div>
+</div></div>
+
+<div class="track"><div class="tr-head"><div class="tr-emoji">☕</div><div class="tr-info"><h3>Coffee Machine 8% — Ambient Horror</h3><span>Used in: Coffee 8% videos · 30s</span></div><div class="tr-plat"><div class="tr-dot suno"></div><div class="tr-dot udio"></div></div></div>
+<div class="tr-body">
+<div class="prompt-box"><div class="pb-label"><span class="suno-t">SUNO</span></div>
+<div class="pb-text" onclick="navigator.clipboard.writeText(this.textContent)">Eerie ambient drone with subtle horror elements. Low rumbling bass, distant metallic clanks, reversed piano notes, unsettling silence breaks. Minimal and atmospheric. Like a David Lynch scene in a coffee shop. Think: everyday appliance becomes existentially terrifying. 70 BPM. Minor key. No vocals.</div>
+<div class="pb-specs"><div class="sp">Genre: Ambient Horror</div><div class="sp">BPM: 70</div><div class="sp">Key: B Minor</div><div class="sp">Duration: 30s</div><div class="sp">Mood: Eerie, Existential</div></div></div>
+</div></div>
+
+<div class="track"><div class="tr-head"><div class="tr-emoji">📻</div><div class="tr-info"><h3>SDR / Radio Discovery</h3><span>Used in: SDR, Satellite, Planes tutorials · 45s</span></div><div class="tr-plat"><div class="tr-dot suno"></div></div></div>
+<div class="tr-body">
+<div class="prompt-box"><div class="pb-label"><span class="suno-t">SUNO</span></div>
+<div class="pb-text" onclick="navigator.clipboard.writeText(this.textContent)">Atmospheric electronic exploration music. Pulsing synth pads, radio static textures, beeping satellite sounds woven into the rhythm. Spacious and wonder-filled. Like discovering signals from outer space for the first time. Ambient electronic meets space documentary. 95 BPM. No vocals.</div>
+<div class="pb-specs"><div class="sp">Genre: Space Ambient / Electronic</div><div class="sp">BPM: 95</div><div class="sp">Key: A Minor</div><div class="sp">Duration: 45s</div><div class="sp">Mood: Wonder, Discovery</div></div></div>
+</div></div>
+
+<div class="track"><div class="tr-head"><div class="tr-emoji">🥊</div><div class="tr-info"><h3>Tech Battle Theme</h3><span>Used in: ESP32 vs micro:bit, comparisons · 30s</span></div><div class="tr-plat"><div class="tr-dot suno"></div></div></div>
+<div class="tr-body">
+<div class="prompt-box"><div class="pb-label"><span class="suno-t">SUNO</span></div>
+<div class="pb-text" onclick="navigator.clipboard.writeText(this.textContent)">Intense electronic battle theme. Aggressive synth stabs, punchy drums, boxing ring bell samples. Two contrasting musical motifs trading back and forth — one bright and clean (micro:bit), one heavy and powerful (ESP32). Competitive energy. Think: MMA walkout meets chip music. 140 BPM. Instrumental.</div>
+<div class="pb-specs"><div class="sp">Genre: Electronic / Battle</div><div class="sp">BPM: 140</div><div class="sp">Key: F Minor</div><div class="sp">Duration: 30s</div><div class="sp">Mood: Competitive, Intense</div></div></div>
+</div></div>
+
+<div class="stitle">🔊 <b>SFX</b> Library</div>
+
+<div class="sfx-group">
+<div class="sfx-title">🤖 Workshop Sounds</div>
+<div class="sfx-list">
+<div class="sfx-item"><div class="sfx-emoji">🔧</div><div class="sfx-name">Solder Touch</div><div class="sfx-desc">Sizzle + hiss when solder meets board. 1s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">📡</div><div class="sfx-name">BLE Connect</div><div class="sfx-desc">Ascending two-tone chime. Bluetooth connected. 0.5s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">🤖</div><div class="sfx-name">Robot Motor</div><div class="sfx-desc">Small DC motor whir. Accelerating. 2s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">💥</div><div class="sfx-name">Robot Drop</div><div class="sfx-desc">Plastic clatter on hard surface. Battery cover pops. 1.5s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">⌨️</div><div class="sfx-name">Code Typing</div><div class="sfx-desc">Mechanical keyboard rapid typing. Cherry MX Blue. 3s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">✅</div><div class="sfx-name">Compile Success</div><div class="sfx-desc">Positive ascending three-note chime. 0.8s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">❌</div><div class="sfx-name">Compile Error</div><div class="sfx-desc">Descending buzzer. Error beep. 0.6s.</div></div>
+</div></div>
+
+<div class="sfx-group">
+<div class="sfx-title">🐛 Bug #42 Sounds</div>
+<div class="sfx-list">
+<div class="sfx-item"><div class="sfx-emoji">🐛</div><div class="sfx-name">Bug Chirp</div><div class="sfx-desc">Cricket-like digital chirp. 8-bit processed. 0.3s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">🍕</div><div class="sfx-name">Pizza Doorbell</div><div class="sfx-desc">Classic doorbell ding-dong + paper bag rustle. 2s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">📶</div><div class="sfx-name">WiFi Password Changed</div><div class="sfx-desc">Notification ping + disconnect sound. 1s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">🎮</div><div class="sfx-name">Level Up</div><div class="sfx-desc">Retro game level-up jingle. Ascending arpeggio. 1.5s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">🦆</div><div class="sfx-name">Duck Quit</div><div class="sfx-desc">Single rubber duck squeak + door slam. 1.5s. Comedy.</div></div>
+</div></div>
+
+<div class="sfx-group">
+<div class="sfx-title">☕ Coffee Machine Sounds</div>
+<div class="sfx-list">
+<div class="sfx-item"><div class="sfx-emoji">☕</div><div class="sfx-name">Coffee Pour</div><div class="sfx-desc">Liquid stream into ceramic cup. Steam hiss. 3s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">📟</div><div class="sfx-name">Display Glitch</div><div class="sfx-desc">Digital display flicker. CRT static crackle. 0.5s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">💧</div><div class="sfx-name">Single Drip</div><div class="sfx-desc">One water droplet. Reverb in empty room. 1s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">🎹</div><div class="sfx-name">Revelation Piano</div><div class="sfx-desc">Single haunting piano note. Long reverb tail. 4s.</div></div>
+</div></div>
+
+<div class="sfx-group">
+<div class="sfx-title">🎬 Transitions & UI</div>
+<div class="sfx-list">
+<div class="sfx-item"><div class="sfx-emoji">🔄</div><div class="sfx-name">Scene Transition</div><div class="sfx-desc">Smooth whoosh. Left to right. Cinematic. 0.5s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">📸</div><div class="sfx-name">Counter Tick</div><div class="sfx-desc">Digital counter incrementing. Pop + click. 0.1s per tick.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">🎉</div><div class="sfx-name">Badge Earned</div><div class="sfx-desc">Achievement unlock. Sparkle + triumphant brass stab. 1.5s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">👏</div><div class="sfx-name">Kids Cheering</div><div class="sfx-desc">Group of children clapping and cheering. Natural. 3s.</div></div>
+<div class="sfx-item"><div class="sfx-emoji">🎵</div><div class="sfx-name">Workshop-DIY Jingle</div><div class="sfx-desc">3-note logo sting. Synth + chiptune. Memorable. 2s.</div></div>
+</div></div>
+
+<div class="tip"><b>🎯 Audio Production Notes:</b><br>• All music should be generated at 44.1kHz/16bit WAV minimum<br>• Normalize to -14 LUFS for YouTube, -16 LUFS for podcasts<br>• SFX should be delivered as individual stems for flexible editing<br>• Layer AI-generated music with real foley from the workshop for authenticity<br>• The Workshop-DIY jingle should be used consistently across ALL videos as a sonic brand<br>• For Suno: use "Instrumental" tag to avoid vocals. Generate 5+ versions, pick best.</div>
+
+</div>
+<div class="foot"><b>WORKSHOP-DIY</b> · Music & SFX Library · <a href="https://workshop-diy.org" style="color:var(--suno);text-decoration:none">workshop-diy.org</a></div>
+<script>
+document.querySelectorAll('.pb-text').forEach(el => {
+  el.addEventListener('click', () => {
+    navigator.clipboard.writeText(el.textContent.trim());
+    el.style.borderColor = 'rgba(236,72,153,.4)';
+    setTimeout(() => el.style.borderColor = '', 1000);
+  });
+});
+</script>
+</body>
+</html>

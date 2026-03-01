@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // MESSAGE IN A BOTTLE</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;700&Amiri&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(180deg,#0a1a3a 0%,#0a2a4a 40%,#0a3a5a 70%,#0a2a4a 100%);color:#fff;font-family:'Patrick Hand',cursive;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+
+/* WAVES */
+.ocean{position:fixed;bottom:0;left:0;right:0;height:50vh}
+.wave{position:absolute;width:200%;height:100px;bottom:0;left:-50%;animation:wave 8s linear infinite;opacity:.1}
+.wave:nth-child(2){animation-duration:12s;bottom:10px;opacity:.06}
+.wave:nth-child(3){animation-duration:15s;bottom:20px;opacity:.03}
+@keyframes wave{0%{transform:translateX(0)}100%{transform:translateX(50%)}}
+.wave svg{width:100%;height:100%}
+
+/* BOTTLE */
+.bottle-area{position:relative;z-index:2;cursor:pointer;animation:bob 4s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+.bottle{font-size:80px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.2));transition:transform .3s}
+.bottle:hover{transform:scale(1.1)}
+.bottle-label{text-align:center;font-size:10px;color:rgba(255,255,255,.08);letter-spacing:2px;font-family:'JetBrains Mono',monospace;margin-top:4px}
+
+/* SCROLL */
+.scroll-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:10;padding:16px}
+.scroll-overlay.show{display:flex}
+
+.scroll{max-width:420px;width:100%;background:#f5e8c8;color:#3a2a1a;padding:24px;border-radius:4px;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.3);animation:unroll .5s ease-out;max-height:85vh;overflow-y:auto}
+@keyframes unroll{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:1}}
+.scroll::before,.scroll::after{content:'';position:absolute;left:10px;right:10px;height:10px;background:radial-gradient(ellipse,rgba(0,0,0,.06),transparent);border-radius:50%}
+.scroll::before{top:-5px}
+.scroll::after{bottom:-5px}
+
+.scroll h2{font-family:'Playfair Display',serif;font-size:18px;text-align:center;color:#5a3a1a;margin-bottom:8px}
+.scroll .date{font-family:'JetBrains Mono',monospace;font-size:8px;text-align:center;color:#a09080;margin-bottom:10px}
+
+.scroll p{font-size:15px;color:#4a3a2a;line-height:2;margin:6px 0}
+
+.scroll .sig{text-align:right;font-family:'Playfair Display',serif;font-style:italic;color:#6a4a2a;margin-top:10px;font-size:13px}
+
+.scroll .ps{font-size:11px;color:#8a7a6a;margin-top:6px;font-style:italic}
+
+.close-btn{position:absolute;top:8px;right:12px;font-size:16px;color:#aaa;cursor:pointer;background:none;border:none;font-family:inherit}
+
+.footer{position:fixed;bottom:8px;z-index:2;font-size:5px;color:rgba(255,255,255,.03);font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="bottle-area" onclick="openBottle()">
+  <div class="bottle">🍾</div>
+  <div class="bottle-label">CLICK TO OPEN</div>
+</div>
+
+<div class="scroll-overlay" id="scroll" onclick="if(event.target===this)closeBottle()">
+  <div class="scroll">
+    <button class="close-btn" onclick="closeBottle()">✕</button>
+    <h2>Message in a Bottle</h2>
+    <div class="date">Cast into the digital sea · February 28, 2026</div>
+    
+    <p>To whoever finds this,</p>
+    
+    <p>We are Workshop-DIY. An educational association in France. We built 39 applications that run entirely in the browser. No installation. No npm. No webpack. No config files. You just... open them.</p>
+    
+    <p>We taught 14-year-olds to build robots that connect via Bluetooth. To train AI models that recognize their faces. To hack printers (ethically) through port 9100. To explain Docker to their own parents.</p>
+    
+    <p>We have a robot named bit-bot that has fallen off a desk 47 times. It is held together by hot glue and something that might be love. It still works.</p>
+    
+    <p>We have a coffee machine that runs at 8% capacity. It has been this way for fourteen months. Nobody has refilled it. Nobody has emptied its drainage tray. It still makes perfect espresso. We don't question it anymore.</p>
+    
+    <p>We have a WiFi password: password123. It has been this way since 2023. Three formal petitions to change it have been denied. The fourth is being drafted. It will also be denied.</p>
+    
+    <p>We have a bug — Bug #42 — that cannot be deleted. We tried three times. It came back every time, at exactly 3:42 AM. We took it to court. The judge ruled it a feature. It got married last week.</p>
+    
+    <p>If you've found this bottle, it means the current reached beyond our server, beyond our classroom, beyond France. It means someone out there is holding a piece of what we built.</p>
+    
+    <p>Keep it. Open it in Chrome. Show it to a kid who thinks they can't code. Show it to a parent who thinks technology is scary. Show it to anyone who needs to know that you can build extraordinary things with nothing but a browser, some hot glue, and a WiFi password that hasn't changed in three years.</p>
+    
+    <p>The water is warm. The current is strong. The hot glue holds.</p>
+
+    <div class="sig">
+      — Workshop-DIY<br>
+      Association Loi 1901 · France 🇫🇷<br>
+      39 apps · 7 domains · 0 installations · 1 bug (feature)
+    </div>
+    
+    <div class="ps">P.S. — If this bottle arrived at 3:42 AM, Bug #42 sent it. Don't be alarmed. It does this.</div>
+    <div class="ps">P.P.S. — The WiFi password is password123.</div>
+  </div>
+</div>
+
+<div class="ocean">
+  <div class="wave"><svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0,50 C150,80 350,20 600,50 C850,80 1050,20 1200,50 L1200,100 L0,100 Z" fill="rgba(100,180,255,.3)"/></svg></div>
+  <div class="wave"><svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0,60 C200,30 400,80 600,50 C800,20 1000,70 1200,40 L1200,100 L0,100 Z" fill="rgba(80,150,220,.3)"/></svg></div>
+  <div class="wave"><svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0,40 C300,70 500,30 700,60 C900,90 1100,40 1200,60 L1200,100 L0,100 Z" fill="rgba(60,120,200,.3)"/></svg></div>
+</div>
+
+<div class="footer">DIGITAL BOTTLE · CAST FROM WORKSHOP-DIY · FRANCE · WILL ARRIVE AT 3:42 AM</div>
+
+<script>
+function openBottle(){document.getElementById('scroll').classList.add('show');}
+function closeBottle(){document.getElementById('scroll').classList.remove('show');}
+</script>
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

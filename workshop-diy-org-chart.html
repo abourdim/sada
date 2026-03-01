@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // ORG CHART</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f8f9fa;font-family:'Inter',sans-serif;font-size:11px;color:#333;min-height:100vh;padding:16px;overflow-x:auto}
+
+.header{text-align:center;margin-bottom:14px}
+.header h1{font-size:16px;font-weight:700;color:#333;letter-spacing:2px}
+.header .sub{font-size:8px;color:#aaa;letter-spacing:2px;font-family:'JetBrains Mono',monospace}
+
+.chart{display:flex;flex-direction:column;align-items:center;min-width:700px;padding:0 16px}
+
+/* NODE */
+.node{text-align:center;padding:8px 12px;border-radius:8px;border:2px solid var(--c,#ddd);background:#fff;min-width:100px;box-shadow:0 1px 4px rgba(0,0,0,.04);position:relative}
+.node .emoji{font-size:20px;margin-bottom:2px}
+.node .name{font-size:10px;font-weight:700;color:#333}
+.node .title{font-size:7px;color:#888;letter-spacing:.5px}
+.node .note{font-size:6px;color:#bbb;margin-top:1px;font-family:'JetBrains Mono',monospace}
+
+/* LEVELS */
+.level{display:flex;justify-content:center;gap:8px;position:relative;flex-wrap:wrap}
+
+/* VERTICAL CONNECTOR */
+.vline{width:2px;height:16px;background:#ddd;margin:0 auto}
+
+/* HORIZONTAL CONNECTORS */
+.hgroup{display:flex;align-items:flex-start}
+.hgroup::before{content:'';position:absolute;top:0;left:10%;right:10%;height:2px;background:#ddd}
+
+/* FLOATING BUG */
+.floating{position:fixed;bottom:14px;right:14px;text-align:center}
+.floating .node{border-style:dashed;border-color:#ff0066;animation:floatBug 3s ease-in-out infinite}
+@keyframes floatBug{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* DEPARTMENT COLORS */
+.c-exec{--c:#333}.c-robo{--c:#00aa55}.c-ai{--c:#9966ff}.c-cyber{--c:#ff3344}.c-hw{--c:#ff8800}.c-learn{--c:#0088ff}.c-tools{--c:#00bbbb}.c-infra{--c:#886600}
+
+.footer{text-align:center;margin-top:20px;font-size:6px;color:#ccc;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ORGANIZATIONAL CHART</h1>
+  <div class="sub">WORKSHOP-DIY · ASSOCIATION LOI 1901 · EFFECTIVE FEB 2026</div>
+</div>
+
+<div class="chart">
+
+<!-- CEO -->
+<div class="level">
+  <div class="node c-exec" style="--c:#333;border-width:3px">
+    <div class="emoji">👑</div>
+    <div class="name">The Founder</div>
+    <div class="title">CEO & Chief Builder</div>
+    <div class="note">"Just open it in Chrome"</div>
+  </div>
+</div>
+
+<div class="vline"></div>
+
+<!-- C-SUITE -->
+<div class="level">
+  <div class="node c-exec"><div class="emoji">⚡</div><div class="name">bit-bot</div><div class="title">CTO — Chief Table-edge Officer</div><div class="note">47 drops, 0 complaints</div></div>
+  <div class="node c-exec"><div class="emoji">☕</div><div class="name">Coffee Machine</div><div class="title">COO — Chief Operating (at 8%)</div><div class="note">Critical infrastructure</div></div>
+  <div class="node c-exec"><div class="emoji">🔑</div><div class="name">password123</div><div class="title">CISO — Unchanged Since 2023</div><div class="note">3 petitions denied</div></div>
+</div>
+
+<div class="vline"></div>
+
+<!-- DEPARTMENTS -->
+<div class="level" style="gap:6px">
+  <div style="text-align:center">
+    <div class="node c-robo"><div class="emoji">🤖</div><div class="name">Robotics Dept</div><div class="title">VP: bit-bot</div></div>
+    <div class="vline" style="height:8px"></div>
+    <div style="display:flex;gap:4px;justify-content:center">
+      <div class="node c-robo" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">🔧</div><div class="name" style="font-size:7px">servo-lab</div></div>
+      <div class="node c-robo" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">📡</div><div class="name" style="font-size:7px">esp32-lab</div></div>
+      <div class="node c-robo" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">🗣️</div><div class="name" style="font-size:7px">talking-robot</div></div>
+    </div>
+  </div>
+
+  <div style="text-align:center">
+    <div class="node c-ai"><div class="emoji">🧠</div><div class="name">AI/ML Dept</div><div class="title">VP: teachable-machine</div></div>
+    <div class="vline" style="height:8px"></div>
+    <div style="display:flex;gap:4px;justify-content:center">
+      <div class="node c-ai" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">🪄</div><div class="name" style="font-size:7px">magic-hands</div></div>
+      <div class="node c-ai" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">👤</div><div class="name" style="font-size:7px">face-quest</div></div>
+      <div class="node c-ai" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">🎯</div><div class="name" style="font-size:7px">face-tracking</div></div>
+    </div>
+  </div>
+
+  <div style="text-align:center">
+    <div class="node c-cyber"><div class="emoji">🔐</div><div class="name">Cyber Dept</div><div class="title">VP: pentest-lab</div></div>
+    <div class="vline" style="height:8px"></div>
+    <div style="display:flex;gap:4px;justify-content:center">
+      <div class="node c-cyber" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">📡</div><div class="name" style="font-size:7px">wifi-scanner</div></div>
+      <div class="node c-cyber" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">🏴</div><div class="name" style="font-size:7px">ctf-lab</div></div>
+      <div class="node c-cyber" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">🌐</div><div class="name" style="font-size:7px">dhcp-lab</div></div>
+    </div>
+  </div>
+
+  <div style="text-align:center">
+    <div class="node c-tools"><div class="emoji">🔧</div><div class="name">Tools Dept</div><div class="title">VP: docker-lab</div></div>
+    <div class="vline" style="height:8px"></div>
+    <div style="display:flex;gap:4px;justify-content:center">
+      <div class="node c-tools" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">🐧</div><div class="name" style="font-size:7px">linux-lab</div></div>
+      <div class="node c-tools" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">📊</div><div class="name" style="font-size:7px">nodered-lab</div></div>
+      <div class="node c-tools" style="min-width:60px;padding:4px 6px"><div class="emoji" style="font-size:14px">⌨️</div><div class="name" style="font-size:7px">tty</div></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- FLOATING BUG -->
+<div class="floating">
+  <div class="node" style="border-color:#ff0066;border-style:dashed;background:rgba(255,0,102,.02)">
+    <div class="emoji">🐛</div>
+    <div class="name">Bug #42</div>
+    <div class="title">Reports to: Nobody</div>
+    <div class="note">Self-appointed. Self-promoted.<br>Cannot be fired or relocated.</div>
+  </div>
+</div>
+
+<div class="footer">
+  WORKSHOP-DIY · ORGANIZATIONAL CHART · REV 42 · FEB 2026<br>
+  BUG #42'S POSITION IS SELF-ASSIGNED AND NOT RECOGNIZED BY HR<br>
+  COFFEE MACHINE IS CLASSIFIED AS CRITICAL INFRASTRUCTURE UNDER SECTION 8%
+</div>
+</body>
+</html>

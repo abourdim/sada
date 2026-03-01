@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Bug #42 Chroniques (FR)</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&family=Creepster&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0808;--s1:#141010;--brd:rgba(255,255,255,.06);--txt:#e8e0e0;--dim:rgba(255,255,255,.3);--bug:#22c55e;--red:#ef4444;--acc:#ff6600;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito',sans-serif;overflow-x:hidden}
+.hero{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(34,197,94,.06),transparent 50%);pointer-events:none}
+.bug-icon{font-size:64px;margin-bottom:12px;animation:bugwalk 3s ease-in-out infinite}
+@keyframes bugwalk{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(-8px) rotate(-5deg)}75%{transform:translateX(8px) rotate(5deg)}}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--bug);border:1px solid rgba(34,197,94,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:14px;display:inline-block}
+.hero h1{font-family:'Creepster',cursive;font-size:clamp(26px,6vw,48px);font-weight:400;line-height:1.1;margin-bottom:8px;letter-spacing:2px}
+.hero h1 b{color:var(--bug)}
+.hero p{font-size:13px;color:var(--dim);max-width:480px;line-height:1.7}
+.meta{display:flex;gap:0;margin-top:18px;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1)}
+.meta div{flex:1;text-align:center;padding:8px 12px;border-right:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.meta div:last-child{border:none}
+.meta div b{display:block;font-family:'Syne',sans-serif;font-size:14px;color:var(--bug)}
+.section{max-width:700px;margin:0 auto;padding:28px 16px}
+.stitle{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:14px;text-align:center}
+.stitle b{color:var(--bug)}
+.narr{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:10px;overflow:hidden;transition:.2s}
+.narr:hover{border-color:rgba(34,197,94,.15)}
+.narr-head{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.narr-time{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--bug);background:rgba(34,197,94,.06);padding:3px 8px;border-radius:4px;border:1px solid rgba(34,197,94,.1)}
+.narr-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;flex:1}
+.narr-mood{font-size:14px}
+.narr-body{padding:4px 14px 14px;border-top:1px solid var(--brd)}
+.narr-vo{font-size:12px;color:var(--txt);line-height:1.8;font-style:italic;border-left:3px solid var(--bug);padding-left:12px;margin:8px 0}
+.narr-dir{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--red);margin:6px 0;display:block}
+.narr-sfx{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--acc);background:rgba(255,102,0,.05);padding:3px 8px;border-radius:4px;display:inline-block;margin-top:4px}
+.foot{text-align:center;padding:24px 12px 16px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-family:'Syne',sans-serif;font-size:12px;color:var(--txt)}
+.foot b i{font-style:normal;color:var(--bug)}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="bug-icon">🐛</div>
+<div class="badge">lore · bug #42 · français</div>
+<h1>Les Chroniques de <b>Bug #42</b></h1>
+<p>La légende du bug qui a refusé de mourir. Né dans la v1.0. Toujours vivant dans la v86. Narration dramatique du résident le plus persistant de Workshop-DIY.</p>
+<div class="meta"><div><b>1:45</b>Durée</div><div><b>7</b>Actes</div><div><b>FR</b>Langue</div><div><b>🎭</b>Drame</div></div>
+</div>
+<div class="section">
+<div class="stitle">🐛 Script de <b>Narration</b></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:00–0:15</div><div class="narr-title">ACTE I — La Naissance</div><div class="narr-mood">👶</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUEL : Écran noir. Texte terminal vert. Curseur clignotant. Date : 2024-03-15.]</span>
+<div class="narr-vo">"C'était un mardi. Commit numéro 42. Une simple boucle — c'est ce qu'ils croyaient. Mais au fond de la ligne 847 de app.js, quelque chose s'est éveillé. Quelque chose qui survivrait à six réécritures majeures, quatre débats sur les frameworks, et un incident de machine à café très dramatique."</div>
+<span class="narr-sfx">SFX : Clavier → bourdonnement sinistre</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:15–0:30</div><div class="narr-title">ACTE II — Première Observation</div><div class="narr-mood">👀</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUEL : Enfant qui plisse les yeux devant l'écran. Console affiche NaN. Emoji bug rampe au bord de l'écran.]</span>
+<div class="narr-vo">"Le premier enfant à rencontrer Bug #42 s'appelait Yassine, 9 ans. Son robot tournait à gauche au lieu d'aller tout droit. 'C'est bizarre,' a-t-il dit. Des mots célèbres."</div>
+<span class="narr-sfx">SFX : Moteur de robot → bip confus</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:30–0:50</div><div class="narr-title">ACTE III — La Chasse</div><div class="narr-mood">🔍</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUEL : Montage — plusieurs enfants qui débuguent. Console.log partout. Post-its. Visages de plus en plus frustrés.]</span>
+<div class="narr-vo">"Ils ont tout essayé. Console.log. Points d'arrêt. Rubber duck debugging. Le canard a démissionné. Trois stagiaires ont perdu le sommeil. Un développeur s'est reconverti dans l'agriculture. Bug #42 restait là, tapi entre les points-virgules, se nourrissant d'espoir Stack Overflow."</div>
+<span class="narr-sfx">SFX : Musique suspense → coin de canard → claquement de porte</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">0:50–1:05</div><div class="narr-title">ACTE IV — Les Pouvoirs</div><div class="narr-mood">🦸</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUEL : Bug animé qui gagne des pouvoirs. Notification de livraison pizza. Alerte changement mot de passe WiFi.]</span>
+<div class="narr-vo">"Avec le temps, Bug #42 a évolué. Il a appris à commander des pizzas sur le compte de l'atelier — toujours margherita, extra fromage. Il a changé le mot de passe WiFi en 'password123' dix-sept fois. Il a même soumis une pull request. Le code était meilleur que celui du stagiaire."</div>
+<span class="narr-sfx">SFX : Chime level-up → sonnette livreur → son Git push</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:05–1:20</div><div class="narr-title">ACTE V — L'Incident du Café</div><div class="narr-mood">☕</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUEL : Écran machine à café affichant "8%". Ne change jamais. Enfants qui tapotent dessus.]</span>
+<div class="narr-vo">"Personne ne sait exactement quand Bug #42 a atteint la machine à café. Mais depuis ce jour, l'écran n'a jamais affiché plus de 8%. Le réservoir est plein. Les capteurs fonctionnent. La machine... choisit simplement 8%. On a arrêté de poser des questions. Bug #42 aime son café mystérieux."</div>
+<span class="narr-sfx">SFX : Gargouillement café → glitch écran → silence inquiétant</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:20–1:35</div><div class="narr-title">ACTE VI — L'Héritage</div><div class="narr-mood">🏆</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUEL : Emoji Bug #42 partout — sur Slack, en stickers, sur les cahiers des enfants. Un autel dans un coin de l'atelier.]</span>
+<div class="narr-vo">"Aujourd'hui, Bug #42 n'est plus un bug. C'est une mascotte. Une légende. Un rite de passage. Chaque nouvel enfant à Workshop-DIY doit trouver Bug #42 dans le code. Ceux qui réussissent obtiennent le badge 'Bug Hunter'. Ceux qui échouent... eh bien, leurs robots tournent encore à gauche parfois."</div>
+<span class="narr-sfx">SFX : Son de succès → enfants qui applaudissent</span></div></div>
+
+<div class="narr"><div class="narr-head"><div class="narr-time">1:35–1:45</div><div class="narr-title">ACTE VII — La Fin ?</div><div class="narr-mood">🐛</div></div>
+<div class="narr-body"><span class="narr-dir">[VISUEL : Écran noir. Curseur. Texte : "Bug #42 was here." Logo. Le bug traverse l'écran une dernière fois.]</span>
+<div class="narr-vo">"Certains disent que Bug #42 sera corrigé dans la prochaine version. Ils disent ça depuis la v1.0. On en est à la v86 maintenant. Le bug reste. Et honnêtement ? On ne voudrait pas qu'il en soit autrement."</div>
+<span class="narr-sfx">SFX : Machine à écrire → silence → un seul cri de bug → jingle Workshop-DIY</span></div></div>
+
+</div>
+<div class="foot"><b><i>🐛</i> WORKSHOP-DIY</b><br>Bug #42 was here · <a href="https://workshop-diy.org" style="color:var(--bug);text-decoration:none">workshop-diy.org</a> · password123</div>
+</body>
+</html>

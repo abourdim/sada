@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // NOTION</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#191919;color:#e8e8e3;font-family:-apple-system,'Segoe UI',sans-serif;font-size:14px;min-height:100vh;display:flex}
+
+/* SIDEBAR */
+.sidebar{width:220px;background:#202020;border-right:1px solid #2f2f2f;padding:8px;display:flex;flex-direction:column;gap:1px;flex-shrink:0}
+.sb-user{padding:6px 8px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.sb-section{font-size:10px;color:#5a5a5a;padding:8px 8px 2px;letter-spacing:.5px;font-weight:600}
+.sb-item{padding:4px 8px;border-radius:4px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;color:#9a9a9a;transition:background .1s}
+.sb-item:hover{background:#2a2a2a}
+.sb-item.active{background:#2a2a2a;color:#e8e8e3}
+.sb-item .icon{width:18px;text-align:center;font-size:14px}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.breadcrumb{padding:8px 16px;font-size:11px;color:#5a5a5a;border-bottom:1px solid #2f2f2f}
+.breadcrumb span{cursor:pointer}
+.breadcrumb span:hover{color:#e8e8e3}
+
+.page{flex:1;overflow-y:auto;padding:20px 48px;max-width:800px}
+@media(max-width:600px){.sidebar{display:none}.page{padding:16px}}
+
+/* PAGE ELEMENTS */
+.page-icon{font-size:48px;margin-bottom:4px}
+.page-title{font-size:32px;font-weight:700;color:#fff;margin-bottom:12px;line-height:1.3}
+
+p.notion-p{color:#9a9a9a;line-height:1.8;margin:4px 0}
+
+h2.notion-h{font-size:20px;font-weight:600;color:#e8e8e3;margin:16px 0 6px;padding-top:8px}
+h3.notion-h3{font-size:16px;font-weight:600;color:#e8e8e3;margin:12px 0 4px}
+
+.callout{display:flex;gap:8px;padding:10px 12px;background:#2a2219;border-radius:4px;margin:8px 0}
+.callout .c-icon{font-size:18px;flex-shrink:0}
+.callout .c-text{font-size:13px;color:#c4a860;line-height:1.7}
+
+.callout.blue{background:#1a2230}
+.callout.blue .c-text{color:#6b9bd2}
+.callout.red{background:#2a1a1a}
+.callout.red .c-text{color:#d26b6b}
+
+.toggle{margin:4px 0;border:1px solid #2f2f2f;border-radius:4px;overflow:hidden}
+.toggle-head{padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:13px;color:#e8e8e3;background:#232323}
+.toggle-head .arrow{font-size:10px;color:#5a5a5a;transition:transform .2s}
+.toggle-head:hover{background:#2a2a2a}
+.toggle-body{padding:8px 12px 8px 28px;font-size:12px;color:#9a9a9a;line-height:1.8;display:none;border-top:1px solid #2f2f2f}
+.toggle.open .toggle-body{display:block}
+.toggle.open .arrow{transform:rotate(90deg)}
+
+/* INLINE DB */
+.db{margin:10px 0;border:1px solid #2f2f2f;border-radius:4px;overflow:hidden}
+.db-header{display:flex;background:#232323;border-bottom:1px solid #2f2f2f;font-size:10px;font-weight:600;color:#5a5a5a}
+.db-header .col,.db-row .col{padding:6px 10px;flex:1;border-right:1px solid #2f2f2f}
+.db-header .col:last-child,.db-row .col:last-child{border-right:none}
+.db-row{display:flex;font-size:12px;border-bottom:1px solid #2a2a2a}
+.db-row:last-child{border-bottom:none}
+.db-row:hover{background:#232323}
+.db-row .col{color:#9a9a9a}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600}
+.tag-green{background:#2a3a2a;color:#4dbb5f}
+.tag-red{background:#3a2a2a;color:#e06c75}
+.tag-yellow{background:#3a3520;color:#c4a860}
+.tag-blue{background:#1a2a3a;color:#6b9bd2}
+.tag-purple{background:#2a1a3a;color:#9b7bd2}
+
+.divider{border:none;border-top:1px solid #2f2f2f;margin:12px 0}
+
+.footer{text-align:center;padding:8px;font-size:6px;color:#2a2a2a;font-family:'JetBrains Mono',monospace}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sb-user">🐛 Workshop-DIY</div>
+  <div class="sb-section">WORKSPACE</div>
+  <div class="sb-item active"><span class="icon">🏠</span> Home</div>
+  <div class="sb-item"><span class="icon">🤖</span> Apps Database</div>
+  <div class="sb-item"><span class="icon">📋</span> Roadmap</div>
+  <div class="sb-item"><span class="icon">🐛</span> Bug Tracker</div>
+  <div class="sb-item"><span class="icon">☕</span> Coffee Monitor</div>
+  <div class="sb-section">PRIVATE</div>
+  <div class="sb-item"><span class="icon">📓</span> Bug #42 Diary</div>
+  <div class="sb-item"><span class="icon">🔑</span> WiFi Passwords</div>
+  <div class="sb-item"><span class="icon">📊</span> Drop Counter</div>
+  <div class="sb-section">SHARED</div>
+  <div class="sb-item"><span class="icon">📝</span> Meeting Notes</div>
+  <div class="sb-item"><span class="icon">🎯</span> Goals 2026</div>
+  <div class="sb-item"><span class="icon">🗑️</span> Petition Archive</div>
+</div>
+
+<div class="main">
+  <div class="breadcrumb">
+    <span>Workshop-DIY</span> / <span>Home</span>
+  </div>
+
+  <div class="page">
+    <div class="page-icon">🏠</div>
+    <div class="page-title">Workshop-DIY HQ</div>
+
+    <p class="notion-p">Welcome to the Workshop-DIY workspace. 39 browser-based educational apps. Zero installation required. One unresolved bug that has been legally reclassified as a feature.</p>
+
+    <div class="callout">
+      <div class="c-icon">⚡</div>
+      <div class="c-text"><strong>Quick Stats:</strong> 39 apps · 7 domains · 847 users · 0 installations · 47 robot drops · 1 eternal WiFi password</div>
+    </div>
+
+    <h2 class="notion-h">📊 App Status Dashboard</h2>
+
+    <div class="db">
+      <div class="db-header">
+        <div class="col">App</div><div class="col">Domain</div><div class="col">Status</div><div class="col">Notes</div>
+      </div>
+      <div class="db-row"><div class="col">🤖 bit-bot</div><div class="col"><span class="tag tag-green">Robotics</span></div><div class="col"><span class="tag tag-green">Active</span></div><div class="col">Drop #47 survived</div></div>
+      <div class="db-row"><div class="col">🧠 teachable-machine</div><div class="col"><span class="tag tag-purple">AI/ML</span></div><div class="col"><span class="tag tag-green">Active</span></div><div class="col">98% accuracy</div></div>
+      <div class="db-row"><div class="col">🔐 pentest-lab</div><div class="col"><span class="tag tag-red">Cyber</span></div><div class="col"><span class="tag tag-green">Active</span></div><div class="col">Port 9100 incident</div></div>
+      <div class="db-row"><div class="col">🐳 docker-lab</div><div class="col"><span class="tag tag-blue">Tools</span></div><div class="col"><span class="tag tag-green">Active</span></div><div class="col">Confuses parents</div></div>
+      <div class="db-row"><div class="col">🔑 password123</div><div class="col"><span class="tag tag-yellow">Infra</span></div><div class="col"><span class="tag tag-yellow">Unchanged</span></div><div class="col">3 petitions denied</div></div>
+      <div class="db-row"><div class="col">🐛 Bug #42</div><div class="col"><span class="tag tag-purple">???</span></div><div class="col"><span class="tag tag-green">Feature</span></div><div class="col">Acquitted Feb 2026</div></div>
+      <div class="db-row"><div class="col">☕ Coffee Machine</div><div class="col"><span class="tag tag-yellow">Infra</span></div><div class="col"><span class="tag tag-red">Critical 8%</span></div><div class="col">14 months</div></div>
+    </div>
+
+    <h2 class="notion-h">📝 Quick Notes</h2>
+
+    <div class="toggle" onclick="this.classList.toggle('open')">
+      <div class="toggle-head"><span class="arrow">▸</span> 🔑 WiFi Password History</div>
+      <div class="toggle-body">2023: password123<br>2024: password123<br>2025: password123 (petition #1 denied, petition #2 denied)<br>2026: password123 (petition #3 denied, Bug #42 demanded it stay)</div>
+    </div>
+
+    <div class="toggle" onclick="this.classList.toggle('open')">
+      <div class="toggle-head"><span class="arrow">▸</span> 🤖 bit-bot Drop Log</div>
+      <div class="toggle-body">Drop #1 – Jan 2024 (first day)<br>Drop #12 – Mar 2024 (during demo)<br>Drop #25 – Aug 2024 (live presentation)<br>Drop #42 – Nov 2025 (suspicious timing)<br>Drop #47 – Feb 2026 (trial day, fell off bench)</div>
+    </div>
+
+    <div class="toggle" onclick="this.classList.toggle('open')">
+      <div class="toggle-head"><span class="arrow">▸</span> 🐛 Bug #42 Investigation Notes</div>
+      <div class="toggle-body">No author. No creation date. No commit hash. git blame returns nothing. ESLint flags 17 violations. Deletion attempts: 3 (all reverted by 3:42 AM). Status: FEATURE (court order, Feb 2026). Related: The 40th App (unconfirmed sighting at 3:42 AM).</div>
+    </div>
+
+    <div class="callout red">
+      <div class="c-icon">☕</div>
+      <div class="c-text"><strong>URGENT:</strong> Coffee machine has been at 8% capacity for 14 months. Drainage tray last emptied: March 2025. Health inspector described it as "concerning." The coffee is still perfect. This is confusing.</div>
+    </div>
+
+    <hr class="divider">
+
+    <p class="notion-p" style="color:#3a3a3a;font-size:10px;text-align:center">Last edited by Bug #42 · Feb 28, 2026 at 3:42 AM</p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // BOULE MAGIQUE 42</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:radial-gradient(ellipse at center,#1a0a2a,#0a0a14);color:#fff;font-family:'JetBrains Mono',monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;overflow:hidden}
+
+h1{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:rgba(255,255,255,.1);letter-spacing:4px;margin-bottom:4px}
+.sub{font-size:8px;color:rgba(255,255,255,.05);letter-spacing:2px;margin-bottom:14px}
+
+/* 8-BALL */
+.ball-container{position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
+
+.ball{width:clamp(200px,50vw,260px);height:clamp(200px,50vw,260px);border-radius:50%;background:radial-gradient(ellipse at 35% 30%,#444,#111,#000);box-shadow:inset -10px -10px 30px rgba(0,0,0,.8),0 0 40px rgba(0,0,0,.3),0 0 80px rgba(100,0,200,.05);display:flex;align-items:center;justify-content:center;transition:transform .1s}
+.ball:active{transform:scale(.97)}
+.ball.shake{animation:shake .5s}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg) scale(.97)}50%{transform:rotate(5deg) scale(.97)}75%{transform:rotate(-3deg) scale(.97)}}
+
+/* WINDOW */
+.window{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,#0a0a3a,#050520);border:3px solid #222;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+/* TRIANGLE */
+.triangle{width:0;height:0;border-left:40px solid transparent;border-right:40px solid transparent;border-bottom:70px solid rgba(0,50,200,.15);position:relative;opacity:0;transition:opacity .8s;display:flex;align-items:center;justify-content:center}
+.triangle.show{opacity:1}
+.answer{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:8px;font-weight:700;color:#fff;text-align:center;width:70px;line-height:1.5;text-shadow:0 0 6px rgba(100,150,255,.3)}
+
+/* QUESTION INPUT */
+.ask{margin-top:16px;text-align:center;max-width:300px}
+.ask input{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:8px 16px;color:rgba(255,255,255,.3);font-family:inherit;font-size:11px;text-align:center;outline:none}
+.ask input::placeholder{color:rgba(255,255,255,.08)}
+.ask input:focus{border-color:rgba(100,0,200,.15)}
+
+.instruction{font-size:8px;color:rgba(255,255,255,.06);margin-top:8px;text-align:center;letter-spacing:1px}
+
+.counter{font-size:7px;color:rgba(255,255,255,.03);margin-top:6px;letter-spacing:1px}
+
+.footer{position:fixed;bottom:8px;font-size:5px;color:rgba(255,255,255,.02);letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<h1>BOULE MAGIQUE 42</h1>
+<div class="sub">CONSULTEZ L'ORACLE DE WORKSHOP-DIY</div>
+
+<div class="ball-container" onclick="shake()">
+  <div class="ball" id="ball">
+    <div class="window">
+      <div class="triangle" id="tri">
+        <div class="answer" id="answer">DEMANDEZ-MOI</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ask">
+  <input type="text" id="question" placeholder="Ask a Atelier-DIY question..." onkeydown="if(event.key==='Enter')shake()">
+</div>
+
+<div class="instruction">CLIQUEZ SUR LA BOULE OU APPUYEZ SUR ENTRÉE POUR RECEVOIR LA SAGESSE</div>
+<div class="counter" id="counter">Consultations : 0</div>
+
+<div class="footer">BOULE MAGIQUE 42 · NON RESPONSABLE DES CRISES EXISTENTIELLES · LES BUGS SONT TOUJOURS LA RÉPONSE</div>
+
+<script>
+const ANSWERS=[
+  // POSITIVE
+  "IT IS CERTAIN\n(like password123)",
+  "WITHOUT A\nDOUBT",
+  "YES — THE\nHOT GLUE\nWILL HOLD",
+  "SIGNS POINT\nTO YES\n(and to Bug #42)",
+  "ABSOLUTELY.\nNO NPM\nREQUIRED.",
+  "THE COFFEE\nMACHINE\nAPPROVES",
+  "AS SURE AS\nDROP #47",
+  "YES. IT'S\nA FEATURE.",
+  
+  // NEUTRAL
+  "ASK AGAIN\nAT 3h42",
+  "REPLY HAZY —\nBLE RECONNEXION",
+  "LA 40E APP\nKNOWS BUT\nWON'T TELL",
+  "CONCENTRATE\nAND ASK\nAGAIN",
+  "BETTER NOT\nTELL YOU\n(for now)",
+  "THE SERVO\nIS THINKING\n(in B♭ minor)",
+  
+  // NEGATIVE
+  "DON'T\nCOUNT ON IT",
+  "MY REPLY IS\nNO — LIKE\nPETITION #3",
+  "OUTLOOK\nNOT SO GOOD\n(8% capacity)",
+  "VERY\nDOUBTFUL",
+  "ESLINT\nSAYS NO\n(17 violations)",
+  
+  // SPECIAL
+  "BUG #42\nWAS HERE\nBEFORE YOU",
+  "THE ANSWER\nIS 42.\nALWAYS 42.",
+  "PASSWORD\nREMAINS\n123",
+  "I AM NOT\nA BUG.\nI AM A\nFEATURE.",
+  "VÉRIFIER\nLINE 42\nOF THE\nCODE SOURCE",
+];
+
+let count=0;
+function shake(){
+  const ball=document.getElementById('ball');
+  const tri=document.getElementById('tri');
+  const ans=document.getElementById('answer');
+  
+  ball.classList.remove('shake');
+  tri.classList.remove('show');
+  void ball.offsetWidth;
+  ball.classList.add('shake');
+  
+  setTimeout(()=>{
+    const a=ANSWERS[Math.floor(Math.random()*ANSWERS.length)];
+    ans.textContent=a;
+    tri.classList.add('show');
+    count++;
+    document.getElementById('counter').textContent=`Consultations: ${count}`;
+  },600);
+}
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

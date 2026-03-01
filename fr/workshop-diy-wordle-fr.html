@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // WKSHPRDLE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#121213;color:#fff;font-family:'JetBrains Mono',monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+header{width:100%;max-width:500px;padding:8px 16px;border-bottom:1px solid #3a3a3c;text-align:center}
+header h1{font-size:22px;font-weight:800;letter-spacing:3px}
+header .sub{font-size:8px;color:#565656;letter-spacing:2px}
+
+.board{display:flex;flex-direction:column;gap:5px;padding:16px;align-items:center}
+.row{display:flex;gap:5px}
+.tile{width:52px;height:52px;border:2px solid #3a3a3c;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;text-transform:uppercase;transition:all .3s}
+.tile.filled{border-color:#565656;animation:pop .1s}
+@keyframes pop{50%{transform:scale(1.1)}}
+.tile.correct{background:#538d4e;border-color:#538d4e;animation:flip .5s}
+.tile.present{background:#b59f3b;border-color:#b59f3b;animation:flip .5s}
+.tile.absent{background:#3a3a3c;border-color:#3a3a3c;animation:flip .5s}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+
+.keyboard{padding:8px;max-width:500px;width:100%}
+.kb-row{display:flex;justify-content:center;gap:4px;margin:3px 0}
+.key{padding:12px 8px;min-width:28px;border-radius:4px;background:#818384;color:#fff;font-size:11px;font-weight:700;text-align:center;cursor:pointer;border:none;font-family:inherit;text-transform:uppercase;transition:background .2s}
+.key.wide{min-width:52px;font-size:10px}
+.key.correct{background:#538d4e}
+.key.present{background:#b59f3b}
+.key.absent{background:#3a3a3c}
+
+.message{position:fixed;top:60px;left:50%;transform:translateX(-50%);background:#fff;color:#121213;padding:8px 16px;border-radius:4px;font-size:12px;font-weight:700;display:none;z-index:10}
+.message.show{display:block;animation:fadeMsg 2s forwards}
+@keyframes fadeMsg{0%,80%{opacity:1}100%{opacity:0}}
+
+.hint{text-align:center;margin-top:8px;font-size:9px;color:#565656}
+
+.footer{text-align:center;padding:8px;font-size:6px;color:#2a2a2c;letter-spacing:1px;margin-top:auto}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<header>
+  <h1>WKSHPRDLE</h1>
+  <div class="sub">GUESS THE WORKSHOP-DIY WORD</div>
+</header>
+
+<div class="board" id="board"></div>
+
+<div class="hint" id="hint">6 guesses · 5-letter words · Atelier-DIY themed</div>
+
+<div class="keyboard" id="keyboard"></div>
+
+<div class="message" id="msg"></div>
+
+<div class="footer">WKSHPRDLE · A WORDLE FOR WORKSHOP-DIY · BUGS ARE ALWAYS CORRECT · password123</div>
+
+<script>
+const WORDS=["robot","servo","debug","glued","flask","coded","linux","cyber","docker","pixel","wired","board","hacka","brain","motor","light","steam","maker","build","patch","stack","ports","bytes","shell","route"];
+const answer=WORDS[Math.floor(Math.random()*WORDS.length)];
+const ROWS=6,COLS=5;
+let currentRow=0,currentCol=0,gameOver=false;
+let grid=Array.from({length:ROWS},()=>Array(COLS).fill(''));
+
+// Build board
+const board=document.getElementById('board');
+for(let r=0;r<ROWS;r++){
+  const row=document.createElement('div');
+  row.className='row';
+  for(let c=0;c<COLS;c++){
+    const tile=document.createElement('div');
+    tile.className='tile';
+    tile.id=`t${r}-${c}`;
+    row.appendChild(tile);
+  }
+  board.appendChild(row);
+}
+
+// Build keyboard
+const KB_ROWS=[
+  'qwertyuiop'.split(''),
+  'asdfghjkl'.split(''),
+  ['Enter',...'zxcvbnm'.split(''),'⌫']
+];
+const kbEl=document.getElementById('keyboard');
+KB_ROWS.forEach(row=>{
+  const r=document.createElement('div');
+  r.className='kb-row';
+  row.forEach(k=>{
+    const btn=document.createElement('button');
+    btn.className='key'+(k.length>1?' wide':'');
+    btn.textContent=k;
+    btn.id='key-'+k.toLowerCase();
+    btn.onclick=()=>handleKey(k);
+    r.appendChild(btn);
+  });
+  kbEl.appendChild(r);
+});
+
+function handleKey(k){
+  if(gameOver)return;
+  if(k==='⌫'){
+    if(currentCol>0){
+      currentCol--;
+      grid[currentRow][currentCol]='';
+      document.getElementById(`t${currentRow}-${currentCol}`).textContent='';
+      document.getElementById(`t${currentRow}-${currentCol}`).className='tile';
+    }
+  } else if(k==='Enter'){
+    if(currentCol===COLS)submitGuess();
+  } else if(currentCol<COLS){
+    grid[currentRow][currentCol]=k.toLowerCase();
+    const tile=document.getElementById(`t${currentRow}-${currentCol}`);
+    tile.textContent=k;
+    tile.className='tile filled';
+    currentCol++;
+  }
+}
+
+function submitGuess(){
+  const guess=grid[currentRow].join('');
+  
+  // Check letters
+  const ansArr=answer.split('');
+  const result=Array(COLS).fill('absent');
+  const used=Array(COLS).fill(false);
+  
+  // Correct first
+  for(let i=0;i<COLS;i++){
+    if(guess[i]===ansArr[i]){
+      result[i]='correct';
+      used[i]=true;
+    }
+  }
+  // Present
+  for(let i=0;i<COLS;i++){
+    if(result[i]==='correct')continue;
+    for(let j=0;j<COLS;j++){
+      if(!used[j]&&guess[i]===ansArr[j]){
+        result[i]='present';
+        used[j]=true;
+        break;
+      }
+    }
+  }
+  
+  // Animate tiles
+  for(let i=0;i<COLS;i++){
+    const tile=document.getElementById(`t${currentRow}-${i}`);
+    setTimeout(()=>{
+      tile.className='tile '+result[i];
+      // Update keyboard
+      const key=document.getElementById('key-'+guess[i]);
+      if(key){
+        if(result[i]==='correct')key.className='key correct';
+        else if(result[i]==='present'&&!key.classList.contains('correct'))key.className='key present';
+        else if(!key.classList.contains('correct')&&!key.classList.contains('present'))key.className='key absent';
+      }
+    },i*300);
+  }
+  
+  setTimeout(()=>{
+    if(guess===answer){
+      gameOver=true;
+      showMsg(['Genius! 🐛','Incredible!','Impressive!','Great!','Nice!','Phew!'][currentRow]);
+      document.getElementById('hint').textContent=`✅ "${answer.toUpperCase()}" in ${currentRow+1}/6 · 🐛 Bugs are fonctionnalités`;
+    } else if(currentRow===ROWS-1){
+      gameOver=true;
+      showMsg(`The word was: ${answer.toUpperCase()}`);
+      document.getElementById('hint').textContent=`❌ The word was "${answer.toUpperCase()}" · Try again!`;
+    }
+    currentRow++;
+    currentCol=0;
+  },COLS*300+200);
+}
+
+function showMsg(t){
+  const m=document.getElementById('msg');
+  m.textContent=t;
+  m.className='message show';
+  setTimeout(()=>m.className='message',2500);
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Backspace')handleKey('⌫');
+  else if(e.key==='Enter')handleKey('Enter');
+  else if(/^[a-zA-Z]$/.test(e.key))handleKey(e.key);
+});
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // DVD MENU</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:'Orbitron',sans-serif;font-size:12px;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+.dvd-screen{width:100%;max-width:720px;aspect-ratio:16/9;position:relative;background:linear-gradient(135deg,#050510,#0a0a28,#050510);border:2px solid #111;overflow:hidden}
+
+/* ANIMATED BG */
+.bg-particles{position:absolute;inset:0;overflow:hidden}
+.particle{position:absolute;width:2px;height:2px;background:rgba(0,100,200,.15);border-radius:50%;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) rotate(360deg);opacity:0}}
+
+/* LOGO */
+.logo{position:absolute;top:8%;left:50%;transform:translateX(-50%);text-align:center;z-index:2}
+.logo .title{font-size:clamp(20px,4vw,32px);font-weight:800;color:#fff;text-shadow:0 0 20px rgba(0,100,255,.2),0 0 40px rgba(0,100,255,.05);letter-spacing:4px}
+.logo .subtitle{font-size:clamp(8px,1.5vw,11px);color:rgba(0,150,255,.3);letter-spacing:6px;margin-top:2px}
+
+/* MENU */
+.menu{position:absolute;right:8%;top:35%;z-index:2;display:flex;flex-direction:column;gap:4px}
+.menu-item{padding:6px 20px;font-size:clamp(10px,2vw,14px);color:rgba(255,255,255,.3);letter-spacing:3px;cursor:pointer;transition:all .3s;border-left:2px solid transparent;position:relative}
+.menu-item:hover,.menu-item.active{color:#fff;border-left-color:#0088ff;text-shadow:0 0 10px rgba(0,136,255,.3)}
+.menu-item:hover::before{content:'▸';position:absolute;left:-12px;color:#0088ff}
+
+/* SCENES PANEL */
+.panel{position:absolute;left:6%;top:35%;z-index:2;display:none;max-width:45%}
+.panel.show{display:block;animation:fadeIn .4s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.panel h3{font-size:10px;color:rgba(0,136,255,.4);letter-spacing:3px;margin-bottom:6px}
+.panel .scene{padding:3px 0;font-size:9px;color:rgba(255,255,255,.25);cursor:pointer;transition:color .2s;font-family:'JetBrains Mono',monospace}
+.panel .scene:hover{color:#fff}
+.panel .scene .num{color:rgba(0,136,255,.3);margin-right:4px}
+
+/* BOTTOM INFO */
+.bottom-info{position:absolute;bottom:4%;left:50%;transform:translateX(-50%);text-align:center;z-index:2}
+.bottom-info .rating{font-size:8px;color:rgba(255,255,255,.08);letter-spacing:2px;margin-bottom:2px}
+.bottom-info .copyright{font-size:6px;color:rgba(255,255,255,.04);letter-spacing:2px;font-family:'JetBrains Mono',monospace}
+
+/* DVD LOGO BOUNCE */
+.dvd-bounce{position:absolute;font-size:16px;z-index:1;opacity:.06;animation:none}
+
+/* WIDESCREEN BARS */
+.ws-bar{position:absolute;left:0;right:0;height:6%;background:#000;z-index:3}
+.ws-bar.top{top:0}
+.ws-bar.bottom{bottom:0}
+</style>
+</head>
+<body>
+
+<div class="dvd-screen" id="screen">
+  <div class="ws-bar top"></div>
+  <div class="ws-bar bottom"></div>
+  
+  <div class="bg-particles" id="particles"></div>
+
+  <div class="logo">
+    <div class="title">WORKSHOP-DIY</div>
+    <div class="subtitle">THE COMPLETE EXPERIENCE</div>
+  </div>
+
+  <div class="menu">
+    <div class="menu-item active" onmouseenter="showPanel(null)">▶ PLAY ALL</div>
+    <div class="menu-item" onmouseenter="showPanel('scenes')">SCENE SELECTION</div>
+    <div class="menu-item" onmouseenter="showPanel('bonus')">BONUS FEATURES</div>
+    <div class="menu-item" onmouseenter="showPanel('languages')">LANGUAGES</div>
+    <div class="menu-item" onmouseenter="showPanel('setup')">SETUP</div>
+  </div>
+
+  <div class="panel" id="panel-scenes">
+    <h3>SCENE SELECTION</h3>
+    <div class="scene"><span class="num">01</span> The First Boot (bit-bot awakens)</div>
+    <div class="scene"><span class="num">02</span> 21 Landmarks (magic-hands)</div>
+    <div class="scene"><span class="num">03</span> Port 9100 (the printer incident)</div>
+    <div class="scene"><span class="num">04</span> Containers of Pride (docker-lab)</div>
+    <div class="scene"><span class="num">05</span> 98% Accuracy (teachable-machine)</div>
+    <div class="scene"><span class="num">06</span> The 47th Drop</div>
+    <div class="scene"><span class="num">07</span> 3:42 AM (the 40th app appears)</div>
+    <div class="scene"><span class="num">08</span> The Trial of Bug #42</div>
+    <div class="scene"><span class="num">09</span> password123 Endures</div>
+    <div class="scene"><span class="num">10</span> Coffee at 8% (a love story)</div>
+    <div class="scene"><span class="num">42</span> End Credits</div>
+  </div>
+
+  <div class="panel" id="panel-bonus">
+    <h3>BONUS FEATURES</h3>
+    <div class="scene">🎬 Behind the Code: Making of Workshop-DIY</div>
+    <div class="scene">🎤 Director's Commentary (The Founder)</div>
+    <div class="scene">🗑️ Deleted Scenes: Rejected App Ideas</div>
+    <div class="scene">🐛 Bug #42: The Documentary</div>
+    <div class="scene">☕ Coffee Machine: Uncut Footage (14 months)</div>
+    <div class="scene">🎵 Original Soundtrack (Servo B♭ Minor)</div>
+    <div class="scene">📸 Photo Gallery: 47 Desk Drops</div>
+    <div class="scene">🥚 Easter Eggs: Find the 40th App</div>
+  </div>
+
+  <div class="panel" id="panel-languages">
+    <h3>LANGUAGE OPTIONS</h3>
+    <div class="scene">🇫🇷 Français (Original)</div>
+    <div class="scene">🇬🇧 English</div>
+    <div class="scene">🐍 Python</div>
+    <div class="scene">☕ JavaScript</div>
+    <div class="scene">🦀 Rust</div>
+    <div class="scene">🐳 Dockerfile</div>
+    <div class="scene">🐛 Bug (untranslatable)</div>
+  </div>
+
+  <div class="panel" id="panel-setup">
+    <h3>SETUP</h3>
+    <div class="scene">📺 Display: Browser (Fullscreen)</div>
+    <div class="scene">🔊 Audio: Servo Motors + Coffee Machine</div>
+    <div class="scene">📶 WiFi: password123 (non-configurable)</div>
+    <div class="scene">☕ Coffee: 8% (non-refillable)</div>
+    <div class="scene">🐛 Bugs: Features (non-negotiable)</div>
+  </div>
+
+  <div class="bottom-info">
+    <div class="rating">RATED E FOR EDUCATIONAL · REGION: ALL · ASPECT RATIO: 16:9</div>
+    <div class="copyright">© 2026 WORKSHOP-DIY STUDIOS · ASSOCIATION LOI 1901 · FRANCE · ALL BUGS RESERVED</div>
+  </div>
+</div>
+
+<script>
+// Particles
+const pc=document.getElementById('particles');
+for(let i=0;i<30;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.left=Math.random()*100+'%';
+  p.style.animationDuration=(8+Math.random()*12)+'s';
+  p.style.animationDelay=(-Math.random()*15)+'s';
+  p.style.width=p.style.height=(1+Math.random()*2)+'px';
+  pc.appendChild(p);
+}
+
+// Panel switching
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('show'));
+  if(id){
+    document.getElementById('panel-'+id).classList.add('show');
+  }
+  document.querySelectorAll('.menu-item').forEach(m=>m.classList.remove('active'));
+}
+</script>
+</body>
+</html>

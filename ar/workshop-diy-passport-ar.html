@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ورشة-DIY // جواز سفر</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Kufi+Arabic:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#2a2a3a;font-family:'Noto Kufi Arabic','Amiri',sans-serif;font-size:10px;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:16px;gap:14px;direction:rtl}
+.bismillah{font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center}
+.cover{width:300px;height:400px;background:linear-gradient(180deg,#003366,#001a33);border-radius:12px 4px 4px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#c4a860;border:1px solid #004488;box-shadow:-4px 4px 16px rgba(0,0,0,.3);position:relative}
+.cover .crest{font-size:48px;margin-bottom:8px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
+.cover h1{font-size:10px;letter-spacing:4px;font-weight:700}
+.cover h2{font-size:16px;letter-spacing:4px;font-weight:700;margin:4px 0}
+.cover .sub{font-size:8px;letter-spacing:2px;opacity:.5}
+.cover .chip{position:absolute;bottom:20px;width:30px;height:22px;border:1px solid rgba(196,168,96,.3);border-radius:3px;background:linear-gradient(135deg,rgba(196,168,96,.1),rgba(196,168,96,.05))}
+.bio{width:300px;background:#f5f0e8;border-radius:12px 4px 4px 12px;padding:16px;border:1px solid #ddd;box-shadow:-2px 2px 8px rgba(0,0,0,.1);direction:rtl}
+.bio-header{font-size:8px;color:#003366;letter-spacing:2px;font-weight:700;margin-bottom:6px;border-bottom:1px solid #003366;padding-bottom:2px;text-align:center}
+.bio-grid{display:grid;grid-template-columns:1fr 80px;gap:6px;align-items:start}
+.bio-photo{width:80px;height:100px;background:#e0ddd0;border:1px solid #ccc;display:flex;align-items:center;justify-content:center;font-size:48px}
+.bio-fields{display:flex;flex-direction:column;gap:2px}
+.bio-field .lbl{font-size:7px;color:#888;letter-spacing:1px}
+.bio-field .val{font-size:9px;font-weight:700;color:#222;border-bottom:1px dotted #ccc;padding-bottom:1px}
+.mrz{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:7px;color:#003366;letter-spacing:1px;line-height:1.5;background:#f0ede0;padding:4px;border:1px solid #ddd;word-break:break-all;direction:ltr;text-align:left}
+.stamps-page{width:300px;background:#f8f5ed;border-radius:12px 4px 4px 12px;padding:14px;border:1px solid #ddd;box-shadow:-2px 2px 8px rgba(0,0,0,.1);position:relative;min-height:300px}
+.stamps-page .page-h{font-size:7px;color:#ccc;letter-spacing:2px;text-align:center;margin-bottom:8px}
+.stamp{position:absolute;padding:4px 8px;border-radius:4px;font-size:8px;font-weight:700;letter-spacing:1px;transform:rotate(var(--r,0deg));line-height:1.6;text-align:center}
+.stamp .date{font-size:6px;font-weight:400;opacity:.7;display:block;margin-top:1px}
+.footer{font-size:7px;color:rgba(255,255,255,.1);letter-spacing:1px;text-align:center;font-family:'Noto Kufi Arabic',sans-serif}
+.footer-brand a{color:rgba(255,255,255,.06);text-decoration:none;font-size:7px;font-family:'JetBrains Mono',monospace}
+</style>
+</head>
+<body>
+<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="cover">
+  <div class="crest">🛡️</div>
+  <h1>جمهورية</h1>
+  <h2>WORKSHOP-DIY</h2>
+  <div class="sub">جواز سفر · PASSEPORT</div>
+  <div class="chip"></div>
+</div>
+
+<div class="bio">
+  <div class="bio-header">جمهورية WORKSHOP-DIY · جواز سفر</div>
+  <div class="bio-grid">
+    <div class="bio-fields">
+      <div class="bio-field"><div class="lbl">النوع</div><div class="val">P (ميزة)</div></div>
+      <div class="bio-field"><div class="lbl">رمز البلد</div><div class="val">WKS</div></div>
+      <div class="bio-field"><div class="lbl">اللقب</div><div class="val">خَطَأ</div></div>
+      <div class="bio-field"><div class="lbl">الاسم</div><div class="val">رقم اثنان وأربعون</div></div>
+      <div class="bio-field"><div class="lbl">الجنسية</div><div class="val">Workshop-DIY</div></div>
+      <div class="bio-field"><div class="lbl">تاريخ الميلاد</div><div class="val">غير معروف</div></div>
+      <div class="bio-field"><div class="lbl">الجنس</div><div class="val">غير محدد</div></div>
+      <div class="bio-field"><div class="lbl">تاريخ الإصدار</div><div class="val">01 يناير 1970</div></div>
+      <div class="bio-field"><div class="lbl">تاريخ الانتهاء</div><div class="val">أبداً</div></div>
+      <div class="bio-field"><div class="lbl">رقم الجواز</div><div class="val">WKS-000042</div></div>
+    </div>
+    <div class="bio-photo">🐛</div>
+  </div>
+  <div class="mrz">P&lt;WKS&lt;BUG&lt;&lt;NUMBER&lt;FORTY&lt;TWO&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>WKS000042&lt;0WKS7001014&lt;&lt;&lt;&lt;&lt;&lt;&lt;9999999&lt;0&lt;&lt;&lt;&lt;&lt;&lt;&lt;42</div>
+</div>
+
+<div class="stamps-page">
+  <div class="page-h">تأشيرات · أختام · تصديقات</div>
+  <div class="stamp" style="top:30px;right:15px;--r:5deg;border:2px solid #00aa00;color:#00aa00;background:rgba(0,170,0,.03)">🤖 مجال<br>الروبوتات<div class="date">الدخول: 15-01-2023</div></div>
+  <div class="stamp" style="top:25px;left:20px;--r:-8deg;border:2px solid #9966ff;color:#9966ff;background:rgba(153,102,255,.03)">🧠 مجال الذكاء<br>الاصطناعي<div class="date">الدخول: 20-06-2023</div></div>
+  <div class="stamp" style="top:100px;right:30px;--r:-3deg;border:2px solid #ff3344;color:#ff3344;background:rgba(255,51,68,.03)">🔐 منطقة<br>السايبر<div class="date">التصريح: المستوى 42</div></div>
+  <div class="stamp" style="top:95px;left:10px;--r:7deg;border:2px solid #ff8800;color:#ff8800;background:rgba(255,136,0,.03)">⚡ مختبر<br>العتاد<div class="date">شهادة لحام</div></div>
+  <div class="stamp" style="top:170px;right:10px;--r:-6deg;border:2px solid #0088ff;color:#0088ff;background:rgba(0,136,255,.03)">📚 منطقة<br>التعلم<div class="date">الدخول: دائماً</div></div>
+  <div class="stamp" style="top:175px;left:25px;--r:3deg;border:2px solid #00cccc;color:#00cccc;background:rgba(0,204,204,.03)">🔧 مجال<br>الأدوات<div class="date">تأشيرة Docker ممنوحة</div></div>
+  <div class="stamp" style="top:245px;right:60px;--r:-12deg;border:3px solid #cc0000;color:#cc0000;background:rgba(204,0,0,.03);font-size:8px">⚖️ بريء<br>محاكمة 2026<div class="date">الحكم: غير مذنب</div></div>
+  <div class="stamp" style="bottom:12px;left:12px;--r:2deg;border:2px solid #c4a860;color:#c4a860;background:rgba(196,168,96,.03)">☕ منطقة<br>القهوة<div class="date">السعة 8% مسجّلة</div></div>
+</div>
+
+<div class="footer">هجرة Workshop-DIY · هذا ليس وثيقة سفر حقيقية · الأخطاء تسافر بحرية</div>
+<div class="footer-brand"><a href="https://workshop-diy.org">workshop-diy.org</a></div>
+</body>
+</html>

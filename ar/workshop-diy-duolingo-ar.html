@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // DUOLINGO</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Nunito:wght@400;700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#fff;font-family:'Nunito',sans-serif;font-size:14px;color:#3c3c3c;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+
+.top{width:100%;max-width:500px;padding:10px 16px;display:flex;align-items:center;gap:8px}
+.back{font-size:18px;color:#afafaf;cursor:pointer}
+.progress{flex:1;height:12px;background:#e5e5e5;border-radius:6px;overflow:hidden}
+.progress-fill{height:100%;background:#58cc02;border-radius:6px;transition:width .4s}
+.hearts{display:flex;align-items:center;gap:2px;font-size:14px;color:#ff4b4b}
+
+.content{flex:1;width:100%;max-width:500px;padding:16px;display:flex;flex-direction:column}
+
+/* QUESTION */
+.question{flex:1}
+.q-type{font-size:11px;color:#afafaf;font-weight:700;letter-spacing:1px;margin-bottom:4px}
+.q-text{font-size:20px;font-weight:800;color:#3c3c3c;margin-bottom:14px;line-height:1.5}
+
+.mascot{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.mascot .owl{font-size:36px}
+.mascot .bubble{background:#f7f7f7;border:2px solid #e5e5e5;border-radius:12px;padding:8px 12px;font-size:13px;color:#777;line-height:1.6;position:relative}
+.mascot .bubble::before{content:'';position:absolute;left:-8px;top:12px;border:6px solid transparent;border-right-color:#e5e5e5}
+
+.options{display:flex;flex-direction:column;gap:6px}
+.option{padding:12px 16px;border:2px solid #e5e5e5;border-radius:12px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px;font-size:14px}
+.option:hover{background:#f7f7f7}
+.option.selected{border-color:#84d8ff;background:#ddf4ff}
+.option.correct{border-color:#58cc02;background:#d7ffb8}
+.option.wrong{border-color:#ff4b4b;background:#ffdfe0}
+.option .num{width:24px;height:24px;border-radius:50%;border:2px solid #e5e5e5;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#afafaf;flex-shrink:0}
+.option.selected .num{border-color:#84d8ff;color:#1cb0f6}
+.option.correct .num{border-color:#58cc02;color:#58cc02}
+.option.wrong .num{border-color:#ff4b4b;color:#ff4b4b}
+
+.btn-area{padding:12px 0}
+.btn-check{width:100%;padding:12px;border-radius:12px;border:none;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:1px}
+.btn-check.inactive{background:#e5e5e5;color:#afafaf;cursor:default}
+.btn-check.active{background:#58cc02;color:#fff;box-shadow:0 4px 0 #46a302}
+.btn-check.active:active{box-shadow:none;transform:translateY(4px)}
+
+.feedback{padding:10px;border-radius:8px;margin:6px 0;display:none;font-weight:700;font-size:13px}
+.feedback.show{display:block}
+.feedback.ok{background:#d7ffb8;color:#58a700}
+.feedback.nope{background:#ffdfe0;color:#ea2b2b}
+
+.streak{text-align:center;font-size:11px;color:#afafaf;margin-top:4px}
+
+.footer{text-align:center;padding:8px;font-size:7px;color:#ddd;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="top">
+  <span class="back">✕</span>
+  <div class="progress"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
+  <div class="hearts" id="hearts">❤️❤️❤️</div>
+</div>
+
+<div class="content">
+  <div class="question" id="qArea"></div>
+  <div class="feedback" id="feedback"></div>
+  <div class="btn-area">
+    <button class="btn-check inactive" id="checkBtn" onclick="checkAnswer()">تحقق</button>
+  </div>
+  <div class="streak" id="streak">🔥 0 streak</div>
+</div>
+
+<div class="footer">WKSHP-LINGO · LEARN TO SPEAK WORKSHOP-DIY · BUGS ARE A SECOND LANGUAGE</div>
+
+<script>
+const QS=[
+{type:"TRANSLATE THIS",q:"What does 'npm install' mean in Workshop-DIY?",mascot:"🦉 In Workshop-DIY, we have our own vocabulary...",opts:["Run a package manager","Install dependencies","Nothing. We don't use npm.","Set up webpack"],correct:2},
+{type:"CHOOSE THE CORRECT ANSWER",q:"The كلمة مرور الواي فاي at Workshop-DIY is:",mascot:"🦉 This one is important for your survival...",opts:["WPA3-Enterprise-2026","password123","Admin@Workshop!","It changes weekly"],correct:1},
+{type:"FILL IN THE BLANK",q:"bit-bot has survived ___ سقطات المكتب.",mascot:"🦉 This little robot is tougher than it looks!",opts:["12","3","47","100"],correct:2},
+{type:"WHAT DOES THIS MEAN",q:'What is Bug #42 classified as?',mascot:"🦉 This was decided in a court of law...",opts:["A critical error","A security vulnerability","A feature","A deprecated function"],correct:2},
+{type:"TRANSLATE THIS",q:"'8%' in Workshop-DIY means:",mascot:"🦉 Numbers have special meanings here...",opts:["Battery level","Test coverage","Coffee machine capacity","WiFi signal strength"],correct:2},
+{type:"CHOOSE THE CORRECT ANSWER",q:"How many apps does Workshop-DIY have?",mascot:"🦉 Count carefully! Or don't. It depends on the time.",opts:["40 (at 3:42 صباحاً)","38","39","42"],correct:2},
+{type:"CULTURAL KNOWLEDGE",q:"What holds bit-bot together structurally?",mascot:"🦉 Engineering at its finest!",opts:["Welding","Screws and bolts","Hot glue","Hope and prayers"],correct:2},
+{type:"TRANSLATE THIS",q:"'docker-lab confuses parents' means:",mascot:"🦉 This is a common cultural observation...",opts:["The lab is poorly designed","الآباء don't like Docker","Kids explain containers better than senior engineers","The UI needs improvement"],correct:2},
+{type:"ADVANCED VOCABULARY",q:"What appears in the codebase at 3:42 صباحاً?",mascot:"🦉 Some things are best left as mysteries...",opts:["A merge conflict","The 40th app","A cron job","An error log"],correct:1},
+{type:"FINAL EXAM",q:"Complete the sentence: 'Bugs are ___'",mascot:"🦉 You've learned well, student!",opts:["Bugs","Errors","Problems","Features"],correct:3},
+];
+
+let idx=0,selected=-1,hearts=3,streak=0,answered=false;
+
+function render(){
+  if(idx>=QS.length){
+    document.getElementById('qArea').innerHTML=`
+      <div style="text-align:center;padding:30px 0">
+        <div style="font-size:64px;margin-bottom:8px">🎉</div>
+        <div style="font-size:22px;font-weight:800;color:#58cc02">الدرس مكتمل!</div>
+        <div style="font-size:13px;color:#afafaf;margin-top:4px">You now speak fluent Workshop-DIY</div>
+        <div style="margin-top:12px;font-size:12px;color:#777">🔥 ${streak} streak · ❤️ ${hearts} hearts remaining</div>
+        <div style="margin-top:6px;font-size:11px;color:#afafaf">+42 XP earned · كلمة مرور الواي فاي: password123</div>
+      </div>`;
+    document.getElementById('checkBtn').style.display='none';
+    return;
+  }
+  const q=QS[idx];
+  selected=-1;answered=false;
+  document.getElementById('progFill').style.width=((idx/QS.length)*100)+'%';
+  document.getElementById('feedback').classList.remove('show');
+  document.getElementById('checkBtn').className='btn-check inactive';
+  document.getElementById('checkBtn').textContent='تحقق';
+
+  document.getElementById('qArea').innerHTML=`
+    <div class="q-type">${q.type}</div>
+    <div class="mascot"><div class="owl">🦉</div><div class="bubble">${q.mascot}</div></div>
+    <div class="q-text">${q.q}</div>
+    <div class="options" id="opts">${q.opts.map((o,i)=>
+      `<div class="option" data-i="${i}" onclick="selectOpt(${i})"><div class="num">${i+1}</div><span>${o}</span></div>`
+    ).join('')}</div>`;
+}
+
+function selectOpt(i){
+  if(answered)return;
+  selected=i;
+  document.querySelectorAll('.option').forEach((o,j)=>{
+    o.classList.toggle('selected',j===i);
+  });
+  document.getElementById('checkBtn').className='btn-check active';
+}
+
+function checkAnswer(){
+  if(selected<0||answered)return;
+  answered=true;
+  const q=QS[idx];
+  const fb=document.getElementById('feedback');
+  const opts=document.querySelectorAll('.option');
+
+  opts[q.correct].classList.add('correct');
+  if(selected===q.correct){
+    streak++;
+    fb.className='feedback show ok';
+    fb.textContent='✅ صحيح! '+['Nice!','Excellent!','You\'re a natural!','Bug #42 would be proud!','Perfect!'][Math.floor(Math.random()*5)];
+  } else {
+    opts[selected].classList.add('wrong');
+    hearts--;
+    streak=0;
+    fb.className='feedback show nope';
+    fb.textContent=`❌ Correct answer: "${q.opts[q.correct]}"`;
+    document.getElementById('hearts').textContent='❤️'.repeat(Math.max(0,hearts))+'🖤'.repeat(3-Math.max(0,hearts));
+  }
+  document.getElementById('streak').textContent=`🔥 ${streak} streak`;
+  document.getElementById('checkBtn').textContent='متابعة';
+  document.getElementById('checkBtn').onclick=()=>{
+    idx++;
+    document.getElementById('checkBtn').onclick=checkAnswer;
+    render();
+  };
+}
+
+render();
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

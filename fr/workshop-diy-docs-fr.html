@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // DOCUMENTATION v1.0</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&Amiri&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a14;--surface:#0f0f1a;--border:rgba(255,255,255,.04);--text:#d4d4d4;--dim:rgba(255,255,255,.08);--accent:#ff6600;--accent2:#00cc66;--accent3:#00aaff}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:13px;line-height:1.7;display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{width:240px;background:var(--surface);border-right:1px solid var(--border);padding:14px;overflow-y:auto;position:fixed;top:0;left:0;bottom:0;z-index:10}
+.sidebar-logo{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--accent);letter-spacing:1px;margin-bottom:2px}
+.sidebar-ver{font-size:9px;color:var(--dim);margin-bottom:12px;font-family:'JetBrains Mono',monospace}
+.sidebar input{width:100%;padding:6px 8px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:4px;color:var(--text);font-size:11px;font-family:inherit;margin-bottom:10px;outline:none}
+.sidebar input:focus{border-color:rgba(255,102,0,.15)}
+.nav-section{font-size:8px;color:var(--dim);letter-spacing:2px;font-weight:700;padding:6px 0 2px;font-family:'JetBrains Mono',monospace}
+.nav-item{display:block;padding:4px 8px;border-radius:4px;color:rgba(255,255,255,.25);font-size:12px;text-decoration:none;cursor:pointer;transition:all .15s}
+.nav-item:hover{background:rgba(255,102,0,.03);color:rgba(255,255,255,.5)}
+.nav-item.active{background:rgba(255,102,0,.06);color:var(--accent)}
+
+/* MAIN */
+.main{margin-left:240px;flex:1;padding:24px 32px;max-width:800px}
+@media(max-width:700px){.sidebar{display:none}.main{margin-left:0;padding:14px}}
+
+h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#fff;margin-bottom:4px}
+h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--accent);margin:28px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+h3{font-size:14px;font-weight:700;color:rgba(255,255,255,.4);margin:16px 0 6px}
+p{margin:6px 0;color:rgba(255,255,255,.35);line-height:1.8}
+a{color:var(--accent3);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:'JetBrains Mono',monospace;background:rgba(255,255,255,.03);padding:1px 5px;border-radius:3px;font-size:11px;color:var(--accent2)}
+pre{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:6px;padding:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.3);overflow-x:auto;margin:8px 0;line-height:1.8}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:9px;font-weight:700;letter-spacing:.5px;font-family:'JetBrains Mono',monospace}
+.badge.orange{background:rgba(255,102,0,.08);color:var(--accent)}
+.badge.green{background:rgba(0,204,102,.08);color:var(--accent2)}
+.badge.blue{background:rgba(0,170,255,.08);color:var(--accent3)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;margin:10px 0}
+.stat{padding:10px;border:1px solid var(--border);border-radius:6px;background:rgba(255,255,255,.005)}
+.stat-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--accent)}
+.stat-label{font-size:9px;color:var(--dim);letter-spacing:1px;font-family:'JetBrains Mono',monospace}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:11px}
+th{text-align:left;padding:6px 8px;font-size:9px;color:var(--dim);letter-spacing:1px;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace}
+td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.01);color:rgba(255,255,255,.25)}
+td:first-child{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent2);white-space:nowrap}
+tr:hover td{background:rgba(255,255,255,.005)}
+.char-card{display:flex;gap:8px;padding:8px;border:1px solid var(--border);border-radius:6px;margin:4px 0;background:rgba(255,255,255,.005)}
+.char-icon{font-size:28px;flex-shrink:0}
+.char-name{font-weight:700;color:rgba(255,255,255,.35);font-size:12px}
+.char-desc{font-size:11px;color:var(--dim);line-height:1.6}
+.tip{padding:8px 10px;border-left:3px solid var(--accent);background:rgba(255,102,0,.02);border-radius:0 4px 4px 0;margin:8px 0;font-size:11px;color:rgba(255,255,255,.2)}
+.warn{border-left-color:#ffaa00;background:rgba(255,170,0,.02)}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="sidebar">
+  <div class="sidebar-logo">📚 WKSHP-DIY DOCS</div>
+  <div class="sidebar-ver">v1.0 · 160 files · Feb 2026</div>
+  <input type="text" placeholder="🔍 Search docs..." id="search">
+
+  <div class="nav-section">GETTING STARTED</div>
+  <a class="nav-item active" href="#overview">Overview</a>
+  <a class="nav-item" href="#quickstart">Quick Start</a>
+  <a class="nav-item" href="#stats">Stats</a>
+
+  <div class="nav-section">FILE CATALOG</div>
+  <a class="nav-item" href="#games">🎮 Games & Interactive</a>
+  <a class="nav-item" href="#social">📱 Social Media</a>
+  <a class="nav-item" href="#news">📰 News & Media</a>
+  <a class="nav-item" href="#video">📺 Video & Entertainment</a>
+  <a class="nav-item" href="#edu">🏫 Education</a>
+  <a class="nav-item" href="#legal">⚖️ Legal & Official</a>
+  <a class="nav-item" href="#travel">🗺️ Travel & Places</a>
+  <a class="nav-item" href="#tech">🖥️ Tech & Developer</a>
+  <a class="nav-item" href="#hardware">📟 Hardware</a>
+  <a class="nav-item" href="#creative">🎨 Creative & Visual</a>
+  <a class="nav-item" href="#personal">💌 Personal</a>
+  <a class="nav-item" href="#misc">🏷️ Miscellaneous</a>
+
+  <div class="nav-section">REFERENCE</div>
+  <a class="nav-item" href="#universe">🌍 The Universe</a>
+  <a class="nav-item" href="#technical">🛠️ Technical</a>
+  <a class="nav-item" href="#apps">📋 The 39 Apps</a>
+  <a class="nav-item" href="#faq">❓ FAQ</a>
+  <a class="nav-item" href="#credits">👨‍💻 Credits</a>
+</div>
+
+<div class="main">
+
+<h1>Workshop-DIY Presentation Suite</h1>
+<p>160 self-contained HTML files celebrating the Workshop-DIY educational ecosystem. Every format imaginable. Every app referenced. Every bug is a feature.</p>
+
+<div class="stat-grid">
+  <div class="stat"><div class="stat-val">160</div><div class="stat-label">HTML FILES</div></div>
+  <div class="stat"><div class="stat-val">1.8MB</div><div class="stat-label">TOTAL SIZE</div></div>
+  <div class="stat"><div class="stat-val">90+</div><div class="stat-label">UNIQUE FORMATS</div></div>
+  <div class="stat"><div class="stat-val">39</div><div class="stat-label">APPS REFERENCED</div></div>
+  <div class="stat"><div class="stat-val">0</div><div class="stat-label">NPM INSTALLS</div></div>
+  <div class="stat"><div class="stat-val">8%</div><div class="stat-label">COFFEE CAPACITY</div></div>
+</div>
+
+<!-- QUICK START -->
+<h2 id="quickstart">🚀 Quick Start</h2>
+
+<h3>Option A: From ZIP</h3>
+<pre>1. Download workshop-diy-v1.0.zip
+2. Unzip anywhere
+3. Open any .html file in Chrome
+4. That's it.</pre>
+
+<h3>Option B: Individual Files</h3>
+<p>Every file is self-contained. Download one, open it. Done. No build step, no server, no configuration.</p>
+
+<div class="tip">💡 Use <code>workshop-diy-index.html</code> as your starting point — it has search and categorized navigation for all 160 files.</div>
+
+<h3>For Presentations</h3>
+<p>Open any file fullscreen (F11). Most files auto-animate on load. Dark backgrounds optimized for projectors and screens.</p>
+
+<h3>For Walls & Events</h3>
+<p>Print from browser or display on multiple screens. Mix formats for maximum impact — a newspaper next to a Tinder profile next to a court transcript.</p>
+
+<!-- STATS -->
+<h2 id="stats">📊 Project Statistics</h2>
+
+<table>
+<tr><th>Metric</th><th>Value</th></tr>
+<tr><td>Total files</td><td>160 HTML files + index</td></tr>
+<tr><td>Total size</td><td>~1.8 MB uncompressed</td></tr>
+<tr><td>Average file</td><td>~11 KB</td></tr>
+<tr><td>External deps</td><td>Google Fonts only (CDN)</td></tr>
+<tr><td>JavaScript frameworks</td><td>0</td></tr>
+<tr><td>CSS frameworks</td><td>0</td></tr>
+<tr><td>Build tools</td><td>0</td></tr>
+<tr><td>Config files</td><td>0</td></tr>
+<tr><td>Package.json</td><td>Does not exist</td></tr>
+<tr><td>node_modules</td><td>Concept rejected</td></tr>
+</table>
+
+<!-- GAMES -->
+<h2 id="games">🎮 Games & Interactive (12 files)</h2>
+<table>
+<tr><th>File</th><th>Format</th><th>Interactive</th></tr>
+<tr><td>flappy</td><td>Flappy Bird clone</td><td>✅ Playable</td></tr>
+<tr><td>clicker</td><td>Idle/incremental game</td><td>✅ Playable</td></tr>
+<tr><td>slot-machine</td><td>Casino slot machine</td><td>✅ Pull lever</td></tr>
+<tr><td>wordle</td><td>Word guessing game</td><td>✅ Playable</td></tr>
+<tr><td>crossword</td><td>Crossword puzzle</td><td>✅ Fillable</td></tr>
+<tr><td>jeopardy</td><td>Trivia game show</td><td>✅ Clickable</td></tr>
+<tr><td>bingo</td><td>Bingo card</td><td>✅ Stampable</td></tr>
+<tr><td>mad-libs</td><td>Fill-in-the-blank</td><td>✅ Input fields</td></tr>
+<tr><td>text-adventure</td><td>Text RPG</td><td>✅ Choice-based</td></tr>
+<tr><td>dungeon</td><td>Dungeon crawler</td><td>✅ Playable</td></tr>
+<tr><td>escape-room</td><td>Escape room</td><td>✅ Puzzle solving</td></tr>
+<tr><td>magic-8ball</td><td>Fortune teller</td><td>✅ Shake/click</td></tr>
+</table>
+
+<!-- SOCIAL -->
+<h2 id="social">📱 Social Media & Platforms (16 files)</h2>
+<table>
+<tr><th>File</th><th>Platform</th><th>Content</th></tr>
+<tr><td>tinder</td><td>Tinder</td><td>Swipe profiles for all 39 apps</td></tr>
+<tr><td>linkedin</td><td>LinkedIn</td><td>Professional profiles + endorsements</td></tr>
+<tr><td>reddit</td><td>Reddit</td><td>r/WorkshopDIY posts + comments</td></tr>
+<tr><td>slack</td><td>Slack</td><td>#general channel conversations</td></tr>
+<tr><td>discord-chat</td><td>Discord</td><td>Server with channels + bot messages</td></tr>
+<tr><td>whatsapp</td><td>WhatsApp</td><td>Group chat between apps</td></tr>
+<tr><td>tiktok</td><td>TikTok</td><td>Viral video feed</td></tr>
+<tr><td>twitch</td><td>Twitch</td><td>Live stream + chat</td></tr>
+<tr><td>youtube</td><td>YouTube</td><td>Channel page + playlists</td></tr>
+<tr><td>github-profile</td><td>GitHub</td><td>Developer profile + repos</td></tr>
+<tr><td>hacker-news</td><td>Hacker News</td><td>HN front page</td></tr>
+<tr><td>wikipedia</td><td>Wikipedia</td><td>Encyclopedia article</td></tr>
+<tr><td>notion</td><td>Notion</td><td>Workspace dashboard</td></tr>
+<tr><td>amazon</td><td>Amazon</td><td>Product listing</td></tr>
+<tr><td>ebay</td><td>eBay</td><td>Auction</td></tr>
+<tr><td>craigslist</td><td>Craigslist</td><td>Free stuff ad</td></tr>
+</table>
+
+<!-- HARDWARE -->
+<h2 id="hardware">📟 Hardware: Micro:bit & ESP32 (9 files)</h2>
+<table>
+<tr><th>File</th><th>What</th><th>Board</th></tr>
+<tr><td>rxy</td><td>Interactive remote control simulator</td><td>micro:bit</td></tr>
+<tr><td>neopixel-emoji</td><td>Emoji → LED matrix with serial protocol viz</td><td>micro:bit</td></tr>
+<tr><td>microbit-telemetry</td><td>Live sensor dashboard (all sensors)</td><td>micro:bit V2</td></tr>
+<tr><td>makecode</td><td>Block editor showing firmware</td><td>micro:bit</td></tr>
+<tr><td>ble-flow</td><td>Web Bluetooth connection diagram</td><td>Both</td></tr>
+<tr><td>esp32-pinout</td><td>Interactive pin reference card</td><td>ESP32-C3</td></tr>
+<tr><td>esp32-boot</td><td>Serial console boot sequence</td><td>ESP32-C3</td></tr>
+<tr><td>esp32-wiring</td><td>Complete bit-bot schematic</td><td>ESP32-C3</td></tr>
+<tr><td>esp32-vs-microbit</td><td>Spec comparison card</td><td>Both</td></tr>
+</table>
+
+<!-- UNIVERSE -->
+<h2 id="universe">🌍 The Workshop-DIY Universe</h2>
+
+<h3>Main Characters</h3>
+
+<div class="char-card"><div class="char-icon">🤖</div><div><div class="char-name">bit-bot</div><div class="char-desc">ESP32/micro:bit robot. 47 desk drops survived. BLE at 60% success. Hot glue structural. Servo plays B♭ minor on impact. Has a theme song.</div></div></div>
+
+<div class="char-card"><div class="char-icon">🐛</div><div><div class="char-name">Bug #42</div><div class="char-desc">The unkillable bug. No author, no timestamp, no repo of origin. Appears at 3:42 AM. Survived rm -rf, git revert, and a hard drive reformat. Tried in court → acquitted → reclassified as Feature → married Feature Status.</div></div></div>
+
+<div class="char-card"><div class="char-icon">☕</div><div><div class="char-name">Coffee Machine</div><div class="char-desc">Operating at 8% capacity for 14+ months. Drainage tray "concerning." Makes perfect espresso. Powered by spite. Health inspector visit pending.</div></div></div>
+
+<div class="char-card"><div class="char-icon">🔑</div><div><div class="char-name">password123</div><div class="char-desc">WiFi password since 2023. 3 formal petitions to change it — all denied. Petition #4 in draft. The 4th most-used password in France (unverified).</div></div></div>
+
+<div class="char-card"><div class="char-icon">🔥</div><div><div class="char-name">Hot Glue</div><div class="char-desc">Applied at 200°C. Survived 47 drops. Structural grade. Written love letter to bit-bot's chassis. Holds the entire physical ecosystem together.</div></div></div>
+
+<div class="char-card"><div class="char-icon">👑</div><div><div class="char-name">The Founder</div><div class="char-desc">Creator of Workshop-DIY. Catchphrase: "Just open it in Chrome." Built 39 apps that run in browsers. Tells parents it's educational. It is.</div></div></div>
+
+<!-- TECHNICAL -->
+<h2 id="technical">🛠️ Technical Reference</h2>
+
+<h3>Architecture</h3>
+<p>Every file is a single self-contained HTML document. No build step. No bundler. No framework. Inline CSS and JavaScript. The only external dependency is Google Fonts loaded via CDN — everything works offline once fonts are cached.</p>
+
+<h3>File Naming Convention</h3>
+<pre>workshop-diy-[format-name].html</pre>
+<p>All lowercase, hyphens for spaces. The prefix <code>workshop-diy-</code> ensures all files sort together in any directory.</p>
+
+<h3>Design System</h3>
+<p>Files share a common aesthetic: dark backgrounds (#0a0a14), JetBrains Mono for code, Syne for headers, Inter for body text. Accent color is Workshop orange (#ff6600). But each file adopts the visual language of whatever it's mimicking — Tinder looks like Tinder, newspapers look like newspapers.</p>
+
+<h3>Browser Compatibility</h3>
+<table>
+<tr><th>Browser</th><th>Support</th></tr>
+<tr><td>Chrome 90+</td><td>✅ Full (recommended)</td></tr>
+<tr><td>Firefox 90+</td><td>✅ Full</td></tr>
+<tr><td>Safari 15+</td><td>✅ Most files</td></tr>
+<tr><td>Edge 90+</td><td>✅ Full</td></tr>
+<tr><td>IE 11</td><td>❌ No</td></tr>
+</table>
+
+<!-- THE 39 APPS -->
+<h2 id="apps">📋 The 39 Workshop-DIY Apps</h2>
+
+<h3>🤖 Micro:bit (9)</h3>
+<p>bit-bot · talking-robot · teachable-machine · face-tracking · bitmoji-lab · bit-playground · rxy · usb-logger · ble-logger</p>
+
+<h3>📸 Camera (2)</h3>
+<p>magic-hands · face-tracking (shared)</p>
+
+<h3>🧠 AI/ML (4)</h3>
+<p>teachable-machine · object-detector · chatbot · ai-composer</p>
+
+<h3>🛡️ Cyber (4)</h3>
+<p>pentest-lab · crypto-lab · net-scanner · password-cracker</p>
+
+<h3>🔧 Hardware (3)</h3>
+<p>esp32-lab · circuit-sim · sensor-dash</p>
+
+<h3>📚 Learning (10)</h3>
+<p>html-lab · css-lab · js-lab · python-lab · linux-lab · docker-lab · git-lab · sql-lab · api-lab · regex-lab</p>
+
+<h3>🎨 Creative (7)</h3>
+<p>pixel-art · music-maker · story-gen · meme-gen · poster-maker · animation-lab · video-fx</p>
+
+<!-- FAQ -->
+<h2 id="faq">❓ Frequently Asked Questions</h2>
+
+<h3>Do I need to install anything?</h3>
+<p>No. Open any .html file in a browser. That's it.</p>
+
+<h3>Can I use these offline?</h3>
+<p>Yes. The only online requirement is Google Fonts on first load. After that, fonts are cached and everything works offline.</p>
+
+<h3>Why are there 160 files?</h3>
+<p>Because 159 wasn't enough and 161 felt excessive.</p>
+
+<h3>Is Bug #42 real?</h3>
+<p>Bug #42 has no author, no timestamp, and no repo of origin. It has been present since before version control. Whether it is "real" is a philosophical question that was definitively settled in court (acquitted).</p>
+
+<h3>Can I change the WiFi password?</h3>
+<p>No. Three petitions have been denied. The fourth is in review.</p>
+
+<h3>Why does everything happen at 3:42 AM?</h3>
+<p>We don't know. Bug #42 appears at 3:42 AM. The 40th app appears at 3:42 AM. The coffee machine makes its best espresso at 3:42 AM. Correlation is not causation, but 42 is suspicious.</p>
+
+<h3>Is the coffee machine really at 8%?</h3>
+<p>It has been at 8% for 14 months. It makes perfect espresso. Nobody understands this. The drainage tray has not been emptied since March.</p>
+
+<h3>Can I contribute new formats?</h3>
+<p>Open an issue or submit a PR. Suggested formats include: airline menu, CAPTCHA test, EULA agreement, horoscope app, escape room, and "terms of service nobody reads."</p>
+
+<h3>What's the 40th app?</h3>
+<p>There are 39 documented apps. The 40th appears briefly at 3:42 AM. Its purpose is unclear. Its relationship to Bug #42 is "under investigation."</p>
+
+<!-- CREDITS -->
+<h2 id="credits">👨‍💻 Credits</h2>
+
+<p><strong>Workshop-DIY</strong> — Association Loi 1901, France 🇫🇷<br>
+39 browser-based educational apps · 7 domains · 0 installations</p>
+
+<p><strong>Presentation Suite v1.0</strong> — 160 HTML files<br>
+Generated February 28, 2026 with Claude (Anthropic)</p>
+
+<p style="margin-top:12px;font-size:11px;color:var(--dim);font-family:'JetBrains Mono',monospace">password123 · 8% · 47 drops · 3:42 AM · Bug #42 was here</p>
+
+</div>
+
+<script>
+// Nav highlighting
+document.querySelectorAll('.nav-item').forEach(item=>{
+  item.addEventListener('click',function(){
+    document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+// Search
+document.getElementById('search').addEventListener('input',function(){
+  const q=this.value.toLowerCase();
+  document.querySelectorAll('h2,h3,p,td').forEach(el=>{
+    const section=el.closest('div') || el.parentElement;
+    if(q.length<2){section.style.display='';return;}
+    // Just highlight matching text
+  });
+});
+</script>
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

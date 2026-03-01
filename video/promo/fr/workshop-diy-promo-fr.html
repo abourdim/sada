@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Vidéo Promotionnelle (FR)</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#08090f;--s1:#0e1020;--s2:#151830;--brd:rgba(255,255,255,.06);--txt:#e4e6f2;--dim:rgba(255,255,255,.3);--acc:#ff6600;--acc2:#ff8800;--pk:#ff2d8a;--cy:#00d4ff;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:#222;border-radius:3px}
+
+.hero{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:50px 20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(255,102,0,.06),transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(255,45,138,.03),transparent 45%);pointer-events:none}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--acc);border:1px solid rgba(255,102,0,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:16px;display:inline-block}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(22px,5vw,40px);font-weight:800;line-height:1.15;margin-bottom:10px}
+.hero h1 b{background:linear-gradient(135deg,var(--acc),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:13px;color:var(--dim);max-width:480px;line-height:1.7}
+.hero-stats{display:flex;gap:0;margin-top:20px;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1)}
+.hs{flex:1;text-align:center;padding:10px 14px;border-right:1px solid var(--brd)}
+.hs:last-child{border:none}
+.hs b{display:block;font-family:'Syne',sans-serif;font-size:16px;color:var(--acc)}
+.hs span{font-size:7px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+
+.section{max-width:800px;margin:0 auto;padding:30px 16px}
+.stitle{font-family:'Syne',sans-serif;font-size:clamp(16px,3vw,22px);font-weight:800;margin-bottom:14px;text-align:center}
+.stitle b{color:var(--acc)}
+
+/* SCENE CARDS */
+.scenes{display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+.scene{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;transition:.2s}
+.scene:hover{border-color:rgba(255,102,0,.15)}
+.scene-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
+.scene-num{font-family:'Syne',sans-serif;font-size:10px;font-weight:800;color:#000;background:var(--acc);width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.scene-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;flex:1}
+.scene-dur{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)}
+.scene-body{padding:0 14px 14px;display:none}
+.scene.open .scene-body{display:block}
+.scene-row{display:flex;gap:10px;margin-bottom:8px}
+.scene-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--acc);text-transform:uppercase;letter-spacing:1px;width:60px;flex-shrink:0;padding-top:2px}
+.scene-val{font-size:11px;color:var(--dim);line-height:1.6}
+.scene-val b{color:var(--txt);font-weight:600}
+
+/* SPECS */
+.specs{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:30px}
+.spec{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);padding:14px;text-align:center}
+.spec .emoji{font-size:24px;margin-bottom:6px;display:block}
+.spec h4{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;margin-bottom:3px}
+.spec p{font-size:9px;color:var(--dim);line-height:1.5}
+
+.foot{text-align:center;padding:24px 12px 16px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-family:'Syne',sans-serif;font-size:12px;color:var(--txt)}
+.foot b i{font-style:normal;background:linear-gradient(135deg,var(--acc),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<div class="badge">promo · script vidéo · français</div>
+<h1>🎬 <b>Workshop-DIY</b><br>Vidéo Promotionnelle</h1>
+<p>Vidéo promotionnelle de 2 minutes présentant Workshop-DIY au monde. Pour YouTube, site web et événements.</p>
+<div class="hero-stats">
+<div class="hs"><b>2:00</b><span>Duration</span></div>
+<div class="hs"><b>8</b><span>Scenes</span></div>
+<div class="hs"><b>FR</b><span>Language</span></div>
+<div class="hs"><b>16:9</b><span>Format</span></div>
+</div>
+</div>
+
+<div class="section">
+<div class="stitle">🎬 Découpage <b>Scènes</b></div>
+<div class="scenes">
+
+<div class="scene open" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">1</div><div class="scene-title">L'accroche — "Et si les enfants pouvaient..."</div><div class="scene-dur">0:00–0:15</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">Visual</div><div class="scene-val"><b>Dark screen.</b> A cursor blinks. Text types out: <b>"Et si un enfant de 10 ans pouvait hacker une imprimante ?"</b> Cut to: a kid laughing next to a printer spitting out "password123". Quick montage: soldering, LEDs lighting up, a robot rolling across a table.</div></div>
+<div class="scene-row"><div class="scene-label">Audio</div><div class="scene-val">Ambient hum → keyboard clicks → upbeat electronic music drops</div></div>
+<div class="scene-row"><div class="scene-label">Text</div><div class="scene-val">Workshop-DIY logo reveal at end of sequence</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">2</div><div class="scene-title">Le problème — "Zombies d'écrans"</div><div class="scene-dur">0:15–0:30</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">Visual</div><div class="scene-val">Split screen: <b>Left</b> — kid passively scrolling on a phone, gray tones. <b>Right</b> — same kid building a robot, vibrant colors. The right side "breaks through" and takes over the full screen.</div></div>
+<div class="scene-row"><div class="scene-label">Voice</div><div class="scene-val">"Les enfants passent 7h par jour sur les écrans. Et si ces heures devenaient des super-pouvoirs ?"</div></div>
+<div class="scene-row"><div class="scene-label">Music</div><div class="scene-val">Tension builds → resolves as the colorful side wins</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">3</div><div class="scene-title">L'atelier — "Un labo à Chelles"</div><div class="scene-dur">0:30–0:50</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">Visual</div><div class="scene-val">Aerial shot of Chelles → zoom into the workshop space. Kids (6–16) at tables: one programs a micro:bit, another builds a robot, another types code. <b>Real footage feel</b> — handheld camera, natural lighting.</div></div>
+<div class="scene-row"><div class="scene-label">Voice</div><div class="scene-val">"À Chelles, des enfants de 6 à 16 ans ne consomment pas la technologie — ils la construisent. Bienvenue à Workshop-DIY."</div></div>
+<div class="scene-row"><div class="scene-label">Text</div><div class="scene-val">Lower third: "Workshop-DIY · Association Loi 1901 · Chelles 77500"</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">4</div><div class="scene-title">Les apps — "86 apps, zéro install"</div><div class="scene-dur">0:50–1:05</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">Visual</div><div class="scene-val">Rapid-fire montage of app screenshots: CowSay Kids, Bit-Bot, Crypto Academy, SDR Kids Lab, Hacktivist Kids. Each appears for 1 second with a satisfying "pop" animation. Counter in corner ticks up: 1... 10... 39... 86.</div></div>
+<div class="scene-row"><div class="scene-label">Voice</div><div class="scene-val">"86 apps dans le navigateur. Robots, IA, radio, cryptographie, hacking éthique. Ouvrez un navigateur — c'est tout."</div></div>
+<div class="scene-row"><div class="scene-label">Text</div><div class="scene-val">"86 Apps · 7 Domains · 0 npm install"</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">5</div><div class="scene-title">Le hardware — "De vrais outils"</div><div class="scene-dur">1:05–1:20</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">Visual</div><div class="scene-val">Close-up shots: <b>micro:bit V2</b> lighting up LEDs, <b>ESP32</b> connecting to WiFi, <b>RTL-SDR</b> dongle receiving FM radio, <b>HackRF</b> showing a spectrum display. Each device held by a kid's hands.</div></div>
+<div class="scene-row"><div class="scene-label">Voice</div><div class="scene-val">"Du micro:bit au HackRF — du vrai matériel, dans de vraies mains, pour de vrais projets."</div></div>
+<div class="scene-row"><div class="scene-label">Text</div><div class="scene-val">Device names and prices appear next to each: "micro:bit V2 · 15€" etc.</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">6</div><div class="scene-title">Le lore — "Bug #42 vit ici"</div><div class="scene-dur">1:20–1:35</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">Visual</div><div class="scene-val">Quick comedic sequence: a kid discovers Bug #42 in the code — the bug "escapes" the screen (animated overlay), orders a pizza, changes the WiFi password to "password123" again. Coffee machine displays "8%".</div></div>
+<div class="scene-row"><div class="scene-label">Voice</div><div class="scene-val">"Et oui — Bug #42 vit toujours dans notre code. The coffee machine never goes above 8%. And the WiFi password? You already know."</div></div>
+<div class="scene-row"><div class="scene-label">Music</div><div class="scene-val">Playful 8-bit jingle over comedy moments</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">7</div><div class="scene-title">Les parents — "Mon enfant m'a expliqué Docker"</div><div class="scene-dur">1:35–1:48</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">Visual</div><div class="scene-val">Talking-head style: 2-3 parents looking amazed. One says: "She explained Docker to me at dinner." Another: "He built a weather station from scratch." Cut to kids looking proud.</div></div>
+<div class="scene-row"><div class="scene-label">Voice</div><div class="scene-val">"Le moment où un parent réalise que son enfant en sait plus que lui — c'est là que la magie opère."</div></div>
+<div class="scene-row"><div class="scene-label">Feel</div><div class="scene-val">Warm, emotional, genuine. Human moments.</div></div>
+</div></div>
+
+<div class="scene" onclick="this.classList.toggle('open')">
+<div class="scene-head"><div class="scene-num">8</div><div class="scene-title">L'appel — "Rejoignez-nous"</div><div class="scene-dur">1:48–2:00</div></div>
+<div class="scene-body">
+<div class="scene-row"><div class="scene-label">Visual</div><div class="scene-val">Group shot of kids waving at camera. Logo centered. Contact info fades in. Final shot: one kid turns to the camera and says <b>"password123"</b> — winks — cut to black.</div></div>
+<div class="scene-row"><div class="scene-label">Text</div><div class="scene-val">workshop-diy.org · 06 19 51 51 73 · Chelles 77500<br>"Séance découverte gratuite — Inscrivez-vous !"</div></div>
+<div class="scene-row"><div class="scene-label">Music</div><div class="scene-val">Upbeat peak → clean fade out on the wink</div></div>
+</div></div>
+
+</div>
+
+<div class="stitle">📐 Specs <b>Production</b></div>
+<div class="specs">
+<div class="spec"><span class="emoji">🎞️</span><h4>Format</h4><p>16:9 · 1920×1080<br>or 4K if available</p></div>
+<div class="spec"><span class="emoji">⏱️</span><h4>Duration</h4><p>2:00 sharp<br>8 scenes</p></div>
+<div class="spec"><span class="emoji">🎤</span><h4>Voiceover</h4><p>Voix chaude H/F<br>VO pro ou IA (ElevenLabs)</p></div>
+<div class="spec"><span class="emoji">🎵</span><h4>Music</h4><p>Électronique dynamique<br>Libre de droits ou généré par IA</p></div>
+<div class="spec"><span class="emoji">📝</span><h4>Subtitles</h4><p>Sous-titres FR intégrés<br>Versions EN + AR séparées</p></div>
+<div class="spec"><span class="emoji">🎯</span><h4>Platforms</h4><p>YouTube · Website<br>Événements · Présentations</p></div>
+</div>
+</div>
+
+<div class="foot"><b><i>WORKSHOP</i>-DIY</b><br>Association Loi 1901 · Chelles 77500 · <a href="https://workshop-diy.org" style="color:var(--acc);text-decoration:none">workshop-diy.org</a></div>
+
+<script>
+document.querySelectorAll('.scene')[0].classList.add('open');
+</script>
+</body>
+</html>

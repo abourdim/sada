@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Tutoriel : Bit-Bot</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#070b12;--s1:#0c1320;--brd:rgba(255,255,255,.06);--txt:#e4e8f2;--dim:rgba(255,255,255,.3);--app:#3b82f6;--app2:#2563eb;--acc:#ff6600;--r:12px}
+body{background:var(--bg);color:var(--txt);font-family:'Nunito',sans-serif;overflow-x:hidden}
+.hero{min-height:40vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(59,130,246,.06),transparent 50%);pointer-events:none}
+.badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--app);border:1px solid rgba(59,130,246,.2);padding:4px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:12px;display:inline-block}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,32px);font-weight:800;line-height:1.15;margin-bottom:6px}
+.hero h1 b{color:var(--app)}
+.hero p{font-size:12px;color:var(--dim);max-width:440px;line-height:1.6}
+.meta{display:flex;gap:0;margin-top:14px;border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;background:var(--s1)}
+.meta div{flex:1;text-align:center;padding:7px 10px;border-right:1px solid var(--brd);font-size:8px;color:var(--dim)}
+.meta div:last-child{border:none}
+.meta div b{display:block;font-family:'Syne',sans-serif;font-size:13px;color:var(--app)}
+.section{max-width:700px;margin:0 auto;padding:24px 16px}
+.stitle{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;margin-bottom:12px;text-align:center}
+.stitle b{color:var(--app)}
+.step{background:var(--s1);border:1px solid var(--brd);border-radius:var(--r);margin-bottom:8px;overflow:hidden;transition:.2s}
+.step:hover{border-color:rgba(59,130,246,.15)}
+.step-head{display:flex;align-items:center;gap:10px;padding:11px 14px}
+.step-num{font-family:'Syne',sans-serif;font-size:10px;font-weight:800;color:#000;background:var(--app);width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;flex:1}
+.step-dur{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim)}
+.step-body{padding:4px 14px 12px;border-top:1px solid var(--brd);font-size:11px;color:var(--dim);line-height:1.7}
+.step-body b{color:var(--txt);font-weight:600}
+.step-body .vo{font-style:italic;color:var(--txt);display:block;margin:4px 0}
+.foot{text-align:center;padding:20px 12px 14px;border-top:1px solid var(--brd);font-size:9px;color:var(--dim)}
+.foot b{font-family:'Syne',sans-serif;font-size:11px;color:var(--txt)}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="badge">tutoriel · bit-bot · storyboard enregistrement écran</div>
+<h1>🤖 <b>Bit-Bot</b> — Construis ton premier robot</h1>
+<p>Tutoriel d'enregistrement d'écran pour Bit-Bot. Du déballage du micro:bit au tableau de bord IoT.</p>
+<div class="meta"><div><b>4:00</b>Durée</div><div><b>8</b>Étapes</div><div><b>Débutant</b>Niveau</div><div><b>🖥️</b>Enreg. écran</div></div>
+</div>
+<div class="section">
+<div class="stitle">🎬 Script d'<b>enregistrement</b></div>
+<div class="step"><div class="step-head"><div class="step-num">1</div><div class="step-title">Déballer le micro:bit V2</div><div class="step-dur">0:00–0:20</div></div>
+<div class="step-body"><b>Action :</b> Montrer la carte micro:bit V2, le câble USB, le boîtier pile<br><span class="vo">« Tout ce qu'il te faut : un micro:bit V2, un câble USB et un boîtier pile. Coût total : environ 15 euros. »</span></div></div>
+
+<div class="step"><div class="step-head"><div class="step-num">2</div><div class="step-title">Ouvrir l'appli Bit-Bot</div><div class="step-dur">0:20–0:40</div></div>
+<div class="step-body"><b>Action :</b> Ouvrir le navigateur → aller à l'URL de Bit-Bot → montrer la page d'accueil<br><span class="vo">« Ouvre l'appli. Pas d'installation. Clique sur Connecter et appaire ton micro:bit en Bluetooth. »</span></div></div>
+
+<div class="step"><div class="step-head"><div class="step-num">3</div><div class="step-title">Appairer via BLE</div><div class="step-dur">0:40–1:10</div></div>
+<div class="step-body"><b>Action :</b> Cliquer sur Connecter → maintenir A+B sur le micro:bit → sélectionner dans la boîte de dialogue<br><span class="vo">« Maintiens les boutons A et B ensemble. Le motif d'appairage apparaît. Sélectionne-le. Connecté — tu vois déjà les données des capteurs en direct. »</span></div></div>
+
+<div class="step"><div class="step-head"><div class="step-num">4</div><div class="step-title">Premier pilotage — mode joystick</div><div class="step-dur">1:10–1:45</div></div>
+<div class="step-body"><b>Action :</b> Aller dans l'onglet Conduire → utiliser le joystick à l'écran → le robot bouge<br><span class="vo">« Le joystick envoie des commandes par Bluetooth. Avant, arrière, rotation. Ton premier pilotage de robot. »</span></div></div>
+
+<div class="step"><div class="step-head"><div class="step-num">5</div><div class="step-title">Contrôle des LEDs</div><div class="step-dur">1:45–2:15</div></div>
+<div class="step-body"><b>Action :</b> Aller dans l'onglet LEDs → dessiner un emoji sur la grille 5×5 → envoyer au micro:bit<br><span class="vo">« Dessine ce que tu veux sur la grille 5×5. Appuie sur envoyer. Ton micro:bit l'affiche instantanément. »</span></div></div>
+
+<div class="step"><div class="step-head"><div class="step-num">6</div><div class="step-title">Tableau de bord capteurs</div><div class="step-dur">2:15–2:50</div></div>
+<div class="step-body"><b>Action :</b> Aller dans l'onglet Capteurs → incliner le micro:bit → montrer accéléromètre, température, lumière<br><span class="vo">« Données des capteurs en temps réel. Incline-le — l'accéléromètre réagit. Couvre le capteur de lumière — le graphique chute. Des vraies données, de la vraie science. »</span></div></div>
+
+<div class="step"><div class="step-head"><div class="step-num">7</div><div class="step-title">Constructeur de widgets</div><div class="step-dur">2:50–3:30</div></div>
+<div class="step-body"><b>Action :</b> Aller dans Widgets → glisser la jauge de température et le capteur de lumière sur le tableau de bord<br><span class="vo">« Construis ton propre tableau de bord. Glisse des widgets, redimensionne-les, connecte-les aux capteurs. Ça, c'est l'IoT — construit par un enfant. »</span></div></div>
+
+<div class="step"><div class="step-head"><div class="step-num">8</div><div class="step-title">Sauvegarder et partager</div><div class="step-dur">3:30–4:00</div></div>
+<div class="step-body"><b>Action :</b> Sauvegarder le tableau de bord → montrer le lien de partage → mentionner le mode Explorateur<br><span class="vo">« Sauvegarde ton tableau de bord. Partage-le avec tes amis. Et quand tu es prêt — le mode Explorateur débloque les blocs de programmation et les commandes personnalisées. Ça, c'est Bit-Bot. »</span></div></div>
+</div>
+<div class="foot"><b style="font-family:'Amiri',serif;font-size:14px">صدى</b> <b style="font-size:9px;opacity:.5">sada</b> · Série Tutoriels · <a href="https://workshop-diy.org" style="color:var(--app);text-decoration:none">workshop-diy.org</a> · password123</div>
+</body>
+</html>

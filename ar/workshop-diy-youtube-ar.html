@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // YOUTUBE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Roboto:wght@400;500;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f0f0f;color:#fff;font-family:'Roboto',sans-serif;font-size:13px;min-height:100vh}
+
+/* BANNER */
+.banner{width:100%;height:140px;background:linear-gradient(135deg,#0a0a28,#1a0a3a,#0a1428);display:flex;align-items:center;justify-content:center;position:relative}
+.banner .text{text-align:center;z-index:1}
+.banner .text h1{font-size:clamp(20px,4vw,32px);font-weight:700;letter-spacing:2px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.banner .text p{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:2px}
+
+/* CHANNEL INFO */
+.channel{max-width:900px;margin:0 auto;padding:0 16px}
+.ch-top{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid #272727}
+.ch-avatar{width:56px;height:56px;border-radius:50%;background:#1a1a2e;display:flex;align-items:center;justify-content:center;font-size:30px}
+.ch-info .name{font-size:18px;font-weight:700}
+.ch-info .handle{font-size:11px;color:#aaa}
+.ch-info .stats{font-size:11px;color:#aaa;margin-top:1px}
+.ch-sub{margin-left:auto;padding:6px 14px;background:#fff;color:#0f0f0f;border-radius:18px;font-size:12px;font-weight:500;cursor:pointer;border:none}
+
+/* TABS */
+.tabs{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid #272727}
+.tab{padding:4px 0;font-size:12px;color:#aaa;cursor:pointer;border-bottom:2px solid transparent}
+.tab.active{color:#fff;border-bottom-color:#fff}
+
+/* VIDEO GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;padding:14px 0}
+
+.video-card{cursor:pointer;transition:opacity .2s}
+.video-card:hover{opacity:.8}
+.thumb{aspect-ratio:16/9;background:#1a1a2e;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;overflow:hidden}
+.thumb .duration{position:absolute;bottom:4px;right:4px;background:rgba(0,0,0,.8);color:#fff;padding:1px 4px;border-radius:2px;font-size:9px;font-weight:500}
+.thumb .live{position:absolute;bottom:4px;left:4px;background:#cc0000;color:#fff;padding:1px 6px;border-radius:2px;font-size:8px;font-weight:700}
+.v-info{padding:6px 0}
+.v-title{font-size:12px;font-weight:500;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.v-meta{font-size:10px;color:#aaa;margin-top:2px}
+
+.section-h{font-size:14px;font-weight:700;padding:10px 0 4px;border-top:1px solid #272727;margin-top:10px}
+
+.footer{text-align:center;padding:16px;font-size:6px;color:#222;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="banner">
+  <div class="text">
+    <h1>WORKSHOP-DIY</h1>
+    <p>39 تطبيق · 0 تثبيت · ∞ احتمالات</p>
+  </div>
+</div>
+
+<div class="channel">
+  <div class="ch-top">
+    <div class="ch-avatar">🤖</div>
+    <div class="ch-info">
+      <div class="name">Workshop-DIY Official ✓</div>
+      <div class="handle">@workshop-diy · 42K subscribers · 115 videos</div>
+      <div class="stats">Educational tech for youth · Association Loi 1901 · France 🇫🇷</div>
+    </div>
+    <button class="ch-sub">اشتراك</button>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active">فيديوهات</div>
+    <div class="tab">Shorts</div>
+    <div class="tab">Live</div>
+    <div class="tab">Playlists</div>
+    <div class="tab">المجتمع</div>
+    <div class="tab">حول</div>
+  </div>
+
+  <div class="section-h">📌 Popular videos</div>
+  <div class="grid">
+    <div class="video-card">
+      <div class="thumb">🤖💨<div class="duration">12:42</div></div>
+      <div class="v-info"><div class="v-title">bit-bot Survives 47 Desk Drops — COMPILATION</div><div class="v-meta">1.2M views · 6 months ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb">🐛⚖️<div class="duration">42:00</div></div>
+      <div class="v-info"><div class="v-title">The Trial of Bug #42 (FULL COURTROOM FOOTAGE)</div><div class="v-meta">847K views · 1 month ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb">🐳👦<div class="duration">8:15</div></div>
+      <div class="v-info"><div class="v-title">14-Year-Old Explains Docker to His DevOps Dad</div><div class="v-meta">3.4M views · 3 months ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb">🔐🖨️<div class="duration">5:33</div></div>
+      <div class="v-info"><div class="v-title">Student Hacks School Printer (Ethically) — Port 9100</div><div class="v-meta">2.1M views · 4 months ago</div></div>
+    </div>
+  </div>
+
+  <div class="section-h">🔴 Latest uploads</div>
+  <div class="grid">
+    <div class="video-card">
+      <div class="thumb">☕😤<div class="live">LIVE</div></div>
+      <div class="v-info"><div class="v-title">آلة القهوة 8% Watch — 24/7 Livestream</div><div class="v-meta">1,337 watching now · Started 14 months ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb">🪄✨<div class="duration">4:21</div></div>
+      <div class="v-info"><div class="v-title">Magic Hands: 21 Landmarks Per Hand in Real-Time</div><div class="v-meta">567K views · 2 weeks ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb">🔑🤦<div class="duration">0:42</div></div>
+      <div class="v-info"><div class="v-title">WiFi Password Petition #4: DENIED (Short)</div><div class="v-meta">420K views · 1 week ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb">🧠📊<div class="duration">6:08</div></div>
+      <div class="v-info"><div class="v-title">Teachable Machine — 98% Accuracy in the Browser</div><div class="v-meta">289K views · 3 weeks ago</div></div>
+    </div>
+  </div>
+
+  <div class="section-h">📋 Playlists</div>
+  <div class="grid">
+    <div class="video-card">
+      <div class="thumb" style="background:linear-gradient(135deg,#001a00,#003300)">🤖<div class="duration">5 videos</div></div>
+      <div class="v-info"><div class="v-title">🤖 Robotics Domain — Complete Guide</div><div class="v-meta">Updated 2 weeks ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb" style="background:linear-gradient(135deg,#1a001a,#330033)">🧠<div class="duration">4 videos</div></div>
+      <div class="v-info"><div class="v-title">🧠 AI & Machine Learning — From Zero to Neural</div><div class="v-meta">Updated 1 month ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb" style="background:linear-gradient(135deg,#1a0000,#330000)">🔐<div class="duration">3 videos</div></div>
+      <div class="v-info"><div class="v-title">🔐 Ethical Hacking — Cybersecurity for Youth</div><div class="v-meta">Updated 3 weeks ago</div></div>
+    </div>
+    <div class="video-card">
+      <div class="thumb" style="background:linear-gradient(135deg,#0a0a14,#1a1a28)">🐛<div class="duration">∞ videos</div></div>
+      <div class="v-info"><div class="v-title">🐛 Bug #42 Lore — Complete Timeline</div><div class="v-meta">Updated constantly · by itself</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">WKSHP-TUBE · NOT ACTUAL YOUTUBE · ALL VIEWS ARE SIMULATED · BUGS ARE TRENDING</div>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

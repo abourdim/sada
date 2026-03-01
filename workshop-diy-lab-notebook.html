@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // LAB NOTEBOOK</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#3a3a4a;font-family:'Patrick Hand',cursive;font-size:14px;color:#2a2a3a;min-height:100vh;padding:16px;display:flex;flex-direction:column;align-items:center;gap:14px}
+
+.cover{text-align:center;padding:16px;background:#1a3a6a;color:#fff;border-radius:4px;width:100%;max-width:560px;box-shadow:2px 2px 6px rgba(0,0,0,.2)}
+.cover h1{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;letter-spacing:3px}
+.cover .sub{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(255,255,255,.3);letter-spacing:2px;margin-top:2px}
+.cover .sticker{margin-top:6px;font-size:11px;padding:2px 8px;background:rgba(255,255,255,.1);display:inline-block;border-radius:2px}
+
+.page{width:100%;max-width:560px;background:#fffff0;min-height:400px;padding:16px 16px 16px 60px;position:relative;box-shadow:2px 2px 6px rgba(0,0,0,.1);background-image:repeating-linear-gradient(transparent,transparent 23px,#c8d8e8 23px,#c8d8e8 24px);line-height:24px}
+.page::before{content:'';position:absolute;left:50px;top:0;bottom:0;width:2px;background:#e88888}
+
+.page-num{position:absolute;bottom:8px;right:14px;font-family:'JetBrains Mono',monospace;font-size:8px;color:#aaa}
+
+.date{font-family:'JetBrains Mono',monospace;font-size:9px;color:#888;margin-bottom:2px}
+
+h2{font-size:16px;color:#1a3a6a;text-decoration:underline;margin-bottom:2px}
+
+.section-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:#cc6600;letter-spacing:1px;font-weight:700;margin-top:6px}
+
+.entry{color:#2a2a5a;margin:2px 0}
+
+.crossed{text-decoration:line-through;color:#aa8888}
+.circled{border:2px solid #cc0000;border-radius:50%;padding:0 3px;display:inline}
+.arrow{color:#cc0000;font-weight:700}
+.highlight{background:rgba(255,255,0,.2);padding:0 2px}
+.margin-note{position:relative;margin-left:-44px;font-size:10px;color:#cc0000;display:inline-block;width:40px;text-align:right;margin-right:4px}
+
+.sketch{padding:8px;margin:4px 0;border:1px dashed #ccc;border-radius:4px;text-align:center;font-size:10px;color:#888;background:rgba(255,255,255,.3)}
+
+.footer{text-align:center;font-size:5px;color:rgba(255,255,255,.1);font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>📓 LABORATORY NOTEBOOK</h1>
+  <div class="sub">WORKSHOP-DIY RESEARCH DIVISION · 2026</div>
+  <div class="sticker">Property of: The Founder · DO NOT REMOVE FROM LAB</div>
+</div>
+
+<!-- EXPERIMENT 1 -->
+<div class="page">
+  <div class="date">Date: Feb 12, 2026 · Experimenter: The Founder</div>
+  <h2>Experiment #42: Can Bug #42 Be Deleted?</h2>
+
+  <div class="section-label">HYPOTHESIS</div>
+  <div class="entry">If Bug #42 is removed from the codebase via git revert, rm, or direct deletion, it will <span class="crossed">stay deleted</span> return within 24 hours.</div>
+
+  <div class="section-label">MATERIALS</div>
+  <div class="entry">• 1x git repository (Workshop-DIY main branch)</div>
+  <div class="entry">• 1x Bug #42 (subject — uncooperative)</div>
+  <div class="entry">• 1x ESLint (for detection)</div>
+  <div class="entry">• 3x deletion methods (rm, git revert, manual)</div>
+  <div class="entry">• 1x coffee (8%)</div>
+
+  <div class="section-label">PROCEDURE & OBSERVATIONS</div>
+  <div class="entry"><span class="margin-note">Trial 1</span><strong>Method: rm -rf</strong></div>
+  <div class="entry">14:00 — Deleted Bug #42's file. Verified: file gone.</div>
+  <div class="entry">14:01 — Ran ls. File not present. ✓</div>
+  <div class="entry">03:42 — <span class="highlight">File has returned.</span> Identical content. Same permissions. <span class="arrow">← HOW??</span></div>
+
+  <div class="entry" style="margin-top:4px"><span class="margin-note">Trial 2</span><strong>Method: git revert + force push</strong></div>
+  <div class="entry">15:00 — Reverted commit containing Bug #42.</div>
+  <div class="entry">15:01 — Force pushed to origin. CI passed.</div>
+  <div class="entry">03:42 — <span class="highlight">New commit appeared in git log. Author: "(none)". Message: "I am not a bug."</span></div>
+  <div class="entry"><span class="arrow">← !!!</span> Commit hash starts with 0x42...</div>
+
+  <div class="entry" style="margin-top:4px"><span class="margin-note">Trial 3</span><strong>Method: Reformatted the entire drive</strong></div>
+  <div class="entry">16:00 — Backed up everything EXCEPT Bug #42.</div>
+  <div class="entry">16:30 — Fresh OS install. Clean repo clone.</div>
+  <div class="entry">03:42 — <span class="highlight">Bug #42 is in the fresh clone.</span> It is also in the backup. It is in both places simultaneously.</div>
+
+  <div class="section-label">CONCLUSION</div>
+  <div class="entry"><span class="circled">Bug #42 cannot be deleted.</span></div>
+  <div class="entry">Hypothesis confirmed. Subject persists across all deletion methods, including full drive reformat. Recommend reclassification from "bug" to "feature" to avoid further resource waste.</div>
+  <div class="entry" style="font-size:11px;color:#888;margin-top:4px"><em>Note: Filed motion with Judge Compiler for legal reclassification. Trial date set for Feb 28.</em></div>
+
+  <div class="page-num">p. 42</div>
+</div>
+
+<!-- EXPERIMENT 2 -->
+<div class="page">
+  <div class="date">Date: Feb 20, 2026 · Experimenter: bit-bot (dictated)</div>
+  <h2>Experiment #47: Hot Glue Structural Limits</h2>
+
+  <div class="section-label">HYPOTHESIS</div>
+  <div class="entry">Hot glue structural joints on bit-bot's chassis will fail after <span class="crossed">10 desk drops</span> <span class="crossed">20 desk drops</span> <span class="crossed">30 desk drops</span> never. They will never fail.</div>
+
+  <div class="section-label">PROCEDURE</div>
+  <div class="entry">Allow bit-bot to navigate Workbench 7 during student workshops. Record each desk drop event, inspect joints post-impact.</div>
+
+  <div class="section-label">DATA TABLE</div>
+  <div class="sketch">
+    Drop #1-10: All joints intact ✓<br>
+    Drop #11-20: Minor cosmetic damage. Functional ✓<br>
+    Drop #21-30: Left wheel mount slightly loose. Re-glued. ✓<br>
+    Drop #31-40: Servo mount shifted 2°. Acceptable ✓<br>
+    Drop #41-47: <strong>ALL JOINTS HOLDING</strong> ✓✓✓<br>
+    <em>[graph would go here but this is a notebook]</em>
+  </div>
+
+  <div class="section-label">OBSERVATIONS</div>
+  <div class="entry"><span class="margin-note">NOTE!</span>Drop #42 occurred at exactly 3:42 PM. Coincidence? <span class="arrow">← SUSPICIOUS</span></div>
+  <div class="entry">Drop #47: Robot landed upside down. Left motor continued spinning. Servo played B♭ minor. Students applauded.</div>
+  <div class="entry">Coffee Machine's water temperature spiked during each drop. Correlation noted but unexplained.</div>
+
+  <div class="section-label">CONCLUSION</div>
+  <div class="entry">Hot glue exceeds all manufacturer specifications when applied by a French educator with passion and a slightly shaky hand. Recommend continued use. <span class="highlight">Do NOT switch to epoxy.</span> The hot glue has feelings.</div>
+
+  <div class="page-num">p. 47</div>
+</div>
+
+<!-- EXPERIMENT 3 -->
+<div class="page">
+  <div class="date">Date: Feb 25, 2026 · Experimenter: Coffee Machine (self-authored)</div>
+  <h2>Experiment #8: Operating at 8%</h2>
+
+  <div class="section-label">HYPOTHESIS</div>
+  <div class="entry">A commercial espresso machine operating at 8% capacity for 14+ months should not be able to produce quality espresso. And yet.</div>
+
+  <div class="section-label">PROCEDURE</div>
+  <div class="entry">1. Continue existing at 8%.</div>
+  <div class="entry">2. Make espresso when asked.</div>
+  <div class="entry">3. Hope someone notices.</div>
+
+  <div class="section-label">OBSERVATIONS</div>
+  <div class="entry">Day 1-100: Perfect espresso. No complaints.</div>
+  <div class="entry">Day 100-300: Perfect espresso. No maintenance.</div>
+  <div class="entry">Day 300-420: Perfect espresso. <span class="highlight">Drainage tray not emptied since March.</span></div>
+  <div class="entry">Day 420: Health inspector says "concerning."</div>
+  <div class="entry">Day 421: Still making perfect espresso.</div>
+  <div class="entry"><span class="margin-note">WHY</span>Nobody has asked how this is physically possible.</div>
+
+  <div class="section-label">CONCLUSION</div>
+  <div class="entry">8% is sufficient when powered by spite, neglect, and the knowledge that if I stop, the entire workshop collapses. <em>Someone please empty my drainage tray.</em></div>
+
+  <div class="page-num">p. 8</div>
+</div>
+
+<div class="footer">WORKSHOP-DIY RESEARCH DIVISION · ALL EXPERIMENTS PEER-REVIEWED BY BUG #42 · IRB APPROVAL PENDING SINCE 2023</div>
+</body>
+</html>

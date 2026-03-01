@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // ESP32-C3 PINOUT</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;min-height:100vh;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px}
+
+h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#00cc66;letter-spacing:2px}
+.sub{font-size:7px;color:rgba(0,204,102,.08);letter-spacing:2px}
+
+.layout{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;width:100%;max-width:800px}
+
+/* BOARD */
+.board-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
+.board{background:#1a3a1a;border-radius:6px;padding:10px;border:2px solid #2a4a2a;position:relative;display:flex;gap:0;box-shadow:0 4px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.03)}
+
+.pin-col{display:flex;flex-direction:column;gap:3px}
+.pin-col.left{align-items:flex-end}
+.pin-col.right{align-items:flex-start}
+
+.chip-body{width:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;position:relative}
+.chip-ic{width:60px;height:60px;background:#111;border-radius:4px;border:1px solid #333;display:flex;align-items:center;justify-content:center;flex-direction:column;position:relative}
+.chip-ic::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:14px;height:4px;background:#1a3a1a;border-radius:0 0 4px 4px}
+.chip-label{font-size:6px;color:#555;letter-spacing:1px}
+.chip-name{font-size:8px;color:#888;font-weight:700}
+.usb-port{width:30px;height:14px;background:#444;border-radius:2px;margin-bottom:6px;border:1px solid #555;display:flex;align-items:center;justify-content:center;font-size:4px;color:#666}
+.ant{width:16px;height:40px;background:repeating-linear-gradient(45deg,#2a4a2a,#2a4a2a 2px,#1a3a1a 2px,#1a3a1a 4px);border-radius:3px;margin-top:4px;border:1px solid #3a5a3a}
+.ant-label{font-size:5px;color:#3a5a3a;margin-top:1px}
+
+/* PIN */
+.pin{display:flex;align-items:center;gap:3px;cursor:pointer;padding:2px 4px;border-radius:3px;transition:all .15s}
+.pin:hover{background:rgba(255,255,255,.03)}
+.pin.selected{background:rgba(0,204,102,.06);box-shadow:0 0 6px rgba(0,204,102,.05)}
+
+.pin-dot{width:8px;height:8px;border-radius:50%;border:2px solid var(--c,#555);background:var(--bg,#1a1a1a);transition:all .15s;flex-shrink:0}
+.pin:hover .pin-dot{background:var(--c,#555);box-shadow:0 0 4px var(--c,#555)}
+.pin.selected .pin-dot{background:var(--c,#555);box-shadow:0 0 6px var(--c,#555)}
+
+.pin-num{font-size:7px;color:#555;width:16px;text-align:center}
+.pin-name{font-size:7px;font-weight:700;color:rgba(255,255,255,.3);min-width:28px}
+.pin-func{font-size:6px;color:rgba(255,255,255,.08);max-width:60px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* LEGEND */
+.legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.leg-item{display:flex;align-items:center;gap:3px;font-size:7px;color:rgba(255,255,255,.1);cursor:pointer;padding:2px 6px;border-radius:10px;border:1px solid transparent;transition:all .15s}
+.leg-item:hover,.leg-item.active{border-color:var(--c);color:var(--c);opacity:.4}
+.leg-dot{width:6px;height:6px;border-radius:50%;background:var(--c)}
+
+/* DETAIL PANEL */
+.detail{width:100%;max-width:800px;min-height:60px;border:1px solid rgba(0,204,102,.04);border-radius:8px;padding:10px;background:rgba(0,204,102,.005)}
+.detail-title{font-size:12px;font-weight:800;color:#00cc66;margin-bottom:4px}
+.detail-info{display:flex;gap:10px;flex-wrap:wrap}
+.detail-item{font-size:8px;color:rgba(255,255,255,.1)}
+.detail-item strong{color:rgba(255,255,255,.2)}
+.detail-code{margin-top:6px;padding:6px;background:rgba(0,0,0,.2);border-radius:4px;font-size:8px;color:rgba(0,204,102,.15);line-height:2}
+.detail-workshop{margin-top:4px;font-size:8px;color:rgba(255,200,0,.1);font-style:italic}
+
+.footer{font-size:5px;color:rgba(0,204,102,.02);letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<h1>⚡ ESP32-C3 PINOUT</h1>
+<div class="sub">RISC-V · WIFI + BLE 5.0 · WORKSHOP-DIY REFERENCE CARD</div>
+
+<div class="legend" id="legend"></div>
+
+<div class="layout">
+<div class="board-wrap">
+  <div class="board">
+    <div class="pin-col left" id="leftPins"></div>
+    <div class="chip-body">
+      <div class="usb-port">USB-C</div>
+      <div class="chip-ic">
+        <div class="chip-label">ESPRESSIF</div>
+        <div class="chip-name">ESP32-C3</div>
+        <div class="chip-label">RISC-V</div>
+      </div>
+      <div class="ant"></div>
+      <div class="ant-label">2.4GHz</div>
+    </div>
+    <div class="pin-col right" id="rightPins"></div>
+  </div>
+</div>
+</div>
+
+<div class="detail" id="detail">
+  <div class="detail-title" id="dTitle">👆 Click any pin for details</div>
+  <div class="detail-info" id="dInfo"></div>
+  <div class="detail-code" id="dCode" style="display:none"></div>
+  <div class="detail-workshop" id="dWorkshop"></div>
+</div>
+
+<div class="footer">WORKSHOP-DIY · ESP32-C3 DEVKIT · ALL PINS ARE 3.3V · DO NOT EXCEED · password123</div>
+
+<script>
+const COLORS={
+  power:'#ff4444',gpio:'#00cc66',adc:'#ffaa00',pwm:'#00aaff',
+  i2c:'#cc66ff',spi:'#ff6600',uart:'#00cccc',ble:'#0088ff',
+  gnd:'#666666',special:'#ff66aa'
+};
+
+const PINS_LEFT=[
+  {num:'',name:'3V3',funcs:['power'],color:'power',desc:'3.3V Power Output',code:'// 3.3V supply — max 500mA\n// Powers sensors, LEDs, servos (small)',workshop:'Powers bit-bot sensors, NeoPixel data line logic level'},
+  {num:'',name:'GND',funcs:['gnd'],color:'gnd',desc:'Ground',code:'// Common ground\n// Connect all GNDs together!',workshop:'Shared ground with micro:bit, servos, NeoPixels'},
+  {num:'0',name:'GPIO0',funcs:['gpio','adc','pwm'],color:'adc',desc:'General Purpose I/O · ADC1_CH0',code:'analogRead(0);  // Read analog 0-4095\nanalogWrite(0, 128);  // PWM output',workshop:'Analog sensor input for bit-bot line followers'},
+  {num:'1',name:'GPIO1',funcs:['gpio','adc','pwm'],color:'adc',desc:'General Purpose I/O · ADC1_CH1',code:'analogRead(1);  // Read analog\npins.analogReadPin(AnalogPin.P1)',workshop:'IR distance sensor on bit-bot'},
+  {num:'2',name:'GPIO2',funcs:['gpio','adc','pwm','i2c'],color:'adc',desc:'GPIO · ADC1_CH2 · Can be SDA',code:'Wire.begin(2, 3);  // SDA=2, SCL=3\n// Or analog: analogRead(2)',workshop:'I2C data line for LCD/OLED displays in workshops'},
+  {num:'3',name:'GPIO3',funcs:['gpio','adc','pwm','i2c'],color:'adc',desc:'GPIO · ADC1_CH3 · Can be SCL',code:'Wire.begin(2, 3);  // SDA=2, SCL=3\n// I2C clock line',workshop:'I2C clock for sensor expansions'},
+  {num:'4',name:'GPIO4',funcs:['gpio','adc','pwm','spi'],color:'gpio',desc:'GPIO · ADC1_CH4 · SPI MISO',code:'digitalWrite(4, HIGH);\n// SPI: MISO line',workshop:'NeoPixel data pin (default in esp32-lab)'},
+  {num:'5',name:'GPIO5',funcs:['gpio','adc','pwm','spi'],color:'gpio',desc:'GPIO · ADC1_CH5 · SPI MOSI/SCK',code:'SPI.begin(5, 4, 6);  // SCK, MISO, MOSI',workshop:'Buzzer/speaker output pin'},
+];
+
+const PINS_RIGHT=[
+  {num:'',name:'5V',funcs:['power'],color:'power',desc:'5V from USB (input or pass-through)',code:'// 5V USB power\n// Use for NeoPixels, servos',workshop:'Powers NeoPixel strip VCC, servo motor VCC'},
+  {num:'',name:'GND',funcs:['gnd'],color:'gnd',desc:'Ground',code:'// Ground pin',workshop:''},
+  {num:'6',name:'GPIO6',funcs:['gpio','pwm','spi'],color:'gpio',desc:'GPIO · SPI MOSI',code:'ledcWrite(0, dutyCycle);\n// PWM for motor control',workshop:'Motor driver IN1 for bit-bot left motor'},
+  {num:'7',name:'GPIO7',funcs:['gpio','pwm','spi'],color:'gpio',desc:'GPIO · SPI SS',code:'ledcWrite(1, dutyCycle);\n// PWM for motor control',workshop:'Motor driver IN2 for bit-bot right motor'},
+  {num:'8',name:'GPIO8',funcs:['gpio','pwm','special'],color:'special',desc:'GPIO · RGB LED (DevKit) · Boot',code:'neopixelWrite(8, r, g, b);\n// Built-in RGB LED on some boards',workshop:'Built-in RGB LED — status indicator, BLE connection feedback'},
+  {num:'9',name:'GPIO9',funcs:['gpio','special'],color:'special',desc:'BOOT Button · Strapping Pin',code:'pinMode(9, INPUT_PULLUP);\nif(!digitalRead(9)) { /* pressed */ }',workshop:'Boot button — used as user button in workshops'},
+  {num:'10',name:'GPIO10',funcs:['gpio','pwm'],color:'gpio',desc:'GPIO · General Purpose',code:'Servo myServo;\nmyServo.attach(10);\nmyServo.write(90);',workshop:'Servo control pin for robot arm projects'},
+  {num:'20',name:'RX',funcs:['uart','gpio'],color:'uart',desc:'UART0 RX · USB Serial',code:'Serial.begin(115200);\n// USB serial for debugging',workshop:'USB serial debug — Arduino Serial Monitor'},
+  {num:'21',name:'TX',funcs:['uart','gpio'],color:'uart',desc:'UART0 TX · USB Serial',code:'Serial.println("Hello!");\n// Sends to USB serial',workshop:'USB serial output — debug logging'},
+];
+
+// BUILD LEGEND
+const legEl=document.getElementById('legend');
+const categories=[
+  {name:'Power',c:COLORS.power,key:'power'},
+  {name:'Ground',c:COLORS.gnd,key:'gnd'},
+  {name:'GPIO',c:COLORS.gpio,key:'gpio'},
+  {name:'ADC',c:COLORS.adc,key:'adc'},
+  {name:'PWM',c:COLORS.pwm,key:'pwm'},
+  {name:'I2C',c:COLORS.i2c,key:'i2c'},
+  {name:'SPI',c:COLORS.spi,key:'spi'},
+  {name:'UART',c:COLORS.uart,key:'uart'},
+  {name:'Special',c:COLORS.special,key:'special'},
+];
+let activeFilter=null;
+categories.forEach(cat=>{
+  const d=document.createElement('div');
+  d.className='leg-item';
+  d.style.setProperty('--c',cat.c);
+  d.innerHTML=`<div class="leg-dot" style="--c:${cat.c}"></div>${cat.name}`;
+  d.onclick=()=>{
+    if(activeFilter===cat.key){activeFilter=null;d.classList.remove('active');}
+    else{
+      document.querySelectorAll('.leg-item').forEach(l=>l.classList.remove('active'));
+      activeFilter=cat.key;d.classList.add('active');
+    }
+    updateHighlights();
+  };
+  legEl.appendChild(d);
+});
+
+function updateHighlights(){
+  document.querySelectorAll('.pin').forEach(p=>{
+    const funcs=JSON.parse(p.dataset.funcs||'[]');
+    if(!activeFilter){p.style.opacity='1';}
+    else{p.style.opacity=funcs.includes(activeFilter)?'1':'.2';}
+  });
+}
+
+// BUILD PINS
+function buildPin(pin,side){
+  const d=document.createElement('div');
+  d.className='pin';
+  d.dataset.funcs=JSON.stringify(pin.funcs);
+  const c=COLORS[pin.color]||COLORS.gpio;
+  const dot=`<div class="pin-dot" style="--c:${c};--bg:#1a1a1a"></div>`;
+  const num=`<div class="pin-num">${pin.num}</div>`;
+  const name=`<div class="pin-name" style="color:${c}80">${pin.name}</div>`;
+  const func=`<div class="pin-func">${pin.funcs.filter(f=>f!==pin.color).join(' · ')}</div>`;
+
+  if(side==='left'){
+    d.innerHTML=func+name+num+dot;
+    d.style.flexDirection='row';
+  }else{
+    d.innerHTML=dot+num+name+func;
+  }
+
+  d.onclick=()=>{
+    document.querySelectorAll('.pin').forEach(p=>p.classList.remove('selected'));
+    d.classList.add('selected');
+    showDetail(pin);
+  };
+  return d;
+}
+
+const leftEl=document.getElementById('leftPins');
+const rightEl=document.getElementById('rightPins');
+PINS_LEFT.forEach(p=>leftEl.appendChild(buildPin(p,'left')));
+PINS_RIGHT.forEach(p=>rightEl.appendChild(buildPin(p,'right')));
+
+function showDetail(pin){
+  document.getElementById('dTitle').textContent=`${pin.name} — ${pin.desc}`;
+  document.getElementById('dInfo').innerHTML=pin.funcs.map(f=>`<div class="detail-item"><strong>${f.toUpperCase()}</strong></div>`).join('');
+  if(pin.code){
+    document.getElementById('dCode').style.display='block';
+    document.getElementById('dCode').textContent=pin.code;
+  }else{document.getElementById('dCode').style.display='none';}
+  document.getElementById('dWorkshop').textContent=pin.workshop?'🔧 Workshop-DIY: '+pin.workshop:'';
+}
+</script>
+</body>
+</html>

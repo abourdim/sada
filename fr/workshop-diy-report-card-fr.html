@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // BULLETIN SCOLAIRE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans:wght@400;700&family=Patrick+Hand&Amiri&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#e8e0d0;font-family:'Noto Sans',sans-serif;font-size:10px;min-height:100vh;padding:16px}
+
+.report{max-width:580px;margin:0 auto;background:#fff;border:1px solid #bbb;padding:20px;box-shadow:1px 1px 4px rgba(0,0,0,.06)}
+
+.rh{text-align:center;margin-bottom:10px;border-bottom:2px solid #003366}
+.rh .crest{font-size:28px;margin-bottom:2px}
+.rh h1{font-size:14px;color:#003366;letter-spacing:3px;font-weight:700}
+.rh .sub{font-size:8px;color:#888;letter-spacing:2px;margin:2px 0 6px}
+
+.info{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:8px;font-size:9px}
+.info .f{padding:2px 0;border-bottom:1px dotted #ddd}
+.info .lbl{color:#888;font-size:7px;letter-spacing:1px}
+.info .val{color:#333;font-weight:700}
+
+/* NOTE TABLE */
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:9px}
+th{background:#003366;color:#fff;padding:4px 6px;text-align:left;font-size:7px;letter-spacing:1px}
+td{padding:4px 6px;border-bottom:1px solid #eee}
+tr:hover{background:#f8f8f4}
+.grade{font-weight:700;text-align:center;font-size:12px;font-family:'Patrick Hand',cursive}
+.grade-a{color:#008800}.grade-b{color:#006688}.grade-c{color:#cc8800}.grade-f{color:#cc0000}
+.comment{font-family:'Patrick Hand',cursive;font-size:10px;color:#1a1a8a}
+
+.gpa{text-align:center;margin:10px 0;padding:8px;background:#f0f8ff;border:1px solid #cce0ff;border-radius:4px}
+.gpa .num{font-size:28px;font-weight:700;color:#003366}
+.gpa .label{font-size:7px;color:#888;letter-spacing:2px}
+.gpa .honor{font-size:9px;color:#cc8800;font-weight:700;margin-top:2px;letter-spacing:1px}
+
+.conduct{margin:8px 0;padding:8px;border:1px solid #eee;border-radius:4px}
+.conduct h3{font-size:8px;color:#003366;letter-spacing:1px;margin-bottom:4px}
+.conduct-row{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dotted #f0f0f0;font-size:9px}
+.conduct-grade{font-family:'Patrick Hand',cursive;color:#1a1a8a;font-size:11px}
+
+.teacher-note{margin:8px 0;padding:8px;background:#fffff0;border:1px solid #f0e8c0;border-radius:4px}
+.teacher-note h3{font-size:8px;color:#886600;letter-spacing:1px;margin-bottom:4px}
+.teacher-note p{font-family:'Patrick Hand',cursive;font-size:11px;color:#1a1a8a;line-height:2}
+
+.sig-row{display:flex;gap:14px;margin-top:10px}
+.sig{flex:1;text-align:center}
+.sig-val{font-family:'Patrick Hand',cursive;font-size:13px;color:#1a1a8a;min-height:20px}
+.sig-line{border-top:1px solid #999;padding-top:2px;font-size:7px;color:#999;margin-top:6px}
+
+.footer{text-align:center;margin-top:10px;font-size:6px;color:#bbb;letter-spacing:1px;font-family:'JetBrains Mono',monospace}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(0,0,0,.06);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="report">
+
+<div class="rh">
+  <div class="crest">🎓</div>
+  <h1>BULLETIN SCOLAIRE OFFICIEL</h1>
+  <div class="sub">WORKSHOP-DIY ACADEMY · ANNÉE SCOLAIRE 2025-2026</div>
+</div>
+
+<div class="info">
+  <div class="f"><div class="lbl">ÉLÈVE</div><div class="val">Workshop-DIY (la plateforme)</div></div>
+  <div class="f"><div class="lbl">NIVEAU</div><div class="val">Avancé · 3ème année</div></div>
+  <div class="f"><div class="lbl">RÉFÉRENT</div><div class="val">Le Fondateur</div></div>
+  <div class="f"><div class="lbl">SEMESTRE</div><div class="val">Printemps 2026</div></div>
+</div>
+
+<table>
+<tr><th>MATIÈRE</th><th>APP</th><th style="text-align:center">NOTE</th><th>COMMENTAIRES</th></tr>
+<tr><td>Robotique</td><td>bit-bot</td><td class="grade grade-a">A+</td><td class="comment">Résilience exceptionnelle. A survécu à 47 chutes. Chouchou de la classe.</td></tr>
+<tr><td>Intelligence Artificielle</td><td>teachable-machine</td><td class="grade grade-a">A</td><td class="comment">98% de précision. Régulier. Met les parents mal à l'aise.</td></tr>
+<tr><td>Cybersécurité</td><td>pentest-lab</td><td class="grade grade-a">A</td><td class="comment">A trouvé la faille de l'imprimante. Divulgation responsable. Impressionnant.</td></tr>
+<tr><td>Informatique</td><td>docker-lab</td><td class="grade grade-b">B+</td><td class="comment">Excellent contenu. Perturbe plus les adultes que les enfants. Fonctionnalité ?</td></tr>
+<tr><td>Reconnaissance gestuelle</td><td>magic-hands</td><td class="grade grade-a">A+</td><td class="comment">21 repères par main. Les effets de particules sont magnifiques.</td></tr>
+<tr><td>Systèmes d'exploitation</td><td>linux-kids-lab</td><td class="grade grade-a">A</td><td class="comment">Les élèves font sudo avant de savoir conduire. Inquiétant et formidable.</td></tr>
+<tr><td>Sécurité Réseau</td><td>password123</td><td class="grade grade-f">F</td><td class="comment">Inchangé depuis 2023. A échoué à chaque audit. Adoré quand même.</td></tr>
+<tr><td>Ingénierie Matérielle</td><td>esp32-c3-lab</td><td class="grade grade-a">A</td><td class="comment">La colle chaude tient. Littéralement. Structurellement. Émotionnellement.</td></tr>
+<tr><td>Analyse Faciale</td><td>face-quest</td><td class="grade grade-a">A+</td><td class="comment">468 repères en temps réel. Dans un navigateur. Frimeur.</td></tr>
+<tr><td>Design Lumineux</td><td>wled-kids-lab</td><td class="grade grade-b">B+</td><td class="comment">16 millions de couleurs. Les élèves choisissent arc-en-ciel. À chaque fois.</td></tr>
+<tr><td>Communication Web</td><td>mission-control</td><td class="grade grade-a">A</td><td class="comment">WebRTC P2P dans le navigateur. Magie noire déguisée en éducation.</td></tr>
+<tr><td>Études Existentielles</td><td>Bug #42</td><td class="grade grade-a">A+</td><td class="comment">Pas inscrit. Se présente quand même. A la meilleure note. Inexplicable.</td></tr>
+<tr><td>Services de Restauration</td><td>Machine à café</td><td class="grade grade-c">C-</td><td class="comment">À 8% depuis 14 mois. Le bac est un danger biologique. Le café est parfait.</td></tr>
+</table>
+
+<div class="gpa">
+  <div class="label">MOYENNE GÉNÉRALE</div>
+  <div class="num">3.87</div>
+  <div class="honor">★ TABLEAU D'HONNEUR · FÉLICITATIONS ★</div>
+</div>
+
+<div class="conduct">
+  <h3>CONDUITE & VIE SCOLAIRE</h3>
+  <div class="conduct-row"><span>Assiduité</span><span class="conduct-grade">24h/24 (c'est un site web)</span></div>
+  <div class="conduct-row"><span>Participation</span><span class="conduct-grade">847 utilisateurs actifs</span></div>
+  <div class="conduct-row"><span>Suit les consignes</span><span class="conduct-grade">Zéro installation requise</span></div>
+  <div class="conduct-row"><span>Travail en équipe</span><span class="conduct-grade">39 apps, 0 conflits</span></div>
+  <div class="conduct-row"><span>Respect du mot de passe WiFi</span><span class="conduct-grade">...sans commentaire</span></div>
+</div>
+
+<div class="teacher-note">
+  <h3>OBSERVATIONS DU RÉFÉRENT</h3>
+  <p>Workshop-DIY a fait preuve d'une progression extraordinaire cette année. 39 applications web pleinement opérationnelles sans aucune installation — du jamais vu. Le seul point d'attention reste le mot de passe WiFi et l'état critique prolongé de la machine à café. Le Bug #42 continue de défier toute classification mais contribue positivement à l'écosystème. Passage en classe supérieure vivement recommandé.</p>
+</div>
+
+<div class="sig-row">
+  <div class="sig"><div class="sig-val">Le Fondateur</div><div class="sig-line">RÉFÉRENT</div></div>
+  <div class="sig"><div class="sig-val">Chef Compilateur</div><div class="sig-line">DIRECTEUR</div></div>
+  <div class="sig"><div class="sig-val">Bug #42</div><div class="sig-line">ÉLÈVE (auto-signé)</div></div>
+</div>
+
+</div>
+
+<div class="footer">WORKSHOP-DIY ACADEMY · RELEVÉ OFFICIEL · FORM RC-042 · SCEAU APPOSÉ · LES BUGS SONT ÉLÈVES D'HONNEUR</div>
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

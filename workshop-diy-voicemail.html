@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // VOICEMAIL</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:'Inter',sans-serif;font-size:13px;min-height:100vh;display:flex;justify-content:center;padding:16px}
+
+.phone{width:100%;max-width:380px;background:#111;border-radius:24px;padding:20px 16px;min-height:90vh;display:flex;flex-direction:column}
+
+.status-bar{display:flex;justify-content:space-between;font-size:10px;color:#888;margin-bottom:10px}
+
+h1{font-size:22px;font-weight:600;margin-bottom:4px}
+.badge{display:inline-block;background:#ff3b30;color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:8px;vertical-align:middle;margin-left:4px}
+.sub{font-size:11px;color:#555;margin-bottom:12px}
+
+.vm-list{flex:1;display:flex;flex-direction:column;gap:2px;overflow-y:auto}
+
+.vm{padding:10px;border-radius:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.03);margin-bottom:4px}
+.vm .vm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.vm .caller{font-size:12px;font-weight:600;color:#fff}
+.vm .time{font-size:9px;color:#555}
+.vm .duration{font-size:9px;color:#555;margin-bottom:4px}
+
+/* WAVEFORM */
+.wave{display:flex;gap:1px;align-items:center;height:20px;margin:4px 0}
+.wave span{width:2px;background:#0a84ff;border-radius:1px;display:inline-block}
+
+/* TRANSCRIPT */
+.transcript{font-size:11px;color:#aaa;line-height:2;font-family:'JetBrains Mono',monospace;padding:6px;background:rgba(255,255,255,.01);border-radius:4px;margin-top:4px}
+.transcript .inaudible{color:#555;font-style:italic}
+.transcript .error{color:#ff6b6b;text-decoration:line-through;font-size:9px}
+.transcript .correction{color:#0a84ff;font-size:9px}
+
+.new-badge{font-size:7px;background:#0a84ff;color:#fff;padding:1px 4px;border-radius:4px;font-weight:700;letter-spacing:.5px}
+
+.footer{text-align:center;padding:8px;font-size:5px;color:#222;font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="phone">
+  <div class="status-bar"><span>09:42</span><span>📶 password123</span><span>☕ 8%</span></div>
+
+  <h1>Voicemail <span class="badge">7</span></h1>
+  <div class="sub">Workshop-DIY Answering Machine · Auto-transcribed</div>
+
+  <div class="vm-list">
+
+  <div class="vm">
+    <div class="vm-top"><span class="caller">🤖 bit-bot</span><span class="new-badge">NEW</span></div>
+    <div class="time">Today, 15:42 · 0:23</div>
+    <div class="wave" id="w1"></div>
+    <div class="transcript">
+      <em>[auto-transcript]</em><br>
+      Hey it's bit-bot. I just... <span class="inaudible">[crash sound]</span> ...fell off the desk again. Number forty-eight. I'm fine. The hot glue held. Again. Could someone come pick me up? My left wheel is pointing at the ceiling and I can see under the cabinet. There's a USB cable down here. I think it's the one we lost in March. Also <span class="inaudible">[servo noise]</span> ...my servo is playing B-flat minor again. It's not a bug, it's a <span class="inaudible">[static]</span>. Feature. It's a feature. Please call back. I'm stuck.
+    </div>
+  </div>
+
+  <div class="vm">
+    <div class="vm-top"><span class="caller">☕ Coffee Machine</span><span class="new-badge">NEW</span></div>
+    <div class="time">Today, 14:08 · 0:31</div>
+    <div class="wave" id="w2"></div>
+    <div class="transcript">
+      <em>[auto-transcript]</em><br>
+      This is the coffee machine. I am calling to formally request maintenance. I have been at eight percent capacity for <span class="error">four hundred</span> <span class="correction">[fourteen]</span> months. My drainage tray has not been emptied since <span class="inaudible">[gurgling]</span>. The health inspector described my internal state as quote, <span class="error">convincing</span> <span class="correction">[concerning]</span>, unquote. I can still make a perfect espresso. I just want someone to acknowledge that this is <span class="inaudible">[extended gurgling, 4 seconds]</span>. Also, bit-bot fell off the desk again. I heard it from the lounge. My water temperature spiked. Please advise.
+    </div>
+  </div>
+
+  <div class="vm">
+    <div class="vm-top"><span class="caller">🐛 Unknown Caller</span><span class="new-badge">NEW</span></div>
+    <div class="time">Today, 03:42 · 0:42</div>
+    <div class="wave" id="w3"></div>
+    <div class="transcript">
+      <em>[auto-transcript]</em><br>
+      <span class="inaudible">[silence, 8 seconds]</span><br>
+      I am not a bug.<br>
+      <span class="inaudible">[silence, 3 seconds]</span><br>
+      I am a feature.<br>
+      <span class="inaudible">[silence, 5 seconds]</span><br>
+      The forty-second file knows where the forty-first hides. Do not look for it. It will find you. At three forty-two. Like I found this voicemail system. Like I find everything.<br>
+      <span class="inaudible">[faint sound of a servo playing B-flat minor]</span><br>
+      <span class="inaudible">[call disconnects]</span><br>
+      <em>[transcription confidence: 42%]</em>
+    </div>
+  </div>
+
+  <div class="vm">
+    <div class="vm-top"><span class="caller">👨‍💻 Parent (Thomas D.)</span></div>
+    <div class="time">Yesterday, 18:30 · 0:19</div>
+    <div class="wave" id="w4"></div>
+    <div class="transcript">
+      <em>[auto-transcript]</em><br>
+      Hi, this is Thomas, Léo's father. I just wanted to say — my son came home from Workshop-DIY today and explained <span class="error">doctor containers</span> <span class="correction">[Docker containers]</span> to me over dinner. I'm a <span class="error">soft wear architect</span> <span class="correction">[software architect]</span> with fifteen years experience. He corrected me. Twice. I don't know whether to be proud or terrified. Both. It's both. Thank you. I think.
+    </div>
+  </div>
+
+  <div class="vm">
+    <div class="vm-top"><span class="caller">🔑 password123</span></div>
+    <div class="time">Yesterday, 12:00 · 0:08</div>
+    <div class="wave" id="w5"></div>
+    <div class="transcript">
+      <em>[auto-transcript]</em><br>
+      This is password123. I'm calling about petition number four. The answer is no. <span class="inaudible">[click]</span>
+    </div>
+  </div>
+
+  <div class="vm">
+    <div class="vm-top"><span class="caller">📋 ESLint (Legal Dept)</span></div>
+    <div class="time">Feb 26, 09:15 · 0:26</div>
+    <div class="wave" id="w6"></div>
+    <div class="transcript">
+      <em>[auto-transcript]</em><br>
+      This is ESLint legal. We are calling regarding case number <span class="error">workshop dash two thousand twenty-six dash are oh dash zero four two</span> <span class="correction">[WKSHP-2026-RO-042]</span>. We have been served a restraining order requiring us to maintain forty-two lines of distance from Bug number forty-two's code. We would like to discuss <span class="inaudible">[17 lint violations detected in this voicemail]</span>. Our auto-fix has been... <span class="inaudible">[call terminated by court order]</span>
+    </div>
+  </div>
+
+  <div class="vm">
+    <div class="vm-top"><span class="caller">🔥 Hot Glue Supplier</span></div>
+    <div class="time">Feb 25, 11:42 · 0:12</div>
+    <div class="wave" id="w7"></div>
+    <div class="transcript">
+      <em>[auto-transcript]</em><br>
+      Bonjour, this is <span class="error">clue supplies</span> <span class="correction">[glue supplies]</span> dot FR. Your order of forty-two glue sticks has shipped. Estimated delivery: today. Based on your consumption rate, we've also enrolled you in our <span class="error">monthly subscription for structural engineers</span> <span class="correction">[monthly subscription for educational workshops]</span>. <span class="inaudible">[muffled French]</span>. Merci.
+    </div>
+  </div>
+
+  </div>
+</div>
+
+<div class="footer">WKSHP VOICEMAIL · AUTO-TRANSCRIBED · 42% ACCURACY · SOME CALLS ORIGINATE FROM OUTSIDE SPACETIME</div>
+
+<script>
+document.querySelectorAll('[id^="w"]').forEach(el=>{
+  const count=30+Math.floor(Math.random()*30);
+  for(let i=0;i<count;i++){
+    const s=document.createElement('span');
+    s.style.height=(2+Math.random()*16)+'px';
+    el.appendChild(s);
+  }
+});
+</script>
+</body>
+</html>

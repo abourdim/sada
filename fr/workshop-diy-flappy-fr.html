@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // FLAPPY BOT</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;font-family:'JetBrains Mono',monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px}
+h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:rgba(255,215,0,.15);letter-spacing:3px}
+canvas{border:2px solid rgba(255,255,255,.03);border-radius:8px;cursor:pointer;max-width:100%}
+.info{font-size:8px;color:rgba(255,255,255,.06);letter-spacing:1px;text-align:center}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<h1>FLAPPY BOT</h1>
+<canvas id="c" width="320" height="480"></canvas>
+<div class="info">CLICK / TAP / SPACE TO FLAP · AVOID THE WORKBENCHES · SURVIVE THE WORKSHOP</div>
+
+<script>
+const c=document.getElementById('c'),ctx=c.getContext('2d');
+const W=320,H=480;
+
+let bird={x:80,y:H/2,v:0,r:14};
+let pipes=[];
+let score=0,bestScore=0,frame=0;
+let state='start'; // start, play, dead
+const GRAVITY=.35,JUMP=-6.5,PIPE_W=42,GAP=130,PIPE_SPEED=2,PIPE_INTERVAL=100;
+
+const EMOJIS=['🤖','🐛','☕','🔑','🧠','🔐','🐳','🔧'];
+
+function reset(){
+  bird.y=H/2;bird.v=0;
+  pipes=[];score=0;frame=0;
+}
+
+function addPipe(){
+  const gapY=80+Math.random()*(H-GAP-160);
+  pipes.push({x:W,gapY,emoji:EMOJIS[Math.floor(Math.random()*EMOJIS.length)],scored:false});
+}
+
+function update(){
+  if(state!=='play')return;
+  frame++;
+  bird.v+=GRAVITY;
+  bird.y+=bird.v;
+
+  if(frame%PIPE_INTERVAL===0)addPipe();
+
+  for(let i=pipes.length-1;i>=0;i--){
+    pipes[i].x-=PIPE_SPEED;
+    // Score
+    if(!pipes[i].scored&&pipes[i].x+PIPE_W<bird.x){
+      pipes[i].scored=true;
+      score++;
+    }
+    // Collision
+    const p=pipes[i];
+    if(bird.x+bird.r>p.x&&bird.x-bird.r<p.x+PIPE_W){
+      if(bird.y-bird.r<p.gapY||bird.y+bird.r>p.gapY+GAP){
+        die();
+      }
+    }
+    if(p.x+PIPE_W<-10)pipes.splice(i,1);
+  }
+
+  if(bird.y>H-bird.r||bird.y<bird.r)die();
+}
+
+function die(){
+  state='dead';
+  bestScore=Math.max(bestScore,score);
+}
+
+function flap(){
+  if(state==='start'){state='play';reset();}
+  else if(state==='dead'){state='play';reset();}
+  if(state==='play')bird.v=JUMP;
+}
+
+function draw(){
+  // BG
+  ctx.fillStyle='#0a0a14';
+  ctx.fillRect(0,0,W,H);
+
+  // Ground
+  ctx.fillStyle='#111';
+  ctx.fillRect(0,H-20,W,20);
+  ctx.fillStyle='rgba(255,255,255,.02)';
+  for(let x=0;x<W;x+=20){
+    ctx.fillRect(x+(frame*PIPE_SPEED)%20-20,H-20,1,20);
+  }
+
+  // Pipes
+  pipes.forEach(p=>{
+    // Top pipe
+    ctx.fillStyle='#1a2a1a';
+    ctx.fillRect(p.x,0,PIPE_W,p.gapY);
+    ctx.fillStyle='#2a4a2a';
+    ctx.fillRect(p.x-3,p.gapY-12,PIPE_W+6,12);
+    // Bottom pipe
+    ctx.fillStyle='#1a2a1a';
+    ctx.fillRect(p.x,p.gapY+GAP,PIPE_W,H-p.gapY-GAP);
+    ctx.fillStyle='#2a4a2a';
+    ctx.fillRect(p.x-3,p.gapY+GAP,PIPE_W+6,12);
+    // Emoji on pipe
+    ctx.font='14px serif';
+    ctx.textAlign='center';
+    ctx.fillText(p.emoji,p.x+PIPE_W/2,p.gapY-16);
+  });
+
+  // Bird
+  ctx.font='22px serif';
+  ctx.textAlign='center';
+  ctx.textBaseline='middle';
+  ctx.save();
+  ctx.translate(bird.x,bird.y);
+  const angle=Math.min(Math.max(bird.v*3,-30),60)*Math.PI/180;
+  ctx.rotate(angle);
+  ctx.fillText('🤖',0,0);
+  ctx.restore();
+
+  // Score
+  ctx.font='800 28px Syne,sans-serif';
+  ctx.fillStyle='rgba(255,255,255,.15)';
+  ctx.textAlign='center';
+  ctx.textBaseline='top';
+  ctx.fillText(score,W/2,20);
+
+  // States
+  if(state==='start'){
+    ctx.fillStyle='rgba(0,0,0,.4)';
+    ctx.fillRect(0,0,W,H);
+    ctx.font='800 20px Syne,sans-serif';
+    ctx.fillStyle='#ffd700';
+    ctx.fillText('FLAPPY BOT',W/2,H/2-40);
+    ctx.font='11px JetBrains Mono,monospace';
+    ctx.fillStyle='rgba(255,255,255,.2)';
+    ctx.fillText('Tap or press Space to start',W/2,H/2);
+    ctx.font='24px serif';
+    ctx.fillText('🤖',W/2,H/2+30);
+  }
+
+  if(state==='dead'){
+    ctx.fillStyle='rgba(0,0,0,.5)';
+    ctx.fillRect(0,0,W,H);
+    ctx.font='800 18px Syne,sans-serif';
+    ctx.fillStyle='#ff4444';
+    ctx.fillText('DESK DROP #'+(47+score),W/2,H/2-50);
+    ctx.font='800 36px Syne,sans-serif';
+    ctx.fillStyle='#ffd700';
+    ctx.fillText(score,W/2,H/2-10);
+    ctx.font='10px JetBrains Mono,monospace';
+    ctx.fillStyle='rgba(255,255,255,.15)';
+    ctx.fillText('Best: '+bestScore,W/2,H/2+20);
+    ctx.fillText('Tap to retry · Hot glue holds',W/2,H/2+40);
+  }
+
+  requestAnimationFrame(()=>{update();draw();});
+}
+
+c.addEventListener('click',flap);
+c.addEventListener('touchstart',e=>{e.preventDefault();flap();});
+document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();flap();}});
+
+draw();
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // MAKECODE BLOCKS</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#ecf0f1;font-family:'JetBrains Mono',monospace;font-size:11px;min-height:100vh;display:flex;flex-direction:column}
+
+/* HEADER */
+.mc-header{background:#333;padding:6px 12px;display:flex;align-items:center;gap:8px;color:#fff}
+.mc-header .logo{display:flex;align-items:center;gap:4px}
+.mc-header .logo-icon{width:20px;height:20px;background:#5c2d91;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px}
+.mc-header .logo-text{font-size:12px;font-weight:700}
+.mc-header .project{margin-left:12px;font-size:10px;color:#aaa}
+.mc-header .actions{margin-left:auto;display:flex;gap:6px}
+.mc-btn{padding:3px 8px;border-radius:4px;font-size:9px;color:#fff;border:none;cursor:pointer;font-family:inherit}
+.mc-btn.download{background:#5c2d91}
+.mc-btn.sim{background:#107c10}
+
+/* MAIN */
+.mc-main{flex:1;display:flex;overflow:hidden}
+
+/* TOOLBOX */
+.toolbox{width:60px;background:#2d2d2d;display:flex;flex-direction:column;gap:1px;padding:4px 0}
+.tb-cat{padding:6px 4px;text-align:center;cursor:pointer;transition:opacity .2s;border-left:3px solid var(--c);opacity:.7}
+.tb-cat:hover{opacity:1}
+.tb-cat .icon{font-size:14px}
+.tb-cat .label{font-size:5px;color:#ccc;letter-spacing:.5px}
+
+/* WORKSPACE */
+.workspace{flex:1;background:#f5f5f5;background-image:radial-gradient(circle,#ddd 1px,transparent 1px);background-size:20px 20px;padding:14px;overflow:auto;position:relative}
+
+/* BLOCKS */
+.block-group{margin-bottom:14px;position:relative}
+
+.block{border-radius:4px;padding:0;position:relative;font-size:11px;font-weight:700;color:#fff;user-select:none;margin-bottom:-1px;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+
+.block-hat{border-radius:8px 8px 4px 4px;padding:6px 10px 4px;display:inline-block}
+.block-hat::before{content:'';position:absolute;top:-6px;left:12px;width:24px;height:6px;border-radius:6px 6px 0 0;background:inherit}
+
+.block-stmt{padding:5px 10px;display:flex;align-items:center;gap:4px;flex-wrap:wrap;min-height:28px}
+.block-stmt .notch{position:absolute;bottom:-4px;left:12px;width:24px;height:4px;border-radius:0 0 4px 4px;background:inherit}
+
+/* BLOCK C-SHAPE */
+.block-c{padding:5px 10px 5px;position:relative}
+.block-c .c-header{display:flex;align-items:center;gap:4px;padding-bottom:4px}
+.block-c .c-body{margin-left:14px;padding:4px 0;border-left:4px solid rgba(0,0,0,.15);min-height:30px}
+.block-c .c-footer{height:8px}
+
+/* INPUTS */
+.input-oval{background:rgba(0,0,0,.15);border-radius:10px;padding:2px 8px;font-size:10px;display:inline-block}
+.input-rect{background:rgba(255,255,255,.2);border-radius:3px;padding:2px 6px;font-size:10px;display:inline-block;border:1px solid rgba(255,255,255,.1)}
+.input-drop{background:rgba(0,0,0,.15);border-radius:3px;padding:2px 8px;font-size:10px;display:inline-flex;align-items:center;gap:3px}
+.input-drop::after{content:'▾';font-size:8px}
+
+/* COLORS */
+.c-basic{background:#5c2d91}
+.c-input{background:#b4009e}
+.c-loops{background:#107c10}
+.c-logic{background:#006cb5}
+.c-variables{background:#dc3c00}
+.c-bluetooth{background:#0071c5}
+.c-serial{background:#00748b}
+.c-neopixel{background:#c95d00}
+.c-pins{background:#a84000}
+.c-music{background:#e63022}
+.c-servos{background:#7d4800}
+.c-text{background:#006072}
+
+/* COMMENTS */
+.comment{background:#fff9c4;color:#333;border:1px solid #e8e0a0;border-radius:4px;padding:6px 8px;font-size:8px;font-weight:400;max-width:180px;position:absolute;right:-190px;top:0;box-shadow:1px 1px 3px rgba(0,0,0,.05);line-height:1.8}
+.comment::before{content:'';position:absolute;left:-8px;top:10px;border-right:8px solid #e8e0a0;border-top:5px solid transparent;border-bottom:5px solid transparent}
+
+/* SIMULATOR */
+.sim-panel{width:180px;background:#1e1e1e;display:flex;flex-direction:column;align-items:center;padding:10px;gap:6px}
+.sim-label{font-size:7px;color:#555;letter-spacing:1px}
+.sim-board{width:120px;height:150px;background:#222;border-radius:12px;padding:8px;border:2px solid #333;display:flex;flex-direction:column;align-items:center;gap:4px}
+.sim-leds{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin:6px 0}
+.sim-led{width:10px;height:10px;border-radius:2px;background:#1a0000;transition:all .3s}
+.sim-led.on{background:#ff2200;box-shadow:0 0 3px rgba(255,0,0,.3)}
+.sim-btns{display:flex;gap:20px}
+.sim-btn-hw{width:14px;height:14px;border-radius:50%;background:#333;border:1px solid #555}
+.sim-pins{display:flex;gap:4px;margin-top:4px}
+.sim-pin{width:6px;height:10px;background:#444;border-radius:1px}
+.sim-strip{display:flex;gap:2px;margin-top:4px}
+.sim-neo{width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1px solid #333;transition:all .3s}
+.sim-neo.on{background:#ff6600;box-shadow:0 0 4px #ff6600}
+
+.footer{text-align:center;padding:4px;font-size:5px;color:#ccc;letter-spacing:1px;background:#333}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="mc-header">
+  <div class="logo"><div class="logo-icon">▶</div><div class="logo-text">MakeCode</div></div>
+  <div class="project">📁 workshop-diy-rxy-firmware</div>
+  <div class="actions">
+    <button class="mc-btn sim">▶ Simulate</button>
+    <button class="mc-btn download">⬇ Download .hex</button>
+  </div>
+</div>
+
+<div class="mc-main">
+
+<!-- TOOLBOX -->
+<div class="toolbox">
+  <div class="tb-cat" style="--c:#5c2d91"><div class="icon">⬛</div><div class="label">Basic</div></div>
+  <div class="tb-cat" style="--c:#b4009e"><div class="icon">↩️</div><div class="label">Input</div></div>
+  <div class="tb-cat" style="--c:#107c10"><div class="icon">🔁</div><div class="label">Loops</div></div>
+  <div class="tb-cat" style="--c:#006cb5"><div class="icon">⚡</div><div class="label">Logic</div></div>
+  <div class="tb-cat" style="--c:#dc3c00"><div class="icon">📦</div><div class="label">Variables</div></div>
+  <div class="tb-cat" style="--c:#0071c5"><div class="icon">📡</div><div class="label">Bluetooth</div></div>
+  <div class="tb-cat" style="--c:#a84000"><div class="icon">📌</div><div class="label">Pins</div></div>
+  <div class="tb-cat" style="--c:#7d4800"><div class="icon">🔧</div><div class="label">Servos</div></div>
+  <div class="tb-cat" style="--c:#c95d00"><div class="icon">💡</div><div class="label">NeoPixel</div></div>
+  <div class="tb-cat" style="--c:#e63022"><div class="icon">🎵</div><div class="label">Music</div></div>
+</div>
+
+<!-- WORKSPACE -->
+<div class="workspace">
+
+<!-- ON START -->
+<div class="block-group" style="position:relative">
+  <div class="block c-basic block-c">
+    <div class="c-header">on start</div>
+    <div class="c-body">
+      <div class="block c-bluetooth block-stmt">bluetooth start UART service<div class="notch"></div></div>
+      <div class="block c-neopixel block-stmt">set <span class="input-drop">strip</span> to NeoPixel at pin <span class="input-drop">P0</span> with <span class="input-oval">8</span> leds<div class="notch"></div></div>
+      <div class="block c-variables block-stmt">set <span class="input-drop">btمتصل</span> to <span class="input-oval">false</span><div class="notch"></div></div>
+      <div class="block c-basic block-stmt">show icon <span class="input-drop">♥</span><div class="notch"></div></div>
+    </div>
+    <div class="c-footer"></div>
+  </div>
+  <div class="comment">Initialize BLE UART, NeoPixel strip on P0 (8 LEDs), show heart on boot</div>
+</div>
+
+<!-- ON BLE CONNECTED -->
+<div class="block-group" style="position:relative;margin-top:10px">
+  <div class="block c-bluetooth block-c">
+    <div class="c-header">on bluetooth connected</div>
+    <div class="c-body">
+      <div class="block c-variables block-stmt">set <span class="input-drop">btمتصل</span> to <span class="input-oval">true</span><div class="notch"></div></div>
+      <div class="block c-basic block-stmt">show icon <span class="input-drop">✓</span><div class="notch"></div></div>
+    </div>
+    <div class="c-footer"></div>
+  </div>
+  <div class="comment">When phone/browser connects via BLE, show checkmark</div>
+</div>
+
+<!-- ON UART DATA RECEIVED -->
+<div class="block-group" style="position:relative;margin-top:10px">
+  <div class="block c-bluetooth block-c">
+    <div class="c-header">on bluetooth UART data received <span class="input-drop">newline ↵</span></div>
+    <div class="c-body">
+      <div class="block c-variables block-stmt">set <span class="input-drop">line</span> to bluetooth UART read until <span class="input-drop">newline ↵</span><div class="notch"></div></div>
+      <div class="block c-logic block-c">
+        <div class="c-header">if <span class="input-oval">line</span> starts with <span class="input-rect">"SERVO:"</span></div>
+        <div class="c-body">
+          <div class="block c-servos block-stmt">set servo <span class="input-drop">P8</span> angle to <span class="input-oval">parseFloat(line)</span><div class="notch"></div></div>
+        </div>
+      </div>
+      <div class="block c-logic block-c">
+        <div class="c-header">else if <span class="input-oval">line</span> starts with <span class="input-rect">"NEO:"</span></div>
+        <div class="c-body">
+          <div class="block c-neopixel block-stmt"><span class="input-drop">strip</span> show color <span class="input-oval">parseColor(line)</span><div class="notch"></div></div>
+        </div>
+      </div>
+      <div class="block c-logic block-c">
+        <div class="c-header">else if <span class="input-oval">line</span> starts with <span class="input-rect">"BUZZ:"</span></div>
+        <div class="c-body">
+          <div class="block c-music block-stmt">play tone <span class="input-oval">Hz</span> for <span class="input-oval">200</span> ms<div class="notch"></div></div>
+        </div>
+      </div>
+      <div class="block c-logic block-c">
+        <div class="c-header">else if <span class="input-oval">line</span> starts with <span class="input-rect">"MOTOR:"</span></div>
+        <div class="c-body">
+          <div class="block c-pins block-stmt">analog write pin <span class="input-drop">P1</span> to <span class="input-oval">leftSpeed</span><div class="notch"></div></div>
+          <div class="block c-pins block-stmt">analog write pin <span class="input-drop">P2</span> to <span class="input-oval">rightSpeed</span><div class="notch"></div></div>
+        </div>
+      </div>
+      <div class="block c-bluetooth block-stmt">bluetooth UART write line <span class="input-rect">"ACK:" + line</span><div class="notch"></div></div>
+    </div>
+    <div class="c-footer"></div>
+  </div>
+  <div class="comment">Parse commands from RXY browser app: SERVO, NEO, BUZZ, MOTOR. Send ACK back. Servos on P8 to avoid pin conflict with sensor reads!</div>
+</div>
+
+<!-- TELEMETRY LOOP -->
+<div class="block-group" style="position:relative;margin-top:10px">
+  <div class="block c-loops block-c">
+    <div class="c-header">forever</div>
+    <div class="c-body">
+      <div class="block c-logic block-c">
+        <div class="c-header">if <span class="input-oval">btمتصل</span></div>
+        <div class="c-body">
+          <div class="block c-bluetooth block-stmt">bluetooth UART write line <span class="input-rect">"T:" + temperature(°C)</span><div class="notch"></div></div>
+          <div class="block c-bluetooth block-stmt">bluetooth UART write line <span class="input-rect">"L:" + light level</span><div class="notch"></div></div>
+          <div class="block c-bluetooth block-stmt">bluetooth UART write line <span class="input-rect">"A:" + accelX + "," + accelY + "," + accelZ</span><div class="notch"></div></div>
+        </div>
+      </div>
+      <div class="block c-basic block-stmt">pause <span class="input-oval">100</span> ms<div class="notch"></div></div>
+    </div>
+    <div class="c-footer"></div>
+  </div>
+  <div class="comment">Send sensor telemetry to browser every 100ms (10Hz) when BLE connected</div>
+</div>
+
+</div>
+
+<!-- SIMULATOR -->
+<div class="sim-panel">
+  <div class="sim-label">SIMULATOR</div>
+  <div class="sim-board">
+    <div class="sim-btns"><div class="sim-btn-hw"></div><div style="flex:1"></div><div class="sim-btn-hw"></div></div>
+    <div class="sim-leds" id="simLeds"></div>
+    <div class="sim-pins"><div class="sim-pin"></div><div class="sim-pin"></div><div class="sim-pin"></div><div style="width:8px"></div><div class="sim-pin"></div><div class="sim-pin"></div></div>
+  </div>
+  <div class="sim-label">NEOPIXEL STRIP</div>
+  <div class="sim-strip" id="simStrip"></div>
+  <div style="font-size:7px;color:#444;text-align:center;margin-top:4px">📡 BLE: متصل<br>🔧 Servo: P8 @ 90°<br>💡 NeoPixels: P0 × 8</div>
+</div>
+
+</div>
+
+<div class="footer">WORKSHOP-DIY · MAKECODE BLOCK EDITOR · MICRO:BIT V2 · RXY FIRMWARE · SERVOS ON P8 TO AVOID PIN CONFLICT</div>
+
+<script>
+// SIM LEDs
+const sl=document.getElementById('simLeds');
+const HEART=[0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,0,0,0,1,0,0];
+for(let i=0;i<25;i++){const d=document.createElement('div');d.className='led-dot sim-led'+(HEART[i]?' on':'');sl.appendChild(d);}
+// NeoPixel strip
+const ss=document.getElementById('simStrip');
+for(let i=0;i<8;i++){const d=document.createElement('div');d.className='sim-neo on';ss.appendChild(d);}
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // RXY — MICRO:BIT REMOTE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;min-height:100vh;display:flex;flex-direction:column}
+
+/* HEADER */
+.hdr{padding:8px 14px;background:rgba(255,255,255,.01);border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;gap:8px}
+.hdr .logo{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:#00ccff;letter-spacing:1px}
+.hdr .tag{font-size:7px;color:rgba(255,255,255,.1);letter-spacing:2px}
+.hdr .ble{margin-left:auto;display:flex;align-items:center;gap:4px;font-size:9px}
+.ble-dot{width:6px;height:6px;border-radius:50%;background:#00cc66;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* MAIN */
+.main{flex:1;display:flex;gap:0;overflow:hidden}
+
+/* PHONE */
+.phone-area{width:300px;flex-shrink:0;padding:14px;display:flex;flex-direction:column;align-items:center;border-right:1px solid rgba(255,255,255,.03)}
+.phone-label{font-size:8px;color:rgba(255,255,255,.06);letter-spacing:2px;margin-bottom:6px}
+.phone{width:240px;background:#111;border-radius:20px;padding:10px;border:2px solid #222;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.phone-screen{background:#0a0a1a;border-radius:12px;padding:10px;min-height:380px}
+.phone .ps-title{font-family:'Syne',sans-serif;font-size:10px;font-weight:800;color:#00ccff;text-align:center;margin-bottom:6px;letter-spacing:1px}
+
+/* WIDGETS */
+.widget{margin:4px 0;border-radius:8px;padding:8px;background:rgba(0,204,255,.03);border:1px solid rgba(0,204,255,.06)}
+.w-label{font-size:7px;color:rgba(255,255,255,.15);letter-spacing:1px;margin-bottom:3px}
+
+/* BUTTON WIDGET */
+.w-btns{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.w-btn{padding:8px;border-radius:6px;text-align:center;cursor:pointer;font-size:9px;font-weight:700;transition:all .15s;user-select:none;border:1px solid rgba(255,255,255,.06)}
+.w-btn:active{transform:scale(.95)}
+.w-btn.red{background:rgba(255,60,60,.15);color:#ff6666;border-color:rgba(255,60,60,.15)}
+.w-btn.red:active{background:rgba(255,60,60,.3)}
+.w-btn.green{background:rgba(0,204,102,.15);color:#00cc66;border-color:rgba(0,204,102,.15)}
+.w-btn.green:active{background:rgba(0,204,102,.3)}
+.w-btn.blue{background:rgba(0,120,255,.15);color:#0088ff;border-color:rgba(0,120,255,.15)}
+.w-btn.blue:active{background:rgba(0,120,255,.3)}
+.w-btn.yellow{background:rgba(255,200,0,.15);color:#ffcc00;border-color:rgba(255,200,0,.15)}
+.w-btn.yellow:active{background:rgba(255,200,0,.3)}
+
+/* SLIDER WIDGET */
+.w-slider{display:flex;align-items:center;gap:6px}
+.w-slider input[type=range]{flex:1;-webkit-appearance:none;height:6px;background:rgba(0,204,255,.1);border-radius:3px;outline:none}
+.w-slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:#00ccff;border-radius:50%;cursor:pointer}
+.w-slider .val{width:28px;text-align:right;font-size:10px;font-weight:700;color:#00ccff}
+
+/* JOYSTICK */
+.w-joy{width:100px;height:100px;border-radius:50%;background:rgba(0,204,255,.04);border:2px solid rgba(0,204,255,.08);margin:0 auto;position:relative;cursor:pointer;touch-action:none}
+.joy-dot{width:28px;height:28px;border-radius:50%;background:radial-gradient(circle,#00ccff,#0088aa);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transition:left .05s,top .05s;box-shadow:0 0 8px rgba(0,204,255,.2)}
+.joy-cross{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.joy-cross::before,.joy-cross::after{content:'';position:absolute;background:rgba(0,204,255,.04)}
+.joy-cross::before{width:1px;height:100%}
+.joy-cross::after{width:100%;height:1px}
+
+/* TOGGLE */
+.w-toggle{display:flex;align-items:center;gap:8px}
+.toggle-track{width:38px;height:20px;background:rgba(255,255,255,.06);border-radius:10px;position:relative;cursor:pointer;transition:background .2s}
+.toggle-track.on{background:rgba(0,204,102,.3)}
+.toggle-thumb{width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:left .2s}
+.toggle-track.on .toggle-thumb{left:20px}
+.toggle-label{font-size:9px;color:rgba(255,255,255,.3)}
+
+/* DEVICE AREA */
+.device-area{flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}
+.device-label{font-size:8px;color:rgba(255,255,255,.06);letter-spacing:2px;text-align:center}
+
+/* MICROBIT */
+.microbit{width:160px;margin:0 auto;background:#111;border-radius:12px;padding:12px;border:2px solid #1a1a2e;position:relative}
+.mb-label{font-size:7px;color:rgba(255,255,255,.08);text-align:center;letter-spacing:1px;margin-bottom:4px}
+.led-matrix{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;width:80px;margin:0 auto 6px}
+.led{width:12px;height:12px;border-radius:2px;background:#1a0000;transition:background .15s}
+.led.on{background:#ff2200;box-shadow:0 0 4px rgba(255,34,0,.3)}
+.mb-pins{display:flex;justify-content:center;gap:3px;margin-top:4px}
+.pin{width:10px;height:14px;background:#2a2a3a;border-radius:2px;position:relative}
+.pin-label{font-size:4px;color:#444;text-align:center}
+
+/* CONNECTED DEVICE */
+.device-box{border:1px solid rgba(255,255,255,.03);border-radius:8px;padding:10px;background:rgba(255,255,255,.01)}
+.db-title{font-size:9px;font-weight:700;color:rgba(255,255,255,.15);letter-spacing:1px;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+
+/* SERVO */
+.servo-viz{text-align:center;position:relative;height:80px}
+.servo-body{display:inline-block;width:40px;height:20px;background:#3a3a5a;border-radius:3px;position:relative;margin-top:30px}
+.servo-arm{width:4px;height:40px;background:#00ccff;border-radius:2px;position:absolute;bottom:18px;left:50%;transform-origin:bottom center;transform:translateX(-50%) rotate(0deg);transition:transform .2s}
+.servo-angle{font-size:14px;font-weight:800;color:#00ccff;margin-top:4px}
+
+/* NEOPIXELS */
+.neo-strip{display:flex;gap:3px;justify-content:center;flex-wrap:wrap;padding:4px}
+.neo-led{width:16px;height:16px;border-radius:50%;background:#1a1a1a;border:1px solid #2a2a2a;transition:all .2s}
+.neo-led.on{box-shadow:0 0 6px var(--c,#ff0000)}
+
+/* ROBOT SIM */
+.robot-field{width:100%;aspect-ratio:2/1.2;background:rgba(0,204,255,.02);border:1px solid rgba(0,204,255,.04);border-radius:8px;position:relative;overflow:hidden}
+.robot-sprite{position:absolute;font-size:24px;transition:left .1s,top .1s;filter:drop-shadow(0 0 4px rgba(0,204,255,.2))}
+.robot-trail{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(0,204,255,.08)}
+
+/* LOG */
+.log{margin-top:auto;max-height:80px;overflow-y:auto;padding:4px;background:rgba(0,0,0,.2);border-radius:4px;font-size:8px;color:rgba(0,204,255,.15);font-family:'JetBrains Mono',monospace}
+.log::-webkit-scrollbar{width:3px}
+.log::-webkit-scrollbar-thumb{background:#1a1a2e;border-radius:2px}
+.log-line{padding:1px 0;border-bottom:1px solid rgba(255,255,255,.01)}
+
+@media(max-width:600px){.main{flex-direction:column}.phone-area{width:100%;border-right:none;border-bottom:1px solid rgba(255,255,255,.03)}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <span class="logo">📡 RXY</span>
+  <span class="tag">MICRO:BIT REMOTE CONTROL · WORKSHOP-DIY</span>
+  <div class="ble"><div class="ble-dot"></div><span style="color:rgba(255,255,255,.15)">BLE Connected</span></div>
+</div>
+
+<div class="main">
+
+<!-- PHONE REMOTE -->
+<div class="phone-area">
+  <div class="phone-label">YOUR REMOTE</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ps-title">🎮 MY ROBOT REMOTE</div>
+
+      <div class="widget">
+        <div class="w-label">NEOPIXEL COLORS</div>
+        <div class="w-btns">
+          <div class="w-btn red" onclick="setNeo('red')">🔴 RED</div>
+          <div class="w-btn green" onclick="setNeo('green')">🟢 GREEN</div>
+          <div class="w-btn blue" onclick="setNeo('blue')">🟣 BLUE</div>
+          <div class="w-btn yellow" onclick="setNeo('off')">⚫ OFF</div>
+        </div>
+      </div>
+
+      <div class="widget">
+        <div class="w-label">SERVO ANGLE</div>
+        <div class="w-slider">
+          <input type="range" min="0" max="180" value="90" id="servoSlider" oninput="setServo(this.value)">
+          <span class="val" id="servoVal">90°</span>
+        </div>
+      </div>
+
+      <div class="widget">
+        <div class="w-label">DRIVE</div>
+        <div style="display:flex;justify-content:center">
+          <div class="w-joy" id="joystick">
+            <div class="joy-cross"></div>
+            <div class="joy-dot" id="joyDot"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="widget">
+        <div class="w-label">LED MATRIX</div>
+        <div class="w-toggle" onclick="toggleLed()">
+          <div class="toggle-track" id="ledToggle"><div class="toggle-thumb"></div></div>
+          <span class="toggle-label" id="ledLabel">Heart Pattern: OFF</span>
+        </div>
+      </div>
+
+      <div class="widget">
+        <div class="w-label">BUZZER</div>
+        <div class="w-slider">
+          <input type="range" min="100" max="2000" value="440" id="buzzSlider" oninput="setBuzz(this.value)">
+          <span class="val" id="buzzVal">440</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- DEVICE SIMULATION -->
+<div class="device-area">
+  <div class="device-label">CONNECTED DEVICES</div>
+
+  <div class="microbit">
+    <div class="mb-label">MICRO:BIT V2</div>
+    <div class="led-matrix" id="ledMatrix"></div>
+    <div class="mb-pins">
+      <div><div class="pin" id="pinP0"></div><div class="pin-label">P0</div></div>
+      <div><div class="pin" id="pinP1"></div><div class="pin-label">P1</div></div>
+      <div><div class="pin" id="pinP2"></div><div class="pin-label">P2</div></div>
+      <div><div class="pin" id="pinP8"></div><div class="pin-label">P8</div></div>
+      <div><div class="pin" id="pinP12"></div><div class="pin-label">P12</div></div>
+    </div>
+  </div>
+
+  <div class="device-box">
+    <div class="db-title">🔧 SERVO (P8)</div>
+    <div class="servo-viz">
+      <div class="servo-arm" id="servoArm"></div>
+      <div class="servo-body"></div>
+      <div class="servo-angle" id="servoAngleDisplay">90°</div>
+    </div>
+  </div>
+
+  <div class="device-box">
+    <div class="db-title">💡 NEOPIXEL STRIP (P0)</div>
+    <div class="neo-strip" id="neoStrip"></div>
+  </div>
+
+  <div class="device-box">
+    <div class="db-title">🤖 ROBOT (Motors P1/P2)</div>
+    <div class="robot-field" id="robotField">
+      <div class="robot-sprite" id="robotSprite">🤖</div>
+    </div>
+  </div>
+
+  <div class="log" id="log"></div>
+</div>
+
+</div>
+
+<script>
+// LED MATRIX
+const ledMatrix=document.getElementById('ledMatrix');
+for(let i=0;i<25;i++){
+  const d=document.createElement('div');
+  d.className='led';
+  d.id='led'+i;
+  ledMatrix.appendChild(d);
+}
+const HEART=[0,0,0,0,0, 0,1,0,1,0, 1,1,1,1,1, 0,1,1,1,0, 0,0,1,0,0];
+let ledOn=false;
+
+function toggleLed(){
+  ledOn=!ledOn;
+  const t=document.getElementById('ledToggle');
+  t.classList.toggle('on',ledOn);
+  document.getElementById('ledLabel').textContent='Heart Pattern: '+(ledOn?'ON':'OFF');
+  for(let i=0;i<25;i++){
+    document.getElementById('led'+i).classList.toggle('on',ledOn&&HEART[i]);
+  }
+  addLog('UART TX: LED_MATRIX:'+(ledOn?'HEART':'OFF'));
+  flashPin('pinP0');
+}
+
+// NEOPIXELS
+const neoStrip=document.getElementById('neoStrip');
+for(let i=0;i<8;i++){
+  const d=document.createElement('div');
+  d.className='neo-led';
+  d.id='neo'+i;
+  neoStrip.appendChild(d);
+}
+const COLORS={red:'#ff2200',green:'#00cc44',blue:'#4400ff',off:''};
+function setNeo(c){
+  for(let i=0;i<8;i++){
+    const el=document.getElementById('neo'+i);
+    if(c==='off'){
+      el.classList.remove('on');
+      el.style.background='#1a1a1a';
+      el.style.removeProperty('--c');
+    }else{
+      el.classList.add('on');
+      el.style.background=COLORS[c];
+      el.style.setProperty('--c',COLORS[c]);
+    }
+  }
+  addLog('UART TX: NEO:'+c.toUpperCase());
+  flashPin('pinP0');
+}
+
+// SERVO
+function setServo(v){
+  document.getElementById('servoVal').textContent=v+'°';
+  const angle=(v-90);
+  document.getElementById('servoArm').style.transform=`translateX(-50%) rotate(${angle}deg)`;
+  document.getElementById('servoAngleDisplay').textContent=v+'°';
+  addLog('UART TX: SERVO:'+v);
+  flashPin('pinP8');
+}
+
+// BUZZER
+function setBuzz(v){
+  document.getElementById('buzzVal').textContent=v;
+  addLog('UART TX: BUZZ:'+v+'Hz');
+  flashPin('pinP12');
+}
+
+// JOYSTICK
+const joy=document.getElementById('joystick');
+const joyDot=document.getElementById('joyDot');
+const robot=document.getElementById('robotSprite');
+const field=document.getElementById('robotField');
+let joyX=0,joyY=0,dragging=false;
+let robotX=50,robotY=50;
+
+function joyMove(e){
+  if(!dragging)return;
+  const rect=joy.getBoundingClientRect();
+  const cx=rect.left+rect.width/2;
+  const cy=rect.top+rect.height/2;
+  const px=(e.touches?e.touches[0]:e).clientX;
+  const py=(e.touches?e.touches[0]:e).clientY;
+  let dx=(px-cx)/(rect.width/2);
+  let dy=(py-cy)/(rect.height/2);
+  const dist=Math.sqrt(dx*dx+dy*dy);
+  if(dist>1){dx/=dist;dy/=dist;}
+  joyX=dx;joyY=dy;
+  joyDot.style.left=(50+dx*35)+'%';
+  joyDot.style.top=(50+dy*35)+'%';
+}
+function joyEnd(){
+  dragging=false;
+  joyX=0;joyY=0;
+  joyDot.style.left='50%';
+  joyDot.style.top='50%';
+}
+joy.addEventListener('mousedown',()=>{dragging=true;});
+joy.addEventListener('touchstart',()=>{dragging=true;});
+window.addEventListener('mousemove',joyMove);
+window.addEventListener('touchmove',joyMove);
+window.addEventListener('mouseup',joyEnd);
+window.addEventListener('touchend',joyEnd);
+
+// ROBOT MOVEMENT
+let trails=[];
+setInterval(()=>{
+  if(joyX===0&&joyY===0)return;
+  robotX+=joyX*1.5;
+  robotY+=joyY*1.5;
+  robotX=Math.max(5,Math.min(95,robotX));
+  robotY=Math.max(5,Math.min(95,robotY));
+  robot.style.left=robotX+'%';
+  robot.style.top=robotY+'%';
+  // Trail
+  const t=document.createElement('div');
+  t.className='robot-trail';
+  t.style.left=robotX+'%';
+  t.style.top=robotY+'%';
+  field.appendChild(t);
+  trails.push(t);
+  if(trails.length>40){trails.shift().remove();}
+  // Periodic log
+  if(Math.random()<.1)addLog(`UART TX: MOTOR:L${Math.round(joyY*-100+joyX*-50)},R${Math.round(joyY*-100+joyX*50)}`);
+},50);
+
+// PIN FLASH
+function flashPin(id){
+  const p=document.getElementById(id);
+  p.style.background='#00ccff';
+  setTimeout(()=>p.style.background='#2a2a3a',200);
+}
+
+// LOG
+const logEl=document.getElementById('log');
+let logCount=0;
+function addLog(msg){
+  const d=document.createElement('div');
+  d.className='log-line';
+  const now=new Date();
+  d.textContent=`[${now.toTimeString().slice(0,8)}] ${msg}`;
+  logEl.appendChild(d);
+  logEl.scrollTop=logEl.scrollHeight;
+  if(logEl.children.length>50)logEl.removeChild(logEl.firstChild);
+}
+
+// INIT
+robot.style.left='50%';
+robot.style.top='50%';
+addLog('BLE: Connected to micro:bit [wkshp-42]');
+addLog('UART: Service discovered');
+addLog('RXY: Remote layout loaded (5 widgets)');
+addLog('SYS: Ready — drag joystick, tap buttons, slide sliders');
+</script>
+</body>
+</html>

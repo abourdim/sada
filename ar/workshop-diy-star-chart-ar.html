@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // STAR CHART</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:radial-gradient(ellipse at center,#080818,#020208);color:#fff;font-family:'JetBrains Mono',monospace;min-height:100vh;overflow:hidden;position:relative}
+
+canvas{position:fixed;top:0;left:0;width:100%;height:100%}
+
+.overlay{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+
+.header{text-align:center;margin-bottom:10px}
+.header h1{font-family:'Syne',sans-serif;font-size:clamp(16px,3vw,22px);font-weight:800;color:rgba(255,255,255,.08);letter-spacing:4px}
+.header .sub{font-size:7px;color:rgba(255,255,255,.03);letter-spacing:3px}
+
+.chart{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;max-width:700px;width:100%}
+
+.constellation{text-align:center;padding:14px;border:1px solid rgba(255,255,255,.02);border-radius:8px;background:rgba(255,255,255,.005);transition:all .3s;cursor:pointer}
+.constellation:hover{border-color:rgba(255,215,0,.06);background:rgba(255,215,0,.01)}
+
+.const-stars{font-size:28px;margin-bottom:4px;letter-spacing:4px;line-height:1.8;filter:drop-shadow(0 0 4px rgba(255,255,255,.1))}
+.const-name{font-family:'Syne',sans-serif;font-size:10px;font-weight:800;color:rgba(255,255,255,.12);letter-spacing:2px}
+.const-latin{font-size:7px;color:rgba(255,255,255,.04);font-style:italic;letter-spacing:1px;margin-top:1px}
+.const-desc{font-size:7px;color:rgba(255,255,255,.04);margin-top:3px;line-height:1.8}
+
+.footer{text-align:center;margin-top:14px;font-size:5px;color:rgba(255,255,255,.02);letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<canvas id="sky"></canvas>
+
+<div class="overlay">
+<div class="header">
+  <h1>✦ الأطلس السماوي ✦</h1>
+  <div class="sub">THE WORKSHOP-DIY NIGHT SKY · NORTHERN HEMISPHERE · FEB 2026</div>
+</div>
+
+<div class="chart">
+
+<div class="constellation">
+  <div class="const-stars">✦·✦<br>✦···✦<br>·✦·✦</div>
+  <div class="const-name">الروبوت العظيم</div>
+  <div class="const-latin">Roboticus Majoris</div>
+  <div class="const-desc">The largest constellation. Its two brightest stars form the wheels. Visible year-round. Falls below the horizon 47 times per year.</div>
+</div>
+
+<div class="constellation">
+  <div class="const-stars">·✦·<br>✦·✦<br>·✦·</div>
+  <div class="const-name">سديم الخطأ</div>
+  <div class="const-latin">Insectum XLII</div>
+  <div class="const-desc">Only visible at 3:42 صباحاً. No known origin. Appears in all star charts despite never being catalogued. Some say it was here before the universe.</div>
+</div>
+
+<div class="constellation">
+  <div class="const-stars">✦✦✦<br>·✦·<br>·✦·</div>
+  <div class="const-name">فنجان القهوة</div>
+  <div class="const-latin">Caffea Octava</div>
+  <div class="const-desc">Dim constellation بنسبة 8% luminosity. Has been dimming for 14 months. Still produces steam. Nobody has investigated why.</div>
+</div>
+
+<div class="constellation">
+  <div class="const-stars">✦·<br>✦✦✦<br>·✦·</div>
+  <div class="const-name">المفتاح</div>
+  <div class="const-latin">Password CXXIII</div>
+  <div class="const-desc">Unchanged since ancient times. Three petitions to the Astronomical Society to rename it have been denied. Fixed star — never moves.</div>
+</div>
+
+<div class="constellation">
+  <div class="const-stars">✦···✦<br>·✦·✦·<br>✦···✦</div>
+  <div class="const-name">الشبكة العصبية</div>
+  <div class="const-latin">Cerebrum Machinae</div>
+  <div class="const-desc">Interconnected cluster. 98% of observers correctly identify it. The remaining 2% see a whale. Both are valid.</div>
+</div>
+
+<div class="constellation">
+  <div class="const-stars">·✦·<br>✦✦✦<br>✦·✦</div>
+  <div class="const-name">حوت Docker</div>
+  <div class="const-latin">Balaena Containeris</div>
+  <div class="const-desc">Contains other stars inside it. الآباء mistake it for Aquarius. Their 14-year-old children correctly identify it every time.</div>
+</div>
+
+<div class="constellation">
+  <div class="const-stars">✦<br>✦✦<br>✦✦✦</div>
+  <div class="const-name">THE HOT GLUE DROP</div>
+  <div class="const-latin">Adhesivum Calidus</div>
+  <div class="const-desc">Holds The Great Bot constellation together. Applied at 200°C. Astronomers note it appears "wobbly but reliable."</div>
+</div>
+
+<div class="constellation">
+  <div class="const-stars">✦·✦·✦<br>·✦·✦·<br>✦·✦·✦</div>
+  <div class="const-name">THE FORTY STARS</div>
+  <div class="const-latin">Quadraginta Incognita</div>
+  <div class="const-desc">Only 39 stars are consistently visible. The 40th appears briefly at 3:42 صباحاً, directly beside The Bug Nebula. Relationship unclear.</div>
+</div>
+
+</div>
+
+<div class="footer">WORKSHOP-DIY ASTRONOMICAL SOCIETY · NORTHERN HEMISPHERE · ALL CONSTELLATIONS VERIFIED EXCEPT سديم الخطأ (SELF-REPORTED)</div>
+</div>
+
+<script>
+const c=document.getElementById('sky');
+const ctx=c.getContext('2d');
+function resize(){c.width=window.innerWidth;c.height=window.innerHeight;draw();}
+window.addEventListener('resize',resize);
+
+const stars=[];
+for(let i=0;i<200;i++){
+  stars.push({x:Math.random(),y:Math.random(),r:.3+Math.random()*1.2,b:.1+Math.random()*.4,s:Math.random()*Math.PI*2,sp:.005+Math.random()*.01});
+}
+
+function draw(){
+  ctx.clearRect(0,0,c.width,c.height);
+  const t=Date.now()/1000;
+  stars.forEach(s=>{
+    const twinkle=.5+.5*Math.sin(t*s.sp*10+s.s);
+    const alpha=s.b*(.5+twinkle*.5);
+    ctx.beginPath();
+    ctx.arc(s.x*c.width,s.y*c.height,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(200,210,255,${alpha})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(draw);
+}
+resize();
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

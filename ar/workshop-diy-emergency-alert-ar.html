@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ورشة-DIY // تنبيه طوارئ</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Noto+Kufi+Arabic:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:'Noto Kufi Arabic',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;direction:rtl}
+.bismillah{font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.08);text-align:center;padding:6px}
+.alert{width:100%;max-width:600px;animation:flash 1s infinite}
+@keyframes flash{0%,100%{background:#cc0000}50%{background:#990000}}
+.alert-header{padding:12px;text-align:center}
+.alert-header h1{font-size:16px;letter-spacing:4px;font-weight:900}
+.alert-header h2{font-size:24px;font-weight:900;margin:6px 0}
+.alert-body{background:#111;padding:16px;margin:0 12px 12px;border-radius:6px;line-height:2.2}
+.alert-body p{font-size:14px;margin:8px 0;color:rgba(255,255,255,.5)}
+.alert-body .critical{color:#ff4444;font-weight:700;font-size:15px}
+.alert-time{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.3);text-align:center;padding:4px;direction:ltr}
+.alert-footer{text-align:center;padding:8px;font-size:10px;color:rgba(255,255,255,.15);letter-spacing:1px}
+.actions{display:flex;gap:6px;justify-content:center;padding:10px}
+.action-btn{padding:8px 16px;border-radius:4px;font-weight:700;font-size:12px;border:none;cursor:pointer;font-family:inherit}
+.action-btn.red{background:#cc0000;color:#fff}
+.action-btn.gray{background:#333;color:#aaa}
+.footer-brand{text-align:center;padding:8px}
+.footer-brand a{color:rgba(255,255,255,.04);text-decoration:none;font-size:8px;font-family:'JetBrains Mono',monospace}
+</style>
+</head>
+<body>
+<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="alert">
+  <div class="alert-header">
+    <h1>⚠️ تنبيه طوارئ</h1>
+    <h2>بنية تحتية حرجة</h2>
+  </div>
+  <div class="alert-body">
+    <p class="critical">🚨 تم اكتشاف الخطأ #42 في نظام الإنتاج</p>
+    <p>يُرجى من جميع سكان Workshop-DIY التزام الهدوء. تم رصد الخطأ #42 في الساعة 3:42 صباحاً في المستودع الرئيسي. لا يُنصح بمحاولة الحذف — فقد نجا من <code>rm -rf</code> و<code>git revert</code> وإعادة تهيئة كاملة للقرص الصلب.</p>
+    <p class="critical">⚠️ آلة القهوة تعمل بسعة 8%</p>
+    <p>لم يتم تفريغ صينية التصريف منذ مارس. وصف المفتش الصحي الوضع بأنه «مثير للقلق». جودة الإسبريسو لا تزال ممتازة رغم ذلك.</p>
+    <p>🔑 كلمة مرور الواي فاي لا تزال <strong>password123</strong>. تم رفض العريضة الثالثة لتغييرها.</p>
+  </div>
+  <div class="alert-time" id="time"></div>
+  <div class="actions">
+    <button class="action-btn red">تأكيد الاستلام</button>
+    <button class="action-btn gray">تجاهل (غير مستحسن)</button>
+  </div>
+  <div class="alert-footer">الحماية المدنية لـ Workshop-DIY · هذا ليس تمريناً · أو ربما هو كذلك</div>
+</div>
+<div class="footer-brand"><a href="https://workshop-diy.org">workshop-diy.org</a></div>
+
+<script>
+setInterval(()=>{document.getElementById('time').textContent=new Date().toLocaleString('ar-SA')},1000);
+document.getElementById('time').textContent=new Date().toLocaleString('ar-SA');
+</script>
+</body>
+</html>

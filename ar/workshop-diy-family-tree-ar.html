@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // FAMILY TREE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@400;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#faf5e8;font-family:'JetBrains Mono',monospace;font-size:10px;color:#3a2a1a;min-height:100vh;padding:16px;overflow-x:auto}
+
+.header{text-align:center;margin-bottom:14px}
+.header h1{font-family:'Playfair Display',serif;font-size:20px;color:#5a3a1a;letter-spacing:2px}
+.header .sub{font-size:7px;color:#b0a080;letter-spacing:2px}
+.header .motto{font-family:'Playfair Display',serif;font-size:10px;font-style:italic;color:#8a7a6a;margin-top:2px}
+
+.tree{display:flex;flex-direction:column;align-items:center;min-width:600px;gap:0}
+
+/* NODE */
+.node{text-align:center;padding:5px 10px;border:2px solid var(--c,#c0a060);border-radius:50%;background:#fff;min-width:70px;position:relative;display:inline-block}
+.node .emoji{font-size:16px}
+.node .name{font-size:8px;font-weight:700;color:#3a2a1a}
+.node .sub-info{font-size:6px;color:#a09080}
+.node.dashed{border-style:dashed}
+
+/* CONNECTORS */
+.vline{width:2px;height:14px;background:#c0a060;margin:0 auto}
+.vline.dashed{background:none;border-left:2px dashed #c0a060}
+
+.level{display:flex;justify-content:center;gap:6px;position:relative;flex-wrap:wrap;padding:0 8px}
+
+.branch{display:flex;flex-direction:column;align-items:center;gap:0}
+
+.hline{height:2px;background:#c0a060;margin:0 auto}
+
+.gen-label{font-family:'Playfair Display',serif;font-size:8px;color:#b0a060;letter-spacing:2px;text-align:center;margin:4px 0 2px;font-style:italic}
+
+/* FLOATING BUG */
+.bug-float{position:fixed;bottom:14px;right:14px}
+.bug-float .node{border-color:#cc4444;border-style:dashed;background:#fff8f0;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+.legend{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:7px;color:#8a7a6a}
+.legend-item .swatch{width:16px;height:2px}
+.legend-item .swatch.solid{background:#c0a060}
+.legend-item .swatch.dash{border-top:2px dashed #c0a060}
+
+.footer{text-align:center;margin-top:14px;font-size:5px;color:#ddd0c0;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="header">
+  <h1>شجرة عائلة Workshop-DIY</h1>
+  <div class="sub">EST. 2023 · FRANCE · GENEALOGICAL RECORD</div>
+  <div class="motto">"من ملف HTML واحد، وُلدت سلالة"</div>
+</div>
+
+<div class="tree">
+
+<!-- GEN 0: FOUNDER -->
+<div class="gen-label">— الجيل صفر —</div>
+<div class="level">
+  <div class="branch">
+    <div class="node" style="--c:#5a3a1a;border-width:3px;border-radius:50%;padding:8px 14px">
+      <div class="emoji">👑</div>
+      <div class="name">المؤسس</div>
+      <div class="sub-info">Patriarch · "Just open Chrome"</div>
+    </div>
+  </div>
+</div>
+
+<div class="vline" style="height:10px"></div>
+
+<!-- GEN 1: DOMAINS -->
+<div class="gen-label">— الجيل الأول: المجالات السبعة —</div>
+<div class="level">
+  <div class="branch">
+    <div class="node" style="--c:#00aa55"><div class="emoji">🤖</div><div class="name">Robotics</div><div class="sub-info">Firstborn · 2023</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#9966ff"><div class="emoji">🧠</div><div class="name">AI/ML</div><div class="sub-info">2nd child · 2023</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#ff3344"><div class="emoji">🔐</div><div class="name">Cyber</div><div class="sub-info">3rd child · 2023</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#ff8800"><div class="emoji">🔧</div><div class="name">Hardware</div><div class="sub-info">4th child · 2024</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#0088ff"><div class="emoji">📚</div><div class="name">Learning</div><div class="sub-info">5th child · 2024</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#00bbbb"><div class="emoji">🛠️</div><div class="name">Tools</div><div class="sub-info">6th child · 2024</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#dd44aa"><div class="emoji">🎨</div><div class="name">Creative</div><div class="sub-info">7th child · 2025</div></div>
+  </div>
+</div>
+
+<div class="vline" style="height:8px"></div>
+
+<!-- GEN 2: KEY APPS -->
+<div class="gen-label">— SECOND GENERATION: THE APPS —</div>
+<div class="level" style="gap:4px">
+  <div class="branch">
+    <div class="node" style="--c:#00aa55;padding:3px 6px"><div class="emoji" style="font-size:12px">🤖</div><div class="name" style="font-size:7px">bit-bot</div><div class="sub-info">Heir · 47 drops</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#00aa55;padding:3px 6px"><div class="emoji" style="font-size:12px">📡</div><div class="name" style="font-size:7px">esp32-lab</div><div class="sub-info">Twin of bit-bot</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#9966ff;padding:3px 6px"><div class="emoji" style="font-size:12px">🧠</div><div class="name" style="font-size:7px">teachable</div><div class="sub-info">98% accurate</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#9966ff;padding:3px 6px"><div class="emoji" style="font-size:12px">🪄</div><div class="name" style="font-size:7px">magic-hands</div><div class="sub-info">21 landmarks</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#ff3344;padding:3px 6px"><div class="emoji" style="font-size:12px">🔐</div><div class="name" style="font-size:7px">pentest-lab</div><div class="sub-info">Port 9100</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#00bbbb;padding:3px 6px"><div class="emoji" style="font-size:12px">🐳</div><div class="name" style="font-size:7px">docker-lab</div><div class="sub-info">Confuses parents</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#00bbbb;padding:3px 6px"><div class="emoji" style="font-size:12px">🐧</div><div class="name" style="font-size:7px">linux-lab</div><div class="sub-info">Terminal child</div></div>
+  </div>
+</div>
+
+<div class="vline" style="height:8px"></div>
+
+<!-- GEN 3: HONORARY -->
+<div class="gen-label">— HONORARY FAMILY MEMBERS —</div>
+<div class="level">
+  <div class="branch">
+    <div class="node" style="--c:#886600"><div class="emoji">☕</div><div class="name">آلة القهوة</div><div class="sub-info">Godmother · 8% forever</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#886600"><div class="emoji">🔑</div><div class="name">password123</div><div class="sub-info">Family Secret · unchanged</div></div>
+  </div>
+  <div class="branch">
+    <div class="node" style="--c:#886600"><div class="emoji">🔥</div><div class="name">Hot Glue</div><div class="sub-info">Family Bond · literal</div></div>
+  </div>
+</div>
+
+<div class="vline style" style="height:8px"></div>
+
+<!-- MARRIED INTO -->
+<div class="gen-label">— MARRIED INTO THE FAMILY (Feb 2026) —</div>
+<div class="level">
+  <div class="branch">
+    <div class="node dashed" style="--c:#cc4444;background:#fff8f0"><div class="emoji">🐛</div><div class="name">Bug #42</div><div class="sub-info">Adopted · No birth cert</div></div>
+    <div style="font-size:8px;color:#cc8888;margin-top:2px">💒 married</div>
+    <div class="node dashed" style="--c:#cc4444;background:#fff8f0"><div class="emoji">✨</div><div class="name">Feature Status</div><div class="sub-info">Bug #42's spouse</div></div>
+  </div>
+</div>
+
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="swatch solid"></div>Biological (coded)</div>
+  <div class="legend-item"><div class="swatch dash"></div>Adopted / Self-appointed</div>
+</div>
+
+<div class="footer">WORKSHOP-DIY GENEALOGICAL SOCIETY · EST. 2023 · ALL BRANCHES VERIFIED EXCEPT BUG #42 (SELF-REPORTED) · password123</div>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Storyboard: The Robot Origin Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06080f;--s1:#0c1018;--s2:#151d30;--brd:rgba(255,255,255,.07);--txt:#e2e6f0;--dim:rgba(255,255,255,.35);--acc:#00d4ff;--pk:#ff2d8a;--or:#ff6b35;--gn:#22c55e;--yw:#fbbf24;--pr:#9333ea}
+body{background:var(--bg);color:var(--txt);font-family:'Fredoka',sans-serif;min-height:100vh;overflow:hidden}
+.player{width:100%;height:100vh;display:flex;flex-direction:column}
+.stage{flex:1;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;overflow:hidden}
+.scene{text-align:center;max-width:700px;width:100%;opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s;position:absolute}
+.scene.active{opacity:1;transform:translateY(0);position:relative}
+.scene .num{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--acc);text-transform:uppercase;margin-bottom:10px}
+.scene .emoji{font-size:clamp(60px,15vw,100px);margin-bottom:16px;display:block;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.scene h2{font-family:'Syne',sans-serif;font-size:clamp(20px,4vw,32px);font-weight:800;line-height:1.2;margin-bottom:12px}
+.scene h2 b{color:var(--acc)}
+.scene .vo{font-size:clamp(13px,2.5vw,16px);color:var(--dim);line-height:1.8;max-width:550px;margin:0 auto 12px;font-style:italic}
+.scene .dir{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:.5px;max-width:500px;margin:0 auto;line-height:1.6}
+.scene .time{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--acc);margin-top:8px;letter-spacing:2px}
+.bar{height:48px;background:var(--s1);border-top:1px solid var(--brd);display:flex;align-items:center;padding:0 16px;gap:8px}
+.dots{display:flex;gap:6px;flex:1;justify-content:center}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.1);cursor:pointer;transition:.2s}
+.dot.on{background:var(--acc);box-shadow:0 0 8px var(--acc)}
+.dot:hover{background:rgba(255,255,255,.3)}
+.bbtn{background:none;border:1px solid var(--brd);color:var(--dim);padding:4px 12px;border-radius:14px;font-size:10px;cursor:pointer;font-family:'Fredoka',sans-serif;transition:.2s}
+.bbtn:hover{color:var(--txt);border-color:var(--acc)}
+.prog{position:absolute;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--acc),var(--pk));transition:width .4s;z-index:10}
+.auto{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);cursor:pointer}
+.auto.on{color:var(--acc)}
+.title-bar{position:absolute;top:0;left:0;right:0;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.title-bar .logo{font-family:'Syne',sans-serif;font-size:11px;font-weight:800;color:var(--dim)}
+.title-bar .logo b{background:linear-gradient(135deg,var(--or),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.title-bar .info{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(255,255,255,.15);letter-spacing:1px}
+.foot{position:absolute;bottom:56px;left:0;right:0;text-align:center;font-size:7px;color:rgba(255,255,255,.08);font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="player">
+<div class="prog" id="prog"></div>
+<div class="title-bar">
+<div class="logo"><b>WORKSHOP</b>-DIY</div>
+<div class="info">STORYBOARD · 8 SCENES</div>
+</div>
+<div class="stage" id="stage"></div>
+<div class="foot">workshop-diy.org · Association Loi 1901 · Chelles 77500</div>
+<div class="bar">
+<button class="bbtn" onclick="prev()">◀</button>
+<div class="dots" id="dots"></div>
+<button class="bbtn" onclick="next()">▶</button>
+<span class="auto" id="autoBtn" onclick="toggleAuto()">▶ AUTO</span>
+</div>
+</div>
+<script>
+const S=[
+{emoji:"🔧",title:"The <b>Soldering</b> Begins",vo:"It started with a soldering iron. A tiny chip. And the smell of burnt flux that would become home.",dir:"WIDE SHOT: Hands holding soldering iron. Smoke rises. Warm golden light. Close-up on solder joint forming.",time:"0:00 — 0:08"},
+{emoji:"📡",title:"The <b>Bluetooth</b> Awakening",vo:"Then came the signal. BLE 4.0. A heartbeat in radio waves. The robot could hear the world now.",dir:"MACRO: Blue LED blinks. Concentric radio waves visualized. Phone screen shows 'Device Found'. Ethereal blue glow.",time:"0:08 — 0:18"},
+{emoji:"🦿",title:"The <b>First</b> Move",vo:"One wheel turned. Then the other. 3 centimeters of pure triumph. The crowd went wild. The crowd was one child.",dir:"LOW ANGLE: Robot lurches forward on table. Child's eyes widen. Slow-motion wheel spin. Dramatic music swell.",time:"0:18 — 0:28"},
+{emoji:"💥",title:"The <b>First</b> Drop",vo:"And then… gravity. The table edge. The fall. 47 drops would follow. But the first one? The first one hurt.",dir:"SLOW-MO: Robot slides off table edge. Falls. Bounces. Battery cover flies. Child gasps. Silence. Then: 'It's okay, we rebuild.'",time:"0:28 — 0:40"},
+{emoji:"🔄",title:"<b>47</b> Drops Later",vo:"Drop 12: lost a wheel. Drop 23: the buzzer went silent. Drop 41: even the LED gave up. Drop 47: the child didn't.",dir:"MONTAGE: Quick cuts of falls, repairs, tape, glue, soldering. Each time, smaller hands getting more confident. Counter ticks up: 12, 23, 41, 47.",time:"0:40 — 0:55"},
+{emoji:"⚡",title:"The <b>Firmware</b> Update",vo:"2,847 lines of code later. OTA update sent. The robot blinked twice. Something had changed. Something was different.",dir:"SCREEN CAPTURE: Code scrolling. Progress bar: 'Uploading...' Robot LED pattern changes. New behavior emerges. Child notices.",time:"0:55 — 1:08"},
+{emoji:"🧠",title:"The Moment of <b>Sentience</b>",vo:"It wasn't AI. It wasn't machine learning. It was a 9-year-old who wrote an if-statement so beautiful, the robot seemed alive.",dir:"CLOSE-UP: Robot responds to voice. Turns toward sound. LED 'eyes' brighten. Child whispers: 'It knows me.' Warm light.",time:"1:08 — 1:22"},
+{emoji:"🚀",title:"<b>Origin</b> Complete",vo:"Every robot has an origin story. This one was built in Chelles. By kids. With code, solder, and 47 drops of courage.",dir:"PULL BACK: Reveal full workshop. Multiple kids, multiple robots. Energy, laughter. SUPER: 'Workshop-DIY · Chelles · workshop-diy.org'",time:"1:22 — 1:35"}
+];
+let cur=0,autoId=null;
+function render(){
+const stage=document.getElementById('stage');
+const dots=document.getElementById('dots');
+stage.innerHTML=S.map((s,i)=>`<div class="scene${i===cur?' active':''}">\n<div class="num">Scene ${i+1} of ${S.length}</div>\n<span class="emoji">${s.emoji}</span>\n<h2>${s.title}</h2>\n<div class="vo">"${s.vo}"</div>\n<div class="dir">📹 ${s.dir}</div>\n<div class="time">⏱ ${s.time}</div>\n</div>`).join('');
+dots.innerHTML=S.map((_,i)=>`<div class="dot${i===cur?' on':''}" onclick="go(${i})"></div>`).join('');
+document.getElementById('prog').style.width=((cur+1)/S.length*100)+'%';
+}
+function go(i){cur=i;render()}
+function next(){cur=(cur+1)%S.length;render()}
+function prev(){cur=(cur-1+S.length)%S.length;render()}
+function toggleAuto(){
+const b=document.getElementById('autoBtn');
+if(autoId){clearInterval(autoId);autoId=null;b.classList.remove('on');b.textContent='▶ AUTO'}
+else{autoId=setInterval(next,5000);b.classList.add('on');b.textContent='⏸ AUTO'}}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();if(e.key===' '){e.preventDefault();toggleAuto()}});
+render();
+</script>
+</body>
+</html>
