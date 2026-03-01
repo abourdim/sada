@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada — Shop Listings · 6 Products</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&family=Nunito:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06060e;--s1:#0c0c1a;--s2:#12122a;--brd:rgba(255,255,255,.04);--txt:#e4e8f2;--dim:rgba(255,255,255,.25);--teal:#14b8a6;--cyan:#06b6d4;--indigo:#6366f1}
+body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;min-height:100vh}
+::selection{background:rgba(20,184,166,.3)}
+.header{text-align:center;padding:40px 20px 30px;border-bottom:1px solid var(--brd)}
+.logo-ar{font-family:'Amiri',serif;font-size:48px;font-weight:700;background:linear-gradient(135deg,var(--teal),var(--cyan),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+.logo-fr{font-size:14px;font-weight:300;opacity:.2;letter-spacing:8px}
+.header h2{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-top:10px;color:var(--dim)}
+.header p{font-size:12px;color:rgba(255,255,255,.15);margin-top:4px}
+.wrap{max-width:900px;margin:0 auto;padding:20px}
+.product{background:var(--s1);border:1px solid var(--brd);border-radius:12px;margin-bottom:16px;overflow:hidden;transition:.2s}
+.product:hover{border-color:rgba(20,184,166,.12)}
+.p-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--brd);cursor:pointer}
+.p-head:hover{background:rgba(20,184,166,.02)}
+.p-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700}
+.p-price{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:var(--teal)}
+.p-meta{display:flex;gap:8px;margin-top:4px}
+.p-badge{font-family:'JetBrains Mono',monospace;font-size:9px;padding:2px 8px;border-radius:10px;background:rgba(20,184,166,.06);color:var(--teal);border:1px solid rgba(20,184,166,.1)}
+.p-body{padding:20px;display:none}
+.p-body.open{display:block}
+.p-section{margin-bottom:16px}
+.p-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--teal);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+.p-text{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7}
+.p-text strong{color:var(--txt);font-weight:500}
+.p-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.p-tag{font-family:'JetBrains Mono',monospace;font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,.03);color:var(--dim);border:1px solid var(--brd)}
+.p-copy{padding:6px 14px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:10px;cursor:pointer;border:1px solid var(--brd);background:var(--s2);color:var(--dim);transition:.2s;margin-top:8px}
+.p-copy:hover{border-color:rgba(20,184,166,.2);color:var(--teal)}
+.p-copy.copied{color:var(--teal);border-color:var(--teal)}
+.platforms{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.plat{font-size:10px;padding:3px 10px;border-radius:12px;background:rgba(99,102,241,.06);color:rgba(99,102,241,.6);border:1px solid rgba(99,102,241,.1)}
+.summary{background:var(--s1);border:1px solid var(--brd);border-radius:12px;padding:20px;margin-bottom:20px}
+.summary h3{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:12px}
+.s-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--brd);font-size:13px}
+.s-row:last-child{border:none}
+.s-row .name{color:var(--dim)}
+.s-row .price{font-family:'JetBrains Mono',monospace;color:var(--teal)}
+.s-row.total{font-weight:700;color:var(--txt);padding-top:10px}
+.s-row.total .price{color:var(--indigo)}
+.foot{text-align:center;padding:20px;border-top:1px solid var(--brd);margin-top:20px}
+.foot .f-row{display:flex;align-items:center;justify-content:center;gap:8px}
+.foot .f-icon{width:20px;height:20px;opacity:.4}
+.foot a{color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px}
+.foot a:hover{color:var(--teal)}
+.foot .f-dot{color:rgba(255,255,255,.08)}
+.foot .f-ar{font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot .f-fr{font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo-ar">صدى</div>
+  <div class="logo-fr">sada</div>
+  <h2>🛒 Shop Listings</h2>
+  <p>6 products · Etsy / Gumroad / Ko-fi / GitHub Sponsors</p>
+</div>
+<div class="wrap">
+
+<div class="summary">
+  <h3>💰 Price Summary</h3>
+  <div class="s-row"><span class="name">Full Package (46 apps, 564 files)</span><span class="price">€19.99</span></div>
+  <div class="s-row"><span class="name">Video Bundle (5 apps)</span><span class="price">€4.99</span></div>
+  <div class="s-row"><span class="name">Interactive Bundle (10 apps)</span><span class="price">€7.99</span></div>
+  <div class="s-row"><span class="name">Games Bundle (12 apps)</span><span class="price">€8.99</span></div>
+  <div class="s-row"><span class="name">Tools Bundle (14 apps)</span><span class="price">€9.99</span></div>
+  <div class="s-row"><span class="name">Ambient Bundle (5 apps)</span><span class="price">€3.99</span></div>
+  <div class="s-row"><span class="name">All Bundles separately</span><span class="price">€35.95</span></div>
+  <div class="s-row total"><span class="name">Full Package saves you</span><span class="price">€15.96</span></div>
+</div>
+
+<div id="products"></div>
+</div>
+
+<div class="foot">
+  <div class="f-row">
+    <img class="f-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy">
+    <a href="https://workshop-diy.org">workshop-diy.org</a>
+    <span class="f-dot">·</span>
+    <span class="f-ar">صدى</span>
+    <span class="f-fr">sada</span>
+  </div>
+</div>
+
+<script>
+const PRODUCTS = [
+  {
+    title: "Full Package — صدى sada v4.0",
+    price: "€19.99",
+    apps: "46", files: "564",
+    etsy_title: "صدى sada Full Package — 564 HTML Files · 46 Apps · 30 Tutorials · 3 Languages",
+    desc: "The complete صدى sada ecosystem in one download. 564 hand-crafted HTML files covering 46 interactive web apps + 30 tutorial storyboards for kids learning robotics, AI, cybersecurity, and creative coding. Every file works offline — no server, no install, just open in a browser.\n\nIncludes:\n- 164 presentation formats × 3 languages (EN/FR/AR)\n- 46 interactive apps (games, tools, simulations, videos)\n- 30 tutorial storyboards (10 apps × 3 languages)\n- Video production kit (storyboards, promo scripts, AI prompts)\n- Arabic files with full RTL support + bismillah\n- Workshop-DIY robot logo in every footer\n\nPerfect for: educators, makerspaces, coding clubs, homeschool parents, workshop facilitators.\n\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org\n📍 Chelles 77500 · Association Loi 1901",
+    tags: ["kids coding","STEM education","HTML offline apps","robotics","cybersecurity","AI education","Arabic education","maker education","workshop materials","digital curriculum","trilingual","coding club","homeschool STEM"]
+  },
+  {
+    title: "Video Bundle — 5 Cinematic Apps",
+    price: "€4.99",
+    apps: "5", files: "15",
+    etsy_title: "صدى sada Video Bundle — 5 Cinematic HTML Presentations · 3 Languages",
+    desc: "5 cinematic presentation apps ready to impress. Auto-playing sequences, particle effects, Matrix rain, and Spotify Wrapped-style recaps. All HTML — open in any browser.\n\nIncludes:\n- 🎬 Hacker Presentation — 12-scene cinematic with boot sequence\n- 🌟 Genius Video — 9-scene parallax with transitions\n- 📊 Wrapped 2025 — Spotify Wrapped-style annual recap\n- 📺 Breaking News — TV broadcast with scrolling ticker\n- 📱 App Demo Reel — Card flipper with auto-play\n\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org",
+    tags: ["HTML presentation","cinematic web","offline presentation","tech demo","animated slides"]
+  },
+  {
+    title: "Interactive Bundle — 10 Simulations",
+    price: "€7.99",
+    apps: "10", files: "30",
+    etsy_title: "صدى sada Interactive Bundle — 10 Immersive HTML Simulations · 3 Languages",
+    desc: "10 fully interactive web simulations. Fake terminals, operating systems, Discord servers, Reddit threads, and more.\n\nIncludes:\n- 💻 Hacker Terminal — 20+ bash commands\n- 🖥️ Fake OS Desktop — Draggable windows, taskbar\n- 💬 Discord Chat — Channels, bot messages\n- 🕸️ Network Map — Physics-based graph\n- 🕵️ Classified Dossier — CIA-style redacted docs\n- 📱 App Store — Apple-style with ratings\n- 🔴 Reddit Thread — Upvotes and awards\n- ⚖️ Trial of Bug #42 — Courtroom drama\n- ✈️ Departures Board — Airport split-flap\n- 🚀 Space Mission — NASA mission control\n\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org",
+    tags: ["interactive HTML","simulation","fake OS","terminal emulator","kids coding","offline web app"]
+  },
+  {
+    title: "Games Bundle — 12 Browser Games",
+    price: "€8.99",
+    apps: "12", files: "36",
+    etsy_title: "صدى sada Games Bundle — 12 Educational Browser Games · 3 Languages",
+    desc: "12 browser-based games that teach tech concepts through play.\n\nIncludes:\n- 🕹️ Retro Arcade — 8-bit cabinet\n- 🏴‍☠️ CTF Quiz — 3 difficulty levels\n- 🎴 Card Collection — Trading cards with rarity\n- 🌳 Skill Tree — RPG progression\n- 🔓 Escape Room — 6 puzzle rooms\n- 📕 Pokédex — App encyclopedia\n- 🔥 App Matcher — Tinder-style swipe\n- ✨ Tech Zodiac — Personality quiz\n- 🎯 Workshop Bingo — Interactive bingo\n- 🎤 Rap Battle — Apps face off\n- 🎰 Lucky Draw — Slot machine\n- 🐦 Flappy — Flappy bird clone\n\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org",
+    tags: ["browser games","educational games","kids quiz","HTML games","offline games","STEM games"]
+  },
+  {
+    title: "Tools Bundle — 14 Dashboards & Profiles",
+    price: "€9.99",
+    apps: "14", files: "42",
+    etsy_title: "صدى sada Tools Bundle — 14 Dashboard & Profile HTML Templates · 3 Languages",
+    desc: "14 professional-looking dashboards and profile templates.\n\nIncludes:\n- 📡 Live Monitor — Real-time dashboard\n- 🐙 GitHub Profile — Fake org page\n- 📐 Blueprints — Circuit diagrams\n- 🧪 Periodic Table — Apps as elements\n- 💬 Testimonials — Review wall\n- 🎨 Sticker Sheet — Printable stickers\n- 💼 LinkedIn Profile — Professional profile\n- 🚀 NASA Control — Telemetry panels\n- 📱 Social Media Kit — Content templates\n- 💡 Genius Ideas Lab — Video concepts\n- 🌡️ WKSHP Weather — Weather channel\n- 👨‍🍳 WKSHP Cookbook — Tech recipes\n- 📰 WKSHP Daily — Newspaper layout\n- 🤠 Wanted Wall — Western posters\n\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org",
+    tags: ["HTML templates","dashboard","fake profile","classroom display","event materials","maker tools"]
+  },
+  {
+    title: "Ambient Bundle — 5 Screensavers",
+    price: "€3.99",
+    apps: "5", files: "15",
+    etsy_title: "صدى sada Ambient Bundle — 5 Screensavers & Loading Screens · 3 Languages",
+    desc: "5 atmospheric screen experiences. Perfect for events and displays.\n\nIncludes:\n- 🌧️ Ambient Screen — Matrix screensaver\n- 🎹 Synth Visualizer — Playable keyboard\n- 🖥️ Boot Sequence — BIOS POST simulation\n- 👻 The 40th App — Creepypasta with glitch\n- ⏳ Loading Screens — 6 animated sequences\n\n🔗 https://abourdim.github.io/sada\n🌐 workshop-diy.org",
+    tags: ["screensaver","ambient display","loading animation","HTML art","event display","matrix effect"]
+  }
+];
+
+const container = document.getElementById('products');
+
+PRODUCTS.forEach((p, i) => {
+  const tagsHtml = p.tags.map(t => '<span class="p-tag">' + t + '</span>').join('');
+  const platforms = ['Etsy','Gumroad','Ko-fi','GitHub'].map(x => '<span class="plat">' + x + '</span>').join('');
+  
+  const copyText = p.etsy_title + "\n\n" + p.desc.replace(/\\n/g, "\n") + "\n\nTags: " + p.tags.join(", ");
+  
+  container.innerHTML += `<div class="product">
+    <div class="p-head" onclick="this.nextElementSibling.classList.toggle('open')">
+      <div>
+        <div class="p-title">${p.title}</div>
+        <div class="p-meta">
+          <span class="p-badge">${p.apps} apps</span>
+          <span class="p-badge">${p.files} files</span>
+          <span class="p-badge">EN/FR/AR</span>
+        </div>
+      </div>
+      <span class="p-price">${p.price}</span>
+    </div>
+    <div class="p-body${i===0?' open':''}">
+      <div class="p-section">
+        <div class="p-label">Etsy Title (140 chars)</div>
+        <div class="p-text"><strong>${p.etsy_title}</strong></div>
+      </div>
+      <div class="p-section">
+        <div class="p-label">Description</div>
+        <div class="p-text">${p.desc.replace(/\\n/g, '<br>')}</div>
+      </div>
+      <div class="p-section">
+        <div class="p-label">Tags</div>
+        <div class="p-tags">${tagsHtml}</div>
+      </div>
+      <div class="p-section">
+        <div class="p-label">Platforms</div>
+        <div class="platforms">${platforms}</div>
+      </div>
+      <button class="p-copy" onclick="copyListing(this, ${i})">📋 Copy full listing</button>
+    </div>
+  </div>`;
+});
+
+function copyListing(btn, idx) {
+  const p = PRODUCTS[idx];
+  const text = p.etsy_title + "\n\n" + p.desc.replace(/\\n/g, "\n") + "\n\nTags: " + p.tags.join(", ");
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ copié';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 Copy full listing'; btn.classList.remove('copied'); }, 1500);
+  });
+}
+</script>
+</body>
+</html>

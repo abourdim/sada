@@ -1,4 +1,4 @@
-# صدى sada · v3.0
+# صدى sada · v5.0
 
 **564 self-contained HTML files** across 3 languages (EN/FR/AR) for the Workshop-DIY educational ecosystem.
 
@@ -39,4 +39,4 @@ CowSay · BitBot · OllamaBot · SDR · Crypto · Hacktivist · Pentest · Plane
 - 📍 Chelles 77500
 
 ---
-*sada (صدى) — Workshop-DIY · v3.0 · March 2026*
+*sada (صدى) — Workshop-DIY · v5.0 · March 2026*
