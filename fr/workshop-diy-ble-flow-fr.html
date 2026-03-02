@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -104,7 +105,7 @@ h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#0088ff;le
   <div class="step-num"><div class="step-circle active">1</div><div class="step-line active"></div></div>
   <div class="step-content">
     <div class="step-title"><span class="icon">👆</span>USER CLICKS CONNECT</div>
-    <div class="step-desc">User gesture required (security). Browser opens device chooser dialog. Micro:bit must be paired and in BLE mode.</div>
+    <div class="step-desc">Utilisateur gesture required (security). Browser opens device chooser dialog. Micro:bit must be paired and in BLE mode.</div>
     <div class="code"><span class="kw">const</span> device = <span class="kw">await</span> navigator.bluetooth.<span class="fn">requestDevice</span>({
   filters: [{ namePrefix: <span class="str">"BBC micro:bit"</span> }],
   optionalServices: [<span class="str">"6e400001-b5a3-f393-e0a9-e50e24dcca9e"</span>]
@@ -269,11 +270,11 @@ h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#0088ff;le
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

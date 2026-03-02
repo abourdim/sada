@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -94,18 +95,18 @@ body{background:#1e1e1e;font-family:'JetBrains Mono',monospace;font-size:13px;co
   <div class="t">workshop-diy — Visual Studio Code</div>
 </div>
 <div class="menubar">
-  <span class="menu-item">File</span><span class="menu-item">Edit</span><span class="menu-item">View</span><span class="menu-item">Go</span><span class="menu-item">Run</span><span class="menu-item">Terminal</span><span class="menu-item">Help</span>
+  <span class="menu-item">File</span><span class="menu-item">Modifier</span><span class="menu-item">View</span><span class="menu-item">Go</span><span class="menu-item">Run</span><span class="menu-item">Terminal</span><span class="menu-item">Aide</span>
 </div>
 <div class="body">
 <div class="actbar">
-  <div class="act-icon on" title="Explorer">📁</div>
-  <div class="act-icon" title="Search">🔍</div>
+  <div class="act-icon on" title="Explorateur">📁</div>
+  <div class="act-icon" title="Rechercher">🔍</div>
   <div class="act-icon" title="Git">🔀</div>
   <div class="act-icon" title="Debug">🐛</div>
   <div class="act-icon" title="Extensions">🧩</div>
 </div>
 <div class="sidebar">
-  <div class="sb-h">EXPLORER <span style="font-size:9px;color:#666">WORKSHOP-DIY</span></div>
+  <div class="sb-h">EXPLORATEUR <span style="font-size:9px;color:#666">WORKSHOP-DIY</span></div>
   <div class="sb-tree" id="tree"></div>
 </div>
 <div class="editor-area">
@@ -115,7 +116,7 @@ body{background:#1e1e1e;font-family:'JetBrains Mono',monospace;font-size:13px;co
     <div class="minimap"><div class="minimap-content" id="minimap"></div></div>
   </div>
   <div class="panel">
-    <div class="panel-tabs"><span class="ptab on">TERMINAL</span><span class="ptab">PROBLEMS</span><span class="ptab">OUTPUT</span></div>
+    <div class="panel-tabs"><span class="ptab on">TERMINAL</span><span class="ptab">PROBLÈMES</span><span class="ptab">SORTIE</span></div>
     <div class="panel-body" id="terminal"></div>
   </div>
 </div>
@@ -156,7 +157,7 @@ const FILES={
   apps:     <span class="num">39</span>,
   domains:  <span class="num">7</span>,
   themes:   <span class="num">12</span>,
-  bugs:     <span class="ty">Infinity</span>,  <span class="cm">// it's a feature</span>
+  bugs:     <span class="ty">Infinity</span>,  <span class="cm">// c'est une fonctionnalité</span>
   coffee:   <span class="ty">Infinity</span>,  <span class="cm">// non-negotiable</span>
   wifi:     <span class="str">'password123'</span>,  <span class="cm">// don't @ me</span>
 };
@@ -316,7 +317,7 @@ npm run coffee  <span class="cm"># important step</span>
 MIT — because sharing is caring.
 
 <span class="cm">---</span>
-<span class="kw">Made with 💚, ☕, and stackoverflow</span>`}
+<span class="kw">Fait avec 💚, ☕, et stackoverflow</span>`}
 };
 
 const TREE=[
@@ -445,11 +446,11 @@ render();
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

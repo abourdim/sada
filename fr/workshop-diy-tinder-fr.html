@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -102,7 +103,7 @@ const APPS=[
 {e:"🐧",n:"linux-kids-lab",d:"Linux terminal in a browser. ls, cd, grep. No rm -rf allowed.",t:["learn"],bg:"learn",pwr:85,fun:78},
 {e:"💡",n:"wled-kids-lab",d:"Control LED strips from your phone. Rainbow everything.",t:["hw"],bg:"hw",pwr:65,fun:88},
 {e:"⚡",n:"esp32-c3-lab",d:"ESP32-C3 IoT lab. The hardware gateway drug. You'll want more.",t:["hw"],bg:"hw",pwr:75,fun:70},
-{e:"🎨",n:"pixel-gateway",d:"Retro pixel art editor. Therapeutic. Creative. Secretly educational.",t:["learn"],bg:"learn",pwr:60,fun:92},
+{e:"🎨",n:"pixel-gateway",d:"Rétro pixel art editor. Therapeutic. Creative. Secretly educational.",t:["learn"],bg:"learn",pwr:60,fun:92},
 {e:"🐳",n:"docker-lab",d:"Containers for kids. Will cause generational knowledge inversion.",t:["learn"],bg:"learn",pwr:75,fun:68},
 {e:"🧩",n:"bit-playground",d:"The ultimate micro:bit sandbox. Every sensor. Every output. All BLE.",t:["robo"],bg:"robo",pwr:80,fun:90},
 {e:"✨",n:"prompt-hero",d:"Learn to talk to AI. The art of the question. Surprisingly deep.",t:["ai","learn"],bg:"ai",pwr:70,fun:80},
@@ -130,8 +131,8 @@ function renderStack(){
     card.style.opacity=pos===0?1:.7-pos*.2;
     card.innerHTML=`
       <div class="card-bg ${app.bg}"></div>
-      <div class="overlay like">LIKE</div>
-      <div class="overlay nope">NOPE</div>
+      <div class="overlay like">J'AIME</div>
+      <div class="overlay nope">NON</div>
       <div class="card-content">
         <div class="card-top"><span>#${APPS.indexOf(app)+1}</span><span>${matches}/${total}</span></div>
         <div class="card-emoji">${app.e}</div>
@@ -223,11 +224,11 @@ renderStack();
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

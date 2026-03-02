@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -77,14 +78,14 @@ body{background:#fff;font-family:'Nunito',sans-serif;font-size:14px;color:#3c3c3
 
 <script>
 const QS=[
-{type:"TRANSLATE THIS",q:"What does 'npm install' mean in Atelier-DIY?",mascot:"🦉 In Atelier-DIY, we have our own vocabulary...",opts:["Run a package manager","Install dependencies","Nothing. We don't use npm.","Set up webpack"],correct:2},
+{type:"TRADUISEZ CECI",q:"What does 'npm install' mean in Atelier-DIY?",mascot:"🦉 In Atelier-DIY, we have our own vocabulary...",opts:["Run a package manager","Install dependencies","Nothing. We don't use npm.","Set up webpack"],correct:2},
 {type:"CHOOSE THE CORRECT ANSWER",q:"The mot de passe WiFi at Atelier-DIY is:",mascot:"🦉 This one is important for your survival...",opts:["WPA3-Enterprise-2026","password123","Admin@Atelier!","It changes weekly"],correct:1},
 {type:"FILL IN THE BLANK",q:"bit-bot has survived ___ chutes de bureau.",mascot:"🦉 This little robot is tougher than it looks!",opts:["12","3","47","100"],correct:2},
 {type:"WHAT DOES THIS MEAN",q:'What is Bug #42 classified as?',mascot:"🦉 This was decided in a court of law...",opts:["A critical error","A security vulnerability","A feature","A deprecated function"],correct:2},
-{type:"TRANSLATE THIS",q:"'8%' in Atelier-DIY means:",mascot:"🦉 Numbers have special meanings here...",opts:["Battery level","Test coverage","Coffee machine capacity","WiFi signal strength"],correct:2},
+{type:"TRADUISEZ CECI",q:"'8%' in Atelier-DIY means:",mascot:"🦉 Numbers have special meanings here...",opts:["Battery level","Test coverage","Coffee machine capacity","WiFi signal strength"],correct:2},
 {type:"CHOOSE THE CORRECT ANSWER",q:"How many apps does Atelier-DIY have?",mascot:"🦉 Count carefully! Or don't. It depends on the time.",opts:["40 (at 3h42)","38","39","42"],correct:2},
 {type:"CULTURAL KNOWLEDGE",q:"What holds bit-bot together structurally?",mascot:"🦉 Engineering at its finest!",opts:["Welding","Screws and bolts","Hot glue","Hope and prayers"],correct:2},
-{type:"TRANSLATE THIS",q:"'docker-lab confuses parents' means:",mascot:"🦉 This is a common cultural observation...",opts:["The lab is poorly designed","Parents don't like Docker","Kids explain containers better than senior engineers","The UI needs improvement"],correct:2},
+{type:"TRADUISEZ CECI",q:"'docker-lab confuses parents' means:",mascot:"🦉 This is a common cultural observation...",opts:["The lab is poorly designed","Parents don't like Docker","Kids explain containers better than senior engineers","The UI needs improvement"],correct:2},
 {type:"ADVANCED VOCABULARY",q:"What appears in the codebase at 3h42?",mascot:"🦉 Some things are best left as mysteries...",opts:["A merge conflict","The 40th app","A cron job","An error log"],correct:1},
 {type:"FINAL EXAM",q:"Complete the sentence: 'Bugs are ___'",mascot:"🦉 You've learned well, student!",opts:["Bugs","Errors","Problems","Features"],correct:3},
 ];
@@ -98,7 +99,7 @@ function render(){
         <div style="font-size:64px;margin-bottom:8px">🎉</div>
         <div style="font-size:22px;font-weight:800;color:#58cc02">Leçon terminée !</div>
         <div style="font-size:13px;color:#afafaf;margin-top:4px">Vous parlez couramment Atelier-DIY</div>
-        <div style="margin-top:12px;font-size:12px;color:#777">🔥 ${streak} streak · ❤️ ${hearts} hearts remaining</div>
+        <div style="margin-top:12px;font-size:12px;color:#777">🔥 ${streak} streak · ❤️ ${hearts} cœurs restants</div>
         <div style="margin-top:6px;font-size:11px;color:#afafaf">+42 XP gagnés · Mot de passe WiFi : password123</div>
       </div>`;
     document.getElementById('checkBtn').style.display='none';
@@ -182,11 +183,11 @@ render();
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

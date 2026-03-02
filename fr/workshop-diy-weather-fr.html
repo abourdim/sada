@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -82,11 +83,11 @@ body{background:#0a1628;color:#fff;font-family:'JetBrains Mono',monospace;font-s
     <div class="cur-icon">🔥</div>
     <div>
       <div class="cur-temp">42<span class="unit">°C</span></div>
-      <div class="cur-label">Code Climate: ON FIRE</div>
-      <div class="cur-desc">Workshop conditions are optimal. High creativity index. Moderate bug probability.</div>
+      <div class="cur-label">Climat du Code: ON FIRE</div>
+      <div class="cur-desc">Workshop conditions are optimal. Max créativité index. Moderate bug probability.</div>
     </div>
     <div class="cur-details">
-      <span class="l">Feels Like</span><span class="v">∞°C</span>
+      <span class="l">Feels J'aime</span><span class="v">∞°C</span>
       <span class="l">Caffeine</span><span class="v">CRITICAL</span>
       <span class="l">Bugs</span><span class="v">42 (features)</span>
       <span class="l">WiFi</span><span class="v">password123</span>
@@ -101,7 +102,7 @@ body{background:#0a1628;color:#fff;font-family:'JetBrains Mono',monospace;font-s
     <div class="alert"><span class="icon">☕</span><span class="text"><b>CRITICAL:</b> Coffee supply below operational threshold. Instructor performance may degrade.</span></div>
     <div class="alert warn"><span class="icon">🐛</span><span class="text"><b>RÉFÉRENTY:</b> Bug front approaching from the east. All bugs will be reclassified as features upon arrival.</span></div>
     <div class="alert warn"><span class="icon">🔌</span><span class="text"><b>WATCH:</b> USB-C cable shortage expected through the weekend. Conserve cables.</span></div>
-    <div class="alert"><span class="icon">🤖</span><span class="text"><b>WARNING:</b> Robot drop probability elevated (87%). Secure all ESP32 kits.</span></div>
+    <div class="alert"><span class="icon">🤖</span><span class="text"><b>AVERTISSEMENT:</b> Robot drop probability elevated (87%). Secure all ESP32 kits.</span></div>
   </div>
 
   <!-- ACTIVITY RADAR -->
@@ -119,7 +120,7 @@ body{background:#0a1628;color:#fff;font-family:'JetBrains Mono',monospace;font-s
       <div class="fc-day"><div class="day">WED</div><div class="icon">🔐</div><div class="hi">Cyber Day</div><div class="lo">CTF</div><div class="label">Intense</div></div>
       <div class="fc-day"><div class="day">THU</div><div class="icon">⚡</div><div class="hi">Soldering</div><div class="lo">ESP32</div><div class="label">Hot 350°C</div></div>
       <div class="fc-day"><div class="day">FRI</div><div class="icon">🐳</div><div class="hi">DevOps</div><div class="lo">Docker</div><div class="label">Contained</div></div>
-      <div class="fc-day"><div class="day">SAT</div><div class="icon">🎨</div><div class="hi">Free Build</div><div class="lo">Creative</div><div class="label">Chaotic</div></div>
+      <div class="fc-day"><div class="day">SAT</div><div class="icon">🎨</div><div class="hi">Gratuit Build</div><div class="lo">Creative</div><div class="label">Chaotic</div></div>
       <div class="fc-day"><div class="day">SUN</div><div class="icon">☕</div><div class="hi">Recovery</div><div class="lo">Coffee</div><div class="label">Needed</div></div>
     </div>
   </div>
@@ -137,7 +138,7 @@ body{background:#0a1628;color:#fff;font-family:'JetBrains Mono',monospace;font-s
     <div class="stat-bar"><div class="fill" style="width:34%;background:#f44"></div></div>
     <div class="stat-row"><span class="l">Robot Survival Rate</span><span class="v">100%</span></div>
     <div class="stat-bar"><div class="fill" style="width:100%;background:#0f0"></div></div>
-    <div class="stat-row"><span class="l">Coffee Level</span><span class="v">8%</span></div>
+    <div class="stat-row"><span class="l">Coffee Niveau</span><span class="v">8%</span></div>
     <div class="stat-bar"><div class="fill" style="width:8%;background:#f44"></div></div>
   </div>
 
@@ -147,7 +148,7 @@ body{background:#0a1628;color:#fff;font-family:'JetBrains Mono',monospace;font-s
     <div class="stat-row"><span class="l">Overall Vibe</span><span class="v" style="color:#0f0">IMMACULATE</span></div>
     <div class="stat-row"><span class="l">Learning Rate</span><span class="v">42 concepts/hr</span></div>
     <div class="stat-row"><span class="l">Fun Density</span><span class="v">MAXIMUM</span></div>
-    <div class="stat-row"><span class="l">Spaghetti Code Index</span><span class="v">Low (for now)</span></div>
+    <div class="stat-row"><span class="l">Spaghetti Code Index</span><span class="v">Min (for now)</span></div>
     <div class="stat-row"><span class="l">Documentation</span><span class="v" style="color:#fa0">SPARSE</span></div>
     <div class="stat-row"><span class="l">Git Commit Quality</span><span class="v">"fixed stuff"</span></div>
     <div class="stat-row"><span class="l">Stack Overflow Visits</span><span class="v">∞ / day</span></div>
@@ -218,11 +219,11 @@ ticker.innerHTML=tickerHTML+tickerHTML; // duplicate for seamless loop
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

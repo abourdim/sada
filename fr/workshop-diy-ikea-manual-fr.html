@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -45,7 +46,7 @@ body{background:#f5f5f0;color:#333;font-family:'Noto Sans',sans-serif;font-size:
 .figure .face{font-size:28px;margin-bottom:2px}
 .figure .desc{font-size:7px;color:#aaa}
 
-/* WARNINGS */
+/* AVERTISSEMENTS */
 .warning-box{background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:8px;margin:8px 0;font-size:8px;color:#856404;display:flex;gap:6px;align-items:flex-start}
 .warning-box .icon{font-size:16px;flex-shrink:0}
 
@@ -73,7 +74,7 @@ body{background:#f5f5f0;color:#333;font-family:'Noto Sans',sans-serif;font-size:
 </div>
 
 <div class="section">
-  <div class="sec-title">Parts Included</div>
+  <div class="sec-title">Parts Inclus</div>
   <div class="parts">
     <div class="part"><div class="emoji">🔲</div><div class="name">ESP32-WROOM</div><div class="qty">×1</div></div>
     <div class="part"><div class="emoji">⚙️</div><div class="name">N20 MOTORS</div><div class="qty">×2</div></div>
@@ -88,11 +89,11 @@ body{background:#f5f5f0;color:#333;font-family:'Noto Sans',sans-serif;font-size:
     <div class="part"><div class="emoji">🔥</div><div class="name">HOT GLUE</div><div class="qty">×∞</div></div>
     <div class="part"><div class="emoji">🤞</div><div class="name">HOPE</div><div class="qty">×1</div></div>
   </div>
-  <p style="font-size:7px;color:#999;margin-top:6px">* You will find 7. The 8th is a feature, not a missing part.<br>** Not included. Use your teeth. (Don't actually.)</p>
+  <p style="font-size:7px;color:#999;margin-top:6px">* You will find 7. The 8th is a feature, not a missing part.<br>** Non inclus. Use your teeth. (Don't actually.)</p>
 </div>
 
 <div class="section">
-  <div class="sec-title">Assembly Steps</div>
+  <div class="sec-title">Assembly Étapes</div>
 
   <div class="step">
     <div class="step-num">1</div>
@@ -160,10 +161,10 @@ body{background:#f5f5f0;color:#333;font-family:'Noto Sans',sans-serif;font-size:
   </div>
 
   <div class="figure-row">
-    <div class="figure"><div class="face">😐</div><div class="desc">Step 1:<br>Confident</div></div>
-    <div class="figure"><div class="face">🤨</div><div class="desc">Step 3:<br>Suspicious</div></div>
-    <div class="figure"><div class="face">😰</div><div class="desc">Step 5:<br>Polarity check</div></div>
-    <div class="figure"><div class="face">🥳</div><div class="desc">Step 7:<br>IT WORKS!</div></div>
+    <div class="figure"><div class="face">😐</div><div class="desc">Étape 1:<br>Confident</div></div>
+    <div class="figure"><div class="face">🤨</div><div class="desc">Étape 3:<br>Suspicious</div></div>
+    <div class="figure"><div class="face">😰</div><div class="desc">Étape 5:<br>Polarity check</div></div>
+    <div class="figure"><div class="face">🥳</div><div class="desc">Étape 7:<br>IT WORKS!</div></div>
   </div>
 </div>
 
@@ -171,7 +172,7 @@ body{background:#f5f5f0;color:#333;font-family:'Noto Sans',sans-serif;font-size:
   <div class="sec-title">Troubleshooting</div>
   <table style="width:100%;border-collapse:collapse;font-size:9px">
     <tr style="border-bottom:1px solid #eee"><td style="padding:4px;color:#999;width:40%">Robot drives in circles</td><td style="padding:4px">Check motor wiring. Or call it a "dance feature."</td></tr>
-    <tr style="border-bottom:1px solid #eee"><td style="padding:4px;color:#999">BLE won't connect</td><td style="padding:4px">Close all other Chrome tabs. Yes, all 47 of them.</td></tr>
+    <tr style="border-bottom:1px solid #eee"><td style="padding:4px;color:#999">BLE won't connect</td><td style="padding:4px">Fermer all other Chrome tabs. Yes, all 47 of them.</td></tr>
     <tr style="border-bottom:1px solid #eee"><td style="padding:4px;color:#999">Robot fell off table</td><td style="padding:4px">Normal. See: drops 1-47. It will survive.</td></tr>
     <tr style="border-bottom:1px solid #eee"><td style="padding:4px;color:#999">Missing screw</td><td style="padding:4px">The 8th screw is a feature, not a missing part.</td></tr>
     <tr style="border-bottom:1px solid #eee"><td style="padding:4px;color:#999">Something smells</td><td style="padding:4px">Unplug battery. Check polarity. Open window.</td></tr>
@@ -210,11 +211,11 @@ body{background:#f5f5f0;color:#333;font-family:'Noto Sans',sans-serif;font-size:
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

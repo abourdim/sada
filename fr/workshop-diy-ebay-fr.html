@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -98,14 +99,14 @@ h1{font-size:16px;font-weight:400;line-height:1.5;margin-bottom:4px}
       </div>
       <div class="timer">⏰ Temps restant : <strong id="timer">4d 2h 42m</strong> (ends Mar 04, 2026 at 03h42)</div>
       <div class="bid-count">[ <a style="color:#0064d2">42 bids</a> ]</div>
-      <button class="bid-btn">Place bid</button>
+      <button class="bid-btn">Enchérir</button>
       <button class="watch-btn">👁 Add to watchlist</button>
     </div>
   </div>
 </div>
 
 <div class="bid-history">
-  <h3>Bid History (42 bids)</h3>
+  <h3>Historique d'enchères (42 bids)</h3>
   <div class="bid-row"><span class="bidder">h0t_glue_stan</span><span class="amount">€0.42</span><span class="time">Feb 28, 15:42</span></div>
   <div class="bid-row"><span class="bidder">coffee_at_8pct</span><span class="amount">€0.39</span><span class="time">Feb 28, 14:20</span></div>
   <div class="bid-row"><span class="bidder">docker_whale_69</span><span class="amount">€0.33</span><span class="time">Feb 28, 12:15</span></div>
@@ -123,7 +124,7 @@ h1{font-size:16px;font-weight:400;line-height:1.5;margin-bottom:4px}
   <div class="spec-row"><span class="lbl">Domains Covered</span><span class="val">Robotics, AI/ML, Cyber, Hardware, Learning, Tools, Creative</span></div>
   <div class="spec-row"><span class="lbl">Bug #42 Status</span><span class="val">Feature (court-verified, acquitted Feb 2026)</span></div>
   <div class="spec-row"><span class="lbl">Machine à café</span><span class="val">Included. 8% capacity. As-is. No returns.</span></div>
-  <div class="spec-row"><span class="lbl">WiFi Password</span><span class="val">password123 (unchanged since 2023)</span></div>
+  <div class="spec-row"><span class="lbl">WiFi Mot de passe</span><span class="val">password123 (unchanged since 2023)</span></div>
   <div class="spec-row"><span class="lbl">Robot Desk Drops</span><span class="val">47 survived (colle chaude intact)</span></div>
   <div class="spec-row"><span class="lbl">Authenticity</span><span class="val">Verified by Judge Compiler</span></div>
 </div>
@@ -169,11 +170,11 @@ h1{font-size:16px;font-weight:400;line-height:1.5;margin-bottom:4px}
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

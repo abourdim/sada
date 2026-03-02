@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // Player</title>
+<title>WKSHP-DIY // Joueur</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -98,14 +99,14 @@ a{color:#1db954;text-decoration:none}
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <div class="app">
 <div class="nav">
-  <div class="nav-logo">🤖 WKSHP Player</div>
+  <div class="nav-logo">🤖 WKSHP Joueur</div>
   <input class="nav-search" placeholder="Search apps, tracks..." readonly>
   <div class="nav-links"><span>Explore</span><span>Library</span><span>👤 Maker</span></div>
 </div>
 <div class="bod">
 <div class="side">
   <div class="side-item on"><span class="e">🏠</span> Accueil</div>
-  <div class="side-item"><span class="e">🔍</span> Search</div>
+  <div class="side-item"><span class="e">🔍</span> Rechercher</div>
   <div class="side-item"><span class="e">📚</span> Library</div>
   <div class="side-h">PLAYLISTS</div>
   <div class="side-pl"><div class="cover" style="background:#0a2a0a">🤖</div><div class="info"><div class="n">Robot Beats</div>Playlist · 16 tracks</div></div>
@@ -205,7 +206,7 @@ function togglePlay(){
   document.getElementById('plPlay').textContent=isPlaying?'⏸':'▶';
 }
 
-// Fake progress
+// Faux progress
 let prog=35;
 setInterval(()=>{if(isPlaying){prog=(prog+0.5)%100;document.getElementById('plFill').style.width=prog+'%';const m=Math.floor(prog*2.2/60),s=Math.floor(prog*2.2%60);document.getElementById('plTime').textContent=m+':'+(s<10?'0':'')+s}},500);
 </script>
@@ -231,11 +232,11 @@ setInterval(()=>{if(isPlaying){prog=(prog+0.5)%100;document.getElementById('plFi
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

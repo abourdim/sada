@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // THE MOVIE</title>
+<title>WKSHP-DIY // LE FILM</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -64,21 +65,21 @@ body{background:#000;color:#fff;font-family:'JetBrains Mono',monospace;overflow:
 <div class="crawl" id="crawl">
 
 <div class="intro">WORKSHOP-DIY PRODUCTIONS PRESENTS</div>
-<div class="title">WORKSHOP-DIY:<br>THE MOVIE</div>
-<div class="subtitle">In a world where installations take forever,<br>where Bluetooth disconnects without warning,<br>and where the mot de passe WiFi is password123...<br><br>One association dared to build 39 apps<br>that run entirely in a browser.</div>
+<div class="title">WORKSHOP-DIY:<br>LE FILM</div>
+<div class="subtitle">Dans un monde où les installations prennent une éternité,<br>where Bluetooth disconnects without warning,<br>et où le mot de passe WiFi is password123...<br><br>Une association a osé construire 39 apps<br>qui tournent entièrement dans un navigateur.</div>
 
 <div class="credit-section">
 <h2>RÉALISÉ PAR</h2>
 <div class="credit-row"><span class="role">Director</span><span class="name">Le Fondateur</span></div>
 <div class="credit-row"><span class="role">Assistant Director</span><span class="name">Claude AI</span></div>
-<div class="credit-row"><span class="role">Coffee Director</span><span class="name">The Espresso Machine</span></div>
+<div class="credit-row"><span class="role">Coffee Director</span><span class="name">La Machine à Espresso</span></div>
 </div>
 
 <div class="credit-section">
 <h2>AVEC</h2>
-<div class="cast-row"><span class="char">🤖 bit-bot</span><span class="as">as</span><span class="actor">The Hero</span></div>
-<div class="cast-row"><span class="char">🪄 magic-hands</span><span class="as">as</span><span class="actor">The Wizard</span></div>
-<div class="cast-row"><span class="char">🔐 pentest-lab</span><span class="as">as</span><span class="actor">The Rogue</span></div>
+<div class="cast-row"><span class="char">🤖 bit-bot</span><span class="as">as</span><span class="actor">Le Héros</span></div>
+<div class="cast-row"><span class="char">🪄 magic-hands</span><span class="as">as</span><span class="actor">Le Magicien</span></div>
+<div class="cast-row"><span class="char">🔐 pentest-lab</span><span class="as">as</span><span class="actor">Le Voyou</span></div>
 <div class="cast-row"><span class="char">🧠 teachable-machine</span><span class="as">as</span><span class="actor">The Brain</span></div>
 <div class="cast-row"><span class="char">🐧 linux-kids-lab</span><span class="as">as</span><span class="actor">The Sage</span></div>
 <div class="cast-row"><span class="char">🐳 docker-lab</span><span class="as">as</span><span class="actor">The Whale</span></div>
@@ -96,9 +97,9 @@ body{background:#000;color:#fff;font-family:'JetBrains Mono',monospace;overflow:
 
 <div class="credit-section">
 <h2>TECHNICAL CREW</h2>
-<div class="credit-row"><span class="role">Cinematography</span><span class="name">navigator.mediaDevices.getUserMedia()</span></div>
-<div class="credit-row"><span class="role">Visual Effects</span><span class="name">MediaPipe & Canvas API</span></div>
-<div class="credit-row"><span class="role">Sound Design</span><span class="name">Web Audio API</span></div>
+<div class="credit-row"><span class="role">Cinématographie</span><span class="name">navigator.mediaDevices.getUserMedia()</span></div>
+<div class="credit-row"><span class="role">Effets Visuels</span><span class="name">MediaPipe & Canvas API</span></div>
+<div class="credit-row"><span class="role">Design Sonore</span><span class="name">Web Audio API</span></div>
 <div class="credit-row"><span class="role">Networking</span><span class="name">WebRTC & Web Bluetooth</span></div>
 <div class="credit-row"><span class="role">Set Construction</span><span class="name">HTML, CSS, JavaScript</span></div>
 <div class="credit-row"><span class="role">Props</span><span class="name">ESP32, micro:bit, Neopixels</span></div>
@@ -139,7 +140,7 @@ Bug #42 (for being a feature all along)
 </div>
 
 <div class="easter">
-<p>No robots were harmed in the making of this film.<br>
+<p>Aucun robot n'a été maltraité in the making of this film.<br>
 47 robots were dropped, but all survived.<br>
 42 bugs were found. All were reclassified as fonctionnalités.<br>
 1,337 cups of coffee were consumed.<br>
@@ -224,11 +225,11 @@ function togglePause(){
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

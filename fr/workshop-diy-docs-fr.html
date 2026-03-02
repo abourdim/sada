@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // DOCUMENTATION v1.0</title>
+<title>WKSHP-DIY // DOCUMENTATION v5.1</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&Amiri&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -64,8 +65,8 @@ tr:hover td{background:rgba(255,255,255,.005)}
   <input type="text" placeholder="🔍 Search docs..." id="search">
 
   <div class="nav-section">GETTING STARTED</div>
-  <a class="nav-item active" href="#overview">Overview</a>
-  <a class="nav-item" href="#quickstart">Quick Start</a>
+  <a class="nav-item active" href="#overview">Vue d'ensemble</a>
+  <a class="nav-item" href="#quickstart">Démarrage Rapide</a>
   <a class="nav-item" href="#stats">Stats</a>
 
   <div class="nav-section">FILE CATALOG</div>
@@ -83,7 +84,7 @@ tr:hover td{background:rgba(255,255,255,.005)}
   <a class="nav-item" href="#misc">🏷️ Miscellaneous</a>
 
   <div class="nav-section">REFERENCE</div>
-  <a class="nav-item" href="#universe">🌍 The Universe</a>
+  <a class="nav-item" href="#universe">🌍 L'Univers</a>
   <a class="nav-item" href="#technical">🛠️ Technical</a>
   <a class="nav-item" href="#apps">📋 The 39 Apps</a>
   <a class="nav-item" href="#faq">❓ FAQ</a>
@@ -93,7 +94,7 @@ tr:hover td{background:rgba(255,255,255,.005)}
 <div class="main">
 
 <h1>Workshop-DIY Presentation Suite</h1>
-<p>160 self-contained HTML files celebrating the Workshop-DIY educational ecosystem. Every format imaginable. Every app referenced. Every bug is a feature.</p>
+<p>567 fichiers HTML autonomes célébrant l'écosystème éducatif Workshop-DIY. Tous les formats imaginables. Every app referenced. Every bug is a feature.</p>
 
 <div class="stat-grid">
   <div class="stat"><div class="stat-val">160</div><div class="stat-label">HTML FILES</div></div>
@@ -105,24 +106,24 @@ tr:hover td{background:rgba(255,255,255,.005)}
 </div>
 
 <!-- QUICK START -->
-<h2 id="quickstart">🚀 Quick Start</h2>
+<h2 id="quickstart">🚀 Démarrage Rapide</h2>
 
-<h3>Option A: From ZIP</h3>
-<pre>1. Download workshop-diy-v1.0.zip
-2. Unzip anywhere
-3. Open any .html file in Chrome
-4. That's it.</pre>
+<h3>Option A : Depuis le ZIP</h3>
+<pre>1. Télécharger workshop-diy.zip
+2. Décompresser n'importe où
+3. Ouvrir un .html dans Chrome
+4. C'est tout.</pre>
 
 <h3>Option B: Individual Files</h3>
-<p>Every file is self-contained. Download one, open it. Done. No build step, no server, no configuration.</p>
+<p>Chaque fichier est autonome. Téléchargez-en un, ouvrez-le. C'est tout. Pas de build, pas de serveur, pas de config.</p>
 
-<div class="tip">💡 Use <code>workshop-diy-index.html</code> as your starting point — it has search and categorized navigation for all 160 files.</div>
+<div class="tip">💡 Use <code>workshop-diy-index.html</code> comme point de départ — il a une recherche et une navigation par catégories pour tous les 160 files.</div>
 
-<h3>For Presentations</h3>
-<p>Open any file fullscreen (F11). Most files auto-animate on load. Dark backgrounds optimized for projectors and screens.</p>
+<h3>Pour les Présentations</h3>
+<p>Ouvrir un fichier en plein écran (F11). La plupart s'animent au chargement. Fonds sombres optimisés pour projectors and screens.</p>
 
 <h3>For Walls & Events</h3>
-<p>Print from browser or display on multiple screens. Mix formats for maximum impact — a newspaper next to a Tinder profile next to a court transcript.</p>
+<p>Imprimer from browser or display on multiple screens. Mix formats for maximum impact — a newspaper next to a Tinder profile next to a court transcript.</p>
 
 <!-- STATS -->
 <h2 id="stats">📊 Project Statistics</h2>
@@ -142,7 +143,7 @@ tr:hover td{background:rgba(255,255,255,.005)}
 </table>
 
 <!-- GAMES -->
-<h2 id="games">🎮 Games & Interactive (12 files)</h2>
+<h2 id="games">🎮 Games & Interactif (12 files)</h2>
 <table>
 <tr><th>File</th><th>Format</th><th>Interactive</th></tr>
 <tr><td>flappy</td><td>Flappy Bird clone</td><td>✅ Playable</td></tr>
@@ -178,40 +179,40 @@ tr:hover td{background:rgba(255,255,255,.005)}
 <tr><td>notion</td><td>Notion</td><td>Workspace dashboard</td></tr>
 <tr><td>amazon</td><td>Amazon</td><td>Product listing</td></tr>
 <tr><td>ebay</td><td>eBay</td><td>Auction</td></tr>
-<tr><td>craigslist</td><td>Craigslist</td><td>Free stuff ad</td></tr>
+<tr><td>craigslist</td><td>Craigslist</td><td>Gratuit stuff ad</td></tr>
 </table>
 
 <!-- HARDWARE -->
 <h2 id="hardware">📟 Hardware: Micro:bit & ESP32 (9 files)</h2>
 <table>
 <tr><th>File</th><th>What</th><th>Board</th></tr>
-<tr><td>rxy</td><td>Interactive remote control simulator</td><td>micro:bit</td></tr>
+<tr><td>rxy</td><td>Interactif remote control simulator</td><td>micro:bit</td></tr>
 <tr><td>neopixel-emoji</td><td>Emoji → LED matrix with serial protocol viz</td><td>micro:bit</td></tr>
 <tr><td>microbit-telemetry</td><td>Live sensor dashboard (all sensors)</td><td>micro:bit V2</td></tr>
 <tr><td>makecode</td><td>Block editor showing firmware</td><td>micro:bit</td></tr>
 <tr><td>ble-flow</td><td>Web Bluetooth connection diagram</td><td>Both</td></tr>
-<tr><td>esp32-pinout</td><td>Interactive pin reference card</td><td>ESP32-C3</td></tr>
+<tr><td>esp32-pinout</td><td>Interactif pin reference card</td><td>ESP32-C3</td></tr>
 <tr><td>esp32-boot</td><td>Serial console boot sequence</td><td>ESP32-C3</td></tr>
-<tr><td>esp32-wiring</td><td>Complete bit-bot schematic</td><td>ESP32-C3</td></tr>
+<tr><td>esp32-wiring</td><td>Terminé bit-bot schematic</td><td>ESP32-C3</td></tr>
 <tr><td>esp32-vs-microbit</td><td>Spec comparison card</td><td>Both</td></tr>
 </table>
 
 <!-- UNIVERSE -->
 <h2 id="universe">🌍 The Workshop-DIY Universe</h2>
 
-<h3>Main Characters</h3>
+<h3>Main Personnages</h3>
 
 <div class="char-card"><div class="char-icon">🤖</div><div><div class="char-name">bit-bot</div><div class="char-desc">ESP32/micro:bit robot. 47 desk drops survived. BLE at 60% success. Hot glue structural. Servo plays B♭ minor on impact. Has a theme song.</div></div></div>
 
 <div class="char-card"><div class="char-icon">🐛</div><div><div class="char-name">Bug #42</div><div class="char-desc">The unkillable bug. No author, no timestamp, no repo of origin. Appears at 3:42 AM. Survived rm -rf, git revert, and a hard drive reformat. Tried in court → acquitted → reclassified as Feature → married Feature Status.</div></div></div>
 
-<div class="char-card"><div class="char-icon">☕</div><div><div class="char-name">Coffee Machine</div><div class="char-desc">Operating at 8% capacity for 14+ months. Drainage tray "concerning." Makes perfect espresso. Powered by spite. Health inspector visit pending.</div></div></div>
+<div class="char-card"><div class="char-icon">☕</div><div><div class="char-name">Coffee Machine</div><div class="char-desc">Operating at 8% capacity for 14+ months. Drainage tray "concerning." Makes perfect espresso. Propulsé par spite. Health inspector visit pending.</div></div></div>
 
 <div class="char-card"><div class="char-icon">🔑</div><div><div class="char-name">password123</div><div class="char-desc">WiFi password since 2023. 3 formal petitions to change it — all denied. Petition #4 in draft. The 4th most-used password in France (unverified).</div></div></div>
 
 <div class="char-card"><div class="char-icon">🔥</div><div><div class="char-name">Hot Glue</div><div class="char-desc">Applied at 200°C. Survived 47 drops. Structural grade. Written love letter to bit-bot's chassis. Holds the entire physical ecosystem together.</div></div></div>
 
-<div class="char-card"><div class="char-icon">👑</div><div><div class="char-name">The Founder</div><div class="char-desc">Creator of Workshop-DIY. Catchphrase: "Just open it in Chrome." Built 39 apps that run in browsers. Tells parents it's educational. It is.</div></div></div>
+<div class="char-card"><div class="char-icon">👑</div><div><div class="char-name">Le Fondateur</div><div class="char-desc">Créateur de Workshop-DIY. Catchphrase: "Ouvre-le dans Chrome." Built 39 apps that run in browsers. Dit aux parents que c'est éducatif. Ça l'est.</div></div></div>
 
 <!-- TECHNICAL -->
 <h2 id="technical">🛠️ Technical Reference</h2>
@@ -342,11 +343,11 @@ document.getElementById('search').addEventListener('input',function(){
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

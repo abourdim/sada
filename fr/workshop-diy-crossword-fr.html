@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // CROSSWORD</title>
+<title>WKSHP-DIY // MOTS CROISÉS</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -46,7 +47,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
 <div class="header">
-  <div class="h-title">WKSHP CROSSWORD</div>
+  <div class="h-title">WKSHP MOTS CROISÉS</div>
   <div class="h-sub">TEST YOUR WORKSHOP-DIY KNOWLEDGE</div>
 </div>
 
@@ -63,11 +64,11 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
   <div class="clues">
     <div class="clue-section">
       <div class="clue-h">ACROSS →</div>
-      <div id="acrossClues"></div>
+      <div id="acrossIndices"></div>
     </div>
     <div class="clue-section">
       <div class="clue-h">DOWN ↓</div>
-      <div id="downClues"></div>
+      <div id="downIndices"></div>
     </div>
   </div>
 </div>
@@ -101,7 +102,7 @@ const DOWN={
   1:{r:0,c:0,clue:"___ bot: le premier Atelier-DIY app",answer:"BIT"},
   2:{r:0,c:6,clue:"Teaching machine's output destination (micro:___)",answer:"ROBOT"},
   3:{r:2,c:7,clue:"ESP32-C3: an IoT micro_____",answer:"ESP"},
-  4:{r:4,c:8,clue:"#42 is not a ___; it's a feature",answer:"BUG"},
+  4:{r:4,c:8,clue:"#42 is not a ___; c'est une fonctionnalité",answer:"BUG"},
   7:{r:6,c:5,clue:"Face detection counts 468 of these (abbr)",answer:"CODE"},
 };
 
@@ -170,7 +171,7 @@ document.addEventListener('keydown',e=>{
     }else movePrev();
   }else if(e.key==='ArrowRight'){if(activeC<9&&SOLUTION[activeR][activeC+1]!=='.')selectCell(activeR,activeC+1)}
   else if(e.key==='ArrowLeft'){if(activeC>0&&SOLUTION[activeR][activeC-1]!=='.')selectCell(activeR,activeC-1)}
-  else if(e.key==='ArrowDown'){if(activeR<9&&SOLUTION[activeR+1]&&SOLUTION[activeR+1][activeC]!=='.')selectCell(activeR+1,activeC)}
+  else if(e.key==='ArrowVertical'){if(activeR<9&&SOLUTION[activeR+1]&&SOLUTION[activeR+1][activeC]!=='.')selectCell(activeR+1,activeC)}
   else if(e.key==='ArrowUp'){if(activeR>0&&SOLUTION[activeR-1][activeC]!=='.')selectCell(activeR-1,activeC)}
 });
 
@@ -224,11 +225,11 @@ function clearAll(){
 }
 
 // RENDER INDICES
-const acEl=document.getElementById('acrossClues');
+const acEl=document.getElementById('acrossIndices');
 Object.entries(ACROSS).forEach(([n,d])=>{
   acEl.innerHTML+=`<div class="clue" onclick="dir='across';selectCell(${d.r},${d.c})"><span class="cn">${n}.</span>${d.clue}</div>`;
 });
-const dnEl=document.getElementById('downClues');
+const dnEl=document.getElementById('downIndices');
 Object.entries(DOWN).forEach(([n,d])=>{
   dnEl.innerHTML+=`<div class="clue" onclick="dir='down';selectCell(${d.r},${d.c})"><span class="cn">${n}.</span>${d.clue}</div>`;
 });
@@ -255,11 +256,11 @@ Object.entries(DOWN).forEach(([n,d])=>{
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

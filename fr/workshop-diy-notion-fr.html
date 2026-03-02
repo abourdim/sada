@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -105,7 +106,7 @@ h3.notion-h3{font-size:16px;font-weight:600;color:#e8e8e3;margin:12px 0 4px}
     <div class="page-icon">🏠</div>
     <div class="page-title">Atelier-DIY HQ</div>
 
-    <p class="notion-p">Welcome to the Atelier-DIY workspace. 39 browser-based educational apps. Zéro installation requise. One unresolved bug that has been legally reclassified as a feature.</p>
+    <p class="notion-p">Bienvenue dans l'espace de travail Atelier-DIY. 39 applis éducatives dans le navigateur. Zéro installation requise. One unresolved bug that has been legally reclassified as a feature.</p>
 
     <div class="callout">
       <div class="c-icon">⚡</div>
@@ -127,7 +128,7 @@ h3.notion-h3{font-size:16px;font-weight:600;color:#e8e8e3;margin:12px 0 4px}
       <div class="db-row"><div class="col">☕ Machine à café</div><div class="col"><span class="tag tag-yellow">Infra</span></div><div class="col"><span class="tag tag-red">Critical 8%</span></div><div class="col">14 months</div></div>
     </div>
 
-    <h2 class="notion-h">📝 Quick Notes</h2>
+    <h2 class="notion-h">📝 Note rapides</h2>
 
     <div class="toggle" onclick="this.classList.toggle('open')">
       <div class="toggle-head"><span class="arrow">▸</span> 🔑 WiFi Password History</div>
@@ -177,11 +178,11 @@ h3.notion-h3{font-size:16px;font-weight:600;color:#e8e8e3;margin:12px 0 4px}
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

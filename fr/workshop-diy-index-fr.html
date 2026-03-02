@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -96,7 +97,7 @@ const FILES=[
 // SOCIAL MEDIA PARODIES
 {f:"tiktok",n:"TikTok Feed",e:"📱",d:"Vertical scrolling WKSHPtok with likes, comments, sounds",c:"social"},
 {f:"tinder",n:"Tinder for Apps",e:"🔥",d:"Swipe right on your favorite app. Match & chat.",c:"social"},
-{f:"discord-chat",n:"Discord Chat",e:"💬",d:"Fake Discord server with channels and bot messages",c:"social"},
+{f:"discord-chat",n:"Discord Chat",e:"💬",d:"Faux Discord server with channels and bot messages",c:"social"},
 {f:"reddit",n:"Reddit Thread",e:"🗣️",d:"r/WorkshopDIY subreddit with upvotes and comments",c:"social"},
 {f:"linkedin",n:"LinkedIn Profile",e:"💼",d:"Professional profile page for Workshop-DIY",c:"social"},
 {f:"github-profile",n:"GitHub Profile",e:"🐙",d:"GitHub profile with contribution graph and repos",c:"social"},
@@ -125,10 +126,10 @@ const FILES=[
 {f:"scoreboard",n:"Sports Broadcast",e:"📊",d:"Live scoreboard: Robots vs Hackers",c:"tv"},
 
 // GAMES / INTERACTIVE
-{f:"arcade",n:"Arcade Cabinet",e:"🕹️",d:"Retro arcade with multiple mini-games",c:"game"},
+{f:"arcade",n:"Arcade Cabinet",e:"🕹️",d:"Rétro arcade with multiple mini-games",c:"game"},
 {f:"text-adventure",n:"Text Adventure",e:"⌨️",d:"Zork-style interactive fiction with rooms & puzzles",c:"game"},
 {f:"escape-room",n:"Escape Room",e:"🔓",d:"Solve puzzles to escape the server room",c:"game"},
-{f:"crossword",n:"Crossword Puzzle",e:"✏️",d:"Interactive 10×10 crossword with check/reveal",c:"game"},
+{f:"crossword",n:"Crossword Puzzle",e:"✏️",d:"Interactif 10×10 crossword with check/reveal",c:"game"},
 {f:"bingo",n:"Workshop Bingo",e:"🎯",d:"Bingo card for workshop moments",c:"game"},
 {f:"jeopardy",n:"Jeopardy!",e:"❓",d:"Quiz show with Workshop-DIY categories",c:"game"},
 {f:"slot-machine",n:"Slot Machine",e:"🎰",d:"Pull the lever for random app combos",c:"game"},
@@ -192,7 +193,7 @@ const FILES=[
 {f:"conspiracy",n:"Conspiracy Board",e:"📌",d:"Draggable corkboard with red string connections",c:"story"},
 
 // DATA VIZ / DASHBOARDS
-{f:"network-map",n:"Network Map",e:"🌐",d:"Interactive topology of all apps",c:"data"},
+{f:"network-map",n:"Network Map",e:"🌐",d:"Interactif topology of all apps",c:"data"},
 {f:"skill-tree",n:"Skill Tree",e:"🌳",d:"RPG-style learning progression",c:"data"},
 {f:"live-monitor",n:"Live Monitor",e:"📡",d:"Real-time dashboard with system metrics",c:"data"},
 {f:"metro-map",n:"Metro Map",e:"🚇",d:"SVG transit map with 6 lines, 19 stations",c:"data"},
@@ -213,7 +214,7 @@ const FILES=[
 // VIDEO / ANIMATION
 {f:"roadmap-video-fr",n:"Roadmap Video (FR)",e:"🇫🇷",d:"French roadmap presentation video",c:"video"},
 {f:"genius-video",n:"Genius Video",e:"💡",d:"Genius-style lyric breakdown video",c:"video"},
-{f:"genius-video-animation",n:"Genius Animated",e:"🎞️",d:"Animated version of genius breakdown",c:"video"},
+{f:"genius-video-animation",n:"Genius Animated",e:"🎞️",d:"Animé version of genius breakdown",c:"video"},
 {f:"app-demo-reel",n:"Demo Reel",e:"🎥",d:"Showcase reel of all apps in action",c:"video"},
 {f:"ultimate-video",n:"Ultimate Video",e:"🎬",d:"Full promotional video experience",c:"video"},
 {f:"boot-sequence",n:"Boot Sequence",e:"💾",d:"Terminal boot animation for Workshop-DIY OS",c:"video"},
@@ -225,8 +226,8 @@ const FILES=[
 {f:"master-hub",n:"Master Hub",e:"🏠",d:"Central navigation hub (original)",c:"meta"},
 {f:"100",n:"File #100 Celebration",e:"🎉",d:"Fireworks & stats for the 100th file",c:"meta"},
 {f:"hacker-presentation",n:"Hacker Presentation",e:"🖥️",d:"Slide deck in hacker aesthetic",c:"meta"},
-{f:"hacker-terminal",n:"Hacker Terminal",e:"⌨️",d:"Interactive terminal with easter eggs",c:"meta"},
-{f:"os-desktop",n:"OS Desktop",e:"🖥️",d:"Fake desktop OS with app windows",c:"meta"},
+{f:"hacker-terminal",n:"Hacker Terminal",e:"⌨️",d:"Interactif terminal with easter eggs",c:"meta"},
+{f:"os-desktop",n:"OS Desktop",e:"🖥️",d:"Faux desktop OS with app windows",c:"meta"},
 {f:"advent",n:"Advent Calendar",e:"🎄",d:"25 doors with Workshop-DIY surprises",c:"meta"},
 ];
 
@@ -311,11 +312,11 @@ renderGrid(FILES);
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

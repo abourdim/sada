@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -83,7 +84,7 @@ h1{font-size:20px;font-weight:600;margin-bottom:4px}
 <h1>The Atelier-DIY Server Room — Entire Digital Space</h1>
 <div class="location">📍 France 🇫🇷 · The Internet · Everywhere</div>
 <div class="quick">
-  <span class="rating"><span>★</span> 4.97</span> · 847 avis · 🏆 Superhost
+  <span class="rating"><span>★</span> 4.97</span> · 847 avis · 🏆 Superhôte
 </div>
 
 <div class="photos">
@@ -97,8 +98,8 @@ h1{font-size:20px;font-weight:600;margin-bottom:4px}
 <div class="host-bar">
   <div class="host-avatar">🐛</div>
   <div>
-    <div class="host-name">Hosted by Bug #42</div>
-    <div class="host-sub">Superhost · 3+ years hosting · Rejoint before git init</div>
+    <div class="host-name">Hébergé par Bug #42</div>
+    <div class="host-sub">Superhôte · 3+ years hosting · Rejoint before git init</div>
   </div>
 </div>
 
@@ -133,14 +134,14 @@ h1{font-size:20px;font-weight:600;margin-bottom:4px}
     <div class="date"><div class="lbl">VÉRIFIER-IN</div>Anytime</div>
     <div class="date"><div class="lbl">VÉRIFIEROUT</div>Never</div>
   </div>
-  <button class="btn">Reserve — It's Free</button>
+  <button class="btn">Réserver — It's Gratuit</button>
   <div class="note">You won't be charged. Ever. It's a website.</div>
 </div>
 
 <div class="section">
-  <h2>House rules</h2>
+  <h2>Règlement</h2>
   <div class="rules">
-    <div class="rule">✅ Check-in: 24/7 (open a browser)</div>
+    <div class="rule">✅ Arrivée: 24/7 (open a browser)</div>
     <div class="rule">✅ Paiement: Never required</div>
     <div class="rule">❌ No npm install</div>
     <div class="rule">❌ No changing the mot de passe WiFi</div>
@@ -192,15 +193,15 @@ h1{font-size:20px;font-weight:600;margin-bottom:4px}
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){
-var S=["100", "advent", "airbnb", "amazon", "ambient-screen", "app-demo-reel", "app-match", "app-store", "arcade", "arduino-ide", "awards", "bingo", "bio-gen", "ble-flow", "blueprints", "boarding-pass", "boot-sequence", "bottle", "breaking-news", "bug-or-feature", "bugchelor", "card-collection", "card-pack", "cereal-box", "changelog", "classified-dossier", "clicker", "comic", "compatibility", "concert-ticket", "conspiracy", "cookbook", "court-trial", "craigslist", "creepypasta", "crossword", "ctf-quiz", "delivery", "departures", "detention", "diary", "discord-chat", "docs", "dungeon", "documentary", "duolingo", "dvd-menu", "ebay", "elevator-pitch", "emergency-alert", "escape-room", "esp32-boot", "esp32-pinout", "esp32-vs-microbit", "esp32-wiring", "family-tree", "faq", "festival", "flappy", "forensic-report", "fortune-cookie", "gacha", "genius-ideas-lab", "genius-video", "genius-video-animation", "github-profile", "hacker-news", "hacker-presentation", "hacker-terminal", "haiku", "help", "horoscope", "ikea-manual", "in-memoriam", "index", "infomercial", "iphone", "jeopardy", "kanban", "lab-notebook", "license-plates", "linkedin", "live-monitor", "loading-screens", "love-letters", "mad-libs", "magic-8ball", "makecode", "maps-reviews", "master-hub", "metro-map", "microbit-telemetry", "monopoly", "movie-credits", "museum", "music-player", "nasa-control", "neopixel-emoji", "network-map", "newspaper", "notion", "org-chart", "os-desktop", "ouija", "paper", "parking-ticket", "passport", "periodic-table", "pizza-menu", "pokedex", "police-report", "ransom-note", "rap-battle", "real-estate", "receipt", "reddit", "report-card", "restraining-order", "roadmap-video-fr", "rxy", "safety-card", "safety-card-v2", "scoreboard", "scp-file", "shark-tank", "sitcom", "skill-tree", "slack", "slot-machine", "social-media-kit", "space-mission", "stamps", "star-chart", "sticker-sheet", "stock-market", "superlatives", "synth-visualizer", "tamagotchi", "tax-return", "testimonials", "text-adventure", "therapy", "tiktok", "time-capsule", "timeline", "tinder", "trial", "twitch", "ultimate-video", "vending-machine", "video-concept-preview", "voicemail", "vscode", "wanted-wall", "warranty", "weather", "wedding", "whatsapp", "wikipedia", "wordle", "wrapped-2025", "yearbook", "youtube", "zodiac"];
+var S=["100", "advent", "airbnb", "amazon", "ambient-screen", "app-demo-reel", "app-match", "app-store", "arcade", "arduino-ide", "awards", "bingo", "bio-gen", "ble-flow", "blueprints", "boarding-pass", "boot-sequence", "bottle", "breaking-news", "bug-or-feature", "bugchelor", "card-collection", "card-pack", "cereal-box", "changelog", "classified-dossier", "clicker", "comic", "compatibility", "concert-ticket", "conspiracy", "cookbook", "court-trial", "craigslist", "creepypasta", "crossword", "ctf-quiz", "delivery", "departures", "detention", "diary", "discord-chat", "docs", "dungeon", "documentary", "duolingo", "dvd-menu", "ebay", "elevator-pitch", "emergency-alert", "escape-room", "esp32-boot", "esp32-pinout", "esp32-vs-microbit", "esp32-wiring", "family-tree", "faq", "festival", "flappy", "forensic-report", "fortune-cookie", "gacha", "genius-ideas-lab", "genius-video", "genius-video-animation", "github-profile", "hacker-news", "hacker-presentation", "hacker-terminal", "haiku", "help", "horoscope", "ikea-manual", "in-memoriam", "index", "infomercial", "iphone", "jeopardy", "kanban", "lab-notebook", "license-plates", "linkedin", "live-monitor", "loading-screens", "love-letters", "mad-libs", "magic-8ball", "makecode", "maps-avis", "master-hub", "metro-map", "microbit-telemetry", "monopoly", "movie-credits", "museum", "music-player", "nasa-control", "neopixel-emoji", "network-map", "newspaper", "notion", "org-chart", "os-desktop", "ouija", "paper", "parking-ticket", "passport", "periodic-table", "pizza-menu", "pokedex", "police-report", "ransom-note", "rap-battle", "real-estate", "receipt", "reddit", "report-card", "restraining-order", "roadmap-video-fr", "rxy", "safety-card", "safety-card-v2", "scoreboard", "scp-file", "shark-tank", "sitcom", "skill-tree", "slack", "slot-machine", "social-media-kit", "space-mission", "stamps", "star-chart", "sticker-sheet", "stock-market", "superlatives", "synth-visualizer", "tamagotchi", "tax-return", "testimonials", "text-adventure", "therapy", "tiktok", "time-capsule", "timeline", "tinder", "trial", "twitch", "ultimate-video", "vending-machine", "video-concept-preview", "voicemail", "vscode", "wanted-wall", "warranty", "weather", "wedding", "whatsapp", "wikipedia", "wordle", "wrapped-2025", "yearbook", "youtube", "zodiac"];
 var f=location.pathname.split("/").pop(),c="en",b;
 if(/-fr\.html$/.test(f)){c="fr";b=f.replace(/-fr\.html$/,"")}
 else if(/-ar\.html$/.test(f)){c="ar";b=f.replace(/-ar\.html$/,"")}

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // THE TRIAL OF BUG #42</title>
+<title>WKSHP-DIY // LE PROCÈS DU BUG #42</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -64,7 +65,7 @@ body{background:#0f0e17;color:#c8c4b8;font-family:'JetBrains Mono',monospace;fon
 
 <div class="court-h">
   <div class="gavel">⚖️</div>
-  <h1>THE TRIAL OF BUG #42</h1>
+  <h1>LE PROCÈS DU BUG #42</h1>
   <div class="case">CASE NO. WKSHP-2025-042 · WORKSHOP-DIY SUPREME COURT OF CODE</div>
   <div class="date">Heard on Février 28, 2026 · Hon. Judge Compiler presiding</div>
 </div>
@@ -73,19 +74,19 @@ body{background:#0f0e17;color:#c8c4b8;font-family:'JetBrains Mono',monospace;fon
   <div class="party"><div class="emoji">⚖️</div><div class="role">PRESIDING</div><div class="name">Judge Compiler</div><div class="title">Chief Justice, Court of Code</div></div>
   <div class="party"><div class="emoji">🔴</div><div class="role">PROSECUTION</div><div class="name">lint --strict</div><div class="title">District Attorney, QA Division</div></div>
   <div class="party"><div class="emoji">🟢</div><div class="role">DEFENSE</div><div class="name">try { } catch(e) { }</div><div class="title">Public Defender, Error Handling Unit</div></div>
-  <div class="party"><div class="emoji">🐛</div><div class="role">DEFENDANT</div><div class="name">Bug #42</div><div class="title">Accused of being a bug (denies all charges)</div></div>
+  <div class="party"><div class="emoji">🐛</div><div class="role">DEFENDANT</div><div class="name">Bug #42</div><div class="title">Accusé d'être un bug (nie toutes les charges)</div></div>
 </div>
 
 <div class="sec">
   <div class="sec-h">I. Opening Statements</div>
   <div class="transcript">
-    <div class="action">Court is now in session. All rise for the Honorable Judge Compiler.</div>
+    <div class="action">L'audience est ouverte. Levez-vous pour l'Honorable Juge Compilateur.</div>
     
-    <div class="line"><span class="speaker judge">JUDGE:</span><span class="dialogue">Nous sommes here today to determine the nature of <b>Bug #42</b>, reported in the Atelier-DIY codebase on an unknown date by an unknown author. The charge: <b>being a bug</b>. The defendant claims to be a feature. Prosecution, your opening statement.</span></div>
+    <div class="line"><span class="speaker judge">JUDGE:</span><span class="dialogue">Nous sommes ici aujourd'hui pour déterminer la nature de <b>Bug #42</b>, signalé dans le Atelier-DIY code à une date inconnue par un auteur inconnu. L'accusation : <b>being a bug</b>. L'accusé prétend être une fonctionnalité. Accusation, votre déclaration d'ouverture.</span></div>
     
-    <div class="line"><span class="speaker pros">PROSECUTION:</span><span class="dialogue">Your Honor, the evidence is clear. Bug #42 causes unexpected behavior in the app ecosystem. It appeared without a commit, without a pull request, without code review. It has <b>no documentation</b>. In the civilized world of software, that makes it a bug.</span></div>
+    <div class="line"><span class="speaker pros">PROSECUTION:</span><span class="dialogue">Votre Honneur, les preuves sont claires. Bug #42 provoque un comportement inattendu in the app ecosystem. It appeared without a commit, without a pull request, without code review. It has <b>no documentation</b>. Dans le monde civilisé du logiciel, ça en fait un bug.</span></div>
     
-    <div class="line"><span class="speaker def">DEFENSE:</span><span class="dialogue">Your Honor, my client has been a productive member of the Atelier-DIY ecosystem since its inception. It has been responsible for <b>zero downtime</b>, <b>zero data loss</b>, and has in fact made the platform more interesting. We will prove that Bug #42 is, and always has been, a <b>feature</b>.</span></div>
+    <div class="line"><span class="speaker def">DEFENSE:</span><span class="dialogue">Votre Honneur, my client has been un membre productif de the Atelier-DIY ecosystem depuis sa création. It has been responsible for <b>zero downtime</b>, <b>zero data loss</b>, and has in fact made the platform more interesting. We will prove that Bug #42 is, and always has been, a <b>feature</b>.</span></div>
   </div>
 </div>
 
@@ -98,13 +99,13 @@ body{background:#0f0e17;color:#c8c4b8;font-family:'JetBrains Mono',monospace;fon
     
     <div class="action">Gasps from the gallery.</div>
     
-    <div class="line"><span class="speaker pros">PROSECUTION:</span><span class="dialogue">No further questions.</span></div>
+    <div class="line"><span class="speaker pros">PROSECUTION:</span><span class="dialogue">Pas d'autres questions.</span></div>
     
     <div class="line"><span class="speaker def">DEFENSE:</span><span class="dialogue">ESLint, how many of those 17 rule violations actually cause runtime errors?</span></div>
     
     <div class="line"><span class="speaker wit">ESLINT:</span><span class="dialogue"><i>(long pause)</i> ...Zero.</span></div>
     
-    <div class="line"><span class="speaker def">DEFENSE:</span><span class="dialogue">Zero. Thank you. No further questions.</span></div>
+    <div class="line"><span class="speaker def">DEFENSE:</span><span class="dialogue">Zero. Thank you. Pas d'autres questions.</span></div>
   </div>
 </div>
 
@@ -136,7 +137,7 @@ body{background:#0f0e17;color:#c8c4b8;font-family:'JetBrains Mono',monospace;fon
     
     <div class="line"><span class="speaker pros">PROSECUTION:</span><span class="dialogue">Objection! The mot de passe WiFi is not qualified to testify.</span></div>
     
-    <div class="line"><span class="speaker judge">JUDGE:</span><span class="dialogue">Overruled. If <code>password123</code> has survived this long in a cybersecurity-teaching organization, it has clearly earned its place. Proceed.</span></div>
+    <div class="line"><span class="speaker judge">JUDGE:</span><span class="dialogue">Rejetée. If <code>password123</code> has survived this long in a cybersecurity-teaching organization, it has clearly earned its place. Proceed.</span></div>
     
     <div class="line"><span class="speaker wit">PASSWORD123:</span><span class="dialogue">🔑 Look, I've been here since day one. Nobody changes me. Nobody fixes me. And you know what? The system <b>works</b>. Sometimes the best feature is the one everyone agrees to keep as-is. Bug #42 and I understand each other.</span></div>
   </div>
@@ -147,7 +148,7 @@ body{background:#0f0e17;color:#c8c4b8;font-family:'JetBrains Mono',monospace;fon
   <div class="transcript">
     <div class="line"><span class="speaker pros">PROSECUTION:</span><span class="dialogue">The code is messy. The behavior is unexpected. It has no documentation. By every standard of software engineering, Bug #42 is a <b>bug</b>.</span></div>
     
-    <div class="line"><span class="speaker def">DEFENSE:</span><span class="dialogue">Your Honor, membres of the jury: Atelier-DIY has 39 apps, 7 domains, and 12 themes. It teaches children to build robots, train AI, and hack ethically. And at the heart of all of it is a simple truth: <b>sometimes the things we didn't plan become the things we can't live without</b>. Bug #42 didn't ask to be here. But it stayed. It contributed. It never broke anything. And 847 workshop participants have never once complained about it. Because they don't even know it exists. <i>That</i> is the mark of a great feature.</span></div>
+    <div class="line"><span class="speaker def">DEFENSE:</span><span class="dialogue">Votre Honneur, membres of the jury: Atelier-DIY has 39 apps, 7 domains, and 12 themes. It teaches children to build robots, entraîner l'IA, et hacker éthiquement. And at the heart of all of it is a simple truth: <b>sometimes the things we didn't plan become the things we can't live without</b>. Bug #42 didn't ask to be here. But it stayed. It contributed. It never broke anything. And 847 workshop participants have never once complained about it. Because they don't even know it exists. <i>That</i> is the mark of a great feature.</span></div>
   </div>
 </div>
 
@@ -158,9 +159,9 @@ body{background:#0f0e17;color:#c8c4b8;font-family:'JetBrains Mono',monospace;fon
 
 <div class="verdict">
   <h2>In the matter of Atelier-DIY v. Bug #42</h2>
-  <div class="result">NOT GUILTY</div>
+  <div class="result">NON COUPABLE</div>
   <div class="detail">
-    The court finds Bug #42 <b>NOT GUILTY</b> of being a bug.<br>
+    Le tribunal déclare Bug #42 <b>NON COUPABLE</b> of being a bug.<br>
     Bug #42 is hereby reclassified as a <b>FEATURE</b> under Atelier-DIY Code §42.<br>
     The defendant is free to continue operating in the codebase with full feature privileges.<br><br>
     <i>The mot de passe WiFi will also remain unchanged. Court adjourned.</i>
@@ -197,11 +198,11 @@ body{background:#0f0e17;color:#c8c4b8;font-family:'JetBrains Mono',monospace;fon
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

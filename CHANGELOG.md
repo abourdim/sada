@@ -1,3 +1,39 @@
+## v6.0 — March 2, 2026
+
+### Facebook Calendar — 5-Mode Overhaul
+- **📋 Classique** — clean minimal grid, fixed text readability
+- **📱 Social** — Instagram-style cards, hero emojis, colored theme pills, fake engagement (👍❤️😂 + randomized counts), Facebook J'aime/Commenter/Partager bar
+- **👨‍👩‍👧 Parents** — conversion-focused brochure mode: Playfair Display headlines, parent hooks ("Votre enfant découvrira..."), trust badges (8-16 ans, Encadré, Gratuit, Loi 1901, Chelles), sticky bottom CTA with phone/email, "Inscrire mon enfant →" button on every card
+- **🛠️ Maker** — terminal green aesthetic, GitHub-style contribution heatmap, tech stack badges (HTML/CSS/JS/Web Bluetooth...), LOC/file size metadata, "view source →" links
+- **📅 Calendrier** — real month grid (Mars/Avril/Mai 2026), click-to-expand posts, month navigation
+- All 5 modes: demo links, workshop-diy.org, صدى logo, contact info, search + week filters
+
+### French Translation — Mass Translation
+- Translated 164 FR files from ~28% to ~76% French coverage
+- 104 files fully translated (≤3 EN lines remaining)
+- 22 files medium coverage (4-10 EN lines)
+- 38 narrative-heavy files partially translated (long prose passages)
+- Professional translation of: master-hub, boot-sequence, arcade, hacker-terminal, escape-room, wrapped-2025, docs, faq, help, hacker-presentation (12 scenes)
+- Translation methodology: HTML visible text + JS string patterns + file-specific content
+
+### Infrastructure (from v5.1)
+- Global language switcher (localStorage-based, all 492 app files)
+- Floating navigation pill (discrete, all pages)
+- Cinematic splash screen with dual password system
+- 161 apps indexed in master-hub (up from 46)
+- 110 orphan pages resolved
+- Comprehensive accessibility fixes
+- GitHub Pages index.html
+- Footer positioning fixes (139 files)
+
+### Stats
+- 569 HTML files (171 EN + 164 FR + 164 AR + special pages)
+- 161 apps across 7 domains
+- 84 Facebook posts in 5 display modes
+- 3 languages (EN/FR/AR)
+
+---
+
 ## v5.0 — March 1, 2026
 
 ### Added

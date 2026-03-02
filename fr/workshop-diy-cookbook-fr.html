@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -89,7 +90,7 @@ ingredients:[
   "Connect battery through the power switch. Double-check polarity. Triple-check.",
   "Flash the bit-bot firmware via USB. Open Chrome. Navigate to bit-bot app. Pair via BLE.",
   "Drop from table to test durability. Repeat 46 more times. (Just kidding. Mostly.)",
-],tip:"Chef's tip: If the robot starts driving in circles, that's not a bug — it's a feature. Also check your motor wiring."},
+],tip:"Chef's tip: If the robot starts driving in circles, that's not a bug — c'est une fonctionnalité. Also check your motor wiring."},
 
 {emoji:"🧠",name:"Fresh AI Gesture Model",tagline:"Train a custom ML model — zero installations needed",time:"15 min",serves:"1 model",diff:1,
 ingredients:[
@@ -172,7 +173,7 @@ ingredients:[
 ],steps:[
   "Flash WLED firmware to ESP32. Connect to WLED-AP WiFi to configure.",
   "Wire the Neopixel strip: 5V → power, GND → ground, DIN → GPIO2 (through 330Ω resistor).",
-  "Add the 1000µF capacitor across power lines. This protects against voltage spikes.",
+  "Ajouter the 1000µF capacitor across power lines. This protects against voltage spikes.",
   "Open wled-kids-lab. Connect to the ESP32's IP address. See the LED controls appear.",
   "Pick a color. Watch the entire strip light up. Try the rainbow chase effect.",
   "Create custom animations. Set schedules. Sync to music if feeling adventurous.",
@@ -188,7 +189,7 @@ RECIPES.forEach((r,idx)=>{
       <div class="rec-info">
         <div class="rec-name">${r.name}</div>
         <div class="rec-tagline">${r.tagline}</div>
-        <div class="rec-meta"><span>⏱ ${r.time}</span><span>🍽 ${r.serves}</span><span>Difficulty: </span><span><div class="difficulty">${diffDots}</div></span></div>
+        <div class="rec-meta"><span>⏱ ${r.time}</span><span>🍽 ${r.serves}</span><span>Difficulté: </span><span><div class="difficulty">${diffDots}</div></span></div>
       </div>
       <div class="rec-arrow">▶</div>
     </div>
@@ -225,11 +226,11 @@ function toggle(i){document.getElementById('rec'+i).classList.toggle('open')}
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

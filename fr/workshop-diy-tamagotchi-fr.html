@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -84,8 +85,8 @@ body{background:#1a1a2e;display:flex;align-items:center;justify-content:center;m
     <div class="btn" id="btnInfo" onclick="info()">📊</div>
   </div>
   <div class="btn-labels">
-    <div class="btn-label">FEED</div>
-    <div class="btn-label">PLAY</div>
+    <div class="btn-label">NOURRIR</div>
+    <div class="btn-label">JOUER</div>
     <div class="btn-label">CODE</div>
     <div class="btn-label">HEAL</div>
     <div class="btn-label">INFO</div>
@@ -104,8 +105,8 @@ const EVOLUTIONS=[
 const FOODS=["☕ coffee","🍕 pizza","🍜 ramen","🌮 taco","🍩 donut","🧃 juice"];
 const GAMES=["🎯 CTF challenge","🎮 bit-bot race","🧩 puzzle","🎪 code golf","🏓 pong"];
 const SKILLS=["JavaScript","Python","BLE","MediaPipe","Docker","Linux","ESP32","Git"];
-const MSGS_FEED=["yum!","delicious!","more please!","*munch*","tasty code fuel!"];
-const MSGS_PLAY=["wheee!","so fun!","again!","haha!","best game!"];
+const MSGS_NOURRIR=["yum!","delicious!","more please!","*munch*","tasty code fuel!"];
+const MSGS_JOUER=["wheee!","so fun!","again!","haha!","best game!"];
 const MSGS_CODE=["learned!","leveling up!","big brain!","compiled!","no bugs... yet"];
 const MSGS_HEAL=["feeling better!","recharged!","full power!","thanks doc!"];
 
@@ -156,7 +157,7 @@ function feed(){
   state.xp+=10;
   const pet=document.getElementById('pet');pet.className='pet eating';
   setTimeout(()=>pet.className='pet',900);
-  showMsg(FOODS[Math.floor(Math.random()*FOODS.length)]+" "+MSGS_FEED[Math.floor(Math.random()*MSGS_FEED.length)]);
+  showMsg(FOODS[Math.floor(Math.random()*FOODS.length)]+" "+MSGS_NOURRIR[Math.floor(Math.random()*MSGS_NOURRIR.length)]);
   update();
 }
 
@@ -165,7 +166,7 @@ function play(){
   state.fun=clamp(state.fun+25);
   state.food=clamp(state.food-10);
   state.xp+=15;
-  showMsg(GAMES[Math.floor(Math.random()*GAMES.length)]+" "+MSGS_PLAY[Math.floor(Math.random()*MSGS_PLAY.length)]);
+  showMsg(GAMES[Math.floor(Math.random()*GAMES.length)]+" "+MSGS_JOUER[Math.floor(Math.random()*MSGS_JOUER.length)]);
   update();
 }
 
@@ -188,7 +189,7 @@ function heal(){
 
 function info(){
   const evo=EVOLUTIONS[state.level];
-  alert(`🤖 BIT-BUDDY STATUT\n\nLevel: ${evo.lv} (${evo.name})\nXP: ${state.xp}/${evo.need}\nAge: ${state.age}\n\n⚡ HP: ${state.hp}%\n🍕 Food: ${state.food}%\n😊 Fun: ${state.fun}%\n🧠 Skill: ${state.skill}%\n\nAtelier-DIY Virtual Pet`);
+  alert(`🤖 BIT-BUDDY STATUT\n\nLevel: ${evo.lv} (${evo.name})\nXP: ${state.xp}/${evo.need}\nÂge : ${state.age}\n\n⚡ HP: ${state.hp}%\n🍕 Food: ${state.food}%\n😊 Fun: ${state.fun}%\n🧠 Skill: ${state.skill}%\n\nAtelier-DIY Virtual Pet`);
 }
 
 // Decay over time
@@ -224,11 +225,11 @@ update();
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

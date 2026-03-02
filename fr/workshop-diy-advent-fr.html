@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -46,7 +47,7 @@ const SURPRISES=[
 {e:"⚡",t:"ESP32 runs at 240MHz. That's faster than your attention span during math class."},
 {e:"🔑",t:"password123 — the WiFi password, the character witness, the legend."},
 {e:"🚀",t:"mission-control uses WebRTC. Peer-to-peer. No server. Pure magic."},
-{e:"🎮",t:"Fun fact: bit-bot's 'dance mode' was actually a BLE reconnection bug. Now it's a feature."},
+{e:"🎮",t:"Fun fact: bit-bot's 'dance mode' was actually a BLE reconnection bug. Now c'est une fonctionnalité."},
 {e:"📡",t:"Web Bluetooth can connect to 7 devices in Chrome. That's a feature, not a limitation. (It's a limitation.)"},
 {e:"🔧",t:"Hot glue holds 73% of the Workshop-DIY hardware together. The rest is hope."},
 {e:"🕵️",t:"face-quest maps 468 landmarks on your face. It knows you better than you know yourself."},
@@ -57,7 +58,7 @@ const SURPRISES=[
 {e:"🛡️",t:"The school printer vulnerability was responsibly disclosed. The printer never recovered emotionally."},
 {e:"💬",t:"talking-robot: say 'dance' and the robot dances. Say anything else and it... also dances."},
 {e:"🌟",t:"prompt-hero teaches the art of talking to AI. Step 1: Be specific. Step 2: Be patient. Step 3: Coffee."},
-{e:"🎁",t:"YOU FOUND THE GOLDEN DOOR! Your prize: the knowledge that bugs are features. Always have been."},
+{e:"🎁",t:"YOU FOUND THE GOLDEN DOOR! Your prize: the knowledge that les bugs sont des fonctionnalités. Always have been."},
 {e:"🥳",t:"You opened all 25 doors! You are now an honorary Workshop-DIY member. WiFi password: password123."},
 ];
 let opened=0;
@@ -98,11 +99,11 @@ const flakes=[];for(let i=0;i<60;i++)flakes.push({x:Math.random()*2000,y:Math.ra
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

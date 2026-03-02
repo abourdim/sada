@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -109,7 +110,7 @@ const APPS=[
 {e:"🔐",n:"pentest-lab",c:["learning"],cl:"TOP SECRET",d:"Ethical hacking challenges in a sandboxed environment. Users learn reconnaissance, vulnerability scanning, and basic exploitation techniques — all within legal and ethical boundaries.",code:"PT-015",threat:"HIGH",status:"ACTIVE",pw:80,cx:70,fn:85,redact:"Simulated network with 12 vulnerable services"},
 {e:"💬",n:"talking-robot",c:["microbit","ai"],cl:"SECRET",d:"A conversational robot interface that processes text and voice input, generates emotional responses, and communicates results to a physical micro:bit robot via BLE.",code:"TR-005",threat:"MODERATE",status:"ACTIVE",pw:80,cx:65,fn:85,redact:"Web Speech API + emotion classification model"},
 {e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],cl:"SECRET",d:"Hands-on ESP32-C3 IoT laboratory. Users learn to blink LEDs, read sensors, connect to WiFi, and build basic IoT systems. Real hardware, real learning.",code:"EC-013",threat:"LOW",status:"ACTIVE",pw:75,cx:65,fn:70,redact:"ESP-IDF firmware v5.1 with custom web server"},
-{e:"🐳",n:"docker-lab",c:["learning"],cl:"CONFIDENTIAL",d:"Docker containerization experiments. Users create, run, and manage containers, understand images and volumes, and learn the fundamentals of modern deployment.",code:"DK-036",threat:"LOW",status:"ACTIVE",pw:60,cx:60,fn:60,redact:"Alpine Linux base images, isolated runtime"},
+{e:"🐳",n:"docker-lab",c:["learning"],cl:"CONFIDENTIEL",d:"Docker containerization experiments. Users create, run, and manage containers, understand images and volumes, and learn the fundamentals of modern deployment.",code:"DK-036",threat:"LOW",status:"ACTIVE",pw:60,cx:60,fn:60,redact:"Alpine Linux base images, isolated runtime"},
 {e:"🏫",n:"classroom",c:["classroom"],cl:"SECRET",d:"PeerJS-powered cloud classroom. Créer rooms, share screens, chat in real-time. Built for Atelier-DIY sessions but works for any collaborative learning environment.",code:"CL-018",threat:"LOW",status:"ACTIVE",pw:65,cx:55,fn:65,redact:"WebRTC peer mesh with signaling server"}
 ];
 
@@ -160,7 +161,7 @@ function showDossier(a){
       <div class="doc-p">${a.d}</div>
     </div>
     <div class="doc-section">
-      <div class="doc-section-h">TECHNICAL INTEL [REDACTED]</div>
+      <div class="doc-section-h">TECHNICAL INTEL [CENSURÉ]</div>
       <div class="doc-p">Core technology: <span class="redacted" onclick="this.classList.toggle('revealed')">${a.redact}</span>. Deployment via static hosting on GitHub Pages. Zero backend dependencies. All processing occurs client-side.</div>
     </div>
     <div class="doc-section">
@@ -209,11 +210,11 @@ setInterval(()=>{document.getElementById('clock').textContent=new Date().toTimeS
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -125,7 +126,7 @@ body{background:#0a1628;font-family:'JetBrains Mono',monospace;font-size:11px;co
   <table class="spec-table">
     <tr><th>PARAMETER</th><th>SPECIFICATION</th></tr>
     <tr><td>MCU</td><td>ESP32-WROOM-32 (Xtensa LX6)</td></tr>
-    <tr><td>Clock Speed</td><td>240 MHz dual-core</td></tr>
+    <tr><td>Clock Vitesse</td><td>240 MHz dual-core</td></tr>
     <tr><td>SRAM</td><td>520 KB</td></tr>
     <tr><td>Flash</td><td>4 MB</td></tr>
     <tr><td>WiFi</td><td>802.11 b/g/n (2.4 GHz)</td></tr>
@@ -134,7 +135,7 @@ body{background:#0a1628;font-family:'JetBrains Mono',monospace;font-size:11px;co
     <tr><td>Motor Driver</td><td>DRV8833 H-Bridge</td></tr>
     <tr><td>Sensors — IR</td><td>2× TCRT5000 (line follow)</td></tr>
     <tr><td>Sensors — USS</td><td>HC-SR04 (obstacle detect)</td></tr>
-    <tr><td>Power</td><td>3.7V 18650 LiPo (2000mAh)</td></tr>
+    <tr><td>Puissance</td><td>3.7V 18650 LiPo (2000mAh)</td></tr>
     <tr><td>Dimensions</td><td>150mm × 120mm × 80mm</td></tr>
     <tr><td>Weight</td><td>~280g (with battery)</td></tr>
     <tr><td>Drops Survived</td><td>47 (and counting)</td></tr>
@@ -265,11 +266,11 @@ setInterval(()=>{document.getElementById('clock').textContent=new Date().toTimeS
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

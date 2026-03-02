@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -90,7 +91,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <!-- ROOM 0: INTRO -->
 <div class="room on" id="room0">
   <div class="room-h"><span class="room-emoji">🔒</span><div><div class="room-num">ROOM 1/6</div><div class="room-name">The Cipher Lock</div></div></div>
-  <div class="room-desc">You're trapped in the Atelier-DIY lab. The door has a cipher lock.<br><br>The note on the wall reads:<br><code style="color:#ffd700;font-size:13px;letter-spacing:2px">URYYB JBEXFUBC</code><br><br>It looks like a ROT13 cipher. Decode the second word to unlock the door.</div>
+  <div class="room-desc">Tu es coincé dans le Atelier-DIY labo. La porte a un code lock.<br><br>The note on the wall reads:<br><code style="color:#ffd700;font-size:13px;letter-spacing:2px">URYYB JBEXFUBC</code><br><br>It looks like a ROT13 cipher. Decode the second word to unlock the door.</div>
   <div class="room-hint" onclick="this.textContent='💡 ROT13: shift each letter 13 places in the alphabet (A→N, B→O...)';this.classList.add('revealed')">💡 Click for hint</div>
   <div class="input-row">
     <input class="room-input" id="ans0" placeholder="ENTER DECODED WORD" onkeydown="if(event.key==='Enter')check(0)">
@@ -116,7 +117,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <!-- ROOM 2: BINARY -->
 <div class="room" id="room2">
   <div class="room-h"><span class="room-emoji">💻</span><div><div class="room-num">ROOM 3/6</div><div class="room-name">The Binary Vault</div></div></div>
-  <div class="room-desc">The vault keypad shows a binary number:<br><br><code style="color:#ffd700;font-size:18px;letter-spacing:3px">00100111</code><br><br>Convert this binary to decimal to unlock the vault. What number is Atelier-DIY's ecosystem (hint: it's the total number of apps)?</div>
+  <div class="room-desc">The vault keypad shows a binary number:<br><br><code style="color:#ffd700;font-size:18px;letter-spacing:3px">00100111</code><br><br>Convertis ce binaire en décimal to unlock the vault. What number is Atelier-DIY's ecosystem (hint: it's the total number of apps)?</div>
   <div class="room-hint" onclick="this.textContent='💡 Binary to decimal: 0×128 + 0×64 + 1×32 + 0×16 + 0×8 + 1×4 + 1×2 + 1×1';this.classList.add('revealed')">💡 Click for hint</div>
   <div class="input-row">
     <input class="room-input" id="ans2" placeholder="ENTER NUMBER" onkeydown="if(event.key==='Enter')check(2)">
@@ -171,7 +172,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <!-- ROOM 5: FINAL -->
 <div class="room" id="room5">
   <div class="room-h"><span class="room-emoji">🚪</span><div><div class="room-num">ROOM 6/6</div><div class="room-name">The Final Door</div></div></div>
-  <div class="room-desc">The exit door has a combination lock. Unscramble this word:<br><br><code style="color:#ffd700;font-size:16px;letter-spacing:4px">K O W R H S P O</code><br><br>It's le premier word of the association's name.</div>
+  <div class="room-desc">The exit door has a combination lock. Recompose ce mot:<br><br><code style="color:#ffd700;font-size:16px;letter-spacing:4px">K O W R H S P O</code><br><br>It's le premier word of the association's name.</div>
   <div class="room-hint" onclick="this.textContent='💡 Think about where you are... WORKSHOP';this.classList.add('revealed')">💡 Click for hint</div>
   <div class="input-row">
     <input class="room-input" id="ans5" placeholder="ENTER WORD" onkeydown="if(event.key==='Enter')check(5)">
@@ -183,11 +184,11 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <!-- VICTORY -->
 <div class="victory" id="victory">
   <div class="v-emoji">🏆</div>
-  <div class="v-title">ESCAPED!</div>
+  <div class="v-title">ÉVADÉ !</div>
   <div class="v-sub">You've conquered all 6 rooms of the Atelier-DIY Escape Room.<br>The robots are proud. The bugs remain fonctionnalités.</div>
   <div class="v-stats">
     <div class="v-stat"><div class="v" id="vTime">00:00</div><div class="l">TIME</div></div>
-    <div class="v-stat"><div class="v" id="vHints">0</div><div class="l">INDICES USED</div></div>
+    <div class="v-stat"><div class="v" id="vIndices">0</div><div class="l">INDICES USED</div></div>
     <div class="v-stat"><div class="v" id="vErrors">0</div><div class="l">WRONG ATTEMPTS</div></div>
     <div class="v-stat"><div class="v">🏴‍☠️</div><div class="l">RANK</div></div>
   </div>
@@ -209,7 +210,7 @@ for(let i=0;i<ROOMS;i++){const d=document.createElement('div');d.className='prog
 timerInterval=setInterval(()=>{
   const s=Math.floor((Date.now()-startTime)/1000);
   const m=Math.floor(s/60);
-  document.getElementById('timer').textContent=`${String(m).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
+  document.getElementById('timer').textContent=`${String(m).padCommencer(2,'0')}:${String(s%60).padCommencer(2,'0')}`;
 },1000);
 
 // Count hints
@@ -229,8 +230,8 @@ function nextRoom(){
   if(cur>=ROOMS){
     clearInterval(timerInterval);
     const s=Math.floor((Date.now()-startTime)/1000);
-    document.getElementById('vTime').textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
-    document.getElementById('vHints').textContent=hints;
+    document.getElementById('vTime').textContent=`${Math.floor(s/60)}:${String(s%60).padCommencer(2,'0')}`;
+    document.getElementById('vIndices').textContent=hints;
     document.getElementById('vErrors').textContent=errors;
     document.getElementById('victory').classList.add('on');
     return;
@@ -247,7 +248,7 @@ function check(room){
   if(room===3&&val==='21'){showFeedback(3,true,'🔓 (39-12)×7÷9 = 21. Logic gate passed!');setTimeout(nextRoom,1200);return}
   if(room===5&&val==='WORKSHOP'){showFeedback(5,true,'🚪 WORKSHOP! The door opens. Freedom!');setTimeout(nextRoom,1200);return}
   errors++;
-  showFeedback(room,false,'❌ Wrong answer. Try again...');
+  showFeedback(room,false,'❌ Wrong answer. Réessayer...');
   input.value='';input.focus();
 }
 
@@ -264,7 +265,7 @@ function checkTrivia(q,el,val){
     el.classList.add('correct');triviaCorrect++;
     if(q<2){setTimeout(()=>document.getElementById('trivia'+(q+1)).style.display='block',500)}
     if(triviaCorrect===3){showFeedback(4,true,'🧠 All 3 correct! The AI guardian lets you pass.');setTimeout(nextRoom,1200)}
-  }else{el.classList.add('wrong');errors++;showFeedback(4,false,'❌ Faux ! Try again.')}
+  }else{el.classList.add('wrong');errors++;showFeedback(4,false,'❌ Faux ! Réessayer.')}
 }
 </script>
 
@@ -289,11 +290,11 @@ function checkTrivia(q,el,val){
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

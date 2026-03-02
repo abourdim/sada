@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -39,7 +40,7 @@ body{background:#000;font-family:'Inter',sans-serif;display:flex;justify-content
 .app-icon{text-align:center;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .app-icon .icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 4px;position:relative;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .app-icon .icon .badge{position:absolute;top:-4px;right:-4px;background:#ff3b30;color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid #000}
-.app-icon .name{font-size:10px;color:#fff;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70px}
+.app-icon .name{font-size:10px;color:#fff;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:maintenantrap;max-width:70px}
 .dock{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.4);backdrop-filter:blur(20px);padding:8px 20px 28px;display:flex;justify-content:space-around;z-index:50;border-radius:20px 20px 0 0}
 .dock .app-icon .icon{width:52px;height:52px;border-radius:12px}
 .dock .app-icon .name{display:none}
@@ -76,7 +77,7 @@ body{background:#000;font-family:'Inter',sans-serif;display:flex;justify-content
   <div class="lock-time" id="lockTime">9:41</div>
   <div class="lock-date" id="lockDate">Samedi, Février 28</div>
   <div class="lock-notif">
-    <div class="lock-notif-h">🤖 WKSHP-DIY · now</div>
+    <div class="lock-notif-h">🤖 WKSHP-DIY · maintenant</div>
     <div class="lock-notif-t">Robot Connecté!</div>
     <div class="lock-notif-b">bit-bot is ready via Bluetooth</div>
   </div>
@@ -97,7 +98,7 @@ body{background:#000;font-family:'Inter',sans-serif;display:flex;justify-content
 
 <!-- DETAIL -->
 <div class="scr detail" id="scrDetail">
-  <div class="det-back" onclick="showScr('home')">‹ Back</div>
+  <div class="det-back" onclick="showScr('home')">‹ Retour</div>
   <div class="det-header">
     <div class="det-icon" id="dIcon">🤖</div>
     <div class="det-info">
@@ -124,7 +125,7 @@ const APPS=[
 {e:"🚀",n:"mission-ctrl",bg:"bg-orange",d:"WebRTC dashboard with live video, chat, and device control.",r:"4.5",s:"1.2K",a:"10+"},
 {e:"🧩",n:"playground",bg:"bg-green",d:"Ultimate micro:bit BLE playground — LEDs, sensors, servos.",r:"4.3",s:"543",a:"8+"},
 {e:"🎛️",n:"rxy",bg:"bg-cyan",d:"Build custom Bluetooth remotes with drag-and-drop UI.",r:"4.4",s:"432",a:"8+"},
-{e:"🎨",n:"pixel-art",bg:"bg-pink",d:"Retro pixel art portal — draw, animate, export sprites.",r:"4.6",s:"789",a:"6+"},
+{e:"🎨",n:"pixel-art",bg:"bg-pink",d:"Rétro pixel art portal — draw, animate, export sprites.",r:"4.6",s:"789",a:"6+"},
 {e:"💡",n:"wled-lab",bg:"bg-yellow",d:"Control Neopixel LED strips with WLED. Kid-friendly interface.",r:"4.5",s:"654",a:"8+"},
 {e:"⚡",n:"esp32",bg:"bg-orange",d:"Hands-on ESP32-C3 IoT lab — LEDs, sensors, WiFi.",r:"4.3",s:"543",a:"10+"},
 {e:"🪙",n:"crypto-101",bg:"bg-yellow",d:"Blockchain and cryptocurrency lessons for beginners.",r:"4.1",s:"321",a:"12+"},
@@ -161,7 +162,7 @@ function showDetail(a){
   document.getElementById('dIcon').textContent=a.e;
   document.getElementById('dName').textContent=a.n;
   document.getElementById('dDesc').textContent=a.d;
-  document.getElementById('dStats').innerHTML=`<div class="det-stat"><div class="v">${a.r||'4.5'}</div><div class="l">Note</div></div><div class="det-stat"><div class="v">${a.s||'500'}</div><div class="l">Sessions</div></div><div class="det-stat"><div class="v">${a.a||'8+'}</div><div class="l">Age</div></div><div class="det-stat"><div class="v">Free</div><div class="l">Price</div></div>`;
+  document.getElementById('dStats').innerHTML=`<div class="det-stat"><div class="v">${a.r||'4.5'}</div><div class="l">Note</div></div><div class="det-stat"><div class="v">${a.s||'500'}</div><div class="l">Sessions</div></div><div class="det-stat"><div class="v">${a.a||'8+'}</div><div class="l">Age</div></div><div class="det-stat"><div class="v">Gratuit</div><div class="l">Prix</div></div>`;
   showScr('detail');
 }
 
@@ -183,7 +184,7 @@ setInterval(()=>{const t=new Date();const h=t.getHours(),m=t.getMinutes();const 
 #sdNav .sdn-menu{position:absolute;top:38px;right:0;background:rgba(12,12,26,.95);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:6px;backdrop-filter:blur(12px);display:none;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
 #sdNav.open .sdn-menu{display:block}
 #sdNav .sdn-row{display:flex;align-items:center;gap:2px}
-#sdNav .sdn-btn{padding:6px 10px;border-radius:6px;border:none;background:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:12px;transition:all .15s;white-space:nowrap;font-family:inherit;display:flex;align-items:center;gap:4px;text-decoration:none}
+#sdNav .sdn-btn{padding:6px 10px;border-radius:6px;border:none;background:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:12px;transition:all .15s;white-space:maintenantrap;font-family:inherit;display:flex;align-items:center;gap:4px;text-decoration:none}
 #sdNav .sdn-btn:hover{background:rgba(255,255,255,.06);color:#fff}
 #sdNav .sdn-btn.hub{color:rgba(20,184,166,.7)}
 #sdNav .sdn-btn.hub:hover{color:#14b8a6;background:rgba(20,184,166,.08)}
@@ -195,11 +196,11 @@ setInterval(()=>{const t=new Date();const h=t.getHours(),m=t.getMinutes();const 
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

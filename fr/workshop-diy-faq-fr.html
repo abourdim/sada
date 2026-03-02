@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -31,19 +32,19 @@ h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#ff6600;ma
 <div class="container">
 
 <h1>❓ FAQ</h1>
-<div class="sub">Frequently Asked Questions · v1.0 · 160 files</div>
+<div class="sub">Questions Fréquentes · v1.0 · 160 files</div>
 
 <div class="section-title">📦 INSTALLATION & SETUP</div>
 
-<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Do I need to install anything?</div><div class="faq-a"><div class="faq-a-inner">No. Every file is a self-contained HTML document. Download, double-click, done. No npm, no pip, no Docker, no configuration, no server. Just a browser. Chrome is recommended.</div></div></div>
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Dois-je installer quelque chose ?</div><div class="faq-a"><div class="faq-a-inner">Non. Chaque fichier est autonome. Télécharger, double-cliquer, terminé. No npm, no pip, no Docker, no configuration, no server. Just a browser. Chrome is recommended.</div></div></div>
 
-<div class="faq"><div class="faq-q"><span class="arrow">▸</span>What browser should I use?</div><div class="faq-a"><div class="faq-a-inner">Chrome 90+ is recommended for the best experience. Firefox, Safari 15+, and Edge also work. Internet Explorer is not supported (it barely supports itself).</div></div></div>
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Quel navigateur utiliser ?</div><div class="faq-a"><div class="faq-a-inner">Chrome 90+ is recommended for the best experience. Firefox, Safari 15+, and Edge also work. Internet Explorer is not supported (it barely supports itself).</div></div></div>
 
-<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I use these offline?</div><div class="faq-a"><div class="faq-a-inner">Yes! The only online dependency is Google Fonts, which are loaded via CDN on first visit. Once cached by your browser, everything works fully offline. Without cached fonts, files use system fallback fonts and still work fine — just look slightly different.</div></div></div>
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Puis-je les utiliser hors ligne ?</div><div class="faq-a"><div class="faq-a-inner">Yes! The only online dependency is Google Fonts, which are loaded via CDN on first visit. Once cached by your browser, everything works fully offline. Without cached fonts, files use system fallback fonts and still work fine — just look slightly different.</div></div></div>
 
-<div class="faq"><div class="faq-q"><span class="arrow">▸</span>How do I start browsing the files?</div><div class="faq-a"><div class="faq-a-inner">Open <code>workshop-diy-index.html</code> for a searchable, categorized navigator. Or open <code>workshop-diy-docs.html</code> for the full documentation with file catalog. Or just open any file — they're all independent.</div></div></div>
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Comment parcourir les fichiers ?</div><div class="faq-a"><div class="faq-a-inner">Open <code>workshop-diy-index.html</code> pour un navigateur avec recherche et catégories. Or open <code>workshop-diy-docs.html</code> pour la documentation complète avec catalogue. Ou ouvrez n'importe quel fichier — ils sont tous indépendants.</div></div></div>
 
-<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Why is the ZIP so small (600KB)?</div><div class="faq-a"><div class="faq-a-inner">Pure HTML/CSS/JS compresses extremely well. No images, no binaries, no node_modules. The 160 files total ~1.8MB uncompressed and compress to ~600KB. This is what happens when you don't use frameworks.</div></div></div>
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Pourquoi le ZIP est si petit (600KB)?</div><div class="faq-a"><div class="faq-a-inner">Pure HTML/CSS/JS compresses extremely well. No images, no binaries, no node_modules. The 160 files total ~1.8MB uncompressed and compress to ~600KB. This is what happens when you don't use frameworks.</div></div></div>
 
 <div class="section-title">🎨 USAGE & PRESENTATIONS</div>
 
@@ -53,7 +54,7 @@ h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#ff6600;ma
 
 <div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I embed them on a website?</div><div class="faq-a"><div class="faq-a-inner">Yes. Use an <code>&lt;iframe&gt;</code> tag pointing to any file. Since they're self-contained HTML, they embed cleanly anywhere. Just host the files alongside your page.</div></div></div>
 
-<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I modify the files?</div><div class="faq-a"><div class="faq-a-inner">Absolutely. They're just HTML. Open in any text editor, change text/colors/data, save, refresh browser. No build step needed. The files are intentionally simple — all code is inline and readable.</div></div></div>
+<div class="faq"><div class="faq-q"><span class="arrow">▸</span>Can I modify the files?</div><div class="faq-a"><div class="faq-a-inner">Absolument. They're just HTML. Open in any text editor, change text/colors/data, save, refresh browser. No build step needed. The files are intentionally simple — all code is inline and readable.</div></div></div>
 
 <div class="section-title">🐛 THE LORE</div>
 
@@ -120,11 +121,11 @@ document.querySelectorAll('.faq').forEach(faq=>{
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

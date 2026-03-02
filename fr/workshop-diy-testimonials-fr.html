@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,7 +19,7 @@ body{background:#050508;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 /* SCORE BAR */
 .score-bar{display:flex;align-items:center;justify-content:center;gap:20px;padding:14px;margin:10px auto;max-width:600px;border:1px solid rgba(0,255,65,.04);border-radius:6px;background:rgba(0,255,65,.005);flex-wrap:wrap}
-.sc-big{text-align:center}.sc-big .v{font-size:40px;font-weight:800;color:#ffd700}.sc-big .stars{color:#ffd700;font-size:16px;letter-spacing:2px}.sc-big .ct{font-size:8px;color:rgba(0,255,65,.2);margin-top:2px}
+.sc-big{text-align:center}.sc-big .v{font-size:40px;font-weight:800;color:#ffd700}.sc-big .étoiles{color:#ffd700;font-size:16px;letter-spacing:2px}.sc-big .ct{font-size:8px;color:rgba(0,255,65,.2);margin-top:2px}
 .sc-bars{flex:1;min-width:150px;max-width:200px}
 .sc-row{display:flex;align-items:center;gap:4px;margin-bottom:2px}
 .sc-row .lbl{font-size:8px;color:rgba(0,255,65,.2);width:10px}.sc-row .track{flex:1;height:5px;background:rgba(0,255,65,.03);border-radius:3px;overflow:hidden}.sc-row .fill{height:100%;background:#ffd700;border-radius:3px}.sc-row .pct{font-size:7px;color:rgba(0,255,65,.15);width:24px;text-align:right}
@@ -46,7 +47,7 @@ body{background:#050508;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 .rev-name{font-size:10px;font-weight:700;color:#fff}
 .rev-role{font-size:7px;color:rgba(0,255,65,.2);letter-spacing:1px}
 .rev-date{font-size:7px;color:rgba(0,255,65,.1);margin-left:auto}
-.rev-stars{color:#ffd700;font-size:10px;margin-bottom:4px;letter-spacing:1px}
+.rev-étoiles{color:#ffd700;font-size:10px;margin-bottom:4px;letter-spacing:1px}
 .rev-text{font-size:10px;color:rgba(255,255,255,.5);line-height:2}
 .rev-text b{color:rgba(0,255,65,.5)}
 .rev-app{margin-top:6px;display:inline-block;font-size:7px;padding:2px 7px;border-radius:2px;border:1px solid rgba(0,255,65,.06);color:rgba(0,255,65,.25)}
@@ -63,7 +64,7 @@ body{background:#050508;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 </div>
 
 <div class="score-bar">
-  <div class="sc-big"><div class="v">4.9</div><div class="stars">★★★★★</div><div class="ct">847 avis</div></div>
+  <div class="sc-big"><div class="v">4.9</div><div class="étoiles">★★★★★</div><div class="ct">847 avis</div></div>
   <div class="sc-bars" id="bars"></div>
   <div class="sc-stats">
     <div class="sc-stat"><div class="v">98%</div><div class="l">RECOMMANDÉ</div></div>
@@ -74,7 +75,7 @@ body{background:#050508;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 </div>
 
 <div class="filters">
-  <button class="filter on" data-f="all">All</button>
+  <button class="filter on" data-f="all">Tous</button>
   <button class="filter" data-f="student">Élèves</button>
   <button class="filter" data-f="parent">Parents</button>
   <button class="filter" data-f="teacher">Enseignants</button>
@@ -102,7 +103,7 @@ const REVIEWS=[
 {a:"👩",n:"Fatima Z.",role:"parent",r:"parent",s:5,d:"Feb 2025",t:"My son discovered <b>prompt-hero</b> and now he's teaching me how to talk to AI. The student has become the master. I'm not sure how I feel about this.",app:"✨ prompt-hero",likes:25},
 {a:"👦",n:"Thomas W.",role:"student",r:"student",s:5,d:"Dec 2024",t:"I learned Git through <b>git-lab</b> and now I version control my homework. My teacher doesn't know what a 'pull request' is but she's impressed.",app:"🔀 git-lab",likes:14},
 {a:"👩‍💻",n:"Jade M.",role:"maker",r:"maker",s:5,d:"Jan 2025",t:"<b>wled-kids-lab</b> let me control an entire LED strip from my phone. I built custom animations for my room. The kids at the workshop were jealous.",app:"💡 wled-kids-lab",likes:12},
-{a:"👨‍🏫",n:"Omar H.",role:"teacher",r:"teacher",s:5,d:"Feb 2025",t:"39 apps, all browser-based, all free. I've been teaching STEM for 15 years and this is the most accessible platform I've ever used. Zero configuration headaches.",app:"All apps",likes:38},
+{a:"👨‍🏫",n:"Omar H.",role:"teacher",r:"teacher",s:5,d:"Feb 2025",t:"39 apps, all browser-based, all free. I've been teaching STEM for 15 years and this is the most accessible platform I've ever used. Zero configuration headaches.",app:"Tous apps",likes:38},
 {a:"👧",n:"Clara S.",role:"student",r:"student",s:5,d:"Jan 2025",t:"The <b>pixel-gateway</b> pixel art editor is therapeutic. I made art for an hour, then exported it to my micro:bit's LED matrix. Creative AND technical.",app:"🎨 pixel-gateway",likes:11},
 {a:"👨",n:"Pierre G.",role:"parent",r:"parent",s:5,d:"Nov 2024",t:"Finally found something better than Fortnite. My kids fight over who gets to use the <b>magic-hands</b> app next. Never thought I'd say that about an educational tool.",app:"🪄 magic-hands",likes:29},
 ];
@@ -111,11 +112,11 @@ let curFilter='all';
 function render(){
   const el=document.getElementById('revues');
   const filtered=curFilter==='all'?REVIEWS:REVIEWS.filter(r=>r.r===curFilter);
-  el.innerHTML=filtered.map(r=>`<div class="review"><div class="rev-head"><div class="rev-avatar ${r.r}">${r.a}</div><div><div class="rev-name">${r.n}</div><div class="rev-role">${r.role.toUpperCase()}</div></div><span class="rev-date">${r.d}</span></div><div class="rev-stars">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</div><div class="rev-text">${r.t}</div><span class="rev-app">${r.app}</span><div class="rev-likes">👍 ${r.likes} found this helpful</div></div>`).join('');
+  el.innerHTML=filtered.map(r=>`<div class="review"><div class="rev-head"><div class="rev-avatar ${r.r}">${r.a}</div><div><div class="rev-name">${r.n}</div><div class="rev-role">${r.role.toUpperCase()}</div></div><span class="rev-date">${r.d}</span></div><div class="rev-étoiles">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</div><div class="rev-text">${r.t}</div><span class="rev-app">${r.app}</span><div class="rev-likes">👍 ${r.likes} found this helpful</div></div>`).join('');
 }
 
-document.querySelectorAll('.filter').forEach(f=>f.onclick=()=>{
-  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('on'));
+document.querySelectorTous('.filter').forEach(f=>f.onclick=()=>{
+  document.querySelectorTous('.filter').forEach(x=>x.classList.remove('on'));
   f.classList.add('on');curFilter=f.dataset.f;render();
 });
 render();
@@ -142,11 +143,11 @@ render();
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){
@@ -174,7 +175,7 @@ var pi=i<=0?S.length-1:i-1,ni=i>=S.length-1?0:i+1;
 document.getElementById("sdPrev").href=mkUrl(S[pi]);
 document.getElementById("sdNext").href=mkUrl(S[ni]);
 }
-var btns=document.querySelectorAll("#sdNav .sdn-lang button");
+var btns=document.querySelectorTous("#sdNav .sdn-lang button");
 ["en","fr","ar"].forEach(function(l,j){if(l===c)btns[j].classList.add("on")});
 document.addEventListener("click",function(e){if(!document.getElementById("sdNav").contains(e.target))document.getElementById("sdNav").classList.remove("open")});
 })();

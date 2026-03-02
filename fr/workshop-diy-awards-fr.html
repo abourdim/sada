@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -66,23 +67,23 @@ body{background:#0a0a10;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <script>
 const CÉRÉMONIE DES PRIX=[
-{icon:"⭐",cat:"Best App",nominees:[
+{icon:"⭐",cat:"Meilleur App",nominees:[
   {e:"🤖",n:"bit-bot",r:"The app that started it all. Robot control via BLE.",w:true,speech:"I'd like to thank Web Bluetooth, Chrome DevTools, and the 47 desk drops that made me who I am today. This one's for every robot that survived."},
   {e:"🪄",n:"magic-hands",r:"21 hand landmarks. Pure visual magic."},
   {e:"🔐",n:"pentest-lab",r:"Ethical hacking made educational and fun."},
   {e:"🧠",n:"teachable-machine",r:"Train AI in your browser. 98% accurate."},
 ]},
-{icon:"🐛",cat:"Best Bug (Feature)",nominees:[
+{icon:"🐛",cat:"Meilleur Bug (Feature)",nominees:[
   {e:"🐛",n:"Bug #42",r:"Neither bug nor feature. The 40th.",w:true,speech:"I wasn't supposed to exist. I appeared without a commit, without a pull request, without a code review. And yet here I am. Receiving an award. The defense rests."},
   {e:"🔇",n:"BLE Disconnect",r:"Random disconnects that keep you on your toes."},
   {e:"📡",n:"Chrome BLE Limit",r:"Only 7 Bluetooth devices. Educational constraint."},
 ]},
-{icon:"🏋️",cat:"Most Durable",nominees:[
+{icon:"🏋️",cat:"Le plus Durable",nominees:[
   {e:"🤖",n:"ESP32 Robot Kit",r:"47 drops survived. Still running.",w:true,speech:"I'm held together with hot glue, hope, and a 3.7V LiPo battery. 47 drops, zero failures. I didn't choose durability testing. Durability testing chose me."},
   {e:"🔑",n:"password123",r:"Unchanged since 2023. Unbreakable (by policy)."},
   {e:"☕",n:"Machine à café",r:"1,337 cups served. Never stopped brewing."},
 ]},
-{icon:"😂",cat:"Most Unintentionally Funny",nominees:[
+{icon:"😂",cat:"Le plus Unintentionally Funny",nominees:[
   {e:"🐳",n:"docker-lab",r:"14-year-olds explaining Docker to engineer parents.",w:true,speech:"I never meant to be funny. I'm a serious containerization education tool. But when a teenager explains volumes better than a senior DevOps engineer... comedy writes itself."},
   {e:"🔑",n:"WiFi password policy",r:"Teaching cybersecurity. Password: password123."},
   {e:"🖨️",n:"Printer vulnerability",r:"Student hacked the school printer. Ethically."},
@@ -95,12 +96,12 @@ const CÉRÉMONIE DES PRIX=[
   {e:"🕵️",n:"face-quest",r:"468 facial landmarks turned into a game."},
   {e:"💡",n:"wled-kids-lab",r:"16 million colors via one HTTP request."},
 ]},
-{icon:"🤝",cat:"Best Supporting App",nominees:[
+{icon:"🤝",cat:"Meilleur Supporting App",nominees:[
   {e:"🧩",n:"bit-playground",r:"Quietly powering every micro:bit interaction."},
   {e:"🎛️",n:"rxy",r:"Custom BLE remotes that make everything work.",w:true,speech:"I don't get the headlines. I don't get the glory. But when you need a custom Bluetooth remote with exactly the right layout... you call me. And I deliver. Every. Time."},
   {e:"🚀",n:"mission-control",r:"Connecting peers when it matters most."},
 ]},
-{icon:"💀",cat:"Best Plot Twist",nominees:[
+{icon:"💀",cat:"Meilleur Plot Twist",nominees:[
   {e:"🐛",n:"Bug #42's identity",r:"Was it a bug? Was it a feature? The trial revealed all.",w:true,speech:"NOT GUILTY. That's all I have to say. Talk to my lawyer: try { } catch(e) { }."},
   {e:"🔑",n:"WiFi password protest #3",r:"Third petition to change password123. Denied again."},
   {e:"🤖",n:"Robot's 47th drop",r:"Survived. Again. Against all odds."},
@@ -172,11 +173,11 @@ function confetti(){
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

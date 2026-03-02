@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -30,7 +31,7 @@ body{background:#0a0a12;font-family:'JetBrains Mono',monospace;color:#fff}
 .story-headline{font-family:'Syne',sans-serif;font-size:clamp(18px,4vw,32px);font-weight:800;line-height:1.4;margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,.5)}
 .story-body{font-size:clamp(10px,1.5vw,14px);color:rgba(255,255,255,.5);max-width:540px;line-height:2}
 
-/* BREAKING ALERT */
+/* URGENT ALERT */
 .breaking{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:50;opacity:0;pointer-events:none;transition:all .3s}
 .breaking.on{opacity:1}
 .breaking-box{background:linear-gradient(135deg,#cc0000,#880000);padding:12px 30px;border:3px solid #ff0000;text-align:center;box-shadow:0 0 40px rgba(255,0,0,.3);animation:breakPulse 1s ease-in-out infinite}
@@ -64,7 +65,7 @@ body{background:#0a0a12;font-family:'JetBrains Mono',monospace;color:#fff}
 <div class="app">
 <div class="topbar">
   <div class="topbar-logo">WKSHP NEWS NETWORK</div>
-  <div class="topbar-live"><div class="live-dot"></div> LIVE</div>
+  <div class="topbar-live"><div class="live-dot"></div> EN DIRECT</div>
 </div>
 <div class="main">
   <!-- STORIES -->
@@ -104,7 +105,7 @@ body{background:#0a0a12;font-family:'JetBrains Mono',monospace;color:#fff}
     <div class="story-body">Despite cybersecurity being a core curriculum, the Workshop-DIY WiFi password remains unchanged since 2024. "It's tradition at this point," said the founder. Pentest students are conflicted.</div>
   </div>
 
-  <!-- BREAKING ALERT -->
+  <!-- URGENT ALERT -->
   <div class="breaking" id="breaking">
     <div class="breaking-box">
       <div class="breaking-label">FLASH INFO</div>
@@ -115,7 +116,7 @@ body{background:#0a0a12;font-family:'JetBrains Mono',monospace;color:#fff}
   <!-- CHYRON -->
   <div class="chyron">
     <div class="chyron-box">
-      <div class="chyron-label">LIVE</div>
+      <div class="chyron-label">EN DIRECT</div>
       <div class="chyron-text" id="chyronText">Workshop-DIY: 39 apps, 7 domains, 12 themes — all free and browser-based</div>
       <div class="chyron-time" id="chyronTime">00:00</div>
     </div>
@@ -214,11 +215,11 @@ setInterval(()=>{document.getElementById('chyronTime').textContent=new Date().to
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

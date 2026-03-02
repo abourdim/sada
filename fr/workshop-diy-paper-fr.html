@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -77,13 +78,13 @@ sup{font-size:7pt;color:#0066cc}
 <p>Bug #42 was first observed in the issue tracker on an indeterminate date by an unknown author. It appeared without a commit hash, pull request, or code review. Its initial description read: "I am not a bug. I am not a feature. I am the 40th" [2]. This paper examines whether Bug #42 meets the criteria for reclassification as a feature under our proposed taxonomy.</p>
 
 <h2>Related Work</h2>
-<p class="noindent">Previous work on bug-feature classification has focused primarily on intent-based frameworks [3]. However, these frameworks assume the existence of an author, a creation date, and a commit history — none of which apply to Bug #42. The mot de passe WiFi literature [4] establishes precedent for retaining known vulnerabilities as deliberate design choices (see: password123, unchanged since 2023, in a cybersecurity education context).</p>
+<p class="noindent">Précédent work on bug-feature classification has focused primarily on intent-based frameworks [3]. However, these frameworks assume the existence of an author, a creation date, and a commit history — none of which apply to Bug #42. The mot de passe WiFi literature [4] establishes precedent for retaining known vulnerabilities as deliberate design choices (see: password123, unchanged since 2023, in a cybersecurity education context).</p>
 
 <h2>Methodology</h2>
 <h3>3.1 Data Collection</h3>
-<p class="noindent">We analyzed 847 workshop sessions conducted between 2023–2025 across 12 thematic cycles. Session data included: application usage metrics, error logs, engagement scores, robot drop counts (N=47), and caffeine consumption levels (perpetually "critical").</p>
+<p class="noindent">We analyzed 847 workshop sessions conducted between 2023–2025 across 12 thematic cycles. Session data included: application usage metrics, error logs, engagement scores, robot drop counts (N=47), et caféine consumption levels (perpetually "critical").</p>
 
-<h3>3.2 Feature Classification Taxonomy (WKSHP-FC)</h3>
+<h3>3.2 Feature Classification Taxeonomy (WKSHP-FC)</h3>
 <p class="noindent">We propose a five-criteria taxonomy for classifying a defect as a feature:</p>
 
 <table>
@@ -135,7 +136,7 @@ sup{font-size:7pt;color:#0066cc}
 </div>
 
 <div class="footnote">
-Received: Février 28, 2026. Accepted: Février 28, 2026 (fast-tracked due to legal urgency).<br>
+Reçu : Février 28, 2026. Accepted: Février 28, 2026 (fast-tracked due to legal urgency).<br>
 Conflicts of interest: Bug #42 is a co-author and the subject of this paper. The Machine à café provided material support (espresso). password123 remains unchanged.<br>
 Funding: This research was supported by exactly zero euros and an unlimited supply of enthusiasm.<br>
 Correspondence: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="593b2c3e6d6b192e362b322a313629743d302077362<div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
@@ -159,11 +160,11 @@ Correspondence: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

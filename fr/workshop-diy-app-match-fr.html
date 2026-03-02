@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -114,7 +115,7 @@ const APPS=[
 {e:"💡",n:"wled-kids-lab",age:"RGB vibes",bio:"I'll light up your life — literally. 16 million colors to choose from. Looking for someone who appreciates a good Neopixel glow.",tags:["LEDs","IoT","Colorful"],g:"g4",url:"wled-kids-lab"},
 {e:"⚡",n:"esp32-c3-lab",age:"240 MHz",bio:"Dual-core personality. WiFi AND Bluetooth. I'm well-connected and I have 520KB of memories. Looking for IoT soulmate.",tags:["Hardware","IoT","Fast"],g:"g4",url:"esp32-c3-kids-lab"},
 {e:"🐳",n:"docker-lab",age:"Containerized",bio:"I keep my life organized in containers. Some say I'm isolated — I say I'm well-defined. Looking for someone to share volumes with.",tags:["DevOps","Containers","Neat"],g:"g3",url:"docker-lab"},
-{e:"🎨",n:"pixel-gateway",age:"8-bit heart",bio:"I see the world in pixels. Retro soul, creative spirit. Export my art to your LED matrix and I'm yours forever.",tags:["Art","Creative","Retro"],g:"g1",url:"pixel-gateway"},
+{e:"🎨",n:"pixel-gateway",age:"8-bit heart",bio:"I see the world in pixels. Rétro soul, creative spirit. Export my art to your LED matrix and I'm yours forever.",tags:["Art","Creative","Retro"],g:"g1",url:"pixel-gateway"},
 {e:"✨",n:"prompt-hero",age:"LLM whisperer",bio:"I know exactly what to say. I'll teach you the art of conversation — with AI, that is. My prompts are *chef's kiss*.",tags:["AI","Prompts","Smooth"],g:"g1",url:"prompt-hero"},
 {e:"☕",n:"coffee-supply",age:"Always critical",bio:"I'm the real MVP behind every line of code. I'm warm, energizing, and always running low. Looking for a refill.",tags:["Essential","Warm","Depleting"],g:"g4",url:""},
 ];
@@ -225,11 +226,11 @@ renderCards();
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

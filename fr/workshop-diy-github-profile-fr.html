@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -99,24 +100,24 @@ a{color:#58a6ff;text-decoration:none}a:hover{text-decoration:underline}
     📍 France<br>
     🔗 <a href="https://workshop-diy.org">workshop-diy.org</a><br>
     🤖 Rejoint 2023<br>
-    ☕ Powered by caffeine
+    ☕ Propulsé par caffeine
   </div>
 </div>
 
 <div class="profile-right">
 <div class="tabs">
-  <div class="tab on">📋 Overview</div>
-  <div class="tab">📦 Repositories <span class="cnt">39</span></div>
-  <div class="tab">⭐ Stars <span class="cnt">12</span></div>
+  <div class="tab on">📋 Vue d'ensemble</div>
+  <div class="tab">📦 Dépôts <span class="cnt">39</span></div>
+  <div class="tab">⭐ Étoiles <span class="cnt">12</span></div>
 </div>
 
 <!-- PINNED -->
-<div class="épinglé-h">📌 Pinned</div>
+<div class="épinglé-h">📌 Épinglés</div>
 <div class="épinglé-grid" id="épinglé"></div>
 
 <!-- CONTRIBUTION GRAPH -->
 <div class="contrib-box">
-  <div class="contrib-h"><b>1,337</b> contributions in the last year</div>
+  <div class="contrib-h"><b>1,337</b> contributions l'année dernière</div>
   <div class="contrib-grid" id="contribGrid"></div>
   <div class="contrib-legend">Less <div class="contrib-cell"></div><div class="contrib-cell l1"></div><div class="contrib-cell l2"></div><div class="contrib-cell l3"></div><div class="contrib-cell l4"></div> More</div>
 </div>
@@ -138,7 +139,7 @@ const APPS=[
 {e:"🚀",n:"mission-control",d:"WebRTC dashboard with live video/chat — command micro:bits",l:"JavaScript",lc:"lang-js",s:71,f:19},
 {e:"🧩",n:"bit-playground",d:"Ultimate micro:bit BLE playground — LEDs, sensors, servos",l:"JavaScript",lc:"lang-js",s:58,f:16},
 {e:"🎛️",n:"rxy",d:"Custom Bluetooth remote builder — drag & drop UI",l:"JavaScript",lc:"lang-js",s:45,f:11},
-{e:"🎨",n:"pixel-gateway",d:"Retro pixel art portal — draw, animate, export",l:"HTML",lc:"lang-html",s:62,f:20},
+{e:"🎨",n:"pixel-gateway",d:"Rétro pixel art portal — draw, animate, export",l:"HTML",lc:"lang-html",s:62,f:20},
 {e:"💡",n:"wled-kids-lab",d:"Control Neopixel LED strips with WLED",l:"JavaScript",lc:"lang-js",s:38,f:9},
 {e:"⚡",n:"esp32-c3-kids-lab",d:"Hands-on ESP32-C3 IoT lab",l:"C++",lc:"lang-cpp",s:55,f:14},
 {e:"🔐",n:"pentest-lab",d:"Cybersecurity sandbox — ethical hacking challenges",l:"JavaScript",lc:"lang-js",s:87,f:25},
@@ -168,7 +169,7 @@ for(let w=0;w<52;w++){
 // REPOS
 const reposEl=document.getElementById('repos');
 APPS.forEach(a=>{
-  reposEl.innerHTML+=`<div class="repo"><div class="repo-h"><span class="repo-name">${a.e} ${a.n}</span><span class="repo-badge">Public</span><div class="repo-star" style="margin-left:auto">☆ Star <b>${a.s}</b></div></div><div class="repo-desc">${a.d}</div><div class="repo-meta"><span><span class="lang-dot ${a.lc}"></span> ${a.l}</span><span>⭐ ${a.s}</span><span>🍴 ${a.f}</span><span>Updated this week</span></div></div>`;
+  reposEl.innerHTML+=`<div class="repo"><div class="repo-h"><span class="repo-name">${a.e} ${a.n}</span><span class="repo-badge">Public</span><div class="repo-star" style="margin-left:auto">☆ Star <b>${a.s}</b></div></div><div class="repo-desc">${a.d}</div><div class="repo-meta"><span><span class="lang-dot ${a.lc}"></span> ${a.l}</span><span>⭐ ${a.s}</span><span>🍴 ${a.f}</span><span>Mis à jour this week</span></div></div>`;
 });
 </script>
 
@@ -193,11 +194,11 @@ APPS.forEach(a=>{
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -85,7 +86,7 @@ body{background:#0a0a0a;color:var(--g);font-family:'JetBrains Mono',monospace;fo
   </div>
   <div class="status">
     <span>WKSHP_DIY v4.2.0</span>
-    <span id="cmdCount">0 commands</span>
+    <span id="cmdCount">0 commandes</span>
     <span id="clock2">00:00:00</span>
   </div>
 </div>
@@ -93,7 +94,7 @@ body{background:#0a0a0a;color:var(--g);font-family:'JetBrains Mono',monospace;fo
 <script>
 const APPS=[
 {e:"🤖",n:"bit-bot",c:["microbit"],b:"popular",d:"Drive a Bit:Bot robot from your browser over Bluetooth — virtual joystick, line-follow and obstacle avoidance mode."},
-{e:"🪄",n:"magic-hands",c:["camera","ai"],b:"popular",d:"Wave your hands in front of the camera to trigger magic effects — confetti, neon trails, particle explosions. Powered by MediaPipe."},
+{e:"🪄",n:"magic-hands",c:["camera","ai"],b:"popular",d:"Wave your hands in front of the camera to trigger magic effects — confetti, neon trails, particle explosions. Propulsé par MediaPipe."},
 {e:"🕵️",n:"face-quest",c:["camera","ai"],b:"popular",d:"A face-detection game — smile, blink, turn your head to score. 100% local, zero data sent anywhere."},
 {e:"💬",n:"talking-robot",c:["microbit","ai"],b:"stable",d:"A browser robot that speaks, listens and shows emotions — send text or voice commands over BLE."},
 {e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],b:"popular",d:"Train AI gestures or sounds in the browser with Teachable Machine, then send results to micro:bit."},
@@ -105,7 +106,7 @@ const APPS=[
 {e:"🎨",n:"pixel-gateway",c:["tools"],b:"stable",d:"A retro pixel art portal — draw on a grid, animate frames, preview sprites and export."},
 {e:"💡",n:"wled-kids-lab",c:["hardware","learning"],b:"stable",d:"Control WS2812/Neopixel LED strips with WLED — colors, effects, brightness, kid-friendly UI."},
 {e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],b:"stable",d:"Hands-on ESP32-C3 lab — blink LEDs, read sensors, connect WiFi, explore IoT basics."},
-{e:"🪙",n:"crypto-academy",c:["learning"],b:"stable",d:"Interactive lessons on cryptocurrency and blockchain — wallets, mining, transactions explained."},
+{e:"🪙",n:"crypto-academy",c:["learning"],b:"stable",d:"Interactif lessons on cryptocurrency and blockchain — wallets, mining, transactions explained."},
 {e:"🔐",n:"pentest-lab",c:["learning"],b:"stable",d:"Beginner-friendly penetration testing sandbox — learn cybersecurity through hands-on challenges."},
 {e:"🐧",n:"linux-kids-lab",c:["learning"],b:"stable",d:"Linux commands in a safe browser sandbox — navigate files, pipes, scripts, master the terminal."},
 {e:"🏭",n:"production-chain",c:["learning"],b:"stable",d:"Simulate an industrial production chain — drag stations, set throughput, watch the flow."},
@@ -117,7 +118,7 @@ const APPS=[
 {e:"🔋",n:"circuit-lab",c:["hardware","learning"],b:"dev",d:"Build and simulate circuits in the browser — LEDs, resistors, capacitors, real-time results."},
 {e:"🛡️",n:"rocket-shield-vpn",c:["tools"],b:"dev",d:"Visual guide to VPNs and network security — see encrypted tunnels protect your data."},
 {e:"🧊",n:"3d-lab",c:["learning"],b:"dev",d:"3D design in the browser — create, rotate and light objects with Three.js."},
-{e:"🔀",n:"git-lab",c:["learning"],b:"dev",d:"Learn Git step by step — commit, branch, merge, pull requests. Interactive lessons."},
+{e:"🔀",n:"git-lab",c:["learning"],b:"dev",d:"Learn Git step by step — commit, branch, merge, pull requests. Interactif lessons."},
 {e:"✨",n:"prompt-hero",c:["ai","learning"],b:"dev",d:"Master AI prompting — techniques for ChatGPT, Claude and other LLMs."},
 {e:"🌍",n:"save-our-planet",c:["learning"],b:"dev",d:"Climate change, recycling, sustainability — interactive lessons, quizzes and action plans."},
 {e:"📋",n:"ops-catalog",c:["tools"],b:"dev",d:"DevOps tools catalog — CI/CD, Docker, Kubernetes workflows browsable."},
@@ -167,12 +168,12 @@ print(`
  █▐▌█ █▐▌     █ █   █ █
  ██ █▌█  █████ █   █ █    DIY`,'art');
 print('');
-print('Atelier-DIY Interactive Terminal v4.2.0','cyan bold');
+print('Atelier-DIY Interactif Terminal v4.2.0','cyan bold');
 print('Association Loi 1901 — France','dim');
 print('Robotics · AI · Electronics · 3D · Code · Cyber','dim');
 print('');
-print('Type <span style="color:var(--y)">help</span> to see available commands.','dim');
-print('// protip: try "hack", "sudo rm -rf /", or "neofetch"','dim');
+print('Type <span style="color:var(--y)">help</span> pour voir les commandes disponibles.','dim');
+print('// astuce : essaie "hack", "sudo rm -rf /", or "neofetch"','dim');
 print('');
 
 // COMMANDS
@@ -234,7 +235,7 @@ const commands={
     if(!args){print('Usage: find [keyword]  (e.g. find robot)','warn');return}
     const q=args.toLowerCase();
     const results=APPS.filter(a=>a.n.toLowerCase().includes(q)||a.d.toLowerCase().includes(q)||a.c.some(c=>c.includes(q)));
-    if(!results.length){print(`No apps found matching "${args}"`,'error');return}
+    if(!results.length){print(`No applis trouvées matching "${args}"`,'error');return}
     print(`Found ${results.length} apps matching "${args}":`,'cyan');
     results.forEach(a=>print(`  ${a.e} <span style="color:var(--c)">${a.n}</span> — <span style="color:rgba(0,255,65,.3)">${a.d.slice(0,60)}...</span>`));
   },
@@ -363,7 +364,7 @@ const commands={
 <span style="color:var(--c)">   / |     | \\      </span>  <span style="color:var(--c)">Themes:</span> 12
 <span style="color:var(--c)">  ◯──┘     └──◯     </span>  <span style="color:var(--c)">Languages:</span> FR, EN, AR
 <span style="color:var(--c)">                    </span>  <span style="color:var(--c)">Disponibilité:</span> since 2023
-<span style="color:var(--c)">                    </span>  <span style="color:var(--c)">CPU:</span> Powered by caffeine
+<span style="color:var(--c)">                    </span>  <span style="color:var(--c)">CPU:</span> Propulsé par caffeine
 <span style="color:var(--c)">                    </span>  <span style="color:var(--c)">Mémoire:</span> Full of ideas
 <span style="color:var(--c)">                    </span>  <span style="color:var(--c)">Bugs:</span> 42 (toutes des fonctionnalités)`);
   },
@@ -431,8 +432,8 @@ const commands={
     print('CREDITS:','cyan bold');
     print('');
     print('  Atelier-DIY Association','');
-    print('  Built with: HTML, CSS, JS, love, and too much coffee','dim');
-    print('  Powered by: ESP32, micro:bit, and student curiosity','dim');
+    print('  Construit avec: HTML, CSS, JS, love, and too much coffee','dim');
+    print('  Propulsé par: ESP32, micro:bit, and student curiosity','dim');
     print('  Bugs provided by: the universe','dim');
     print('  USB cables lost: 47 and counting','dim');
     print('  mot de passe WiFi: still password123','dim');
@@ -507,7 +508,7 @@ async function processCmd(raw){
   }else if(cmd==='sudo'&&args){
     await commands.sudo(args);
   }else{
-    print(`bash: ${cmd}: command not found`,'error');
+    print(`bash: ${cmd}: commande non trouvée`,'error');
     print(`// try "help" for a list of commands`,'dim');
   }
   print('');
@@ -559,11 +560,11 @@ setInterval(()=>{document.getElementById('clock2').textContent=new Date().toTime
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

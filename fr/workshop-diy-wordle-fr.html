@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -84,7 +85,7 @@ for(let r=0;r<ROWS;r++){
 const KB_ROWS=[
   'qwertyuiop'.split(''),
   'asdfghjkl'.split(''),
-  ['Enter',...'zxcvbnm'.split(''),'⌫']
+  ['Entrée',...'zxcvbnm'.split(''),'⌫']
 ];
 const kbEl=document.getElementById('keyboard');
 KB_ROWS.forEach(row=>{
@@ -110,7 +111,7 @@ function handleKey(k){
       document.getElementById(`t${currentRow}-${currentCol}`).textContent='';
       document.getElementById(`t${currentRow}-${currentCol}`).className='tile';
     }
-  } else if(k==='Enter'){
+  } else if(k==='Entrée'){
     if(currentCol===COLS)submitGuess();
   } else if(currentCol<COLS){
     grid[currentRow][currentCol]=k.toLowerCase();
@@ -124,7 +125,7 @@ function handleKey(k){
 function submitGuess(){
   const guess=grid[currentRow].join('');
   
-  // Check letters
+  // Check lettres
   const ansArr=answer.split('');
   const result=Array(COLS).fill('absent');
   const used=Array(COLS).fill(false);
@@ -170,8 +171,8 @@ function submitGuess(){
       document.getElementById('hint').textContent=`✅ "${answer.toUpperCase()}" in ${currentRow+1}/6 · 🐛 Bugs are fonctionnalités`;
     } else if(currentRow===ROWS-1){
       gameOver=true;
-      showMsg(`The word was: ${answer.toUpperCase()}`);
-      document.getElementById('hint').textContent=`❌ The word was "${answer.toUpperCase()}" · Try again!`;
+      showMsg(`Le mot était: ${answer.toUpperCase()}`);
+      document.getElementById('hint').textContent=`❌ Le mot était "${answer.toUpperCase()}" · Try again!`;
     }
     currentRow++;
     currentCol=0;
@@ -186,8 +187,8 @@ function showMsg(t){
 }
 
 document.addEventListener('keydown',e=>{
-  if(e.key==='Backspace')handleKey('⌫');
-  else if(e.key==='Enter')handleKey('Enter');
+  if(e.key==='Effacer')handleKey('⌫');
+  else if(e.key==='Entrée')handleKey('Entrée');
   else if(/^[a-zA-Z]$/.test(e.key))handleKey(e.key);
 });
 </script>
@@ -213,15 +214,15 @@ document.addEventListener('keydown',e=>{
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){
-var S=["100", "advent", "airbnb", "amazon", "ambient-screen", "app-demo-reel", "app-match", "app-store", "arcade", "arduino-ide", "awards", "bingo", "bio-gen", "ble-flow", "blueprints", "boarding-pass", "boot-sequence", "bottle", "breaking-news", "bug-or-feature", "bugchelor", "card-collection", "card-pack", "cereal-box", "changelog", "classified-dossier", "clicker", "comic", "compatibility", "concert-ticket", "conspiracy", "cookbook", "court-trial", "craigslist", "creepypasta", "crossword", "ctf-quiz", "delivery", "departures", "detention", "diary", "discord-chat", "docs", "dungeon", "documentary", "duolingo", "dvd-menu", "ebay", "elevator-pitch", "emergency-alert", "escape-room", "esp32-boot", "esp32-pinout", "esp32-vs-microbit", "esp32-wiring", "family-tree", "faq", "festival", "flappy", "forensic-report", "fortune-cookie", "gacha", "genius-ideas-lab", "genius-video", "genius-video-animation", "github-profile", "hacker-news", "hacker-presentation", "hacker-terminal", "haiku", "help", "horoscope", "ikea-manual", "in-memoriam", "index", "infomercial", "iphone", "jeopardy", "kanban", "lab-notebook", "license-plates", "linkedin", "live-monitor", "loading-screens", "love-letters", "mad-libs", "magic-8ball", "makecode", "maps-reviews", "master-hub", "metro-map", "microbit-telemetry", "monopoly", "movie-credits", "museum", "music-player", "nasa-control", "neopixel-emoji", "network-map", "newspaper", "notion", "org-chart", "os-desktop", "ouija", "paper", "parking-ticket", "passport", "periodic-table", "pizza-menu", "pokedex", "police-report", "ransom-note", "rap-battle", "real-estate", "receipt", "reddit", "report-card", "restraining-order", "roadmap-video-fr", "rxy", "safety-card", "safety-card-v2", "scoreboard", "scp-file", "shark-tank", "sitcom", "skill-tree", "slack", "slot-machine", "social-media-kit", "space-mission", "stamps", "star-chart", "sticker-sheet", "stock-market", "superlatives", "synth-visualizer", "tamagotchi", "tax-return", "testimonials", "text-adventure", "therapy", "tiktok", "time-capsule", "timeline", "tinder", "trial", "twitch", "ultimate-video", "vending-machine", "video-concept-preview", "voicemail", "vscode", "wanted-wall", "warranty", "weather", "wedding", "whatsapp", "wikipedia", "wordle", "wrapped-2025", "yearbook", "youtube", "zodiac"];
+var S=["100", "advent", "airbnb", "amazon", "ambient-screen", "app-demo-reel", "app-match", "app-store", "arcade", "arduino-ide", "awards", "bingo", "bio-gen", "ble-flow", "blueprints", "boarding-pass", "boot-sequence", "bottle", "breaking-news", "bug-or-feature", "bugchelor", "card-collection", "card-pack", "cereal-box", "changelog", "classified-dossier", "clicker", "comic", "compatibility", "concert-ticket", "conspiracy", "cookbook", "court-trial", "craigslist", "creepypasta", "crossword", "ctf-quiz", "delivery", "departures", "detention", "diary", "discord-chat", "docs", "dungeon", "documentary", "duolingo", "dvd-menu", "ebay", "elevator-pitch", "emergency-alert", "escape-room", "esp32-boot", "esp32-pinout", "esp32-vs-microbit", "esp32-wiring", "family-tree", "faq", "festival", "flappy", "forensic-report", "fortune-cookie", "gacha", "genius-ideas-lab", "genius-video", "genius-video-animation", "github-profile", "hacker-news", "hacker-presentation", "hacker-terminal", "haiku", "help", "horoscope", "ikea-manual", "in-memoriam", "index", "infomercial", "iphone", "jeopardy", "kanban", "lab-notebook", "license-plates", "linkedin", "live-monitor", "loading-screens", "love-lettres", "mad-libs", "magic-8ball", "makecode", "maps-reviews", "master-hub", "metro-map", "microbit-telemetry", "monopoly", "movie-credits", "museum", "music-player", "nasa-control", "neopixel-emoji", "network-map", "newspaper", "notion", "org-chart", "os-desktop", "ouija", "paper", "parking-ticket", "passport", "periodic-table", "pizza-menu", "pokedex", "police-report", "ransom-note", "rap-battle", "real-estate", "receipt", "reddit", "report-card", "restraining-order", "roadmap-video-fr", "rxy", "safety-card", "safety-card-v2", "scoreboard", "scp-file", "shark-tank", "sitcom", "skill-tree", "slack", "slot-machine", "social-media-kit", "space-mission", "stamps", "star-chart", "sticker-sheet", "stock-market", "superlatives", "synth-visualizer", "tamagotchi", "tax-return", "testimonials", "text-adventure", "therapy", "tiktok", "time-capsule", "timeline", "tinder", "trial", "twitch", "ultimate-video", "vending-machine", "video-concept-preview", "voicemail", "vscode", "wanted-wall", "warranty", "weather", "wedding", "whatsapp", "wikipedia", "wordle", "wrapped-2025", "yearbook", "youtube", "zodiac"];
 var f=location.pathname.split("/").pop(),c="en",b;
 if(/-fr\.html$/.test(f)){c="fr";b=f.replace(/-fr\.html$/,"")}
 else if(/-ar\.html$/.test(f)){c="ar";b=f.replace(/-ar\.html$/,"")}

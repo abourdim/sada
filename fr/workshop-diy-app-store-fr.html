@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -98,13 +99,13 @@ body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSyst
 
 <!-- TOP CHARTS -->
 <div class="section" id="top5">
-  <div class="section-h"><h2>Top Charts — Free</h2><a href="#">See All</a></div>
-  <div id="topCharts"></div>
+  <div class="section-h"><h2>Top Classements — Gratuit</h2><a href="#">See All</a></div>
+  <div id="topClassements"></div>
 </div>
 
 <!-- NEW THIS WEEK -->
 <div class="section">
-  <div class="section-h"><h2>New This Week</h2></div>
+  <div class="section-h"><h2>Nouveau This Week</h2></div>
   <div class="app-row" id="newApps"></div>
 </div>
 
@@ -123,7 +124,7 @@ body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSyst
   <div class="nav-item on"><div class="icon">🏠</div><div class="label">Aujourd'hui</div></div>
   <div class="nav-item"><div class="icon">🎮</div><div class="label">Games</div></div>
   <div class="nav-item"><div class="icon">📱</div><div class="label">Apps</div></div>
-  <div class="nav-item"><div class="icon">🔍</div><div class="label">Search</div></div>
+  <div class="nav-item"><div class="icon">🔍</div><div class="label">Rechercher</div></div>
 </div>
 
 <script>
@@ -140,7 +141,7 @@ const APPS=[
 {e:"💡",n:"wled-kids-lab",d:"Neopixel LED control",dev:"Atelier-DIY",cat:"hw",r:4.7,dl:"890"},
 {e:"⚡",n:"esp32-c3-lab",d:"ESP32-C3 IoT lab",dev:"Atelier-DIY",cat:"hw",r:4.6,dl:"780"},
 {e:"🧩",n:"bit-playground",d:"micro:bit BLE playground",dev:"Atelier-DIY",cat:"robo",r:4.7,dl:"960"},
-{e:"🎨",n:"pixel-gateway",d:"Retro pixel art editor",dev:"Atelier-DIY",cat:"learn",r:4.5,dl:"720"},
+{e:"🎨",n:"pixel-gateway",d:"Rétro pixel art editor",dev:"Atelier-DIY",cat:"learn",r:4.5,dl:"720"},
 {e:"🐳",n:"docker-lab",d:"Learn Docker basics",dev:"Atelier-DIY",cat:"learn",r:4.6,dl:"650"},
 {e:"🎛️",n:"rxy",d:"Custom BLE remote builder",dev:"Atelier-DIY",cat:"robo",r:4.5,dl:"540"},
 {e:"✨",n:"prompt-hero",d:"AI prompting playground",dev:"Atelier-DIY",cat:"ai",r:4.7,dl:"820"},
@@ -168,7 +169,7 @@ function renderAll(){
   document.getElementById('featuredApps').innerHTML=filtered.slice(0,6).map(makeAppCard).join('');
 
   // Top charts
-  document.getElementById('topCharts').innerHTML=filtered.slice(0,5).map((a,i)=>
+  document.getElementById('topClassements').innerHTML=filtered.slice(0,5).map((a,i)=>
     `<div class="app-list-item"><span class="app-rank">${i+1}</span><div class="app-icon ${a.cat}" style="width:40px;height:40px;border-radius:10px;font-size:18px">${a.e}</div><div class="app-info" style="flex:1"><div class="name" style="font-size:13px">${a.n}</div><div class="dev" style="font-size:10px;color:var(--t2)">${a.d}</div><div class="app-meta"><span class="stars">${'★'.repeat(Math.round(a.r))}</span><span style="font-size:10px;color:var(--t2)">${a.r} · ${a.dl}</span></div></div><button class="get-btn">GET</button></div>`
   ).join('');
 
@@ -185,7 +186,7 @@ document.getElementById('ratingBars').innerHTML=bars.map(b=>`<div style="display
 const revs=[
   {n:"CyberYassine",d:"Feb 2025",s:5,t:"These apps turned my kids into robot engineers. The bit-bot app is insanely fun. My 8-year-old won't stop coding now. Send help."},
   {n:"MakerAmira",d:"Jan 2025",s:5,t:"magic-hands is mind-blowing. Hand tracking that works in a browser?! My students went crazy for it. All 39 apps are gems."},
-  {n:"LinuxLucas",d:"Dec 2024",s:5,t:"linux-kids-lab taught my students terminal commands in one session. The fake bash environment is shockingly realistic."},
+  {n:"LinuxLucas",d:"Dec 2024",s:5,t:"linux-kids-lab taught my students terminal commands in one session. The faux bash environment is shockingly realistic."},
   {n:"RoboParent42",d:"Nov 2024",s:4,t:"Great collection. Only complaint: my kid now explains Docker to me and I'm a software engineer. Slightly humbling."},
 ];
 document.getElementById('revues').innerHTML=revs.map(r=>`<div class="review"><div class="review-h"><span class="review-name">${r.n}</span><span class="review-date">${r.d}</span></div><div class="review-stars">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</div><div class="review-text">${r.t}</div></div>`).join('');
@@ -214,11 +215,11 @@ function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'sm
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

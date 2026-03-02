@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -90,11 +91,11 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 
 <!-- SCREEN 3: HEX GRID -->
 <div class="screen" id="s3">
-  <div class="s-logo">DECRYPTING</div>
+  <div class="s-logo">DÉCRYPTAGE</div>
   <div class="s-sub">CHARGEMENT APP MATRIX</div>
   <div class="hex-grid" id="hexGrid"></div>
   <div class="s-bar"><div class="fill" id="bar3"></div></div>
-  <div class="s-pct" id="pct3">DECRYPTING PAYLOAD...</div>
+  <div class="s-pct" id="pct3">DÉCRYPTAGE PAYLOAD...</div>
 </div>
 
 <!-- SCREEN 4: SYSTEM VÉRIFIER -->
@@ -106,7 +107,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 
 <!-- SCREEN 5: COMPILE -->
 <div class="screen" id="s5">
-  <div class="s-sub">COMPILING</div>
+  <div class="s-sub">COMPILATION</div>
   <div style="font-size:48px;margin-bottom:6px;animation:spin 2s linear infinite" id="compileEmoji">⚙️</div>
   <div class="s-logo">BUILDING 39 APPS</div>
   <div class="s-bar" style="width:280px"><div class="fill" id="bar5"></div></div>
@@ -155,7 +156,7 @@ const bootLines=[
   {t:"[ WARN ] mot de passe WiFi: still password123",c:"warn"},
   {t:"[  OK  ] Docker engine: running",c:"ok"},
   {t:"[  OK  ] Bug #42: reclassified as feature",c:"ok"},
-  {t:"[  OK  ] System ready. 39 apps deployed.",c:"ok"},
+  {t:"[  OK  ] Système prêt. 39 apps deployed.",c:"ok"},
 ];
 const termEl=document.getElementById('termLines');
 let bootIdx=0;
@@ -266,11 +267,11 @@ setInterval(()=>{
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -50,17 +51,17 @@ body{background:#1a4d2e;color:#fff;font-family:'JetBrains Mono',monospace;font-s
   <button class="roll-btn" onclick="roll()">🎲 LANCER</button>
 </div>
 <div class="result" id="result"></div>
-<div class="footer">WKSHP-OPOLY™ · NOT AFFILIATED WITH HASBRO · BUGS ARE PROPERTIES · WIFI TAX: password123</div>
+<div class="footer">WKSHP-OPOLY™ · PAS AFFILIÉ À HASBRO · LES BUGS SONT DES PROPRIÉTÉS · TAXE WIFI: password123</div>
 <script>
 // Board layout: 9x9, perimeter cells + center
 // Bottom row (L→R), Right col (B→T), Top row (R→L), Left col (T→B)
 const CELLS=[
   // BOTTOM ROW (indices 0-8)
-  {t:"corner",e:"🚀",n:"GO",p:"Collect €200"},
+  {t:"corner",e:"🚀",n:"GO",p:"Recevez €200"},
   {t:"prop",e:"🤖",n:"bit-bot",p:"€60",bar:"#8b4513",side:"top"},
   {t:"chance",e:"❓",n:"Bug Report",p:"",side:"top"},
   {t:"prop",e:"🪄",n:"magic-hands",p:"€60",bar:"#8b4513",side:"top"},
-  {t:"tax",e:"☕",n:"Coffee Tax",p:"Pay €50",side:"top"},
+  {t:"tax",e:"☕",n:"Coffee Taxe",p:"Pay €50",side:"top"},
   {t:"prop",e:"🎛️",n:"rxy",p:"€100",bar:"#0088cc",side:"top"},
   {t:"prop",e:"💬",n:"talking-bot",p:"€100",bar:"#0088cc",side:"top"},
   {t:"chance",e:"🎫",n:"Atelier",p:"",side:"top"},
@@ -78,7 +79,7 @@ const CELLS=[
   {t:"chance",e:"🎫",n:"Atelier",p:"",side:"bot"},
   {t:"prop",e:"🚀",n:"mission-ctrl",p:"€220",bar:"#ff0044",side:"bot"},
   {t:"prop",e:"💡",n:"wled-lab",p:"€240",bar:"#ff0044",side:"bot"},
-  {t:"tax",e:"🐛",n:"Bug #42 Tax",p:"Pay €42",side:"bot"},
+  {t:"tax",e:"🐛",n:"Bug #42 Taxe",p:"Pay €42",side:"bot"},
   {t:"prop",e:"⚡",n:"esp32",p:"€260",bar:"#00aa44",side:"bot"},
   {t:"corner",e:"⬇️",n:"GO TO JAIL",p:"Go directly"},
   // LEFT COL (T→B, indices 24-30, excluding corners)
@@ -142,12 +143,12 @@ const EVENTS=[
   "🤖 bit-bot dances! Advance 3 spaces.",
   "☕ Coffee break! Miss a turn but feel great.",
   "🐛 Bug #42 appears! Pay €42 in debugging costs.",
-  "📡 WiFi connected! (Password: password123) Collect €50.",
+  "📡 WiFi connected! (Password: password123) Recevez €50.",
   "🔐 You hacked the printer! Go to Cyber Jail.",
   "🐳 Docker pull successful! Advance to docker-lab.",
   "🪄 Magic hands detected! Roll again!",
   "⚡ ESP32 overheats! Pay €30 for a new one.",
-  "🎉 Atelier complete! Collect €100 bonus.",
+  "🎉 Atelier complete! Recevez €100 bonus.",
   "🐧 sudo make sandwich → Permission granted! Free turn.",
 ];
 function roll(){
@@ -185,11 +186,11 @@ function roll(){
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

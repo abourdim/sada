@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -93,9 +94,9 @@ const VOLS=[
 ];
 
 const statusClasses={ontime:'status-ontime',boarding:'status-boarding',departed:'status-departed',delayed:'status-delayed',cancelled:'status-cancelled'};
-const statusLabels={ontime:'ON TIME',boarding:'BOARDING',departed:'DEPARTED',delayed:'DELAYED',cancelled:'CANCELLED'};
+const statusLabels={ontime:'À L'HEURE',boarding:'EMBARQUEMENT',departed:'DEPARTED',delayed:'RETARDÉ',cancelled:'ANNULÉ'};
 
-function renderFlights(){
+function renderVols(){
   const el=document.getElementById('flights');
   el.innerHTML=VOLS.map(f=>
     `<div class="flight">
@@ -108,7 +109,7 @@ function renderFlights(){
     </div>`
   ).join('');
 }
-renderFlights();
+renderVols();
 
 // CLOCK
 setInterval(()=>{
@@ -121,14 +122,14 @@ setInterval(()=>{
   if(eligible.length>0){
     const pick=eligible[Math.floor(Math.random()*eligible.length)];
     pick.status=Math.random()>.3?'boarding':'delayed';
-    renderFlights();
+    renderVols();
   }
 },8000);
 
-// Boarding → Departed
+// Embarquement → Departed
 setInterval(()=>{
   VOLS.filter(f=>f.status==='boarding').forEach(f=>{if(Math.random()>.5)f.status='departed'});
-  renderFlights();
+  renderVols();
 },12000);
 
 // TICKER
@@ -136,8 +137,8 @@ const tickerItems=[
   "✈ Welcome to WKSHP International Learning Airport — 39 destinations served daily",
   "☕ CAFÉ ALERT: Coffee supply critical. Restocking in progress.",
   "🔑 WiFi: WKSHP-GUEST / Password: password123 (no, we still haven't changed it)",
-  "🤖 Gate BLE-1: bit-bot flight departed with 2,847 passengers this month",
-  "🐛 Flight WK-042 to Bug #42 Dimension permanently cancelled. It was a feature, not a destination.",
+  "🤖 Porte BLE-1: bit-bot flight departed with 2,847 passengers this month",
+  "🐛 Vol WK-042 to Bug #42 Dimension permanently cancelled. It was a feature, not a destination.",
   "⚡ ESP32 robots must be stowed in overhead bins during workshops",
   "🔐 Security reminder: Ne pas tenter SQL injection on the airport kiosks",
   "🐳 Docker containers must go through customs before deployment",
@@ -168,11 +169,11 @@ ticker.innerHTML=html+html;
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

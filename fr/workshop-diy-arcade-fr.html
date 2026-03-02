@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -111,7 +112,7 @@ body{background:#0a0a0e;color:#fff;font-family:'Press Start 2P',monospace;image-
         <div class="t-stat"><div class="v">7</div><div class="l">WORLDS</div></div>
         <div class="t-stat"><div class="v">12</div><div class="l">SKINS</div></div>
       </div>
-      <div class="insert-coin">▸ PRESS START ◂</div>
+      <div class="insert-coin">▸ APPUYER SUR START ◂</div>
       <div class="title-hint">ENTER / SPACE / CLICK</div>
     </div>
     <!-- SELECT -->
@@ -127,7 +128,7 @@ body{background:#0a0a0e;color:#fff;font-family:'Press Start 2P',monospace;image-
       <div class="det-cats" id="detC"></div>
       <div id="detB"></div>
       <a class="det-launch" id="detL" href="#" target="_blank">▸ LANCEMENT APP ◂</a>
-      <div class="det-back" onclick="showScreen('select')">◂ BACK TO SELECT</div>
+      <div class="det-back" onclick="showScreen('select')">◂ BACK TO CHOISIR</div>
       <div class="det-hs">
         <div class="det-hs-h">MEILLEUR SCORES</div>
         <div id="detHS"></div>
@@ -140,13 +141,13 @@ body{background:#0a0a0e;color:#fff;font-family:'Press Start 2P',monospace;image-
     <button class="joy-btn act" onclick="nav('select')" title="Select">A</button>
     <button class="joy-btn" onclick="nav('right')" title="Right">►</button>
     <button class="joy-btn" onclick="nav('down')" title="Down">▼</button>
-    <button class="joy-btn" onclick="nav('back')" title="Back">B</button>
+    <button class="joy-btn" onclick="nav('back')" title="Retour">B</button>
   </div>
 </div>
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",c:["microbit"],b:"popular",d:"Drive Bit:Bot robot via Bluetooth"},{e:"🪄",n:"magic-hands",c:["camera","ai"],b:"popular",d:"Hand-tracking magic effects"},{e:"🕵️",n:"face-quest",c:["camera","ai"],b:"popular",d:"Face detection scoring game"},{e:"💬",n:"talking-robot",c:["microbit","ai"],b:"stable",d:"Robot with speech & emotions"},{e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],b:"popular",d:"Train AI gestures in browser"},{e:"😎",n:"face-tracking",c:["camera","microbit"],b:"stable",d:"Kids face tracking + events"},{e:"😄",n:"bitmoji-lab",c:["microbit"],b:"stable",d:"Emoji to LED pixel art"},{e:"🚀",n:"mission-control",c:["classroom","microbit"],b:"stable",d:"Tableau de bord with live video/chat"},{e:"🧩",n:"bit-playground",c:["microbit"],b:"stable",d:"Ultimate micro:bit playground"},{e:"🎛️",n:"rxy",c:["microbit"],b:"stable",d:"Custom BLE remote builder"},{e:"🎨",n:"pixel-gateway",c:["tools"],b:"stable",d:"Retro pixel art portal"},{e:"💡",n:"wled-kids-lab",c:["hardware","learning"],b:"stable",d:"Control LED strips with WLED"},{e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],b:"stable",d:"Hands-on ESP32-C3 lab"},{e:"🪙",n:"crypto-academy",c:["learning"],b:"stable",d:"Blockchain & crypto lessons"},{e:"🔐",n:"pentest-lab",c:["learning"],b:"stable",d:"Cybersecurity sandbox"},{e:"🐧",n:"linux-kids-lab",c:["learning"],b:"stable",d:"Linux commands in browser"},{e:"🏭",n:"production-chain",c:["learning"],b:"stable",d:"Industrial simulation"},{e:"🏫",n:"classroom",c:["classroom"],b:"stable",d:"PeerJS cloud classroom"},{e:"🔌",n:"usb-logger",c:["microbit"],b:"stable",d:"USB serial browser tool"},{e:"📡",n:"ble-logger",c:["microbit"],b:"stable",d:"BLE debug playground"},{e:"🧰",n:"claude-toolkit",c:["ai","tools"],b:"dev",d:"Build apps with Claude AI"},{e:"🎭",n:"puppeteer",c:["tools"],b:"stable",d:"Browser automation"},{e:"🔋",n:"circuit-lab",c:["hardware","learning"],b:"dev",d:"Simulate circuits"},{e:"🛡️",n:"vpn-guide",c:["tools"],b:"dev",d:"VPN & network security"},{e:"🧊",n:"3d-lab",c:["learning"],b:"dev",d:"3D design in browser"},{e:"🔀",n:"git-lab",c:["learning"],b:"dev",d:"Learn Git step by step"},{e:"✨",n:"prompt-hero",c:["ai","learning"],b:"dev",d:"Master AI prompting"},{e:"🌍",n:"save-planet",c:["learning"],b:"dev",d:"Climate & sustainability"},{e:"📋",n:"ops-catalog",c:["tools"],b:"dev",d:"DevOps tools catalog"},{e:"💻",n:"code-kids",c:["learning"],b:"dev",d:"Learn HTML/CSS/JS"},{e:"🏡",n:"smart-home",c:["hardware","learning"],b:"dev",d:"Smart home dashboard"},{e:"🧱",n:"makecode",c:["microbit","learning"],b:"dev",d:"Block-based coding"},{e:"🤖",n:"54-activities",c:["microbit","learning"],b:"dev",d:"54 micro:bit activities"},{e:"💰",n:"crypto-vault",c:["learning"],b:"dev",d:"Cryptography basics"},{e:"🔗",n:"dhcp-lab",c:["hardware"],b:"new",d:"DHCP server dashboard"},{e:"🐳",n:"docker-lab",c:["learning"],b:"new",d:"Docker experiments"},{e:"🔴",n:"nodered-lab",c:["learning"],b:"new",d:"Node-RED visual programming"},{e:"⛽",n:"ocpp",c:["tools"],b:"new",d:"EV charging simulation"},{e:"🖥️",n:"tty",c:["microbit"],b:"new",d:"Terminal for micro:bit"}
+{e:"🤖",n:"bit-bot",c:["microbit"],b:"popular",d:"Drive Bit:Bot robot via Bluetooth"},{e:"🪄",n:"magic-hands",c:["camera","ai"],b:"popular",d:"Hand-tracking magic effects"},{e:"🕵️",n:"face-quest",c:["camera","ai"],b:"popular",d:"Face detection scoring game"},{e:"💬",n:"talking-robot",c:["microbit","ai"],b:"stable",d:"Robot with speech & emotions"},{e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],b:"popular",d:"Train AI gestures in browser"},{e:"😎",n:"face-tracking",c:["camera","microbit"],b:"stable",d:"Kids face tracking + events"},{e:"😄",n:"bitmoji-lab",c:["microbit"],b:"stable",d:"Emoji to LED pixel art"},{e:"🚀",n:"mission-control",c:["classroom","microbit"],b:"stable",d:"Tableau de bord with live video/chat"},{e:"🧩",n:"bit-playground",c:["microbit"],b:"stable",d:"Ultimate micro:bit playground"},{e:"🎛️",n:"rxy",c:["microbit"],b:"stable",d:"Custom BLE remote builder"},{e:"🎨",n:"pixel-gateway",c:["tools"],b:"stable",d:"Rétro pixel art portal"},{e:"💡",n:"wled-kids-lab",c:["hardware","learning"],b:"stable",d:"Control LED strips with WLED"},{e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],b:"stable",d:"Hands-on ESP32-C3 lab"},{e:"🪙",n:"crypto-academy",c:["learning"],b:"stable",d:"Blockchain & crypto lessons"},{e:"🔐",n:"pentest-lab",c:["learning"],b:"stable",d:"Cybersecurity sandbox"},{e:"🐧",n:"linux-kids-lab",c:["learning"],b:"stable",d:"Linux commands in browser"},{e:"🏭",n:"production-chain",c:["learning"],b:"stable",d:"Industrial simulation"},{e:"🏫",n:"classroom",c:["classroom"],b:"stable",d:"PeerJS cloud classroom"},{e:"🔌",n:"usb-logger",c:["microbit"],b:"stable",d:"USB serial browser tool"},{e:"📡",n:"ble-logger",c:["microbit"],b:"stable",d:"BLE debug playground"},{e:"🧰",n:"claude-toolkit",c:["ai","tools"],b:"dev",d:"Build apps with Claude AI"},{e:"🎭",n:"puppeteer",c:["tools"],b:"stable",d:"Browser automation"},{e:"🔋",n:"circuit-lab",c:["hardware","learning"],b:"dev",d:"Simulate circuits"},{e:"🛡️",n:"vpn-guide",c:["tools"],b:"dev",d:"VPN & network security"},{e:"🧊",n:"3d-lab",c:["learning"],b:"dev",d:"3D design in browser"},{e:"🔀",n:"git-lab",c:["learning"],b:"dev",d:"Learn Git step by step"},{e:"✨",n:"prompt-hero",c:["ai","learning"],b:"dev",d:"Master AI prompting"},{e:"🌍",n:"save-planet",c:["learning"],b:"dev",d:"Climate & sustainability"},{e:"📋",n:"ops-catalog",c:["tools"],b:"dev",d:"DevOps tools catalog"},{e:"💻",n:"code-kids",c:["learning"],b:"dev",d:"Learn HTML/CSS/JS"},{e:"🏡",n:"smart-home",c:["hardware","learning"],b:"dev",d:"Smart home dashboard"},{e:"🧱",n:"makecode",c:["microbit","learning"],b:"dev",d:"Block-based coding"},{e:"🤖",n:"54-activities",c:["microbit","learning"],b:"dev",d:"54 micro:bit activities"},{e:"💰",n:"crypto-vault",c:["learning"],b:"dev",d:"Cryptography basics"},{e:"🔗",n:"dhcp-lab",c:["hardware"],b:"new",d:"DHCP server dashboard"},{e:"🐳",n:"docker-lab",c:["learning"],b:"new",d:"Docker experiments"},{e:"🔴",n:"nodered-lab",c:["learning"],b:"new",d:"Node-RED visual programming"},{e:"⛽",n:"ocpp",c:["tools"],b:"new",d:"EV charging simulation"},{e:"🖥️",n:"tty",c:["microbit"],b:"new",d:"Terminal for micro:bit"}
 ];
 const CATS={all:{e:"⭐",n:"ALL"},microbit:{e:"🤖",n:"MICROBIT"},learning:{e:"📚",n:"LEARNING"},tools:{e:"🛠️",n:"TOOLS"},ai:{e:"🧠",n:"AI"},hardware:{e:"🔩",n:"HARDWARE"},camera:{e:"📸",n:"CAMERA"},classroom:{e:"🏫",n:"CLASS"}};
 let curScreen='title',curCat='all',selIdx=0,filtered=[...APPS];
@@ -202,7 +203,7 @@ function showDetail(a){
   const bMap={popular:'b-popular">★ POPULAR',stable:'b-stable">✓ STABLE',dev:'b-dev">⚙ DEV',new:'b-new">✦ NEW'};
   document.getElementById('detB').innerHTML=`<span class="det-badge ${bMap[a.b]||''}</span>`;
   document.getElementById('detL').href=`https://abourdim.github.io/${a.n}/`;
-  // Fake high scores
+  // Faux high scores
   const hs=document.getElementById('detHS');hs.innerHTML='';
   for(let i=0;i<5;i++){
     const d=document.createElement('div');d.className='det-hs-row';
@@ -266,11 +267,11 @@ document.getElementById('scrTitle').onclick=()=>nav('select');
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -38,7 +39,7 @@ body{background:#0a0a0a;color:#aaa;font-family:'JetBrains Mono',monospace;font-s
 .story .whisper{font-size:8px;color:#333;font-style:italic}
 .story .timestamp{font-size:8px;color:#222;margin:8px 0;letter-spacing:2px}
 
-/* CHAT LOG */
+/* LOG DE DISCUSSION */
 .chat{border:1px solid #1a1a1a;border-radius:4px;padding:10px;margin:12px 0;background:#080808}
 .chat-h{font-size:7px;color:#333;letter-spacing:2px;margin-bottom:6px;border-bottom:1px solid #111;padding-bottom:3px}
 .chat-msg{padding:3px 0;font-size:10px;display:flex;gap:6px}
@@ -76,25 +77,25 @@ body{background:#0a0a0a;color:#aaa;font-family:'JetBrains Mono',monospace;font-s
 <div class="header">
   <h1 class="flicker">LA 40E APP</h1>
   <div class="sub">A WORKSHOP-DIY CREEPYPASTA</div>
-  <div class="warn">⚠ The following document was found on an unregistered Atelier-DIY development branch. Its authenticity has not been verified.</div>
+  <div class="warn">⚠ Le document suivant a été trouvé sur une branche Atelier-DIY de développement non enregistrée. Son authenticité has not been verified.</div>
 </div>
 
 <div class="story">
-  <div class="timestamp">// recovered_log_001.txt — last modified: 2025-??-??</div>
+  <div class="timestamp">// recovered_log_001.txt — dernière modification: 2025-??-??</div>
   
-  <p>Everyone knows Atelier-DIY has <span class="highlight">39 apps</span>. That's what the website says. That's what the documentation says. That's what the instructor says when someone asks.</p>
+  <p>Tout le monde sait que Atelier-DIY has <span class="highlight">39 apps</span>. C'est ce que dit le site. C'est ce que dit la documentation. C'est ce que dit l'instructeur when someone asks.</p>
   
-  <p>But if you look at the GitHub repository at exactly <span class="highlight">3h42</span>, just for a moment, the counter shows <span class="corrupted">40</span>.</p>
+  <p>Mais si vous regardez le dépôt GitHub à exactement <span class="highlight">3h42</span>, juste un instant, le compteur affiche <span class="corrupted">40</span>.</p>
   
-  <p>I first noticed it during a late-night coding session. I was debugging bit-bot's BLE reconnection issue — the one where Chrome drops the connection if you look away for too long. I glanced at the app index. <span class="redacted" onclick="this.classList.add('revealed')">There were 40 entries.</span></p>
+  <p>Je l'ai remarqué pour la première fois pendant une session de code tard le soir. Je déboguais la reconnexion BLE de bit-bot issue — the one where Chrome drops the connection if you look away for too long. I glanced at the app index. <span class="redacted" onclick="this.classList.add('revealed')">Il y avait 40 entrées.</span></p>
 
-  <p>The 40th app had no name. Its icon was just a <span class="corrupted">black square</span>. Its description read: <span class="redacted" onclick="this.classList.add('revealed')">"This app was never built. This app has always existed."</span></p>
+  <p>La 40ème appli n'avait pas de nom. Son icône était juste un <span class="corrupted">black square</span>. Sa description disait: <span class="redacted" onclick="this.classList.add('revealed')">"This app was never built. This app has always existed."</span></p>
 
   <p class="whisper">I should have closed the tab.</p>
 </div>
 
 <div class="chat">
-  <div class="chat-h">RECOVERED CHAT LOG — #dev-internal — 03h42</div>
+  <div class="chat-h">RÉCUPÉRÉ LOG DE DISCUSSION — #dev-internal — 03h42</div>
   <div class="chat-msg"><span class="user">devMaker_01</span><span class="text">hey is anyone else seeing a 40th entry in the app index?</span></div>
   <div class="chat-msg"><span class="user">devMaker_01</span><span class="text">it wasn't there an hour il y a</span></div>
   <div class="chat-msg"><span class="user">devMaker_01</span><span class="text">the icon is just... black</span></div>
@@ -151,7 +152,7 @@ body{background:#0a0a0a;color:#aaa;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="screenshot">
   <div class="emoji glitch">⬛</div>
-  <div class="caption">SCREENSHOT RECOVERED FROM devMaker_01's DEVICE — UNVERIFIED — IMAGE CORRUPTED</div>
+  <div class="caption">SCREENSHOT RÉCUPÉRÉ FROM devMaker_01's DEVICE — UNVERIFIED — IMAGE CORROMPU</div>
 </div>
 
 <div class="story">
@@ -203,11 +204,11 @@ body{background:#0a0a0a;color:#aaa;font-family:'JetBrains Mono',monospace;font-s
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

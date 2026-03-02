@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -70,10 +71,10 @@ body{background:#000;font-family:'JetBrains Mono',monospace}
   <div class="s-pre">Workshop-DIY presents</div>
   <div class="s-num">2025</div>
   <div class="s-label">WRAPPED</div>
-  <div class="s-sub">Your year in making, coding, building, and (accidentally) breaking things.</div>
+  <div class="s-sub">Ton année à fabriquer, coder, construire, et (accidentellement) tout casser.</div>
 </div>
 <div class="slide g2" data-i="1">
-  <div class="s-pre">This year you explored</div>
+  <div class="s-pre">Cette année tu as exploré</div>
   <div class="s-num">39</div>
   <div class="s-label">APPS</div>
   <div class="s-sub">From robot control to cybersecurity sandboxes. All free. All browser-based. Zero installations.</div>
@@ -81,16 +82,16 @@ body{background:#000;font-family:'JetBrains Mono',monospace}
 <div class="slide g3" data-i="2">
   <div class="s-pre">You spent roughly</div>
   <div class="s-num fire">847</div>
-  <div class="s-label">HOURS LEARNING</div>
-  <div class="s-sub">That's 35 straight days of building, debugging, and telling yourself "one more fix" at 2am.</div>
+  <div class="s-label">HEURES D'APPRENTISSAGE</div>
+  <div class="s-sub">Ça fait 35 jours non-stop à construire, déboguer, et se dire "encore un fix" à 2h du mat.</div>
 </div>
 <div class="slide g4" data-i="3">
-  <div class="s-pre">Your top apps were</div>
-  <div class="s-label" style="margin-bottom:4px">TOP 5 MOST USED</div>
+  <div class="s-pre">Tes applis préférées étaient</div>
+  <div class="s-label" style="margin-bottom:4px">TOP 5 LES PLUS UTILISÉES</div>
   <div class="s-list" id="topApps"></div>
 </div>
 <div class="slide g5" data-i="4">
-  <div class="s-pre">Skills unlocked this year</div>
+  <div class="s-pre">Compétences débloquées cette année</div>
   <div class="s-num gold">7</div>
   <div class="s-label">DOMAINS MASTERED</div>
   <div class="bars" id="skillBars"></div>
@@ -114,7 +115,7 @@ body{background:#000;font-family:'JetBrains Mono',monospace}
   <div class="s-sub">The fuel behind every line of code, every soldered joint, and every "it works on my machine."</div>
 </div>
 <div class="slide g4" data-i="8">
-  <div class="s-pre">Your maker personality is</div>
+  <div class="s-pre">Ta personnalité maker est</div>
   <div class="s-emoji">🏴‍☠️</div>
   <div class="s-label" style="font-family:'Syne',sans-serif;font-size:clamp(20px,5vw,36px);font-weight:800;color:#00ff41">THE HACKER</div>
   <div class="s-sub">You don't just use tools — you bend them. Terminal is your home. Bugs fear you. The WiFi password is password123 and you're OK with that.</div>
@@ -123,7 +124,7 @@ body{background:#000;font-family:'JetBrains Mono',monospace}
   <div class="s-pre">Looking ahead to 2026</div>
   <div class="s-num">∞</div>
   <div class="s-label">POSSIBILITIES</div>
-  <div class="s-sub">More apps. More robots. More workshops. More bugs that are actually features.<br><br><span style="color:rgba(0,255,65,.4)">workshop-diy.org · abourdim.github.io/apps</span><br><span style="color:rgba(255,255,255,.1)">// made with 💚, ☕, and stackoverflow</span></div>
+  <div class="s-sub">More apps. More robots. More workshops. More bugs that are actually features.<br><br><span style="color:rgba(0,255,65,.4)">workshop-diy.org · abourdim.github.io/apps</span><br><span style="color:rgba(255,255,255,.1)">// fait avec 💚, ☕, et stackoverflow</span></div>
 </div>
 </div>
 
@@ -164,7 +165,7 @@ let sx=0;
 document.addEventListener('touchstart',e=>sx=e.touches[0].clientX);
 document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)go(dx<0?1:-1)});
 
-// TOP APPS
+// TOP APPLIS
 function buildTopApps(){
   const apps=[{e:"🤖",n:"bit-bot",s:"2,847 sessions"},{e:"🪄",n:"magic-hands",s:"2,103 sessions"},{e:"🕵️",n:"face-quest",s:"1,892 sessions"},{e:"🧠",n:"teachable-machine",s:"1,654 sessions"},{e:"🔐",n:"pentest-lab",s:"1,201 sessions"}];
   const el=document.getElementById('topApps');el.innerHTML='';
@@ -207,11 +208,11 @@ function buildSkills(){
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

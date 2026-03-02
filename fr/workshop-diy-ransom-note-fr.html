@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<script>(function(){if(!sessionStorage.getItem('sada-unlocked')){location.replace('../splash.html')}})()</script>
 <meta charset="UTF-8">
 <script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -49,7 +50,7 @@ body{background:#2a1f14;font-size:12px;min-height:100vh;display:flex;align-items
   <div class="line">
     <span class="w f1">WE</span>
     <span class="w f3">have</span>
-    <span class="w f2">YOUR</span>
+    <span class="w f2">VOTRE</span>
     <span class="w f4">CODE SOURCE</span>
   </div>
 
@@ -97,7 +98,7 @@ body{background:#2a1f14;font-size:12px;min-height:100vh;display:flex;align-items
   <div class="line">
     <span class="w f5">You have</span>
     <span class="w f8">42</span>
-    <span class="w f3">hours</span>
+    <span class="w f3">heures</span>
     <span class="w f6">to comply.</span>
   </div>
 
@@ -133,7 +134,7 @@ body{background:#2a1f14;font-size:12px;min-height:100vh;display:flex;align-items
   </div>
 
   <div class="line" style="text-align:right;justify-content:flex-end;margin-top:10px">
-    <span class="w f6">Sincerely,</span>
+    <span class="w f6">Cordialement,</span>
   </div>
   <div class="line" style="justify-content:flex-end">
     <span class="w f8">Bug #42</span>
@@ -167,11 +168,11 @@ body{background:#2a1f14;font-size:12px;min-height:100vh;display:flex;align-items
 </style>
 <div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
 <div class="sdn-menu">
-<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Suivant &#9654;</a></div>
 <div class="sdn-sep"></div>
 <div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
 <div class="sdn-sep"></div>
-<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
 </div>
 <script>
 (function(){

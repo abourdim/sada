@@ -233,36 +233,6 @@ animation:grainShift 8s steps(10) infinite}
   100%{filter:brightness(1)}
 }
 
-/* Admin panel (master password) */
-.admin-panel{
-  position:fixed;bottom:0;left:0;right:0;z-index:100;
-  background:rgba(6,6,14,.95);border-top:1px solid rgba(20,184,166,.08);
-  backdrop-filter:blur(12px);
-  padding:16px 24px;
-  display:none;
-  animation:slideUp .4s ease;
-}
-.admin-panel.show{display:block}
-@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
-.admin-inner{max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:10px;align-items:center}
-.admin-title{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;color:rgba(20,184,166,.4);text-transform:uppercase}
-.admin-row{display:flex;gap:8px;align-items:center;width:100%;justify-content:center}
-.admin-input{
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:6px;
-  color:rgba(20,184,166,.8);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;
-  text-align:center;padding:8px 16px;width:140px;outline:none;letter-spacing:4px;
-}
-.admin-input:focus{border-color:rgba(20,184,166,.2)}
-.admin-input::placeholder{color:rgba(255,255,255,.1);letter-spacing:2px;font-size:11px}
-.admin-btn{
-  font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;
-  text-transform:uppercase;padding:9px 18px;border-radius:6px;border:1px solid rgba(20,184,166,.1);
-  background:rgba(20,184,166,.04);color:rgba(20,184,166,.5);cursor:pointer;transition:all .3s;
-}
-.admin-btn:hover{background:rgba(20,184,166,.08);border-color:rgba(20,184,166,.2);color:rgba(20,184,166,.8)}
-.admin-btn.danger{border-color:rgba(239,68,68,.1);background:rgba(239,68,68,.04);color:rgba(239,68,68,.5)}
-.admin-btn.danger:hover{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.2);color:rgba(239,68,68,.8)}
-.admin-msg{font-family:'Nunito',sans-serif;font-size:10px;color:rgba(20,184,166,.3);min-height:14px}
 </style>
 </head>
 <body>
@@ -307,7 +277,7 @@ animation:grainShift 8s steps(10) infinite}
 </div>
 </div>
 
-<div class="version">v5.1 · Chelles 77500</div>
+<div class="version">v6.0 · Chelles 77500</div>
 
 <script>
 // ═══ STARFIELD ═══
@@ -360,16 +330,14 @@ animation:grainShift 8s steps(10) infinite}
     });
   });
 })();
-
-
-// ═══ ACCESS GATE ═══
+// ═══ ACCESS GATE — single password ═══
 (function(){
-  var MASTER='080707';
-  var userPass=localStorage.getItem('sada-pass')||'2025';
+  var CODE='080707';
   var digits=document.querySelectorAll('.digit');
   var hint=document.getElementById('gateHint');
   var stage=document.querySelector('.stage');
   
+  // Already unlocked this session? Go straight through
   if(sessionStorage.getItem('sada-unlocked')){
     location.replace('start_here.html');
     return;
@@ -381,16 +349,7 @@ animation:grainShift 8s steps(10) infinite}
     var code=getCode();
     if(code.length<6)return;
     
-    if(code===MASTER){
-      hint.textContent='\u2713 master access';
-      hint.className='gate-hint right';
-      digits.forEach(function(d){d.style.borderColor='rgba(20,184,166,.4)'});
-      sessionStorage.setItem('sada-unlocked','1');
-      document.getElementById('adminPanel').classList.add('show');
-      return;
-    }
-    
-    if(code===userPass){
+    if(code===CODE){
       hint.textContent='\u2713 access granted';
       hint.className='gate-hint right';
       digits.forEach(function(d){d.style.borderColor='rgba(20,184,166,.4)'});
@@ -438,41 +397,14 @@ animation:grainShift 8s steps(10) infinite}
   });
   
   document.addEventListener('keydown',function(e){
-    if(e.key.length===1&&/\d/.test(e.key)&&document.activeElement.className!=='digit'&&document.activeElement.className!=='admin-input'){
+    if(e.key.length===1&&/\d/.test(e.key)&&document.activeElement.className!=='digit'){
       digits[0].focus();
     }
   });
 })();
 
-function saveNewPass(){
-  var v=document.getElementById('newPass').value.replace(/\D/g,'');
-  var msg=document.getElementById('adminMsg');
-  if(v.length<4){msg.textContent='code must be 4-6 digits';msg.style.color='rgba(239,68,68,.4)';return}
-  localStorage.setItem('sada-pass',v);
-  msg.textContent='\u2713 user code set to '+v;
-  msg.style.color='rgba(20,184,166,.4)';
-  document.getElementById('newPass').value='';
-}
-function resetPass(){
-  localStorage.removeItem('sada-pass');
-  var msg=document.getElementById('adminMsg');
-  msg.textContent='\u2713 reset to default (2025)';
-  msg.style.color='rgba(20,184,166,.4)';
-}
-
 </script>
 
-<!-- Admin panel (master password only) -->
-<div class="admin-panel" id="adminPanel">
-  <div class="admin-inner">
-    <div class="admin-title">&#9881; Admin — Change User Password</div>
-    <div class="admin-row">
-      <input class="admin-input" id="newPass" type="tel" maxlength="6" placeholder="new code">
-      <button class="admin-btn" onclick="saveNewPass()">Save</button>
-      <button class="admin-btn danger" onclick="resetPass()">Reset</button>
-    </div>
-    <div class="admin-msg" id="adminMsg"></div>
-  </div>
-</div>
+
 </body>
 </html>
