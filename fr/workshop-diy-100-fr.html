@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<script>(function(){var L=localStorage.getItem("sada-lang");if(!L)return;var f=location.pathname.split("/").pop(),c="en";if(/-fr.html$/.test(f))c="fr";else if(/-ar.html$/.test(f))c="ar";if(L===c)return;var b=f.replace(/-fr.html$/,".html").replace(/-ar.html$/,".html").replace(/.html$/,"");var t;if(L==="en")t=(c==="en"?"":"../")+b+".html";else if(L==="fr")t=(c==="en"?"fr/":"../fr/")+b+"-fr.html";else t=(c==="en"?"ar/":"../ar/")+b+"-ar.html";location.replace(t)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>WKSHP-DIY // FICHIER #100 🎉</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
@@ -143,5 +144,63 @@ firework();setTimeout(firework,300);setTimeout(firework,600);
 
 <div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
 <div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
+<div id="sdNav" style="position:fixed;top:10px;right:10px;z-index:99999;font-family:system-ui,-apple-system,sans-serif;direction:ltr">
+<style>
+#sdNav .sdn-pill{width:32px;height:32px;border-radius:50%;background:rgba(20,20,30,.7);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;backdrop-filter:blur(8px);font-size:14px;color:rgba(255,255,255,.4)}
+#sdNav .sdn-pill:hover{background:rgba(20,20,30,.9);border-color:rgba(20,184,166,.3);color:rgba(255,255,255,.7)}
+#sdNav .sdn-menu{position:absolute;top:38px;right:0;background:rgba(12,12,26,.95);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:6px;backdrop-filter:blur(12px);display:none;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+#sdNav.open .sdn-menu{display:block}
+#sdNav .sdn-row{display:flex;align-items:center;gap:2px}
+#sdNav .sdn-btn{padding:6px 10px;border-radius:6px;border:none;background:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:12px;transition:all .15s;white-space:nowrap;font-family:inherit;display:flex;align-items:center;gap:4px;text-decoration:none}
+#sdNav .sdn-btn:hover{background:rgba(255,255,255,.06);color:#fff}
+#sdNav .sdn-btn.hub{color:rgba(20,184,166,.7)}
+#sdNav .sdn-btn.hub:hover{color:#14b8a6;background:rgba(20,184,166,.08)}
+#sdNav .sdn-sep{height:1px;background:rgba(255,255,255,.04);margin:4px 0}
+#sdNav .sdn-lang{display:flex;gap:2px;justify-content:center}
+#sdNav .sdn-lang button{padding:4px 8px;border-radius:4px;border:1px solid transparent;background:none;cursor:pointer;font-size:13px;transition:all .15s}
+#sdNav .sdn-lang button:hover{background:rgba(255,255,255,.06)}
+#sdNav .sdn-lang button.on{border-color:rgba(20,184,166,.3);background:rgba(20,184,166,.06)}
+</style>
+<div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
+<div class="sdn-menu">
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-sep"></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
+<div class="sdn-sep"></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">&#x1f1ec;&#x1f1e7;</button><button onclick="sdLang('fr')">&#x1f1eb;&#x1f1f7;</button><button onclick="sdLang('ar')">&#x1f1f8;&#x1f1e6;</button></div>
+</div>
+<script>
+(function(){
+var S=["100", "advent", "airbnb", "amazon", "ambient-screen", "app-demo-reel", "app-match", "app-store", "arcade", "arduino-ide", "awards", "bingo", "bio-gen", "ble-flow", "blueprints", "boarding-pass", "boot-sequence", "bottle", "breaking-news", "bug-or-feature", "bugchelor", "card-collection", "card-pack", "cereal-box", "changelog", "classified-dossier", "clicker", "comic", "compatibility", "concert-ticket", "conspiracy", "cookbook", "court-trial", "craigslist", "creepypasta", "crossword", "ctf-quiz", "delivery", "departures", "detention", "diary", "discord-chat", "docs", "dungeon", "documentary", "duolingo", "dvd-menu", "ebay", "elevator-pitch", "emergency-alert", "escape-room", "esp32-boot", "esp32-pinout", "esp32-vs-microbit", "esp32-wiring", "family-tree", "faq", "festival", "flappy", "forensic-report", "fortune-cookie", "gacha", "genius-ideas-lab", "genius-video", "genius-video-animation", "github-profile", "hacker-news", "hacker-presentation", "hacker-terminal", "haiku", "help", "horoscope", "ikea-manual", "in-memoriam", "index", "infomercial", "iphone", "jeopardy", "kanban", "lab-notebook", "license-plates", "linkedin", "live-monitor", "loading-screens", "love-letters", "mad-libs", "magic-8ball", "makecode", "maps-reviews", "master-hub", "metro-map", "microbit-telemetry", "monopoly", "movie-credits", "museum", "music-player", "nasa-control", "neopixel-emoji", "network-map", "newspaper", "notion", "org-chart", "os-desktop", "ouija", "paper", "parking-ticket", "passport", "periodic-table", "pizza-menu", "pokedex", "police-report", "ransom-note", "rap-battle", "real-estate", "receipt", "reddit", "report-card", "restraining-order", "roadmap-video-fr", "rxy", "safety-card", "safety-card-v2", "scoreboard", "scp-file", "shark-tank", "sitcom", "skill-tree", "slack", "slot-machine", "social-media-kit", "space-mission", "stamps", "star-chart", "sticker-sheet", "stock-market", "superlatives", "synth-visualizer", "tamagotchi", "tax-return", "testimonials", "text-adventure", "therapy", "tiktok", "time-capsule", "timeline", "tinder", "trial", "twitch", "ultimate-video", "vending-machine", "video-concept-preview", "voicemail", "vscode", "wanted-wall", "warranty", "weather", "wedding", "whatsapp", "wikipedia", "wordle", "wrapped-2025", "yearbook", "youtube", "zodiac"];
+var f=location.pathname.split("/").pop(),c="en",b;
+if(/-fr\.html$/.test(f)){c="fr";b=f.replace(/-fr\.html$/,"")}
+else if(/-ar\.html$/.test(f)){c="ar";b=f.replace(/-ar\.html$/,"")}
+else{b=f.replace(/\.html$/,"")}
+b=b.replace(/^workshop-diy-/,"");
+var i=S.indexOf(b);
+var inSub=/-fr\.html$/.test(f)||/-ar\.html$/.test(f);
+function mkUrl(slug){
+if(c==="en")return(inSub?"../":"")+"workshop-diy-"+slug+".html";
+if(c==="fr")return(inSub?"":"fr/")+"workshop-diy-"+slug+"-fr.html";
+return(inSub?"":"ar/")+"workshop-diy-"+slug+"-ar.html";
+}
+document.getElementById("sdHub").href=mkUrl("master-hub");
+var rp=inSub?"../":"";
+document.getElementById("sdIdx").href=rp+"workshop-diy-index.html";
+document.getElementById("sdCal").href=rp+"facebook-calendar.html";
+document.getElementById("sdShop").href=rp+"shop-listings.html";
+document.getElementById("sdGuide").href=rp+"user_guide.html";
+if(i>=0){
+var pi=i<=0?S.length-1:i-1,ni=i>=S.length-1?0:i+1;
+document.getElementById("sdPrev").href=mkUrl(S[pi]);
+document.getElementById("sdNext").href=mkUrl(S[ni]);
+}
+var btns=document.querySelectorAll("#sdNav .sdn-lang button");
+["en","fr","ar"].forEach(function(l,j){if(l===c)btns[j].classList.add("on")});
+document.addEventListener("click",function(e){if(!document.getElementById("sdNav").contains(e.target))document.getElementById("sdNav").classList.remove("open")});
+})();
+function sdLang(l){localStorage.setItem("sada-lang",l);location.reload()}
+</script>
+</div>
 </body>
 </html>

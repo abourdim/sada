@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صدى sada</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa+Ink:wght@400;700&family=Nunito:wght@200;300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{background:#040608;color:#fff;cursor:default;-webkit-font-smoothing:antialiased}
+
+/* ═══ CANVAS LAYERS ═══ */
+canvas{position:fixed;inset:0;z-index:0}
+#stars{opacity:.6}
+#waves{opacity:.3}
+
+/* ═══ ATMOSPHERE ═══ */
+.atmosphere{position:fixed;inset:0;z-index:1;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(120px);animation:drift 20s ease-in-out infinite}
+.orb-1{width:min(600px,80vw);height:min(600px,80vw);background:radial-gradient(circle,rgba(20,184,166,.12),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.orb-2{width:min(400px,60vw);height:min(400px,60vw);background:radial-gradient(circle,rgba(99,102,241,.08),transparent 70%);top:30%;right:10%;animation-delay:-7s;animation-duration:25s}
+.orb-3{width:min(350px,50vw);height:min(350px,50vw);background:radial-gradient(circle,rgba(6,182,212,.06),transparent 70%);bottom:20%;left:15%;animation-delay:-14s;animation-duration:22s}
+@keyframes drift{0%,100%{transform:translate(-50%,-50%) scale(1)}25%{transform:translate(-45%,-55%) scale(1.1)}50%{transform:translate(-55%,-45%) scale(.95)}75%{transform:translate(-48%,-52%) scale(1.05)}}
+
+/* ═══ GRAIN ═══ */
+.grain{position:fixed;inset:-50%;z-index:2;pointer-events:none;opacity:.025;
+background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+animation:grainShift 8s steps(10) infinite}
+@keyframes grainShift{0%{transform:translate(0)}10%{transform:translate(-5%,-5%)}20%{transform:translate(3%,7%)}30%{transform:translate(7%,-3%)}40%{transform:translate(-3%,5%)}50%{transform:translate(5%,-7%)}60%{transform:translate(-7%,3%)}70%{transform:translate(3%,5%)}80%{transform:translate(-5%,-3%)}90%{transform:translate(7%,7%)}100%{transform:translate(0)}}
+
+/* ═══ MAIN CONTENT ═══ */
+.stage{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;direction:ltr;text-align:center}
+
+/* Bismillah */
+.bismillah{font-family:'Amiri',serif;font-size:clamp(14px,2.5vw,22px);color:rgba(255,255,255,.12);letter-spacing:2px;margin-bottom:min(4vh,30px);opacity:0;animation:softIn 2s 0.3s ease both}
+
+/* Arabic صدى */
+.sada-ar{
+  font-family:'Aref Ruqaa Ink','Amiri',serif;
+  font-size:clamp(8rem,28vw,22rem);
+  font-weight:700;
+  line-height:.85;
+  direction:rtl;
+  background:linear-gradient(160deg,#14b8a6 0%,#06b6d4 25%,#818cf8 50%,#6366f1 75%,#14b8a6 100%);
+  background-size:200% 200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 80px rgba(20,184,166,.2)) drop-shadow(0 0 160px rgba(99,102,241,.1));
+  animation:sadaIn 2.5s .6s cubic-bezier(.16,1,.3,1) both, shimmer 8s 3s ease-in-out infinite;
+  position:relative;
+  user-select:none;
+}
+@keyframes sadaIn{
+  0%{opacity:0;transform:scale(.85) translateY(30px);filter:blur(20px) drop-shadow(0 0 80px rgba(20,184,166,.2))}
+  100%{opacity:1;transform:scale(1) translateY(0);filter:blur(0) drop-shadow(0 0 80px rgba(20,184,166,.2)) drop-shadow(0 0 160px rgba(99,102,241,.1))}
+}
+@keyframes shimmer{
+  0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}
+}
+
+/* Latin "sada" */
+.sada-lat{
+  font-family:'Nunito',sans-serif;
+  font-size:clamp(1.4rem,4vw,2.8rem);
+  font-weight:200;
+  letter-spacing:clamp(12px,3vw,30px);
+  color:rgba(255,255,255,.18);
+  text-transform:lowercase;
+  margin-top:-10px;
+  opacity:0;
+  animation:softIn 2s 1.2s ease both;
+}
+
+/* Divider line */
+.divider{
+  width:min(200px,40vw);height:1px;margin:min(3vh,24px) auto;
+  background:linear-gradient(90deg,transparent,rgba(20,184,166,.3),rgba(99,102,241,.3),transparent);
+  opacity:0;animation:softIn 2s 1.5s ease both;
+}
+
+/* Tagline */
+.tagline{
+  font-family:'Nunito',sans-serif;
+  font-size:clamp(11px,1.8vw,16px);
+  font-weight:300;
+  color:rgba(255,255,255,.25);
+  letter-spacing:clamp(3px,1vw,8px);
+  text-transform:uppercase;
+  max-width:600px;
+  line-height:1.8;
+  opacity:0;animation:softIn 2s 1.8s ease both;
+}
+.tagline strong{font-weight:600;color:rgba(20,184,166,.5)}
+
+/* Robot icon */
+.robot{
+  width:36px;height:36px;opacity:0;
+  margin:min(3vh,20px) auto min(1.5vh,12px);
+  animation:softIn 2s 2.2s ease both;
+  filter:brightness(.4) saturate(0);
+  transition:all .6s;
+}
+.robot:hover{filter:brightness(1) saturate(1);transform:scale(1.2) rotate(5deg)}
+
+/* workshop-diy.org */
+.url{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(10px,1.5vw,13px);
+  font-weight:700;
+  letter-spacing:clamp(4px,1.2vw,10px);
+  text-transform:uppercase;
+  opacity:0;animation:softIn 2s 2.4s ease both;
+}
+.url a{
+  color:rgba(255,255,255,.12);
+  text-decoration:none;
+  transition:all .6s;
+  position:relative;
+}
+.url a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(20,184,166,.3),transparent);
+  transform:scaleX(0);transition:transform .6s;
+}
+.url a:hover{color:rgba(20,184,166,.5)}
+.url a:hover::after{transform:scaleX(1)}
+
+/* Version badge */
+.version{
+  position:fixed;bottom:min(3vh,20px);right:20px;
+  font-family:'Nunito',sans-serif;font-size:9px;font-weight:300;
+  letter-spacing:3px;color:rgba(255,255,255,.06);
+  opacity:0;animation:softIn 2s 3s ease both;z-index:20;
+}
+
+/* Enter button */
+.enter-wrap{
+  margin-top:min(4vh,30px);
+  opacity:0;animation:softIn 2s 2.8s ease both;
+}
+.enter{
+  font-family:'Syne',sans-serif;
+  font-size:11px;font-weight:700;
+  letter-spacing:4px;text-transform:uppercase;
+  color:rgba(20,184,166,.4);
+  background:rgba(20,184,166,.03);
+  border:1px solid rgba(20,184,166,.08);
+  padding:12px 40px;
+  border-radius:999px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:all .5s cubic-bezier(.16,1,.3,1);
+  display:inline-block;
+}
+.enter:hover{
+  color:rgba(20,184,166,.8);
+  background:rgba(20,184,166,.06);
+  border-color:rgba(20,184,166,.2);
+  box-shadow:0 0 40px rgba(20,184,166,.08),0 0 80px rgba(99,102,241,.04);
+  transform:translateY(-2px);
+  letter-spacing:6px;
+}
+
+/* Particles on hover */
+.sada-ar{cursor:default;position:relative}
+
+@keyframes softIn{
+  0%{opacity:0;transform:translateY(16px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+
+/* ═══ FLOATING PARTICLES ═══ */
+.particles{position:fixed;inset:0;z-index:5;pointer-events:none;overflow:hidden}
+.particle{
+  position:absolute;
+  width:2px;height:2px;
+  background:rgba(20,184,166,.3);
+  border-radius:50%;
+  animation:float linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(100vh) scale(0);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(-10vh) scale(1);opacity:0}
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:600px){
+  .sada-ar{filter:drop-shadow(0 0 40px rgba(20,184,166,.15))}
+  .orb{filter:blur(80px)}
+}
+
+/* ═══ ACCESS GATE ═══ */
+.gate{display:flex;flex-direction:column;align-items:center;gap:10px}
+.gate-digits{display:flex;gap:8px}
+.digit{
+  width:36px;height:44px;
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:8px;
+  color:rgba(20,184,166,.7);
+  font-family:'Syne',sans-serif;
+  font-size:18px;font-weight:700;
+  text-align:center;
+  outline:none;
+  caret-color:transparent;
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+  -moz-appearance:textfield;
+}
+.digit::-webkit-inner-spin-button,.digit::-webkit-outer-spin-button{-webkit-appearance:none}
+.digit::selection{background:transparent}
+.digit:focus{
+  border-color:rgba(20,184,166,.25);
+  background:rgba(20,184,166,.03);
+  box-shadow:0 0 20px rgba(20,184,166,.06);
+}
+.digit.filled{border-color:rgba(20,184,166,.15);color:rgba(20,184,166,.9);text-shadow:0 0 12px rgba(20,184,166,.3)}
+.gate-hint{
+  font-family:'Nunito',sans-serif;font-size:10px;font-weight:300;
+  letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.1);transition:all .5s;
+}
+.gate-hint.wrong{color:rgba(239,68,68,.4);animation:shake .4s ease}
+.gate-hint.right{color:rgba(20,184,166,.5)}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+
+.stage.unlocked{animation:unlockFlash 1.5s ease both}
+@keyframes unlockFlash{
+  0%{filter:brightness(1)}
+  30%{filter:brightness(1.3)}
+  100%{filter:brightness(1)}
+}
+
+/* Admin panel (master password) */
+.admin-panel{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  background:rgba(6,6,14,.95);border-top:1px solid rgba(20,184,166,.08);
+  backdrop-filter:blur(12px);
+  padding:16px 24px;
+  display:none;
+  animation:slideUp .4s ease;
+}
+.admin-panel.show{display:block}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.admin-inner{max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:10px;align-items:center}
+.admin-title{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;color:rgba(20,184,166,.4);text-transform:uppercase}
+.admin-row{display:flex;gap:8px;align-items:center;width:100%;justify-content:center}
+.admin-input{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:6px;
+  color:rgba(20,184,166,.8);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;
+  text-align:center;padding:8px 16px;width:140px;outline:none;letter-spacing:4px;
+}
+.admin-input:focus{border-color:rgba(20,184,166,.2)}
+.admin-input::placeholder{color:rgba(255,255,255,.1);letter-spacing:2px;font-size:11px}
+.admin-btn{
+  font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;padding:9px 18px;border-radius:6px;border:1px solid rgba(20,184,166,.1);
+  background:rgba(20,184,166,.04);color:rgba(20,184,166,.5);cursor:pointer;transition:all .3s;
+}
+.admin-btn:hover{background:rgba(20,184,166,.08);border-color:rgba(20,184,166,.2);color:rgba(20,184,166,.8)}
+.admin-btn.danger{border-color:rgba(239,68,68,.1);background:rgba(239,68,68,.04);color:rgba(239,68,68,.5)}
+.admin-btn.danger:hover{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.2);color:rgba(239,68,68,.8)}
+.admin-msg{font-family:'Nunito',sans-serif;font-size:10px;color:rgba(20,184,166,.3);min-height:14px}
+</style>
+</head>
+<body>
+
+<!-- Stars canvas -->
+<canvas id="stars"></canvas>
+
+<!-- Atmosphere orbs -->
+<div class="atmosphere">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- Film grain -->
+<div class="grain"></div>
+
+<!-- Floating particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Main content -->
+<div class="stage">
+  <div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+  <div class="sada-ar">صدى</div>
+  <div class="sada-lat">s a d a</div>
+  <div class="divider"></div>
+  <div class="tagline">The creative universe of <strong>Workshop-DIY</strong><br>Teaching kids to build robots, train AI, and hack ethically</div>
+  <img class="robot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="Workshop-DIY">
+  <div class="url"><a href="https://workshop-diy.org">workshop-diy.org</a></div>
+  <div class="enter-wrap">
+  <div class="gate" id="gate">
+    <div class="gate-digits" id="digits">
+      <input class="digit" type="tel" maxlength="1" data-i="0" autofocus>
+      <input class="digit" type="tel" maxlength="1" data-i="1">
+      <input class="digit" type="tel" maxlength="1" data-i="2">
+      <input class="digit" type="tel" maxlength="1" data-i="3">
+      <input class="digit" type="tel" maxlength="1" data-i="4">
+      <input class="digit" type="tel" maxlength="1" data-i="5">
+    </div>
+    <div class="gate-hint" id="gateHint">access code</div>
+  </div>
+</div>
+</div>
+
+<div class="version">v5.1 · Chelles 77500</div>
+
+<script>
+// ═══ STARFIELD ═══
+(function(){
+  const c=document.getElementById('stars'),x=c.getContext('2d');
+  let w,h,stars=[];
+  function resize(){w=c.width=innerWidth;h=c.height=innerHeight;stars=[];for(let i=0;i<200;i++)stars.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.2+.2,a:Math.random(),s:Math.random()*.0008+.0002,d:Math.random()>.5?1:-1})}
+  resize();addEventListener('resize',resize);
+  (function draw(){
+    x.clearRect(0,0,w,h);
+    stars.forEach(s=>{
+      s.a+=s.s*s.d;
+      if(s.a>1||s.a<.1)s.d*=-1;
+      x.beginPath();x.arc(s.x,s.y,s.r,0,Math.PI*2);
+      x.fillStyle=`rgba(200,220,255,${s.a*.4})`;
+      x.fill();
+    });
+    requestAnimationFrame(draw);
+  })();
+})();
+
+// ═══ FLOATING PARTICLES ═══
+(function(){
+  const container=document.getElementById('particles');
+  const colors=['rgba(20,184,166,','rgba(99,102,241,','rgba(6,182,212,'];
+  for(let i=0;i<30;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    const col=colors[Math.floor(Math.random()*colors.length)];
+    const size=Math.random()*2+1;
+    const dur=Math.random()*15+10;
+    const delay=Math.random()*20;
+    const left=Math.random()*100;
+    p.style.cssText=`left:${left}%;width:${size}px;height:${size}px;background:${col}${Math.random()*.3+.1});animation-duration:${dur}s;animation-delay:${delay}s;box-shadow:0 0 ${size*3}px ${col}.2)`;
+    container.appendChild(p);
+  }
+})();
+
+// ═══ GENTLE PARALLAX ON MOUSE ═══
+(function(){
+  const sada=document.querySelector('.sada-ar');
+  const orbs=document.querySelectorAll('.orb');
+  document.addEventListener('mousemove',e=>{
+    const cx=e.clientX/innerWidth-.5;
+    const cy=e.clientY/innerHeight-.5;
+    sada.style.transform=`translate(${cx*8}px,${cy*5}px)`;
+    orbs.forEach((o,i)=>{
+      const f=(i+1)*4;
+      o.style.transform=`translate(calc(-50% + ${cx*f}px),calc(-50% + ${cy*f}px))`;
+    });
+  });
+})();
+
+
+// ═══ ACCESS GATE ═══
+(function(){
+  var MASTER='080707';
+  var userPass=localStorage.getItem('sada-pass')||'2025';
+  var digits=document.querySelectorAll('.digit');
+  var hint=document.getElementById('gateHint');
+  var stage=document.querySelector('.stage');
+  
+  if(sessionStorage.getItem('sada-unlocked')){
+    location.replace('start_here.html');
+    return;
+  }
+
+  function getCode(){return Array.from(digits).map(function(d){return d.value}).join('')}
+  
+  function checkCode(){
+    var code=getCode();
+    if(code.length<6)return;
+    
+    if(code===MASTER){
+      hint.textContent='\u2713 master access';
+      hint.className='gate-hint right';
+      digits.forEach(function(d){d.style.borderColor='rgba(20,184,166,.4)'});
+      sessionStorage.setItem('sada-unlocked','1');
+      document.getElementById('adminPanel').classList.add('show');
+      return;
+    }
+    
+    if(code===userPass){
+      hint.textContent='\u2713 access granted';
+      hint.className='gate-hint right';
+      digits.forEach(function(d){d.style.borderColor='rgba(20,184,166,.4)'});
+      stage.classList.add('unlocked');
+      sessionStorage.setItem('sada-unlocked','1');
+      setTimeout(function(){location.href='start_here.html'},1200);
+      return;
+    }
+    
+    hint.textContent='wrong code';
+    hint.className='gate-hint wrong';
+    setTimeout(function(){
+      hint.textContent='access code';
+      hint.className='gate-hint';
+      digits.forEach(function(d){d.value='';d.classList.remove('filled')});
+      digits[0].focus();
+    },1000);
+  }
+
+  digits.forEach(function(d,i){
+    d.addEventListener('input',function(){
+      if(this.value.length>0){
+        this.classList.add('filled');
+        if(i<5)digits[i+1].focus();
+        checkCode();
+      }
+    });
+    d.addEventListener('keydown',function(e){
+      if(e.key==='Backspace'&&!this.value&&i>0){
+        digits[i-1].value='';
+        digits[i-1].classList.remove('filled');
+        digits[i-1].focus();
+      }
+    });
+    d.addEventListener('paste',function(e){
+      e.preventDefault();
+      var paste=(e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'');
+      for(var j=0;j<Math.min(paste.length,6);j++){
+        digits[j].value=paste[j];
+        digits[j].classList.add('filled');
+      }
+      if(paste.length>=6)digits[5].focus();
+      checkCode();
+    });
+  });
+  
+  document.addEventListener('keydown',function(e){
+    if(e.key.length===1&&/\d/.test(e.key)&&document.activeElement.className!=='digit'&&document.activeElement.className!=='admin-input'){
+      digits[0].focus();
+    }
+  });
+})();
+
+function saveNewPass(){
+  var v=document.getElementById('newPass').value.replace(/\D/g,'');
+  var msg=document.getElementById('adminMsg');
+  if(v.length<4){msg.textContent='code must be 4-6 digits';msg.style.color='rgba(239,68,68,.4)';return}
+  localStorage.setItem('sada-pass',v);
+  msg.textContent='\u2713 user code set to '+v;
+  msg.style.color='rgba(20,184,166,.4)';
+  document.getElementById('newPass').value='';
+}
+function resetPass(){
+  localStorage.removeItem('sada-pass');
+  var msg=document.getElementById('adminMsg');
+  msg.textContent='\u2713 reset to default (2025)';
+  msg.style.color='rgba(20,184,166,.4)';
+}
+
+</script>
+
+<!-- Admin panel (master password only) -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-inner">
+    <div class="admin-title">&#9881; Admin — Change User Password</div>
+    <div class="admin-row">
+      <input class="admin-input" id="newPass" type="tel" maxlength="6" placeholder="new code">
+      <button class="admin-btn" onclick="saveNewPass()">Save</button>
+      <button class="admin-btn danger" onclick="resetPass()">Reset</button>
+    </div>
+    <div class="admin-msg" id="adminMsg"></div>
+  </div>
+</div>
+</body>
+</html>
