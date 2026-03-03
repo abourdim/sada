@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>صدى sada — Facebook Calendar · 84 posts</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&family=Nunito:wght@300;400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Scheherazade+New:wght@400;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&family=Nunito:wght@300;400&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#06060e;--s1:#0c0c1a;--s2:#12122a;--brd:rgba(255,255,255,.04);--txt:#e4e8f2;--dim:rgba(255,255,255,.35);--teal:#14b8a6;--cyan:#06b6d4;--indigo:#6366f1;--rose:#f43f5e;--amber:#f59e0b;--lime:#84cc16;--r:12px}
@@ -138,6 +138,155 @@ body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;min-
 .foot .f-ar{font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,var(--teal),var(--indigo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .foot .f-fr{font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px}
 .foot .f-contact{margin-top:6px;font-size:10px;color:var(--dim)}
+/* ISLAMIC — deep emerald + gold, geometric feel */
+.theme-islamic{--bg:#030d08;--s1:#071a0f;--s2:#0a2416;--brd:rgba(196,164,80,.08);--teal:#c9a45c;--dim:rgba(196,164,80,.4);--txt:#e8dcc8}
+.theme-islamic .post{background:linear-gradient(160deg,#071a0f,#0c2218);border:1px solid rgba(196,164,80,.1);border-radius:14px;overflow:hidden;transition:.3s;display:flex;flex-direction:column;position:relative}
+.theme-islamic .post::before{content:'✦';position:absolute;top:8px;right:12px;font-size:10px;color:rgba(196,164,80,.15)}
+.theme-islamic .post:hover{border-color:rgba(196,164,80,.25);box-shadow:0 4px 24px rgba(196,164,80,.06)}
+.theme-islamic .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(196,164,80,.06);background:rgba(196,164,80,.02)}
+.theme-islamic .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(196,164,80,.6);font-weight:700}
+.theme-islamic .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#c9a45c}
+.theme-islamic .post-theme{font-size:10px;color:rgba(196,164,80,.35)}
+.theme-islamic .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(232,220,200,.7);flex:1;font-family:'DM Sans',sans-serif}
+.theme-islamic .post-body strong{color:#c9a45c;font-weight:700}
+.theme-islamic .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(196,164,80,.06);align-items:center}
+.theme-islamic .post-btn{border-color:rgba(196,164,80,.12);color:rgba(196,164,80,.5)}
+.theme-islamic .post-btn:hover{border-color:rgba(196,164,80,.3);color:#c9a45c}
+.theme-islamic .post-btn.demo{background:linear-gradient(135deg,rgba(196,164,80,.1),rgba(16,185,129,.1));border-color:rgba(196,164,80,.2);color:#c9a45c}
+.theme-islamic .week-divider .wnum{color:#c9a45c;background:rgba(196,164,80,.06);border-color:rgba(196,164,80,.1)}
+.theme-islamic .week-divider .wtitle{color:rgba(196,164,80,.35)}
+.theme-islamic .week-divider::after{background:rgba(196,164,80,.06)}
+.theme-islamic .header,.theme-islamic .stats,.theme-islamic .mode-bar,.theme-islamic .theme-bar,.theme-islamic .controls,.theme-islamic .foot{border-color:rgba(196,164,80,.06)}
+.theme-islamic .logo-ar{background:linear-gradient(135deg,#c9a45c,#10b981);-webkit-background-clip:text;background-clip:text}
+.theme-islamic .st-n{background:linear-gradient(135deg,#c9a45c,#10b981);-webkit-background-clip:text;background-clip:text}
+.theme-islamic .mode-btn.active{background:rgba(196,164,80,.08);border-color:rgba(196,164,80,.2);color:#c9a45c}
+.theme-islamic .search:focus{border-color:rgba(196,164,80,.25)}
+.theme-islamic .week-btn:hover,.theme-islamic .week-btn.active{background:rgba(196,164,80,.06);border-color:rgba(196,164,80,.15);color:#c9a45c}
+/* CALLIGRAPHY — warm sepia manuscript (MID) */
+.theme-calligraphy{--bg:#1a1610;--s1:#221e16;--s2:#2a251c;--brd:rgba(200,170,100,.08);--teal:#c8a860;--dim:rgba(200,170,100,.35);--txt:#dcd0b0}
+.theme-calligraphy .post{background:linear-gradient(170deg,#221e16,#28231a);border:1px solid rgba(200,170,100,.1);border-radius:4px;overflow:hidden;transition:.3s;display:flex;flex-direction:column;border-top:3px solid rgba(200,170,100,.12)}
+.theme-calligraphy .post:hover{border-color:rgba(200,170,100,.22);box-shadow:0 4px 20px rgba(200,170,100,.05)}
+.theme-calligraphy .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(200,170,100,.06)}
+.theme-calligraphy .post-num{font-family:'Aref Ruqaa',serif;font-size:13px;color:rgba(200,170,100,.5);font-weight:700}
+.theme-calligraphy .post-day{font-family:'Aref Ruqaa',serif;font-size:13px;font-weight:700;color:#c8a860}
+.theme-calligraphy .post-theme{font-family:'Aref Ruqaa',serif;font-size:11px;color:rgba(200,170,100,.3)}
+.theme-calligraphy .post-body{padding:14px 16px;font-family:'Scheherazade New','Amiri',serif;font-size:15px;line-height:2;color:rgba(220,208,176,.65);flex:1}
+.theme-calligraphy .post-body strong{color:#c8a860;font-weight:700}
+.theme-calligraphy .post-foot{display:flex;gap:6px;padding:8px 16px;border-top:1px solid rgba(200,170,100,.06);align-items:center}
+.theme-calligraphy .post-btn{border-color:rgba(200,170,100,.1);color:rgba(200,170,100,.4);font-family:'Amiri',serif;font-size:10px}
+.theme-calligraphy .post-btn:hover{border-color:rgba(200,170,100,.25);color:#c8a860}
+.theme-calligraphy .post-btn.demo{background:rgba(200,170,100,.06);border-color:rgba(200,170,100,.15);color:#c8a860}
+.theme-calligraphy .week-divider .wnum{font-family:'Aref Ruqaa',serif;color:#c8a860;background:rgba(200,170,100,.06);border-color:rgba(200,170,100,.1);font-size:12px}
+.theme-calligraphy .week-divider .wtitle{font-family:'Aref Ruqaa',serif;color:rgba(200,170,100,.3);font-size:13px}
+.theme-calligraphy .week-divider::after{background:rgba(200,170,100,.06)}
+.theme-calligraphy .header,.theme-calligraphy .stats,.theme-calligraphy .mode-bar,.theme-calligraphy .theme-bar,.theme-calligraphy .controls,.theme-calligraphy .foot{border-color:rgba(200,170,100,.06)}
+.theme-calligraphy .logo-ar{background:linear-gradient(135deg,#c8a860,#a08848);-webkit-background-clip:text;background-clip:text;font-family:'Aref Ruqaa',serif}
+.theme-calligraphy .st-n{background:linear-gradient(135deg,#c8a860,#a08848);-webkit-background-clip:text;background-clip:text}
+.theme-calligraphy .mode-btn.active{background:rgba(200,170,100,.08);border-color:rgba(200,170,100,.18);color:#c8a860}
+.theme-calligraphy .search:focus{border-color:rgba(200,170,100,.22)}
+.theme-calligraphy .week-btn:hover,.theme-calligraphy .week-btn.active{background:rgba(200,170,100,.06);border-color:rgba(200,170,100,.12);color:#c8a860}
+
+/* MEDINA — warm amber lantern glow (MID) */
+.theme-medina{--bg:#1a1208;--s1:#241a0e;--s2:#2c2014;--brd:rgba(220,160,70,.08);--teal:#d4a040;--dim:rgba(220,160,70,.35);--txt:#e8d8b8}
+.theme-medina .post{background:linear-gradient(165deg,#241a0e,#2a1e10);border:1px solid rgba(220,160,70,.1);border-radius:16px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.theme-medina .post:hover{border-color:rgba(220,160,70,.22);box-shadow:0 4px 30px rgba(220,160,70,.06)}
+.theme-medina .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(220,160,70,.06);background:linear-gradient(90deg,rgba(220,160,70,.03),transparent)}
+.theme-medina .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(220,160,70,.5);font-weight:700}
+.theme-medina .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#d4a040}
+.theme-medina .post-theme{font-size:10px;color:rgba(220,160,70,.3)}
+.theme-medina .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(232,216,184,.65);flex:1}
+.theme-medina .post-body strong{color:#d4a040;font-weight:700}
+.theme-medina .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(220,160,70,.06);align-items:center}
+.theme-medina .post-btn{border-color:rgba(220,160,70,.1);color:rgba(220,160,70,.45)}
+.theme-medina .post-btn:hover{border-color:rgba(220,160,70,.3);color:#d4a040}
+.theme-medina .post-btn.demo{background:linear-gradient(135deg,rgba(220,160,70,.1),rgba(176,128,48,.1));border-color:rgba(220,160,70,.18);color:#d4a040}
+.theme-medina .week-divider .wnum{color:#d4a040;background:rgba(220,160,70,.06);border-color:rgba(220,160,70,.1)}
+.theme-medina .week-divider .wtitle{color:rgba(220,160,70,.3)}
+.theme-medina .week-divider::after{background:rgba(220,160,70,.06)}
+.theme-medina .header,.theme-medina .stats,.theme-medina .mode-bar,.theme-medina .theme-bar,.theme-medina .controls,.theme-medina .foot{border-color:rgba(220,160,70,.06)}
+.theme-medina .logo-ar{background:linear-gradient(135deg,#d4a040,#b08030);-webkit-background-clip:text;background-clip:text}
+.theme-medina .st-n{background:linear-gradient(135deg,#d4a040,#b08030);-webkit-background-clip:text;background-clip:text}
+.theme-medina .mode-btn.active{background:rgba(220,160,70,.08);border-color:rgba(220,160,70,.18);color:#d4a040}
+.theme-medina .search:focus{border-color:rgba(220,160,70,.25)}
+.theme-medina .week-btn:hover,.theme-medina .week-btn.active{background:rgba(220,160,70,.06);border-color:rgba(220,160,70,.12);color:#d4a040}
+
+/* ANDALOUS — Moorish blue + gold, zellige, Alhambra arches */
+.theme-andalous{--bg:#040810;--s1:#0a1225;--s2:#101a35;--brd:rgba(59,130,246,.06);--teal:#3b82f6;--dim:rgba(147,130,90,.4);--txt:#d8dce8}
+.theme-andalous .post{background:linear-gradient(155deg,#0a1225,#0e1830);border:1px solid rgba(59,130,246,.08);border-radius:2px;overflow:hidden;transition:.3s;display:flex;flex-direction:column;border-top:2px solid transparent;border-image:linear-gradient(90deg,rgba(59,130,246,.3),rgba(196,164,80,.3),rgba(59,130,246,.3)) 1}
+.theme-andalous .post:hover{border-color:rgba(59,130,246,.2);box-shadow:0 4px 24px rgba(59,130,246,.06);border-image:linear-gradient(90deg,rgba(59,130,246,.5),rgba(196,164,80,.5),rgba(59,130,246,.5)) 1}
+.theme-andalous .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(59,130,246,.05);background:rgba(59,130,246,.02)}
+.theme-andalous .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(196,164,80,.5);font-weight:700}
+.theme-andalous .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#93825a}
+.theme-andalous .post-theme{font-size:10px;color:rgba(59,130,246,.35)}
+.theme-andalous .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(216,220,232,.65);flex:1}
+.theme-andalous .post-body strong{color:#6ba0f6;font-weight:700}
+.theme-andalous .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(59,130,246,.05);align-items:center}
+.theme-andalous .post-btn{border-color:rgba(59,130,246,.1);color:rgba(147,130,90,.5)}
+.theme-andalous .post-btn:hover{border-color:rgba(59,130,246,.3);color:#6ba0f6}
+.theme-andalous .post-btn.demo{background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(196,164,80,.08));border-color:rgba(59,130,246,.15);color:#6ba0f6}
+.theme-andalous .week-divider .wnum{color:#93825a;background:rgba(196,164,80,.04);border-color:rgba(196,164,80,.08)}
+.theme-andalous .week-divider .wtitle{color:rgba(59,130,246,.3)}
+.theme-andalous .week-divider::after{background:rgba(59,130,246,.05)}
+.theme-andalous .header,.theme-andalous .stats,.theme-andalous .mode-bar,.theme-andalous .theme-bar,.theme-andalous .controls,.theme-andalous .foot{border-color:rgba(59,130,246,.05)}
+.theme-andalous .logo-ar{background:linear-gradient(135deg,#3b82f6,#c9a45c);-webkit-background-clip:text;background-clip:text}
+.theme-andalous .st-n{background:linear-gradient(135deg,#3b82f6,#c9a45c);-webkit-background-clip:text;background-clip:text}
+.theme-andalous .mode-btn.active{background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.15);color:#6ba0f6}
+.theme-andalous .search:focus{border-color:rgba(59,130,246,.25)}
+.theme-andalous .week-btn:hover,.theme-andalous .week-btn.active{background:rgba(59,130,246,.05);border-color:rgba(59,130,246,.12);color:#6ba0f6}
+/* THEME BAR */
+.theme-bar{display:flex;gap:6px;justify-content:center;align-items:center;padding:8px 20px;border-bottom:1px solid var(--brd)}
+.theme-label{font-family:'Syne',sans-serif;font-size:9px;font-weight:800;color:var(--dim);letter-spacing:1px;text-transform:uppercase;margin-right:4px}
+.theme-dot{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .2s;padding:0}
+.theme-dot:hover{transform:scale(1.15);box-shadow:0 0 12px rgba(255,255,255,.1)}
+.theme-dot.active{border-color:rgba(255,255,255,.5);box-shadow:0 0 12px rgba(255,255,255,.15)}
+/* NOOR — soft sage twilight (MID) */
+.theme-noor{--bg:#0e1a10;--s1:#142418;--s2:#1a2e20;--brd:rgba(120,180,100,.06);--teal:#78b464;--dim:rgba(120,180,100,.3);--txt:#c8dcc0}
+.theme-noor .post{background:linear-gradient(160deg,#142418,#18281c);border:1px solid rgba(120,180,100,.1);border-radius:14px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.theme-noor .post:hover{border-color:rgba(120,180,100,.2);box-shadow:0 4px 20px rgba(120,180,100,.05)}
+.theme-noor .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(120,180,100,.06);background:rgba(120,180,100,.02)}
+.theme-noor .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(120,180,100,.55);font-weight:700}
+.theme-noor .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#78b464}
+.theme-noor .post-theme{font-size:10px;color:rgba(120,180,100,.3)}
+.theme-noor .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(200,220,192,.65);flex:1}
+.theme-noor .post-body strong{color:#78b464;font-weight:700}
+.theme-noor .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(120,180,100,.06);align-items:center}
+.theme-noor .post-btn{border-color:rgba(120,180,100,.1);color:rgba(120,180,100,.45)}
+.theme-noor .post-btn:hover{border-color:rgba(120,180,100,.25);color:#78b464}
+.theme-noor .post-btn.demo{background:rgba(120,180,100,.08);border-color:rgba(120,180,100,.15);color:#78b464}
+.theme-noor .week-divider .wnum{color:#78b464;background:rgba(120,180,100,.06);border-color:rgba(120,180,100,.1)}
+.theme-noor .week-divider .wtitle{color:rgba(120,180,100,.3)}
+.theme-noor .week-divider::after{background:rgba(120,180,100,.06)}
+.theme-noor .header,.theme-noor .stats,.theme-noor .mode-bar,.theme-noor .theme-bar,.theme-noor .controls,.theme-noor .foot{border-color:rgba(120,180,100,.06)}
+.theme-noor .logo-ar{background:linear-gradient(135deg,#78b464,#a0c060);-webkit-background-clip:text;background-clip:text}
+.theme-noor .st-n{background:linear-gradient(135deg,#78b464,#a0c060);-webkit-background-clip:text;background-clip:text}
+.theme-noor .mode-btn.active{background:rgba(120,180,100,.08);border-color:rgba(120,180,100,.15);color:#78b464}
+.theme-noor .search:focus{border-color:rgba(120,180,100,.2)}
+.theme-noor .week-btn:hover,.theme-noor .week-btn.active{background:rgba(120,180,100,.06);border-color:rgba(120,180,100,.12);color:#78b464}
+
+/* FAJR — cool slate pre-dawn (MID) */
+.theme-fajr{--bg:#121418;--s1:#1a1c22;--s2:#22252c;--brd:rgba(140,150,180,.06);--teal:#8a9ac0;--dim:rgba(140,150,180,.35);--txt:#c8ccd8}
+.theme-fajr .post{background:linear-gradient(155deg,#1a1c22,#1e2028);border:1px solid rgba(140,150,180,.1);border-radius:14px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.theme-fajr .post:hover{border-color:rgba(140,150,180,.2);box-shadow:0 4px 20px rgba(140,150,180,.05)}
+.theme-fajr .post-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(140,150,180,.06);background:rgba(140,150,180,.02)}
+.theme-fajr .post-num{font-family:'Amiri',serif;font-size:11px;color:rgba(140,150,180,.55);font-weight:700}
+.theme-fajr .post-day{font-family:'Amiri',serif;font-size:12px;font-weight:700;color:#8a9ac0}
+.theme-fajr .post-theme{font-size:10px;color:rgba(140,150,180,.3)}
+.theme-fajr .post-body{padding:12px 14px;font-size:13px;line-height:1.8;color:rgba(200,204,216,.65);flex:1}
+.theme-fajr .post-body strong{color:#8a9ac0;font-weight:700}
+.theme-fajr .post-foot{display:flex;gap:6px;padding:8px 14px;border-top:1px solid rgba(140,150,180,.06);align-items:center}
+.theme-fajr .post-btn{border-color:rgba(140,150,180,.1);color:rgba(140,150,180,.45)}
+.theme-fajr .post-btn:hover{border-color:rgba(140,150,180,.25);color:#8a9ac0}
+.theme-fajr .post-btn.demo{background:rgba(140,150,180,.08);border-color:rgba(140,150,180,.15);color:#8a9ac0}
+.theme-fajr .week-divider .wnum{color:#8a9ac0;background:rgba(140,150,180,.06);border-color:rgba(140,150,180,.1)}
+.theme-fajr .week-divider .wtitle{color:rgba(140,150,180,.3)}
+.theme-fajr .week-divider::after{background:rgba(140,150,180,.06)}
+.theme-fajr .header,.theme-fajr .stats,.theme-fajr .mode-bar,.theme-fajr .theme-bar,.theme-fajr .controls,.theme-fajr .foot{border-color:rgba(140,150,180,.06)}
+.theme-fajr .logo-ar{background:linear-gradient(135deg,#8a9ac0,#b0a080);-webkit-background-clip:text;background-clip:text}
+.theme-fajr .st-n{background:linear-gradient(135deg,#8a9ac0,#b0a080);-webkit-background-clip:text;background-clip:text}
+.theme-fajr .mode-btn.active{background:rgba(140,150,180,.08);border-color:rgba(140,150,180,.15);color:#8a9ac0}
+.theme-fajr .search:focus{border-color:rgba(140,150,180,.2)}
+.theme-fajr .week-btn:hover,.theme-fajr .week-btn.active{background:rgba(140,150,180,.06);border-color:rgba(140,150,180,.12);color:#8a9ac0}
+
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @media(max-width:600px){.grid{grid-template-columns:1fr;padding:12px}.controls{padding:12px}.cal-cell{min-height:60px;padding:4px}.cal-title{display:none}.cal-emoji{font-size:14px}}
 </style>
@@ -158,6 +307,7 @@ body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;min-
   <div class="st"><div class="st-n">46</div><div class="st-l">Apps</div></div>
 </div>
 <div class="mode-bar" id="modeBar"></div>
+<div class="theme-bar" id="themeBar"></div>
 <div class="controls" id="controls"></div>
 <div id="extraZone"></div>
 <div class="grid" id="grid"></div>
@@ -222,12 +372,13 @@ const APP_MAP={
 };
 
 const BASE="https://abourdim.github.io/sada";
-const MODES=[{id:'classique',icon:'📋',label:'Classique'},{id:'social',icon:'📱',label:'Social'},{id:'parent',icon:'👨‍👩‍👧',label:'Parents'},{id:'maker',icon:'🛠️',label:'Maker'},{id:'calendrier',icon:'📅',label:'Calendrier'}];
+const VIEW_MODES=[{id:'classique',icon:'📋',label:'Classique'},{id:'social',icon:'📱',label:'Social'},{id:'parent',icon:'👨\u200d👩\u200d👧',label:'Parents'},{id:'maker',icon:'🛠️',label:'Maker'},{id:'calendrier',icon:'📅',label:'Calendrier'}];
+const THEMES=[{id:'default',label:'Default',gradient:'linear-gradient(135deg,#14b8a6,#6366f1)'},{id:'islamic',label:'Islamic',gradient:'linear-gradient(135deg,#c9a45c,#10b981)'},{id:'calligraphy',label:'Calligraphie',gradient:'linear-gradient(135deg,#c8a860,#1a1610)'},{id:'medina',label:'Médina',gradient:'linear-gradient(135deg,#d4a040,#1a1208)'},{id:'andalous',label:'Andalous',gradient:'linear-gradient(135deg,#3b82f6,#c9a45c)'},{id:'noor',label:'Noor',gradient:'linear-gradient(135deg,#78b464,#0e1a10)'},{id:'fajr',label:'Fajr',gradient:'linear-gradient(135deg,#8a9ac0,#121418)'}];
 const THEME_MAP={'App Spotlight':'spotlight','Tips & Learn':'learn','Challenge':'challenge','Fun':'fun','Weekend Project':'weekend','Recap':'recap'};
 const THEME_LABELS={'spotlight':'🚀 Spotlight','learn':'🎓 Apprendre','challenge':'🎮 Défi','fun':'🎉 Fun','weekend':'🛠️ Projet','recap':'📢 Récap'};
 const PARENT_HOOKS={'spotlight':['Votre enfant découvrira','Une app que votre enfant peut explorer','Regardez ce que nos élèves créent'],'learn':['Ce que votre enfant apprendra','Une compétence concrète pour votre enfant','Saviez-vous que votre enfant peut apprendre ça ?'],'challenge':['Un défi ludique pour votre enfant','Votre enfant peut-il relever ce défi ?','Stimulez la curiosité de votre enfant'],'fun':["L'apprentissage peut être fun",'Votre enfant va adorer','Du fun intelligent pour votre enfant'],'weekend':['Un projet à faire en famille ce weekend','Activité parent-enfant du weekend','Construisez ensemble ce weekend'],'recap':['Le résumé de la semaine','Ce que votre enfant a exploré cette semaine','Les progrès de la semaine']};
 const TECH_STACK=['HTML','CSS','JS','Web Bluetooth','Canvas','SVG','Web Audio','CSS Grid','Flexbox','Animation','localStorage','Fetch API'];
-let currentMode='classique',activeWeek=0,calMonth=0;
+let currentView='classique',currentTheme='default',activeWeek=0,calMonth=0;
 function findAppFile(b){for(const[n,f]of Object.entries(APP_MAP)){if(b.includes(n))return{name:n,file:f}}return null}
 function getThemeKey(t){for(const[k,v]of Object.entries(THEME_MAP)){if(t.includes(k))return v}return'spotlight'}
 function getHeroEmoji(b){const m=b.match(/^(\S+)/);return m?m[1]:'📌'}
@@ -235,14 +386,22 @@ function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a}
 function formatBody(b){let h=b.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');h=h.replace(/🔗\s*(https:\/\/[^\s<]+)/g,'🔗 <a style="color:var(--teal);font-size:11px;text-decoration:none" href="$1" target="_blank">$1</a>');h=h.replace(/🌐\s*(workshop-diy\.org)/g,'🌐 <a style="color:rgba(255,255,255,.3);font-size:11px;text-decoration:none" href="https://workshop-diy.org" target="_blank">$1</a>');h=h.replace(/(#\w+)/g,'<span style="color:rgba(20,184,166,.35)">$1</span>');return h}
 function copyPost(btn,t){navigator.clipboard.writeText(t).then(()=>{btn.textContent='✓ copié';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copier';btn.classList.remove('copied')},1500)})}
 const modeBar=document.getElementById('modeBar');
-MODES.forEach(m=>{const b=document.createElement('button');b.className='mode-btn'+(m.id==='classique'?' active':'');b.textContent=m.icon+' '+m.label;b.onclick=()=>switchMode(m.id);b.dataset.mode=m.id;modeBar.appendChild(b)});
-function switchMode(id){
-  currentMode=id;document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===id));document.body.className='mode-'+id;
+VIEW_MODES.forEach(m=>{const b=document.createElement('button');b.className='mode-btn'+(m.id==='classique'?' active':'');b.textContent=m.icon+' '+m.label;b.onclick=()=>switchView(m.id);b.dataset.mode=m.id;modeBar.appendChild(b)});
+const themeBar=document.getElementById('themeBar');
+const _tl=document.createElement('span');_tl.className='theme-label';_tl.textContent='🎨';themeBar.appendChild(_tl);
+THEMES.forEach(t=>{const b=document.createElement('button');b.className='theme-dot'+(t.id==='default'?' active':'');b.style.background=t.gradient;b.title=t.label;b.onclick=()=>switchTheme(t.id);b.dataset.theme=t.id;themeBar.appendChild(b)});
+function updateBody(){document.body.className='mode-'+currentView+(currentTheme!=='default'?' theme-'+currentTheme:'')}
+function switchView(id){
+  currentView=id;document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===id));updateBody();
   document.querySelector('.parent-sticky')?.remove();document.getElementById('extraZone').innerHTML='';
   if(id==='calendrier'){document.getElementById('controls').style.display='none';document.getElementById('grid').style.display='none';renderCalendar()}
   else{document.getElementById('controls').style.display='flex';document.getElementById('grid').style.display='grid';render(activeWeek)}
   if(id==='parent'){const s=document.createElement('div');s.className='parent-sticky';s.innerHTML='<div class="ps-main">🤖 Inscrivez votre enfant aux ateliers Workshop-DIY</div><div class="ps-sub">📞 <a href="tel:0619515173">06 19 51 51 73</a> · 📧 <a href="mailto:contact@workshop-diy.org">contact@workshop-diy.org</a> · 📍 Chelles 77500 · <a href="https://workshop-diy.org" target="_blank">workshop-diy.org</a></div>';document.body.appendChild(s)}
   if(id==='maker'){let h='<div class="heatmap" style="margin-bottom:8px">';for(let i=0;i<84;i++){const p=POSTS[i];h+=`<div class="heatmap-cell" style="background:rgba(0,255,65,${(.05+Math.random()*.2).toFixed(2)})" title="#${i+1} ${p.day} S${p.week}"></div>`}for(let i=84;i<98;i++)h+='<div class="heatmap-cell" style="background:rgba(0,255,65,.03)"></div>';h+='</div>';document.getElementById('extraZone').innerHTML=h}
+}
+function switchTheme(id){
+  currentTheme=id;document.querySelectorAll('.theme-dot').forEach(b=>b.classList.toggle('active',b.dataset.theme===id));updateBody();
+  if(id!=='default')localStorage.setItem('sada-theme',id);else localStorage.removeItem('sada-theme');
 }
 const ctrl=document.getElementById('controls');
 const search=document.createElement('input');search.className='search';search.placeholder='🔍 Rechercher...';search.oninput=()=>render(activeWeek);ctrl.appendChild(search);
@@ -257,18 +416,21 @@ function render(week){
   posts.forEach(p=>{
     if(p.week!==lastWeek){html+=`<div class="week-divider"><span class="wnum">Semaine ${p.week}</span><span class="wtitle">${p.weekTitle}</span></div>`;lastWeek=p.week}
     const app=findAppFile(p.body),demoUrl=app?`${BASE}/${app.file}`:BASE,cleanBody=p.body.replace(/\*\*/g,''),tk=getThemeKey(p.theme),emoji=getHeroEmoji(p.body);
-    if(currentMode==='social')html+=renderSocial(p,demoUrl,cleanBody,tk,emoji);
-    else if(currentMode==='parent')html+=renderParent(p,app,demoUrl,cleanBody,tk,emoji);
-    else if(currentMode==='maker')html+=renderMaker(p,app,demoUrl,cleanBody,tk,emoji);
+    if(currentView==='social')html+=renderSocial(p,demoUrl,cleanBody,tk,emoji);
+    else if(currentView==='parent')html+=renderParent(p,app,demoUrl,cleanBody,tk,emoji);
+    else if(currentView==='maker')html+=renderMaker(p,app,demoUrl,cleanBody,tk,emoji);
     else html+=renderClassique(p,demoUrl,cleanBody);
   });
   grid.innerHTML=html||'<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--dim)">Aucun post trouvé</div>';
 }
 function esc(s){return s.replace(/`/g,"'").replace(/\\/g,'\\\\')}
 function renderClassique(p,url,cb){return`<div class="post"><div class="post-head"><span class="post-num">#${p.num}</span><span class="post-day">${p.day}</span><span class="post-theme">${p.theme}</span></div><div class="post-body">${formatBody(p.body)}</div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank">▶ Demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(cb)}\`)">📋 Copier</button></div></div>`}
-function renderSocial(p,url,cb,tk,em){const l=rand(24,380),c=rand(3,67),s=rand(2,45),rx=['👍','❤️','😂','😮','🔥'].slice(0,rand(2,4)).join('');return`<div class="post"><div class="post-hero"><span class="hero-emoji">${em}</span></div><div class="post-head"><span class="post-num">#${p.num}</span><span class="post-day">${p.day} · S${p.week}</span><span class="theme-pill" data-t="${tk}">${THEME_LABELS[tk]||p.theme}</span></div><div class="post-body">${formatBody(p.body)}</div><div class="engagement"><span class="reactions">${rx}</span><span>${l}</span><span style="margin-left:auto">${c} commentaires · ${s} partages</span></div><div class="fb-bar"><div class="fb-btn">👍 J'aime</div><div class="fb-btn">💬 Commenter</div><div class="fb-btn">↗ Partager</div></div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank">▶ Demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(cb)}\`)">📋 Copier</button></div></div>`}
-function renderParent(p,app,url,cb,tk,em){const hk=(PARENT_HOOKS[tk]||PARENT_HOOKS.spotlight)[p.num%3],bg=['8-16 ans','Encadré','Gratuit','Loi 1901','Chelles'].slice(0,rand(2,4)).map(a=>`<span class="trust-badge">${a}</span>`).join('');return`<div class="post"><div class="post-head"><span class="post-num">#${p.num}</span><span class="post-day">${p.day} · Semaine ${p.week}</span><span class="post-theme">${p.theme}</span></div><div class="parent-hook">${em} ${hk}</div><div class="post-body">${formatBody(p.body)}</div><div class="trust-badges">${bg}</div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank">▶ Voir la demo</a><a class="cta-btn" href="https://workshop-diy.org" target="_blank">Inscrire mon enfant →</a></div></div>`}
-function renderMaker(p,app,url,cb,tk,em){const ts=TECH_STACK.sort(()=>Math.random()-.5).slice(0,rand(2,4)).map(t=>`<span class="tech-badge">${t}</span>`).join(''),loc=rand(40,380),sz=(loc*.08).toFixed(1);return`<div class="post"><div class="post-head"><span class="post-num">post_${String(p.num).padStart(3,'0')}.md</span><span class="post-day">w${p.week}/${p.day.toLowerCase().slice(0,3)}</span><span class="post-theme">${tk}</span></div><div class="tech-badges">${ts}</div><div class="post-body">${formatBody(p.body)}</div><div class="maker-meta">~${loc} LOC · ${sz}KB · ${app?app.file:'index.html'} · <a href="${url}" target="_blank" style="color:rgba(0,255,65,.4)">view source →</a></div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank" style="color:rgba(0,255,65,.5);border-color:rgba(0,255,65,.1)">▶ Run</a><button class="post-btn" onclick="copyPost(this,\`${esc(cb)}\`)" style="color:rgba(0,255,65,.3);border-color:rgba(0,255,65,.06)">📋 Copy</button></div></div>`}
+function socialCopy(cb,tk){const hooks={'spotlight':'Découvrez cette app incroyable !','learn':'Le saviez-vous ?','challenge':'Relevez le défi !','fun':'Du fun garanti !','weekend':'Projet du weekend !','recap':'Le récap de la semaine !'};return(hooks[tk]||'')+'\n\n'+cb+'\n\n👉 Partagez si vous aimez !'}
+function parentCopy(cb,hk,em){return em+' '+hk+'\n\n'+cb+'\n\n📞 06 19 51 51 73 · 📧 contact@workshop-diy.org\n🤖 Inscrivez votre enfant : workshop-diy.org\n📍 Chelles 77500 · 8-16 ans · Encadré · Gratuit'}
+function makerCopy(cb,app,url){return cb+'\n\n💻 Source : '+url+(app?'\n📁 '+app.file:'')}
+function renderSocial(p,url,cb,tk,em){const l=rand(24,380),c=rand(3,67),s=rand(2,45),rx=['👍','❤️','😂','😮','🔥'].slice(0,rand(2,4)).join(''),sc=socialCopy(cb,tk);return`<div class="post"><div class="post-hero"><span class="hero-emoji">${em}</span></div><div class="post-head"><span class="post-num">#${p.num}</span><span class="post-day">${p.day} · S${p.week}</span><span class="theme-pill" data-t="${tk}">${THEME_LABELS[tk]||p.theme}</span></div><div class="post-body">${formatBody(p.body)}</div><div class="engagement"><span class="reactions">${rx}</span><span>${l}</span><span style="margin-left:auto">${c} commentaires · ${s} partages</span></div><div class="fb-bar"><div class="fb-btn">👍 J'aime</div><div class="fb-btn">💬 Commenter</div><div class="fb-btn">↗ Partager</div></div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank">▶ Demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(sc)}\`)">📋 Copier</button></div></div>`}
+function renderParent(p,app,url,cb,tk,em){const hk=(PARENT_HOOKS[tk]||PARENT_HOOKS.spotlight)[p.num%3],bg=['8-16 ans','Encadré','Gratuit','Loi 1901','Chelles'].slice(0,rand(2,4)).map(a=>`<span class="trust-badge">${a}</span>`).join(''),pc=parentCopy(cb,hk,em);return`<div class="post"><div class="post-head"><span class="post-num">#${p.num}</span><span class="post-day">${p.day} · Semaine ${p.week}</span><span class="post-theme">${p.theme}</span></div><div class="parent-hook">${em} ${hk}</div><div class="post-body">${formatBody(p.body)}</div><div class="trust-badges">${bg}</div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank">▶ Voir la demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(pc)}\`)">📋 Copier</button><a class="cta-btn" href="https://workshop-diy.org" target="_blank">Inscrire mon enfant →</a></div></div>`}
+function renderMaker(p,app,url,cb,tk,em){const ts=TECH_STACK.sort(()=>Math.random()-.5).slice(0,rand(2,4)).map(t=>`<span class="tech-badge">${t}</span>`).join(''),loc=rand(40,380),sz=(loc*.08).toFixed(1),mc=makerCopy(cb,app,url);return`<div class="post"><div class="post-head"><span class="post-num">post_${String(p.num).padStart(3,'0')}.md</span><span class="post-day">w${p.week}/${p.day.toLowerCase().slice(0,3)}</span><span class="post-theme">${tk}</span></div><div class="tech-badges">${ts}</div><div class="post-body">${formatBody(p.body)}</div><div class="maker-meta">~${loc} LOC · ${sz}KB · ${app?app.file:'index.html'} · <a href="${url}" target="_blank" style="color:rgba(0,255,65,.4)">view source →</a></div><div class="post-foot"><a class="post-btn demo" href="${url}" target="_blank" style="color:rgba(0,255,65,.5);border-color:rgba(0,255,65,.1)">▶ Run</a><button class="post-btn" onclick="copyPost(this,\`${esc(mc)}\`)" style="color:rgba(0,255,65,.3);border-color:rgba(0,255,65,.06)">📋 Copy</button></div></div>`}
 const MONTHS=[{name:'Mars 2026',days:31,startDay:6,offset:0},{name:'Avril 2026',days:30,startDay:2,offset:31},{name:'Mai 2026',days:31,startDay:4,offset:61}];
 const DAY_NAMES=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
 function renderCalendar(){
@@ -286,12 +448,15 @@ function renderCalendar(){
 }
 function calNav(dir){calMonth=Math.max(0,Math.min(2,calMonth+dir));renderCalendar()}
 window.expandCal=function(i){
-  const p=POSTS[i];if(!p)return;const app=findAppFile(p.body),url=app?`${BASE}/${app.file}`:BASE;
+  const p=POSTS[i];if(!p)return;const app=findAppFile(p.body),url=app?`${BASE}/${app.file}`:BASE,cb=p.body.replace(/\*\*/g,'');
   const o=document.createElement('div');o.className='cal-expanded';o.onclick=e=>{if(e.target===o)o.remove()};
-  o.innerHTML=`<span class="cal-close" onclick="this.parentElement.remove()">✕</span><div class="cal-expanded-inner"><div style="font-size:32px;margin-bottom:8px">${getHeroEmoji(p.body)}</div><div style="font-family:Syne;font-size:11px;font-weight:800;color:var(--teal);margin-bottom:4px">Semaine ${p.week} · ${p.day} · #${p.num}</div><div style="font-size:10px;color:var(--dim);margin-bottom:12px">${p.theme} · ${p.weekTitle}</div><div style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.8)">${formatBody(p.body)}</div><div style="margin-top:14px;display:flex;gap:8px"><a class="post-btn demo" href="${url}" target="_blank">▶ Demo</a><a class="post-btn" href="https://workshop-diy.org" target="_blank">🌐 workshop-diy.org</a></div></div>`;
+  o.innerHTML=`<span class="cal-close" onclick="this.parentElement.remove()">✕</span><div class="cal-expanded-inner"><div style="font-size:32px;margin-bottom:8px">${getHeroEmoji(p.body)}</div><div style="font-family:Syne;font-size:11px;font-weight:800;color:var(--teal);margin-bottom:4px">Semaine ${p.week} · ${p.day} · #${p.num}</div><div style="font-size:10px;color:var(--dim);margin-bottom:12px">${p.theme} · ${p.weekTitle}</div><div style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.8)">${formatBody(p.body)}</div><div style="margin-top:14px;display:flex;gap:8px"><a class="post-btn demo" href="${url}" target="_blank">▶ Demo</a><button class="post-btn" onclick="copyPost(this,\`${esc(cb)}\`)">📋 Copier</button><a class="post-btn" href="https://workshop-diy.org" target="_blank">🌐 workshop-diy.org</a></div></div>`;
   document.body.appendChild(o);
 };
 document.body.className='mode-classique';render(0);
+
+// Init theme from global localStorage
+(function(){var st=localStorage.getItem('sada-theme');if(st){var found=THEMES.find(function(t){return t.id===st});if(found)switchTheme(st)}})();
 </script>
 </body>
 </html>

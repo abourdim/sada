@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>صدى sada · v6.0</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;700&family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<title>صدى sada · v8.0</title>
+<script src="assets/js/sada-theme.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Scheherazade+New:wght@400;700&family=Noto+Kufi+Arabic:wght@400;700&family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/sada-themes.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#06060e;--surface:#0c0c1a;--border:rgba(255,255,255,.04);--text:#e8e8ef;--dim:rgba(255,255,255,.25);--teal:#14b8a6;--cyan:#06b6d4;--indigo:#6366f1}
@@ -40,6 +42,13 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .lang-detail{font-size:12px;color:var(--dim);line-height:1.5}
 .lang-detail code{font-family:'Space Mono',monospace;font-size:10px;background:rgba(255,255,255,.04);padding:1px 5px;border-radius:3px}
 .lang-card .badge{position:absolute;top:12px;right:12px;font-family:'Space Mono',monospace;font-size:9px;color:var(--teal);background:rgba(20,184,166,.06);padding:2px 8px;border-radius:4px;border:1px solid rgba(20,184,166,.1)}
+.theme-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:40px}
+.theme-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:all .2s;text-align:center;position:relative;overflow:hidden}
+.theme-card:hover{border-color:rgba(20,184,166,.15);transform:translateY(-2px)}
+.theme-card.selected{border-color:rgba(20,184,166,.5);background:rgba(20,184,166,.04);box-shadow:0 0 20px rgba(20,184,166,.1)}
+.theme-card .t-preview{width:100%;height:8px;border-radius:4px;margin-bottom:10px}
+.theme-card .t-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:2px}
+.theme-card .t-desc{font-size:10px;color:var(--dim);line-height:1.4}
 .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
 .cat-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:13px;display:flex;align-items:center;gap:8px;transition:all .15s}
 .cat-item:hover{border-color:rgba(20,184,166,.15);background:rgba(20,184,166,.03)}
@@ -75,7 +84,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 <body>
 <div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <div class="hero">
-  <div class="hero-badge">v6.0 · complete trilingual suite</div>
+  <div class="hero-badge">v8.0 · complete trilingual suite</div>
   <div class="logo-ar">صدى</div>
   <div class="logo-fr">sada</div>
   <div class="logo-line"></div>
@@ -102,6 +111,18 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
     <div class="lang-card" onclick="setLang('en')" data-lang="en"><div class="badge">Original</div><div class="lang-flag">🇬🇧</div><div class="lang-name">English</div><div class="lang-detail">166 files · Root folder<br><code>workshop-diy-*.html</code><br>+ 10 tutorial storyboards</div></div>
     <div class="lang-card" onclick="setLang('fr')" data-lang="fr"><div class="lang-flag">🇫🇷</div><div class="lang-name">Français</div><div class="lang-detail">174 files · <code>fr/</code> folder<br><code>workshop-diy-*-fr.html</code><br>Full UI + prose + 10 tutorials</div></div>
     <div class="lang-card" onclick="setLang('ar')" data-lang="ar"><div class="lang-flag">🇸🇦</div><div class="lang-name">العربية</div><div class="lang-detail">174 files · <code>ar/</code> folder<br><code>workshop-diy-*-ar.html</code><br>Full RTL · Amiri · Bismillah · 10 tutorials</div></div>
+  </div>
+</div>
+<div class="section">
+  <div class="section-title">Themes</div>
+  <div class="theme-cards">
+    <div class="theme-card" onclick="setTheme('default')" data-theme="default"><div class="t-preview" style="background:linear-gradient(135deg,#14b8a6,#6366f1)"></div><div class="t-name">Original</div><div class="t-desc">Teal + Indigo</div></div>
+    <div class="theme-card" onclick="setTheme('islamic')" data-theme="islamic"><div class="t-preview" style="background:linear-gradient(135deg,#c9a45c,#10b981)"></div><div class="t-name">Islamic</div><div class="t-desc">Emerald + Gold</div></div>
+    <div class="theme-card" onclick="setTheme('calligraphy')" data-theme="calligraphy"><div class="t-preview" style="background:linear-gradient(135deg,#c8a860,#1a1610)"></div><div class="t-name">Calligraphie</div><div class="t-desc">Warm Sepia Manuscript</div></div>
+    <div class="theme-card" onclick="setTheme('medina')" data-theme="medina"><div class="t-preview" style="background:linear-gradient(135deg,#d4a040,#1a1208)"></div><div class="t-name">Medina</div><div class="t-desc">Amber Lantern Glow</div></div>
+    <div class="theme-card" onclick="setTheme('andalous')" data-theme="andalous"><div class="t-preview" style="background:linear-gradient(135deg,#3b82f6,#c9a45c)"></div><div class="t-name">Andalous</div><div class="t-desc">Moorish Blue + Gold</div></div>
+    <div class="theme-card" onclick="setTheme('noor')" data-theme="noor"><div class="t-preview" style="background:linear-gradient(135deg,#78b464,#0e1a10)"></div><div class="t-name">Noor</div><div class="t-desc">Sage Twilight Garden</div></div>
+    <div class="theme-card" onclick="setTheme('fajr')" data-theme="fajr"><div class="t-preview" style="background:linear-gradient(135deg,#8a9ac0,#121418)"></div><div class="t-name">Fajr</div><div class="t-desc">Cool Slate Pre-Dawn</div></div>
   </div>
 </div>
 <div class="section">
@@ -160,7 +181,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 <div class="section">
   <div class="section-title">Package Structure</div>
   <div class="tree">
-<span class="dir">sada-v6.0/</span>
+<span class="dir">sada-v8.0/</span>
 ├── <span class="hl">start_here.html</span>              ← you are here
 ├── <span class="hl">demo.html</span>                     ← slideshow player
 ├── <span class="hl">master-hub.html</span>  ← 161-app hub
@@ -212,6 +233,25 @@ function setLang(lang){
   var L=localStorage.getItem("sada-lang");
   if(L)document.querySelectorAll(".lang-card[data-lang]").forEach(function(c){
     c.classList.toggle("selected",c.dataset.lang===L);
+  });
+})();
+function setTheme(t){
+  window.sdTheme(t);
+  document.querySelectorAll(".theme-card[data-theme]").forEach(function(c){
+    c.classList.toggle("selected",c.dataset.theme===t);
+  });
+  var names={default:"Original",islamic:"Islamic",calligraphy:"Calligraphie",medina:"M\u00e9dina",andalous:"Andalous",noor:"Noor",fajr:"Fajr"};
+  var toast=document.createElement("div");
+  toast.textContent="\u2713 Theme set to "+names[t]+" \u2014 all pages will follow";
+  toast.style.cssText="position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:rgba(20,184,166,.15);border:1px solid rgba(20,184,166,.3);color:#14b8a6;padding:10px 24px;border-radius:8px;font-size:13px;z-index:9999;transition:opacity .5s";
+  document.body.appendChild(toast);
+  setTimeout(function(){toast.style.opacity="0"},2500);
+  setTimeout(function(){toast.remove()},3000);
+}
+(function(){
+  var T=localStorage.getItem("sada-theme")||"default";
+  document.querySelectorAll(".theme-card[data-theme]").forEach(function(c){
+    c.classList.toggle("selected",c.dataset.theme===T);
   });
 })();
 </script>
