@@ -1,0 +1,2922 @@
+[
+  {
+    "id": "PAPER 001",
+    "num": 1,
+    "date": "2026-01-01",
+    "season": "explorer",
+    "image": "images/explorer/paper-001.jpg",
+    "text": "texts/paper-001.txt"
+  },
+  {
+    "id": "PAPER 002",
+    "num": 2,
+    "date": "2026-01-02",
+    "season": "explorer",
+    "image": "images/explorer/paper-002.jpg",
+    "text": "texts/paper-002.txt"
+  },
+  {
+    "id": "PAPER 003",
+    "num": 3,
+    "date": "2026-01-03",
+    "season": "explorer",
+    "image": "images/explorer/paper-003.jpg",
+    "text": "texts/paper-003.txt"
+  },
+  {
+    "id": "PAPER 004",
+    "num": 4,
+    "date": "2026-01-04",
+    "season": "explorer",
+    "image": "images/explorer/paper-004.jpg",
+    "text": "texts/paper-004.txt"
+  },
+  {
+    "id": "PAPER 005",
+    "num": 5,
+    "date": "2026-01-05",
+    "season": "explorer",
+    "image": "images/explorer/paper-005.jpg",
+    "text": "texts/paper-005.txt"
+  },
+  {
+    "id": "PAPER 006",
+    "num": 6,
+    "date": "2026-01-06",
+    "season": "explorer",
+    "image": "images/explorer/paper-006.jpg",
+    "text": "texts/paper-006.txt"
+  },
+  {
+    "id": "PAPER 007",
+    "num": 7,
+    "date": "2026-01-07",
+    "season": "explorer",
+    "image": "images/explorer/paper-007.jpg",
+    "text": "texts/paper-007.txt"
+  },
+  {
+    "id": "PAPER 008",
+    "num": 8,
+    "date": "2026-01-08",
+    "season": "explorer",
+    "image": "images/explorer/paper-008.jpg",
+    "text": "texts/paper-008.txt"
+  },
+  {
+    "id": "PAPER 009",
+    "num": 9,
+    "date": "2026-01-09",
+    "season": "explorer",
+    "image": "images/explorer/paper-009.jpg",
+    "text": "texts/paper-009.txt"
+  },
+  {
+    "id": "PAPER 010",
+    "num": 10,
+    "date": "2026-01-10",
+    "season": "explorer",
+    "image": "images/explorer/paper-010.jpg",
+    "text": "texts/paper-010.txt"
+  },
+  {
+    "id": "PAPER 011",
+    "num": 11,
+    "date": "2026-01-11",
+    "season": "explorer",
+    "image": "images/explorer/paper-011.jpg",
+    "text": "texts/paper-011.txt"
+  },
+  {
+    "id": "PAPER 012",
+    "num": 12,
+    "date": "2026-01-12",
+    "season": "explorer",
+    "image": "images/explorer/paper-012.jpg",
+    "text": "texts/paper-012.txt"
+  },
+  {
+    "id": "PAPER 013",
+    "num": 13,
+    "date": "2026-01-13",
+    "season": "explorer",
+    "image": "images/explorer/paper-013.jpg",
+    "text": "texts/paper-013.txt"
+  },
+  {
+    "id": "PAPER 014",
+    "num": 14,
+    "date": "2026-01-14",
+    "season": "explorer",
+    "image": "images/explorer/paper-014.jpg",
+    "text": "texts/paper-014.txt"
+  },
+  {
+    "id": "PAPER 015",
+    "num": 15,
+    "date": "2026-01-15",
+    "season": "explorer",
+    "image": "images/explorer/paper-015.jpg",
+    "text": "texts/paper-015.txt"
+  },
+  {
+    "id": "PAPER 016",
+    "num": 16,
+    "date": "2026-01-16",
+    "season": "explorer",
+    "image": "images/explorer/paper-016.jpg",
+    "text": "texts/paper-016.txt"
+  },
+  {
+    "id": "PAPER 017",
+    "num": 17,
+    "date": "2026-01-17",
+    "season": "explorer",
+    "image": "images/explorer/paper-017.jpg",
+    "text": "texts/paper-017.txt"
+  },
+  {
+    "id": "PAPER 018",
+    "num": 18,
+    "date": "2026-01-18",
+    "season": "explorer",
+    "image": "images/explorer/paper-018.jpg",
+    "text": "texts/paper-018.txt"
+  },
+  {
+    "id": "PAPER 019",
+    "num": 19,
+    "date": "2026-01-19",
+    "season": "explorer",
+    "image": "images/explorer/paper-019.jpg",
+    "text": "texts/paper-019.txt"
+  },
+  {
+    "id": "PAPER 020",
+    "num": 20,
+    "date": "2026-01-20",
+    "season": "explorer",
+    "image": "images/explorer/paper-020.jpg",
+    "text": "texts/paper-020.txt"
+  },
+  {
+    "id": "PAPER 021",
+    "num": 21,
+    "date": "2026-01-21",
+    "season": "explorer",
+    "image": "images/explorer/paper-021.jpg",
+    "text": "texts/paper-021.txt"
+  },
+  {
+    "id": "PAPER 022",
+    "num": 22,
+    "date": "2026-01-22",
+    "season": "explorer",
+    "image": "images/explorer/paper-022.jpg",
+    "text": "texts/paper-022.txt"
+  },
+  {
+    "id": "PAPER 023",
+    "num": 23,
+    "date": "2026-01-23",
+    "season": "explorer",
+    "image": "images/explorer/paper-023.jpg",
+    "text": "texts/paper-023.txt"
+  },
+  {
+    "id": "PAPER 024",
+    "num": 24,
+    "date": "2026-01-24",
+    "season": "explorer",
+    "image": "images/explorer/paper-024.jpg",
+    "text": "texts/paper-024.txt"
+  },
+  {
+    "id": "PAPER 025",
+    "num": 25,
+    "date": "2026-01-25",
+    "season": "explorer",
+    "image": "images/explorer/paper-025.jpg",
+    "text": "texts/paper-025.txt"
+  },
+  {
+    "id": "PAPER 026",
+    "num": 26,
+    "date": "2026-01-26",
+    "season": "explorer",
+    "image": "images/explorer/paper-026.jpg",
+    "text": "texts/paper-026.txt"
+  },
+  {
+    "id": "PAPER 027",
+    "num": 27,
+    "date": "2026-01-27",
+    "season": "explorer",
+    "image": "images/explorer/paper-027.jpg",
+    "text": "texts/paper-027.txt"
+  },
+  {
+    "id": "PAPER 028",
+    "num": 28,
+    "date": "2026-01-28",
+    "season": "explorer",
+    "image": "images/explorer/paper-028.jpg",
+    "text": "texts/paper-028.txt"
+  },
+  {
+    "id": "PAPER 029",
+    "num": 29,
+    "date": "2026-01-29",
+    "season": "explorer",
+    "image": "images/explorer/paper-029.jpg",
+    "text": "texts/paper-029.txt"
+  },
+  {
+    "id": "PAPER 030",
+    "num": 30,
+    "date": "2026-01-30",
+    "season": "explorer",
+    "image": "images/explorer/paper-030.jpg",
+    "text": "texts/paper-030.txt"
+  },
+  {
+    "id": "PAPER 031",
+    "num": 31,
+    "date": "2026-01-31",
+    "season": "explorer",
+    "image": "images/explorer/paper-031.jpg",
+    "text": "texts/paper-031.txt"
+  },
+  {
+    "id": "PAPER 032",
+    "num": 32,
+    "date": "2026-02-01",
+    "season": "explorer",
+    "image": "images/explorer/paper-032.jpg",
+    "text": "texts/paper-032.txt"
+  },
+  {
+    "id": "PAPER 033",
+    "num": 33,
+    "date": "2026-02-02",
+    "season": "explorer",
+    "image": "images/explorer/paper-033.jpg",
+    "text": "texts/paper-033.txt"
+  },
+  {
+    "id": "PAPER 034",
+    "num": 34,
+    "date": "2026-02-03",
+    "season": "explorer",
+    "image": "images/explorer/paper-034.jpg",
+    "text": "texts/paper-034.txt"
+  },
+  {
+    "id": "PAPER 035",
+    "num": 35,
+    "date": "2026-02-04",
+    "season": "explorer",
+    "image": "images/explorer/paper-035.jpg",
+    "text": "texts/paper-035.txt"
+  },
+  {
+    "id": "PAPER 036",
+    "num": 36,
+    "date": "2026-02-05",
+    "season": "explorer",
+    "image": "images/explorer/paper-036.jpg",
+    "text": "texts/paper-036.txt"
+  },
+  {
+    "id": "PAPER 037",
+    "num": 37,
+    "date": "2026-02-06",
+    "season": "explorer",
+    "image": "images/explorer/paper-037.jpg",
+    "text": "texts/paper-037.txt"
+  },
+  {
+    "id": "PAPER 038",
+    "num": 38,
+    "date": "2026-02-07",
+    "season": "explorer",
+    "image": "images/explorer/paper-038.jpg",
+    "text": "texts/paper-038.txt"
+  },
+  {
+    "id": "PAPER 039",
+    "num": 39,
+    "date": "2026-02-08",
+    "season": "explorer",
+    "image": "images/explorer/paper-039.jpg",
+    "text": "texts/paper-039.txt"
+  },
+  {
+    "id": "PAPER 040",
+    "num": 40,
+    "date": "2026-02-09",
+    "season": "explorer",
+    "image": "images/explorer/paper-040.jpg",
+    "text": "texts/paper-040.txt"
+  },
+  {
+    "id": "PAPER 041",
+    "num": 41,
+    "date": "2026-02-10",
+    "season": "explorer",
+    "image": "images/explorer/paper-041.jpg",
+    "text": "texts/paper-041.txt"
+  },
+  {
+    "id": "PAPER 042",
+    "num": 42,
+    "date": "2026-02-11",
+    "season": "explorer",
+    "image": "images/explorer/paper-042.jpg",
+    "text": "texts/paper-042.txt"
+  },
+  {
+    "id": "PAPER 043",
+    "num": 43,
+    "date": "2026-02-12",
+    "season": "explorer",
+    "image": "images/explorer/paper-043.jpg",
+    "text": "texts/paper-043.txt"
+  },
+  {
+    "id": "PAPER 044",
+    "num": 44,
+    "date": "2026-02-13",
+    "season": "explorer",
+    "image": "images/explorer/paper-044.jpg",
+    "text": "texts/paper-044.txt"
+  },
+  {
+    "id": "PAPER 045",
+    "num": 45,
+    "date": "2026-02-14",
+    "season": "explorer",
+    "image": "images/explorer/paper-045.jpg",
+    "text": "texts/paper-045.txt"
+  },
+  {
+    "id": "PAPER 046",
+    "num": 46,
+    "date": "2026-02-15",
+    "season": "explorer",
+    "image": "images/explorer/paper-046.jpg",
+    "text": "texts/paper-046.txt"
+  },
+  {
+    "id": "PAPER 047",
+    "num": 47,
+    "date": "2026-02-16",
+    "season": "explorer",
+    "image": "images/explorer/paper-047.jpg",
+    "text": "texts/paper-047.txt"
+  },
+  {
+    "id": "PAPER 048",
+    "num": 48,
+    "date": "2026-02-17",
+    "season": "explorer",
+    "image": "images/explorer/paper-048.jpg",
+    "text": "texts/paper-048.txt"
+  },
+  {
+    "id": "PAPER 049",
+    "num": 49,
+    "date": "2026-02-18",
+    "season": "explorer",
+    "image": "images/explorer/paper-049.jpg",
+    "text": "texts/paper-049.txt"
+  },
+  {
+    "id": "PAPER 050",
+    "num": 50,
+    "date": "2026-02-19",
+    "season": "explorer",
+    "image": "images/explorer/paper-050.jpg",
+    "text": "texts/paper-050.txt"
+  },
+  {
+    "id": "PAPER 051",
+    "num": 51,
+    "date": "2026-02-20",
+    "season": "explorer",
+    "image": "images/explorer/paper-051.jpg",
+    "text": "texts/paper-051.txt"
+  },
+  {
+    "id": "PAPER 052",
+    "num": 52,
+    "date": "2026-02-21",
+    "season": "explorer",
+    "image": "images/explorer/paper-052.jpg",
+    "text": "texts/paper-052.txt"
+  },
+  {
+    "id": "PAPER 053",
+    "num": 53,
+    "date": "2026-02-22",
+    "season": "explorer",
+    "image": "images/explorer/paper-053.jpg",
+    "text": "texts/paper-053.txt"
+  },
+  {
+    "id": "PAPER 054",
+    "num": 54,
+    "date": "2026-02-23",
+    "season": "explorer",
+    "image": "images/explorer/paper-054.jpg",
+    "text": "texts/paper-054.txt"
+  },
+  {
+    "id": "PAPER 055",
+    "num": 55,
+    "date": "2026-02-24",
+    "season": "explorer",
+    "image": "images/explorer/paper-055.jpg",
+    "text": "texts/paper-055.txt"
+  },
+  {
+    "id": "PAPER 056",
+    "num": 56,
+    "date": "2026-02-25",
+    "season": "explorer",
+    "image": "images/explorer/paper-056.jpg",
+    "text": "texts/paper-056.txt"
+  },
+  {
+    "id": "PAPER 057",
+    "num": 57,
+    "date": "2026-02-26",
+    "season": "explorer",
+    "image": "images/explorer/paper-057.jpg",
+    "text": "texts/paper-057.txt"
+  },
+  {
+    "id": "PAPER 058",
+    "num": 58,
+    "date": "2026-02-27",
+    "season": "explorer",
+    "image": "images/explorer/paper-058.jpg",
+    "text": "texts/paper-058.txt"
+  },
+  {
+    "id": "PAPER 059",
+    "num": 59,
+    "date": "2026-02-28",
+    "season": "explorer",
+    "image": "images/explorer/paper-059.jpg",
+    "text": "texts/paper-059.txt"
+  },
+  {
+    "id": "PAPER 060",
+    "num": 60,
+    "date": "2026-03-01",
+    "season": "explorer",
+    "image": "images/explorer/paper-060.jpg",
+    "text": "texts/paper-060.txt"
+  },
+  {
+    "id": "PAPER 061",
+    "num": 61,
+    "date": "2026-03-02",
+    "season": "explorer",
+    "image": "images/explorer/paper-061.jpg",
+    "text": "texts/paper-061.txt"
+  },
+  {
+    "id": "PAPER 062",
+    "num": 62,
+    "date": "2026-03-03",
+    "season": "explorer",
+    "image": "images/explorer/paper-062.jpg",
+    "text": "texts/paper-062.txt"
+  },
+  {
+    "id": "PAPER 063",
+    "num": 63,
+    "date": "2026-03-04",
+    "season": "explorer",
+    "image": "images/explorer/paper-063.jpg",
+    "text": "texts/paper-063.txt"
+  },
+  {
+    "id": "PAPER 064",
+    "num": 64,
+    "date": "2026-03-05",
+    "season": "explorer",
+    "image": "images/explorer/paper-064.jpg",
+    "text": "texts/paper-064.txt"
+  },
+  {
+    "id": "PAPER 065",
+    "num": 65,
+    "date": "2026-03-06",
+    "season": "explorer",
+    "image": "images/explorer/paper-065.jpg",
+    "text": "texts/paper-065.txt"
+  },
+  {
+    "id": "PAPER 066",
+    "num": 66,
+    "date": "2026-03-07",
+    "season": "explorer",
+    "image": "images/explorer/paper-066.jpg",
+    "text": "texts/paper-066.txt"
+  },
+  {
+    "id": "PAPER 067",
+    "num": 67,
+    "date": "2026-03-08",
+    "season": "explorer",
+    "image": "images/explorer/paper-067.jpg",
+    "text": "texts/paper-067.txt"
+  },
+  {
+    "id": "PAPER 068",
+    "num": 68,
+    "date": "2026-03-09",
+    "season": "explorer",
+    "image": "images/explorer/paper-068.jpg",
+    "text": "texts/paper-068.txt"
+  },
+  {
+    "id": "PAPER 069",
+    "num": 69,
+    "date": "2026-03-10",
+    "season": "explorer",
+    "image": "images/explorer/paper-069.jpg",
+    "text": "texts/paper-069.txt"
+  },
+  {
+    "id": "PAPER 070",
+    "num": 70,
+    "date": "2026-03-11",
+    "season": "explorer",
+    "image": "images/explorer/paper-070.jpg",
+    "text": "texts/paper-070.txt"
+  },
+  {
+    "id": "PAPER 071",
+    "num": 71,
+    "date": "2026-03-12",
+    "season": "explorer",
+    "image": "images/explorer/paper-071.jpg",
+    "text": "texts/paper-071.txt"
+  },
+  {
+    "id": "PAPER 072",
+    "num": 72,
+    "date": "2026-03-13",
+    "season": "explorer",
+    "image": "images/explorer/paper-072.jpg",
+    "text": "texts/paper-072.txt"
+  },
+  {
+    "id": "PAPER 073",
+    "num": 73,
+    "date": "2026-03-14",
+    "season": "explorer",
+    "image": "images/explorer/paper-073.jpg",
+    "text": "texts/paper-073.txt"
+  },
+  {
+    "id": "PAPER 074",
+    "num": 74,
+    "date": "2026-03-15",
+    "season": "explorer",
+    "image": "images/explorer/paper-074.jpg",
+    "text": "texts/paper-074.txt"
+  },
+  {
+    "id": "PAPER 075",
+    "num": 75,
+    "date": "2026-03-16",
+    "season": "explorer",
+    "image": "images/explorer/paper-075.jpg",
+    "text": "texts/paper-075.txt"
+  },
+  {
+    "id": "PAPER 076",
+    "num": 76,
+    "date": "2026-03-17",
+    "season": "explorer",
+    "image": "images/explorer/paper-076.jpg",
+    "text": "texts/paper-076.txt"
+  },
+  {
+    "id": "PAPER 077",
+    "num": 77,
+    "date": "2026-03-18",
+    "season": "explorer",
+    "image": "images/explorer/paper-077.jpg",
+    "text": "texts/paper-077.txt"
+  },
+  {
+    "id": "PAPER 078",
+    "num": 78,
+    "date": "2026-03-19",
+    "season": "explorer",
+    "image": "images/explorer/paper-078.jpg",
+    "text": "texts/paper-078.txt"
+  },
+  {
+    "id": "PAPER 079",
+    "num": 79,
+    "date": "2026-03-20",
+    "season": "explorer",
+    "image": "images/explorer/paper-079.jpg",
+    "text": "texts/paper-079.txt"
+  },
+  {
+    "id": "PAPER 080",
+    "num": 80,
+    "date": "2026-03-21",
+    "season": "explorer",
+    "image": "images/explorer/paper-080.jpg",
+    "text": "texts/paper-080.txt"
+  },
+  {
+    "id": "PAPER 081",
+    "num": 81,
+    "date": "2026-03-22",
+    "season": "explorer",
+    "image": "images/explorer/paper-081.jpg",
+    "text": "texts/paper-081.txt"
+  },
+  {
+    "id": "PAPER 082",
+    "num": 82,
+    "date": "2026-03-23",
+    "season": "explorer",
+    "image": "images/explorer/paper-082.jpg",
+    "text": "texts/paper-082.txt"
+  },
+  {
+    "id": "PAPER 083",
+    "num": 83,
+    "date": "2026-03-24",
+    "season": "explorer",
+    "image": "images/explorer/paper-083.jpg",
+    "text": "texts/paper-083.txt"
+  },
+  {
+    "id": "PAPER 084",
+    "num": 84,
+    "date": "2026-03-25",
+    "season": "explorer",
+    "image": "images/explorer/paper-084.jpg",
+    "text": "texts/paper-084.txt"
+  },
+  {
+    "id": "PAPER 085",
+    "num": 85,
+    "date": "2026-03-26",
+    "season": "explorer",
+    "image": "images/explorer/paper-085.jpg",
+    "text": "texts/paper-085.txt"
+  },
+  {
+    "id": "PAPER 086",
+    "num": 86,
+    "date": "2026-03-27",
+    "season": "explorer",
+    "image": "images/explorer/paper-086.jpg",
+    "text": "texts/paper-086.txt"
+  },
+  {
+    "id": "PAPER 087",
+    "num": 87,
+    "date": "2026-03-28",
+    "season": "explorer",
+    "image": "images/explorer/paper-087.jpg",
+    "text": "texts/paper-087.txt"
+  },
+  {
+    "id": "PAPER 088",
+    "num": 88,
+    "date": "2026-03-29",
+    "season": "explorer",
+    "image": "images/explorer/paper-088.jpg",
+    "text": "texts/paper-088.txt"
+  },
+  {
+    "id": "PAPER 089",
+    "num": 89,
+    "date": "2026-03-30",
+    "season": "explorer",
+    "image": "images/explorer/paper-089.jpg",
+    "text": "texts/paper-089.txt"
+  },
+  {
+    "id": "PAPER 090",
+    "num": 90,
+    "date": "2026-03-31",
+    "season": "explorer",
+    "image": "images/explorer/paper-090.jpg",
+    "text": "texts/paper-090.txt"
+  },
+  {
+    "id": "PAPER 091",
+    "num": 91,
+    "date": "2026-04-01",
+    "season": "construire",
+    "image": "images/construire/paper-091.jpg",
+    "text": "texts/paper-091.txt"
+  },
+  {
+    "id": "PAPER 092",
+    "num": 92,
+    "date": "2026-04-02",
+    "season": "construire",
+    "image": "images/construire/paper-092.jpg",
+    "text": "texts/paper-092.txt"
+  },
+  {
+    "id": "PAPER 093",
+    "num": 93,
+    "date": "2026-04-03",
+    "season": "construire",
+    "image": "images/construire/paper-093.jpg",
+    "text": "texts/paper-093.txt"
+  },
+  {
+    "id": "PAPER 094",
+    "num": 94,
+    "date": "2026-04-04",
+    "season": "construire",
+    "image": "images/construire/paper-094.jpg",
+    "text": "texts/paper-094.txt"
+  },
+  {
+    "id": "PAPER 095",
+    "num": 95,
+    "date": "2026-04-05",
+    "season": "construire",
+    "image": "images/construire/paper-095.jpg",
+    "text": "texts/paper-095.txt"
+  },
+  {
+    "id": "PAPER 096",
+    "num": 96,
+    "date": "2026-04-06",
+    "season": "construire",
+    "image": "images/construire/paper-096.jpg",
+    "text": "texts/paper-096.txt"
+  },
+  {
+    "id": "PAPER 097",
+    "num": 97,
+    "date": "2026-04-07",
+    "season": "construire",
+    "image": "images/construire/paper-097.jpg",
+    "text": "texts/paper-097.txt"
+  },
+  {
+    "id": "PAPER 098",
+    "num": 98,
+    "date": "2026-04-08",
+    "season": "construire",
+    "image": "images/construire/paper-098.jpg",
+    "text": "texts/paper-098.txt"
+  },
+  {
+    "id": "PAPER 099",
+    "num": 99,
+    "date": "2026-04-09",
+    "season": "construire",
+    "image": "images/construire/paper-099.jpg",
+    "text": "texts/paper-099.txt"
+  },
+  {
+    "id": "PAPER 100",
+    "num": 100,
+    "date": "2026-04-10",
+    "season": "construire",
+    "image": "images/construire/paper-100.jpg",
+    "text": "texts/paper-100.txt"
+  },
+  {
+    "id": "PAPER 101",
+    "num": 101,
+    "date": "2026-04-11",
+    "season": "construire",
+    "image": "images/construire/paper-101.jpg",
+    "text": "texts/paper-101.txt"
+  },
+  {
+    "id": "PAPER 102",
+    "num": 102,
+    "date": "2026-04-12",
+    "season": "construire",
+    "image": "images/construire/paper-102.jpg",
+    "text": "texts/paper-102.txt"
+  },
+  {
+    "id": "PAPER 103",
+    "num": 103,
+    "date": "2026-04-13",
+    "season": "construire",
+    "image": "images/construire/paper-103.jpg",
+    "text": "texts/paper-103.txt"
+  },
+  {
+    "id": "PAPER 104",
+    "num": 104,
+    "date": "2026-04-14",
+    "season": "construire",
+    "image": "images/construire/paper-104.jpg",
+    "text": "texts/paper-104.txt"
+  },
+  {
+    "id": "PAPER 105",
+    "num": 105,
+    "date": "2026-04-15",
+    "season": "construire",
+    "image": "images/construire/paper-105.jpg",
+    "text": "texts/paper-105.txt"
+  },
+  {
+    "id": "PAPER 106",
+    "num": 106,
+    "date": "2026-04-16",
+    "season": "construire",
+    "image": "images/construire/paper-106.jpg",
+    "text": "texts/paper-106.txt"
+  },
+  {
+    "id": "PAPER 107",
+    "num": 107,
+    "date": "2026-04-17",
+    "season": "construire",
+    "image": "images/construire/paper-107.jpg",
+    "text": "texts/paper-107.txt"
+  },
+  {
+    "id": "PAPER 108",
+    "num": 108,
+    "date": "2026-04-18",
+    "season": "construire",
+    "image": "images/construire/paper-108.jpg",
+    "text": "texts/paper-108.txt"
+  },
+  {
+    "id": "PAPER 109",
+    "num": 109,
+    "date": "2026-04-19",
+    "season": "construire",
+    "image": "images/construire/paper-109.jpg",
+    "text": "texts/paper-109.txt"
+  },
+  {
+    "id": "PAPER 110",
+    "num": 110,
+    "date": "2026-04-20",
+    "season": "construire",
+    "image": "images/construire/paper-110.jpg",
+    "text": "texts/paper-110.txt"
+  },
+  {
+    "id": "PAPER 111",
+    "num": 111,
+    "date": "2026-04-21",
+    "season": "construire",
+    "image": "images/construire/paper-111.jpg",
+    "text": "texts/paper-111.txt"
+  },
+  {
+    "id": "PAPER 112",
+    "num": 112,
+    "date": "2026-04-22",
+    "season": "construire",
+    "image": "images/construire/paper-112.jpg",
+    "text": "texts/paper-112.txt"
+  },
+  {
+    "id": "PAPER 113",
+    "num": 113,
+    "date": "2026-04-23",
+    "season": "construire",
+    "image": "images/construire/paper-113.jpg",
+    "text": "texts/paper-113.txt"
+  },
+  {
+    "id": "PAPER 114",
+    "num": 114,
+    "date": "2026-04-24",
+    "season": "construire",
+    "image": "images/construire/paper-114.jpg",
+    "text": "texts/paper-114.txt"
+  },
+  {
+    "id": "PAPER 115",
+    "num": 115,
+    "date": "2026-04-25",
+    "season": "construire",
+    "image": "images/construire/paper-115.jpg",
+    "text": "texts/paper-115.txt"
+  },
+  {
+    "id": "PAPER 116",
+    "num": 116,
+    "date": "2026-04-26",
+    "season": "construire",
+    "image": "images/construire/paper-116.jpg",
+    "text": "texts/paper-116.txt"
+  },
+  {
+    "id": "PAPER 117",
+    "num": 117,
+    "date": "2026-04-27",
+    "season": "construire",
+    "image": "images/construire/paper-117.jpg",
+    "text": "texts/paper-117.txt"
+  },
+  {
+    "id": "PAPER 118",
+    "num": 118,
+    "date": "2026-04-28",
+    "season": "construire",
+    "image": "images/construire/paper-118.jpg",
+    "text": "texts/paper-118.txt"
+  },
+  {
+    "id": "PAPER 119",
+    "num": 119,
+    "date": "2026-04-29",
+    "season": "construire",
+    "image": "images/construire/paper-119.jpg",
+    "text": "texts/paper-119.txt"
+  },
+  {
+    "id": "PAPER 120",
+    "num": 120,
+    "date": "2026-04-30",
+    "season": "construire",
+    "image": "images/construire/paper-120.jpg",
+    "text": "texts/paper-120.txt"
+  },
+  {
+    "id": "PAPER 121",
+    "num": 121,
+    "date": "2026-05-01",
+    "season": "construire",
+    "image": "images/construire/paper-121.jpg",
+    "text": "texts/paper-121.txt"
+  },
+  {
+    "id": "PAPER 122",
+    "num": 122,
+    "date": "2026-05-02",
+    "season": "construire",
+    "image": "images/construire/paper-122.jpg",
+    "text": "texts/paper-122.txt"
+  },
+  {
+    "id": "PAPER 123",
+    "num": 123,
+    "date": "2026-05-03",
+    "season": "construire",
+    "image": "images/construire/paper-123.jpg",
+    "text": "texts/paper-123.txt"
+  },
+  {
+    "id": "PAPER 124",
+    "num": 124,
+    "date": "2026-05-04",
+    "season": "construire",
+    "image": "images/construire/paper-124.jpg",
+    "text": "texts/paper-124.txt"
+  },
+  {
+    "id": "PAPER 125",
+    "num": 125,
+    "date": "2026-05-05",
+    "season": "construire",
+    "image": "images/construire/paper-125.jpg",
+    "text": "texts/paper-125.txt"
+  },
+  {
+    "id": "PAPER 126",
+    "num": 126,
+    "date": "2026-05-06",
+    "season": "construire",
+    "image": "images/construire/paper-126.jpg",
+    "text": "texts/paper-126.txt"
+  },
+  {
+    "id": "PAPER 127",
+    "num": 127,
+    "date": "2026-05-07",
+    "season": "construire",
+    "image": "images/construire/paper-127.jpg",
+    "text": "texts/paper-127.txt"
+  },
+  {
+    "id": "PAPER 128",
+    "num": 128,
+    "date": "2026-05-08",
+    "season": "construire",
+    "image": "images/construire/paper-128.jpg",
+    "text": "texts/paper-128.txt"
+  },
+  {
+    "id": "PAPER 129",
+    "num": 129,
+    "date": "2026-05-09",
+    "season": "construire",
+    "image": "images/construire/paper-129.jpg",
+    "text": "texts/paper-129.txt"
+  },
+  {
+    "id": "PAPER 130",
+    "num": 130,
+    "date": "2026-05-10",
+    "season": "construire",
+    "image": "images/construire/paper-130.jpg",
+    "text": "texts/paper-130.txt"
+  },
+  {
+    "id": "PAPER 131",
+    "num": 131,
+    "date": "2026-05-11",
+    "season": "construire",
+    "image": "images/construire/paper-131.jpg",
+    "text": "texts/paper-131.txt"
+  },
+  {
+    "id": "PAPER 132",
+    "num": 132,
+    "date": "2026-05-12",
+    "season": "construire",
+    "image": "images/construire/paper-132.jpg",
+    "text": "texts/paper-132.txt"
+  },
+  {
+    "id": "PAPER 133",
+    "num": 133,
+    "date": "2026-05-13",
+    "season": "construire",
+    "image": "images/construire/paper-133.jpg",
+    "text": "texts/paper-133.txt"
+  },
+  {
+    "id": "PAPER 134",
+    "num": 134,
+    "date": "2026-05-14",
+    "season": "construire",
+    "image": "images/construire/paper-134.jpg",
+    "text": "texts/paper-134.txt"
+  },
+  {
+    "id": "PAPER 135",
+    "num": 135,
+    "date": "2026-05-15",
+    "season": "construire",
+    "image": "images/construire/paper-135.jpg",
+    "text": "texts/paper-135.txt"
+  },
+  {
+    "id": "PAPER 136",
+    "num": 136,
+    "date": "2026-05-16",
+    "season": "construire",
+    "image": "images/construire/paper-136.jpg",
+    "text": "texts/paper-136.txt"
+  },
+  {
+    "id": "PAPER 137",
+    "num": 137,
+    "date": "2026-05-17",
+    "season": "construire",
+    "image": "images/construire/paper-137.jpg",
+    "text": "texts/paper-137.txt"
+  },
+  {
+    "id": "PAPER 138",
+    "num": 138,
+    "date": "2026-05-18",
+    "season": "construire",
+    "image": "images/construire/paper-138.jpg",
+    "text": "texts/paper-138.txt"
+  },
+  {
+    "id": "PAPER 139",
+    "num": 139,
+    "date": "2026-05-19",
+    "season": "construire",
+    "image": "images/construire/paper-139.jpg",
+    "text": "texts/paper-139.txt"
+  },
+  {
+    "id": "PAPER 140",
+    "num": 140,
+    "date": "2026-05-20",
+    "season": "construire",
+    "image": "images/construire/paper-140.jpg",
+    "text": "texts/paper-140.txt"
+  },
+  {
+    "id": "PAPER 141",
+    "num": 141,
+    "date": "2026-05-21",
+    "season": "construire",
+    "image": "images/construire/paper-141.jpg",
+    "text": "texts/paper-141.txt"
+  },
+  {
+    "id": "PAPER 142",
+    "num": 142,
+    "date": "2026-05-22",
+    "season": "construire",
+    "image": "images/construire/paper-142.jpg",
+    "text": "texts/paper-142.txt"
+  },
+  {
+    "id": "PAPER 143",
+    "num": 143,
+    "date": "2026-05-23",
+    "season": "construire",
+    "image": "images/construire/paper-143.jpg",
+    "text": "texts/paper-143.txt"
+  },
+  {
+    "id": "PAPER 144",
+    "num": 144,
+    "date": "2026-05-24",
+    "season": "construire",
+    "image": "images/construire/paper-144.jpg",
+    "text": "texts/paper-144.txt"
+  },
+  {
+    "id": "PAPER 145",
+    "num": 145,
+    "date": "2026-05-25",
+    "season": "construire",
+    "image": "images/construire/paper-145.jpg",
+    "text": "texts/paper-145.txt"
+  },
+  {
+    "id": "PAPER 146",
+    "num": 146,
+    "date": "2026-05-26",
+    "season": "construire",
+    "image": "images/construire/paper-146.jpg",
+    "text": "texts/paper-146.txt"
+  },
+  {
+    "id": "PAPER 147",
+    "num": 147,
+    "date": "2026-05-27",
+    "season": "construire",
+    "image": "images/construire/paper-147.jpg",
+    "text": "texts/paper-147.txt"
+  },
+  {
+    "id": "PAPER 148",
+    "num": 148,
+    "date": "2026-05-28",
+    "season": "construire",
+    "image": "images/construire/paper-148.jpg",
+    "text": "texts/paper-148.txt"
+  },
+  {
+    "id": "PAPER 149",
+    "num": 149,
+    "date": "2026-05-29",
+    "season": "construire",
+    "image": "images/construire/paper-149.jpg",
+    "text": "texts/paper-149.txt"
+  },
+  {
+    "id": "PAPER 150",
+    "num": 150,
+    "date": "2026-05-30",
+    "season": "construire",
+    "image": "images/construire/paper-150.jpg",
+    "text": "texts/paper-150.txt"
+  },
+  {
+    "id": "PAPER 151",
+    "num": 151,
+    "date": "2026-05-31",
+    "season": "construire",
+    "image": "images/construire/paper-151.jpg",
+    "text": "texts/paper-151.txt"
+  },
+  {
+    "id": "PAPER 152",
+    "num": 152,
+    "date": "2026-06-01",
+    "season": "construire",
+    "image": "images/construire/paper-152.jpg",
+    "text": "texts/paper-152.txt"
+  },
+  {
+    "id": "PAPER 153",
+    "num": 153,
+    "date": "2026-06-02",
+    "season": "construire",
+    "image": "images/construire/paper-153.jpg",
+    "text": "texts/paper-153.txt"
+  },
+  {
+    "id": "PAPER 154",
+    "num": 154,
+    "date": "2026-06-03",
+    "season": "construire",
+    "image": "images/construire/paper-154.jpg",
+    "text": "texts/paper-154.txt"
+  },
+  {
+    "id": "PAPER 155",
+    "num": 155,
+    "date": "2026-06-04",
+    "season": "construire",
+    "image": "images/construire/paper-155.jpg",
+    "text": "texts/paper-155.txt"
+  },
+  {
+    "id": "PAPER 156",
+    "num": 156,
+    "date": "2026-06-05",
+    "season": "construire",
+    "image": "images/construire/paper-156.jpg",
+    "text": "texts/paper-156.txt"
+  },
+  {
+    "id": "PAPER 157",
+    "num": 157,
+    "date": "2026-06-06",
+    "season": "construire",
+    "image": "images/construire/paper-157.jpg",
+    "text": "texts/paper-157.txt"
+  },
+  {
+    "id": "PAPER 158",
+    "num": 158,
+    "date": "2026-06-07",
+    "season": "construire",
+    "image": "images/construire/paper-158.jpg",
+    "text": "texts/paper-158.txt"
+  },
+  {
+    "id": "PAPER 159",
+    "num": 159,
+    "date": "2026-06-08",
+    "season": "construire",
+    "image": "images/construire/paper-159.jpg",
+    "text": "texts/paper-159.txt"
+  },
+  {
+    "id": "PAPER 160",
+    "num": 160,
+    "date": "2026-06-09",
+    "season": "construire",
+    "image": "images/construire/paper-160.jpg",
+    "text": "texts/paper-160.txt"
+  },
+  {
+    "id": "PAPER 161",
+    "num": 161,
+    "date": "2026-06-10",
+    "season": "construire",
+    "image": "images/construire/paper-161.jpg",
+    "text": "texts/paper-161.txt"
+  },
+  {
+    "id": "PAPER 162",
+    "num": 162,
+    "date": "2026-06-11",
+    "season": "construire",
+    "image": "images/construire/paper-162.jpg",
+    "text": "texts/paper-162.txt"
+  },
+  {
+    "id": "PAPER 163",
+    "num": 163,
+    "date": "2026-06-12",
+    "season": "construire",
+    "image": "images/construire/paper-163.jpg",
+    "text": "texts/paper-163.txt"
+  },
+  {
+    "id": "PAPER 164",
+    "num": 164,
+    "date": "2026-06-13",
+    "season": "construire",
+    "image": "images/construire/paper-164.jpg",
+    "text": "texts/paper-164.txt"
+  },
+  {
+    "id": "PAPER 165",
+    "num": 165,
+    "date": "2026-06-14",
+    "season": "construire",
+    "image": "images/construire/paper-165.jpg",
+    "text": "texts/paper-165.txt"
+  },
+  {
+    "id": "PAPER 166",
+    "num": 166,
+    "date": "2026-06-15",
+    "season": "construire",
+    "image": "images/construire/paper-166.jpg",
+    "text": "texts/paper-166.txt"
+  },
+  {
+    "id": "PAPER 167",
+    "num": 167,
+    "date": "2026-06-16",
+    "season": "construire",
+    "image": "images/construire/paper-167.jpg",
+    "text": "texts/paper-167.txt"
+  },
+  {
+    "id": "PAPER 168",
+    "num": 168,
+    "date": "2026-06-17",
+    "season": "construire",
+    "image": "images/construire/paper-168.jpg",
+    "text": "texts/paper-168.txt"
+  },
+  {
+    "id": "PAPER 169",
+    "num": 169,
+    "date": "2026-06-18",
+    "season": "construire",
+    "image": "images/construire/paper-169.jpg",
+    "text": "texts/paper-169.txt"
+  },
+  {
+    "id": "PAPER 170",
+    "num": 170,
+    "date": "2026-06-19",
+    "season": "construire",
+    "image": "images/construire/paper-170.jpg",
+    "text": "texts/paper-170.txt"
+  },
+  {
+    "id": "PAPER 171",
+    "num": 171,
+    "date": "2026-06-20",
+    "season": "construire",
+    "image": "images/construire/paper-171.jpg",
+    "text": "texts/paper-171.txt"
+  },
+  {
+    "id": "PAPER 172",
+    "num": 172,
+    "date": "2026-06-21",
+    "season": "construire",
+    "image": "images/construire/paper-172.jpg",
+    "text": "texts/paper-172.txt"
+  },
+  {
+    "id": "PAPER 173",
+    "num": 173,
+    "date": "2026-06-22",
+    "season": "construire",
+    "image": "images/construire/paper-173.jpg",
+    "text": "texts/paper-173.txt"
+  },
+  {
+    "id": "PAPER 174",
+    "num": 174,
+    "date": "2026-06-23",
+    "season": "construire",
+    "image": "images/construire/paper-174.jpg",
+    "text": "texts/paper-174.txt"
+  },
+  {
+    "id": "PAPER 175",
+    "num": 175,
+    "date": "2026-06-24",
+    "season": "construire",
+    "image": "images/construire/paper-175.jpg",
+    "text": "texts/paper-175.txt"
+  },
+  {
+    "id": "PAPER 176",
+    "num": 176,
+    "date": "2026-06-25",
+    "season": "construire",
+    "image": "images/construire/paper-176.jpg",
+    "text": "texts/paper-176.txt"
+  },
+  {
+    "id": "PAPER 177",
+    "num": 177,
+    "date": "2026-06-26",
+    "season": "construire",
+    "image": "images/construire/paper-177.jpg",
+    "text": "texts/paper-177.txt"
+  },
+  {
+    "id": "PAPER 178",
+    "num": 178,
+    "date": "2026-06-27",
+    "season": "construire",
+    "image": "images/construire/paper-178.jpg",
+    "text": "texts/paper-178.txt"
+  },
+  {
+    "id": "PAPER 179",
+    "num": 179,
+    "date": "2026-06-28",
+    "season": "construire",
+    "image": "images/construire/paper-179.jpg",
+    "text": "texts/paper-179.txt"
+  },
+  {
+    "id": "PAPER 180",
+    "num": 180,
+    "date": "2026-06-29",
+    "season": "construire",
+    "image": "images/construire/paper-180.jpg",
+    "text": "texts/paper-180.txt"
+  },
+  {
+    "id": "PAPER 181",
+    "num": 181,
+    "date": "2026-06-30",
+    "season": "construire",
+    "image": "images/construire/paper-181.jpg",
+    "text": "texts/paper-181.txt"
+  },
+  {
+    "id": "PAPER 182",
+    "num": 182,
+    "date": "2026-07-01",
+    "season": "creer",
+    "image": "images/creer/paper-182.jpg",
+    "text": "texts/paper-182.txt"
+  },
+  {
+    "id": "PAPER 183",
+    "num": 183,
+    "date": "2026-07-02",
+    "season": "creer",
+    "image": "images/creer/paper-183.jpg",
+    "text": "texts/paper-183.txt"
+  },
+  {
+    "id": "PAPER 184",
+    "num": 184,
+    "date": "2026-07-03",
+    "season": "creer",
+    "image": "images/creer/paper-184.jpg",
+    "text": "texts/paper-184.txt"
+  },
+  {
+    "id": "PAPER 185",
+    "num": 185,
+    "date": "2026-07-04",
+    "season": "creer",
+    "image": "images/creer/paper-185.jpg",
+    "text": "texts/paper-185.txt"
+  },
+  {
+    "id": "PAPER 186",
+    "num": 186,
+    "date": "2026-07-05",
+    "season": "creer",
+    "image": "images/creer/paper-186.jpg",
+    "text": "texts/paper-186.txt"
+  },
+  {
+    "id": "PAPER 187",
+    "num": 187,
+    "date": "2026-07-06",
+    "season": "creer",
+    "image": "images/creer/paper-187.jpg",
+    "text": "texts/paper-187.txt"
+  },
+  {
+    "id": "PAPER 188",
+    "num": 188,
+    "date": "2026-07-07",
+    "season": "creer",
+    "image": "images/creer/paper-188.jpg",
+    "text": "texts/paper-188.txt"
+  },
+  {
+    "id": "PAPER 189",
+    "num": 189,
+    "date": "2026-07-08",
+    "season": "creer",
+    "image": "images/creer/paper-189.jpg",
+    "text": "texts/paper-189.txt"
+  },
+  {
+    "id": "PAPER 190",
+    "num": 190,
+    "date": "2026-07-09",
+    "season": "creer",
+    "image": "images/creer/paper-190.jpg",
+    "text": "texts/paper-190.txt"
+  },
+  {
+    "id": "PAPER 191",
+    "num": 191,
+    "date": "2026-07-10",
+    "season": "creer",
+    "image": "images/creer/paper-191.jpg",
+    "text": "texts/paper-191.txt"
+  },
+  {
+    "id": "PAPER 192",
+    "num": 192,
+    "date": "2026-07-11",
+    "season": "creer",
+    "image": "images/creer/paper-192.jpg",
+    "text": "texts/paper-192.txt"
+  },
+  {
+    "id": "PAPER 193",
+    "num": 193,
+    "date": "2026-07-12",
+    "season": "creer",
+    "image": "images/creer/paper-193.jpg",
+    "text": "texts/paper-193.txt"
+  },
+  {
+    "id": "PAPER 194",
+    "num": 194,
+    "date": "2026-07-13",
+    "season": "creer",
+    "image": "images/creer/paper-194.jpg",
+    "text": "texts/paper-194.txt"
+  },
+  {
+    "id": "PAPER 195",
+    "num": 195,
+    "date": "2026-07-14",
+    "season": "creer",
+    "image": "images/creer/paper-195.jpg",
+    "text": "texts/paper-195.txt"
+  },
+  {
+    "id": "PAPER 196",
+    "num": 196,
+    "date": "2026-07-15",
+    "season": "creer",
+    "image": "images/creer/paper-196.jpg",
+    "text": "texts/paper-196.txt"
+  },
+  {
+    "id": "PAPER 197",
+    "num": 197,
+    "date": "2026-07-16",
+    "season": "creer",
+    "image": "images/creer/paper-197.jpg",
+    "text": "texts/paper-197.txt"
+  },
+  {
+    "id": "PAPER 198",
+    "num": 198,
+    "date": "2026-07-17",
+    "season": "creer",
+    "image": "images/creer/paper-198.jpg",
+    "text": "texts/paper-198.txt"
+  },
+  {
+    "id": "PAPER 199",
+    "num": 199,
+    "date": "2026-07-18",
+    "season": "creer",
+    "image": "images/creer/paper-199.jpg",
+    "text": "texts/paper-199.txt"
+  },
+  {
+    "id": "PAPER 200",
+    "num": 200,
+    "date": "2026-07-19",
+    "season": "creer",
+    "image": "images/creer/paper-200.jpg",
+    "text": "texts/paper-200.txt"
+  },
+  {
+    "id": "PAPER 201",
+    "num": 201,
+    "date": "2026-07-20",
+    "season": "creer",
+    "image": "images/creer/paper-201.jpg",
+    "text": "texts/paper-201.txt"
+  },
+  {
+    "id": "PAPER 202",
+    "num": 202,
+    "date": "2026-07-21",
+    "season": "creer",
+    "image": "images/creer/paper-202.jpg",
+    "text": "texts/paper-202.txt"
+  },
+  {
+    "id": "PAPER 203",
+    "num": 203,
+    "date": "2026-07-22",
+    "season": "creer",
+    "image": "images/creer/paper-203.jpg",
+    "text": "texts/paper-203.txt"
+  },
+  {
+    "id": "PAPER 204",
+    "num": 204,
+    "date": "2026-07-23",
+    "season": "creer",
+    "image": "images/creer/paper-204.jpg",
+    "text": "texts/paper-204.txt"
+  },
+  {
+    "id": "PAPER 205",
+    "num": 205,
+    "date": "2026-07-24",
+    "season": "creer",
+    "image": "images/creer/paper-205.jpg",
+    "text": "texts/paper-205.txt"
+  },
+  {
+    "id": "PAPER 206",
+    "num": 206,
+    "date": "2026-07-25",
+    "season": "creer",
+    "image": "images/creer/paper-206.jpg",
+    "text": "texts/paper-206.txt"
+  },
+  {
+    "id": "PAPER 207",
+    "num": 207,
+    "date": "2026-07-26",
+    "season": "creer",
+    "image": "images/creer/paper-207.jpg",
+    "text": "texts/paper-207.txt"
+  },
+  {
+    "id": "PAPER 208",
+    "num": 208,
+    "date": "2026-07-27",
+    "season": "creer",
+    "image": "images/creer/paper-208.jpg",
+    "text": "texts/paper-208.txt"
+  },
+  {
+    "id": "PAPER 209",
+    "num": 209,
+    "date": "2026-07-28",
+    "season": "creer",
+    "image": "images/creer/paper-209.jpg",
+    "text": "texts/paper-209.txt"
+  },
+  {
+    "id": "PAPER 210",
+    "num": 210,
+    "date": "2026-07-29",
+    "season": "creer",
+    "image": "images/creer/paper-210.jpg",
+    "text": "texts/paper-210.txt"
+  },
+  {
+    "id": "PAPER 211",
+    "num": 211,
+    "date": "2026-07-30",
+    "season": "creer",
+    "image": "images/creer/paper-211.jpg",
+    "text": "texts/paper-211.txt"
+  },
+  {
+    "id": "PAPER 212",
+    "num": 212,
+    "date": "2026-07-31",
+    "season": "creer",
+    "image": "images/creer/paper-212.jpg",
+    "text": "texts/paper-212.txt"
+  },
+  {
+    "id": "PAPER 213",
+    "num": 213,
+    "date": "2026-08-01",
+    "season": "creer",
+    "image": "images/creer/paper-213.jpg",
+    "text": "texts/paper-213.txt"
+  },
+  {
+    "id": "PAPER 214",
+    "num": 214,
+    "date": "2026-08-02",
+    "season": "creer",
+    "image": "images/creer/paper-214.jpg",
+    "text": "texts/paper-214.txt"
+  },
+  {
+    "id": "PAPER 215",
+    "num": 215,
+    "date": "2026-08-03",
+    "season": "creer",
+    "image": "images/creer/paper-215.jpg",
+    "text": "texts/paper-215.txt"
+  },
+  {
+    "id": "PAPER 216",
+    "num": 216,
+    "date": "2026-08-04",
+    "season": "creer",
+    "image": "images/creer/paper-216.jpg",
+    "text": "texts/paper-216.txt"
+  },
+  {
+    "id": "PAPER 217",
+    "num": 217,
+    "date": "2026-08-05",
+    "season": "creer",
+    "image": "images/creer/paper-217.jpg",
+    "text": "texts/paper-217.txt"
+  },
+  {
+    "id": "PAPER 218",
+    "num": 218,
+    "date": "2026-08-06",
+    "season": "creer",
+    "image": "images/creer/paper-218.jpg",
+    "text": "texts/paper-218.txt"
+  },
+  {
+    "id": "PAPER 219",
+    "num": 219,
+    "date": "2026-08-07",
+    "season": "creer",
+    "image": "images/creer/paper-219.jpg",
+    "text": "texts/paper-219.txt"
+  },
+  {
+    "id": "PAPER 220",
+    "num": 220,
+    "date": "2026-08-08",
+    "season": "creer",
+    "image": "images/creer/paper-220.jpg",
+    "text": "texts/paper-220.txt"
+  },
+  {
+    "id": "PAPER 221",
+    "num": 221,
+    "date": "2026-08-09",
+    "season": "creer",
+    "image": "images/creer/paper-221.jpg",
+    "text": "texts/paper-221.txt"
+  },
+  {
+    "id": "PAPER 222",
+    "num": 222,
+    "date": "2026-08-10",
+    "season": "creer",
+    "image": "images/creer/paper-222.jpg",
+    "text": "texts/paper-222.txt"
+  },
+  {
+    "id": "PAPER 223",
+    "num": 223,
+    "date": "2026-08-11",
+    "season": "creer",
+    "image": "images/creer/paper-223.jpg",
+    "text": "texts/paper-223.txt"
+  },
+  {
+    "id": "PAPER 224",
+    "num": 224,
+    "date": "2026-08-12",
+    "season": "creer",
+    "image": "images/creer/paper-224.jpg",
+    "text": "texts/paper-224.txt"
+  },
+  {
+    "id": "PAPER 225",
+    "num": 225,
+    "date": "2026-08-13",
+    "season": "creer",
+    "image": "images/creer/paper-225.jpg",
+    "text": "texts/paper-225.txt"
+  },
+  {
+    "id": "PAPER 226",
+    "num": 226,
+    "date": "2026-08-14",
+    "season": "creer",
+    "image": "images/creer/paper-226.jpg",
+    "text": "texts/paper-226.txt"
+  },
+  {
+    "id": "PAPER 227",
+    "num": 227,
+    "date": "2026-08-15",
+    "season": "creer",
+    "image": "images/creer/paper-227.jpg",
+    "text": "texts/paper-227.txt"
+  },
+  {
+    "id": "PAPER 228",
+    "num": 228,
+    "date": "2026-08-16",
+    "season": "creer",
+    "image": "images/creer/paper-228.jpg",
+    "text": "texts/paper-228.txt"
+  },
+  {
+    "id": "PAPER 229",
+    "num": 229,
+    "date": "2026-08-17",
+    "season": "creer",
+    "image": "images/creer/paper-229.jpg",
+    "text": "texts/paper-229.txt"
+  },
+  {
+    "id": "PAPER 230",
+    "num": 230,
+    "date": "2026-08-18",
+    "season": "creer",
+    "image": "images/creer/paper-230.jpg",
+    "text": "texts/paper-230.txt"
+  },
+  {
+    "id": "PAPER 231",
+    "num": 231,
+    "date": "2026-08-19",
+    "season": "creer",
+    "image": "images/creer/paper-231.jpg",
+    "text": "texts/paper-231.txt"
+  },
+  {
+    "id": "PAPER 232",
+    "num": 232,
+    "date": "2026-08-20",
+    "season": "creer",
+    "image": "images/creer/paper-232.jpg",
+    "text": "texts/paper-232.txt"
+  },
+  {
+    "id": "PAPER 233",
+    "num": 233,
+    "date": "2026-08-21",
+    "season": "creer",
+    "image": "images/creer/paper-233.jpg",
+    "text": "texts/paper-233.txt"
+  },
+  {
+    "id": "PAPER 234",
+    "num": 234,
+    "date": "2026-08-22",
+    "season": "creer",
+    "image": "images/creer/paper-234.jpg",
+    "text": "texts/paper-234.txt"
+  },
+  {
+    "id": "PAPER 235",
+    "num": 235,
+    "date": "2026-08-23",
+    "season": "creer",
+    "image": "images/creer/paper-235.jpg",
+    "text": "texts/paper-235.txt"
+  },
+  {
+    "id": "PAPER 236",
+    "num": 236,
+    "date": "2026-08-24",
+    "season": "creer",
+    "image": "images/creer/paper-236.jpg",
+    "text": "texts/paper-236.txt"
+  },
+  {
+    "id": "PAPER 237",
+    "num": 237,
+    "date": "2026-08-25",
+    "season": "creer",
+    "image": "images/creer/paper-237.jpg",
+    "text": "texts/paper-237.txt"
+  },
+  {
+    "id": "PAPER 238",
+    "num": 238,
+    "date": "2026-08-26",
+    "season": "creer",
+    "image": "images/creer/paper-238.jpg",
+    "text": "texts/paper-238.txt"
+  },
+  {
+    "id": "PAPER 239",
+    "num": 239,
+    "date": "2026-08-27",
+    "season": "creer",
+    "image": "images/creer/paper-239.jpg",
+    "text": "texts/paper-239.txt"
+  },
+  {
+    "id": "PAPER 240",
+    "num": 240,
+    "date": "2026-08-28",
+    "season": "creer",
+    "image": "images/creer/paper-240.jpg",
+    "text": "texts/paper-240.txt"
+  },
+  {
+    "id": "PAPER 241",
+    "num": 241,
+    "date": "2026-08-29",
+    "season": "creer",
+    "image": "images/creer/paper-241.jpg",
+    "text": "texts/paper-241.txt"
+  },
+  {
+    "id": "PAPER 242",
+    "num": 242,
+    "date": "2026-08-30",
+    "season": "creer",
+    "image": "images/creer/paper-242.jpg",
+    "text": "texts/paper-242.txt"
+  },
+  {
+    "id": "PAPER 243",
+    "num": 243,
+    "date": "2026-08-31",
+    "season": "creer",
+    "image": "images/creer/paper-243.jpg",
+    "text": "texts/paper-243.txt"
+  },
+  {
+    "id": "PAPER 244",
+    "num": 244,
+    "date": "2026-09-01",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-244.jpg",
+    "text": "texts/paper-244.txt"
+  },
+  {
+    "id": "PAPER 245",
+    "num": 245,
+    "date": "2026-09-02",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-245.jpg",
+    "text": "texts/paper-245.txt"
+  },
+  {
+    "id": "PAPER 246",
+    "num": 246,
+    "date": "2026-09-03",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-246.jpg",
+    "text": "texts/paper-246.txt"
+  },
+  {
+    "id": "PAPER 247",
+    "num": 247,
+    "date": "2026-09-04",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-247.jpg",
+    "text": "texts/paper-247.txt"
+  },
+  {
+    "id": "PAPER 248",
+    "num": 248,
+    "date": "2026-09-05",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-248.jpg",
+    "text": "texts/paper-248.txt"
+  },
+  {
+    "id": "PAPER 249",
+    "num": 249,
+    "date": "2026-09-06",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-249.jpg",
+    "text": "texts/paper-249.txt"
+  },
+  {
+    "id": "PAPER 250",
+    "num": 250,
+    "date": "2026-09-07",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-250.jpg",
+    "text": "texts/paper-250.txt"
+  },
+  {
+    "id": "PAPER 251",
+    "num": 251,
+    "date": "2026-09-08",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-251.jpg",
+    "text": "texts/paper-251.txt"
+  },
+  {
+    "id": "PAPER 252",
+    "num": 252,
+    "date": "2026-09-09",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-252.jpg",
+    "text": "texts/paper-252.txt"
+  },
+  {
+    "id": "PAPER 253",
+    "num": 253,
+    "date": "2026-09-10",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-253.jpg",
+    "text": "texts/paper-253.txt"
+  },
+  {
+    "id": "PAPER 254",
+    "num": 254,
+    "date": "2026-09-11",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-254.jpg",
+    "text": "texts/paper-254.txt"
+  },
+  {
+    "id": "PAPER 255",
+    "num": 255,
+    "date": "2026-09-12",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-255.jpg",
+    "text": "texts/paper-255.txt"
+  },
+  {
+    "id": "PAPER 256",
+    "num": 256,
+    "date": "2026-09-13",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-256.jpg",
+    "text": "texts/paper-256.txt"
+  },
+  {
+    "id": "PAPER 257",
+    "num": 257,
+    "date": "2026-09-14",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-257.jpg",
+    "text": "texts/paper-257.txt"
+  },
+  {
+    "id": "PAPER 258",
+    "num": 258,
+    "date": "2026-09-15",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-258.jpg",
+    "text": "texts/paper-258.txt"
+  },
+  {
+    "id": "PAPER 259",
+    "num": 259,
+    "date": "2026-09-16",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-259.jpg",
+    "text": "texts/paper-259.txt"
+  },
+  {
+    "id": "PAPER 260",
+    "num": 260,
+    "date": "2026-09-17",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-260.jpg",
+    "text": "texts/paper-260.txt"
+  },
+  {
+    "id": "PAPER 261",
+    "num": 261,
+    "date": "2026-09-18",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-261.jpg",
+    "text": "texts/paper-261.txt"
+  },
+  {
+    "id": "PAPER 262",
+    "num": 262,
+    "date": "2026-09-19",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-262.jpg",
+    "text": "texts/paper-262.txt"
+  },
+  {
+    "id": "PAPER 263",
+    "num": 263,
+    "date": "2026-09-20",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-263.jpg",
+    "text": "texts/paper-263.txt"
+  },
+  {
+    "id": "PAPER 264",
+    "num": 264,
+    "date": "2026-09-21",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-264.jpg",
+    "text": "texts/paper-264.txt"
+  },
+  {
+    "id": "PAPER 265",
+    "num": 265,
+    "date": "2026-09-22",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-265.jpg",
+    "text": "texts/paper-265.txt"
+  },
+  {
+    "id": "PAPER 266",
+    "num": 266,
+    "date": "2026-09-23",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-266.jpg",
+    "text": "texts/paper-266.txt"
+  },
+  {
+    "id": "PAPER 267",
+    "num": 267,
+    "date": "2026-09-24",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-267.jpg",
+    "text": "texts/paper-267.txt"
+  },
+  {
+    "id": "PAPER 268",
+    "num": 268,
+    "date": "2026-09-25",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-268.jpg",
+    "text": "texts/paper-268.txt"
+  },
+  {
+    "id": "PAPER 269",
+    "num": 269,
+    "date": "2026-09-26",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-269.jpg",
+    "text": "texts/paper-269.txt"
+  },
+  {
+    "id": "PAPER 270",
+    "num": 270,
+    "date": "2026-09-27",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-270.jpg",
+    "text": "texts/paper-270.txt"
+  },
+  {
+    "id": "PAPER 271",
+    "num": 271,
+    "date": "2026-09-28",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-271.jpg",
+    "text": "texts/paper-271.txt"
+  },
+  {
+    "id": "PAPER 272",
+    "num": 272,
+    "date": "2026-09-29",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-272.jpg",
+    "text": "texts/paper-272.txt"
+  },
+  {
+    "id": "PAPER 273",
+    "num": 273,
+    "date": "2026-09-30",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-273.jpg",
+    "text": "texts/paper-273.txt"
+  },
+  {
+    "id": "PAPER 274",
+    "num": 274,
+    "date": "2026-10-01",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-274.jpg",
+    "text": "texts/paper-274.txt"
+  },
+  {
+    "id": "PAPER 275",
+    "num": 275,
+    "date": "2026-10-02",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-275.jpg",
+    "text": "texts/paper-275.txt"
+  },
+  {
+    "id": "PAPER 276",
+    "num": 276,
+    "date": "2026-10-03",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-276.jpg",
+    "text": "texts/paper-276.txt"
+  },
+  {
+    "id": "PAPER 277",
+    "num": 277,
+    "date": "2026-10-04",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-277.jpg",
+    "text": "texts/paper-277.txt"
+  },
+  {
+    "id": "PAPER 278",
+    "num": 278,
+    "date": "2026-10-05",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-278.jpg",
+    "text": "texts/paper-278.txt"
+  },
+  {
+    "id": "PAPER 279",
+    "num": 279,
+    "date": "2026-10-06",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-279.jpg",
+    "text": "texts/paper-279.txt"
+  },
+  {
+    "id": "PAPER 280",
+    "num": 280,
+    "date": "2026-10-07",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-280.jpg",
+    "text": "texts/paper-280.txt"
+  },
+  {
+    "id": "PAPER 281",
+    "num": 281,
+    "date": "2026-10-08",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-281.jpg",
+    "text": "texts/paper-281.txt"
+  },
+  {
+    "id": "PAPER 282",
+    "num": 282,
+    "date": "2026-10-09",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-282.jpg",
+    "text": "texts/paper-282.txt"
+  },
+  {
+    "id": "PAPER 283",
+    "num": 283,
+    "date": "2026-10-10",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-283.jpg",
+    "text": "texts/paper-283.txt"
+  },
+  {
+    "id": "PAPER 284",
+    "num": 284,
+    "date": "2026-10-11",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-284.jpg",
+    "text": "texts/paper-284.txt"
+  },
+  {
+    "id": "PAPER 285",
+    "num": 285,
+    "date": "2026-10-12",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-285.jpg",
+    "text": "texts/paper-285.txt"
+  },
+  {
+    "id": "PAPER 286",
+    "num": 286,
+    "date": "2026-10-13",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-286.jpg",
+    "text": "texts/paper-286.txt"
+  },
+  {
+    "id": "PAPER 287",
+    "num": 287,
+    "date": "2026-10-14",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-287.jpg",
+    "text": "texts/paper-287.txt"
+  },
+  {
+    "id": "PAPER 288",
+    "num": 288,
+    "date": "2026-10-15",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-288.jpg",
+    "text": "texts/paper-288.txt"
+  },
+  {
+    "id": "PAPER 289",
+    "num": 289,
+    "date": "2026-10-16",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-289.jpg",
+    "text": "texts/paper-289.txt"
+  },
+  {
+    "id": "PAPER 290",
+    "num": 290,
+    "date": "2026-10-17",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-290.jpg",
+    "text": "texts/paper-290.txt"
+  },
+  {
+    "id": "PAPER 291",
+    "num": 291,
+    "date": "2026-10-18",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-291.jpg",
+    "text": "texts/paper-291.txt"
+  },
+  {
+    "id": "PAPER 292",
+    "num": 292,
+    "date": "2026-10-19",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-292.jpg",
+    "text": "texts/paper-292.txt"
+  },
+  {
+    "id": "PAPER 293",
+    "num": 293,
+    "date": "2026-10-20",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-293.jpg",
+    "text": "texts/paper-293.txt"
+  },
+  {
+    "id": "PAPER 294",
+    "num": 294,
+    "date": "2026-10-21",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-294.jpg",
+    "text": "texts/paper-294.txt"
+  },
+  {
+    "id": "PAPER 295",
+    "num": 295,
+    "date": "2026-10-22",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-295.jpg",
+    "text": "texts/paper-295.txt"
+  },
+  {
+    "id": "PAPER 296",
+    "num": 296,
+    "date": "2026-10-23",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-296.jpg",
+    "text": "texts/paper-296.txt"
+  },
+  {
+    "id": "PAPER 297",
+    "num": 297,
+    "date": "2026-10-24",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-297.jpg",
+    "text": "texts/paper-297.txt"
+  },
+  {
+    "id": "PAPER 298",
+    "num": 298,
+    "date": "2026-10-25",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-298.jpg",
+    "text": "texts/paper-298.txt"
+  },
+  {
+    "id": "PAPER 299",
+    "num": 299,
+    "date": "2026-10-26",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-299.jpg",
+    "text": "texts/paper-299.txt"
+  },
+  {
+    "id": "PAPER 300",
+    "num": 300,
+    "date": "2026-10-27",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-300.jpg",
+    "text": "texts/paper-300.txt"
+  },
+  {
+    "id": "PAPER 301",
+    "num": 301,
+    "date": "2026-10-28",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-301.jpg",
+    "text": "texts/paper-301.txt"
+  },
+  {
+    "id": "PAPER 302",
+    "num": 302,
+    "date": "2026-10-29",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-302.jpg",
+    "text": "texts/paper-302.txt"
+  },
+  {
+    "id": "PAPER 303",
+    "num": 303,
+    "date": "2026-10-30",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-303.jpg",
+    "text": "texts/paper-303.txt"
+  },
+  {
+    "id": "PAPER 304",
+    "num": 304,
+    "date": "2026-10-31",
+    "season": "optimiser",
+    "image": "images/optimiser/paper-304.jpg",
+    "text": "texts/paper-304.txt"
+  },
+  {
+    "id": "PAPER 305",
+    "num": 305,
+    "date": "2026-11-01",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-305.jpg",
+    "text": "texts/paper-305.txt"
+  },
+  {
+    "id": "PAPER 306",
+    "num": 306,
+    "date": "2026-11-02",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-306.jpg",
+    "text": "texts/paper-306.txt"
+  },
+  {
+    "id": "PAPER 307",
+    "num": 307,
+    "date": "2026-11-03",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-307.jpg",
+    "text": "texts/paper-307.txt"
+  },
+  {
+    "id": "PAPER 308",
+    "num": 308,
+    "date": "2026-11-04",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-308.jpg",
+    "text": "texts/paper-308.txt"
+  },
+  {
+    "id": "PAPER 309",
+    "num": 309,
+    "date": "2026-11-05",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-309.jpg",
+    "text": "texts/paper-309.txt"
+  },
+  {
+    "id": "PAPER 310",
+    "num": 310,
+    "date": "2026-11-06",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-310.jpg",
+    "text": "texts/paper-310.txt"
+  },
+  {
+    "id": "PAPER 311",
+    "num": 311,
+    "date": "2026-11-07",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-311.jpg",
+    "text": "texts/paper-311.txt"
+  },
+  {
+    "id": "PAPER 312",
+    "num": 312,
+    "date": "2026-11-08",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-312.jpg",
+    "text": "texts/paper-312.txt"
+  },
+  {
+    "id": "PAPER 313",
+    "num": 313,
+    "date": "2026-11-09",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-313.jpg",
+    "text": "texts/paper-313.txt"
+  },
+  {
+    "id": "PAPER 314",
+    "num": 314,
+    "date": "2026-11-10",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-314.jpg",
+    "text": "texts/paper-314.txt"
+  },
+  {
+    "id": "PAPER 315",
+    "num": 315,
+    "date": "2026-11-11",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-315.jpg",
+    "text": "texts/paper-315.txt"
+  },
+  {
+    "id": "PAPER 316",
+    "num": 316,
+    "date": "2026-11-12",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-316.jpg",
+    "text": "texts/paper-316.txt"
+  },
+  {
+    "id": "PAPER 317",
+    "num": 317,
+    "date": "2026-11-13",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-317.jpg",
+    "text": "texts/paper-317.txt"
+  },
+  {
+    "id": "PAPER 318",
+    "num": 318,
+    "date": "2026-11-14",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-318.jpg",
+    "text": "texts/paper-318.txt"
+  },
+  {
+    "id": "PAPER 319",
+    "num": 319,
+    "date": "2026-11-15",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-319.jpg",
+    "text": "texts/paper-319.txt"
+  },
+  {
+    "id": "PAPER 320",
+    "num": 320,
+    "date": "2026-11-16",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-320.jpg",
+    "text": "texts/paper-320.txt"
+  },
+  {
+    "id": "PAPER 321",
+    "num": 321,
+    "date": "2026-11-17",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-321.jpg",
+    "text": "texts/paper-321.txt"
+  },
+  {
+    "id": "PAPER 322",
+    "num": 322,
+    "date": "2026-11-18",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-322.jpg",
+    "text": "texts/paper-322.txt"
+  },
+  {
+    "id": "PAPER 323",
+    "num": 323,
+    "date": "2026-11-19",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-323.jpg",
+    "text": "texts/paper-323.txt"
+  },
+  {
+    "id": "PAPER 324",
+    "num": 324,
+    "date": "2026-11-20",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-324.jpg",
+    "text": "texts/paper-324.txt"
+  },
+  {
+    "id": "PAPER 325",
+    "num": 325,
+    "date": "2026-11-21",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-325.jpg",
+    "text": "texts/paper-325.txt"
+  },
+  {
+    "id": "PAPER 326",
+    "num": 326,
+    "date": "2026-11-22",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-326.jpg",
+    "text": "texts/paper-326.txt"
+  },
+  {
+    "id": "PAPER 327",
+    "num": 327,
+    "date": "2026-11-23",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-327.jpg",
+    "text": "texts/paper-327.txt"
+  },
+  {
+    "id": "PAPER 328",
+    "num": 328,
+    "date": "2026-11-24",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-328.jpg",
+    "text": "texts/paper-328.txt"
+  },
+  {
+    "id": "PAPER 329",
+    "num": 329,
+    "date": "2026-11-25",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-329.jpg",
+    "text": "texts/paper-329.txt"
+  },
+  {
+    "id": "PAPER 330",
+    "num": 330,
+    "date": "2026-11-26",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-330.jpg",
+    "text": "texts/paper-330.txt"
+  },
+  {
+    "id": "PAPER 331",
+    "num": 331,
+    "date": "2026-11-27",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-331.jpg",
+    "text": "texts/paper-331.txt"
+  },
+  {
+    "id": "PAPER 332",
+    "num": 332,
+    "date": "2026-11-28",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-332.jpg",
+    "text": "texts/paper-332.txt"
+  },
+  {
+    "id": "PAPER 333",
+    "num": 333,
+    "date": "2026-11-29",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-333.jpg",
+    "text": "texts/paper-333.txt"
+  },
+  {
+    "id": "PAPER 334",
+    "num": 334,
+    "date": "2026-11-30",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-334.jpg",
+    "text": "texts/paper-334.txt"
+  },
+  {
+    "id": "PAPER 335",
+    "num": 335,
+    "date": "2026-12-01",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-335.jpg",
+    "text": "texts/paper-335.txt"
+  },
+  {
+    "id": "PAPER 336",
+    "num": 336,
+    "date": "2026-12-02",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-336.jpg",
+    "text": "texts/paper-336.txt"
+  },
+  {
+    "id": "PAPER 337",
+    "num": 337,
+    "date": "2026-12-03",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-337.jpg",
+    "text": "texts/paper-337.txt"
+  },
+  {
+    "id": "PAPER 338",
+    "num": 338,
+    "date": "2026-12-04",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-338.jpg",
+    "text": "texts/paper-338.txt"
+  },
+  {
+    "id": "PAPER 339",
+    "num": 339,
+    "date": "2026-12-05",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-339.jpg",
+    "text": "texts/paper-339.txt"
+  },
+  {
+    "id": "PAPER 340",
+    "num": 340,
+    "date": "2026-12-06",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-340.jpg",
+    "text": "texts/paper-340.txt"
+  },
+  {
+    "id": "PAPER 341",
+    "num": 341,
+    "date": "2026-12-07",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-341.jpg",
+    "text": "texts/paper-341.txt"
+  },
+  {
+    "id": "PAPER 342",
+    "num": 342,
+    "date": "2026-12-08",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-342.jpg",
+    "text": "texts/paper-342.txt"
+  },
+  {
+    "id": "PAPER 343",
+    "num": 343,
+    "date": "2026-12-09",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-343.jpg",
+    "text": "texts/paper-343.txt"
+  },
+  {
+    "id": "PAPER 344",
+    "num": 344,
+    "date": "2026-12-10",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-344.jpg",
+    "text": "texts/paper-344.txt"
+  },
+  {
+    "id": "PAPER 345",
+    "num": 345,
+    "date": "2026-12-11",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-345.jpg",
+    "text": "texts/paper-345.txt"
+  },
+  {
+    "id": "PAPER 346",
+    "num": 346,
+    "date": "2026-12-12",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-346.jpg",
+    "text": "texts/paper-346.txt"
+  },
+  {
+    "id": "PAPER 347",
+    "num": 347,
+    "date": "2026-12-13",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-347.jpg",
+    "text": "texts/paper-347.txt"
+  },
+  {
+    "id": "PAPER 348",
+    "num": 348,
+    "date": "2026-12-14",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-348.jpg",
+    "text": "texts/paper-348.txt"
+  },
+  {
+    "id": "PAPER 349",
+    "num": 349,
+    "date": "2026-12-15",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-349.jpg",
+    "text": "texts/paper-349.txt"
+  },
+  {
+    "id": "PAPER 350",
+    "num": 350,
+    "date": "2026-12-16",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-350.jpg",
+    "text": "texts/paper-350.txt"
+  },
+  {
+    "id": "PAPER 351",
+    "num": 351,
+    "date": "2026-12-17",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-351.jpg",
+    "text": "texts/paper-351.txt"
+  },
+  {
+    "id": "PAPER 352",
+    "num": 352,
+    "date": "2026-12-18",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-352.jpg",
+    "text": "texts/paper-352.txt"
+  },
+  {
+    "id": "PAPER 353",
+    "num": 353,
+    "date": "2026-12-19",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-353.jpg",
+    "text": "texts/paper-353.txt"
+  },
+  {
+    "id": "PAPER 354",
+    "num": 354,
+    "date": "2026-12-20",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-354.jpg",
+    "text": "texts/paper-354.txt"
+  },
+  {
+    "id": "PAPER 355",
+    "num": 355,
+    "date": "2026-12-21",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-355.jpg",
+    "text": "texts/paper-355.txt"
+  },
+  {
+    "id": "PAPER 356",
+    "num": 356,
+    "date": "2026-12-22",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-356.jpg",
+    "text": "texts/paper-356.txt"
+  },
+  {
+    "id": "PAPER 357",
+    "num": 357,
+    "date": "2026-12-23",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-357.jpg",
+    "text": "texts/paper-357.txt"
+  },
+  {
+    "id": "PAPER 358",
+    "num": 358,
+    "date": "2026-12-24",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-358.jpg",
+    "text": "texts/paper-358.txt"
+  },
+  {
+    "id": "PAPER 359",
+    "num": 359,
+    "date": "2026-12-25",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-359.jpg",
+    "text": "texts/paper-359.txt"
+  },
+  {
+    "id": "PAPER 360",
+    "num": 360,
+    "date": "2026-12-26",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-360.jpg",
+    "text": "texts/paper-360.txt"
+  },
+  {
+    "id": "PAPER 361",
+    "num": 361,
+    "date": "2026-12-27",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-361.jpg",
+    "text": "texts/paper-361.txt"
+  },
+  {
+    "id": "PAPER 362",
+    "num": 362,
+    "date": "2026-12-28",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-362.jpg",
+    "text": "texts/paper-362.txt"
+  },
+  {
+    "id": "PAPER 363",
+    "num": 363,
+    "date": "2026-12-29",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-363.jpg",
+    "text": "texts/paper-363.txt"
+  },
+  {
+    "id": "PAPER 364",
+    "num": 364,
+    "date": "2026-12-30",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-364.jpg",
+    "text": "texts/paper-364.txt"
+  },
+  {
+    "id": "PAPER 365",
+    "num": 365,
+    "date": "2026-12-31",
+    "season": "evoluer",
+    "image": "images/evoluer/paper-365.jpg",
+    "text": "texts/paper-365.txt"
+  }
+]

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WORKSHOP-DIY // COMPLETE SUITE — 163 FILES</title>
+<title>WORKSHOP-DIY // COMPLETE SUITE — 164 FILES</title>
 <script src="assets/js/sada-theme.js"></script>
 <link rel="stylesheet" href="assets/css/sada-themes.css">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -63,13 +63,13 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 <body>
 
 <div class="hero">
-  <div class="number">163</div>
+  <div class="number">164</div>
   <div class="label">WORKSHOP-DIY FILES</div>
   <div class="sub">THE COMPLETE CREATIVE UNIVERSE · OPEN ANY FILE TO EXPLORE</div>
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="n">163</div><div class="l">HTML FILES</div></div>
+  <div class="stat"><div class="n">164</div><div class="l">HTML FILES</div></div>
   <div class="stat"><div class="n">39</div><div class="l">REAL APPS</div></div>
   <div class="stat"><div class="n">65+</div><div class="l">UNIQUE FORMATS</div></div>
   <div class="stat"><div class="n">12</div><div class="l">SESSIONS</div></div>
@@ -80,13 +80,13 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="filters" id="filters"></div>
 
-<div class="count-display">Showing <span id="showing">163</span> of 163 files</div>
+<div class="count-display">Showing <span id="showing">164</span> of 164 files</div>
 
 <div class="grid" id="grid"></div>
 
 <div class="footer">
   WORKSHOP-DIY · ASSOCIATION LOI 1901 · FRANCE 🇫🇷<br>
-  46 APPS · 7 DOMAINS · 163 FILES · 0 INSTALLATIONS · ∞ POSSIBILITIES<br>
+  46 APPS · 7 DOMAINS · 164 FILES · 0 INSTALLATIONS · ∞ POSSIBILITIES<br>
   ALL FILES SELF-CONTAINED · JUST OPEN IN A BROWSER · BUGS ARE FEATURES · password123
 </div>
 
@@ -108,6 +108,7 @@ const FILES=[
 {f:"vscode",n:"VS Code Editor",e:"💻",d:"Code editor with Workshop-DIY source code",c:"social"},
 {f:"bio-gen",n:"Social Bio Generator",e:"✍️",d:"Generate bios for any Workshop-DIY app",c:"social"},
 {f:"social-media-kit",n:"Social Media Kit",e:"📦",d:"Complete branding kit with templates",c:"social"},
+{f:"pcb-gen",n:"PCB Paper Generator",e:"🔌",d:"365 daily Facebook posts with PCB-style images",c:"social"},
 
 // TV / FILM / SHOW
 {f:"breaking-news",n:"Breaking News",e:"📺",d:"Live news broadcast about Bug #42 escape",c:"tv"},
@@ -315,7 +316,7 @@ const grid=document.getElementById('grid');
 function renderGrid(list){
   grid.innerHTML=list.map(f=>{
     const cat=CATS[f.c];
-    var CATMAP={'100':'marketing','advent':'creative','airbnb':'social','amazon':'social','ambient-screen':'interactive','app-demo-reel':'marketing','app-match':'marketing','app-store':'interactive','arcade':'games','arduino-ide':'hardware','awards':'themed','bingo':'games','bio-gen':'docs','ble-flow':'hardware','blueprints':'dashboards','boarding-pass':'creative','boot-sequence':'interactive','bottle':'creative','breaking-news':'presentations','bug-or-feature':'themed','bugchelor':'themed','card-collection':'dashboards','card-pack':'creative','cereal-box':'creative','changelog':'docs','classified-dossier':'themed','clicker':'games','comic':'creative','compatibility':'themed','concert-ticket':'creative','conspiracy':'themed','cookbook':'themed','court-trial':'themed','craigslist':'social','creepypasta':'themed','crossword':'games','ctf-quiz':'games','delivery':'social','departures':'themed','detention':'themed','diary':'themed','discord-chat':'social','docs':'docs','documentary':'presentations','dungeon':'games','duolingo':'social','dvd-menu':'creative','ebay':'social','elevator-pitch':'themed','emergency-alert':'themed','escape-room':'games','esp32-boot':'hardware','esp32-pinout':'hardware','esp32-vs-microbit':'hardware','esp32-wiring':'hardware','family-tree':'creative','faq':'docs','festival':'creative','flappy':'games','forensic-report':'themed','fortune-cookie':'creative','gacha':'games','genius-ideas-lab':'marketing','genius-video':'presentations','genius-video-animation':'presentations','github-profile':'dashboards','hacker-news':'social','hacker-presentation':'presentations','hacker-terminal':'interactive','haiku':'creative','help':'docs','horoscope':'themed','ikea-manual':'creative','in-memoriam':'creative','infomercial':'presentations','iphone':'social','jeopardy':'games','kanban':'docs','lab-notebook':'docs','license-plates':'creative','linkedin':'social','live-monitor':'dashboards','loading-screens':'interactive','love-letters':'creative','mad-libs':'creative','magic-8ball':'games','makecode':'hardware','maps-reviews':'social','metro-map':'creative','microbit-telemetry':'hardware','monopoly':'games','movie-credits':'presentations','museum':'creative','music-player':'creative','nasa-control':'interactive','neopixel-emoji':'hardware','network-map':'interactive','newspaper':'themed','notion':'social','org-chart':'docs','os-desktop':'interactive','ouija':'games','paper':'creative','parking-ticket':'creative','passport':'creative','periodic-table':'dashboards','pizza-menu':'creative','pokedex':'themed','police-report':'themed','ransom-note':'creative','rap-battle':'themed','real-estate':'creative','receipt':'creative','reddit':'social','report-card':'docs','restraining-order':'themed','roadmap-video-fr':'presentations','rxy':'hardware','safety-card':'docs','safety-card-v2':'docs','scoreboard':'themed','scp-file':'docs','shark-tank':'themed','sitcom':'presentations','skill-tree':'dashboards','slack':'social','slot-machine':'games','social-media-kit':'marketing','space-mission':'themed','stamps':'creative','star-chart':'creative','sticker-sheet':'dashboards','stock-market':'themed','superlatives':'creative','synth-visualizer':'dashboards','tamagotchi':'games','tax-return':'creative','testimonials':'marketing','text-adventure':'games','therapy':'themed','tiktok':'social','time-capsule':'creative','timeline':'docs','tinder':'games','trial':'themed','twitch':'social','ultimate-video':'presentations','vending-machine':'games','video-concept-preview':'presentations','voicemail':'creative','vscode':'themed','wanted-wall':'themed','warranty':'creative','weather':'themed','wedding':'creative','whatsapp':'social','wikipedia':'social','wordle':'games','wrapped-2025':'presentations','yearbook':'creative','youtube':'social','zodiac':'themed'};
+    var CATMAP={'100':'marketing','advent':'creative','airbnb':'social','amazon':'social','ambient-screen':'interactive','app-demo-reel':'marketing','app-match':'marketing','app-store':'interactive','arcade':'games','arduino-ide':'hardware','awards':'themed','bingo':'games','bio-gen':'docs','ble-flow':'hardware','blueprints':'dashboards','boarding-pass':'creative','boot-sequence':'interactive','bottle':'creative','breaking-news':'presentations','bug-or-feature':'themed','bugchelor':'themed','card-collection':'dashboards','card-pack':'creative','cereal-box':'creative','changelog':'docs','classified-dossier':'themed','clicker':'games','comic':'creative','compatibility':'themed','concert-ticket':'creative','conspiracy':'themed','cookbook':'themed','court-trial':'themed','craigslist':'social','creepypasta':'themed','crossword':'games','ctf-quiz':'games','delivery':'social','departures':'themed','detention':'themed','diary':'themed','discord-chat':'social','docs':'docs','documentary':'presentations','dungeon':'games','duolingo':'social','dvd-menu':'creative','ebay':'social','elevator-pitch':'themed','emergency-alert':'themed','escape-room':'games','esp32-boot':'hardware','esp32-pinout':'hardware','esp32-vs-microbit':'hardware','esp32-wiring':'hardware','family-tree':'creative','faq':'docs','festival':'creative','flappy':'games','forensic-report':'themed','fortune-cookie':'creative','gacha':'games','genius-ideas-lab':'marketing','genius-video':'presentations','genius-video-animation':'presentations','github-profile':'dashboards','hacker-news':'social','hacker-presentation':'presentations','hacker-terminal':'interactive','haiku':'creative','help':'docs','horoscope':'themed','ikea-manual':'creative','in-memoriam':'creative','infomercial':'presentations','iphone':'social','jeopardy':'games','kanban':'docs','lab-notebook':'docs','license-plates':'creative','linkedin':'social','live-monitor':'dashboards','loading-screens':'interactive','love-letters':'creative','mad-libs':'creative','magic-8ball':'games','makecode':'hardware','maps-reviews':'social','metro-map':'creative','microbit-telemetry':'hardware','monopoly':'games','movie-credits':'presentations','museum':'creative','music-player':'creative','nasa-control':'interactive','neopixel-emoji':'hardware','network-map':'interactive','newspaper':'themed','notion':'social','org-chart':'docs','os-desktop':'interactive','ouija':'games','paper':'creative','parking-ticket':'creative','passport':'creative','pcb-gen':'marketing','periodic-table':'dashboards','pizza-menu':'creative','pokedex':'themed','police-report':'themed','ransom-note':'creative','rap-battle':'themed','real-estate':'creative','receipt':'creative','reddit':'social','report-card':'docs','restraining-order':'themed','roadmap-video-fr':'presentations','rxy':'hardware','safety-card':'docs','safety-card-v2':'docs','scoreboard':'themed','scp-file':'docs','shark-tank':'themed','sitcom':'presentations','skill-tree':'dashboards','slack':'social','slot-machine':'games','social-media-kit':'marketing','space-mission':'themed','stamps':'creative','star-chart':'creative','sticker-sheet':'dashboards','stock-market':'themed','superlatives':'creative','synth-visualizer':'dashboards','tamagotchi':'games','tax-return':'creative','testimonials':'marketing','text-adventure':'games','therapy':'themed','tiktok':'social','time-capsule':'creative','timeline':'docs','tinder':'games','trial':'themed','twitch':'social','ultimate-video':'presentations','vending-machine':'games','video-concept-preview':'presentations','voicemail':'creative','vscode':'themed','wanted-wall':'themed','warranty':'creative','weather':'themed','wedding':'creative','whatsapp':'social','wikipedia':'social','wordle':'games','wrapped-2025':'presentations','yearbook':'creative','youtube':'social','zodiac':'themed'};
 return `<a class="card" href="apps/${CATMAP[f.f]||'docs'}/workshop-diy-${f.f}.html" data-cat="${f.c}" data-name="${f.n.toLowerCase()} ${f.f} ${f.d.toLowerCase()}">
       <div class="top">
         <span class="emoji">${f.e}</span>

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-theme.js"></script>
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<link rel="stylesheet" href="../../assets/css/sada-themes.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // PCB Paper Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Syne:wght@700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<style>
+:root{--pcb:#1a5c2e;--pcb-dark:#0f3a1c;--copper:#c87533;--copper-lt:#d4944a;--silk:#ffffff;--cy:#00d4ff;--gn:#22c55e;--pk:#ec4899;--ind:#6366f1;--yw:#eab308;--tl:#14b8a6}
+body{background:#060810;color:#e8e8f0;font-family:'JetBrains Mono',monospace;line-height:1.6;margin:0}
+*{box-sizing:border-box}
+
+/* Header */
+.hdr{text-align:center;padding:40px 20px 20px}
+.hdr-badge{display:inline-block;padding:4px 14px;border:1px solid rgba(26,92,46,.4);border-radius:99px;font-size:9px;letter-spacing:3px;color:var(--pcb);color:#4ade80;margin-bottom:12px;text-transform:uppercase}
+.hdr h1{font-family:'Syne',sans-serif;font-size:clamp(24px,4vw,40px);font-weight:800;letter-spacing:-1px;margin:0}
+.hdr h1 .gr{background:linear-gradient(135deg,#4ade80,var(--copper-lt),#22c55e);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr .stats{color:rgba(255,255,255,.3);font-size:11px;margin-top:8px}
+.hdr .stats b{color:var(--copper-lt)}
+
+/* Controls */
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:10px 20px 20px;max-width:900px;margin:0 auto}
+.ctrl button{padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:rgba(255,255,255,.5);cursor:pointer;font-family:inherit;font-size:11px;transition:all .2s}
+.ctrl button:hover{background:rgba(255,255,255,.06);color:#fff}
+.ctrl button.on{border-color:rgba(34,197,94,.3);color:#4ade80;background:rgba(34,197,94,.08)}
+.ctrl input{padding:6px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#fff;font-family:inherit;font-size:12px;width:100px;text-align:center}
+
+/* Main layout */
+.main{max-width:1100px;margin:0 auto;padding:0 20px}
+.viewer{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:30px}
+@media(max-width:768px){.viewer{grid-template-columns:1fr}}
+
+/* Canvas preview */
+.cv-wrap{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center}
+.cv-wrap canvas{max-width:100%;height:auto;border-radius:4px}
+
+/* Info panel */
+.info{display:flex;flex-direction:column;gap:12px}
+.info-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.info-num{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#4ade80}
+.info-date{font-size:13px;color:rgba(255,255,255,.4)}
+.info-season{padding:3px 10px;border-radius:4px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.s-explorer{background:rgba(20,184,166,.1);color:var(--tl)}
+.s-construire{background:rgba(234,179,8,.1);color:var(--yw)}
+.s-creer{background:rgba(236,72,153,.1);color:var(--pk)}
+.s-optimiser{background:rgba(99,102,241,.1);color:var(--ind)}
+.s-evoluer{background:rgba(34,197,94,.1);color:var(--gn)}
+
+.info-hook{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px}
+.info-hook label{font-size:9px;letter-spacing:1px;color:rgba(255,255,255,.3);text-transform:uppercase;display:block;margin-bottom:4px}
+.info-hook textarea{width:100%;background:none;border:none;color:#fff;font-family:inherit;font-size:13px;resize:vertical;min-height:48px;outline:none}
+
+.info-text{flex:1;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:12px;font-size:12px;color:rgba(255,255,255,.5);line-height:1.8;overflow-y:auto;max-height:220px;white-space:pre-wrap}
+
+.info-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);cursor:pointer;font-family:inherit;font-size:11px;transition:all .2s;display:flex;align-items:center;gap:6px}
+.btn:hover{background:rgba(255,255,255,.08);color:#fff}
+.btn-primary{border-color:rgba(34,197,94,.3);color:#4ade80}
+.btn-primary:hover{background:rgba(34,197,94,.1)}
+.btn-copper{border-color:rgba(200,117,51,.3);color:var(--copper-lt)}
+.btn-copper:hover{background:rgba(200,117,51,.1)}
+
+.nav-row{display:flex;gap:8px;align-items:center}
+.nav-row .btn{flex:1;justify-content:center}
+
+/* Batch */
+.batch{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 20px;margin-bottom:30px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.batch-label{font-size:11px;color:rgba(255,255,255,.4)}
+.progress-wrap{flex:1;min-width:200px;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--pcb),#4ade80);border-radius:3px;transition:width .1s}
+.progress-text{font-size:11px;color:rgba(255,255,255,.3);min-width:60px;text-align:right}
+
+/* Grid */
+.grid-section{margin-bottom:60px}
+.grid-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:12px;color:rgba(255,255,255,.6)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:4px}
+.grid button{aspect-ratio:1;border-radius:4px;border:1px solid rgba(255,255,255,.06);background:rgba(26,92,46,.15);color:rgba(255,255,255,.4);cursor:pointer;font-family:inherit;font-size:9px;font-weight:700;transition:all .15s}
+.grid button:hover{background:rgba(26,92,46,.3);color:#fff;border-color:rgba(34,197,94,.3)}
+.grid button.on{background:rgba(34,197,94,.15);color:#4ade80;border-color:rgba(34,197,94,.4)}
+
+/* How-to */
+.howto{max-width:1100px;margin:0 auto 40px;padding:0 20px}
+.howto-toggle{background:none;border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.4);font-family:inherit;font-size:12px;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:6px}
+.howto-toggle:hover{color:#4ade80;border-color:rgba(34,197,94,.2)}
+.howto-content{display:none;margin-top:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px 24px}
+.howto-content.open{display:block}
+.howto-content h3{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#4ade80;margin:16px 0 6px}
+.howto-content h3:first-child{margin-top:0}
+.howto-content p{font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin:0 0 4px}
+.howto-content .step{display:flex;gap:10px;align-items:baseline;margin:4px 0}
+.howto-content .step-n{color:var(--copper-lt);font-weight:700;font-size:13px;min-width:18px}
+.howto-content .step-t{font-size:12px;color:rgba(255,255,255,.5)}
+.howto-content kbd{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:1px 5px;font-size:10px;color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-badge">workshop-diy.org</div>
+  <h1><span class="gr">PCB Paper Generator</span></h1>
+  <div class="stats"><b>365</b> papers &middot; <b>5</b> seasons &middot; <b>1080&times;1080</b> canvas</div>
+</div>
+
+<div class="howto">
+  <button class="howto-toggle" onclick="document.getElementById('howtoContent').classList.toggle('open');this.querySelector('.arr').textContent=document.getElementById('howtoContent').classList.contains('open')?'\u25B2':'\u25BC'"><span class="arr">&#9660;</span> How to use</button>
+  <div class="howto-content" id="howtoContent">
+    <h3>Post one paper to Facebook</h3>
+    <div class="step"><span class="step-n">1.</span><span class="step-t">Click <b>Today</b> or pick a number in the grid below</span></div>
+    <div class="step"><span class="step-n">2.</span><span class="step-t">Edit the <b>hook text</b> if you want (it updates the image live)</span></div>
+    <div class="step"><span class="step-n">3.</span><span class="step-t">Click <b>PNG</b> or <b>JPG</b> to download the PCB image</span></div>
+    <div class="step"><span class="step-n">4.</span><span class="step-t">Click <b>Copy Text</b> to grab the full post caption</span></div>
+    <div class="step"><span class="step-n">5.</span><span class="step-t">Open Facebook &rarr; paste the text &rarr; attach the image &rarr; publish</span></div>
+    <h3>Export all 365 at once</h3>
+    <div class="step"><span class="step-n">1.</span><span class="step-t">Click <b>Generate All 365</b> and wait for the progress bar</span></div>
+    <div class="step"><span class="step-n">2.</span><span class="step-t">Click <b>Download ZIP</b> to get all images in one file</span></div>
+    <h3>Navigation</h3>
+    <p>Use <kbd>&larr;</kbd> <kbd>&rarr;</kbd> arrow keys to browse papers. Filter by season with the buttons above. Type a number (001&ndash;365) and press <kbd>Enter</kbd> to jump directly.</p>
+    <p>Deep link: <code style="color:var(--copper-lt)">pcb-gen.html?paper=42</code></p>
+  </div>
+</div>
+
+<div class="ctrl" id="ctrl">
+  <button class="on" data-season="all">All 365</button>
+  <button data-season="explorer">Explorer</button>
+  <button data-season="construire">Construire</button>
+  <button data-season="creer">Cr&eacute;er</button>
+  <button data-season="optimiser">Optimiser</button>
+  <button data-season="evoluer">&Eacute;voluer</button>
+  <input id="searchNum" placeholder="001...365" inputmode="numeric">
+  <button id="todayBtn">Today</button>
+</div>
+
+<div class="main">
+  <div class="viewer">
+    <div class="cv-wrap">
+      <canvas id="display" width="540" height="540"></canvas>
+    </div>
+    <div class="info">
+      <div class="info-meta">
+        <span class="info-num" id="iNum">PAPER 001</span>
+        <span class="info-date" id="iDate"></span>
+        <span class="info-season" id="iSeason"></span>
+      </div>
+      <div class="info-hook">
+        <label>Hook text (silkscreen)</label>
+        <textarea id="iHook" rows="2"></textarea>
+      </div>
+      <div class="info-text" id="iText"></div>
+      <div class="info-actions">
+        <button class="btn btn-primary" id="btnCopy">Copy Text</button>
+        <button class="btn btn-copper" id="btnPNG">PNG</button>
+        <button class="btn btn-copper" id="btnJPG">JPG</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn" id="btnPrev">&laquo; Prev</button>
+        <button class="btn" id="btnNext">Next &raquo;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="batch">
+    <button class="btn btn-primary" id="btnBatch">Generate All 365</button>
+    <div class="batch-label" id="batchLabel">Ready</div>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText"></div>
+    <button class="btn btn-copper" id="btnZip" style="display:none">Download ZIP</button>
+  </div>
+
+  <div class="grid-section">
+    <div class="grid-title">All Papers</div>
+    <div class="grid" id="grid"></div>
+  </div>
+</div>
+
+<canvas id="offscreen" width="1080" height="1080" style="display:none"></canvas>
+
+<script>
+/* ========== CONFIG ========== */
+const W = 1080, H = 1080;
+const MONTHS_FR = ['JAN','FEV','MAR','AVR','MAI','JUN','JUL','AOU','SEP','OCT','NOV','DEC'];
+const SEASON_COLORS = {
+  explorer: '#14b8a6', construire: '#eab308',
+  creer: '#ec4899', optimiser: '#6366f1', evoluer: '#22c55e'
+};
+const SEASON_TINTS = {
+  explorer: 'rgba(0,100,200,0.03)', construire: 'rgba(200,180,0,0.03)',
+  creer: 'rgba(200,120,0,0.03)', optimiser: 'rgba(100,50,200,0.04)',
+  evoluer: 'rgba(50,180,80,0.03)'
+};
+
+/* ========== SEEDED PRNG ========== */
+function seededRNG(seed) {
+  let s = seed * 16807 + 13;
+  return function() {
+    s = (s * 16807 + 0) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
+}
+
+/* ========== DATA ========== */
+let papers = [], texts = {}, currentIdx = 0, logoImg = null;
+
+async function loadData() {
+  const [pData, tData] = await Promise.all([
+    fetch('../../data/papers.json').then(r => r.json()),
+    fetch('../../data/papers-texts.json').then(r => r.json())
+  ]);
+  papers = pData;
+  texts = tData;
+
+  // Load logo
+  logoImg = await new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = '../../assets/img/wdiy-logo.png';
+  });
+
+  await document.fonts.ready;
+  buildGrid();
+  handleURLParam();
+  showPaper(currentIdx);
+}
+
+/* ========== DATE FORMAT ========== */
+function fmtDate(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  return `${d.getDate()} ${MONTHS_FR[d.getMonth()]} ${d.getFullYear()}`;
+}
+function fmtDateLong(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  const days = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+  return `${days[d.getDay()]} ${d.getDate()} ${MONTHS_FR[d.getMonth()]} ${d.getFullYear()}`;
+}
+
+/* ========== HOOK EXTRACTION ========== */
+function extractHook(text) {
+  const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+  // Prefer "Conclusion : text" (with content after colon on same line)
+  const conc = lines.find(l => /^Conclusion\s*:(?!.*provisoire)/.test(l) && l.replace(/^Conclusion\s*:\s*/, '').length > 5);
+  if (conc) return conc.replace(/^Conclusion\s*:?\s*/i, '').trim();
+  // Fallback: any Conclusion line
+  const anyConc = lines.find(l => l.startsWith('Conclusion') && l.includes(':'));
+  if (anyConc) {
+    const after = anyConc.replace(/^[^:]+:\s*/, '').trim();
+    if (after.length > 5) return after;
+  }
+  // Last fallback: body text
+  const body = lines.filter(l => !l.startsWith('PAPER') && !l.startsWith('PS') && !l.startsWith('Workshop-DIY') && !l.includes('📄') && !l.endsWith(':'));
+  return body[1] || body[0] || 'Workshop-DIY';
+}
+
+/* ========== PCB RENDERING ========== */
+function renderPCB(paper, hookOverride) {
+  const canvas = document.getElementById('offscreen');
+  const ctx = canvas.getContext('2d');
+  const num = paper.num;
+  const season = paper.season;
+  const rng = seededRNG(num * 7919);
+  const text = texts[String(num)] || '';
+  const hook = hookOverride || extractHook(text);
+  const ref = `U${String(num).padStart(3, '0')}`;
+  const date = fmtDate(paper.date);
+  const dotColor = SEASON_COLORS[season] || '#22c55e';
+
+  // L1: PCB green base
+  ctx.fillStyle = '#1a5c2e';
+  ctx.fillRect(0, 0, W, H);
+
+  // Fiberglass texture
+  ctx.globalAlpha = 0.15;
+  for (let i = 0; i < 4000; i++) {
+    const x = rng() * W, y = rng() * H;
+    const c = Math.floor(rng() * 3);
+    ctx.fillStyle = ['#1d6633','#176028','#1f6e36'][c];
+    ctx.fillRect(x, y, 1 + rng() * 2, 1 + rng() * 2);
+  }
+  ctx.globalAlpha = 1;
+
+  // Subtle grid pattern
+  ctx.strokeStyle = 'rgba(255,255,255,0.02)';
+  ctx.lineWidth = 0.5;
+  for (let x = 0; x < W; x += 20) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+  }
+  for (let y = 0; y < H; y += 20) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  }
+
+  // L2: Copper traces (season-specific)
+  drawTraces(ctx, season, rng, num);
+
+  // L3: Season tint
+  ctx.fillStyle = SEASON_TINTS[season] || 'rgba(0,0,0,0)';
+  ctx.fillRect(0, 0, W, H);
+
+  // L4: Silkscreen panel (center)
+  const panelW = 740, panelH = 360;
+  const px = (W - panelW) / 2, py = (H - panelH) / 2 + 20;
+  roundRect(ctx, px, py, panelW, panelH, 16);
+  ctx.fillStyle = '#f8f8f0';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // L5: Hook text on panel
+  ctx.fillStyle = '#1a3c28';
+  ctx.font = '700 36px "JetBrains Mono", monospace';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  wrapText(ctx, hook, W / 2, py + panelH / 2, panelW - 80, 48);
+
+  // L6: Component reference (top-left)
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '700 28px "JetBrains Mono", monospace';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'top';
+  ctx.fillText(ref, 40, 36);
+  // ref box
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+  ctx.lineWidth = 1.5;
+  const refW = ctx.measureText(ref).width;
+  ctx.strokeRect(32, 30, refW + 16, 36);
+
+  // L7: Date stamp (top-right)
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '700 24px "JetBrains Mono", monospace';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'top';
+  ctx.fillText(date, W - 40, 40);
+
+  // L8: Logo (bottom-left)
+  if (logoImg) {
+    ctx.drawImage(logoImg, 30, H - 80, 50, 50);
+  }
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '700 16px "Syne", sans-serif';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'bottom';
+  ctx.fillText('WORKSHOP-DIY', 90, H - 40);
+
+  // L9: URL (bottom-right)
+  ctx.fillStyle = '#c87533';
+  ctx.font = '500 18px "JetBrains Mono", monospace';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'bottom';
+  ctx.fillText('workshop-diy.org', W - 40, H - 42);
+
+  // L10: Category dot
+  ctx.beginPath();
+  ctx.arc(W - 40, 90, 12, 0, Math.PI * 2);
+  ctx.fillStyle = dotColor;
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // Season label next to dot
+  ctx.fillStyle = 'rgba(255,255,255,0.4)';
+  ctx.font = '500 11px "JetBrains Mono", monospace';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(season.toUpperCase(), W - 60, 90);
+
+  // L11: Border frame
+  ctx.strokeStyle = 'rgba(200,117,51,0.3)';
+  ctx.lineWidth = 3;
+  roundRect(ctx, 8, 8, W - 16, H - 16, 8);
+  ctx.stroke();
+
+  // Update display canvas
+  const display = document.getElementById('display');
+  const dctx = display.getContext('2d');
+  dctx.clearRect(0, 0, 540, 540);
+  dctx.drawImage(canvas, 0, 0, 540, 540);
+}
+
+/* ========== TRACE PATTERNS ========== */
+function drawTraces(ctx, season, rng, num) {
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  const funcs = {
+    explorer: drawExplorerTraces,
+    construire: drawConstruireTraces,
+    creer: drawCreerTraces,
+    optimiser: drawOptimiserTraces,
+    evoluer: drawEvoluerTraces
+  };
+  (funcs[season] || funcs.explorer)(ctx, rng, num);
+}
+
+function drawCopper(ctx, alpha) {
+  ctx.strokeStyle = `rgba(200,117,51,${alpha || 0.6})`;
+  ctx.lineWidth = 3;
+}
+function drawVia(ctx, x, y, r) {
+  r = r || 8;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(200,117,51,0.5)';
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(x, y, r * 0.4, 0, Math.PI * 2);
+  ctx.fillStyle = '#1a5c2e';
+  ctx.fill();
+}
+
+// Explorer: sweeping curves from corners
+function drawExplorerTraces(ctx, rng) {
+  drawCopper(ctx, 0.5);
+  for (let i = 0; i < 8; i++) {
+    const startX = rng() < 0.5 ? rng() * 200 : W - rng() * 200;
+    const startY = rng() < 0.5 ? rng() * 200 : H - rng() * 200;
+    const cp1x = 200 + rng() * 600, cp1y = 200 + rng() * 600;
+    const endX = rng() < 0.5 ? rng() * 200 : W - rng() * 200;
+    const endY = rng() < 0.5 ? rng() * 200 : H - rng() * 200;
+    ctx.beginPath();
+    ctx.moveTo(startX, startY);
+    ctx.quadraticCurveTo(cp1x, cp1y, endX, endY);
+    ctx.stroke();
+    drawVia(ctx, startX, startY);
+    drawVia(ctx, endX, endY);
+  }
+  // Compass cross near top-left
+  const cx = 120, cy = 160;
+  ctx.lineWidth = 2;
+  drawCopper(ctx, 0.35);
+  ctx.beginPath(); ctx.moveTo(cx, cy - 40); ctx.lineTo(cx, cy + 40); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx - 40, cy); ctx.lineTo(cx + 40, cy); ctx.stroke();
+  drawVia(ctx, cx, cy, 10);
+}
+
+// Construire: Manhattan routing with IC footprints
+function drawConstruireTraces(ctx, rng) {
+  drawCopper(ctx, 0.5);
+  // Manhattan routes
+  for (let i = 0; i < 12; i++) {
+    let x = rng() * W, y = rng() * H;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    for (let j = 0; j < 4; j++) {
+      if (rng() < 0.5) x += (rng() - 0.5) * 300;
+      else y += (rng() - 0.5) * 300;
+      x = Math.max(10, Math.min(W - 10, x));
+      y = Math.max(10, Math.min(H - 10, y));
+      ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    drawVia(ctx, x, y);
+  }
+  // IC footprint rectangles in corners
+  for (let c = 0; c < 3; c++) {
+    const ix = 40 + rng() * 100 + (c > 1 ? W - 300 : 0);
+    const iy = 40 + rng() * 100 + (c === 1 ? H - 300 : 0);
+    ctx.strokeStyle = 'rgba(200,117,51,0.3)';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(ix, iy, 60, 80);
+    for (let p = 0; p < 6; p++) {
+      drawVia(ctx, ix - 8, iy + 10 + p * 12, 4);
+      drawVia(ctx, ix + 68, iy + 10 + p * 12, 4);
+    }
+  }
+}
+
+// Creer: flowing spirals and artistic curves
+function drawCreerTraces(ctx, rng) {
+  drawCopper(ctx, 0.45);
+  // Spiral in bottom-right
+  ctx.beginPath();
+  const sx = W - 180, sy = H - 180;
+  for (let a = 0; a < Math.PI * 6; a += 0.1) {
+    const r = 10 + a * 12;
+    const x = sx + Math.cos(a + rng()) * r;
+    const y = sy + Math.sin(a + rng() * 0.3) * r;
+    a === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  // Sine wave traces
+  for (let i = 0; i < 5; i++) {
+    const baseY = 60 + rng() * (H - 120);
+    const amp = 20 + rng() * 40;
+    const freq = 0.005 + rng() * 0.01;
+    const phase = rng() * Math.PI * 2;
+    ctx.beginPath();
+    for (let x = 0; x < W; x += 3) {
+      const y = baseY + Math.sin(x * freq + phase) * amp;
+      x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    drawVia(ctx, rng() * W, baseY);
+  }
+}
+
+// Optimiser: code brackets and data bus lines
+function drawOptimiserTraces(ctx, rng) {
+  drawCopper(ctx, 0.5);
+  // Parallel data bus in corners
+  for (let b = 0; b < 2; b++) {
+    const baseX = b === 0 ? 30 : W - 100;
+    for (let i = 0; i < 6; i++) {
+      const y1 = 150 + rng() * 200;
+      const y2 = y1 + 300 + rng() * 200;
+      ctx.beginPath();
+      ctx.moveTo(baseX + i * 12, y1);
+      ctx.lineTo(baseX + i * 12, y2);
+      ctx.stroke();
+      drawVia(ctx, baseX + i * 12, y1, 4);
+      drawVia(ctx, baseX + i * 12, y2, 4);
+    }
+  }
+  // Bracket shapes { }
+  const drawBracket = (x, y, s, flip) => {
+    const d = flip ? -1 : 1;
+    ctx.beginPath();
+    ctx.moveTo(x + d * 20, y);
+    ctx.quadraticCurveTo(x, y, x, y + s * 0.2);
+    ctx.lineTo(x, y + s * 0.4);
+    ctx.quadraticCurveTo(x - d * 15, y + s * 0.5, x, y + s * 0.6);
+    ctx.lineTo(x, y + s * 0.8);
+    ctx.quadraticCurveTo(x, y + s, x + d * 20, y + s);
+    ctx.stroke();
+  };
+  ctx.lineWidth = 2.5;
+  for (let i = 0; i < 3; i++) {
+    const bx = 60 + rng() * (W - 120);
+    const by = 80 + rng() * 200;
+    drawBracket(bx, by, 80 + rng() * 60, false);
+    drawBracket(bx + 100 + rng() * 60, by, 80 + rng() * 60, true);
+  }
+}
+
+// Evoluer: branching tree traces
+function drawEvoluerTraces(ctx, rng) {
+  drawCopper(ctx, 0.45);
+  function branch(x, y, angle, len, depth) {
+    if (depth <= 0 || len < 10) return;
+    const ex = x + Math.cos(angle) * len;
+    const ey = y + Math.sin(angle) * len;
+    ctx.beginPath();
+    ctx.lineWidth = 1 + depth * 0.8;
+    ctx.moveTo(x, y);
+    ctx.lineTo(ex, ey);
+    ctx.stroke();
+    if (depth > 1) drawVia(ctx, ex, ey, 3 + depth);
+    const spread = 0.4 + rng() * 0.4;
+    branch(ex, ey, angle - spread, len * (0.6 + rng() * 0.2), depth - 1);
+    branch(ex, ey, angle + spread, len * (0.6 + rng() * 0.2), depth - 1);
+    if (rng() < 0.3) branch(ex, ey, angle, len * 0.5, depth - 1);
+  }
+  // Two trees: bottom-left and bottom-right
+  branch(180, H - 60, -Math.PI / 2 + rng() * 0.3 - 0.15, 80 + rng() * 40, 6);
+  branch(W - 180, H - 60, -Math.PI / 2 + rng() * 0.3 - 0.15, 70 + rng() * 40, 5);
+  // Neural nodes at top
+  for (let i = 0; i < 6; i++) {
+    const nx = 80 + rng() * (W - 160), ny = 100 + rng() * 80;
+    drawVia(ctx, nx, ny, 6);
+    // Connect some nodes
+    if (i > 0 && rng() < 0.6) {
+      const px = 80 + rng() * (W - 160), py = 100 + rng() * 80;
+      ctx.lineWidth = 1.5;
+      ctx.beginPath(); ctx.moveTo(nx, ny); ctx.lineTo(px, py); ctx.stroke();
+    }
+  }
+}
+
+/* ========== CANVAS HELPERS ========== */
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h);
+  ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r);
+  ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
+}
+
+function wrapText(ctx, text, x, y, maxW, lineH) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  for (const w of words) {
+    const test = line ? line + ' ' + w : w;
+    if (ctx.measureText(test).width > maxW && line) {
+      lines.push(line);
+      line = w;
+    } else {
+      line = test;
+    }
+  }
+  if (line) lines.push(line);
+  const startY = y - ((lines.length - 1) * lineH) / 2;
+  lines.forEach((l, i) => ctx.fillText(l, x, startY + i * lineH));
+}
+
+/* ========== UI ========== */
+function showPaper(idx) {
+  currentIdx = idx;
+  const p = papers[idx];
+  if (!p) return;
+  const text = texts[String(p.num)] || '';
+  const hook = extractHook(text);
+
+  document.getElementById('iNum').textContent = `PAPER ${String(p.num).padStart(3, '0')}`;
+  document.getElementById('iDate').textContent = fmtDateLong(p.date);
+  const sBadge = document.getElementById('iSeason');
+  sBadge.textContent = p.season;
+  sBadge.className = `info-season s-${p.season}`;
+  document.getElementById('iHook').value = hook;
+  document.getElementById('iText').textContent = text;
+
+  // Highlight grid
+  document.querySelectorAll('.grid button').forEach((b, i) => b.classList.toggle('on', i === idx));
+
+  renderPCB(p, hook);
+}
+
+function buildGrid() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  papers.forEach((p, i) => {
+    const b = document.createElement('button');
+    b.textContent = String(p.num).padStart(3, '0');
+    b.onclick = () => showPaper(i);
+    grid.appendChild(b);
+  });
+}
+
+function handleURLParam() {
+  const params = new URLSearchParams(location.search);
+  const pNum = parseInt(params.get('paper'), 10);
+  if (pNum >= 1 && pNum <= 365) currentIdx = pNum - 1;
+}
+
+// Navigation
+document.getElementById('btnPrev').onclick = () => showPaper(currentIdx <= 0 ? papers.length - 1 : currentIdx - 1);
+document.getElementById('btnNext').onclick = () => showPaper(currentIdx >= papers.length - 1 ? 0 : currentIdx + 1);
+
+// Today button
+document.getElementById('todayBtn').onclick = () => {
+  const now = new Date();
+  let idx = 0;
+  if (now.getFullYear() === 2026) {
+    const start = new Date('2026-01-01T00:00:00');
+    idx = Math.max(0, Math.min(364, Math.floor((now - start) / 86400000)));
+  }
+  showPaper(idx);
+};
+
+// Search
+document.getElementById('searchNum').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    const num = parseInt(e.target.value, 10);
+    if (num >= 1 && num <= 365) showPaper(num - 1);
+  }
+});
+
+// Season filters
+document.querySelectorAll('.ctrl button[data-season]').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.ctrl button[data-season]').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const season = btn.dataset.season;
+    const gridBtns = document.querySelectorAll('.grid button');
+    papers.forEach((p, i) => {
+      gridBtns[i].style.display = (season === 'all' || p.season === season) ? '' : 'none';
+    });
+  };
+});
+
+// Hook text live update
+document.getElementById('iHook').addEventListener('input', () => {
+  const p = papers[currentIdx];
+  if (p) renderPCB(p, document.getElementById('iHook').value);
+});
+
+// Copy text
+document.getElementById('btnCopy').onclick = async () => {
+  const text = texts[String(papers[currentIdx].num)] || '';
+  await navigator.clipboard.writeText(text);
+  const btn = document.getElementById('btnCopy');
+  btn.textContent = 'Copied!';
+  setTimeout(() => btn.textContent = 'Copy Text', 1000);
+};
+
+// Download single
+function downloadCanvas(type) {
+  const canvas = document.getElementById('offscreen');
+  const mime = type === 'png' ? 'image/png' : 'image/jpeg';
+  const ext = type === 'png' ? 'png' : 'jpg';
+  const quality = type === 'png' ? undefined : 0.92;
+  canvas.toBlob(blob => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `paper-${String(papers[currentIdx].num).padStart(3, '0')}-pcb.${ext}`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }, mime, quality);
+}
+document.getElementById('btnPNG').onclick = () => downloadCanvas('png');
+document.getElementById('btnJPG').onclick = () => downloadCanvas('jpg');
+
+// Batch generation
+let batchBlobs = null;
+document.getElementById('btnBatch').onclick = async () => {
+  const btn = document.getElementById('btnBatch');
+  btn.disabled = true;
+  btn.textContent = 'Generating...';
+  document.getElementById('btnZip').style.display = 'none';
+  batchBlobs = [];
+
+  for (let i = 0; i < papers.length; i++) {
+    const p = papers[i];
+    const text = texts[String(p.num)] || '';
+    renderPCB(p, extractHook(text));
+
+    const blob = await new Promise(r =>
+      document.getElementById('offscreen').toBlob(r, 'image/jpeg', 0.90)
+    );
+    batchBlobs.push({ name: `paper-${String(p.num).padStart(3, '0')}-pcb.jpg`, blob });
+
+    const pct = ((i + 1) / papers.length * 100).toFixed(0);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('progressText').textContent = `${i + 1}/365`;
+    document.getElementById('batchLabel').textContent = `Generating paper ${p.num}...`;
+
+    if (i % 5 === 0) await new Promise(r => setTimeout(r, 0));
+  }
+
+  btn.textContent = 'Generate All 365';
+  btn.disabled = false;
+  document.getElementById('batchLabel').textContent = `Done! ${batchBlobs.length} images ready.`;
+  document.getElementById('btnZip').style.display = '';
+
+  // Restore current view
+  showPaper(currentIdx);
+};
+
+document.getElementById('btnZip').onclick = async () => {
+  if (!batchBlobs) return;
+  document.getElementById('batchLabel').textContent = 'Creating ZIP...';
+  const zip = new JSZip();
+  batchBlobs.forEach(b => zip.file(b.name, b.blob));
+  const content = await zip.generateAsync({ type: 'blob' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(content);
+  a.download = 'Workshop-DIY-Paper-2026-PCB.zip';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  document.getElementById('batchLabel').textContent = 'ZIP downloaded!';
+};
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key === 'ArrowLeft') document.getElementById('btnPrev').click();
+  if (e.key === 'ArrowRight') document.getElementById('btnNext').click();
+});
+
+// Init
+loadData();
+</script>
+<script src="../../assets/js/sada-nav.js"></script>
+<script src="../../assets/js/sada-footer.js"></script>
+</body>
+</html>
