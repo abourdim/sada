@@ -152,6 +152,7 @@ body{background:#060810;color:#e8e8f0;font-family:'JetBrains Mono',monospace;lin
       </div>
       <div class="info-text" id="iText"></div>
       <div class="info-actions">
+        <button class="btn btn-primary" id="btnLaunch">Launch Image</button>
         <button class="btn btn-primary" id="btnCopy">Copy Text</button>
         <button class="btn btn-copper" id="btnPNG">PNG</button>
         <button class="btn btn-copper" id="btnJPG">JPG</button>
@@ -683,6 +684,13 @@ document.getElementById('iHook').addEventListener('input', () => {
   const p = papers[currentIdx];
   if (p) renderPCB(p, document.getElementById('iHook').value);
 });
+
+// Launch image in new tab
+document.getElementById('btnLaunch').onclick = () => {
+  const canvas = document.getElementById('offscreen');
+  const url = canvas.toDataURL('image/png');
+  window.open(url, '_blank');
+};
 
 // Copy text
 document.getElementById('btnCopy').onclick = async () => {
