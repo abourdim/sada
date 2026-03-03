@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // ESP32-C3 BOOT</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#000;color:#00cc66;font-family:'JetBrains Mono',monospace;font-size:10px;min-height:100vh;padding:10px;line-height:1.7;overflow-x:hidden}
+.line{opacity:0;animation:appear .05s forwards}
+@keyframes appear{to{opacity:1}}
+.dim{color:#006633}
+.warn{color:#ffaa00}
+.err{color:#ff4444}
+.info{color:#00aaff}
+.white{color:#aaa}
+.bright{color:#00ff88;font-weight:700}
+.sep{color:#003311}
+.blink{animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div id="out"></div>
+<script>
+const out=document.getElementById('out');
+let delay=0;
+
+function add(text,cls,d){
+  delay+=d||40;
+  setTimeout(()=>{
+    const div=document.createElement('div');
+    div.className='line'+(cls?' '+cls:'');
+    div.innerHTML=text;
+    out.appendChild(div);
+    window.scrollTo(0,document.body.scrollHeight);
+  },delay);
+}
+
+function sep(){add('<span class="sep">════════════════════════════════════════════════════════════</span>','',20);}
+
+// ESP32 BOOTLOADER
+add('','',100);
+add('ESP-ROM:esp32c3-api1-20210207','dim',60);
+add('Build:Feb  7 2021','dim',30);
+add('rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)','dim',30);
+add('SPIWP:0xee','dim',20);
+add('mode:DIO, clock div:1','dim',20);
+add('load:0x3fcd5820,len:0x1714','dim',20);
+add('load:0x403cc710,len:0x968','dim',20);
+add('load:0x403ce710,len:0x2f68','dim',20);
+add('entry 0x403cc710','dim',20);
+
+add('','',200);
+sep();
+add('  <span class="bright">ESP32-C3 BOOTLOADER v4.4.6</span>','',80);
+sep();
+add('','',50);
+
+add('I (42) boot: <span class="white">chip revision: v0.4</span>','',40);
+add('I (42) boot: <span class="white">ESP32-C3, 1-core RISC-V @ 160MHz</span>','',40);
+add('I (52) boot: <span class="white">Compile time: Feb 28 2026 03:42:00</span>','',40);
+
+add('','',80);
+add('I (62) boot: <span class="info">Partition Table:</span>','',60);
+add('I (62) boot: ## Label     Usage        Type ST Offset   Length  ','dim',30);
+add('I (62) boot:  0 nvs       WiFi data    01 02 00009000 00006000','dim',20);
+add('I (72) boot:  1 phy_init  RF data      01 01 0000f000 00001000','dim',20);
+add('I (72) boot:  2 factory   factory app  00 00 00010000 00100000','dim',20);
+add('I (82) boot: End of partition table','dim',20);
+
+add('','',60);
+add('I (92) boot: <span class="white">Loaded app from partition at offset 0x10000</span>','',40);
+add('I (92) boot: <span class="white">Disabling RNG early entropy source...</span>','',30);
+
+add('','',100);
+sep();
+add('  <span class="bright">WORKSHOP-DIY · BIT-BOT FIRMWARE v2.42</span>','',80);
+add('  <span class="dim">Association Loi 1901 · France 🇫🇷</span>','',40);
+sep();
+
+add('','',100);
+add('I (142) <span class="info">cpu_start</span>: Single core mode','',40);
+add('I (142) <span class="info">cpu_start</span>: Pro cpu up.','',30);
+add('I (152) <span class="info">heap_init</span>: Initializing. RAM available for dynamic allocation:','',40);
+add('I (152) <span class="info">heap_init</span>: At 3FC8B4E0 len 00034B20 (210 KiB): DRAM','dim',20);
+add('I (162) <span class="info">heap_init</span>: At 3FCC0000 len 0001C710 (113 KiB): STACK/DRAM','dim',20);
+add('I (162) <span class="info">heap_init</span>: At 50000010 len 00001FF0 (7 KiB): RTCRAM','dim',20);
+add('I (172) <span class="info">heap_init</span>: Total free: <span class="white">330,768 bytes</span>','',30);
+
+add('','',80);
+add('I (182) <span class="info">spi_flash</span>: detected chip: generic','',30);
+add('I (182) <span class="info">spi_flash</span>: flash io: dio','',20);
+add('I (192) <span class="info">flash</span>: <span class="white">4MB Flash · QIO @ 80MHz</span>','',30);
+
+add('','',100);
+add('I (202) <span class="bright">WKSHP</span>: ╔═══════════════════════════════════════╗','',40);
+add('I (202) <span class="bright">WKSHP</span>: ║  🤖  bit-bot Firmware Initializing    ║','',30);
+add('I (202) <span class="bright">WKSHP</span>: ╚═══════════════════════════════════════╝','',30);
+
+add('','',80);
+add('I (212) <span class="info">GPIO</span>: Configuring pin map...','',50);
+add('I (222) <span class="info">GPIO</span>:   GPIO4  → NeoPixel Data  [OUTPUT]  <span class="bright">✓</span>','',40);
+add('I (232) <span class="info">GPIO</span>:   GPIO6  → Motor Left     [PWM]     <span class="bright">✓</span>','',40);
+add('I (242) <span class="info">GPIO</span>:   GPIO7  → Motor Right    [PWM]     <span class="bright">✓</span>','',40);
+add('I (252) <span class="info">GPIO</span>:   GPIO10 → Servo          [PWM]     <span class="bright">✓</span>','',40);
+add('I (262) <span class="info">GPIO</span>:   GPIO0  → IR Left        [ADC]     <span class="bright">✓</span>','',40);
+add('I (272) <span class="info">GPIO</span>:   GPIO1  → IR Right       [ADC]     <span class="bright">✓</span>','',40);
+add('I (282) <span class="info">GPIO</span>:   GPIO8  → RGB LED        [WS2812]  <span class="bright">✓</span>','',40);
+add('I (292) <span class="info">GPIO</span>:   GPIO9  → Boot Button    [INPUT↑]  <span class="bright">✓</span>','',40);
+
+add('','',80);
+add('I (302) <span class="info">NEO</span>: NeoPixel strip initialized','',40);
+add('I (302) <span class="info">NEO</span>:   Pixels: <span class="white">8</span> · Pin: <span class="white">GPIO4</span> · Type: <span class="white">GRB 800KHz</span>','',30);
+add('I (312) <span class="info">NEO</span>:   Brightness: <span class="white">50/255 (19%)</span>','',30);
+add('I (322) <span class="info">NEO</span>:   Self-test: <span class="bright">■ ■ ■ ■ ■ ■ ■ ■ PASS</span>','',50);
+
+add('','',60);
+add('I (332) <span class="info">SERVO</span>: Servo attached to GPIO10','',40);
+add('I (332) <span class="info">SERVO</span>:   Range: <span class="white">0-180°</span> · Default: <span class="white">90°</span> · Freq: <span class="white">50Hz</span>','',30);
+add('I (342) <span class="info">SERVO</span>:   Self-test: 0° → 90° → 180° → 90° <span class="bright">PASS</span>','',50);
+
+add('','',60);
+add('I (352) <span class="info">MOTOR</span>: Motor driver initialized','',40);
+add('I (352) <span class="info">MOTOR</span>:   L=GPIO6 R=GPIO7 · PWM: <span class="white">5KHz 8-bit</span>','',30);
+add('I (362) <span class="info">MOTOR</span>:   Self-test: L▸ R▸ L◂ R◂ STOP <span class="bright">PASS</span>','',50);
+
+add('','',60);
+add('I (372) <span class="info">IR</span>: Line sensors calibrating...','',60);
+add('I (432) <span class="info">IR</span>:   Left:  <span class="white">3042</span> (floor) · Right: <span class="white">3108</span> (floor)','',40);
+add('I (432) <span class="info">IR</span>:   Threshold: <span class="white">2000</span> · Status: <span class="bright">CALIBRATED</span>','',30);
+
+add('','',100);
+sep();
+add('  <span class="info">BLUETOOTH LOW ENERGY</span>','',60);
+sep();
+add('','',40);
+add('I (442) <span class="info">BLE</span>: Initializing NimBLE stack...','',60);
+add('I (452) <span class="info">BLE</span>: Device name: <span class="bright">WKSHP-bitbot-42</span>','',40);
+add('I (462) <span class="info">BLE</span>: MAC Adresse : <span class="white">AA:BB:CC:42:42:42</span>','',30);
+add('I (472) <span class="info">BLE</span>: TX Power: <span class="white">+3 dBm</span>','',30);
+add('','',40);
+add('I (482) <span class="info">BLE</span>: Creating UART Service...','',40);
+add('I (482) <span class="info">BLE</span>:   Service : <span class="dim">6E400001-B5A3-F393-E0A9-E50E24DCCA9E</span>','',30);
+add('I (492) <span class="info">BLE</span>:   TX Char : <span class="dim">6E400003-...  [NOTIFY]</span>','',20);
+add('I (492) <span class="info">BLE</span>:   RX Char : <span class="dim">6E400002-...  [WRITE]</span>','',20);
+add('I (502) <span class="info">BLE</span>: Service started <span class="bright">✓</span>','',30);
+add('','',40);
+add('I (512) <span class="info">BLE</span>: Starting advertisement...','',40);
+add('I (522) <span class="info">BLE</span>: <span class="bright">📡 ADVERTISING</span> — Waiting for browser connection','',50);
+
+add('','',100);
+sep();
+add('  <span class="bright">SYSTÈME PRÊT</span>','',60);
+sep();
+add('','',40);
+add('I (532) <span class="bright">WKSHP</span>: ┌──────────────────────────────────────┐','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  🤖 bit-bot is READY                 │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  📡 BLE: Advertising                 │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  💡 NeoPixels: 8 LEDs on GPIO4       │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  🔧 Servo: GPIO10 @ 90°              │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  ⚡ Motors: GPIO6/7 PWM               │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  👁️ IR Sensors: Calibrated            │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  🔑 WiFi: password123 (just kidding)  │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  ☕ Coffee: 8%                        │','',30);
+add('I (532) <span class="bright">WKSHP</span>: └──────────────────────────────────────┘','',30);
+add('','',40);
+add('I (542) <span class="bright">WKSHP</span>: Free heap: <span class="white">287,456 bytes</span>','',30);
+add('I (542) <span class="bright">WKSHP</span>: Disponibilité: <span class="white">542ms</span>','',30);
+add('I (542) <span class="bright">WKSHP</span>: Drops survived: <span class="white">47</span> (colle chaude structural)','',30);
+add('I (542) <span class="bright">WKSHP</span>: Bug #42 status: <span class="warn">PRESENT</span> (cannot be removed)','',30);
+
+add('','',200);
+add('I (4042) <span class="bright">BLE</span>: <span class="bright">✓ DEVICE CONNECTED</span> — Chrome browser','',80);
+add('I (4042) <span class="bright">BLE</span>: MTU negotiated: <span class="white">247 bytes</span>','',30);
+add('I (4052) <span class="bright">BLE</span>: Connection interval: <span class="white">42ms</span>','',30);
+add('','',60);
+add('I (4102) <span class="info">RX</span>: NEO:00FF00','',40);
+add('I (4102) <span class="info">NEO</span>: Setting color: <span class="bright">#00FF00</span> (green)','',30);
+add('I (4202) <span class="info">TX</span>: IR:3042,3108','',40);
+add('I (4302) <span class="info">RX</span>: SERVO:45','',40);
+add('I (4302) <span class="info">SERVO</span>: Moving to <span class="white">45°</span>','',30);
+add('I (4402) <span class="info">TX</span>: IR:3055,3091','',40);
+add('I (4502) <span class="info">RX</span>: MOTOR:L80,R80','',40);
+add('I (4502) <span class="info">MOTOR</span>: L=<span class="white">80</span> R=<span class="white">80</span> (forward)','',30);
+add('I (4602) <span class="info">TX</span>: IR:1205,3890','',40);
+add('I (4602) <span class="warn">LINE</span>: Line detected LEFT — sending event','',30);
+add('I (4702) <span class="info">RX</span>: MOTOR:L0,R80','',40);
+add('I (4702) <span class="info">MOTOR</span>: L=<span class="white">0</span> R=<span class="white">80</span> (turning left)','',30);
+add('I (4802) <span class="info">TX</span>: IR:3102,3044','',40);
+
+add('','',100);
+add('<span class="dim">█</span><span class="blink">_</span>','',30);
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

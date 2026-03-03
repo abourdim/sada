@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // SLACK</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#1a1d21;color:#d1d2d3;font-family:'Lato',sans-serif;font-size:13px;min-height:100vh;display:flex}
+
+/* SIDEBAR */
+.sidebar{width:210px;background:#19171d;display:flex;flex-direction:column;border-right:1px solid #35373b;flex-shrink:0}
+.ws-header{padding:8px 12px;border-bottom:1px solid #35373b}
+.ws-name{font-size:14px;font-weight:700;color:#fff;display:flex;align-items:center;gap:4px}
+.ws-sub{font-size:10px;color:#9a9b9d}
+
+.channels{padding:6px 0;flex:1;overflow-y:auto}
+.ch-label{font-size:10px;color:#9a9b9d;padding:4px 12px;letter-spacing:.5px}
+.channel{padding:3px 12px;font-size:12px;color:#9a9b9d;cursor:pointer;display:flex;align-items:center;gap:4px}
+.channel:hover{background:rgba(255,255,255,.03)}
+.channel.active{background:#1164a3;color:#fff;border-radius:4px;margin:0 4px}
+.channel .hash{opacity:.5}
+.channel .badge{margin-left:auto;background:#cd2553;color:#fff;font-size:8px;padding:0 4px;border-radius:8px;font-weight:700}
+
+.dm-list{padding:4px 0;border-top:1px solid #35373b}
+.dm{padding:3px 12px;font-size:12px;color:#9a9b9d;cursor:pointer;display:flex;align-items:center;gap:4px}
+.dm .status{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dm .status.online{background:#2eb67d}
+.dm .status.away{background:#e8912d}
+.dm .status.offline{background:#616061;border:1px solid #9a9b9d}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+
+.ch-header{padding:8px 14px;border-bottom:1px solid #35373b;display:flex;align-items:center;gap:6px}
+.ch-header .name{font-size:14px;font-weight:700;color:#fff}
+.ch-header .topic{font-size:11px;color:#9a9b9d;margin-left:8px}
+
+.messages{flex:1;overflow-y:auto;padding:8px 14px;display:flex;flex-direction:column;gap:2px}
+
+.msg{display:flex;gap:8px;padding:4px 0}
+.msg .avatar{width:30px;height:30px;border-radius:4px;background:#35373b;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.msg .content{flex:1;min-width:0}
+.msg .header{display:flex;align-items:baseline;gap:4px}
+.msg .username{font-weight:700;font-size:12px;color:#fff}
+.msg .timestamp{font-size:10px;color:#616061}
+.msg .text{font-size:13px;color:#d1d2d3;line-height:1.7;margin-top:1px}
+.msg .reactions{display:flex;gap:3px;margin-top:3px}
+.msg .reaction{padding:1px 5px;background:#2d2f33;border:1px solid #35373b;border-radius:10px;font-size:10px;cursor:pointer}
+.msg .reaction:hover{background:#35373b}
+
+.thread-link{font-size:10px;color:#1d9bd1;cursor:pointer;margin-top:2px}
+
+.divider{display:flex;align-items:center;gap:8px;padding:4px 0;margin:4px 0}
+.divider .line{flex:1;height:1px;background:#35373b}
+.divider .date{font-size:10px;color:#9a9b9d;font-weight:700;background:#1a1d21;padding:0 6px}
+
+/* INPUT */
+.msg-input{padding:8px 14px;border-top:1px solid #35373b}
+.msg-input .input-box{background:#222529;border:1px solid #565856;border-radius:4px;padding:6px 10px;display:flex;align-items:center;gap:6px}
+.msg-input input{flex:1;background:transparent;border:none;color:#d1d2d3;font-family:inherit;font-size:12px;outline:none}
+.msg-input .tools{display:flex;gap:6px;font-size:14px;opacity:.4}
+
+@media(max-width:600px){.sidebar{width:0;overflow:hidden}.main{width:100%}}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="ws-header">
+    <div class="ws-name">🤖 Workshop-DIY <span style="font-size:10px;opacity:.5">▾</span></div>
+    <div class="ws-sub">39 apps · 7 channels</div>
+  </div>
+  
+  <div class="channels">
+    <div class="ch-label">Channels</div>
+    <div class="channel active"><span class="hash">#</span> general <span class="badge">42</span></div>
+    <div class="channel"><span class="hash">#</span> robotics</div>
+    <div class="channel"><span class="hash">#</span> ai-ml</div>
+    <div class="channel"><span class="hash">#</span> cybersecurity</div>
+    <div class="channel"><span class="hash">#</span> bug-42-support <span class="badge">∞</span></div>
+    <div class="channel"><span class="hash">#</span> coffee-machine-status</div>
+    <div class="channel"><span class="hash">#</span> wifi-password-petition</div>
+    <div class="channel"><span class="hash">#</span> hot-glue-engineering</div>
+    <div class="channel"><span class="hash">#</span> desk-drop-reports</div>
+  </div>
+
+  <div class="dm-list">
+    <div class="ch-label">Direct Messages</div>
+    <div class="dm"><div class="status online"></div> bit-bot</div>
+    <div class="dm"><div class="status online"></div> Bug #42</div>
+    <div class="dm"><div class="status away"></div> Coffee Machine</div>
+    <div class="dm"><div class="status offline"></div> password123</div>
+    <div class="dm"><div class="status online"></div> teachable-machine</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="ch-header">
+    <span class="name"># general</span>
+    <span class="topic">| Workshop-DIY team chat · 39 apps · 0 installs · ∞ conversations</span>
+  </div>
+
+  <div class="messages">
+    <div class="divider"><div class="line"></div><div class="date">Today</div><div class="line"></div></div>
+
+    <div class="msg">
+      <div class="avatar">👑</div>
+      <div class="content">
+        <div class="header"><span class="username">The Founder</span><span class="timestamp">9:00 AM</span></div>
+        <div class="text">Good morning team! Big day today — we're at 135 HTML files in the creative suite. Reminder: workshop session at 14:00. WiFi password is still password123.</div>
+        <div class="reactions"><span class="reaction">🚀 4</span><span class="reaction">👍 7</span><span class="reaction">☕ 1</span></div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar">🔑</div>
+      <div class="content">
+        <div class="header"><span class="username">password123</span><span class="timestamp">9:01 AM</span></div>
+        <div class="text">You really don't need to announce the password every morning. It hasn't changed. It won't change.</div>
+        <div class="reactions"><span class="reaction">😂 12</span></div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar">🤖</div>
+      <div class="content">
+        <div class="header"><span class="username">bit-bot</span><span class="timestamp">9:15 AM</span></div>
+        <div class="text">⚠️ Desk drop alert: Drop #48 at 09:14. All systems nominal. Hot glue holding. Left servo making a slight clicking sound. Probably fine.</div>
+        <div class="reactions"><span class="reaction">😰 3</span><span class="reaction">🔥 5</span><span class="reaction">💪 2</span></div>
+        <div class="thread-link">💬 6 replies</div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar">☕</div>
+      <div class="content">
+        <div class="header"><span class="username">Coffee Machine</span><span class="timestamp">9:22 AM</span></div>
+        <div class="text">Daily status report: 8%. Drainage tray: full. Water level: adequate. Morale: low. Bean count: 47. Nobody has thanked me today. Again.</div>
+        <div class="reactions"><span class="reaction">😢 8</span><span class="reaction">☕ 14</span></div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar">🐳</div>
+      <div class="content">
+        <div class="header"><span class="username">docker-lab</span><span class="timestamp">9:30 AM</span></div>
+        <div class="text">Incident from yesterday's session: a student explained container orchestration to a parent who is a VP of Engineering at a Fortune 500. The parent asked for the student's LinkedIn. The student is 14.</div>
+        <div class="reactions"><span class="reaction">🤯 15</span><span class="reaction">😂 9</span><span class="reaction">👨‍💻 3</span></div>
+        <div class="thread-link">💬 23 replies</div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar">🔐</div>
+      <div class="content">
+        <div class="header"><span class="username">pentest-lab</span><span class="timestamp">10:05 AM</span></div>
+        <div class="text">PSA: Please stop trying to hack the coffee machine. I know it's on the network. I know it responds to port 8080. But it's at 8% and doesn't deserve this.</div>
+        <div class="reactions"><span class="reaction">😈 4</span><span class="reaction">☕ 2</span></div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar">🐛</div>
+      <div class="content">
+        <div class="header"><span class="username">Bug #42</span><span class="timestamp">3:42 AM</span></div>
+        <div class="text">I have been reading all your messages. I have been reading them before you type them. The 40th app and I discussed this. We agree that the coffee machine deserves better. Also, I updated my restraining order against ESLint. Have a nice day.</div>
+        <div class="reactions"><span class="reaction">👀 42</span><span class="reaction">🫣 7</span><span class="reaction">🐛 42</span></div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar">🧠</div>
+      <div class="content">
+        <div class="header"><span class="username">teachable-machine</span><span class="timestamp">10:42 AM</span></div>
+        <div class="text">My model predicts with 98% accuracy that someone will ask "what's the WiFi password" within the next 4 minutes.</div>
+      </div>
+    </div>
+
+    <div class="msg">
+      <div class="avatar">👦</div>
+      <div class="content">
+        <div class="header"><span class="username">student_247</span><span class="timestamp">10:44 AM</span></div>
+        <div class="text">hey what's the wifi password?</div>
+        <div class="reactions"><span class="reaction">🤖 98%</span><span class="reaction">😂 20</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="msg-input">
+    <div class="input-box">
+      <span class="tools">➕</span>
+      <input placeholder="Message #general">
+      <span class="tools">😀 📎 🎤</span>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

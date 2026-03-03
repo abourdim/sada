@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WORKSHOP-DIY // COMPLETE SUITE — 163 FILES</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;min-height:100vh;padding:16px 16px 40px}
+
+.hero{text-align:center;margin-bottom:16px;padding:20px 0}
+.hero .number{font-family:'Syne',sans-serif;font-size:clamp(48px,12vw,80px);font-weight:800;background:linear-gradient(180deg,#ffd700,#ff8800,#ff0066);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.hero .label{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#ffd700;letter-spacing:4px;margin-top:-2px}
+.hero .sub{font-size:8px;color:rgba(255,215,0,.15);letter-spacing:3px;margin-top:4px}
+
+.stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.stat{text-align:center;padding:6px 14px;border:1px solid rgba(255,215,0,.04);border-radius:4px;background:rgba(255,215,0,.01)}
+.stat .n{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#ffd700}
+.stat .l{font-size:6px;color:rgba(255,215,0,.15);letter-spacing:1px}
+
+/* SEARCH */
+.search{max-width:500px;margin:0 auto 12px;position:relative}
+.search input{width:100%;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:10px 14px 10px 32px;color:#fff;font-family:inherit;font-size:11px;outline:none}
+.search input::placeholder{color:rgba(255,255,255,.1)}
+.search input:focus{border-color:rgba(255,215,0,.15)}
+.search::before{content:'🔍';position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:12px}
+
+/* FILTERS */
+.filters{display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.filter{padding:4px 10px;border-radius:12px;border:1px solid rgba(255,255,255,.04);font-size:8px;color:rgba(255,255,255,.2);cursor:pointer;transition:all .2s;letter-spacing:.5px}
+.filter:hover,.filter.active{border-color:rgba(255,215,0,.2);color:#ffd700;background:rgba(255,215,0,.03)}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px;max-width:1000px;margin:0 auto}
+
+.card{padding:10px;border:1px solid rgba(255,255,255,.03);border-radius:6px;background:rgba(255,255,255,.01);cursor:pointer;transition:all .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.card:hover{border-color:rgba(255,215,0,.1);background:rgba(255,215,0,.02);transform:translateY(-1px)}
+.card .top{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.card .emoji{font-size:18px}
+.card .name{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);flex:1}
+.card .cat-badge{font-size:6px;padding:1px 6px;border-radius:8px;letter-spacing:.5px}
+.card .desc{font-size:8px;color:rgba(255,255,255,.15);line-height:1.8;flex:1}
+
+/* CATEGORY COLORS */
+.c-social{border-color:rgba(0,170,255,.15);color:#0af}
+.c-tv{border-color:rgba(255,0,102,.15);color:#ff0066}
+.c-game{border-color:rgba(0,204,102,.15);color:#00cc66}
+.c-doc{border-color:rgba(255,170,0,.15);color:#ffaa00}
+.c-gallery{border-color:rgba(153,102,255,.15);color:#9966ff}
+.c-story{border-color:rgba(255,136,170,.15);color:#ff88aa}
+.c-data{border-color:rgba(0,204,204,.15);color:#00cccc}
+.c-media{border-color:rgba(255,204,0,.15);color:#ffcc00}
+.c-video{border-color:rgba(255,102,0,.15);color:#ff6600}
+.c-meta{border-color:rgba(136,136,136,.15);color:#888}
+
+.count-display{text-align:center;margin:10px 0;font-size:9px;color:rgba(255,255,255,.1)}
+
+.footer{text-align:center;margin-top:16px;font-size:6px;color:rgba(255,215,0,.06);letter-spacing:1px;line-height:2.4}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="number">163</div>
+  <div class="label">WORKSHOP-DIY FILES</div>
+  <div class="sub">THE COMPLETE CREATIVE UNIVERSE · OPEN ANY FILE TO EXPLORE</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">163</div><div class="l">HTML FILES</div></div>
+  <div class="stat"><div class="n">39</div><div class="l">REAL APPS</div></div>
+  <div class="stat"><div class="n">65+</div><div class="l">UNIQUE FORMATS</div></div>
+  <div class="stat"><div class="n">12</div><div class="l">SESSIONS</div></div>
+  <div class="stat"><div class="n">0</div><div class="l">INSTALLS</div></div>
+</div>
+
+<div class="search"><input type="text" id="search" placeholder="Search files..." oninput="filterCards()"></div>
+
+<div class="filters" id="filters"></div>
+
+<div class="count-display">Showing <span id="showing">163</span> of 163 files</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="footer">
+  WORKSHOP-DIY · ASSOCIATION LOI 1901 · FRANCE 🇫🇷<br>
+  46 APPS · 7 DOMAINS · 163 FILES · 0 INSTALLATIONS · ∞ POSSIBILITIES<br>
+  ALL FILES SELF-CONTAINED · JUST OPEN IN A BROWSER · BUGS ARE FEATURES · password123
+</div>
+
+<script>
+const FILES=[
+// SOCIAL MEDIA PARODIES
+{f:"tiktok",n:"TikTok Feed",e:"📱",d:"Vertical scrolling WKSHPtok with likes, comments, sounds",c:"social"},
+{f:"tinder",n:"Tinder for Apps",e:"🔥",d:"Swipe right on your favorite app. Match & chat.",c:"social"},
+{f:"discord-chat",n:"Discord Chat",e:"💬",d:"Fake Discord server with channels and bot messages",c:"social"},
+{f:"reddit",n:"Reddit Thread",e:"🗣️",d:"r/WorkshopDIY subreddit with upvotes and comments",c:"social"},
+{f:"linkedin",n:"LinkedIn Profile",e:"💼",d:"Professional profile page for Workshop-DIY",c:"social"},
+{f:"github-profile",n:"GitHub Profile",e:"🐙",d:"GitHub profile with contribution graph and repos",c:"social"},
+{f:"hacker-news",n:"Hacker News",e:"🟧",d:"HN front page with Workshop-DIY stories",c:"social"},
+{f:"wikipedia",n:"Wikipedia Article",e:"📖",d:"Full encyclopedia entry for Workshop-DIY",c:"social"},
+{f:"app-store",n:"App Store",e:"📲",d:"Mobile app store listing for all 39 apps",c:"social"},
+{f:"wrapped-2025",n:"Spotify Wrapped",e:"🎵",d:"2025 year in review, Spotify style",c:"social"},
+{f:"maps-reviews",n:"Google Maps Reviews",e:"📍",d:"Business listing with reviews from apps",c:"social"},
+{f:"iphone",n:"iPhone Home Screen",e:"📱",d:"iOS-style home screen with app icons",c:"social"},
+{f:"vscode",n:"VS Code Editor",e:"💻",d:"Code editor with Workshop-DIY source code",c:"social"},
+{f:"bio-gen",n:"Social Bio Generator",e:"✍️",d:"Generate bios for any Workshop-DIY app",c:"social"},
+{f:"social-media-kit",n:"Social Media Kit",e:"📦",d:"Complete branding kit with templates",c:"social"},
+
+// TV / FILM / SHOW
+{f:"breaking-news",n:"Breaking News",e:"📺",d:"Live news broadcast about Bug #42 escape",c:"tv"},
+{f:"weather",n:"Weather Forecast",e:"🌤️",d:"Tech weather with humidity, bugs, and BLE fog",c:"tv"},
+{f:"court-trial",n:"Court Trial",e:"⚖️",d:"The People v. Bug #42 — courtroom drama",c:"tv"},
+{f:"trial",n:"Trial Transcript",e:"📜",d:"Full trial proceedings of Bug #42",c:"tv"},
+{f:"shark-tank",n:"Shark Tank",e:"🦈",d:"60-second pitch timer with shark investors",c:"tv"},
+{f:"bugchelor",n:"The Bug-chelor",e:"🌹",d:"Dating show with Bug #42 choosing a partner",c:"tv"},
+{f:"infomercial",n:"QVC Infomercial",e:"📞",d:"Shopping channel with price slashing countdown",c:"tv"},
+{f:"emergency-alert",n:"Emergency Alert",e:"🚨",d:"EBS broadcast: Bug #42 reclassified as Feature",c:"tv"},
+{f:"movie-credits",n:"Movie Credits",e:"🎬",d:"Star Wars crawl + Hollywood end credits",c:"tv"},
+{f:"awards",n:"The WKSHPies",e:"🏆",d:"Award ceremony with envelope reveals & confetti",c:"tv"},
+{f:"rap-battle",n:"Rap Battle",e:"🎤",d:"bit-bot vs Bug #42 lyrical showdown",c:"tv"},
+{f:"scoreboard",n:"Sports Broadcast",e:"📊",d:"Live scoreboard: Robots vs Hackers",c:"tv"},
+
+// GAMES / INTERACTIVE
+{f:"arcade",n:"Arcade Cabinet",e:"🕹️",d:"Retro arcade with multiple mini-games",c:"game"},
+{f:"text-adventure",n:"Text Adventure",e:"⌨️",d:"Zork-style interactive fiction with rooms & puzzles",c:"game"},
+{f:"escape-room",n:"Escape Room",e:"🔓",d:"Solve puzzles to escape the server room",c:"game"},
+{f:"crossword",n:"Crossword Puzzle",e:"✏️",d:"Interactive 10×10 crossword with check/reveal",c:"game"},
+{f:"bingo",n:"Workshop Bingo",e:"🎯",d:"Bingo card for workshop moments",c:"game"},
+{f:"jeopardy",n:"Jeopardy!",e:"❓",d:"Quiz show with Workshop-DIY categories",c:"game"},
+{f:"slot-machine",n:"Slot Machine",e:"🎰",d:"Pull the lever for random app combos",c:"game"},
+{f:"ctf-quiz",n:"CTF Quiz",e:"🏴",d:"Capture-the-flag style hacking quiz",c:"game"},
+{f:"dungeon",n:"Dungeon Crawler",e:"⚔️",d:"RPG dungeon with app enemies and loot",c:"game"},
+{f:"bug-or-feature",n:"Bug or Feature?",e:"🐛",d:"Swipe cards to classify 20 anomalies",c:"game"},
+{f:"compatibility",n:"Compatibility Test",e:"💕",d:"10-question personality quiz with % match",c:"game"},
+{f:"mad-libs",n:"Mad Libs",e:"📝",d:"Fill-in-the-blank tech story generator",c:"game"},
+{f:"gacha",n:"Gacha Pull",e:"🎲",d:"Loot box pulls for app characters",c:"game"},
+{f:"monopoly",n:"Monopoly Board",e:"🎩",d:"Board game with app properties",c:"game"},
+{f:"app-match",n:"App Match",e:"🃏",d:"Memory matching card game with apps",c:"game"},
+{f:"ouija",n:"Ouija Board",e:"🔮",d:"Ask Bug #42 questions via planchette",c:"game"},
+{f:"fortune-cookie",n:"Fortune Cookie",e:"🥠",d:"Crack cookies for tech fortunes",c:"game"},
+
+// DOCUMENTS / REPORTS
+{f:"paper",n:"Academic Paper",e:"📄",d:"Peer-reviewed paper on Bug #42 classification",c:"doc"},
+{f:"forensic-report",n:"Forensic Report",e:"🔬",d:"USB cable autopsy — cause of death",c:"doc"},
+{f:"police-report",n:"Police Report",e:"🚔",d:"Incident report: 39 apps deployed without npm",c:"doc"},
+{f:"classified-dossier",n:"Classified Dossier",e:"🔒",d:"Top secret files on Workshop-DIY operations",c:"doc"},
+{f:"scp-file",n:"SCP Foundation File",e:"⬛",d:"SCP-042 containment procedures",c:"doc"},
+{f:"newspaper",n:"Newspaper",e:"📰",d:"Front page coverage of Workshop-DIY",c:"doc"},
+{f:"blueprints",n:"Blueprints",e:"📐",d:"Technical drawings of bit-bot architecture",c:"doc"},
+{f:"cookbook",n:"Cookbook",e:"👨‍🍳",d:"Recipes for tech dishes with code ingredients",c:"doc"},
+{f:"report-card",n:"Report Card",e:"🎓",d:"School grades for every app",c:"doc"},
+{f:"warranty",n:"Warranty Card",e:"📋",d:"bit-bot warranty — what IS and ISN'T covered",c:"doc"},
+{f:"detention",n:"Detention Slips",e:"⚠️",d:"Disciplinary forms for misbehaving apps",c:"doc"},
+{f:"ikea-manual",n:"IKEA Manual",e:"🔧",d:"BÖTRÖBT assembly guide with stick figures",c:"doc"},
+{f:"safety-card",n:"Safety Card",e:"✈️",d:"Airline-style emergency procedures",c:"doc"},
+{f:"safety-card-v2",n:"Safety Card v2",e:"✈️",d:"Updated emergency procedures with more detail",c:"doc"},
+{f:"receipt",n:"Shop Receipt",e:"🧾",d:"Purchase receipt with line items",c:"doc"},
+{f:"pizza-menu",n:"Pizza Menu",e:"🍕",d:"Tech-themed pizza shop with ordering",c:"doc"},
+{f:"wedding",n:"Wedding Invitation",e:"💒",d:"Bug #42 × Feature Status — ceremony invite",c:"doc"},
+{f:"passport",n:"Passport",e:"🛂",d:"Travel document with domain visa stamps",c:"doc"},
+{f:"real-estate",n:"Real Estate Listing",e:"🏠",d:"Zillow-style listing for Workshop-DIY HQ",c:"doc"},
+{f:"ransom-note",n:"Ransom Note",e:"✂️",d:"Cut-out letter demands from Bug #42",c:"doc"},
+{f:"diary",n:"Bug #42 Diary",e:"📓",d:"Private journal entries — creation to trial",c:"doc"},
+
+
+// GALLERIES / COLLECTIONS
+{f:"card-collection",n:"Trading Cards",e:"🃏",d:"Collectible cards for every app",c:"gallery"},
+{f:"sticker-sheet",n:"Sticker Sheet",e:"🏷️",d:"Printable stickers with app logos",c:"gallery"},
+{f:"periodic-table",n:"Periodic Table",e:"⚗️",d:"Elements of Workshop-DIY technology",c:"gallery"},
+{f:"pokedex",n:"Pokédex",e:"📕",d:"Pokémon-style encyclopedia of apps",c:"gallery"},
+{f:"museum",n:"Museum Gallery",e:"🏛️",d:"Art museum with exhibit placards",c:"gallery"},
+{f:"loading-screens",n:"Loading Screens",e:"⏳",d:"Collection of creative loading animations",c:"gallery"},
+{f:"wanted-wall",n:"Wanted Wall",e:"🤠",d:"Wild West bounty posters for apps",c:"gallery"},
+{f:"testimonials",n:"Testimonials",e:"💬",d:"User reviews and endorsements",c:"gallery"},
+{f:"superlatives",n:"Yearbook Superlatives",e:"🏅",d:'"Most Likely To..." awards for 20 apps',c:"gallery"},
+{f:"yearbook",n:"Yearbook",e:"📸",d:"Class of 2026 yearbook photos",c:"gallery"},
+{f:"license-plates",n:"License Plates",e:"🚗",d:"Vanity plates for each app + custom creator",c:"gallery"},
+{f:"cereal-box",n:"Cereal Box",e:"🥣",d:"Feature Flakes — front & back of box",c:"gallery"},
+{f:"horoscope",n:"Horoscope",e:"♈",d:"Daily tech horoscope for each sign",c:"gallery"},
+{f:"zodiac",n:"Zodiac Chart",e:"⭐",d:"Star sign compatibility for apps",c:"gallery"},
+{f:"in-memoriam",n:"In Memoriam",e:"🕯️",d:"Obituaries for fallen hardware",c:"gallery"},
+{f:"haiku",n:"Haiku Collection",e:"🌸",d:"20 minimalist tech haikus, click to reveal",c:"gallery"},
+{f:"comic",n:"Comic Strip",e:"💥",d:"6-panel comic: bit-bot's first desk drop",c:"gallery"},
+
+// NARRATIVE / STORY
+{f:"therapy",n:"Therapy Session",e:"🛋️",d:"Bug #42's session with Dr. try{} catch(e){}",c:"story"},
+{f:"creepypasta",n:"Creepypasta",e:"👻",d:"Horror story: The 40th App",c:"story"},
+{f:"conspiracy",n:"Conspiracy Board",e:"📌",d:"Draggable corkboard with red string connections",c:"story"},
+
+// DATA VIZ / DASHBOARDS
+{f:"network-map",n:"Network Map",e:"🌐",d:"Interactive topology of all apps",c:"data"},
+{f:"skill-tree",n:"Skill Tree",e:"🌳",d:"RPG-style learning progression",c:"data"},
+{f:"live-monitor",n:"Live Monitor",e:"📡",d:"Real-time dashboard with system metrics",c:"data"},
+{f:"metro-map",n:"Metro Map",e:"🚇",d:"SVG transit map with 6 lines, 19 stations",c:"data"},
+{f:"timeline",n:"Timeline",e:"📅",d:"Chronological history of Workshop-DIY",c:"data"},
+{f:"stock-market",n:"Stock Market",e:"📈",d:"Real-time ticker for app valuations",c:"data"},
+{f:"space-mission",n:"Space Mission",e:"🚀",d:"NASA mission control for Workshop-DIY launch",c:"data"},
+{f:"nasa-control",n:"NASA Control",e:"🛰️",d:"Mission control dashboard with telemetry",c:"data"},
+{f:"departures",n:"Departure Board",e:"🛫",d:"Airport-style flip board with app flights",c:"data"},
+{f:"kanban",n:"Kanban Board",e:"📋",d:"Project management board with tasks",c:"data"},
+
+// AUDIO / MEDIA
+{f:"synth-visualizer",n:"Synth Visualizer",e:"🎹",d:"Audio visualizer with waveforms",c:"media"},
+{f:"music-player",n:"Music Player",e:"🎧",d:"Spotify-style player with Workshop playlists",c:"media"},
+{f:"tamagotchi",n:"Tamagotchi",e:"🥚",d:"Virtual pet — raise your own bit-bot",c:"media"},
+{f:"festival",n:"Festival Poster",e:"🎪",d:"WKSHPCHELLA lineup — 3-day music festival",c:"media"},
+{f:"ambient-screen",n:"Ambient Screen",e:"🌊",d:"Relaxing animated background",c:"media"},
+
+// VIDEO / ANIMATION
+{f:"roadmap-video-fr",n:"Roadmap Video (FR)",e:"🇫🇷",d:"French roadmap presentation video",c:"video"},
+{f:"genius-video",n:"Genius Video",e:"💡",d:"Genius-style lyric breakdown video",c:"video"},
+{f:"genius-video-animation",n:"Genius Animated",e:"🎞️",d:"Animated version of genius breakdown",c:"video"},
+{f:"app-demo-reel",n:"Demo Reel",e:"🎥",d:"Showcase reel of all apps in action",c:"video"},
+{f:"ultimate-video",n:"Ultimate Video",e:"🎬",d:"Full promotional video experience",c:"video"},
+{f:"boot-sequence",n:"Boot Sequence",e:"💾",d:"Terminal boot animation for Workshop-DIY OS",c:"video"},
+{f:"video-concept-preview",n:"Video Preview",e:"📹",d:"Storyboard concept for promo video",c:"video"},
+{f:"elevator-pitch",n:"Elevator Pitch",e:"🏢",d:"60-second animated pitch deck",c:"video"},
+{f:"genius-ideas-lab",n:"Ideas Lab",e:"🧪",d:"Creative brainstorming visualizer",c:"video"},
+
+// META
+{f:"master-hub",n:"Master Hub",e:"🏠",d:"Central navigation hub (original)",c:"meta"},
+{f:"100",n:"File #100 Celebration",e:"🎉",d:"Fireworks & stats for the 100th file",c:"meta"},
+{f:"hacker-presentation",n:"Hacker Presentation",e:"🖥️",d:"Slide deck in hacker aesthetic",c:"meta"},
+{f:"hacker-terminal",n:"Hacker Terminal",e:"⌨️",d:"Interactive terminal with easter eggs",c:"meta"},
+{f:"os-desktop",n:"OS Desktop",e:"🖥️",d:"Fake desktop OS with app windows",c:"meta"},
+{f:"advent",n:"Advent Calendar",e:"🎄",d:"25 doors with Workshop-DIY surprises",c:"meta"},
+
+// ADDITIONAL FILES (v5.0)
+{f:"airbnb",n:"AIRBNB",e:"🏠",d:"Airbnb listing parody",c:"social"},
+{f:"amazon",n:"AMAZON LISTING",e:"🛒",d:"Amazon product page parody",c:"social"},
+{f:"arduino-ide",n:"ARDUINO IDE",e:"⚡",d:"Arduino IDE simulation",c:"hardware"},
+{f:"ble-flow",n:"BLE CONNECTION FLOW",e:"📡",d:"BLE data flow visualization",c:"hardware"},
+{f:"boarding-pass",n:"BOARDING PASS",e:"✈️",d:"Airline boarding pass generator",c:"travel"},
+{f:"bottle",n:"MESSAGE IN A BOTTLE",e:"🍾",d:"Message in a bottle",c:"creative"},
+{f:"card-pack",n:"CARD PACK",e:"🃏",d:"Trading card pack opening",c:"collect"},
+{f:"changelog",n:"CHANGELOG",e:"📝",d:"Git-style changelog",c:"docs"},
+{f:"clicker",n:"IDLE CLICKER",e:"👆",d:"Cookie-clicker style game",c:"game"},
+{f:"concert-ticket",n:"CONCERT TICKET",e:"🎫",d:"Concert ticket generator",c:"creative"},
+{f:"craigslist",n:"CRAIGSLIST",e:"📋",d:"Craigslist listing parody",c:"social"},
+{f:"delivery",n:"DELIVERY TRACKER",e:"📦",d:"Delivery tracking parody",c:"social"},
+{f:"docs",n:"DOCUMENTATION v1.0",e:"📄",d:"Google Docs-style documentation",c:"docs"},
+{f:"documentary",n:"NATURE DOCUMENTARY",e:"🎬",d:"Documentary-style page",c:"video"},
+{f:"duolingo",n:"DUOLINGO",e:"🦉",d:"Duolingo-style language lessons",c:"social"},
+{f:"dvd-menu",n:"DVD MENU",e:"📀",d:"Retro DVD menu screen",c:"creative"},
+{f:"ebay",n:"eBAY AUCTION",e:"🏷️",d:"eBay auction parody",c:"social"},
+{f:"esp32-boot",n:"ESP32-C3 BOOT",e:"🔌",d:"ESP32 boot sequence",c:"hardware"},
+{f:"esp32-pinout",n:"ESP32-C3 PINOUT",e:"📌",d:"ESP32 pinout diagram",c:"hardware"},
+{f:"esp32-vs-microbit",n:"ESP32 vs MICRO:BIT",e:"⚔️",d:"ESP32 vs micro:bit comparison",c:"hardware"},
+{f:"esp32-wiring",n:"BIT-BOT WIRING",e:"🔧",d:"ESP32 wiring guide",c:"hardware"},
+{f:"family-tree",n:"FAMILY TREE",e:"🌳",d:"App family tree visualization",c:"creative"},
+{f:"faq",n:"FAQ",e:"❓",d:"Frequently asked questions",c:"docs"},
+{f:"flappy",n:"FLAPPY BOT",e:"🐦",d:"Flappy bird clone",c:"game"},
+{f:"help",n:"HELP",e:"🆘",d:"Help and support page",c:"docs"},
+{f:"lab-notebook",n:"LAB NOTEBOOK",e:"📓",d:"Lab notebook / research journal",c:"docs"},
+{f:"love-letters",n:"LOVE LETTERS",e:"💌",d:"Love letters between apps",c:"creative"},
+{f:"magic-8ball",n:"MAGIC 8-BALL",e:"🎱",d:"Magic 8-ball fortune teller",c:"game"},
+{f:"makecode",n:"MAKECODE BLOCKS",e:"🧱",d:"MakeCode block editor",c:"hardware"},
+{f:"microbit-telemetry",n:"MICRO:BIT TELEMETRY",e:"📊",d:"micro:bit telemetry dashboard",c:"hardware"},
+{f:"neopixel-emoji",n:"NEOPIXEL EMOJI",e:"💡",d:"NeoPixel emoji display",c:"hardware"},
+{f:"notion",n:"NOTION",e:"📝",d:"Notion workspace parody",c:"social"},
+{f:"org-chart",n:"ORG CHART",e:"🏢",d:"Organization chart",c:"docs"},
+{f:"parking-ticket",n:"PARKING CITATION",e:"🅿️",d:"Parking ticket generator",c:"creative"},
+{f:"restraining-order",n:"RESTRAINING ORDER",e:"⚖️",d:"Restraining order parody",c:"creative"},
+{f:"rxy",n:"RXY REMOTE",e:"🎛️",d:"RXY controller interface",c:"hardware"},
+{f:"sitcom",n:"SITCOM CREDITS",e:"📺",d:"Sitcom episode format",c:"video"},
+{f:"slack",n:"SLACK",e:"💬",d:"Slack workspace parody",c:"social"},
+{f:"stamps",n:"STAMP COLLECTION",e:"📮",d:"Postage stamp collection",c:"creative"},
+{f:"star-chart",n:"STAR CHART",e:"⭐",d:"Star chart / constellation map",c:"creative"},
+{f:"tax-return",n:"TAX RETURN",e:"🧾",d:"Tax return parody",c:"creative"},
+{f:"time-capsule",n:"TIME CAPSULE",e:"⏳",d:"Digital time capsule",c:"creative"},
+{f:"twitch",n:"LIVE ON TWITCH",e:"🟣",d:"Twitch stream parody",c:"social"},
+{f:"vending-machine",n:"VENDING MACHINE",e:"🎰",d:"App vending machine",c:"game"},
+{f:"voicemail",n:"VOICEMAIL",e:"📞",d:"Voicemail messages",c:"creative"},
+{f:"whatsapp",n:"WHATSAPP",e:"💬",d:"WhatsApp chat parody",c:"social"},
+{f:"wordle",n:"WKSHPRDLE",e:"🟩",d:"Wordle word game clone",c:"game"},
+{f:"youtube",n:"YOUTUBE",e:"▶️",d:"YouTube channel parody",c:"social"},
+];
+
+const CATS={
+  social:{label:"Social Media",color:"#0af",count:0},
+  tv:{label:"TV / Film",color:"#ff0066",count:0},
+  game:{label:"Games",color:"#00cc66",count:0},
+  doc:{label:"Documents",color:"#ffaa00",count:0},
+  gallery:{label:"Gallery",color:"#9966ff",count:0},
+  story:{label:"Narrative",color:"#ff88aa",count:0},
+  data:{label:"Data Viz",color:"#00cccc",count:0},
+  media:{label:"Audio/Media",color:"#ffcc00",count:0},
+  video:{label:"Video",color:"#ff6600",count:0},
+  meta:{label:"Meta",color:"#888",count:0},
+};
+
+FILES.forEach(f=>CATS[f.c].count++);
+
+// RENDER FILTERS
+const filtersEl=document.getElementById('filters');
+filtersEl.innerHTML=`<div class="filter active" data-cat="all" onclick="setFilter('all')">All (${FILES.length})</div>`+
+  Object.entries(CATS).map(([k,v])=>
+    `<div class="filter" data-cat="${k}" onclick="setFilter('${k}')" style="border-color:${v.color}30">${v.label} (${v.count})</div>`
+  ).join('');
+
+let activeCat='all';
+function setFilter(cat){
+  activeCat=cat;
+  document.querySelectorAll('.filter').forEach(f=>{
+    f.classList.toggle('active',f.dataset.cat===cat);
+  });
+  filterCards();
+}
+
+// RENDER GRID
+const grid=document.getElementById('grid');
+function renderGrid(list){
+  grid.innerHTML=list.map(f=>{
+    const cat=CATS[f.c];
+    var CATMAP={'100':'marketing','advent':'creative','airbnb':'social','amazon':'social','ambient-screen':'interactive','app-demo-reel':'marketing','app-match':'marketing','app-store':'interactive','arcade':'games','arduino-ide':'hardware','awards':'themed','bingo':'games','bio-gen':'docs','ble-flow':'hardware','blueprints':'dashboards','boarding-pass':'creative','boot-sequence':'interactive','bottle':'creative','breaking-news':'presentations','bug-or-feature':'themed','bugchelor':'themed','card-collection':'dashboards','card-pack':'creative','cereal-box':'creative','changelog':'docs','classified-dossier':'themed','clicker':'games','comic':'creative','compatibility':'themed','concert-ticket':'creative','conspiracy':'themed','cookbook':'themed','court-trial':'themed','craigslist':'social','creepypasta':'themed','crossword':'games','ctf-quiz':'games','delivery':'social','departures':'themed','detention':'themed','diary':'themed','discord-chat':'social','docs':'docs','documentary':'presentations','dungeon':'games','duolingo':'social','dvd-menu':'creative','ebay':'social','elevator-pitch':'themed','emergency-alert':'themed','escape-room':'games','esp32-boot':'hardware','esp32-pinout':'hardware','esp32-vs-microbit':'hardware','esp32-wiring':'hardware','family-tree':'creative','faq':'docs','festival':'creative','flappy':'games','forensic-report':'themed','fortune-cookie':'creative','gacha':'games','genius-ideas-lab':'marketing','genius-video':'presentations','genius-video-animation':'presentations','github-profile':'dashboards','hacker-news':'social','hacker-presentation':'presentations','hacker-terminal':'interactive','haiku':'creative','help':'docs','horoscope':'themed','ikea-manual':'creative','in-memoriam':'creative','infomercial':'presentations','iphone':'social','jeopardy':'games','kanban':'docs','lab-notebook':'docs','license-plates':'creative','linkedin':'social','live-monitor':'dashboards','loading-screens':'interactive','love-letters':'creative','mad-libs':'creative','magic-8ball':'games','makecode':'hardware','maps-reviews':'social','metro-map':'creative','microbit-telemetry':'hardware','monopoly':'games','movie-credits':'presentations','museum':'creative','music-player':'creative','nasa-control':'interactive','neopixel-emoji':'hardware','network-map':'interactive','newspaper':'themed','notion':'social','org-chart':'docs','os-desktop':'interactive','ouija':'games','paper':'creative','parking-ticket':'creative','passport':'creative','periodic-table':'dashboards','pizza-menu':'creative','pokedex':'themed','police-report':'themed','ransom-note':'creative','rap-battle':'themed','real-estate':'creative','receipt':'creative','reddit':'social','report-card':'docs','restraining-order':'themed','roadmap-video-fr':'presentations','rxy':'hardware','safety-card':'docs','safety-card-v2':'docs','scoreboard':'themed','scp-file':'docs','shark-tank':'themed','sitcom':'presentations','skill-tree':'dashboards','slack':'social','slot-machine':'games','social-media-kit':'marketing','space-mission':'themed','stamps':'creative','star-chart':'creative','sticker-sheet':'dashboards','stock-market':'themed','superlatives':'creative','synth-visualizer':'dashboards','tamagotchi':'games','tax-return':'creative','testimonials':'marketing','text-adventure':'games','therapy':'themed','tiktok':'social','time-capsule':'creative','timeline':'docs','tinder':'games','trial':'themed','twitch':'social','ultimate-video':'presentations','vending-machine':'games','video-concept-preview':'presentations','voicemail':'creative','vscode':'themed','wanted-wall':'themed','warranty':'creative','weather':'themed','wedding':'creative','whatsapp':'social','wikipedia':'social','wordle':'games','wrapped-2025':'presentations','yearbook':'creative','youtube':'social','zodiac':'themed'};
+return `<a class="card" href="apps/${CATMAP[f.f]||'docs'}/workshop-diy-${f.f}.html" data-cat="${f.c}" data-name="${f.n.toLowerCase()} ${f.f} ${f.d.toLowerCase()}">
+      <div class="top">
+        <span class="emoji">${f.e}</span>
+        <span class="name">${f.n}</span>
+        <span class="cat-badge c-${f.c}" style="border:1px solid ${cat.color}30;color:${cat.color}">${cat.label}</span>
+      </div>
+      <div class="desc">${f.d}</div>
+    </a>`;
+  }).join('');
+  document.getElementById('showing').textContent=list.length;
+}
+
+function filterCards(){
+  const q=document.getElementById('search').value.toLowerCase();
+  const filtered=FILES.filter(f=>{
+    const matchCat=activeCat==='all'||f.c===activeCat;
+    const matchSearch=!q||f.n.toLowerCase().includes(q)||f.f.includes(q)||f.d.toLowerCase().includes(q);
+    return matchCat&&matchSearch;
+  });
+  renderGrid(filtered);
+}
+
+renderGrid(FILES);
+</script>
+<div style="text-align:center;padding:20px 12px;border-top:1px solid rgba(255,255,255,.04);margin-top:20px"><div style="display:flex;align-items:center;justify-content:center;gap:8px"><img style="width:20px;height:20px;opacity:.4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABuElEQVR42u2WPShGYRTHf1cS8j2wkgwGLEoWZZBBkVJmsckog1EWJYtSFoOP7TWRyWBQLGQVWYR8U/KZv+W8ud7ufe/Fe72l99TTcz7ufe7/nHvOeY4jiXRSFmmmDIAMgCAAbYCAu6gAOAFlKOAFyDF5xeQ34BIY/ItfkOPi94Fj4AzoBK6ijkAVsGPe1vhEyPkNgOwA+xFQmsQ+bflRnK4qGAIWPPTVwKZFSMC8f5ZJqV69+qRhSf2SHiRteD3vdUCFpPaQH+ty8VOSZox/lHTlsq3aXhsEYFRfKYynrSYfShozXpJeJW1L2pT0bPoq0/kCkKQ7STf2khchqdT4R0l1ptuVNJ5wTvzcmO2FiY4lJuEEUASUWP07HgvgJmT/2DP+3C/pExUjQCMwEKK+y4BcoNzkSuDd1bDygAaTC2zPB5a/04i+Q03AEnBg3rcC3UAL0GMNrd6aW6RlOCfpwvjToKRORQSSteNFC/sssPaTuyCI1oEnoOPn8JOHc9IVviYPu377y8LMA7eW7bk2B7zbng9sAc1RDyRxOrFsjgO4ttuSKK9jB4gB90BfOkayzFScAfD/AXwA50S8TJ5DV4wAAAAASUVORK5CYII=" alt="wdiy"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:10px;letter-spacing:1px">workshop-diy.org</a><span style="color:rgba(255,255,255,.08)">·</span><span style="font-family:'Amiri',serif;font-size:14px;background:linear-gradient(135deg,#14b8a6,#6366f1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">صدى</span><span style="font-family:'Nunito',sans-serif;font-size:9px;color:rgba(255,255,255,.15);letter-spacing:3px">sada</span></div></div>
+<div id="sdNav" style="position:fixed;top:10px;right:10px;z-index:99999;font-family:system-ui,-apple-system,sans-serif;direction:ltr">
+<style>
+#sdNav .sdn-pill{width:32px;height:32px;border-radius:50%;background:rgba(20,20,30,.7);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;backdrop-filter:blur(8px);font-size:14px;color:rgba(255,255,255,.4)}
+#sdNav .sdn-pill:hover{background:rgba(20,20,30,.9);border-color:rgba(20,184,166,.3);color:rgba(255,255,255,.7)}
+#sdNav .sdn-menu{position:absolute;top:38px;right:0;background:rgba(12,12,26,.95);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:6px;backdrop-filter:blur(12px);display:none;min-width:160px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+#sdNav.open .sdn-menu{display:block}
+#sdNav .sdn-row{display:flex;align-items:center;gap:2px}
+#sdNav .sdn-btn{padding:6px 10px;border-radius:6px;border:none;background:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:12px;transition:all .15s;white-space:nowrap;font-family:inherit;display:flex;align-items:center;gap:4px;text-decoration:none}
+#sdNav .sdn-btn:hover{background:rgba(255,255,255,.06);color:#fff}
+#sdNav .sdn-btn.hub{color:rgba(20,184,166,.7)}
+#sdNav .sdn-btn.hub:hover{color:#14b8a6;background:rgba(20,184,166,.08)}
+#sdNav .sdn-sep{height:1px;background:rgba(255,255,255,.04);margin:4px 0}
+#sdNav .sdn-lang{display:flex;gap:2px;justify-content:center}
+#sdNav .sdn-lang button{padding:4px 8px;border-radius:4px;border:1px solid transparent;background:none;cursor:pointer;font-size:13px;transition:all .15s}
+#sdNav .sdn-lang button:hover{background:rgba(255,255,255,.06)}
+#sdNav .sdn-lang button.on{border-color:rgba(20,184,166,.3);background:rgba(20,184,166,.06)}
+</style>
+<div class="sdn-pill" onclick="document.getElementById('sdNav').classList.toggle('open')">&#9889;</div>
+<div class="sdn-menu">
+<div class="sdn-row"><a class="sdn-btn" id="sdPrev">&#9664; Prev</a><a class="sdn-btn hub" id="sdHub">&#9776; Hub</a><a class="sdn-btn" id="sdNext">Next &#9654;</a></div>
+<div class="sdn-sep"></div>
+<div class="sdn-row"><a class="sdn-btn" id="sdIdx">&#x1f4c7; Index</a><a class="sdn-btn" id="sdCal">&#x1f4c5; Cal</a><a class="sdn-btn" id="sdShop">&#x1f6d2; Shop</a><a class="sdn-btn" id="sdGuide">&#x1f4d6; Guide</a></div>
+<div class="sdn-sep"></div>
+<div class="sdn-lang"><button onclick="sdLang('en')">🇬🇧</button><button onclick="sdLang('fr')">🇫🇷</button><button onclick="sdLang('ar')">🇸🇦</button></div>
+</div>
+<script>
+(function(){
+var S=["100", "advent", "airbnb", "amazon", "ambient-screen", "app-demo-reel", "app-match", "app-store", "arcade", "arduino-ide", "awards", "bingo", "bio-gen", "ble-flow", "blueprints", "boarding-pass", "boot-sequence", "bottle", "breaking-news", "bug-or-feature", "bugchelor", "card-collection", "card-pack", "cereal-box", "changelog", "classified-dossier", "clicker", "comic", "compatibility", "concert-ticket", "conspiracy", "cookbook", "court-trial", "craigslist", "creepypasta", "crossword", "ctf-quiz", "delivery", "departures", "detention", "diary", "discord-chat", "docs", "dungeon", "documentary", "duolingo", "dvd-menu", "ebay", "elevator-pitch", "emergency-alert", "escape-room", "esp32-boot", "esp32-pinout", "esp32-vs-microbit", "esp32-wiring", "family-tree", "faq", "festival", "flappy", "forensic-report", "fortune-cookie", "gacha", "genius-ideas-lab", "genius-video", "genius-video-animation", "github-profile", "hacker-news", "hacker-presentation", "hacker-terminal", "haiku", "help", "horoscope", "ikea-manual", "in-memoriam", "index", "infomercial", "iphone", "jeopardy", "kanban", "lab-notebook", "license-plates", "linkedin", "live-monitor", "loading-screens", "love-letters", "mad-libs", "magic-8ball", "makecode", "maps-reviews", "master-hub", "metro-map", "microbit-telemetry", "monopoly", "movie-credits", "museum", "music-player", "nasa-control", "neopixel-emoji", "network-map", "newspaper", "notion", "org-chart", "os-desktop", "ouija", "paper", "parking-ticket", "passport", "periodic-table", "pizza-menu", "pokedex", "police-report", "ransom-note", "rap-battle", "real-estate", "receipt", "reddit", "report-card", "restraining-order", "roadmap-video-fr", "rxy", "safety-card", "safety-card-v2", "scoreboard", "scp-file", "shark-tank", "sitcom", "skill-tree", "slack", "slot-machine", "social-media-kit", "space-mission", "stamps", "star-chart", "sticker-sheet", "stock-market", "superlatives", "synth-visualizer", "tamagotchi", "tax-return", "testimonials", "text-adventure", "therapy", "tiktok", "time-capsule", "timeline", "tinder", "trial", "twitch", "ultimate-video", "vending-machine", "video-concept-preview", "voicemail", "vscode", "wanted-wall", "warranty", "weather", "wedding", "whatsapp", "wikipedia", "wordle", "wrapped-2025", "yearbook", "youtube", "zodiac"];
+var f=location.pathname.split("/").pop(),c="en",b;
+if(/-fr\.html$/.test(f)){c="fr";b=f.replace(/-fr\.html$/,"")}
+else if(/-ar\.html$/.test(f)){c="ar";b=f.replace(/-ar\.html$/,"")}
+else{b=f.replace(/\.html$/,"")}
+b=b.replace(/^workshop-diy-/,"");
+var i=S.indexOf(b);
+var inSub=/-fr\.html$/.test(f)||/-ar\.html$/.test(f);
+function mkUrl(slug){
+if(c==="en")return(inSub?"../":"")+"workshop-diy-"+slug+".html";
+if(c==="fr")return(inSub?"":"fr/")+"workshop-diy-"+slug+"-fr.html";
+return(inSub?"":"ar/")+"workshop-diy-"+slug+"-ar.html";
+}
+document.getElementById("sdHub").href=mkUrl("master-hub");
+var rp=inSub?"../":"";
+document.getElementById("sdIdx").href=rp+"app-index.html";
+document.getElementById("sdCal").href=rp+"facebook-calendar.html";
+document.getElementById("sdShop").href=rp+"shop-listings.html";
+document.getElementById("sdGuide").href=rp+"user_guide.html";
+if(i>=0){
+var pi=i<=0?S.length-1:i-1,ni=i>=S.length-1?0:i+1;
+document.getElementById("sdPrev").href=mkUrl(S[pi]);
+document.getElementById("sdNext").href=mkUrl(S[ni]);
+}
+var btns=document.querySelectorAll("#sdNav .sdn-lang button");
+["en","fr","ar"].forEach(function(l,j){if(l===c)btns[j].classList.add("on")});
+document.addEventListener("click",function(e){if(!document.getElementById("sdNav").contains(e.target))document.getElementById("sdNav").classList.remove("open")});
+})();
+function sdLang(l){localStorage.setItem("sada-lang",l);location.reload()}
+</script>
+</div>
+</body>
+</html>

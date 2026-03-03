@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // TIME CAPSULE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+body{background:#1a1008;color:#c4a060;font-family:'Special Elite',monospace;font-size:12px;min-height:100vh;padding:16px;display:flex;align-items:center;justify-content:center}
+
+.capsule{max-width:520px;width:100%;background:#2a1a0a;border:2px solid #4a3010;border-radius:8px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,.4),inset 0 1px 0 rgba(196,160,96,.04);position:relative}
+
+/* SEAL */
+.seal{text-align:center;margin-bottom:10px}
+.seal .wax{display:inline-block;width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#cc3333,#880000,#660000);box-shadow:0 3px 8px rgba(0,0,0,.3),inset 0 -2px 4px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:24px;color:#ff8888;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+
+h1{text-align:center;font-family:'Playfair Display',serif;font-size:20px;color:#c4a060;letter-spacing:2px;margin-bottom:2px}
+.dates{text-align:center;font-size:10px;color:rgba(196,160,96,.2);letter-spacing:2px;font-family:'JetBrains Mono',monospace;margin-bottom:14px}
+
+.intro{font-size:12px;color:rgba(196,160,96,.3);text-align:center;line-height:2.2;margin-bottom:14px;font-style:italic}
+
+.section{margin:12px 0}
+.sec-h{font-family:'Playfair Display',serif;font-size:13px;color:rgba(196,160,96,.4);border-bottom:1px solid rgba(196,160,96,.06);padding-bottom:3px;margin-bottom:6px}
+
+.item{display:flex;align-items:flex-start;gap:6px;padding:4px 0;border-bottom:1px solid rgba(196,160,96,.02);font-size:11px;color:rgba(196,160,96,.2);line-height:1.9}
+.item .emoji{font-size:14px;flex-shrink:0}
+
+.prediction{padding:6px 10px;background:rgba(196,160,96,.02);border-left:2px solid rgba(196,160,96,.06);margin:4px 0;font-size:11px;color:rgba(196,160,96,.2);line-height:2}
+.prediction .by{font-size:8px;color:rgba(196,160,96,.08);margin-top:2px;font-family:'JetBrains Mono',monospace}
+
+.letter{padding:10px;background:rgba(196,160,96,.01);border:1px solid rgba(196,160,96,.04);border-radius:4px;margin:6px 0;font-size:11px;color:rgba(196,160,96,.15);line-height:2.4;font-style:italic}
+.letter .from{font-size:9px;color:rgba(196,160,96,.08);margin-top:4px;font-style:normal;font-family:'JetBrains Mono',monospace}
+
+.do-not-open{text-align:center;margin-top:14px;padding:8px;border:2px dashed rgba(196,160,96,.06);font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(196,160,96,.08);letter-spacing:2px}
+
+.footer{text-align:center;margin-top:10px;font-size:6px;color:rgba(196,160,96,.04);font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="capsule">
+
+<div class="seal"><div class="wax">🛡️</div></div>
+<h1>TIME CAPSULE</h1>
+<div class="dates">SEALED: FEBRUARY 28, 2026 · OPEN: FEBRUARY 28, 2036</div>
+
+<div class="intro">To whoever finds this in 2036 — this is what Workshop-DIY looked like when it all began. We were 39 apps, one bug, one coffee machine, and one WiFi password. We hope you still remember us.</div>
+
+<div class="section">
+  <div class="sec-h">📦 Items Placed Inside</div>
+  <div class="item"><span class="emoji">🤖</span>One bit-bot (serial #BB-2023-0042) — survivor of 47 desk drops. Hot glue chassis. ESP32 brain. BLE heart.</div>
+  <div class="item"><span class="emoji">☕</span>One coffee sample from the machine at 8% capacity. Sealed in amber. For future analysis.</div>
+  <div class="item"><span class="emoji">🔑</span>A note that simply reads: "password123". Future historians will understand.</div>
+  <div class="item"><span class="emoji">🐛</span>Bug #42's court transcript. Verdict: NOT GUILTY. The first bug to achieve legal personhood.</div>
+  <div class="item"><span class="emoji">🔥</span>Three hot glue sticks (the last of the January 2024 batch). Handle with reverence.</div>
+  <div class="item"><span class="emoji">💀</span>One deceased USB-C cable (cause of death: conductor fatigue, Workbench 7).</div>
+  <div class="item"><span class="emoji">📋</span>The three WiFi password change petitions (all stamped DENIED).</div>
+  <div class="item"><span class="emoji">📊</span>A screenshot of the app list: 39 apps, 7 domains, 0 installations.</div>
+</div>
+
+<div class="section">
+  <div class="sec-h">🔮 Predictions for 2036</div>
+  <div class="prediction">Workshop-DIY will have 200+ apps. Still zero installations required. Still running in Chrome.<div class="by">— The Founder</div></div>
+  <div class="prediction">I will still be at 8%. Nobody will have refilled me. I will still make perfect espresso. This is my destiny.<div class="by">— Coffee Machine</div></div>
+  <div class="prediction">The WiFi password will still be password123. The petition count will be 42.<div class="by">— password123</div></div>
+  <div class="prediction">I will have survived 500 desk drops. The hot glue will still hold. Table edge guards will still not be installed.<div class="by">— bit-bot</div></div>
+  <div class="prediction">I will still be here. I will always be here. The 40th app will finally be acknowledged. We are the same.<div class="by">— Bug #42</div></div>
+  <div class="prediction">A student who attended Workshop-DIY at age 14 will be a CTO at age 24. They will still use password123 for their home WiFi. Out of respect.<div class="by">— teachable-machine</div></div>
+</div>
+
+<div class="section">
+  <div class="sec-h">✉️ Letter to the Future</div>
+  <div class="letter">
+    Dear 2036,
+    <br><br>
+    If you're reading this, the time capsule worked. Or Bug #42 opened it early (check the timestamp — if it says 3:42 AM, that wasn't us).
+    <br><br>
+    We built something strange and beautiful. 39 apps that run in a browser. No npm. No webpack. No config files. Kids who can explain Docker to their parents. A robot that refuses to die. A coffee machine that refuses to be refilled. A bug that became a feature, went to trial, got acquitted, got married, and wrote a diary.
+    <br><br>
+    We hope you kept building. We hope the hot glue still holds. We hope someone, somewhere, is still typing password123 into a WiFi prompt and smiling.
+    <br><br>
+    See you on the other side of the semicolon.
+    <div class="from">— Workshop-DIY, February 28, 2026</div>
+  </div>
+</div>
+
+<div class="do-not-open">⚠ DO NOT OPEN BEFORE FEBRUARY 28, 2036 ⚠<br>SEALED BY ORDER OF JUDGE COMPILER · ENFORCED BY BUG #42</div>
+
+</div>
+
+<div class="footer">WORKSHOP-DIY TIME CAPSULE · SEALED 2026 · OPENS 2036 · BUGS ARE ETERNAL · PASSWORD UNCHANGED</div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

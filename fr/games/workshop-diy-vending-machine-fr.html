@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // VENDING MACHINE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#1a1a2e;font-family:'JetBrains Mono',monospace;font-size:11px;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+
+.machine{width:320px;background:linear-gradient(180deg,#2a2a3e,#1a1a2e);border-radius:16px;border:3px solid #3a3a4e;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+
+/* TOP DISPLAY */
+.display{background:#111;padding:6px;text-align:center;border-bottom:2px solid #3a3a4e}
+.display .led{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:#00ff88;text-shadow:0 0 8px rgba(0,255,136,.2);letter-spacing:2px}
+.display .led-sub{font-size:7px;color:#00ff8840;letter-spacing:1px;margin-top:1px}
+
+/* GLASS AREA */
+.glass{background:rgba(0,0,0,.3);padding:8px;border-bottom:2px solid #3a3a4e}
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-bottom:3px}
+.slot{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);border-radius:4px;text-align:center;padding:6px 2px;cursor:pointer;transition:all .2s;min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.slot:hover{background:rgba(255,255,255,.04);border-color:rgba(0,255,136,.1)}
+.slot.dispensed{animation:dispense .5s}
+@keyframes dispense{0%{transform:translateY(0)}30%{transform:translateY(4px)}60%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+.slot .emoji{font-size:22px}
+.slot .name{font-size:6px;color:rgba(255,255,255,.2);margin-top:2px;line-height:1.3}
+.slot .code{font-size:7px;color:#00ff88;margin-top:1px}
+
+.shelf-divider{height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent);margin:1px 0}
+
+/* DROP ZONE */
+.drop-zone{height:50px;background:rgba(0,0,0,.4);border-radius:0 0 8px 8px;margin:0 4px 4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.02);position:relative;overflow:hidden}
+.drop-item{position:absolute;font-size:28px;animation:drop .5s forwards}
+@keyframes drop{0%{top:-30px;opacity:0}60%{top:12px;opacity:1}80%{top:8px}100%{top:12px;opacity:1}}
+
+/* KEYPAD */
+.controls{padding:8px;display:flex;gap:6px}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;flex:1}
+.key{background:#2a2a3e;border:1px solid #3a3a4e;border-radius:4px;padding:6px;text-align:center;color:#ccc;font-family:inherit;font-size:10px;font-weight:700;cursor:pointer;transition:all .1s}
+.key:active{background:#3a3a4e;transform:scale(.95)}
+
+.coin-slot{display:flex;flex-direction:column;align-items:center;gap:2px}
+.coin-slot .slot-hole{width:24px;height:4px;background:#111;border-radius:2px;border:1px solid #3a3a4e}
+.coin-slot .label{font-size:6px;color:rgba(255,255,255,.1);letter-spacing:1px}
+.coin-btn{background:#ffd700;color:#000;border:none;border-radius:12px;padding:4px 8px;font-family:inherit;font-size:8px;font-weight:700;cursor:pointer}
+
+/* MESSAGE */
+.msg-line{text-align:center;padding:4px;font-size:8px;color:#00ff88;min-height:18px;text-shadow:0 0 4px rgba(0,255,136,.1)}
+
+.footer{text-align:center;padding:4px;font-size:5px;color:rgba(255,255,255,.03);letter-spacing:1px}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div>
+<div class="machine">
+  <div class="display">
+    <div class="led" id="led">INSERT €0.00</div>
+    <div class="led-sub">WORKSHOP-DIY VEND-O-MATIC 3000</div>
+  </div>
+
+  <div class="glass">
+    <div class="shelf" id="shelfA"></div>
+    <div class="shelf-divider"></div>
+    <div class="shelf" id="shelfB"></div>
+    <div class="shelf-divider"></div>
+    <div class="shelf" id="shelfC"></div>
+    <div class="shelf-divider"></div>
+    <div class="shelf" id="shelfD"></div>
+  </div>
+
+  <div class="drop-zone" id="dropZone">▼ COLLECT ITEM ▼</div>
+
+  <div class="msg-line" id="msgLine"></div>
+
+  <div class="controls">
+    <div class="keypad" id="keypad"></div>
+    <div class="coin-slot">
+      <div class="label">COIN</div>
+      <div class="slot-hole"></div>
+      <button class="coin-btn" onclick="insertCoin()">€0.00</button>
+      <div class="label">FREE</div>
+    </div>
+  </div>
+</div>
+<div class="footer">WKSHP VEND-O-MATIC · ALL ITEMS FREE · BUGS DISPENSED AS FEATURES · NO REFUNDS ON COFFEE</div>
+</div>
+
+<script>
+const ITEMS=[
+  // ROW A
+  {e:'🤖',n:'bit-bot',c:'A1'},{e:'🧠',n:'teachable',c:'A2'},{e:'🔐',n:'pentest',c:'A3'},{e:'🐳',n:'docker',c:'A4'},
+  // ROW B
+  {e:'🪄',n:'magic-hands',c:'B1'},{e:'👤',n:'face-quest',c:'B2'},{e:'📡',n:'wifi-scan',c:'B3'},{e:'🐧',n:'linux-lab',c:'B4'},
+  // ROW C
+  {e:'🔧',n:'servo-lab',c:'C1'},{e:'💡',n:'led-strip',c:'C2'},{e:'🖨️',n:'printer',c:'C3'},{e:'🗣️',n:'talk-robot',c:'C4'},
+  // ROW D
+  {e:'☕',n:'coffee 8%',c:'D1'},{e:'🔑',n:'pass: 123',c:'D2'},{e:'🐛',n:'Bug #42',c:'D3'},{e:'❓',n:'40th app',c:'D4'},
+];
+
+const MSGS=[
+  "Enjoy your app!","Zero installation detected.","Hot glue not included.","Bug #42 approves.",
+  "Coffee machine jealous.","password123 unchanged.","Thank you! Come again!","Feature dispensed successfully.",
+];
+
+let selected='',coinIn=false;
+
+// Render shelves
+['A','B','C','D'].forEach((row,ri)=>{
+  const shelf=document.getElementById('shelf'+row);
+  for(let ci=0;ci<4;ci++){
+    const item=ITEMS[ri*4+ci];
+    const slot=document.createElement('div');
+    slot.className='slot';
+    slot.innerHTML=`<div class="emoji">${item.e}</div><div class="name">${item.n}</div><div class="code">${item.c}</div>`;
+    slot.onclick=()=>selectItem(item.c);
+    shelf.appendChild(slot);
+  }
+});
+
+// Render keypad
+const kp=document.getElementById('keypad');
+['A','B','C','D','1','2','3','4','OK'].forEach(k=>{
+  const btn=document.createElement('button');
+  btn.className='key';
+  btn.textContent=k;
+  btn.onclick=()=>pressKey(k);
+  kp.appendChild(btn);
+});
+
+function insertCoin(){
+  coinIn=true;
+  document.getElementById('led').textContent='CREDIT: €0.00 FREE';
+  document.getElementById('msgLine').textContent='Select an item...';
+}
+
+function selectItem(code){
+  selected=code;
+  document.getElementById('led').textContent=`SELECTED: ${code}`;
+  if(coinIn)dispense(code);
+  else document.getElementById('msgLine').textContent='Insert coin first (it\'s free)';
+}
+
+function pressKey(k){
+  if(k==='OK'){
+    if(selected&&coinIn)dispense(selected);
+    else if(!coinIn)document.getElementById('msgLine').textContent='Insert coin (it\'s €0.00)';
+  }else{
+    selected+=k;
+    document.getElementById('led').textContent=`CODE: ${selected}`;
+  }
+}
+
+function dispense(code){
+  const item=ITEMS.find(i=>i.c===code);
+  if(!item){document.getElementById('msgLine').textContent='Invalid code';selected='';return;}
+  
+  // Animate slot
+  const slots=document.querySelectorAll('.slot');
+  const idx=ITEMS.indexOf(item);
+  if(slots[idx]){slots[idx].classList.remove('dispensed');void slots[idx].offsetWidth;slots[idx].classList.add('dispensed');}
+
+  // Drop item
+  const dz=document.getElementById('dropZone');
+  dz.innerHTML='';
+  const di=document.createElement('div');
+  di.className='drop-item';
+  di.textContent=item.e;
+  dz.appendChild(di);
+
+  document.getElementById('led').textContent=`DISPENSING: ${item.n}`;
+  document.getElementById('msgLine').textContent=MSGS[Math.floor(Math.random()*MSGS.length)];
+  
+  selected='';
+  setTimeout(()=>{coinIn=false;document.getElementById('led').textContent='INSERT €0.00';},2000);
+}
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

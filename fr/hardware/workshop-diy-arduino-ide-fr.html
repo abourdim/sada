@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // ARDUINO IDE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#1e1e1e;color:#d4d4d4;font-family:'Inter',sans-serif;font-size:12px;min-height:100vh;display:flex;flex-direction:column}
+
+/* TITLE BAR */
+.title-bar{background:#2d2d2d;padding:4px 10px;display:flex;align-items:center;gap:6px;font-size:11px;color:#888;border-bottom:1px solid #3a3a3a}
+.title-bar .dots{display:flex;gap:4px}
+.title-bar .dot{width:8px;height:8px;border-radius:50%}
+.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+.title-bar .path{margin-left:8px;color:#666}
+
+/* TOOLBAR */
+.toolbar{background:#252526;padding:4px 8px;display:flex;align-items:center;gap:2px;border-bottom:1px solid #3a3a3a}
+.tb-btn{padding:4px 8px;border-radius:3px;cursor:pointer;display:flex;align-items:center;gap:4px;font-size:10px;color:#888;border:none;background:none;font-family:inherit;transition:all .15s}
+.tb-btn:hover{background:#3a3a3a;color:#fff}
+.tb-btn.verify{color:#00cc66}
+.tb-btn.upload{color:#00aaff}
+.tb-btn .icon{font-size:14px}
+.board-sel{margin-left:auto;padding:3px 8px;background:#333;border:1px solid #444;border-radius:3px;font-size:9px;color:#00cc66;display:flex;align-items:center;gap:4px}
+.board-sel .bdot{width:6px;height:6px;border-radius:50%;background:#00cc66}
+.port-sel{padding:3px 8px;background:#333;border:1px solid #444;border-radius:3px;font-size:9px;color:#888}
+
+/* TABS */
+.tabs{background:#252526;display:flex;border-bottom:1px solid #3a3a3a}
+.tab{padding:6px 14px;font-size:10px;color:#888;cursor:pointer;border-right:1px solid #3a3a3a;display:flex;align-items:center;gap:4px;transition:all .15s}
+.tab.active{background:#1e1e1e;color:#fff;border-bottom:2px solid #00aaff}
+.tab .close{font-size:8px;opacity:.3;margin-left:4px}
+
+/* EDITOR */
+.editor{flex:1;display:flex;overflow:hidden}
+.line-nums{padding:8px 8px 8px 4px;background:#1e1e1e;color:#555;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.7;text-align:right;min-width:32px;user-select:none;border-right:1px solid #333}
+.code-area{flex:1;padding:8px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.7;overflow:auto;white-space:pre}
+
+/* SYNTAX COLORS */
+.kw{color:#569cd6}
+.ty{color:#4ec9b0}
+.str{color:#ce9178}
+.num{color:#b5cea8}
+.cm{color:#6a9955}
+.fn{color:#dcdcaa}
+.pp{color:#c586c0}
+.op{color:#d4d4d4}
+.mac{color:#9cdcfe}
+
+/* SERIAL MONITOR */
+.serial{height:120px;background:#1a1a1a;border-top:1px solid #3a3a3a;display:flex;flex-direction:column}
+.serial-header{background:#252526;padding:3px 8px;display:flex;align-items:center;gap:6px;font-size:9px;color:#888;border-bottom:1px solid #333}
+.serial-header .baud{padding:2px 6px;background:#333;border:1px solid #444;border-radius:2px;font-size:8px;color:#aaa}
+.serial-output{flex:1;padding:6px;overflow-y:auto;font-family:'JetBrains Mono',monospace;font-size:9px;color:#00cc66;line-height:1.8}
+.serial-output .ts{color:#555}
+.serial-output .warn{color:#ffaa00}
+.serial-output .info{color:#00aaff}
+.serial-output .err{color:#ff4444}
+
+/* PROGRESS */
+.progress{height:3px;background:#333;position:relative;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,#00cc66,#00aaff);width:0;transition:width 2s ease-out}
+
+/* STATUT BAR */
+.status{background:#007acc;padding:2px 8px;display:flex;align-items:center;gap:8px;font-size:9px;color:#fff}
+.status .item{opacity:.7}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<div class="title-bar">
+  <div class="dots"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div></div>
+  <span>Arduino IDE 2.3.4</span>
+  <span class="path">~/Atelier-DIY/esp32-lab/bit-bot-firmware/</span>
+</div>
+
+<div class="toolbar">
+  <button class="tb-btn verify" onclick="compile()"><span class="icon">✓</span> Verify</button>
+  <button class="tb-btn upload" onclick="upload()"><span class="icon">→</span> Upload</button>
+  <button class="tb-btn"><span class="icon">🔍</span></button>
+  <button class="tb-btn"><span class="icon">📋</span></button>
+  <div class="board-sel"><div class="bdot"></div>ESP32C3 Dev Module</div>
+  <div class="port-sel">📟 /dev/cu.usbmodem14201</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active">📄 bit-bot-ble.ino <span class="close">✕</span></div>
+  <div class="tab">📄 config.h <span class="close">✕</span></div>
+  <div class="tab">📄 motors.cpp <span class="close">✕</span></div>
+</div>
+
+<div class="editor">
+  <div class="line-nums" id="lineNums"></div>
+  <div class="code-area" id="codeArea"></div>
+</div>
+
+<div class="progress"><div class="progress-bar" id="progBar"></div></div>
+
+<div class="serial">
+  <div class="serial-header">
+    <span>📟 Serial Monitor</span>
+    <div class="baud">115200 baud</div>
+    <span style="margin-left:auto;font-size:8px;opacity:.5">Auto-scroll ✓</span>
+  </div>
+  <div class="serial-output" id="serialOut"></div>
+</div>
+
+<div class="status">
+  <span class="item">ESP32C3 Dev Module on /dev/cu.usbmodem14201</span>
+  <span style="margin-left:auto" class="item">Ln 1, Col 1</span>
+  <span class="item">UTF-8</span>
+</div>
+
+<script>
+const CODE=`<span class="cm">/*
+ * Atelier-DIY — bit-bot BLE Firmware
+ * ESP32-C3 · BLE UART · Motor + Servo + NeoPixel Control
+ * 
+ * Receives commands from browser via Web Bluetooth
+ * Sends sensor telemetry back at 10Hz
+ * 
+ * Pin Map:
+ *   GPIO4  → NeoPixel Data (8 LEDs)
+ *   GPIO6  → Motor Left (PWM)
+ *   GPIO7  → Motor Right (PWM)
+ *   GPIO10 → Servo (PWM)
+ *   GPIO0  → IR Sensor Left (ADC)
+ *   GPIO1  → IR Sensor Right (ADC)
+ *   GPIO8  → Built-in RGB LED
+ *   GPIO9  → Boot Button (user input)
+ */</span>
+
+<span class="pp">#include</span> <span class="str">&lt;BLEDevice.h&gt;</span>
+<span class="pp">#include</span> <span class="str">&lt;BLEServer.h&gt;</span>
+<span class="pp">#include</span> <span class="str">&lt;BLEUtils.h&gt;</span>
+<span class="pp">#include</span> <span class="str">&lt;BLE2902.h&gt;</span>
+<span class="pp">#include</span> <span class="str">&lt;Adafruit_NeoPixel.h&gt;</span>
+<span class="pp">#include</span> <span class="str">&lt;ESP32Servo.h&gt;</span>
+
+<span class="cm">// Nordic UART Service UUIDs (same as micro:bit)</span>
+<span class="pp">#define</span> <span class="mac">SERVICE_UUID</span>  <span class="str">"6E400001-B5A3-F393-E0A9-E50E24DCCA9E"</span>
+<span class="pp">#define</span> <span class="mac">RX_UUID</span>       <span class="str">"6E400002-B5A3-F393-E0A9-E50E24DCCA9E"</span>
+<span class="pp">#define</span> <span class="mac">TX_UUID</span>       <span class="str">"6E400003-B5A3-F393-E0A9-E50E24DCCA9E"</span>
+
+<span class="cm">// Pin definitions</span>
+<span class="pp">#define</span> <span class="mac">NEO_PIN</span>       <span class="num">4</span>
+<span class="pp">#define</span> <span class="mac">NEO_COUNT</span>     <span class="num">8</span>
+<span class="pp">#define</span> <span class="mac">MOTOR_L</span>       <span class="num">6</span>
+<span class="pp">#define</span> <span class="mac">MOTOR_R</span>       <span class="num">7</span>
+<span class="pp">#define</span> <span class="mac">SERVO_PIN</span>     <span class="num">10</span>
+<span class="pp">#define</span> <span class="mac">IR_LEFT</span>       <span class="num">0</span>
+<span class="pp">#define</span> <span class="mac">IR_RIGHT</span>      <span class="num">1</span>
+<span class="pp">#define</span> <span class="mac">BTN_PIN</span>       <span class="num">9</span>
+
+<span class="ty">Adafruit_NeoPixel</span> strip(<span class="mac">NEO_COUNT</span>, <span class="mac">NEO_PIN</span>, NEO_GRB + NEO_KHZ800);
+<span class="ty">Servo</span> myServo;
+<span class="ty">BLECharacteristic</span>* pTxChar;
+<span class="kw">bool</span> deviceConnecté = <span class="kw">false</span>;
+<span class="kw">unsigned long</span> lastTelemetry = <span class="num">0</span>;
+
+<span class="cm">// BLE Server Callbacks</span>
+<span class="kw">class</span> <span class="ty">ServerCB</span> : <span class="kw">public</span> <span class="ty">BLEServerCallbacks</span> {
+  <span class="kw">void</span> <span class="fn">onConnect</span>(<span class="ty">BLEServer</span>* s)    { deviceConnecté = <span class="kw">true</span>;  <span class="fn">statusLED</span>(<span class="num">0</span>,<span class="num">255</span>,<span class="num">0</span>); }
+  <span class="kw">void</span> <span class="fn">onDisconnect</span>(<span class="ty">BLEServer</span>* s) { deviceConnecté = <span class="kw">false</span>; <span class="fn">statusLED</span>(<span class="num">0</span>,<span class="num">0</span>,<span class="num">255</span>); }
+};
+
+<span class="cm">// BLE RX Callback — parse commands from browser</span>
+<span class="kw">class</span> <span class="ty">RxCB</span> : <span class="kw">public</span> <span class="ty">BLECharacteristicCallbacks</span> {
+  <span class="kw">void</span> <span class="fn">onWrite</span>(<span class="ty">BLECharacteristic</span>* c) {
+    <span class="ty">String</span> cmd = c-><span class="fn">getValue</span>();
+    Serial.<span class="fn">printf</span>(<span class="str">"[RX] %s\\n"</span>, cmd.<span class="fn">c_str</span>());
+
+    <span class="kw">if</span> (cmd.<span class="fn">startsWith</span>(<span class="str">"MOTOR:"</span>)) {
+      <span class="cm">// MOTOR:L100,R-50</span>
+      <span class="kw">int</span> l = cmd.<span class="fn">substring</span>(<span class="num">7</span>).<span class="fn">toInt</span>();
+      <span class="kw">int</span> r = cmd.<span class="fn">substring</span>(cmd.<span class="fn">indexOf</span>(<span class="str">','</span>)+<span class="num">2</span>).<span class="fn">toInt</span>();
+      <span class="fn">setMotors</span>(l, r);
+    }
+    <span class="kw">else if</span> (cmd.<span class="fn">startsWith</span>(<span class="str">"SERVO:"</span>)) {
+      myServo.<span class="fn">write</span>(cmd.<span class="fn">substring</span>(<span class="num">6</span>).<span class="fn">toInt</span>());
+    }
+    <span class="kw">else if</span> (cmd.<span class="fn">startsWith</span>(<span class="str">"NEO:"</span>)) {
+      <span class="fn">setNeoColor</span>(cmd.<span class="fn">substring</span>(<span class="num">4</span>));
+    }
+    <span class="kw">else if</span> (cmd.<span class="fn">startsWith</span>(<span class="str">"BUZZ:"</span>)) {
+      <span class="fn">tone</span>(<span class="num">5</span>, cmd.<span class="fn">substring</span>(<span class="num">5</span>).<span class="fn">toInt</span>(), <span class="num">200</span>);
+    }
+  }
+};
+
+<span class="kw">void</span> <span class="fn">setup</span>() {
+  Serial.<span class="fn">begin</span>(<span class="num">115200</span>);
+  Serial.<span class="fn">println</span>(<span class="str">"\\n🤖 Atelier-DIY bit-bot starting..."</span>);
+
+  <span class="cm">// Motors</span>
+  <span class="fn">pinMode</span>(<span class="mac">MOTOR_L</span>, OUTPUT);
+  <span class="fn">pinMode</span>(<span class="mac">MOTOR_R</span>, OUTPUT);
+  <span class="fn">pinMode</span>(<span class="mac">BTN_PIN</span>, INPUT_PULLUP);
+
+  <span class="cm">// NeoPixels</span>
+  strip.<span class="fn">begin</span>();
+  strip.<span class="fn">setBrightness</span>(<span class="num">50</span>);
+  strip.<span class="fn">show</span>();
+
+  <span class="cm">// Servo</span>
+  myServo.<span class="fn">attach</span>(<span class="mac">SERVO_PIN</span>);
+  myServo.<span class="fn">write</span>(<span class="num">90</span>);
+
+  <span class="cm">// BLE Init</span>
+  <span class="ty">BLEDevice</span>::<span class="fn">init</span>(<span class="str">"WKSHP-bitbot-42"</span>);
+  <span class="ty">BLEServer</span>* srv = <span class="ty">BLEDevice</span>::<span class="fn">createServer</span>();
+  srv-><span class="fn">setCallbacks</span>(<span class="kw">new</span> <span class="ty">ServerCB</span>());
+
+  <span class="ty">BLEService</span>* svc = srv-><span class="fn">createService</span>(<span class="mac">SERVICE_UUID</span>);
+  pTxChar = svc-><span class="fn">createCharacteristic</span>(<span class="mac">TX_UUID</span>, BLECharacteristic::PROPERTY_NOTIFY);
+  pTxChar-><span class="fn">addDescriptor</span>(<span class="kw">new</span> <span class="ty">BLE2902</span>());
+
+  <span class="ty">BLECharacteristic</span>* rxChar = svc-><span class="fn">createCharacteristic</span>(<span class="mac">RX_UUID</span>, BLECharacteristic::PROPERTY_WRITE);
+  rxChar-><span class="fn">setCallbacks</span>(<span class="kw">new</span> <span class="ty">RxCB</span>());
+
+  svc-><span class="fn">start</span>();
+  srv-><span class="fn">getAdvertising</span>()-><span class="fn">start</span>();
+  Serial.<span class="fn">println</span>(<span class="str">"📡 BLE advertising as WKSHP-bitbot-42"</span>);
+  <span class="fn">statusLED</span>(<span class="num">0</span>, <span class="num">0</span>, <span class="num">255</span>);  <span class="cm">// Blue = waiting</span>
+}
+
+<span class="kw">void</span> <span class="fn">loop</span>() {
+  <span class="kw">if</span> (deviceConnecté && <span class="fn">millis</span>() - lastTelemetry > <span class="num">100</span>) {
+    <span class="cm">// Send sensor data at 10Hz</span>
+    <span class="ty">String</span> telem = <span class="str">"IR:"</span> + <span class="ty">String</span>(<span class="fn">analogLu</span>(<span class="mac">IR_LEFT</span>))
+                 + <span class="str">","</span> + <span class="ty">String</span>(<span class="fn">analogLu</span>(<span class="mac">IR_RIGHT</span>))
+                 + <span class="str">"\\n"</span>;
+    pTxChar-><span class="fn">setValue</span>(telem.<span class="fn">c_str</span>());
+    pTxChar-><span class="fn">notify</span>();
+    lastTelemetry = <span class="fn">millis</span>();
+  }
+}`;
+
+// Render code
+document.getElementById('codeArea').innerHTML=CODE;
+
+// Line numbers
+const lines=CODE.split('\n').length;
+let nums='';
+for(let i=1;i<=lines;i++)nums+=i+'\n';
+document.getElementById('lineNums').textContent=nums;
+
+// Serial output simulation
+const serial=document.getElementById('serialOut');
+const bootMsgs=[
+  {t:0,m:'<span class="info">[BOOT]</span> ESP32-C3 Rev 4, 4MB Flash, 400KB SRAM',c:''},
+  {t:200,m:'<span class="info">[BOOT]</span> CPU: RISC-V @ 160MHz',c:''},
+  {t:400,m:'<span class="info">[WIFI]</span> WiFi disabled (BLE-only mode)',c:''},
+  {t:600,m:'🤖 Atelier-DIY bit-bot starting...',c:''},
+  {t:800,m:'<span class="info">[NEO]</span> NeoPixel: 8 LEDs on GPIO4, brightness=50',c:''},
+  {t:1000,m:'<span class="info">[SERVO]</span> Servo attached GPIO10, default 90°',c:''},
+  {t:1200,m:'<span class="info">[MOTOR]</span> Motor L=GPIO6, R=GPIO7 — PWM ready',c:''},
+  {t:1400,m:'<span class="info">[BLE]</span> Device name: WKSHP-bitbot-42',c:''},
+  {t:1600,m:'<span class="info">[BLE]</span> Service: 6E400001-B5A3-...DCCA9E',c:''},
+  {t:1800,m:'📡 BLE advertising as WKSHP-bitbot-42',c:''},
+  {t:2000,m:'<span class="info">[BLE]</span> Status: <span style="color:#00aaff">WAITING FOR CONNECTION</span>',c:''},
+  {t:4000,m:'<span style="color:#00cc66">[BLE] ✓ Device connected!</span>',c:''},
+  {t:4200,m:'<span class="info">[RX]</span> NEO:00FF00',c:''},
+  {t:4400,m:'<span class="info">[TX]</span> IR:2847,3102',c:''},
+  {t:4600,m:'<span class="info">[RX]</span> SERVO:45',c:''},
+  {t:4800,m:'<span class="info">[TX]</span> IR:2891,3067',c:''},
+  {t:5000,m:'<span class="info">[RX]</span> MOTOR:L80,R80',c:''},
+  {t:5200,m:'<span class="info">[TX]</span> IR:1205,3890 <span class="warn">← line detected left!</span>',c:''},
+  {t:5400,m:'<span class="info">[RX]</span> MOTOR:L0,R80',c:''},
+  {t:5600,m:'<span class="info">[TX]</span> IR:3102,3044',c:''},
+];
+
+bootMsgs.forEach(msg=>{
+  setTimeout(()=>{
+    const d=document.createElement('div');
+    const ts=new Date().toTimeString().slice(0,8);
+    d.innerHTML=`<span class="ts">[${ts}]</span> ${msg.m}`;
+    serial.appendChild(d);
+    serial.scrollTop=serial.scrollHeight;
+  },msg.t);
+});
+
+// Compile animation
+function compile(){
+  const bar=document.getElementById('progBar');
+  bar.style.transition='width 3s ease-out';
+  bar.style.width='100%';
+  setTimeout(()=>{
+    const d=document.createElement('div');
+    d.innerHTML='<span class="info">[BUILD]</span> Sketch uses 287,456 bytes (21%) · Variables use 42,816 bytes (13%)';
+    serial.appendChild(d);
+    serial.scrollTop=serial.scrollHeight;
+  },3000);
+  setTimeout(()=>{bar.style.transition='none';bar.style.width='0';},4000);
+}
+function upload(){
+  compile();
+  setTimeout(()=>{
+    const d=document.createElement('div');
+    d.innerHTML='<span style="color:#00cc66">[UPLOAD] ✓ Done in 8.42s — Hard resetting via RTS pin...</span>';
+    serial.appendChild(d);
+    serial.scrollTop=serial.scrollHeight;
+  },3500);
+}
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

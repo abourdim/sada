@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // CHANGELOG</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{background:#0a0a14;color:#d4d4d4;font-family:'Inter',sans-serif;font-size:12px;line-height:1.7;padding:24px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+.container{max-width:640px;width:100%}
+h1{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#00cc66;margin-bottom:4px}
+.sub{font-size:11px;color:rgba(255,255,255,.08);margin-bottom:20px;font-family:'JetBrains Mono',monospace}
+
+.release{margin:16px 0;border:1px solid rgba(255,255,255,.03);border-radius:8px;overflow:hidden;background:rgba(255,255,255,.005)}
+.release-header{padding:10px 14px;background:rgba(0,204,102,.02);border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.release-ver{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#00cc66}
+.release-date{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,.1)}
+.release-tag{padding:2px 8px;border-radius:10px;font-size:8px;font-weight:700;font-family:'JetBrains Mono',monospace}
+.tag-latest{background:rgba(0,204,102,.1);color:#00cc66}
+.tag-session{background:rgba(0,170,255,.06);color:rgba(0,170,255,.4)}
+
+.release-body{padding:10px 14px}
+.release-stat{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.08);margin-bottom:6px;display:flex;gap:10px}
+.commit{padding:3px 0;font-size:11px;color:rgba(255,255,255,.2);display:flex;gap:6px}
+.commit .hash{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(0,204,102,.2);min-width:55px}
+.commit .msg{flex:1}
+.commit .files{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,.06);text-align:right;min-width:40px}
+
+.section{font-size:9px;font-weight:700;color:rgba(255,102,0,.2);letter-spacing:1px;font-family:'JetBrains Mono',monospace;padding:6px 0 2px;margin-top:6px;border-top:1px solid rgba(255,255,255,.02)}
+.footer{margin-top:20px;text-align:center;font-size:8px;color:rgba(255,255,255,.03);font-family:'JetBrains Mono',monospace;letter-spacing:1px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📝 CHANGELOG</h1>
+<div class="sub">Workshop-DIY Presentation Suite · All Versions</div>
+
+
+<!-- v5.1 -->
+<div class="release">
+<div class="release-header">
+  <span class="release-ver">v5.1</span>
+  <span class="release-tag tag-latest">LATEST</span>
+  <span class="release-date">2026-03-02</span>
+</div>
+<div class="release-body">
+  <div class="release-stat">
+    <span>📁 567 files</span>
+    <span>📦 ~4.8MB zip</span>
+    <span>🏷️ 161 apps · 3 languages</span>
+  </div>
+  <div class="section">SPLASH SCREEN</div>
+  <div class="commit"><span class="hash">c0de001</span><span class="msg">Add cinematic splash.html with starfield, particles, parallax, Arabic calligraphy</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">c0de002</span><span class="msg">Dual password system: master (080707) + changeable user code (default 2025)</span><span class="files">~1</span></div>
+  <div class="commit"><span class="hash">c0de003</span><span class="msg">Admin panel for changing user password (master only)</span><span class="files">~1</span></div>
+  <div class="section">NAVIGATION</div>
+  <div class="commit"><span class="hash">c0de004</span><span class="msg">Add floating ⚡ nav pill to all 492 pages (prev/next/hub + special pages)</span><span class="files">+492</span></div>
+  <div class="commit"><span class="hash">c0de005</span><span class="msg">Global language switcher via localStorage (set once, all pages follow)</span><span class="files">~492</span></div>
+  <div class="commit"><span class="hash">c0de006</span><span class="msg">Add 🇬🇧 English button to demo.html slideshow player</span><span class="files">~1</span></div>
+  <div class="commit"><span class="hash">c0de007</span><span class="msg">Language picker on start_here.html with visual confirmation toast</span><span class="files">~1</span></div>
+  <div class="section">MASTER HUB</div>
+  <div class="commit"><span class="hash">c0de008</span><span class="msg">Expand master-hub from 46 to 161 apps with 8 new category sections</span><span class="files">~1</span></div>
+  <div class="commit"><span class="hash">c0de009</span><span class="msg">Add Special Pages section (Calendar, Shop, Guide, Index, Demo)</span><span class="files">~1</span></div>
+  <div class="commit"><span class="hash">c0de00a</span><span class="msg">Fix 110 orphan pages — all now accessible from master-hub</span><span class="files">~1</span></div>
+  <div class="section">INDEX</div>
+  <div class="commit"><span class="hash">c0de00b</span><span class="msg">Update index from 115 to 163 entries (48 missing files added)</span><span class="files">~1</span></div>
+  <div class="commit"><span class="hash">c0de00c</span><span class="msg">Add dungeon to demo.html FILES array</span><span class="files">~1</span></div>
+  <div class="section">FIXES</div>
+  <div class="commit"><span class="hash">c0de00d</span><span class="msg">Fix footer leak on 139 fullscreen pages (position:fixed)</span><span class="files">~139</span></div>
+  <div class="commit"><span class="hash">c0de00e</span><span class="msg">Fix hacker-presentation controls: 7.5px→11px, visible buttons</span><span class="files">~3</span></div>
+  <div class="commit"><span class="hash">c0de00f</span><span class="msg">Fix loading-screens nav dots (6px→10px) + wrapped-2025 arrows visibility</span><span class="files">~6</span></div>
+  <div class="commit"><span class="hash">c0de010</span><span class="msg">Fix 4 AR files with wrong lang="fr" → lang="ar"</span><span class="files">~4</span></div>
+  <div class="commit"><span class="hash">c0de011</span><span class="msg">Fix facebook-calendar: 546→564 count, broken email→contact@workshop-diy.org</span><span class="files">~1</span></div>
+  <div class="section">DOCUMENTATION</div>
+  <div class="commit"><span class="hash">c0de012</span><span class="msg">Update all docs: changelog, user guide, start_here, docs, faq, help</span><span class="files">~6</span></div>
+</div>
+</div>
+
+<!-- v5.0 / v1.0 -->
+<div class="release">
+<div class="release-header">
+  <span class="release-ver">v1.0</span>
+  <span class="release-tag tag-session">RELEASE</span>
+  <span class="release-date">2026-02-28</span>
+</div>
+<div class="release-body">
+  <div class="release-stat">
+    <span>📁 160 files</span>
+    <span>📦 ~600KB zip</span>
+    <span>📄 1.8MB uncompressed</span>
+    <span>🏷️ 90+ formats</span>
+  </div>
+  <div class="section">DOCUMENTATION (v1.0 release)</div>
+  <div class="commit"><span class="hash">a1b2c3d</span><span class="msg">Add README.md with full project documentation</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">e4f5g6h</span><span class="msg">Add workshop-diy-docs.html interactive documentation site</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">i7j8k9l</span><span class="msg">Add workshop-diy-faq.html with expandable Q&A</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">m0n1o2p</span><span class="msg">Add workshop-diy-changelog.html (this file)</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">q3r4s5t</span><span class="msg">Add workshop-diy-help.html quick reference card</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">u6v7w8x</span><span class="msg">Package v1.0 final ZIP with all files + docs</span><span class="files">165+</span></div>
+</div>
+</div>
+
+<!-- Session 18 -->
+<div class="release">
+<div class="release-header">
+  <span class="release-ver">Session 18</span>
+  <span class="release-tag tag-session">ESP32</span>
+  <span class="release-date">2026-02-28 · Files 156–160</span>
+</div>
+<div class="release-body">
+  <div class="commit"><span class="hash">f8e7d6c</span><span class="msg">ESP32-C3 interactive pinout reference card</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">b5a4c3d</span><span class="msg">Arduino IDE with bit-bot BLE firmware</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">e2f1g0h</span><span class="msg">ESP32 vs micro:bit spec comparison card</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">j9k8l7m</span><span class="msg">ESP32-C3 boot sequence console output</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">n6o5p4q</span><span class="msg">bit-bot complete wiring diagram</span><span class="files">+1</span></div>
+</div>
+</div>
+
+<!-- Session 17b -->
+<div class="release">
+<div class="release-header">
+  <span class="release-ver">Session 17b</span>
+  <span class="release-tag tag-session">MICRO:BIT</span>
+  <span class="release-date">2026-02-28 · Files 152–155</span>
+</div>
+<div class="release-body">
+  <div class="commit"><span class="hash">r3s2t1u</span><span class="msg">NeoPixel emoji display with serial transfer viz</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">v0w9x8y</span><span class="msg">Micro:bit telemetry sensor dashboard</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">z7a6b5c</span><span class="msg">MakeCode block editor showing RXY firmware</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">d4e3f2g</span><span class="msg">BLE connection flow diagram (Web Bluetooth)</span><span class="files">+1</span></div>
+</div>
+</div>
+
+<!-- Session 17 -->
+<div class="release">
+<div class="release-header">
+  <span class="release-ver">Session 17</span>
+  <span class="release-tag tag-session">AUTONOMOUS</span>
+  <span class="release-date">2026-02-28 · Files 141–151</span>
+</div>
+<div class="release-body">
+  <div class="commit"><span class="hash">h1i0j9k</span><span class="msg">Flappy Bird playable game (bit-bot flies!)</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">l8m7n6o</span><span class="msg">Love letters between apps</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">p5q4r3s</span><span class="msg">Voicemail transcripts with auto-transcription errors</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">t2u1v0w</span><span class="msg">Family tree genealogical chart</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">x9y8z7a</span><span class="msg">Postage stamps (12 commemorative)</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">b6c5d4e</span><span class="msg">Lab notebook (3 experiments)</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">f3g2h1i</span><span class="msg">Star chart / constellation map (8 constellations)</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">j0k9l8m</span><span class="msg">Message in a bottle with scroll reveal</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">n7o6p5q</span><span class="msg">Craigslist free stuff ad</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">r4s3t2u</span><span class="msg">Bug #42 tax return (WKSHP-1042)</span><span class="files">+1</span></div>
+  <div class="commit"><span class="hash">v1w0x9y</span><span class="msg">RXY micro:bit remote simulator</span><span class="files">+1</span></div>
+</div>
+</div>
+
+<!-- Sessions 1-16 summary -->
+<div class="release">
+<div class="release-header">
+  <span class="release-ver">Sessions 1–16</span>
+  <span class="release-tag tag-session">FOUNDATION</span>
+  <span class="release-date">2026-02-28 · Files 1–140</span>
+</div>
+<div class="release-body">
+  <div class="release-stat"><span>140 files across 16 sessions</span></div>
+  <div class="section">SESSION 16 (131–140)</div>
+  <div class="commit"><span class="hash">various</span><span class="msg">Airbnb, Parking Ticket, YouTube, Magic 8-Ball, Org Chart, Documentary, Time Capsule, eBay, Restraining Order, Idle Clicker</span><span class="files">+10</span></div>
+  <div class="section">SESSION 15 (121–130)</div>
+  <div class="commit"><span class="hash">various</span><span class="msg">Bug/Feature detector, Compatibility quiz, 100th file party, Advent calendar, Ambient screen, Social media kit, App match quiz, Card pack opening, Bio generator, Genius ideas lab</span><span class="files">+10</span></div>
+  <div class="section">SESSION 14 (115–120)</div>
+  <div class="commit"><span class="hash">various</span><span class="msg">Scoreboard, App demo reel, SCP file, Superlatives, App store, Space mission control</span><span class="files">+6</span></div>
+  <div class="section">SESSION 13 (101–114)</div>
+  <div class="commit"><span class="hash">various</span><span class="msg">Hacker presentation, Vending machine, Concert ticket, Crossword, Live server monitor, Classified dossier, Fortune cookie, NASA control, Ouija board, Gacha capsule, Slot machine, License plates, Sticker sheet, Synth visualizer</span><span class="files">+14</span></div>
+  <div class="section">SESSIONS 1–12 (1–100)</div>
+  <div class="commit"><span class="hash">various</span><span class="msg">Initial 100 files: social media, games, news, video, education, legal, travel, tech, creative, food, audio, cards, personal, meta formats</span><span class="files">+100</span></div>
+</div>
+</div>
+
+</div>
+<div class="footer">CHANGELOG · WORKSHOP-DIY PRESENTATION SUITE · v1.0 · Bug #42 was here since commit #1</div>
+</div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

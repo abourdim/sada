@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // SITCOM CREDITS</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+body{background:#000;color:#fff;font-family:'JetBrains Mono',monospace;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+
+.screen{width:100%;max-width:640px;aspect-ratio:16/9;background:linear-gradient(180deg,#87CEEB,#f0c060);position:relative;overflow:hidden;border-radius:4px}
+
+/* TITLE */
+.title-card{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;animation:fadeTitle 3s 0s forwards}
+@keyframes fadeTitle{0%{opacity:0;transform:scale(.8)}20%{opacity:1;transform:scale(1)}80%{opacity:1}100%{opacity:0}}
+.title-card h1{font-family:'Pacifico',cursive;font-size:clamp(28px,6vw,42px);color:#fff;text-shadow:3px 3px 0 #e74c3c,-1px -1px 0 #3498db,2px -2px 0 #f39c12;transform:rotate(-3deg)}
+.title-card .tagline{font-size:10px;color:#fff;text-shadow:1px 1px 0 rgba(0,0,0,.3);margin-top:4px;letter-spacing:2px}
+
+/* CHARACTERS */
+.char-card{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;text-align:center;flex-direction:column}
+.char-card .freeze{font-size:72px;margin-bottom:4px;animation:bounce 1s ease-in-out}
+@keyframes bounce{0%{transform:scale(0) rotate(-20deg)}50%{transform:scale(1.2) rotate(5deg)}100%{transform:scale(1) rotate(0)}}
+.char-card .actor-name{font-family:'Pacifico',cursive;font-size:clamp(18px,4vw,26px);color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.2)}
+.char-card .role{font-size:10px;color:rgba(255,255,255,.6);text-shadow:1px 1px 0 rgba(0,0,0,.2);margin-top:2px}
+.char-card .action{font-size:8px;color:rgba(255,255,255,.4);font-style:italic;margin-top:1px}
+
+/* LYRICS */
+.lyrics{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);font-size:10px;color:rgba(255,255,255,.5);text-align:center;text-shadow:1px 1px 0 rgba(0,0,0,.2);z-index:5;white-space:nowrap;font-style:italic;opacity:0;transition:opacity .3s}
+.lyrics.show{opacity:1}
+
+/* PLAY BUTTON */
+.play-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:20;cursor:pointer}
+.play-btn{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:24px;transition:transform .2s}
+.play-btn:hover{transform:scale(1.1)}
+.play-overlay.hidden{display:none}
+
+.footer{font-size:6px;color:#222;letter-spacing:1px;margin-top:8px;text-align:center}
+</style>
+</head>
+<body>
+
+<div class="screen" id="screen">
+  <div class="title-card" id="titleCard">
+    <h1>Workshop-DIY</h1>
+    <div class="tagline">★ THE SHOW ★</div>
+  </div>
+
+  <div class="lyrics" id="lyrics"></div>
+
+  <div class="play-overlay" id="playOverlay" onclick="startIntro()">
+    <div class="play-btn">▶</div>
+  </div>
+</div>
+
+<div class="footer">WORKSHOP-DIY: THE SHOW · SEASON 1 · FILMED IN FRONT OF A LIVE COFFEE MACHINE</div>
+
+<script>
+const CHARS=[
+  {emoji:"🤖",name:"bit-bot",role:"The Clumsy Hero",action:"*falls off desk for the 47th time*",bg:"linear-gradient(180deg,#74b9ff,#0984e3)"},
+  {emoji:"🐛",name:"Bug #42",role:"The Mysterious Roommate",action:"*appears at 3:42 AM, again*",bg:"linear-gradient(180deg,#a29bfe,#6c5ce7)"},
+  {emoji:"☕",name:"Coffee Machine",role:"The Overworked Mom",action:"*sighs in 8%*",bg:"linear-gradient(180deg,#ffeaa7,#fdcb6e)"},
+  {emoji:"🔑",name:"password123",role:"The One Who Never Changes",action:"*denies petition #4*",bg:"linear-gradient(180deg,#55efc4,#00b894)"},
+  {emoji:"🧠",name:"teachable-machine",role:"The Know-It-All",action:"*predicts everything with 98% accuracy*",bg:"linear-gradient(180deg,#fd79a8,#e84393)"},
+  {emoji:"🐳",name:"docker-lab",role:"The Overachiever",action:"*makes parents feel inadequate*",bg:"linear-gradient(180deg,#81ecec,#00cec9)"},
+  {emoji:"🔐",name:"pentest-lab",role:"The Troublemaker",action:"*hacks the printer, ethically*",bg:"linear-gradient(180deg,#fab1a0,#e17055)"},
+  {emoji:"🔥",name:"hot-glue",role:"Special Guest: The Real MVP",action:"*holds everything together, literally*",bg:"linear-gradient(180deg,#ffa502,#e74c3c)"},
+];
+
+const LYRICS=[
+  "♪ So no one told you code was gonna be this way... ♪",
+  "♪ Your apps are broke, you've got no npm today... ♪",
+  "♪ It's like you're always stuck with password 1-2-3... ♪",
+  "♪ But the robot works, the coffee's free! ♪",
+  "♪ I'll be there for you... (when the BLE drops) ♪",
+  "♪ I'll be there for you... (when the hot glue pops) ♪",
+  "♪ I'll be there for you... ♪",
+  "♪ ...cause bugs are features tooooo ♪",
+];
+
+let playing=false;
+
+function startIntro(){
+  if(playing)return;
+  playing=true;
+  document.getElementById('playOverlay').classList.add('hidden');
+  
+  const screen=document.getElementById('screen');
+  const lyricsEl=document.getElementById('lyrics');
+  
+  // Show title
+  const tc=document.getElementById('titleCard');
+  tc.style.animation='none';
+  void tc.offsetWidth;
+  tc.style.animation='fadeTitle 3s forwards';
+
+  // Sequence characters
+  CHARS.forEach((c,i)=>{
+    const delay=3000+i*2500;
+    
+    setTimeout(()=>{
+      // Update background
+      screen.style.background=c.bg;
+      
+      // Show lyrics
+      if(LYRICS[i]){
+        lyricsEl.textContent=LYRICS[i];
+        lyricsEl.classList.add('show');
+      }
+      
+      // Create char card
+      const card=document.createElement('div');
+      card.className='char-card';
+      card.innerHTML=`<div class="freeze">${c.emoji}</div><div class="actor-name">${c.name}</div><div class="role">${c.role}</div><div class="action">${c.action}</div>`;
+      screen.appendChild(card);
+      
+      // Animate in
+      requestAnimationFrame(()=>{
+        card.style.opacity='1';
+        card.style.transition='opacity .5s';
+      });
+      
+      // Remove after
+      setTimeout(()=>{
+        card.style.opacity='0';
+        setTimeout(()=>card.remove(),500);
+        lyricsEl.classList.remove('show');
+      },2000);
+      
+    },delay);
+  });
+  
+  // Final title
+  setTimeout(()=>{
+    screen.style.background='linear-gradient(180deg,#87CEEB,#f0c060)';
+    const finalCard=document.createElement('div');
+    finalCard.className='char-card';
+    finalCard.style.opacity='1';
+    finalCard.innerHTML=`
+      <div style="font-family:'Pacifico',cursive;font-size:clamp(24px,5vw,36px);color:#fff;text-shadow:3px 3px 0 #e74c3c">Workshop-DIY</div>
+      <div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:4px">Created by The Founder</div>
+      <div style="font-size:8px;color:rgba(255,255,255,.3);margin-top:2px">Filmed before a live coffee machine (8% capacity)</div>
+      <div style="font-size:7px;color:rgba(255,255,255,.2);margin-top:6px">No robots were harmed · WiFi password unchanged · All bugs are features</div>
+    `;
+    screen.appendChild(finalCard);
+    
+    setTimeout(()=>{
+      playing=false;
+      document.getElementById('playOverlay').classList.remove('hidden');
+      finalCard.remove();
+    },4000);
+  },3000+CHARS.length*2500);
+}
+</script>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

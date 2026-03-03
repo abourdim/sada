@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // BLE CONNECTION FLOW</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;min-height:100vh;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px}
+
+h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#0088ff;letter-spacing:2px}
+.sub{font-size:7px;color:rgba(0,136,255,.08);letter-spacing:2px}
+
+.flow{width:100%;max-width:700px;display:flex;flex-direction:column;gap:0;position:relative}
+
+/* STEP */
+.step{display:flex;gap:10px;align-items:stretch;position:relative}
+.step-num{width:32px;display:flex;flex-direction:column;align-items:center}
+.step-circle{width:24px;height:24px;border-radius:50%;background:rgba(0,136,255,.06);border:2px solid rgba(0,136,255,.1);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#0088ff;z-index:2}
+.step-circle.active{background:rgba(0,136,255,.15);border-color:#0088ff;box-shadow:0 0 8px rgba(0,136,255,.1);animation:stepPulse 2s infinite}
+@keyframes stepPulse{0%,100%{box-shadow:0 0 8px rgba(0,136,255,.1)}50%{box-shadow:0 0 14px rgba(0,136,255,.2)}}
+.step-line{width:2px;flex:1;background:rgba(0,136,255,.04);margin:2px 0}
+.step-line.active{background:linear-gradient(180deg,rgba(0,136,255,.15),rgba(0,136,255,.04));animation:flowDown 2s infinite}
+@keyframes flowDown{0%{background-position:0 -20px}100%{background-position:0 20px}}
+
+.step-content{flex:1;padding:6px 0 14px}
+.step-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.3);margin-bottom:3px;display:flex;align-items:center;gap:4px}
+.step-title .icon{font-size:14px}
+.step-desc{font-size:9px;color:rgba(255,255,255,.08);line-height:2;margin-bottom:4px}
+
+/* CODE SNIPPET */
+.code{background:rgba(0,136,255,.02);border:1px solid rgba(0,136,255,.04);border-radius:4px;padding:5px 8px;font-size:8px;color:rgba(0,136,255,.2);overflow-x:auto;white-space:pre;line-height:1.9}
+.code .kw{color:rgba(200,100,255,.25)}
+.code .str{color:rgba(100,255,150,.2)}
+.code .cm{color:rgba(255,255,255,.05)}
+.code .fn{color:rgba(255,200,100,.2)}
+
+/* DATA PACKET */
+.packet{display:flex;gap:2px;margin:4px 0;flex-wrap:wrap}
+.pkt-byte{padding:2px 4px;background:rgba(0,136,255,.04);border:1px solid rgba(0,136,255,.06);border-radius:2px;font-size:7px;color:rgba(0,136,255,.2);font-weight:700}
+.pkt-byte.header{background:rgba(255,100,100,.04);border-color:rgba(255,100,100,.06);color:rgba(255,100,100,.2)}
+.pkt-byte.data{background:rgba(100,255,100,.04);border-color:rgba(100,255,100,.06);color:rgba(100,255,100,.2)}
+
+/* SIGNAL ANIMATION */
+.signal{display:flex;gap:3px;align-items:center;margin:4px 0}
+.sig-wave{display:flex;gap:1px;align-items:center}
+.sig-bar{width:2px;background:#0088ff;border-radius:1px;animation:sigAnim 1.5s ease-in-out infinite}
+@keyframes sigAnim{0%,100%{height:3px;opacity:.1}50%{height:12px;opacity:.25}}
+
+/* UUID */
+.uuid{font-size:8px;color:rgba(0,136,255,.12);padding:2px 6px;background:rgba(0,136,255,.02);border-radius:3px;display:inline-block;margin:1px 0;letter-spacing:.5px}
+
+/* DEVICES */
+.devices{display:flex;justify-content:center;gap:20px;margin:6px 0;flex-wrap:wrap}
+.device{text-align:center;padding:8px;border:1px solid rgba(0,136,255,.04);border-radius:8px;background:rgba(0,136,255,.01);min-width:100px}
+.device .d-icon{font-size:28px;margin-bottom:2px}
+.device .d-name{font-size:8px;font-weight:700;color:rgba(255,255,255,.15)}
+.device .d-info{font-size:6px;color:rgba(255,255,255,.05)}
+
+/* ARROW */
+.arrow-row{display:flex;align-items:center;justify-content:center;gap:4px;margin:4px 0}
+.arrow{display:flex;align-items:center;gap:2px}
+.arrow-line{width:60px;height:2px;border-radius:1px;position:relative;overflow:hidden}
+.arrow-line.tx{background:rgba(0,200,100,.06)}
+.arrow-line.rx{background:rgba(255,100,100,.06)}
+.arrow-dot{width:4px;height:4px;border-radius:50%;position:absolute;top:-1px;animation:arrowMove 1.5s linear infinite}
+.arrow-dot.tx{background:#00cc66;left:0;animation-name:moveTx}
+.arrow-dot.rx{background:#ff4444;right:0;animation-name:moveRx}
+@keyframes moveTx{0%{left:0;opacity:0}20%{opacity:.3}80%{opacity:.3}100%{left:100%;opacity:0}}
+@keyframes moveRx{0%{right:0;opacity:0}20%{opacity:.3}80%{opacity:.3}100%{right:100%;opacity:0}}
+.arrow-label{font-size:6px;color:rgba(255,255,255,.06);letter-spacing:.5px}
+
+.footer{font-size:5px;color:rgba(0,136,255,.02);letter-spacing:1px;text-align:center}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<h1>📡 BLE CONNECTION FLOW</h1>
+<div class="sub">WEB BLUETOOTH API → MICRO:BIT V2 → UART SERVICE → RXY</div>
+
+<div class="devices">
+  <div class="device"><div class="d-icon">🌐</div><div class="d-name">BROWSER</div><div class="d-info">Chrome · Web Bluetooth API</div></div>
+  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
+    <div class="arrow-row">
+      <div class="arrow-label">TX (commands)</div>
+      <div class="arrow"><div class="arrow-line tx"><div class="arrow-dot tx"></div></div></div>
+    </div>
+    <div style="font-size:16px;opacity:.1">📡</div>
+    <div class="arrow-row">
+      <div class="arrow"><div class="arrow-line rx"><div class="arrow-dot rx"></div></div></div>
+      <div class="arrow-label">RX (telemetry)</div>
+    </div>
+  </div>
+  <div class="device"><div class="d-icon">📟</div><div class="d-name">MICRO:BIT V2</div><div class="d-info">nRF52833 · BLE 5.0</div></div>
+</div>
+
+<div class="flow">
+
+<!-- STEP 1 -->
+<div class="step">
+  <div class="step-num"><div class="step-circle active">1</div><div class="step-line active"></div></div>
+  <div class="step-content">
+    <div class="step-title"><span class="icon">👆</span>USER CLICKS CONNECT</div>
+    <div class="step-desc">Utilisateur gesture required (security). Browser opens device chooser dialog. Micro:bit must be paired and in BLE mode.</div>
+    <div class="code"><span class="kw">const</span> device = <span class="kw">await</span> navigator.bluetooth.<span class="fn">requestDevice</span>({
+  filters: [{ namePrefix: <span class="str">"BBC micro:bit"</span> }],
+  optionalServices: [<span class="str">"6e400001-b5a3-f393-e0a9-e50e24dcca9e"</span>]
+});</div>
+  </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+  <div class="step-num"><div class="step-circle active">2</div><div class="step-line active"></div></div>
+  <div class="step-content">
+    <div class="step-title"><span class="icon">🔍</span>GATT SERVER CONNECT</div>
+    <div class="step-desc">Connect to Generic Attribute Profil server on micro:bit. Establishes encrypted BLE link.</div>
+    <div class="code"><span class="kw">const</span> server = <span class="kw">await</span> device.gatt.<span class="fn">connect</span>();
+<span class="cm">// Connection established — MTU negotiated (23-247 bytes)</span></div>
+    <div class="signal"><div class="sig-wave"><span class="sig-bar" style="animation-delay:0s"></span><span class="sig-bar" style="animation-delay:.1s"></span><span class="sig-bar" style="animation-delay:.2s"></span><span class="sig-bar" style="animation-delay:.3s"></span><span class="sig-bar" style="animation-delay:.4s"></span></div><span style="font-size:7px;color:rgba(0,136,255,.08)">Signal strength: -42 dBm</span></div>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+  <div class="step-num"><div class="step-circle active">3</div><div class="step-line active"></div></div>
+  <div class="step-content">
+    <div class="step-title"><span class="icon">📋</span>DISCOVER UART SERVICE</div>
+    <div class="step-desc">Nordic UART Service (NUS) — the main communication channel. Custom 128-bit UUID.</div>
+    <div class="code"><span class="kw">const</span> uartService = <span class="kw">await</span> server.<span class="fn">getPrimaryService</span>(
+  <span class="str">"6e400001-b5a3-f393-e0a9-e50e24dcca9e"</span>  <span class="cm">// NUS</span>
+);</div>
+    <div style="margin-top:4px">
+      <div class="uuid">Service: 6e400001-b5a3-f393-e0a9-e50e24dcca9e</div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+  <div class="step-num"><div class="step-circle active">4</div><div class="step-line active"></div></div>
+  <div class="step-content">
+    <div class="step-title"><span class="icon">🔌</span>GET TX & RX CHARACTERISTICS</div>
+    <div class="step-desc">Two characteristics: TX (micro:bit→browser, notifications) and RX (browser→micro:bit, write). Names are from micro:bit's perspective.</div>
+    <div class="code"><span class="cm">// TX: micro:bit sends data TO browser (we listen)</span>
+<span class="kw">const</span> txChar = <span class="kw">await</span> uartService.<span class="fn">getCharacteristic</span>(
+  <span class="str">"6e400003-b5a3-f393-e0a9-e50e24dcca9e"</span>
+);
+<span class="kw">await</span> txChar.<span class="fn">startNotifications</span>();
+
+<span class="cm">// RX: browser sends commands TO micro:bit (we write)</span>
+<span class="kw">const</span> rxChar = <span class="kw">await</span> uartService.<span class="fn">getCharacteristic</span>(
+  <span class="str">"6e400002-b5a3-f393-e0a9-e50e24dcca9e"</span>
+);</div>
+    <div style="margin-top:4px">
+      <div class="uuid">TX Char: 6e400003-... (Notify)</div>
+      <div class="uuid">RX Char: 6e400002-... (Write)</div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 5 -->
+<div class="step">
+  <div class="step-num"><div class="step-circle active">5</div><div class="step-line active"></div></div>
+  <div class="step-content">
+    <div class="step-title"><span class="icon">📤</span>SEND COMMANDS (BROWSER → MICRO:BIT)</div>
+    <div class="step-desc">RXY sends UART commands as newline-delimited strings. Each command is a key:value pair. Max 20 bytes per write (BLE limit).</div>
+    <div class="code"><span class="cm">// Send servo command</span>
+<span class="kw">const</span> cmd = <span class="str">"SERVO:90\n"</span>;
+<span class="kw">await</span> rxChar.<span class="fn">writeValue</span>(encoder.<span class="fn">encode</span>(cmd));</div>
+    <div class="step-desc" style="margin-top:4px">Protocol commands:</div>
+    <div class="packet">
+      <div class="pkt-byte header">SERVO:</div><div class="pkt-byte data">90</div><div class="pkt-byte">\\n</div>
+    </div>
+    <div class="packet">
+      <div class="pkt-byte header">NEO:</div><div class="pkt-byte data">FF0000</div><div class="pkt-byte">\\n</div>
+    </div>
+    <div class="packet">
+      <div class="pkt-byte header">BUZZ:</div><div class="pkt-byte data">440</div><div class="pkt-byte">\\n</div>
+    </div>
+    <div class="packet">
+      <div class="pkt-byte header">MOTOR:</div><div class="pkt-byte data">L100,R-50</div><div class="pkt-byte">\\n</div>
+    </div>
+    <div class="packet">
+      <div class="pkt-byte header">LED:</div><div class="pkt-byte data">0F0E0E0F00</div><div class="pkt-byte">\\n</div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 6 -->
+<div class="step">
+  <div class="step-num"><div class="step-circle active">6</div><div class="step-line active"></div></div>
+  <div class="step-content">
+    <div class="step-title"><span class="icon">📥</span>RECEIVE TELEMETRY (MICRO:BIT → BROWSER)</div>
+    <div class="step-desc">Micro:bit sends sensor data every 100ms via TX notifications. Browser parses and updates dashboard.</div>
+    <div class="code">txChar.<span class="fn">addEventListener</span>(<span class="str">"characteristicvaluechanged"</span>, e => {
+  <span class="kw">const</span> line = decoder.<span class="fn">decode</span>(e.target.value);
+  <span class="cm">// Parse: "T:22.5" or "L:128" or "A:24,-128,1024"</span>
+  <span class="fn">handleTelemetry</span>(line);
+});</div>
+    <div class="step-desc" style="margin-top:4px">Telemetry packets:</div>
+    <div class="packet">
+      <div class="pkt-byte header">T:</div><div class="pkt-byte data">22.5</div><div class="pkt-byte">\\n</div>
+      <span style="font-size:6px;color:rgba(255,255,255,.04);padding:2px">temperature °C</span>
+    </div>
+    <div class="packet">
+      <div class="pkt-byte header">L:</div><div class="pkt-byte data">128</div><div class="pkt-byte">\\n</div>
+      <span style="font-size:6px;color:rgba(255,255,255,.04);padding:2px">light (0-255)</span>
+    </div>
+    <div class="packet">
+      <div class="pkt-byte header">A:</div><div class="pkt-byte data">24,-128,1024</div><div class="pkt-byte">\\n</div>
+      <span style="font-size:6px;color:rgba(255,255,255,.04);padding:2px">accel x,y,z</span>
+    </div>
+    <div class="packet">
+      <div class="pkt-byte header">S:</div><div class="pkt-byte data">42</div><div class="pkt-byte">\\n</div>
+      <span style="font-size:6px;color:rgba(255,255,255,.04);padding:2px">sound (V2 mic)</span>
+    </div>
+    <div class="packet">
+      <div class="pkt-byte header">EVENT:</div><div class="pkt-byte data">BTN_A_PRESSED</div><div class="pkt-byte">\\n</div>
+      <span style="font-size:6px;color:rgba(255,255,255,.04);padding:2px">button/touch</span>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 7 -->
+<div class="step">
+  <div class="step-num"><div class="step-circle">✓</div></div>
+  <div class="step-content">
+    <div class="step-title"><span class="icon">🎮</span>LIVE BIDIRECTIONAL CONTROL</div>
+    <div class="step-desc">Full duplex communication established. Browser sends widget commands, micro:bit sends sensor telemetry. Latency ~42ms. RXY remote is live.</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+      <div class="uuid">🔧 Servo P8</div>
+      <div class="uuid">💡 NeoPixel P0</div>
+      <div class="uuid">🎵 Buzzer P12</div>
+      <div class="uuid">⚡ Motor P1/P2</div>
+      <div class="uuid">🌡️ Temp</div>
+      <div class="uuid">☀️ Light</div>
+      <div class="uuid">📐 Accel</div>
+      <div class="uuid">🎤 Sound</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer">WORKSHOP-DIY · WEB BLUETOOTH → MICRO:BIT V2 · NORDIC UART SERVICE · RXY PROTOCOL · SERVOS ON P8/P12 (PIN CONFLICT FIX)</div>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>

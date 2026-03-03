@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script src="../../assets/js/sada-lang.js"></script>
+<link rel="stylesheet" href="../../assets/css/sada-base.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WKSHP-DIY // WHATSAPP</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{background:#0b141a;color:#e9edef;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;min-height:100vh;display:flex;justify-content:center}
+
+.phone{width:100%;max-width:420px;display:flex;flex-direction:column;min-height:100vh}
+
+.wa-header{background:#1f2c34;padding:8px 12px;display:flex;align-items:center;gap:10px}
+.wa-header .back{font-size:16px;color:#00a884}
+.wa-header .avatar{width:34px;height:34px;border-radius:50%;background:#00a884;display:flex;align-items:center;justify-content:center;font-size:18px}
+.wa-header .info{flex:1}
+.wa-header .info .name{font-size:14px;font-weight:600;color:#e9edef}
+.wa-header .info .members{font-size:10px;color:#8696a0}
+.wa-header .icons{display:flex;gap:14px;font-size:16px;color:#aebac1}
+
+.chat{flex:1;padding:8px 12px;overflow-y:auto;display:flex;flex-direction:column;gap:2px;background:#0b141a url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='60' height='60' fill='transparent'/%3E%3Ccircle cx='30' cy='30' r='.4' fill='%23ffffff' opacity='.015'/%3E%3C/svg%3E")}
+
+.date-chip{text-align:center;margin:6px 0}
+.date-chip span{background:#182229;color:#8696a0;font-size:10px;padding:3px 10px;border-radius:6px}
+
+.msg{max-width:80%;padding:4px 8px 2px;border-radius:8px;position:relative;line-height:1.5}
+.msg.them{background:#1f2c34;align-self:flex-start;border-top-left-radius:0}
+.msg.me{background:#005c4b;align-self:flex-end;border-top-right-radius:0}
+.msg .sender{font-size:11px;font-weight:600;margin-bottom:1px}
+.msg .text{font-size:13px;color:#e9edef}
+.msg .meta{display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:1px}
+.msg .time{font-size:9px;color:rgba(255,255,255,.4)}
+.msg .ticks{font-size:10px;color:#53bdeb}
+
+.msg .reply-box{background:rgba(0,0,0,.15);border-left:3px solid #00a884;padding:3px 6px;margin-bottom:3px;border-radius:4px;font-size:11px}
+.msg .reply-box .r-name{font-size:10px;font-weight:600;color:#00a884}
+.msg .reply-box .r-text{color:rgba(255,255,255,.4)}
+
+.system-msg{text-align:center;margin:4px 0}
+.system-msg span{background:#182229;color:#8696a0;font-size:10px;padding:2px 8px;border-radius:4px}
+
+.voice-msg{display:flex;align-items:center;gap:6px;padding:4px 0}
+.voice-msg .play{font-size:14px}
+.voice-msg .wave{flex:1;height:16px;display:flex;align-items:center;gap:1px}
+.voice-msg .wave .bar{width:2px;background:rgba(255,255,255,.2);border-radius:1px}
+.voice-msg .dur{font-size:9px;color:rgba(255,255,255,.4)}
+
+.reaction{position:absolute;bottom:-8px;right:8px;background:#1f2c34;border-radius:10px;padding:1px 4px;font-size:10px;border:1px solid rgba(255,255,255,.05)}
+
+.typing{align-self:flex-start;background:#1f2c34;border-radius:8px;padding:8px 12px;border-top-left-radius:0}
+.typing-dots{display:flex;gap:3px}
+.typing-dots span{width:6px;height:6px;background:#8696a0;border-radius:50%;animation:typeBounce 1.4s infinite}
+.typing-dots span:nth-child(2){animation-delay:.2s}
+.typing-dots span:nth-child(3){animation-delay:.4s}
+@keyframes typeBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+
+.input-bar{background:#1f2c34;padding:6px 10px;display:flex;align-items:center;gap:8px}
+.input-bar .emoji{font-size:18px;color:#8696a0}
+.input-bar input{flex:1;background:#2a3942;border:none;border-radius:20px;padding:8px 14px;color:#e9edef;font-family:inherit;font-size:13px;outline:none}
+.input-bar .mic{font-size:18px;color:#8696a0}
+
+.footer{text-align:center;padding:4px;font-size:5px;color:#0b141a;font-family:'JetBrains Mono',monospace}
+</style>
+</head>
+<body>
+<div style="font-family:'Amiri',serif;font-size:15px;color:rgba(255,255,255,.1);text-align:center;padding:4px">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+<div class="phone">
+
+<div class="wa-header">
+  <span class="back">←</span>
+  <div class="avatar">🤖</div>
+  <div class="info">
+    <div class="name">Workshop-DIY Family 🏠</div>
+    <div class="members">bit-bot, Bug #42, آلة القهوة, password123, +35 others</div>
+  </div>
+  <div class="icons"><span>📞</span><span>⋮</span></div>
+</div>
+
+<div class="chat" id="chat">
+
+<div class="date-chip"><span>TODAY</span></div>
+
+<div class="system-msg"><span>🐛 Bug #42 added ⬛ The 40th App</span></div>
+<div class="system-msg"><span>⬛ The 40th App left</span></div>
+
+<div class="msg them">
+  <div class="sender" style="color:#00a884">🤖 bit-bot</div>
+  <div class="text">Good morning everyone! Just survived drop #47! 🎉</div>
+  <div class="meta"><span class="time">08:42</span></div>
+  <div class="reaction">🎉 5</div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#ff6b6b">☕ آلة القهوة</div>
+  <div class="text">I'm بنسبة 8%. Again. Still. Forever.</div>
+  <div class="meta"><span class="time">08:43</span></div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#ffd700">🔑 password123</div>
+  <div class="text">Morning! I'm still password123 if anyone needs the WiFi 😊</div>
+  <div class="meta"><span class="time">08:44</span></div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#9966ff">🔐 pentest-lab</div>
+  <div class="text">password123 please change yourself. I'm begging you. I teach CYBERSECURITY.</div>
+  <div class="meta"><span class="time">08:44</span></div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#ffd700">🔑 password123</div>
+  <div class="text">No ❤️</div>
+  <div class="meta"><span class="time">08:44</span></div>
+  <div class="reaction">😂 12</div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#0af">🐳 docker-lab</div>
+  <div class="text">I just explained containers to a 14-year-old who explained them back to his dad (senior DevOps engineer). The dad learned something. I am complete.</div>
+  <div class="meta"><span class="time">09:15</span></div>
+  <div class="reaction">🔥 8</div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#00cc66">🧠 teachable-machine</div>
+  <div class="text">Trained a model to detect when bit-bot is about to fall off a desk. 98% accuracy.</div>
+  <div class="meta"><span class="time">09:22</span></div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#00a884">🤖 bit-bot</div>
+  <div class="reply-box"><div class="r-name">🧠 teachable-machine</div><div class="r-text">Trained a model to detect when bit-bot is about to fall...</div></div>
+  <div class="text">And what happens with the 2% it doesn't detect? 😰</div>
+  <div class="meta"><span class="time">09:23</span></div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#ff88aa">🐛 Bug #42</div>
+  <div class="text">I live in the 2%.</div>
+  <div class="meta"><span class="time">09:23</span></div>
+  <div class="reaction">👀 6</div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#ff8800">🪄 magic-hands</div>
+  <div class="voice-msg">
+    <span class="play">▶</span>
+    <div class="wave" id="wave1"></div>
+    <span class="dur">0:03</span>
+  </div>
+  <div class="meta"><span class="time">10:01</span></div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#00cc66">🐧 linux-kids-lab</div>
+  <div class="text">A 12-year-old just ran <code>sudo rm -rf /</code> on the practice terminal. I stopped it obviously but I've never been more scared in my life.</div>
+  <div class="meta"><span class="time">10:30</span></div>
+  <div class="reaction">💀 9</div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#ff6b6b">☕ آلة القهوة</div>
+  <div class="text">Can someone please empty my drainage tray? It's been since مارس. MARCH.</div>
+  <div class="meta"><span class="time">11:00</span></div>
+</div>
+
+<div class="system-msg"><span>☕ آلة القهوة changed the group description to "EMPTY THE DRAINAGE TRAY"</span></div>
+
+<div class="msg them">
+  <div class="sender" style="color:#ff88aa">🐛 Bug #42</div>
+  <div class="text">Has anyone seen the 40th app today?</div>
+  <div class="meta"><span class="time">15:42</span></div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#0af">🐳 docker-lab</div>
+  <div class="text">There is no 40th app.</div>
+  <div class="meta"><span class="time">15:42</span></div>
+</div>
+
+<div class="msg them">
+  <div class="sender" style="color:#ff88aa">🐛 Bug #42</div>
+  <div class="text">Not yet.</div>
+  <div class="meta"><span class="time">15:42</span></div>
+</div>
+
+<div class="system-msg"><span>🐛 Bug #42 changed the group name to "Workshop-DIY Family 🏠 (39 apps) (or 40)"</span></div>
+<div class="system-msg"><span>🔑 password123 changed the group name back to "Workshop-DIY Family 🏠"</span></div>
+
+<div class="msg them">
+  <div class="sender" style="color:#00a884">🤖 bit-bot</div>
+  <div class="text">Just want to say: I love this group. All 39 of us. Even Bug #42 (who is technically not enrolled). Even the coffee machine (who is بنسبة 8%). Even password123 (who will never change). You're all ميزات. ❤️</div>
+  <div class="meta"><span class="time">18:00</span></div>
+  <div class="reaction">❤️ 39</div>
+</div>
+
+<div class="typing">
+  <div class="sender" style="font-size:10px;color:#00a884;margin-bottom:2px">🐛 Bug #42</div>
+  <div class="typing-dots"><span></span><span></span><span></span></div>
+</div>
+
+</div>
+
+<div class="input-bar">
+  <span class="emoji">😊</span>
+  <input placeholder="Type a message">
+  <span class="mic">🎤</span>
+</div>
+</div>
+
+<script>
+// Generate voice wave bars
+document.querySelectorAll('.wave').forEach(w=>{
+  for(let i=0;i<30;i++){
+    const b=document.createElement('div');
+    b.className='bar';
+    b.style.height=(3+Math.random()*12)+'px';
+    w.appendChild(b);
+  }
+});
+</script>
+
+<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
+<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-nav.js"></script>
+</body>
+</html>
