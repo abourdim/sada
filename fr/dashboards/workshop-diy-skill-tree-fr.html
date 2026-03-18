@@ -89,13 +89,13 @@ body{background:#050508;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <div class="crt"></div>
 <div class="app">
-<div class="hud"><span>SKILL_TREE.sys v2.0</span><span>WORKSHOP-DIY // MAKER PROGRESSION</span></div>
+<div class="hud"><span>ARBRE_COMPETENCES.sys v2.0</span><span>WORKSHOP-DIY // PROGRESSION MAKER</span></div>
 
 <div class="header">
   <div class="h-avatar">🤖</div>
   <div class="h-info">
     <div class="h-name">MAKER_LEVEL_42</div>
-    <div class="h-title">// WORKSHOP-DIY MEMBER</div>
+    <div class="h-title">// MEMBRE WORKSHOP-DIY</div>
     <div class="h-xp">
       <div class="xp-bar"><div class="xp-fill" style="width:68%"></div></div>
       <div class="xp-text">6,800 / 10,000 XP</div>
@@ -103,15 +103,15 @@ body{background:#050508;color:#fff;font-family:'JetBrains Mono',monospace;font-s
   </div>
   <div class="h-stats">
     <div class="h-stat"><div class="v">42</div><div class="l">NIVEAU</div></div>
-    <div class="h-stat"><div class="v">24</div><div class="l">SKILLS</div></div>
+    <div class="h-stat"><div class="v">24</div><div class="l">COMPÉTENCES</div></div>
     <div class="h-stat"><div class="v">15</div><div class="l">BADGES</div></div>
   </div>
 </div>
 
 <div class="tabs">
   <div class="tab on" onclick="showPane('tree')">🌳 ARBRE DE COMPÉTENCES</div>
-  <div class="tab" onclick="showPane('ach')">🏆 ACHIEVEMENTS</div>
-  <div class="tab" onclick="showPane('lb')">📊 LEADERBOARD</div>
+  <div class="tab" onclick="showPane('ach')">🏆 RÉALISATIONS</div>
+  <div class="tab" onclick="showPane('lb')">📊 CLASSEMENT</div>
 </div>
 
 <div class="content">
@@ -120,49 +120,49 @@ body{background:#050508;color:#fff;font-family:'JetBrains Mono',monospace;font-s
   <div class="pane" id="pLb"></div>
 </div>
 
-<div class="hud hud-b"><span>39 APPS // 7 DOMAINES // ∞ POSSIBILITIES</span><span>// bugs are just surprise fonctionnalités</span></div>
+<div class="hud hud-b"><span>39 APPS // 7 DOMAINES // ∞ POSSIBILITÉS</span><span>// les bugs sont juste des fonctionnalités surprises</span></div>
 </div>
 
 <script>
 const BRANCHES=[
-  {e:"🤖",n:"ROBOTICS",col:"#00d4ff",nodes:[
-    {e:"🔌",n:"USB Connect",xp:50,u:true},{e:"📡",n:"BLE Pairing",xp:75,u:true},{e:"🎮",n:"Joystick Control",xp:100,u:true},{e:"🤖",n:"Bit:Bot Master",xp:200,u:true},{e:"🏎️",n:"Line Suivre",xp:150,u:false},{e:"🧩",n:"BLE Playground",xp:175,u:false},{e:"🎛️",n:"Custom Remote",xp:200,u:false},{e:"🗣️",n:"Voice Control",xp:300,u:false}
+  {e:"🤖",n:"ROBOTIQUE",col:"#00d4ff",nodes:[
+    {e:"🔌",n:"Connexion USB",xp:50,u:true},{e:"📡",n:"Appairage BLE",xp:75,u:true},{e:"🎮",n:"Contrôle Joystick",xp:100,u:true},{e:"🤖",n:"Maître Bit:Bot",xp:200,u:true},{e:"🏎️",n:"Suivi de Ligne",xp:150,u:false},{e:"🧩",n:"Terrain BLE",xp:175,u:false},{e:"🎛️",n:"Télécommande",xp:200,u:false},{e:"🗣️",n:"Contrôle Vocal",xp:300,u:false}
   ]},
-  {e:"💻",n:"PROGRAMMING",col:"#00ff41",nodes:[
-    {e:"📝",n:"First HTML",xp:50,u:true},{e:"🎨",n:"CSS Styling",xp:75,u:true},{e:"⚡",n:"JavaScript",xp:100,u:true},{e:"🐧",n:"Linux Terminal",xp:150,u:true},{e:"🔀",n:"Git Version Ctrl",xp:175,u:false},{e:"🐳",n:"Docker Basics",xp:200,u:false},{e:"🔴",n:"Node-RED Flows",xp:225,u:false},{e:"🧱",n:"MakeCode Pro",xp:250,u:false}
+  {e:"💻",n:"PROGRAMMATION",col:"#00ff41",nodes:[
+    {e:"📝",n:"Premier HTML",xp:50,u:true},{e:"🎨",n:"Style CSS",xp:75,u:true},{e:"⚡",n:"JavaScript",xp:100,u:true},{e:"🐧",n:"Terminal Linux",xp:150,u:true},{e:"🔀",n:"Contrôle Git",xp:175,u:false},{e:"🐳",n:"Bases Docker",xp:200,u:false},{e:"🔴",n:"Flux Node-RED",xp:225,u:false},{e:"🧱",n:"MakeCode Pro",xp:250,u:false}
   ]},
-  {e:"🧠",n:"ARTIFICIAL INTELLIGENCE",col:"#bf00ff",nodes:[
-    {e:"📸",n:"Face Detection",xp:100,u:true},{e:"😎",n:"Face Tracking",xp:125,u:true},{e:"🪄",n:"Hand Magic",xp:150,u:true},{e:"🧠",n:"Gesture Training",xp:200,u:false},{e:"✨",n:"Prompt Master",xp:175,u:false},{e:"🤖",n:"AI + Robot",xp:300,u:false}
+  {e:"🧠",n:"INTELLIGENCE ARTIFICIELLE",col:"#bf00ff",nodes:[
+    {e:"📸",n:"Détection Visage",xp:100,u:true},{e:"😎",n:"Suivi Facial",xp:125,u:true},{e:"🪄",n:"Magie des Mains",xp:150,u:true},{e:"🧠",n:"Entraîn. Gestes",xp:200,u:false},{e:"✨",n:"Maître Prompt",xp:175,u:false},{e:"🤖",n:"IA + Robot",xp:300,u:false}
   ]},
-  {e:"🔐",n:"CYBERSECURITY",col:"#ff0033",nodes:[
-    {e:"🔑",n:"Password Basics",xp:50,u:true},{e:"💰",n:"Crypto 101",xp:75,u:true},{e:"🔐",n:"Encryption",xp:100,u:true},{e:"🛡️",n:"VPN Knowledge",xp:125,u:false},{e:"🕵️",n:"Pentest Intro",xp:200,u:false},{e:"🏴‍☠️",n:"CTF Player",xp:300,u:false}
+  {e:"🔐",n:"CYBERSÉCURITÉ",col:"#ff0033",nodes:[
+    {e:"🔑",n:"Bases Mots de Passe",xp:50,u:true},{e:"💰",n:"Crypto 101",xp:75,u:true},{e:"🔐",n:"Chiffrement",xp:100,u:true},{e:"🛡️",n:"Savoir VPN",xp:125,u:false},{e:"🕵️",n:"Intro Pentest",xp:200,u:false},{e:"🏴‍☠️",n:"Joueur CTF",xp:300,u:false}
   ]},
-  {e:"⚡",n:"ELECTRONICS & HARDWARE",col:"#ff8800",nodes:[
-    {e:"💡",n:"First LED",xp:50,u:true},{e:"🔋",n:"Circuit Basics",xp:75,u:true},{e:"⚡",n:"ESP32 Setup",xp:100,u:false},{e:"💡",n:"WLED Neopixel",xp:125,u:false},{e:"🏡",n:"Smart Accueil",xp:200,u:false},{e:"🔗",n:"Network (DHCP)",xp:175,u:false},{e:"🖨️",n:"3D Print",xp:200,u:false}
+  {e:"⚡",n:"ÉLECTRONIQUE & MATÉRIEL",col:"#ff8800",nodes:[
+    {e:"💡",n:"Première LED",xp:50,u:true},{e:"🔋",n:"Bases Circuits",xp:75,u:true},{e:"⚡",n:"Config ESP32",xp:100,u:false},{e:"💡",n:"WLED Neopixel",xp:125,u:false},{e:"🏡",n:"Maison Connectée",xp:200,u:false},{e:"🔗",n:"Réseau (DHCP)",xp:175,u:false},{e:"🖨️",n:"Impression 3D",xp:200,u:false}
   ]}
 ];
 
 const ACHIEVEMENTS=[
-  {e:"🎮",n:"PREMIER DÉMARRAGE",d:"Open your first Atelier-DIY app",xp:50,earned:true},
-  {e:"🤖",n:"ROBOT WHISPERER",d:"Successfully connect to a robot via Bluetooth",xp:100,earned:true},
-  {e:"🐧",n:"TERMINAL VELOCITY",d:"Execute 50 commands in linux-kids-lab",xp:150,earned:true},
-  {e:"🪄",n:"HAND WIZARD",d:"Trigger all effects in magic-hands",xp:100,earned:true},
-  {e:"🕵️",n:"FACE OFF",d:"Score 500+ points in face-quest",xp:200,earned:true},
-  {e:"💻",n:"VIEW SOURCE",d:"Inspect the source code of any app (we see you)",xp:75,earned:true},
-  {e:"☕",n:"CAFFEINATED",d:"Use Atelier-DIY for 3+ hours straight",xp:100,earned:true},
-  {e:"🐛",n:"BUG HUNTER",d:'Find a bug and say "it\'s a feature"',xp:150,earned:true},
-  {e:"⚡",n:"HARDWARE HERO",d:"Make an LED blink with ESP32",xp:100,earned:false},
-  {e:"🔐",n:"ETHICAL HACKER",d:"Complete pentest-lab without looking at hints",xp:300,earned:false},
-  {e:"🎨",n:"PIXEL PERFECT",d:"Créer a 32x32 sprite in pixel-gateway",xp:100,earned:false},
-  {e:"🏫",n:"TEACHER MODE",d:"Help another student debug their code",xp:200,earned:false},
-  {e:"🧠",n:"AI OVERLORD",d:"Train a model with 95%+ accuracy",xp:250,earned:false},
-  {e:"🐳",n:"CONTAINER KING",d:"Deploy your first Docker container",xp:150,earned:false},
-  {e:"🔀",n:"GIT GOOD",d:"Resolve a merge conflict without crying",xp:200,earned:false},
-  {e:"💥",n:"STACK OVERFLOW",d:"Copy code from StackOverflow (we all do it)",xp:50,earned:false},
-  {e:"🎉",n:"39 CLUB",d:"Open every single one of the 39 apps",xp:500,earned:false},
-  {e:"⬆️⬆️⬇️⬇️",n:"KONAMI",d:"You know the code. You tried the code.",xp:100,earned:false},
-  {e:"🔥",n:"ON FIRE",d:"Complete 5 workshops in one month",xp:300,earned:false},
-  {e:"🌍",n:"ECO WARRIOR",d:"Finish all save-our-planet quizzes",xp:150,earned:false},
+  {e:"🎮",n:"PREMIER DÉMARRAGE",d:"Ouvrir votre première app Workshop-DIY",xp:50,earned:true},
+  {e:"🤖",n:"CHUCHOTEUR DE ROBOTS",d:"Se connecter avec succès à un robot via Bluetooth",xp:100,earned:true},
+  {e:"🐧",n:"VITESSE TERMINALE",d:"Exécuter 50 commandes dans linux-kids-lab",xp:150,earned:true},
+  {e:"🪄",n:"MAGE DES MAINS",d:"Déclencher tous les effets dans magic-hands",xp:100,earned:true},
+  {e:"🕵️",n:"FACE À FACE",d:"Marquer 500+ points dans face-quest",xp:200,earned:true},
+  {e:"💻",n:"VOIR LA SOURCE",d:"Inspecter le code source de n'importe quelle app (on vous voit)",xp:75,earned:true},
+  {e:"☕",n:"CAFÉINÉ",d:"Utiliser Workshop-DIY pendant 3h+ d'affilée",xp:100,earned:true},
+  {e:"🐛",n:"CHASSEUR DE BUGS",d:'Trouver un bug et dire "c\'est une fonctionnalité"',xp:150,earned:true},
+  {e:"⚡",n:"HÉROS DU MATÉRIEL",d:"Faire clignoter une LED avec ESP32",xp:100,earned:false},
+  {e:"🔐",n:"HACKER ÉTHIQUE",d:"Terminer pentest-lab sans regarder les indices",xp:300,earned:false},
+  {e:"🎨",n:"PIXEL PARFAIT",d:"Créer un sprite 32x32 dans pixel-gateway",xp:100,earned:false},
+  {e:"🏫",n:"MODE PROF",d:"Aider un autre élève à déboguer son code",xp:200,earned:false},
+  {e:"🧠",n:"SEIGNEUR DE L'IA",d:"Entraîner un modèle avec 95%+ de précision",xp:250,earned:false},
+  {e:"🐳",n:"ROI DES CONTENEURS",d:"Déployer votre premier conteneur Docker",xp:150,earned:false},
+  {e:"🔀",n:"GIT GOOD",d:"Résoudre un conflit de fusion sans pleurer",xp:200,earned:false},
+  {e:"💥",n:"STACK OVERFLOW",d:"Copier du code depuis StackOverflow (on le fait tous)",xp:50,earned:false},
+  {e:"🎉",n:"CLUB DES 39",d:"Ouvrir chacune des 39 apps",xp:500,earned:false},
+  {e:"⬆️⬆️⬇️⬇️",n:"KONAMI",d:"Vous connaissez le code. Vous avez essayé le code.",xp:100,earned:false},
+  {e:"🔥",n:"EN FEU",d:"Terminer 5 ateliers en un mois",xp:300,earned:false},
+  {e:"🌍",n:"ÉCO GUERRIER",d:"Terminer tous les quiz save-our-planet",xp:150,earned:false},
 ];
 
 const LB_DATA=[
@@ -188,7 +188,7 @@ BRANCHES.forEach(b=>{
 
 // BUILD ACHIEVEMENTS
 const pAch=document.getElementById('pAch');
-pAch.innerHTML=`<div style="font-size:8px;color:var(--c);margin-bottom:10px;letter-spacing:2px">${ACHIEVEMENTS.filter(a=>a.earned).length}/${ACHIEVEMENTS.length} EARNED</div><div class="ach-grid">${ACHIEVEMENTS.map(a=>`<div class="ach ${a.earned?'earned':'locked'}"><div class="ach-icon">${a.e}</div><div class="ach-info"><div class="ach-name">${a.n}</div><div class="ach-desc">${a.d}</div><div class="ach-xp">${a.earned?'✓ ':''} +${a.xp} XP</div></div></div>`).join('')}</div>`;
+pAch.innerHTML=`<div style="font-size:8px;color:var(--c);margin-bottom:10px;letter-spacing:2px">${ACHIEVEMENTS.filter(a=>a.earned).length}/${ACHIEVEMENTS.length} OBTENUES</div><div class="ach-grid">${ACHIEVEMENTS.map(a=>`<div class="ach ${a.earned?'earned':'locked'}"><div class="ach-icon">${a.e}</div><div class="ach-info"><div class="ach-name">${a.n}</div><div class="ach-desc">${a.d}</div><div class="ach-xp">${a.earned?'✓ ':''} +${a.xp} XP</div></div></div>`).join('')}</div>`;
 
 // BUILD LEADERBOARD
 const pLb=document.getElementById('pLb');
@@ -207,8 +207,7 @@ function showPane(id){
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

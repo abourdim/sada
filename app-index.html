@@ -54,6 +54,11 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 .c-media{border-color:rgba(255,204,0,.15);color:#ffcc00}
 .c-video{border-color:rgba(255,102,0,.15);color:#ff6600}
 .c-meta{border-color:rgba(136,136,136,.15);color:#888}
+.c-hardware{border-color:rgba(255,85,51,.15);color:#ff5533}
+.c-travel{border-color:rgba(68,187,238,.15);color:#44bbee}
+.c-creative{border-color:rgba(238,119,255,.15);color:#ee77ff}
+.c-collect{border-color:rgba(255,187,51,.15);color:#ffbb33}
+.c-docs{border-color:rgba(136,170,204,.15);color:#88aacc}
 
 .count-display{text-align:center;margin:10px 0;font-size:9px;color:rgba(255,255,255,.1)}
 
@@ -291,6 +296,11 @@ const CATS={
   media:{label:"Audio/Media",color:"#ffcc00",count:0},
   video:{label:"Video",color:"#ff6600",count:0},
   meta:{label:"Meta",color:"#888",count:0},
+  hardware:{label:"Hardware",color:"#ff5533",count:0},
+  travel:{label:"Travel",color:"#44bbee",count:0},
+  creative:{label:"Creative",color:"#ee77ff",count:0},
+  collect:{label:"Collection",color:"#ffbb33",count:0},
+  docs:{label:"Docs",color:"#88aacc",count:0},
 };
 
 FILES.forEach(f=>CATS[f.c].count++);

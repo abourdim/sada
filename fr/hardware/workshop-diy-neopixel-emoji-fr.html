@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../assets/css/sada-base.css">
 <link rel="stylesheet" href="../../assets/css/sada-themes.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // NEOPIXEL EMOJI DISPLAY</title>
+<title>WKSHP-DIY // AFFICHAGE EMOJI NEOPIXEL</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:14px;gap:10px}
@@ -63,12 +63,12 @@ h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#ff6600;le
 
 <div class="layout">
   <div class="picker">
-    <h2>PICK AN EMOJI</h2>
+    <h2>CHOISISSEZ UN EMOJI</h2>
     <div class="emoji-grid" id="emojiGrid"></div>
   </div>
 
   <div class="matrix-area">
-    <div class="matrix-label">NEOPIXEL MATRIX</div>
+    <div class="matrix-label">MATRICE NEOPIXEL</div>
     <div class="size-toggle">
       <button class="size-btn active" onclick="setSize(8)">8×8</button>
       <button class="size-btn" onclick="setSize(16)">16×16</button>
@@ -79,18 +79,18 @@ h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#ff6600;le
 </div>
 
 <div class="transfer">
-  <h2>SERIAL TRANSFER</h2>
+  <h2>TRANSFERT SÉRIE</h2>
   <div class="transfer-bar"><div class="transfer-fill" id="tFill"></div></div>
   <div class="transfer-stats">
-    <span id="tChunks">Chunks: 0/0</span>
-    <span id="tBytes">Bytes: 0</span>
-    <span id="tStatus">Idle</span>
+    <span id="tChunks">Blocs : 0/0</span>
+    <span id="tBytes">Octets : 0</span>
+    <span id="tStatus">En attente</span>
   </div>
 </div>
 
 <div class="proto-log" id="protoLog"></div>
 
-<div class="footer">WORKSHOP-DIY · NEOPIXEL EMOJI DISPLAY · CHUNKED SERIAL PROTOCOL · MICRO:BIT V2</div>
+<div class="footer">WORKSHOP-DIY · AFFICHAGE EMOJI NEOPIXEL · PROTOCOLE SÉRIE PAR BLOCS · MICRO:BIT V2</div>
 
 <script>
 const EMOJIS=['😀','😂','🥰','😎','🤖','👻','💀','🎃','❤️','⭐','🔥','🌈','🐱','🐶','🐸','🦊','🌻','🍕','🎮','⚽','🚀','🎵','💡','🐛'];
@@ -186,7 +186,7 @@ function selectEmoji(emoji,el){
 
   function sendChunk(){
     if(chunk>=totalChunks){
-      document.getElementById('tStatus').textContent='✓ Complete';
+      document.getElementById('tStatus').textContent='✓ Terminé';
       document.getElementById('tFill').style.width='100%';
       addProto(`[RX] ACK:DONE render_time=${Math.floor(Math.random()*20+10)}ms`);
       transferActif=false;
@@ -208,9 +208,9 @@ function selectEmoji(emoji,el){
       }
     }
 
-    document.getElementById('tChunks').textContent=`Chunks: ${chunk+1}/${totalChunks}`;
-    document.getElementById('tBytes').textContent=`Bytes: ${(chunk+1)*chunkSize*3}`;
-    document.getElementById('tStatus').textContent='Transferring...';
+    document.getElementById('tChunks').textContent=`Blocs : ${chunk+1}/${totalChunks}`;
+    document.getElementById('tBytes').textContent=`Octets : ${(chunk+1)*chunkSize*3}`;
+    document.getElementById('tStatus').textContent='Transfert en cours...';
     document.getElementById('tFill').style.width=((chunk+1)/totalChunks*100)+'%';
 
     addProto(`[TX] CHUNK:${chunk} offset=${start} len=${end-start} data=<span class="hex">${hexData.slice(0,24)}${hexData.length>24?'...':''}</span>`);
@@ -239,8 +239,7 @@ function addProto(msg){
 buildMatrix();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

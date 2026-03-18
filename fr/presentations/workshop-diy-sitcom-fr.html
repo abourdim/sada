@@ -46,7 +46,7 @@ body{background:#000;color:#fff;font-family:'JetBrains Mono',monospace;min-heigh
 
 <div class="screen" id="screen">
   <div class="title-card" id="titleCard">
-    <h1>Atelier-DIY</h1>
+    <h1>Workshop-DIY</h1>
     <div class="tagline">★ LE SHOW ★</div>
   </div>
 
@@ -57,29 +57,29 @@ body{background:#000;color:#fff;font-family:'JetBrains Mono',monospace;min-heigh
   </div>
 </div>
 
-<div class="footer">WORKSHOP-DIY : LE SHOW · SAISON 1 · FILMÉ DEVANT UNE MACHINE À CAFÉ EN DIRECT</div>
+<div class="footer">WORKSHOP-DIY : LE SHOW · SAISON 1 · FILMÉ DEVANT UNE MACHINE À CAFÉ EN DIRECT (8% DE CAPACITÉ)</div>
 
 <script>
 const CHARS=[
-  {emoji:"🤖",name:"bit-bot",role:"The Clumsy Hero",action:"*falls off desk for the 47th time*",bg:"linear-gradient(180deg,#74b9ff,#0984e3)"},
-  {emoji:"🐛",name:"Bug #42",role:"The Mysterious Roommate",action:"*appears at 3h42, again*",bg:"linear-gradient(180deg,#a29bfe,#6c5ce7)"},
-  {emoji:"☕",name:"Machine à café",role:"The Overworked Mom",action:"*sighs in 8%*",bg:"linear-gradient(180deg,#ffeaa7,#fdcb6e)"},
-  {emoji:"🔑",name:"password123",role:"The One Who Never Changes",action:"*denies petition #4*",bg:"linear-gradient(180deg,#55efc4,#00b894)"},
-  {emoji:"🧠",name:"teachable-machine",role:"The Know-It-All",action:"*predicts everything with 98% accuracy*",bg:"linear-gradient(180deg,#fd79a8,#e84393)"},
-  {emoji:"🐳",name:"docker-lab",role:"The Overachiever",action:"*makes parents feel inadequate*",bg:"linear-gradient(180deg,#81ecec,#00cec9)"},
-  {emoji:"🔐",name:"pentest-lab",role:"The Troublemaker",action:"*hacks the printer, ethically*",bg:"linear-gradient(180deg,#fab1a0,#e17055)"},
-  {emoji:"🔥",name:"hot-glue",role:"Special Guest: The Real MVP",action:"*holds everything together, literally*",bg:"linear-gradient(180deg,#ffa502,#e74c3c)"},
+  {emoji:"🤖",name:"bit-bot",role:"Le Héros Maladroit",action:"*tombe du bureau pour la 47ème fois*",bg:"linear-gradient(180deg,#74b9ff,#0984e3)"},
+  {emoji:"🐛",name:"Bug #42",role:"Le Colocataire Mystérieux",action:"*apparaît à 3h42, encore*",bg:"linear-gradient(180deg,#a29bfe,#6c5ce7)"},
+  {emoji:"☕",name:"Machine à café",role:"La Mère Surmenée",action:"*soupire à 8%*",bg:"linear-gradient(180deg,#ffeaa7,#fdcb6e)"},
+  {emoji:"🔑",name:"password123",role:"Celui Qui Ne Change Jamais",action:"*refuse la pétition #4*",bg:"linear-gradient(180deg,#55efc4,#00b894)"},
+  {emoji:"🧠",name:"teachable-machine",role:"Le Je-Sais-Tout",action:"*prédit tout avec 98% de précision*",bg:"linear-gradient(180deg,#fd79a8,#e84393)"},
+  {emoji:"🐳",name:"docker-lab",role:"Le Surperformant",action:"*donne un complexe aux parents*",bg:"linear-gradient(180deg,#81ecec,#00cec9)"},
+  {emoji:"🔐",name:"pentest-lab",role:"Le Fauteur de Troubles",action:"*pirate l'imprimante, éthiquement*",bg:"linear-gradient(180deg,#fab1a0,#e17055)"},
+  {emoji:"🔥",name:"colle-chaude",role:"Invitée Spéciale : La Vraie MVP",action:"*tient tout ensemble, littéralement*",bg:"linear-gradient(180deg,#ffa502,#e74c3c)"},
 ];
 
 const LYRICS=[
-  "♪ So no one told you code was gonna be this way... ♪",
-  "♪ Your apps are broke, you've got no npm today... ♪",
-  "♪ It's like you're always stuck with password 1-2-3... ♪",
-  "♪ But the robot works, the coffee's free! ♪",
-  "♪ I'll be there for you... (when the BLE drops) ♪",
-  "♪ I'll be there for you... (when the colle chaude pops) ♪",
-  "♪ I'll be there for you... ♪",
-  "♪ ...cause bugs are fonctionnalités tooooo ♪",
+  "♪ Alors personne t'a dit que le code serait aussi dur... ♪",
+  "♪ Tes applis plantent, t'as pas de npm aujourd'hui... ♪",
+  "♪ C'est comme si t'étais toujours coincé avec password 1-2-3... ♪",
+  "♪ Mais le robot marche, le café est gratuit ! ♪",
+  "♪ Je serai là pour toi... (quand le BLE plante) ♪",
+  "♪ Je serai là pour toi... (quand la colle chaude pète) ♪",
+  "♪ Je serai là pour toi... ♪",
+  "♪ ...car les bugs sont des fonctionnalités aussiiii ♪",
 ];
 
 let playing=false;
@@ -141,7 +141,7 @@ function startIntro(){
     finalCard.className='char-card';
     finalCard.style.opacity='1';
     finalCard.innerHTML=`
-      <div style="font-family:'Pacifico',cursive;font-size:clamp(24px,5vw,36px);color:#fff;text-shadow:3px 3px 0 #e74c3c">Atelier-DIY</div>
+      <div style="font-family:'Pacifico',cursive;font-size:clamp(24px,5vw,36px);color:#fff;text-shadow:3px 3px 0 #e74c3c">Workshop-DIY</div>
       <div style="font-size:10px;color:rgba(255,255,255,.5);margin-top:4px">Créé par Le Fondateur</div>
       <div style="font-size:8px;color:rgba(255,255,255,.3);margin-top:2px">Filmé devant une machine à café en direct (8% de capacité)</div>
       <div style="font-size:7px;color:rgba(255,255,255,.2);margin-top:6px">Aucun robot n'a été blessé · Mot de passe WiFi inchangé · Tous les bugs sont des fonctionnalités</div>
@@ -157,8 +157,7 @@ function startIntro(){
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

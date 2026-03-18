@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../assets/css/sada-base.css">
 <link rel="stylesheet" href="../../assets/css/sada-themes.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // ESP32-C3 PINOUT</title>
+<title>WKSHP-DIY // BROCHAGE ESP32-C3</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;min-height:100vh;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -68,8 +68,8 @@ h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#00cc66;le
 <body>
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
-<h1>⚡ ESP32-C3 PINOUT</h1>
-<div class="sub">RISC-V · WIFI + BLE 5.0 · WORKSHOP-DIY REFERENCE CARD</div>
+<h1>⚡ BROCHAGE ESP32-C3</h1>
+<div class="sub">RISC-V · WIFI + BLE 5.0 · CARTE DE RÉFÉRENCE WORKSHOP-DIY</div>
 
 <div class="legend" id="legend"></div>
 
@@ -93,13 +93,13 @@ h1{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#00cc66;le
 </div>
 
 <div class="detail" id="detail">
-  <div class="detail-title" id="dTitle">👆 Click any pin for details</div>
+  <div class="detail-title" id="dTitle">👆 Cliquez sur une broche pour les détails</div>
   <div class="detail-info" id="dInfo"></div>
   <div class="detail-code" id="dCode" style="display:none"></div>
   <div class="detail-workshop" id="dAtelier"></div>
 </div>
 
-<div class="footer">WORKSHOP-DIY · ESP32-C3 DEVKIT · ALL PINS ARE 3.3V · DO NOT EXCEED · password123</div>
+<div class="footer">WORKSHOP-DIY · ESP32-C3 DEVKIT · TOUTES LES BROCHES SONT EN 3,3V · NE PAS DÉPASSER · password123</div>
 
 <script>
 const COLORS={
@@ -109,40 +109,40 @@ const COLORS={
 };
 
 const PINS_LEFT=[
-  {num:'',name:'3V3',funcs:['power'],color:'power',desc:'3.3V Power Output',code:'// 3.3V supply — max 500mA\n// Powers sensors, LEDs, servos (small)',workshop:'Powers bit-bot sensors, NeoPixel data line logic level'},
-  {num:'',name:'GND',funcs:['gnd'],color:'gnd',desc:'Ground',code:'// Common ground\n// Connect all GNDs together!',workshop:'Partagerd ground with micro:bit, servos, NeoPixels'},
-  {num:'0',name:'GPIO0',funcs:['gpio','adc','pwm'],color:'adc',desc:'Général Purpose I/O · ADC1_CH0',code:'analogLu(0);  // Lu analog 0-4095\nanalogWrite(0, 128);  // PWM output',workshop:'Analog sensor input for bit-bot line followers'},
-  {num:'1',name:'GPIO1',funcs:['gpio','adc','pwm'],color:'adc',desc:'Général Purpose I/O · ADC1_CH1',code:'analogLu(1);  // Lu analog\npins.analogLuPin(AnalogPin.P1)',workshop:'IR distance sensor on bit-bot'},
-  {num:'2',name:'GPIO2',funcs:['gpio','adc','pwm','i2c'],color:'adc',desc:'GPIO · ADC1_CH2 · Can be SDA',code:'Wire.begin(2, 3);  // SDA=2, SCL=3\n// Or analog: analogLu(2)',workshop:'I2C data line for LCD/OLED displays in workshops'},
-  {num:'3',name:'GPIO3',funcs:['gpio','adc','pwm','i2c'],color:'adc',desc:'GPIO · ADC1_CH3 · Can be SCL',code:'Wire.begin(2, 3);  // SDA=2, SCL=3\n// I2C clock line',workshop:'I2C clock for sensor expansions'},
-  {num:'4',name:'GPIO4',funcs:['gpio','adc','pwm','spi'],color:'gpio',desc:'GPIO · ADC1_CH4 · SPI MISO',code:'digitalWrite(4, HIGH);\n// SPI: MISO line',workshop:'NeoPixel data pin (default in esp32-lab)'},
-  {num:'5',name:'GPIO5',funcs:['gpio','adc','pwm','spi'],color:'gpio',desc:'GPIO · ADC1_CH5 · SPI MOSI/SCK',code:'SPI.begin(5, 4, 6);  // SCK, MISO, MOSI',workshop:'Buzzer/speaker output pin'},
+  {num:'',name:'3V3',funcs:['power'],color:'power',desc:'Sortie alimentation 3,3V',code:'// Alimentation 3,3V — max 500mA\n// Alimente capteurs, LEDs, servos (petits)',workshop:'Alimente les capteurs bit-bot, niveau logique données NeoPixel'},
+  {num:'',name:'GND',funcs:['gnd'],color:'gnd',desc:'Masse',code:'// Masse commune\n// Connectez toutes les masses ensemble !',workshop:'Masse partagée avec micro:bit, servos, NeoPixels'},
+  {num:'0',name:'GPIO0',funcs:['gpio','adc','pwm'],color:'adc',desc:'E/S usage général · ADC1_CH0',code:'analogRead(0);  // Lecture analogique 0-4095\nanalogWrite(0, 128);  // Sortie PWM',workshop:'Entrée capteur analogique pour suiveurs de ligne bit-bot'},
+  {num:'1',name:'GPIO1',funcs:['gpio','adc','pwm'],color:'adc',desc:'E/S usage général · ADC1_CH1',code:'analogRead(1);  // Lecture analogique\npins.analogReadPin(AnalogPin.P1)',workshop:'Capteur de distance IR sur bit-bot'},
+  {num:'2',name:'GPIO2',funcs:['gpio','adc','pwm','i2c'],color:'adc',desc:'GPIO · ADC1_CH2 · Peut être SDA',code:'Wire.begin(2, 3);  // SDA=2, SCL=3\n// Ou analogique : analogRead(2)',workshop:'Ligne de données I2C pour écrans LCD/OLED en atelier'},
+  {num:'3',name:'GPIO3',funcs:['gpio','adc','pwm','i2c'],color:'adc',desc:'GPIO · ADC1_CH3 · Peut être SCL',code:'Wire.begin(2, 3);  // SDA=2, SCL=3\n// Ligne d\'horloge I2C',workshop:'Horloge I2C pour extensions de capteurs'},
+  {num:'4',name:'GPIO4',funcs:['gpio','adc','pwm','spi'],color:'gpio',desc:'GPIO · ADC1_CH4 · SPI MISO',code:'digitalWrite(4, HIGH);\n// SPI : ligne MISO',workshop:'Broche données NeoPixel (par défaut dans esp32-lab)'},
+  {num:'5',name:'GPIO5',funcs:['gpio','adc','pwm','spi'],color:'gpio',desc:'GPIO · ADC1_CH5 · SPI MOSI/SCK',code:'SPI.begin(5, 4, 6);  // SCK, MISO, MOSI',workshop:'Broche sortie buzzer/haut-parleur'},
 ];
 
 const PINS_RIGHT=[
-  {num:'',name:'5V',funcs:['power'],color:'power',desc:'5V from USB (input or pass-through)',code:'// 5V USB power\n// Use for NeoPixels, servos',workshop:'Powers NeoPixel strip VCC, servo motor VCC'},
-  {num:'',name:'GND',funcs:['gnd'],color:'gnd',desc:'Ground',code:'// Ground pin',workshop:''},
-  {num:'6',name:'GPIO6',funcs:['gpio','pwm','spi'],color:'gpio',desc:'GPIO · SPI MOSI',code:'ledcWrite(0, dutyCycle);\n// PWM for motor control',workshop:'Motor driver IN1 for bit-bot left motor'},
-  {num:'7',name:'GPIO7',funcs:['gpio','pwm','spi'],color:'gpio',desc:'GPIO · SPI SS',code:'ledcWrite(1, dutyCycle);\n// PWM for motor control',workshop:'Motor driver IN2 for bit-bot right motor'},
-  {num:'8',name:'GPIO8',funcs:['gpio','pwm','special'],color:'special',desc:'GPIO · RGB LED (DevKit) · Boot',code:'neopixelWrite(8, r, g, b);\n// Built-in RGB LED on some boards',workshop:'Built-in RGB LED — status indicator, BLE connection feedback'},
-  {num:'9',name:'GPIO9',funcs:['gpio','special'],color:'special',desc:'BOOT Button · Strapping Pin',code:'pinMode(9, INPUT_PULLUP);\nif(!digitalLu(9)) { /* pressed */ }',workshop:'Boot button — used as user button in workshops'},
-  {num:'10',name:'GPIO10',funcs:['gpio','pwm'],color:'gpio',desc:'GPIO · Général Purpose',code:'Servo myServo;\nmyServo.attach(10);\nmyServo.write(90);',workshop:'Servo control pin for robot arm projects'},
-  {num:'20',name:'RX',funcs:['uart','gpio'],color:'uart',desc:'UART0 RX · USB Serial',code:'Serial.begin(115200);\n// USB serial for debugging',workshop:'USB serial debug — Arduino Serial Monitor'},
-  {num:'21',name:'TX',funcs:['uart','gpio'],color:'uart',desc:'UART0 TX · USB Serial',code:'Serial.println("Hello!");\n// Sends to USB serial',workshop:'USB serial output — debug logging'},
+  {num:'',name:'5V',funcs:['power'],color:'power',desc:'5V depuis USB (entrée ou passe-plat)',code:'// Alimentation 5V USB\n// Pour NeoPixels, servos',workshop:'Alimente le VCC du ruban NeoPixel, VCC du servomoteur'},
+  {num:'',name:'GND',funcs:['gnd'],color:'gnd',desc:'Masse',code:'// Broche de masse',workshop:''},
+  {num:'6',name:'GPIO6',funcs:['gpio','pwm','spi'],color:'gpio',desc:'GPIO · SPI MOSI',code:'ledcWrite(0, dutyCycle);\n// PWM pour contrôle moteur',workshop:'Pilote moteur IN1 pour moteur gauche bit-bot'},
+  {num:'7',name:'GPIO7',funcs:['gpio','pwm','spi'],color:'gpio',desc:'GPIO · SPI SS',code:'ledcWrite(1, dutyCycle);\n// PWM pour contrôle moteur',workshop:'Pilote moteur IN2 pour moteur droit bit-bot'},
+  {num:'8',name:'GPIO8',funcs:['gpio','pwm','special'],color:'special',desc:'GPIO · LED RGB (DevKit) · Boot',code:'neopixelWrite(8, r, g, b);\n// LED RGB intégrée sur certaines cartes',workshop:'LED RGB intégrée — indicateur de statut, retour connexion BLE'},
+  {num:'9',name:'GPIO9',funcs:['gpio','special'],color:'special',desc:'Bouton BOOT · Broche de configuration',code:'pinMode(9, INPUT_PULLUP);\nif(!digitalRead(9)) { /* appuyé */ }',workshop:'Bouton boot — utilisé comme bouton utilisateur en atelier'},
+  {num:'10',name:'GPIO10',funcs:['gpio','pwm'],color:'gpio',desc:'GPIO · Usage général',code:'Servo myServo;\nmyServo.attach(10);\nmyServo.write(90);',workshop:'Broche de commande servo pour projets bras robotique'},
+  {num:'20',name:'RX',funcs:['uart','gpio'],color:'uart',desc:'UART0 RX · USB série',code:'Serial.begin(115200);\n// USB série pour le débogage',workshop:'Débogage USB série — Moniteur série Arduino'},
+  {num:'21',name:'TX',funcs:['uart','gpio'],color:'uart',desc:'UART0 TX · USB série',code:'Serial.println("Hello!");\n// Envoie sur USB série',workshop:'Sortie USB série — journalisation de débogage'},
 ];
 
 // BUILD LEGEND
 const legEl=document.getElementById('legend');
 const categories=[
-  {name:'Power',c:COLORS.power,key:'power'},
-  {name:'Ground',c:COLORS.gnd,key:'gnd'},
+  {name:'Alim.',c:COLORS.power,key:'power'},
+  {name:'Masse',c:COLORS.gnd,key:'gnd'},
   {name:'GPIO',c:COLORS.gpio,key:'gpio'},
   {name:'ADC',c:COLORS.adc,key:'adc'},
   {name:'PWM',c:COLORS.pwm,key:'pwm'},
   {name:'I2C',c:COLORS.i2c,key:'i2c'},
   {name:'SPI',c:COLORS.spi,key:'spi'},
   {name:'UART',c:COLORS.uart,key:'uart'},
-  {name:'Special',c:COLORS.special,key:'special'},
+  {name:'Spécial',c:COLORS.special,key:'special'},
 ];
 let activeFilter=null;
 categories.forEach(cat=>{
@@ -207,12 +207,11 @@ function showDetail(pin){
     document.getElementById('dCode').style.display='block';
     document.getElementById('dCode').textContent=pin.code;
   }else{document.getElementById('dCode').style.display='none';}
-  document.getElementById('dAtelier').textContent=pin.workshop?'🔧 Atelier-DIY: '+pin.workshop:'';
+  document.getElementById('dAtelier').textContent=pin.workshop?'🔧 Workshop-DIY : '+pin.workshop:'';
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

@@ -83,14 +83,14 @@ h1{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#ffd700;le
 
 <script>
 const CARDS=[
-{name:"bit-bot",emoji:"🤖",domain:"ROBOTICS",rarity:"legendary",desc:"The unkillable educational robot. ESP32-powered, BLE-connected, hot-glue-reinforced. Has survived 47 chutes de bureau without complaint.",atk:42,def:99,spd:15,lck:47,ability:"DESK DROP IMMUNITY — Cannot be destroyed by falls under 2 meters. Hot glue regenerates."},
-{name:"Bug #42",emoji:"🐛",domain:"???",rarity:"legendary",desc:"Has no author. No creation date. Pas de hash de commit. Appears at 3h42. Legally classified as a Feature after court trial.",atk:42,def:42,spd:42,lck:42,ability:"SELF-RESURRECTION — Cannot be deleted. Returns within 24 hours. Always at 3h42."},
-{name:"teachable-machine",emoji:"🧠",domain:"AI/ML",rarity:"epic",desc:"Browser-based ML model trainer. 98% accuracy on student engagement prediction. No GPU required.",atk:98,def:60,spd:85,lck:30,ability:"PATTERN RECOGNITION — 98% chance to predict opponent's next move."},
-{name:"pentest-lab",emoji:"🔐",domain:"CYBER",rarity:"epic",desc:"Bac à sable de hacking éthique. Port scanner, packet analyzer, and the legendary printer hack on port 9100.",atk:88,def:95,spd:70,lck:25,ability:"PORT SCAN — Reveals all hidden enemy stats and weaknesses."},
-{name:"Machine à café",emoji:"☕",domain:"INFRASTRUCTURE",rarity:"rare",desc:"Operating à 8% de capacité for 14 months. Drainage tray status: concerning. Still makes perfect espresso.",atk:8,def:8,spd:8,lck:100,ability:"8% POWER — All stats reduced to 8% but luck maxes out. Cannot be refilled."},
-{name:"docker-lab",emoji:"🐳",domain:"TOOLS",rarity:"rare",desc:"Container orchestration for youth. Kids explain it to parents. Parents take notes.",atk:65,def:80,spd:50,lck:35,ability:"CONTAINERIZE — Isolates any attack in a sandbox. Damage reduced to 0."},
-{name:"password123",emoji:"🔑",domain:"SECURITY",rarity:"common",desc:"The mot de passe WiFi. Inchangé depuis 2023. Three petitions denied. Will outlive us all.",atk:1,def:1,spd:1,lck:123,ability:"UNCHANGED — Cannot be modified by any effect. Immune to all transformations."},
-{name:"hot-glue-stick",emoji:"🔥",domain:"MATÉRIEL",rarity:"common",desc:"The unsung hero. Structural support for 47 chutes de bureau. Melts at 200°C. Holds at any temperature below that.",atk:5,def:200,spd:0,lck:50,ability:"STRUCTURAL BOND — Permanently increases any card's DEF by 50 when applied."},
+{name:"bit-bot",emoji:"🤖",domain:"ROBOTIQUE",rarity:"legendary",desc:"Le robot éducatif indestructible. Propulsé par ESP32, connecté en BLE, renforcé à la colle chaude. A survécu à 47 chutes de bureau sans se plaindre.",atk:42,def:99,spd:15,lck:47,ability:"IMMUNITÉ AUX CHUTES — Ne peut être détruit par une chute de moins de 2 mètres. La colle chaude se régénère."},
+{name:"Bug #42",emoji:"🐛",domain:"???",rarity:"legendary",desc:"N'a pas d'auteur. Pas de date de création. Pas de hash de commit. Apparaît à 3h42. Légalement classé Fonctionnalité après procès.",atk:42,def:42,spd:42,lck:42,ability:"AUTO-RÉSURRECTION — Ne peut être supprimé. Revient sous 24 heures. Toujours à 3h42."},
+{name:"teachable-machine",emoji:"🧠",domain:"IA/ML",rarity:"epic",desc:"Entraîneur de modèles ML dans le navigateur. 98 % de précision sur la prédiction d'engagement des élèves. Pas de GPU requis.",atk:98,def:60,spd:85,lck:30,ability:"RECONNAISSANCE DE MOTIFS — 98 % de chance de prédire le prochain coup adverse."},
+{name:"pentest-lab",emoji:"🔐",domain:"CYBER",rarity:"epic",desc:"Bac à sable de hacking éthique. Scanner de ports, analyseur de paquets, et le légendaire hack d'imprimante sur le port 9100.",atk:88,def:95,spd:70,lck:25,ability:"SCAN DE PORTS — Révèle toutes les stats et faiblesses cachées de l'ennemi."},
+{name:"Machine à café",emoji:"☕",domain:"INFRASTRUCTURE",rarity:"rare",desc:"Fonctionne à 8 % de capacité depuis 14 mois. État du bac de récupération : préoccupant. Fait toujours un espresso parfait.",atk:8,def:8,spd:8,lck:100,ability:"PUISSANCE 8 % — Toutes les stats réduites à 8 % mais la chance est au max. Ne peut être rechargée."},
+{name:"docker-lab",emoji:"🐳",domain:"OUTILS",rarity:"rare",desc:"Orchestration de conteneurs pour les jeunes. Les ados l'expliquent aux parents. Les parents prennent des notes.",atk:65,def:80,spd:50,lck:35,ability:"CONTENEURISER — Isole toute attaque dans un bac à sable. Dégâts réduits à 0."},
+{name:"password123",emoji:"🔑",domain:"SÉCURITÉ",rarity:"common",desc:"Le mot de passe WiFi. Inchangé depuis 2023. Trois pétitions refusées. Nous survivra à tous.",atk:1,def:1,spd:1,lck:123,ability:"INCHANGÉ — Ne peut être modifié par aucun effet. Immunisé contre toute transformation."},
+{name:"hot-glue-stick",emoji:"🔥",domain:"MATÉRIEL",rarity:"common",desc:"Le héros méconnu. Support structurel de 47 chutes de bureau. Fond à 200 °C. Tient à toute température en dessous.",atk:5,def:200,spd:0,lck:50,ability:"LIAISON STRUCTURELLE — Augmente définitivement la DÉF de toute carte de 50 une fois appliqué."},
 ];
 
 let idx=0,flipped=false;
@@ -150,8 +150,7 @@ function prevCard(){
 renderCard();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

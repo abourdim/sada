@@ -68,39 +68,39 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <script>
 const TEMPLATES=[
-{title:"The Atelier Incident",
-fields:[{id:"adj1",label:"ADJECTIVE",ph:"mysterious"},{id:"noun1",label:"TECH NOUN",ph:"ESP32"},{id:"verb1",label:"VERB (PAST)",ph:"exploded"},{id:"num1",label:"NUMBER",ph:"42"},{id:"animal",label:"ANIMAL",ph:"whale"},{id:"food",label:"FOOD",ph:"pizza"},{id:"adj2",label:"ADJECTIVE",ph:"cursed"},{id:"excl",label:"EXCLAMATION",ph:"yikes"}],
-story:t=>`It was a ${B(t.adj1)} Mardi at Atelier-DIY. A student plugged in the ${B(t.noun1)} and it immediately ${B(t.verb1)}. ${B(t.num1)} other students turned around. "Did that just happen?" asked the instructor, who was eating ${B(t.food)} at the time.
+{title:"L'Incident de l'Atelier",
+fields:[{id:"adj1",label:"ADJECTIF",ph:"mystérieux"},{id:"noun1",label:"NOM TECH",ph:"ESP32"},{id:"verb1",label:"VERBE (PASSÉ)",ph:"explosé"},{id:"num1",label:"NOMBRE",ph:"42"},{id:"animal",label:"ANIMAL",ph:"baleine"},{id:"food",label:"NOURRITURE",ph:"pizza"},{id:"adj2",label:"ADJECTIF",ph:"maudit"},{id:"excl",label:"EXCLAMATION",ph:"oups"}],
+story:t=>`C'était un ${B(t.adj1)} mardi à Workshop-DIY. Un élève a branché le ${B(t.noun1)} et il a immédiatement ${B(t.verb1)}. ${B(t.num1)} autres élèves se sont retournés. « C'est vraiment arrivé ? » a demandé l'instructeur, qui mangeait de la ${B(t.food)} à ce moment-là.
 
-The ${B(t.animal)} emoji appeared on every screen in the lab. The mot de passe WiFi changed to "${B(t.adj2)}123". The coffee machine beeped ${B(t.num1)} times.
+L'emoji ${B(t.animal)} est apparu sur tous les écrans du labo. Le mot de passe WiFi a changé en « ${B(t.adj2)}123 ». La machine à café a bipé ${B(t.num1)} fois.
 
-"${B(t.excl)}!" shouted Bug #42 from somewhere in the codebase. Nobody could find the source. Nobody ever could.
+« ${B(t.excl)} ! » a crié Bug #42 depuis quelque part dans le codebase. Personne n'a pu trouver la source. Personne ne le peut jamais.
 
-The incident was classified as a feature and everyone went back to work.`},
+L'incident a été classé comme fonctionnalité et tout le monde est retourné au travail.`},
 
-{title:"Bug #42's Origin Story",
-fields:[{id:"planet",label:"PLANET/PLACE",ph:"Mars"},{id:"verb1",label:"VERB",ph:"compile"},{id:"adj1",label:"ADJECTIVE",ph:"infinite"},{id:"noun1",label:"OBJECT",ph:"USB cable"},{id:"num1",label:"BIG NUMBER",ph:"9000"},{id:"emotion",label:"EMOTION",ph:"confused"},{id:"color",label:"COLOR",ph:"green"},{id:"sound",label:"SOUND",ph:"beep"}],
-story:t=>`Long il y a, on the distant world of ${B(t.planet)}, a lone developer tentered to ${B(t.verb1)} a program with ${B(t.adj1)} loops. The program became sentient.
+{title:"L'Origine de Bug #42",
+fields:[{id:"planet",label:"PLANÈTE/LIEU",ph:"Mars"},{id:"verb1",label:"VERBE",ph:"compiler"},{id:"adj1",label:"ADJECTIF",ph:"infini"},{id:"noun1",label:"OBJET",ph:"câble USB"},{id:"num1",label:"GRAND NOMBRE",ph:"9000"},{id:"emotion",label:"ÉMOTION",ph:"confus"},{id:"color",label:"COULEUR",ph:"vert"},{id:"sound",label:"SON",ph:"bip"}],
+story:t=>`Il y a très longtemps, sur le monde lointain de ${B(t.planet)}, un développeur solitaire a tenté de ${B(t.verb1)} un programme avec des boucles ${B(t.adj1)}. Le programme est devenu conscient.
 
-It traveled through a ${B(t.noun1)} at ${B(t.num1)} megabits per second, crossed the Atlantic Ocean, and arrived at Atelier-DIY's git repository at exactly 3h42.
+Il a voyagé à travers un ${B(t.noun1)} à ${B(t.num1)} mégabits par seconde, traversé l'océan Atlantique, et est arrivé dans le dépôt git de Workshop-DIY à exactement 3h42.
 
-The repository felt ${B(t.emotion)}. A ${B(t.color)} light pulsed from the server room. The coffee machine made a "${B(t.sound)}" sound it had never made before.
+Le dépôt s'est senti ${B(t.emotion)}. Une lumière ${B(t.color)} a pulsé depuis la salle serveur. La machine à café a émis un son « ${B(t.sound)} » qu'elle n'avait jamais fait auparavant.
 
-When the team checked the next morning, there were 40 apps in the index. Then 39. Then 40 again.
+Quand l'équipe a vérifié le lendemain matin, il y avait 40 applis dans l'index. Puis 39. Puis 40 à nouveau.
 
-Bug #42 had arrived. And it had always been there.`},
+Bug #42 était arrivé. Et il avait toujours été là.`},
 
-{title:"The WiFi Password Meeting",
-fields:[{id:"name",label:"FUNNY NAME",ph:"Captain Firewall"},{id:"adj1",label:"ADJECTIVE",ph:"outrageous"},{id:"noun1",label:"NOUN",ph:"sandwich"},{id:"verb1",label:"VERB",ph:"scream"},{id:"num1",label:"NUMBER",ph:"17"},{id:"adj2",label:"ADJECTIVE",ph:"magnificent"},{id:"place",label:"PLACE",ph:"the moon"},{id:"noun2",label:"PLURAL NOUN",ph:"robots"}],
-story:t=>`The meeting was called by ${B(t.name)}, head of cybersecurity. "This is ${B(t.adj1)}," they said, slamming a ${B(t.noun1)} on the table. "The mot de passe WiFi is STILL password123."
+{title:"La Réunion du Mot de Passe WiFi",
+fields:[{id:"name",label:"NOM DRÔLE",ph:"Capitaine Firewall"},{id:"adj1",label:"ADJECTIF",ph:"scandaleux"},{id:"noun1",label:"NOM",ph:"sandwich"},{id:"verb1",label:"VERBE",ph:"crier"},{id:"num1",label:"NOMBRE",ph:"17"},{id:"adj2",label:"ADJECTIF",ph:"magnifique"},{id:"place",label:"LIEU",ph:"la lune"},{id:"noun2",label:"NOM PLURIEL",ph:"robots"}],
+story:t=>`La réunion a été convoquée par ${B(t.name)}, chef de la cybersécurité. « C'est ${B(t.adj1)}, » ont-ils dit en claquant un ${B(t.noun1)} sur la table. « Le mot de passe WiFi est TOUJOURS password123. »
 
-${B(t.num1)} people nodded in agreement. The coffee machine let out what could only be described as a ${B(t.verb1)}.
+${B(t.num1)} personnes ont hoché la tête. La machine à café a émis ce qui ne peut être décrit que comme un ${B(t.verb1)}.
 
-"I propose we change it to something ${B(t.adj2)}," said ${B(t.name)}. "Something like '${B(t.place)}${B(t.num1)}'."
+« Je propose de le changer pour quelque chose de ${B(t.adj2)}, » a dit ${B(t.name)}. « Quelque chose comme '${B(t.place)}${B(t.num1)}'. »
 
-The room went silent. The ${B(t.noun2)} stopped moving. Bug #42 whispered from the issue tracker: "The password stays."
+La salle est devenue silencieuse. Les ${B(t.noun2)} ont cessé de bouger. Bug #42 a murmuré depuis le suivi des tickets : « Le mot de passe reste. »
 
-The vote was unanimous: password123 remains. The meeting lasted ${B(t.num1)} minutes. The ${B(t.noun1)} was never recovered.`},
+Le vote était unanime : password123 reste. La réunion a duré ${B(t.num1)} minutes. Le ${B(t.noun1)} n'a jamais été retrouvé.`},
 ];
 
 let tIdx=0;
@@ -133,25 +133,24 @@ function generate(){
 
 function randomFill(){
   const words={
-    ADJECTIVE:["mysterious","cursed","magnificent","suspicious","quantum","haunted","caffeinated","recursive"],
-    "TECH NOUN":["ESP32","Docker container","git repo","Raspberry Pi","servo motor","breadboard","LED strip","webhook"],
-    "VERB (PAST)":["exploded","compiled","segfaulted","rebooted","overheated","beeped","crashed","deployed"],
-    NUMBER:["42","7","39","404","1337","69","3","47"],
-    ANIMAL:["whale","penguin","bug","octopus","rubber duck","cat","spider","snake"],
-    FOOD:["pizza","spaghetti code","cookies","ramen","byte-sized snacks","stack overflow pancakes"],
-    EXCLAMATION:["YIKES","SUDO","COMPILE","DEPLOY","MERGE CONFLICT","SEGFAULT","IT WORKS"],
-    VERB:["compile","deploy","refactor","debug","solder","hack","containerize","sudo"],
-    "PLANET/PLACE":["Mars","localhost","the cloud","Stack Overflow","GitHub","npm registry","the server room"],
-    OBJECT:["USB cable","ethernet cord","soldering iron","keyboard","mouse","monitor","colle chaude gun"],
-    "BIG NUMBER":["9000","1337","65536","42069","99999","8080","3000"],
-    EMOTION:["confused","terrified","excited","caffeinated","undefined","null","NaN"],
-    COLOR:["terminal green","Docker blue","error red","warning yellow","sudo purple","CSS pink"],
-    SOUND:["beep","bzzzt","404","segfault","ka-chunk","whirrrr","ping"],
-    "FUNNY NAME":["Captain Firewall","Sir Sudo","Agent chmod","Professor Kernel","Commander Pipeline"],
-    NOUN:["sandwich","USB cable","keyboard","rubber duck","commit message","pull request"],
-    "PLURAL NOUN":["robots","containers","endpoints","variables","semicolons","merge conflicts"],
-    PLACE:["the moon","localhost","the cloud","Silicon Valley","the server room","npm"],
-    "ADJECTIVE ":["magnificent","unbreakable","legendary","quantum","recursive","caffeinated"],
+    "ADJECTIF":["mystérieux","maudit","magnifique","suspect","quantique","hanté","caféiné","récursif"],
+    "NOM TECH":["ESP32","conteneur Docker","dépôt git","Raspberry Pi","servomoteur","breadboard","ruban LED","webhook"],
+    "VERBE (PASSÉ)":["explosé","compilé","segfaulté","redémarré","surchauffé","bipé","planté","déployé"],
+    "NOMBRE":["42","7","39","404","1337","69","3","47"],
+    "ANIMAL":["baleine","pingouin","bug","poulpe","canard en plastique","chat","araignée","serpent"],
+    "NOURRITURE":["pizza","code spaghetti","cookies","ramen","snacks en octets","crêpes Stack Overflow"],
+    "EXCLAMATION":["OUPS","SUDO","COMPILE","DÉPLOIE","CONFLIT DE MERGE","SEGFAULT","ÇA MARCHE"],
+    "VERBE":["compiler","déployer","refactorer","débugger","souder","hacker","conteneuriser","sudo"],
+    "PLANÈTE/LIEU":["Mars","localhost","le cloud","Stack Overflow","GitHub","le registre npm","la salle serveur"],
+    "OBJET":["câble USB","câble ethernet","fer à souder","clavier","souris","écran","pistolet à colle chaude"],
+    "GRAND NOMBRE":["9000","1337","65536","42069","99999","8080","3000"],
+    "ÉMOTION":["confus","terrifié","excité","caféiné","undefined","null","NaN"],
+    "COULEUR":["vert terminal","bleu Docker","rouge erreur","jaune alerte","violet sudo","rose CSS"],
+    "SON":["bip","bzzzt","404","segfault","clac","vrrrr","ping"],
+    "NOM DRÔLE":["Capitaine Firewall","Sir Sudo","Agent chmod","Professeur Kernel","Commandant Pipeline"],
+    "NOM":["sandwich","câble USB","clavier","canard en plastique","message de commit","pull request"],
+    "NOM PLURIEL":["robots","conteneurs","endpoints","variables","points-virgules","conflits de merge"],
+    "LIEU":["la lune","localhost","le cloud","la Silicon Valley","la salle serveur","npm"],
   };
   const t=TEMPLATES[tIdx];
   t.fields.forEach(f=>{
@@ -166,8 +165,7 @@ function goTemplate(i){tIdx=i;renderNav();renderInputs()}
 renderNav();renderInputs();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

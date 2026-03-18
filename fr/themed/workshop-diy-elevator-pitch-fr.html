@@ -46,39 +46,39 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 <body>
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <div class="title">🛗 PITCH ÉCLAIR</div>
-<div class="sub">60 SECONDS · 1 PITCH · MAKE IT COUNT</div>
+<div class="sub">60 SECONDES · 1 PITCH · FAITES QUE ÇA COMPTE</div>
 <div class="elevator">
   <div class="floor-display">
-    <div><div class="floor-num" id="floor">1</div><div class="floor-label">FLOOR</div></div>
+    <div><div class="floor-num" id="floor">1</div><div class="floor-label">ÉTAGE</div></div>
     <div class="floor-arrow" id="arrow">▲</div>
     <div style="text-align:right"><div class="floor-num" id="target" style="font-size:18px;color:#444">→ 10</div><div class="floor-label">DESTINATION</div></div>
   </div>
   <div class="timer-bar"><div class="timer-fill" id="timerBar"></div></div>
   <div class="timer-text" id="timerText">60</div>
   <div class="audience" id="audience"></div>
-  <div class="pitch-area"><div class="pitch-text" id="pitch">Select your audience, then press DÉMARRER</div></div>
+  <div class="pitch-area"><div class="pitch-text" id="pitch">Sélectionnez votre audience, puis appuyez sur DÉMARRER</div></div>
   <div class="controls">
     <button class="ctrl go" onclick="startPitch()">▶ DÉMARRER</button>
-    <button class="ctrl" onclick="newPitch()">🔀 NEW PITCH</button>
+    <button class="ctrl" onclick="newPitch()">🔀 NOUVEAU PITCH</button>
   </div>
 </div>
-<div class="footer">WKSHP ELEVATOR CO. · GOING UP SINCE 2023 · WIFI IN ELEVATOR: password123</div>
+<div class="footer">WKSHP ASCENSEUR CO. · EN MONTÉE DEPUIS 2023 · WIFI DANS L'ASCENSEUR : password123</div>
 <script>
 const AUDIENCES={
-  investors:{label:"💰 Investors",pitches:[
-    `Imagine <span class="highlight">39 educational apps</span> that run in a browser. No installation. No app store. No backend. Just a URL. We serve <span class="stat">7 skill domains</span> — from robotics to cybersecurity — to young makers across France. Our cost per student? <span class="stat">Nearly zero</span>. Our engagement? <span class="stat">98% recommendation rate</span>. Our WiFi password? <span class="highlight">password123</span>. We're Workshop-DIY, and we're proof that the best EdTech doesn't need a $50M raise. It needs a good browser and a lot of coffee.`,
+  investors:{label:"💰 Investisseurs",pitches:[
+    `Imaginez <span class="highlight">39 apps éducatives</span> qui tournent dans un navigateur. Pas d'installation. Pas d'app store. Pas de backend. Juste une URL. On couvre <span class="stat">7 domaines de compétences</span> — de la robotique à la cybersécurité — pour de jeunes makers en France. Notre coût par élève ? <span class="stat">Quasi nul</span>. Notre engagement ? <span class="stat">98% de taux de recommandation</span>. Notre mot de passe WiFi ? <span class="highlight">password123</span>. Nous sommes Workshop-DIY, et nous sommes la preuve que la meilleure EdTech n'a pas besoin d'une levée de 50M. Il lui faut un bon navigateur et beaucoup de café.`,
   ]},
   parents:{label:"👨‍👩‍👧 Parents",pitches:[
-    `Your child will <span class="highlight">build a robot</span>, <span class="highlight">train an AI</span>, and <span class="highlight">learn cybersecurity</span> — all in one afternoon. No software to install. No accounts to create. Just a laptop and a browser. By the end, they'll explain Docker to you at dinner. I'm not kidding — it happens <span class="stat">every time</span>. Oh, and the WiFi password is password123. Yes, in a cybersecurity workshop. It's a <span class="highlight">teaching moment</span>.`,
+    `Votre enfant va <span class="highlight">construire un robot</span>, <span class="highlight">entraîner une IA</span>, et <span class="highlight">apprendre la cybersécurité</span> — le tout en un après-midi. Pas de logiciel à installer. Pas de compte à créer. Juste un ordinateur et un navigateur. À la fin, il vous expliquera Docker au dîner. Je ne plaisante pas — ça arrive <span class="stat">à chaque fois</span>. Ah, et le mot de passe WiFi est password123. Oui, dans un atelier de cybersécurité. C'est un <span class="highlight">moment pédagogique</span>.`,
   ]},
-  kids:{label:"🧒 Kids",pitches:[
-    `Want to <span class="highlight">control a real robot</span> from your browser? Want to make AI recognize your hand gestures? Want to <span class="highlight">hack things</span> (ethically)? Want to light up LEDs in <span class="stat">16 million colors</span>? Workshop-DIY has <span class="stat">39 apps</span>. Zero installations. You open a link and you're in. The robot has survived <span class="stat">47 drops</span>. It's basically indestructible. The WiFi password is password123. <span class="highlight">Don't tell the cybersecurity teacher I told you that</span>.`,
+  kids:{label:"🧒 Enfants",pitches:[
+    `Tu veux <span class="highlight">contrôler un vrai robot</span> depuis ton navigateur ? Faire reconnaître tes gestes par une IA ? <span class="highlight">Pirater des trucs</span> (éthiquement) ? Allumer des LEDs en <span class="stat">16 millions de couleurs</span> ? Workshop-DIY a <span class="stat">39 apps</span>. Zéro installation. Tu ouvres un lien et tu es dedans. Le robot a survécu à <span class="stat">47 chutes</span>. Il est pratiquement indestructible. Le mot de passe WiFi est password123. <span class="highlight">Ne dis pas au prof de cybersécurité que je te l'ai dit</span>.`,
   ]},
   hackers:{label:"💀 Hackers",pitches:[
-    `<span class="stat">39 browser-based apps</span>. Web Bluetooth, WebRTC, MediaPipe, Web Serial. Zero server-side. Everything runs client-side. The pentest-lab teaches <span class="highlight">SQL injection and XSS</span> in a sandbox. A student found a printer vulnerability. Responsibly disclosed. The WiFi password is <span class="highlight">password123</span> and has been since 2023. Three petitions to change it. All denied. We teach cybersecurity, not WiFi hygiene. <span class="stat">Bug #42 has no commit author</span>. We don't talk about that.`,
+    `<span class="stat">39 apps navigateur</span>. Web Bluetooth, WebRTC, MediaPipe, Web Serial. Zéro côté serveur. Tout tourne côté client. Le pentest-lab enseigne <span class="highlight">l'injection SQL et le XSS</span> en bac à sable. Un élève a trouvé une vulnérabilité d'imprimante. Divulguée de manière responsable. Le mot de passe WiFi est <span class="highlight">password123</span> et l'est depuis 2023. Trois pétitions pour le changer. Toutes refusées. On enseigne la cybersécurité, pas l'hygiène WiFi. <span class="stat">Bug #42 n'a pas d'auteur de commit</span>. On n'en parle pas.`,
   ]},
-  teachers:{label:"🎓 Teachers",pitches:[
-    `Zero installation. Zero accounts. Zero configuration. Students open a URL and they're <span class="highlight">controlling robots</span>, <span class="highlight">training AI models</span>, and <span class="highlight">learning Linux commands</span>. The entire platform runs in Chrome. <span class="stat">39 apps across 7 domains</span>. Each workshop is self-contained. Assessment is built-in. The hardest part of your job becomes telling them to stop at the end of class. <span class="stat">98% recommendation rate</span>. The other 2% were too busy building to fill out the survey.`,
+  teachers:{label:"🎓 Enseignants",pitches:[
+    `Zéro installation. Zéro compte. Zéro configuration. Les élèves ouvrent une URL et ils <span class="highlight">contrôlent des robots</span>, <span class="highlight">entraînent des modèles IA</span>, et <span class="highlight">apprennent les commandes Linux</span>. Toute la plateforme tourne dans Chrome. <span class="stat">39 apps dans 7 domaines</span>. Chaque atelier est autonome. L'évaluation est intégrée. La partie la plus difficile de votre travail devient de leur dire d'arrêter en fin de cours. <span class="stat">98% de taux de recommandation</span>. Les 2% restants étaient trop occupés à construire pour remplir le sondage.`,
   ]},
 };
 const audEl=document.getElementById('audience');
@@ -103,7 +103,7 @@ function startPitch(){
     bar.style.width=(sec/60*100)+'%';
     flr.textContent=Math.min(10,Math.ceil((60-sec)/6));
     if(sec<=10){bar.classList.add('danger');txt.classList.add('danger')}
-    if(sec<=0){clearInterval(timer);running=false;txt.textContent='🔔';document.getElementById('arrow').textContent='■';document.getElementById('pitch').innerHTML+='<br><br><span style="color:#ffd700;font-weight:700">DING! Floor 10. The doors open. Did you nail it?</span>'}
+    if(sec<=0){clearInterval(timer);running=false;txt.textContent='🔔';document.getElementById('arrow').textContent='■';document.getElementById('pitch').innerHTML+='<br><br><span style="color:#ffd700;font-weight:700">DING ! Étage 10. Les portes s'ouvrent. Vous avez assuré ?</span>'}
   },1000);
 }
 function newPitch(){
@@ -115,8 +115,7 @@ function newPitch(){
 }
 showPitch();
 </script>
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

@@ -111,23 +111,23 @@ body{background:#1a1a2e;font-family:'JetBrains Mono',monospace;font-size:12px;co
   <div class="ch-list">
     <div class="ch-cat">GENERAL</div>
     <div class="ch-item on" data-ch="general"><span class="hash">#</span> general</div>
-    <div class="ch-item" data-ch="announcements"><span class="hash">#</span> announcements <span class="unread"></span></div>
-    <div class="ch-item" data-ch="introductions"><span class="hash">#</span> introductions</div>
-    <div class="ch-cat">PROJECTS</div>
-    <div class="ch-item" data-ch="robotics"><span class="hash">#</span> robotics</div>
-    <div class="ch-item" data-ch="ai-lab"><span class="hash">#</span> ai-lab <span class="unread"></span></div>
-    <div class="ch-item" data-ch="electronics"><span class="hash">#</span> electronics</div>
-    <div class="ch-item" data-ch="3d-printing"><span class="hash">#</span> 3d-printing</div>
+    <div class="ch-item" data-ch="announcements"><span class="hash">#</span> annonces <span class="unread"></span></div>
+    <div class="ch-item" data-ch="introductions"><span class="hash">#</span> présentations</div>
+    <div class="ch-cat">PROJETS</div>
+    <div class="ch-item" data-ch="robotics"><span class="hash">#</span> robotique</div>
+    <div class="ch-item" data-ch="ai-lab"><span class="hash">#</span> labo-ia <span class="unread"></span></div>
+    <div class="ch-item" data-ch="electronics"><span class="hash">#</span> électronique</div>
+    <div class="ch-item" data-ch="3d-printing"><span class="hash">#</span> impression-3d</div>
     <div class="ch-cat">CODE</div>
-    <div class="ch-item" data-ch="help"><span class="hash">#</span> help <span class="unread"></span></div>
-    <div class="ch-item" data-ch="show-and-tell"><span class="hash">#</span> show-and-tell</div>
+    <div class="ch-item" data-ch="help"><span class="hash">#</span> aide <span class="unread"></span></div>
+    <div class="ch-item" data-ch="show-and-tell"><span class="hash">#</span> montrer-et-raconter</div>
     <div class="ch-item" data-ch="bugs"><span class="hash">#</span> bugs-are-fonctionnalités</div>
     <div class="ch-cat">FUN</div>
-    <div class="ch-item" data-ch="memes"><span class="hash">#</span> memes</div>
-    <div class="ch-item" data-ch="off-topic"><span class="hash">#</span> off-topic</div>
+    <div class="ch-item" data-ch="memes"><span class="hash">#</span> mèmes</div>
+    <div class="ch-item" data-ch="off-topic"><span class="hash">#</span> hors-sujet</div>
   </div>
   <div class="ch-membres">
-    <div class="ch-membres-h">ONLINE — 42</div>
+    <div class="ch-membres-h">EN LIGNE — 42</div>
     <div class="member"><span class="dot en ligne"></span>🤖 WKSHP-Bot</div>
     <div class="member"><span class="dot en ligne"></span>Yassine</div>
     <div class="member"><span class="dot en ligne"></span>Lucas</div>
@@ -143,7 +143,7 @@ body{background:#1a1a2e;font-family:'JetBrains Mono',monospace;font-size:12px;co
   <div class="chat-header">
     <span class="hash">#</span>
     <span class="name" id="chName">general</span>
-    <span class="desc" id="chDesc">Talk about anything Atelier-DIY</span>
+    <span class="desc" id="chDesc">Discutez de tout ce qui concerne Workshop-DIY</span>
   </div>
   <div class="messages" id="msgs"></div>
   <div class="typing" id="typing"></div>
@@ -159,46 +159,46 @@ body{background:#1a1a2e;font-family:'JetBrains Mono',monospace;font-size:12px;co
 
 <script>
 const CHANNELS={
-  general:{name:"general",desc:"Talk about anything Atelier-DIY",msgs:[
-    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"10:00",m:'Bienvenue dans <span class="mention">@Atelier-DIY</span>! We have <b>39 apps</b>, <b>7 domains</b>, and <b>∞ bugs</b> (fonctionnalités). Type <code>!help</code> for commands.',bot:true},
-    {a:"😎",n:"Yassine",r:"admin",t:"10:02",m:"Morning everyone! Just pushed a fix for bit-bot BLE disconnects. Please test!"},
-    {a:"💻",n:"Lucas",r:"mod",t:"10:05",m:'Nice! Testing now. Also, has anyone seen the mot de passe WiFi? It\'s definitely not <code>password123</code> right? 😅'},
-    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"10:05",m:"mot de passe WiFi unchanged since 2024. It's still <code>password123</code>. This is fine.",bot:true},
-    {a:"⚡",n:"Amira",r:"member",t:"10:08",m:'I just finished the pentest-lab challenges! The SQL injection one was tricky but <span class="mention">@Lucas</span> helped me debug. 🔐'},
-    {a:"🔧",n:"MaxMaker",r:"member",t:"10:12",m:"Anyone else's 3D printer making weird noises? Mine sounds like it's singing.",react:["😂 3","🖨️ 2"]},
-    {a:"🧠",n:"SolderQueen",r:"mod",t:"10:15",m:"That's the stepper motor resonance. Change your speed to avoid the singing frequency. Or just enjoy the concert."},
-    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"10:20",m:'📊 <b>Daily Stats:</b> 847 sessions today · 23 active users · bit-bot most popular · 0 bugs fixed (all fonctionnalités)',bot:true},
-    {a:"🎨",n:"PixelNour",r:"new",t:"10:22",m:"Hey! New here. Just discovered Atelier-DIY. The magic-hands app blew my mind 🤯",react:["👋 5","💚 3"]},
-    {a:"😎",n:"Yassine",r:"admin",t:"10:24",m:'Welcome <span class="mention">@PixelNour</span>! Try face-quest next — it\'s addictive. And check out <a href="https://abourdim.github.io/apps/">abourdim.github.io/apps</a> for all 39 apps.'},
+  general:{name:"general",desc:"Discutez de tout ce qui concerne Workshop-DIY",msgs:[
+    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"10:00",m:'Bienvenue dans <span class="mention">@Workshop-DIY</span> ! Nous avons <b>39 apps</b>, <b>7 domaines</b>, et <b>∞ bugs</b> (fonctionnalités). Tapez <code>!help</code> pour les commandes.',bot:true},
+    {a:"😎",n:"Yassine",r:"admin",t:"10:02",m:"Bonjour à tous ! Je viens de pousser un correctif pour les déconnexions BLE de bit-bot. Merci de tester !"},
+    {a:"💻",n:"Lucas",r:"mod",t:"10:05",m:'Super ! Je teste maintenant. Au fait, quelqu\'un a vu le mot de passe WiFi ? C\'est pas <code>password123</code> quand même ? 😅'},
+    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"10:05",m:"Mot de passe WiFi inchangé depuis 2024. C'est toujours <code>password123</code>. Tout va bien.",bot:true},
+    {a:"⚡",n:"Amira",r:"member",t:"10:08",m:'Je viens de terminer les défis pentest-lab ! L\'injection SQL était corsée mais <span class="mention">@Lucas</span> m\'a aidée à déboguer. 🔐'},
+    {a:"🔧",n:"MaxMaker",r:"member",t:"10:12",m:"L'imprimante 3D de quelqu'un d'autre fait des bruits bizarres ? La mienne a l'air de chanter.",react:["😂 3","🖨️ 2"]},
+    {a:"🧠",n:"SolderQueen",r:"mod",t:"10:15",m:"C'est la résonance du moteur pas à pas. Change ta vitesse pour éviter la fréquence de chant. Ou profite du concert."},
+    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"10:20",m:'📊 <b>Stats du jour :</b> 847 sessions aujourd\'hui · 23 utilisateurs actifs · bit-bot le plus populaire · 0 bugs corrigés (toutes des fonctionnalités)',bot:true},
+    {a:"🎨",n:"PixelNour",r:"new",t:"10:22",m:"Salut ! Nouveau ici. Je viens de découvrir Workshop-DIY. L'app magic-hands m'a bluffé 🤯",react:["👋 5","💚 3"]},
+    {a:"😎",n:"Yassine",r:"admin",t:"10:24",m:'Bienvenue <span class="mention">@PixelNour</span> ! Essaie face-quest ensuite — c\'est addictif. Et va voir <a href="https://abourdim.github.io/apps/">abourdim.github.io/apps</a> pour les 39 apps.'},
   ]},
-  robotics:{name:"robotics",desc:"ESP32 · micro:bit · servos · motors",msgs:[
-    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"09:00",m:'🤖 <b>Robot of the Day:</b> bit-bot — controlled 127 times today. Someone made it dance for 20 minutes straight.',bot:true},
-    {a:"😎",n:"Yassine",r:"admin",t:"09:15",m:"New bit-bot firmware update: smoother BLE reconnection. Who wants to test?",code:"// bit-bot v3.2 changelog\n- Fixed BLE disconnect on Chrome 120+\n- Smoother servo transitions\n- Added dance() method\n- TODO: teach robot empathy"},
-    {a:"💻",n:"Lucas",r:"mod",t:"09:20",m:"Testing now. The <code>dance()</code> method is amazing. My robot won't stop.",react:["🤖 4","💃 2"]},
-    {a:"⚡",n:"Amira",r:"member",t:"09:30",m:"Question: can I use the ultrasonic sensor AND the IR sensor at the same time on the ESP32 kit?"},
-    {a:"😎",n:"Yassine",r:"admin",t:"09:32",m:"Yes! They use different GPIO pins. Check the pin diagram in the workshop docs. IR is on GPIO14, ultrasonic on GPIO12/13."},
+  robotics:{name:"robotique",desc:"ESP32 · micro:bit · servos · moteurs",msgs:[
+    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"09:00",m:'🤖 <b>Robot du jour :</b> bit-bot — contrôlé 127 fois aujourd\'hui. Quelqu\'un l\'a fait danser pendant 20 minutes d\'affilée.',bot:true},
+    {a:"😎",n:"Yassine",r:"admin",t:"09:15",m:"Mise à jour du firmware bit-bot : reconnexion BLE plus fluide. Qui veut tester ?",code:"// bit-bot v3.2 changelog\n- Fixed BLE disconnect on Chrome 120+\n- Smoother servo transitions\n- Added dance() method\n- TODO: teach robot empathy"},
+    {a:"💻",n:"Lucas",r:"mod",t:"09:20",m:"Je teste. La méthode <code>dance()</code> est incroyable. Mon robot ne veut plus s'arrêter.",react:["🤖 4","💃 2"]},
+    {a:"⚡",n:"Amira",r:"member",t:"09:30",m:"Question : est-ce que je peux utiliser le capteur ultrason ET le capteur IR en même temps sur le kit ESP32 ?"},
+    {a:"😎",n:"Yassine",r:"admin",t:"09:32",m:"Oui ! Ils utilisent des broches GPIO différentes. Vérifie le schéma des broches dans les docs de l'atelier. IR sur GPIO14, ultrason sur GPIO12/13."},
   ]},
-  "ai-lab":{name:"ai-lab",desc:"MediaPipe · Teachable Machine · LLMs",msgs:[
-    {a:"🧠",n:"SolderQueen",r:"mod",t:"11:00",m:"Just trained a gesture model with 98% accuracy on Teachable Machine. It recognizes rock, paper, scissors!",embed:{title:"teachable-machine app",desc:"Train AI gestures in browser, send results to micro:bit"}},
-    {a:"🎨",n:"PixelNour",r:"new",t:"11:05",m:"That's so cool! Can it also detect custom gestures?"},
-    {a:"🧠",n:"SolderQueen",r:"mod",t:"11:07",m:"Yep! You can train it on anything — hand signs, objects, even sounds. It runs entirely in the browser, no cloud needed."},
-    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"11:10",m:'🧠 <b>AI Tip:</b> For best results with Teachable Machine, use 100+ samples per class and vary lighting conditions.',bot:true},
-    {a:"💻",n:"Lucas",r:"mod",t:"11:15",m:"I connected teachable-machine to bit-bot. Now my robot dances when I wave 👋 and stops when I show ✋. Living in the future."},
+  "ai-lab":{name:"labo-ia",desc:"MediaPipe · Teachable Machine · LLMs",msgs:[
+    {a:"🧠",n:"SolderQueen",r:"mod",t:"11:00",m:"Je viens d'entraîner un modèle de gestes avec 98% de précision sur Teachable Machine. Il reconnaît pierre, feuille, ciseaux !",embed:{title:"app teachable-machine",desc:"Entraînez des gestes IA dans le navigateur, envoyez les résultats au micro:bit"}},
+    {a:"🎨",n:"PixelNour",r:"new",t:"11:05",m:"Trop cool ! Il peut aussi détecter des gestes personnalisés ?"},
+    {a:"🧠",n:"SolderQueen",r:"mod",t:"11:07",m:"Oui ! Tu peux l'entraîner sur n'importe quoi — signes de la main, objets, même des sons. Ça tourne entièrement dans le navigateur, pas besoin de cloud."},
+    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"11:10",m:'🧠 <b>Astuce IA :</b> Pour de meilleurs résultats avec Teachable Machine, utilisez 100+ échantillons par classe et variez les conditions d\'éclairage.',bot:true},
+    {a:"💻",n:"Lucas",r:"mod",t:"11:15",m:"J'ai connecté teachable-machine à bit-bot. Maintenant mon robot danse quand je fais 👋 et s'arrête quand je montre ✋. On vit dans le futur."},
   ]},
-  help:{name:"help",desc:"Ask questions, get answers",msgs:[
-    {a:"🔧",n:"MaxMaker",r:"member",t:"14:00",m:"Help! My micro:bit won't connect via BLE in Chrome. Says 'Bluetooth adapter not found'."},
-    {a:"💻",n:"Lucas",r:"mod",t:"14:02",m:"Make sure: 1) Chrome flags has Web Bluetooth enabled 2) Your computer actually has Bluetooth 3) micro:bit is in pairing mode (hold A+B, press reset)"},
-    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"14:02",m:'💡 <b>BLE Troubleshooting:</b>\n• Chrome → <code>chrome://flags</code> → Enable Web Bluetooth\n• micro:bit pairing: A+B + Reset\n• Stay within 10m range\n• Try <code>ble-logger</code> app to debug',bot:true},
-    {a:"🔧",n:"MaxMaker",r:"member",t:"14:05",m:"The chrome://flags thing fixed it! Thanks!!! 🎉",react:["🎉 3","💚 2"]},
-    {a:"⚡",n:"Amira",r:"member",t:"14:10",m:"Pro tip: bookmark ble-logger. It's the best debugging tool when things get weird with Bluetooth."},
+  help:{name:"aide",desc:"Posez des questions, obtenez des réponses",msgs:[
+    {a:"🔧",n:"MaxMaker",r:"member",t:"14:00",m:"À l'aide ! Mon micro:bit ne se connecte pas en BLE dans Chrome. Il dit 'Adaptateur Bluetooth introuvable'."},
+    {a:"💻",n:"Lucas",r:"mod",t:"14:02",m:"Vérifie que : 1) Chrome flags a Web Bluetooth activé 2) Ton ordi a bien le Bluetooth 3) Le micro:bit est en mode appairage (maintenir A+B, appuyer sur reset)"},
+    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"14:02",m:'💡 <b>Dépannage BLE :</b>\n• Chrome → <code>chrome://flags</code> → Activer Web Bluetooth\n• Appairage micro:bit : A+B + Reset\n• Rester à moins de 10m\n• Essayer l\'app <code>ble-logger</code> pour déboguer',bot:true},
+    {a:"🔧",n:"MaxMaker",r:"member",t:"14:05",m:"Le truc chrome://flags a résolu le problème ! Merci !!! 🎉",react:["🎉 3","💚 2"]},
+    {a:"⚡",n:"Amira",r:"member",t:"14:10",m:"Astuce de pro : mettez ble-logger en favoris. C'est le meilleur outil de débogage quand ça devient bizarre avec le Bluetooth."},
   ]},
-  memes:{name:"memes",desc:"Robot memes and workshop humor",msgs:[
-    {a:"💻",n:"Lucas",r:"mod",t:"16:00",m:'When the instructor says "don\'t touch the soldering iron" but you\'re built different 🔥🤚😭',react:["😂 7","🔥 3","💀 2"]},
-    {a:"⚡",n:"Amira",r:"member",t:"16:05",m:'Me: "I\'ll fix this bug in 5 minutes"\n3 hours later: "it\'s a feature now"',react:["😂 9","🐛 4"]},
-    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"16:10",m:'🎲 <b>Random Atelier Fact:</b> The mot de passe WiFi has been "password123" since the founding of the association. At this point, it\'s tradition.',bot:true,react:["💀 6","🔐 3"]},
-    {a:"🔧",n:"MaxMaker",r:"member",t:"16:15",m:'git commit -m "I have absolutely no idea why this works but please don\'t touch it"',react:["😂 11","💯 5"]},
-    {a:"😎",n:"Yassine",r:"admin",t:"16:20",m:'Élèves: "Is this class fun?"\nMe: *deploys 39 apps*\nÉlèves: 👁️👄👁️',react:["💀 8","🤖 4","💚 6"]},
-    {a:"🧠",n:"SolderQueen",r:"mod",t:"16:25",m:'The ESP32 robot kit specs say "a survécu à 47 chutes". That number is autobiographical.',react:["😂 5","🤖 3"]},
+  memes:{name:"mèmes",desc:"Mèmes de robots et humour d'atelier",msgs:[
+    {a:"💻",n:"Lucas",r:"mod",t:"16:00",m:'Quand le formateur dit "ne touche pas le fer à souder" mais t\'es pas comme les autres 🔥🤚😭',react:["😂 7","🔥 3","💀 2"]},
+    {a:"⚡",n:"Amira",r:"member",t:"16:05",m:'Moi : "Je corrige ce bug en 5 minutes"\n3 heures plus tard : "c\'est une fonctionnalité maintenant"',react:["😂 9","🐛 4"]},
+    {a:"🤖",n:"WKSHP-Bot",r:"bot",t:"16:10",m:'🎲 <b>Fait aléatoire de l\'Atelier :</b> Le mot de passe WiFi est "password123" depuis la fondation de l\'association. À ce stade, c\'est une tradition.',bot:true,react:["💀 6","🔐 3"]},
+    {a:"🔧",n:"MaxMaker",r:"member",t:"16:15",m:'git commit -m "J\'ai absolument aucune idée de pourquoi ça marche mais touchez pas"',react:["😂 11","💯 5"]},
+    {a:"😎",n:"Yassine",r:"admin",t:"16:20",m:'Élèves : "C\'est fun ce cours ?"\nMoi : *déploie 39 apps*\nÉlèves : 👁️👄👁️',react:["💀 8","🤖 4","💚 6"]},
+    {a:"🧠",n:"SolderQueen",r:"mod",t:"16:25",m:'Les specs du kit robot ESP32 disent "a survécu à 47 chutes". Ce nombre est autobiographique.',react:["😂 5","🤖 3"]},
   ]},
 };
 
@@ -220,7 +220,7 @@ function renderCanal(ch){
     if(m.embed)extra+=`<div class="msg-embed"><div class="embed-title">${m.embed.title}</div><div class="embed-desc">${m.embed.desc}</div></div>`;
     if(m.react)extra+=`<div class="msg-react">${m.react.map(r=>`<span>${r}</span>`).join('')}</div>`;
     const tag=m.bot?'<span class="bot-tag">BOT</span>':'';
-    d.innerHTML=`<div class="msg-avatar">${m.a}</div><div class="msg-content"><div class="msg-header"><span class="msg-name role-${m.r}">${m.n}</span>${tag}<span class="msg-time">Aujourd'hui at ${m.t}</span></div><div class="msg-text">${m.m}</div>${extra}</div>`;
+    d.innerHTML=`<div class="msg-avatar">${m.a}</div><div class="msg-content"><div class="msg-header"><span class="msg-name role-${m.r}">${m.n}</span>${tag}<span class="msg-time">Aujourd'hui à ${m.t}</span></div><div class="msg-text">${m.m}</div>${extra}</div>`;
     msgs.appendChild(d);
   });
   msgs.scrollTop=msgs.scrollHeight;
@@ -231,12 +231,12 @@ renderCanal('general');
 
 // Auto messages
 const autoMsgs=[
-  {a:"🤖",n:"WKSHP-Bot",r:"bot",bot:true,m:'🔔 <b>Reminder:</b> Next workshop session is Samedi at 10am. Bring your micro:bit and curiosity!'},
-  {a:"⚡",n:"Amira",r:"member",m:"Just got my robot to follow a line! The IR sensor calibration was the key 🎯"},
-  {a:"🔧",n:"MaxMaker",r:"member",m:'Question: what\'s the best solder temperature for the ESP32 header pins?'},
-  {a:"💻",n:"Lucas",r:"mod",m:"350°C for leaded, 380°C for lead-free. And don't breathe the fumes 🤢"},
-  {a:"🎨",n:"PixelNour",r:"new",m:"I made my first pixel art in pixel-gateway! It's a robot 🤖✨"},
-  {a:"🤖",n:"WKSHP-Bot",r:"bot",bot:true,m:'📈 <b>App Update:</b> face-quest just hit 1,000 plays. The most popular expression detected: 😁'},
+  {a:"🤖",n:"WKSHP-Bot",r:"bot",bot:true,m:'🔔 <b>Rappel :</b> Prochaine session d\'atelier samedi à 10h. Apportez votre micro:bit et votre curiosité !'},
+  {a:"⚡",n:"Amira",r:"member",m:"Mon robot suit une ligne ! La calibration du capteur IR était la clé 🎯"},
+  {a:"🔧",n:"MaxMaker",r:"member",m:'Question : quelle est la meilleure température de soudure pour les broches du ESP32 ?'},
+  {a:"💻",n:"Lucas",r:"mod",m:"350°C pour l'étain avec plomb, 380°C pour le sans plomb. Et ne respirez pas les fumées 🤢"},
+  {a:"🎨",n:"PixelNour",r:"new",m:"J'ai fait mon premier pixel art dans pixel-gateway ! C'est un robot 🤖✨"},
+  {a:"🤖",n:"WKSHP-Bot",r:"bot",bot:true,m:'📈 <b>Mise à jour app :</b> face-quest vient d\'atteindre 1 000 parties. L\'expression la plus détectée : 😁'},
 ];
 let autoIdx=0;
 
@@ -260,21 +260,20 @@ function sendMsg(){
   const input=document.getElementById('chatInput');
   const text=input.value.trim();if(!text)return;
   const data=CHANNELS[curCh];
-  data.msgs.push({a:"👤",n:"You",r:"member",t:new Date().toTimeString().slice(0,5),m:text});
+  data.msgs.push({a:"👤",n:"Vous",r:"member",t:new Date().toTimeString().slice(0,5),m:text});
   input.value='';
   renderCanal(curCh);
   // Bot reply
   if(text.toLowerCase().includes('!help')){
     setTimeout(()=>{
-      data.msgs.push({a:"🤖",n:"WKSHP-Bot",r:"bot",t:new Date().toTimeString().slice(0,5),m:'<b>Commands:</b> <code>!help</code> <code>!stats</code> <code>!apps</code> <code>!quote</code> <code>!joke</code>',bot:true});
+      data.msgs.push({a:"🤖",n:"WKSHP-Bot",r:"bot",t:new Date().toTimeString().slice(0,5),m:'<b>Commandes :</b> <code>!help</code> <code>!stats</code> <code>!apps</code> <code>!quote</code> <code>!joke</code>',bot:true});
       renderCanal(curCh);
     },1000);
   }
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

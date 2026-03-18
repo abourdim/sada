@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../assets/css/sada-base.css">
 <link rel="stylesheet" href="../../assets/css/sada-themes.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // LIVE MONITOR</title>
+<title>WKSHP-DIY // MONITEUR EN DIRECT</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--g:#00ff41;--c:#00d4ff;--r:#ff0033;--o:#ff8800;--y:#ffd700;--p:#bf00ff}
@@ -56,7 +56,7 @@ canvas.chart{width:100%;height:100%;border-radius:2px}
 .status-cell:hover{border-color:rgba(0,255,65,.15);background:rgba(0,255,65,.02)}
 .status-cell .e{font-size:12px;display:block}
 .status-cell .n{color:rgba(0,255,65,.3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.status-cell.en ligne{border-color:rgba(0,255,65,.08)}.status-cell.en ligne .n{color:var(--g)}
+.status-cell.online{border-color:rgba(0,255,65,.08)}.status-cell.online .n{color:var(--g)}
 .status-cell.offline{border-color:rgba(255,0,51,.06);opacity:.4}
 
 /* ═══ THREAT METER ═══ */
@@ -84,48 +84,48 @@ canvas.chart{width:100%;height:100%;border-radius:2px}
 <div class="crt"></div>
 <div class="dash">
 <div class="topbar">
-  <div class="title">WORKSHOP-DIY <span style="color:var(--c);font-size:8px;font-weight:400">LIVE MONITOR</span></div>
+  <div class="title">WORKSHOP-DIY <span style="color:var(--c);font-size:8px;font-weight:400">MONITEUR EN DIRECT</span></div>
   <span id="clock">00:00:00</span>
   <span>UPTIME: <span id="uptime">0s</span> // STATUT: <span style="color:var(--g)">NOMINAL</span></span>
 </div>
 
 <!-- ROW 1: STATS -->
 <div class="pan">
-  <div class="pan-h">ECOSYSTEM STATS <div class="live"></div></div>
+  <div class="pan-h">STATS ÉCOSYSTÈME <div class="live"></div></div>
   <div class="stat-row">
     <div class="stat-box"><div class="v" id="sApps">39</div><div class="l">APPS</div></div>
-    <div class="stat-box gold"><div class="v">4</div><div class="l">POPULAR</div></div>
+    <div class="stat-box gold"><div class="v">4</div><div class="l">POPULAIRES</div></div>
     <div class="stat-box"><div class="v">7</div><div class="l">DOMAINES</div></div>
-    <div class="stat-box"><div class="v">12</div><div class="l">THEMES</div></div>
+    <div class="stat-box"><div class="v">12</div><div class="l">THÈMES</div></div>
   </div>
 </div>
 
 <div class="pan">
-  <div class="pan-h">ENGAGEMENT LIVE <div class="live"></div></div>
+  <div class="pan-h">ENGAGEMENT EN DIRECT <div class="live"></div></div>
   <div class="stat-row">
-    <div class="stat-box"><div class="v" id="sUsers">0</div><div class="l">ACTIVE UTILISATEURS</div></div>
+    <div class="stat-box"><div class="v" id="sUsers">0</div><div class="l">UTILISATEURS ACTIFS</div></div>
     <div class="stat-box"><div class="v" id="sSessions">0</div><div class="l">SESSIONS/H</div></div>
     <div class="stat-box warn"><div class="v" id="sBugs">42</div><div class="l">BUGS (FONCTIONNALITÉS)</div></div>
   </div>
 </div>
 
 <div class="pan">
-  <div class="pan-h">BOREDOM NIVEAU DE MENACE <div class="live"></div></div>
+  <div class="pan-h">NIVEAU DE MENACE D'ENNUI <div class="live"></div></div>
   <div class="threat">
-    <div class="threat-level" id="threatLvl" style="color:var(--g)">LOW</div>
+    <div class="threat-level" id="threatLvl" style="color:var(--g)">FAIBLE</div>
     <div class="threat-bar"><div class="threat-fill" id="threatFill" style="width:12%;background:var(--g)"></div></div>
-    <div class="threat-sub">// workshop mode active — boredom neutralized</div>
+    <div class="threat-sub">// mode atelier actif — ennui neutralisé</div>
   </div>
 </div>
 
 <!-- ROW 2 -->
 <div class="pan" style="grid-row:span 1">
-  <div class="pan-h">TRAFFIC (24H) <div class="live"></div></div>
+  <div class="pan-h">TRAFIC (24H) <div class="live"></div></div>
   <div class="chart-wrap"><canvas class="chart" id="chart1"></canvas></div>
 </div>
 
 <div class="pan" style="grid-row:span 1">
-  <div class="pan-h">CATEGORY DISTRIBUTION</div>
+  <div class="pan-h">RÉPARTITION PAR CATÉGORIE</div>
   <div id="catBars"></div>
 </div>
 
@@ -136,19 +136,19 @@ canvas.chart{width:100%;height:100%;border-radius:2px}
 
 <!-- ROW 3 -->
 <div class="pan" style="grid-column:span 2">
-  <div class="pan-h">APP STATUT — ALL 39 NODES <div class="live"></div></div>
+  <div class="pan-h">STATUT APPS — 39 NŒUDS <div class="live"></div></div>
   <div class="status-grid" id="statusGrid"></div>
 </div>
 
 <div class="pan">
-  <div class="pan-h">SYSTEM DIAGNOSTICS</div>
+  <div class="pan-h">DIAGNOSTICS SYSTÈME</div>
   <div id="diag" style="font-size:8px;line-height:2;color:rgba(0,255,65,.35)"></div>
 </div>
 
 <div class="botbar">
   <span>WKSHP_MONITOR v2.0 // PID:1337</span>
   <span>workshop-diy.org // abourdim.github.io/apps</span>
-  <span>// no actual users were monitored in making this</span>
+  <span>// aucun utilisateur réel n'a été surveillé lors de la création de ceci</span>
 </div>
 </div>
 
@@ -156,9 +156,9 @@ canvas.chart{width:100%;height:100%;border-radius:2px}
 const APPS=[
 {e:"🤖",n:"bit-bot"},{e:"🪄",n:"magic-hands"},{e:"🕵️",n:"face-quest"},{e:"💬",n:"talking-robot"},{e:"🧠",n:"teachable-machine"},{e:"😎",n:"face-tracking"},{e:"😄",n:"bitmoji-lab"},{e:"🚀",n:"mission-control"},{e:"🧩",n:"bit-playground"},{e:"🎛️",n:"rxy"},{e:"🎨",n:"pixel-gateway"},{e:"💡",n:"wled-kids-lab"},{e:"⚡",n:"esp32-c3"},{e:"🪙",n:"crypto-acad"},{e:"🔐",n:"pentest-lab"},{e:"🐧",n:"linux-lab"},{e:"🏭",n:"production"},{e:"🏫",n:"classroom"},{e:"🔌",n:"usb-logger"},{e:"📡",n:"ble-logger"},{e:"🧰",n:"claude-tk"},{e:"🎭",n:"puppeteer"},{e:"🔋",n:"circuit-lab"},{e:"🛡️",n:"vpn-guide"},{e:"🧊",n:"3d-lab"},{e:"🔀",n:"git-lab"},{e:"✨",n:"prompt-hero"},{e:"🌍",n:"save-planet"},{e:"📋",n:"ops-catalog"},{e:"💻",n:"code-kids"},{e:"🏡",n:"smart-home"},{e:"🧱",n:"makecode"},{e:"🤖",n:"54-activ"},{e:"💰",n:"crypto-vault"},{e:"🔗",n:"dhcp-lab"},{e:"🐳",n:"docker-lab"},{e:"🔴",n:"nodered"},{e:"⛽",n:"ocpp"},{e:"🖥️",n:"tty"}
 ];
-const CATS=[{n:"micro:bit",c:16,col:"#00d4ff"},{n:"Learning",c:20,col:"#00ff41"},{n:"Tools",c:7,col:"#ff0033"},{n:"AI",c:6,col:"#bf00ff"},{n:"Hardware",c:5,col:"#ff8800"},{n:"Camera",c:4,col:"#ffd700"},{n:"Classroom",c:2,col:"#0066ff"}];
+const CATS=[{n:"micro:bit",c:16,col:"#00d4ff"},{n:"Apprentissage",c:20,col:"#00ff41"},{n:"Outils",c:7,col:"#ff0033"},{n:"IA",c:6,col:"#bf00ff"},{n:"Matériel",c:5,col:"#ff8800"},{n:"Caméra",c:4,col:"#ffd700"},{n:"Classe",c:2,col:"#0066ff"}];
 const FEED_MSGS=[
-  ["🤖","bit-bot connected via BLE — motor test OK"],["🪄","magic-hands: confetti triggered (hands detected)"],["🕵️","face-quest: new high score 847 by M4K3R"],["💬","talking-robot said: 'Hello, world!'"],["🧠","teachable-machine: gesture model trained (96% acc)"],["🐧","linux-lab: student ran 'sudo rm -rf /' (blocked, nice try)"],["🔐","pentest-lab: challenge #3 solved in 4min"],["🎨","pixel-gateway: new sprite saved (robot_v2.png)"],["💡","wled-kids-lab: rainbow mode activated"],["🏫","classroom: 5 students joined room MAKER-42"],["🧩","bit-playground: servo angle set to 90°"],["📡","ble-logger: scanning... found 3 devices"],["🐳","docker-lab: container 'hello-world' deployed"],["🔴","nodered: flow executed — MQTT message sent"],["⚡","esp32-c3: temperature reading: 23.4°C"],["🔋","circuit-lab: LED blink circuit simulated OK"],["🏡","smart-home: light toggled via dashboard"],["💻","code-kids: first <h1> tag written! 🎉"],["🔀","git-lab: merge conflict... student survived"],["🖥️","tty: serial connected at 115200 baud"]
+  ["🤖","bit-bot connecté via BLE — test moteur OK"],["🪄","magic-hands : confettis déclenchés (mains détectées)"],["🕵️","face-quest : nouveau record 847 par M4K3R"],["💬","talking-robot a dit : 'Bonjour, le monde !'"],["🧠","teachable-machine : modèle de geste entraîné (96% préc.)"],["🐧","linux-lab : un élève a lancé 'sudo rm -rf /' (bloqué, bien essayé)"],["🔐","pentest-lab : défi #3 résolu en 4min"],["🎨","pixel-gateway : nouveau sprite enregistré (robot_v2.png)"],["💡","wled-kids-lab : mode arc-en-ciel activé"],["🏫","classroom : 5 élèves ont rejoint la salle MAKER-42"],["🧩","bit-playground : angle servo réglé à 90°"],["📡","ble-logger : scan... 3 appareils trouvés"],["🐳","docker-lab : conteneur 'hello-world' déployé"],["🔴","nodered : flux exécuté — message MQTT envoyé"],["⚡","esp32-c3 : lecture température : 23,4°C"],["🔋","circuit-lab : circuit LED clignotant simulé OK"],["🏡","smart-home : lumière basculée via tableau de bord"],["💻","code-kids : première balise <h1> écrite ! 🎉"],["🔀","git-lab : conflit de fusion... l'élève a survécu"],["🖥️","tty : connexion série à 115200 bauds"]
 ];
 const start=Date.now();
 
@@ -166,8 +166,8 @@ const start=Date.now();
 const sg=document.getElementById('statusGrid');
 APPS.forEach(a=>{
   const d=document.createElement('div');
-  const en ligne=Math.random()>.15;
-  d.className='status-cell '+(en ligne?'en ligne':'offline');
+  const online=Math.random()>.15;
+  d.className='status-cell '+(online?'online':'offline');
   d.innerHTML=`<span class="e">${a.e}</span><span class="n">${a.n}</span>`;
   sg.appendChild(d);
 });
@@ -228,7 +228,7 @@ setInterval(updateCounters,5000);
 
 // NIVEAU DE MENACE
 function updateThreat(){
-  const levels=[{n:'NONE',col:'#00ff41',w:5},{n:'LOW',col:'#00ff41',w:12},{n:'MINIMAL',col:'#00d4ff',w:25}];
+  const levels=[{n:'AUCUN',col:'#00ff41',w:5},{n:'FAIBLE',col:'#00ff41',w:12},{n:'MINIMAL',col:'#00d4ff',w:25}];
   const l=levels[Math.floor(Math.random()*levels.length)];
   document.getElementById('threatLvl').textContent=l.n;
   document.getElementById('threatLvl').style.color=l.col;
@@ -240,10 +240,10 @@ setInterval(updateThreat,8000);
 // DIAGNOSTICS
 const diagEl=document.getElementById('diag');
 const diagLines=[
-  'CPU: 12% [████░░░░░░░░░░░░]','RAM: 64MB / 256MB','DISK: 1.2GB / 8GB',
-  'NET: 45 Mbps ↓ 12 Mbps ↑','BLE: 3 devices paired','WiFi: connected (password123)',
-  'TEMP: 42°C (cool enough)','UPTIME: since forever','ERRORS: 0 (lies)',
-  'COFFEE: ██░░░░░░ 25% (CRITICAL)'
+  'CPU : 12% [████░░░░░░░░░░░░]','RAM : 64Mo / 256Mo','DISQUE : 1,2Go / 8Go',
+  'RÉSEAU : 45 Mbps ↓ 12 Mbps ↑','BLE : 3 appareils appairés','WiFi : connecté (password123)',
+  'TEMP : 42°C (assez frais)','UPTIME : depuis toujours','ERREURS : 0 (mensonges)',
+  'CAFÉ : ██░░░░░░ 25% (CRITIQUE)'
 ];
 diagEl.innerHTML=diagLines.join('<br>');
 
@@ -258,12 +258,11 @@ setInterval(()=>{
   const cells=document.querySelectorAll('.status-cell');
   const i=Math.floor(Math.random()*cells.length);
   const on=Math.random()>.15;
-  cells[i].className='status-cell '+(on?'en ligne':'offline');
+  cells[i].className='status-cell '+(on?'online':'offline');
 },4000);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

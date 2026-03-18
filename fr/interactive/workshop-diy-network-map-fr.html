@@ -65,7 +65,7 @@ canvas#net{position:fixed;inset:0;z-index:0;cursor:crosshair}
 /* ID CARD MODAL */
 #idModal{position:fixed;inset:0;z-index:9990;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center}
 .id-card{width:360px;border:1px solid var(--g);border-radius:6px;background:#0a0a0a;padding:20px;position:relative;box-shadow:0 0 40px rgba(0,255,65,.08)}
-.id-card::before{content:'WORKSHOP-DIY // MEMBER ID';position:absolute;top:-10px;left:12px;font-size:7px;color:var(--g);background:#0a0a0a;padding:0 6px;letter-spacing:3px}
+.id-card::before{content:'WORKSHOP-DIY // CARTE MEMBRE';position:absolute;top:-10px;left:12px;font-size:7px;color:var(--g);background:#0a0a0a;padding:0 6px;letter-spacing:3px}
 .id-top{display:flex;gap:14px;align-items:center;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(0,255,65,.06)}
 .id-avatar{width:60px;height:60px;border:1px solid var(--g);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:28px;background:rgba(0,255,65,.02)}
 .id-info .name{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--c)}
@@ -105,9 +105,9 @@ canvas#net{position:fixed;inset:0;z-index:0;cursor:crosshair}
 
 <!-- HUD -->
 <div class="hud-t">
-  <span>NETWORK_MAP.sys // 39 NODES // <span id="edgeCnt">0</span> EDGES</span>
+  <span>CARTE_RÉSEAU.sys // 39 NŒUDS // <span id="edgeCnt">0</span> LIENS</span>
   <span id="clock">00:00:00</span>
-  <span>DRAG NODES // CLICK TO INSPECT // [I] = ID CARD</span>
+  <span>GLISSEZ LES NŒUDS // CLIQUEZ POUR INSPECTER // [I] = CARTE ID</span>
 </div>
 <div class="hud-b">
   <span>WORKSHOP-DIY ECOSYSTEM v4.2.0</span>
@@ -116,7 +116,7 @@ canvas#net{position:fixed;inset:0;z-index:0;cursor:crosshair}
 
 <!-- LEFT PANEL -->
 <div class="panel-l" id="panelL">
-  <div class="pl-h">CATEGORIES</div>
+  <div class="pl-h">CATÉGORIES</div>
   <div id="catBtns"></div>
   <div class="pl-h" style="margin-top:10px">APPS (<span id="appCnt">39</span>)</div>
   <div id="appList"></div>
@@ -130,9 +130,9 @@ canvas#net{position:fixed;inset:0;z-index:0;cursor:crosshair}
   <div class="pr-desc" id="prD"></div>
   <div class="pr-cats" id="prC"></div>
   <div id="prB"></div>
-  <a class="pr-link" id="prL" href="#" target="_blank">↗ OPEN APP</a>
+  <a class="pr-link" id="prL" href="#" target="_blank">↗ OUVRIR L'APP</a>
   <div class="pr-conns">
-    <div class="pr-conns-h">CONNECTED APPS (shared categories)</div>
+    <div class="pr-conns-h">APPS CONNECTÉES (catégories partagées)</div>
     <div id="prConns"></div>
   </div>
 </div>
@@ -145,79 +145,79 @@ canvas#net{position:fixed;inset:0;z-index:0;cursor:crosshair}
       <div class="id-avatar" id="idAvatar">🤖</div>
       <div class="id-info">
         <div class="name" id="idName">MAKER</div>
-        <div class="role">WORKSHOP-DIY // MEMBER</div>
-        <div class="since">SINCE: <span id="idDate"></span></div>
+        <div class="role">WORKSHOP-DIY // MEMBRE</div>
+        <div class="since">DEPUIS : <span id="idDate"></span></div>
       </div>
     </div>
-    <div class="id-row"><span class="k">CLEARANCE:</span><span class="v">NIVEAU ∞</span></div>
-    <div class="id-row"><span class="k">SKILLS:</span><span class="v">ROBOTS · CODE · AI · SOLDER</span></div>
-    <div class="id-row"><span class="k">BUGS CREATED:</span><span class="v" id="idBugs">42</span></div>
-    <div class="id-row"><span class="k">COFFEE STATUT:</span><span class="v">CRITICAL</span></div>
-    <div class="id-row"><span class="k">ACCESS:</span><span class="v" style="color:var(--g)">ALL 39 APPS</span></div>
+    <div class="id-row"><span class="k">HABILITATION :</span><span class="v">NIVEAU ∞</span></div>
+    <div class="id-row"><span class="k">COMPÉTENCES :</span><span class="v">ROBOTS · CODE · IA · SOUDURE</span></div>
+    <div class="id-row"><span class="k">BUGS CRÉÉS :</span><span class="v" id="idBugs">42</span></div>
+    <div class="id-row"><span class="k">STATUT CAFÉ :</span><span class="v">CRITIQUE</span></div>
+    <div class="id-row"><span class="k">ACCÈS :</span><span class="v" style="color:var(--g)">39 APPS</span></div>
     <div class="id-barcode">
       <div class="id-barcode-lines" id="idBars"></div>
       WKSHP-DIY-<span id="idCode">0000</span>-MKR
     </div>
     <div class="id-gen">
-      <input type="text" id="idInput" placeholder="Enter your name" maxlength="20">
-      <br><button onclick="genId()">GENERATE ID</button>
+      <input type="text" id="idInput" placeholder="Entrez votre nom" maxlength="20">
+      <br><button onclick="genId()">GÉNÉRER LA CARTE</button>
     </div>
-    <div class="id-foot">// this card grants unlimited access to learning</div>
+    <div class="id-foot">// cette carte donne un accès illimité à l'apprentissage</div>
   </div>
 </div>
 
 <script>
 // ═══ DATA ═══
 const APPS=[
-{e:"🤖",n:"bit-bot",c:["microbit"],b:"popular",d:"Drive Bit:Bot robot via Bluetooth — joystick, line-follow, obstacle mode."},
-{e:"🪄",n:"magic-hands",c:["camera","ai"],b:"popular",d:"Hand-tracking magic effects — confetti, neon trails, particle explosions via MediaPipe."},
-{e:"🕵️",n:"face-quest",c:["camera","ai"],b:"popular",d:"Face-detection game — smile, blink, turn head to score. 100% local & private."},
-{e:"💬",n:"talking-robot",c:["microbit","ai"],b:"stable",d:"Robot that speaks, listens, shows emotions — text/voice commands over BLE."},
-{e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],b:"popular",d:"Train gestures in browser with Teachable Machine, send results to micro:bit."},
-{e:"😎",n:"face-tracking",c:["camera","microbit"],b:"stable",d:"Kids face tracking with events — send face position to micro:bit over BLE."},
-{e:"😄",n:"bitmoji-lab",c:["microbit"],b:"stable",d:"Emoji to 5×5 LED pixel art on micro:bit — instant BLE transfer."},
-{e:"🚀",n:"mission-control",c:["classroom","microbit"],b:"stable",d:"Tableau de bord with live video/chat via WebRTC — command micro:bits."},
-{e:"🧩",n:"bit-playground",c:["microbit"],b:"stable",d:"Ultimate micro:bit BLE playground — LEDs, sensors, servos, motors."},
-{e:"🎛️",n:"rxy",c:["microbit"],b:"stable",d:"Custom Bluetooth remote builder — drag buttons, sliders, D-pads."},
-{e:"🎨",n:"pixel-gateway",c:["tools"],b:"stable",d:"Rétro pixel art portal — draw, animate, preview sprites."},
-{e:"💡",n:"wled-kids-lab",c:["hardware","learning"],b:"stable",d:"Control Neopixel LED strips with WLED — kid-friendly UI."},
-{e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],b:"stable",d:"ESP32-C3 hands-on lab — LEDs, sensors, WiFi, IoT basics."},
-{e:"🪙",n:"crypto-academy",c:["learning"],b:"stable",d:"Crypto & blockchain lessons — wallets, mining, transactions."},
-{e:"🔐",n:"pentest-lab",c:["learning"],b:"stable",d:"Pentest sandbox — cybersecurity challenges for beginners."},
-{e:"🐧",n:"linux-kids-lab",c:["learning"],b:"stable",d:"Linux in browser — files, pipes, scripts, terminal mastery."},
-{e:"🏭",n:"production-chain",c:["learning"],b:"stable",d:"Industrial production simulation — drag stations, watch flow."},
-{e:"🏫",n:"classroom",c:["classroom"],b:"stable",d:"PeerJS cloud classroom — rooms, screen-share, real-time chat."},
-{e:"🔌",n:"usb-logger",c:["microbit"],b:"stable",d:"USB serial browser tool for micro:bit — send, receive, log."},
-{e:"📡",n:"ble-logger",c:["microbit"],b:"stable",d:"BLE debug playground — inspect services, read/write characteristics."},
-{e:"🧰",n:"claude-toolkit",c:["ai","tools"],b:"dev",d:"Build apps with Claude AI — prompts, chat interface, API helpers."},
-{e:"🎭",n:"puppeteer",c:["tools"],b:"stable",d:"Browser automation — scrape, screenshot, test with Puppeteer."},
-{e:"🔋",n:"circuit-lab",c:["hardware","learning"],b:"dev",d:"Simulate circuits — LEDs, resistors, capacitors in browser."},
-{e:"🛡️",n:"vpn-guide",c:["tools"],b:"dev",d:"VPN & network security visual guide — encrypted tunnels explained."},
-{e:"🧊",n:"3d-lab",c:["learning"],b:"dev",d:"3D design in browser with Three.js — create, rotate, light."},
-{e:"🔀",n:"git-lab",c:["learning"],b:"dev",d:"Learn Git — commit, branch, merge, pull requests interactively."},
-{e:"✨",n:"prompt-hero",c:["ai","learning"],b:"dev",d:"Master AI prompting — techniques for ChatGPT, Claude, LLMs."},
-{e:"🌍",n:"save-planet",c:["learning"],b:"dev",d:"Climate & sustainability — quizzes, facts, action plans."},
-{e:"📋",n:"ops-catalog",c:["tools"],b:"dev",d:"DevOps tools catalog — CI/CD, Docker, Kubernetes."},
-{e:"💻",n:"code-kids",c:["learning"],b:"dev",d:"Learn HTML, CSS, JS from scratch — beginner exercises."},
-{e:"🏡",n:"smart-home",c:["hardware","learning"],b:"dev",d:"Smart home dashboard — sensors, lights, automations, IoT."},
-{e:"🧱",n:"makecode",c:["microbit","learning"],b:"dev",d:"Block-based MakeCode adventures — guided coding projects."},
-{e:"🤖",n:"54-activities",c:["microbit","learning"],b:"dev",d:"54 micro:bit activities — blinking LEDs to BLE robots."},
-{e:"💰",n:"crypto-vault",c:["learning"],b:"dev",d:"Cryptography basics — encrypt, hash, generate keys."},
-{e:"🔗",n:"dhcp-lab",c:["hardware"],b:"new",d:"Python DHCP server with real-time web dashboard."},
-{e:"🐳",n:"docker-lab",c:["learning"],b:"new",d:"Docker experiments — containers, images, volumes."},
-{e:"🔴",n:"nodered-lab",c:["learning"],b:"new",d:"Node-RED visual programming — wire APIs & hardware."},
-{e:"⛽",n:"ocpp",c:["tools"],b:"new",d:"OCPP 1.6J EV charging simulation ecosystem."},
-{e:"🖥️",n:"tty",c:["microbit"],b:"new",d:"Terminal for micro:bit — serial console in browser."}
+{e:"🤖",n:"bit-bot",c:["microbit"],b:"popular",d:"Pilotez un robot Bit:Bot via Bluetooth — joystick, suivi de ligne, évitement d'obstacles."},
+{e:"🪄",n:"magic-hands",c:["camera","ai"],b:"popular",d:"Effets magiques par suivi de mains — confettis, traînées néon, explosions de particules via MediaPipe."},
+{e:"🕵️",n:"face-quest",c:["camera","ai"],b:"popular",d:"Jeu de détection faciale — souriez, clignez, tournez pour marquer. 100% local & privé."},
+{e:"💬",n:"talking-robot",c:["microbit","ai"],b:"stable",d:"Robot qui parle, écoute, montre des émotions — commandes texte/voix via BLE."},
+{e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],b:"popular",d:"Entraînez des gestes dans le navigateur avec Teachable Machine, envoyez au micro:bit."},
+{e:"😎",n:"face-tracking",c:["camera","microbit"],b:"stable",d:"Suivi facial pour enfants avec événements — envoyez la position du visage au micro:bit via BLE."},
+{e:"😄",n:"bitmoji-lab",c:["microbit"],b:"stable",d:"Emoji vers pixel art LED 5×5 sur micro:bit — transfert BLE instantané."},
+{e:"🚀",n:"mission-control",c:["classroom","microbit"],b:"stable",d:"Tableau de bord avec vidéo/chat en direct via WebRTC — commandez des micro:bits."},
+{e:"🧩",n:"bit-playground",c:["microbit"],b:"stable",d:"L'ultime terrain de jeu BLE micro:bit — LEDs, capteurs, servos, moteurs."},
+{e:"🎛️",n:"rxy",c:["microbit"],b:"stable",d:"Constructeur de télécommande Bluetooth — glissez boutons, curseurs, D-pads."},
+{e:"🎨",n:"pixel-gateway",c:["tools"],b:"stable",d:"Portail rétro de pixel art — dessinez, animez, prévisualisez des sprites."},
+{e:"💡",n:"wled-kids-lab",c:["hardware","learning"],b:"stable",d:"Contrôlez des rubans LED Neopixel avec WLED — interface adaptée aux enfants."},
+{e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],b:"stable",d:"Labo pratique ESP32-C3 — LEDs, capteurs, WiFi, bases IoT."},
+{e:"🪙",n:"crypto-academy",c:["learning"],b:"stable",d:"Leçons crypto & blockchain — portefeuilles, minage, transactions."},
+{e:"🔐",n:"pentest-lab",c:["learning"],b:"stable",d:"Bac à sable pentest — défis cybersécurité pour débutants."},
+{e:"🐧",n:"linux-kids-lab",c:["learning"],b:"stable",d:"Linux dans le navigateur — fichiers, pipes, scripts, maîtrise du terminal."},
+{e:"🏭",n:"production-chain",c:["learning"],b:"stable",d:"Simulation de production industrielle — glissez les postes, observez le flux."},
+{e:"🏫",n:"classroom",c:["classroom"],b:"stable",d:"Salle de classe cloud PeerJS — salles, partage d'écran, chat temps réel."},
+{e:"🔌",n:"usb-logger",c:["microbit"],b:"stable",d:"Outil série USB navigateur pour micro:bit — envoi, réception, journal."},
+{e:"📡",n:"ble-logger",c:["microbit"],b:"stable",d:"Terrain de jeu débogage BLE — inspectez les services, lecture/écriture."},
+{e:"🧰",n:"claude-toolkit",c:["ai","tools"],b:"dev",d:"Construisez des apps avec IA — prompts, chat, helpers API."},
+{e:"🎭",n:"puppeteer",c:["tools"],b:"stable",d:"Automatisation navigateur — scrape, capture d'écran, test avec Puppeteer."},
+{e:"🔋",n:"circuit-lab",c:["hardware","learning"],b:"dev",d:"Simulez des circuits — LEDs, résistances, condensateurs dans le navigateur."},
+{e:"🛡️",n:"vpn-guide",c:["tools"],b:"dev",d:"Guide visuel VPN & sécurité réseau — tunnels chiffrés expliqués."},
+{e:"🧊",n:"3d-lab",c:["learning"],b:"dev",d:"Design 3D dans le navigateur avec Three.js — créez, pivotez, éclairez."},
+{e:"🔀",n:"git-lab",c:["learning"],b:"dev",d:"Apprenez Git — commit, branche, fusion, pull requests interactif."},
+{e:"✨",n:"prompt-hero",c:["ai","learning"],b:"dev",d:"Maîtrisez le prompting IA — techniques pour ChatGPT, LLMs."},
+{e:"🌍",n:"save-planet",c:["learning"],b:"dev",d:"Climat & durabilité — quiz, faits, plans d'action."},
+{e:"📋",n:"ops-catalog",c:["tools"],b:"dev",d:"Catalogue d'outils DevOps — CI/CD, Docker, Kubernetes."},
+{e:"💻",n:"code-kids",c:["learning"],b:"dev",d:"Apprenez HTML, CSS, JS depuis zéro — exercices débutants."},
+{e:"🏡",n:"smart-home",c:["hardware","learning"],b:"dev",d:"Tableau de bord maison connectée — capteurs, lumières, automatisations, IoT."},
+{e:"🧱",n:"makecode",c:["microbit","learning"],b:"dev",d:"Aventures MakeCode en blocs — projets de code guidés."},
+{e:"🤖",n:"54-activities",c:["microbit","learning"],b:"dev",d:"54 activités micro:bit — des LEDs clignotantes aux robots BLE."},
+{e:"💰",n:"crypto-vault",c:["learning"],b:"dev",d:"Bases de cryptographie — chiffrement, hachage, génération de clés."},
+{e:"🔗",n:"dhcp-lab",c:["hardware"],b:"new",d:"Serveur DHCP Python avec tableau de bord web en temps réel."},
+{e:"🐳",n:"docker-lab",c:["learning"],b:"new",d:"Expériences Docker — conteneurs, images, volumes."},
+{e:"🔴",n:"nodered-lab",c:["learning"],b:"new",d:"Programmation visuelle Node-RED — connectez APIs & matériel."},
+{e:"⛽",n:"ocpp",c:["tools"],b:"new",d:"Écosystème de simulation de recharge VE OCPP 1.6J."},
+{e:"🖥️",n:"tty",c:["microbit"],b:"new",d:"Terminal pour micro:bit — console série dans le navigateur."}
 ];
 
 const CATS={
   microbit:{e:"🤖",n:"micro:bit",col:"#00d4ff"},
-  camera:{e:"📸",n:"Camera",col:"#ffd700"},
-  ai:{e:"🧠",n:"AI",col:"#bf00ff"},
-  hardware:{e:"🔩",n:"Hardware",col:"#ff8800"},
-  learning:{e:"📚",n:"Learning",col:"#00ff41"},
-  classroom:{e:"🏫",n:"Classroom",col:"#0066ff"},
-  tools:{e:"🛠️",n:"Tools",col:"#ff0033"}
+  camera:{e:"📸",n:"Caméra",col:"#ffd700"},
+  ai:{e:"🧠",n:"IA",col:"#bf00ff"},
+  hardware:{e:"🔩",n:"Matériel",col:"#ff8800"},
+  learning:{e:"📚",n:"Apprentissage",col:"#00ff41"},
+  classroom:{e:"🏫",n:"Classe",col:"#0066ff"},
+  tools:{e:"🛠️",n:"Outils",col:"#ff0033"}
 };
 
 // ═══ PHYSICS NODES ═══
@@ -382,7 +382,7 @@ function selectApp(idx){
   document.getElementById('prN').textContent=a.n;
   document.getElementById('prD').textContent=a.d;
   document.getElementById('prC').innerHTML=a.c.map(c=>`<span class="pr-cat c-${c}">${CATS[c]?.e||''} ${CATS[c]?.n||c}</span>`).join('');
-  const bMap={popular:'b-popular">⭐ POPULAR',stable:'b-stable">✅ STABLE',dev:'b-dev">🔧 DEV',new:'b-new">✨ NEW'};
+  const bMap={popular:'b-popular">⭐ POPULAIRE',stable:'b-stable">✅ STABLE',dev:'b-dev">🔧 DÉV',new:'b-new">✨ NOUVEAU'};
   document.getElementById('prB').innerHTML=`<span class="pr-badge ${bMap[a.b]||''}</span>`;
   document.getElementById('prL').href=`https://abourdim.github.io/${a.n}/`;
 
@@ -414,7 +414,7 @@ const catBtns=document.getElementById('catBtns');
 // All button
 const allBtn=document.createElement('button');
 allBtn.className='cat-btn on';allBtn.dataset.k='all';
-allBtn.innerHTML=`<span class="dot" style="background:var(--g)"></span>All <span class="cnt">${APPS.length}</span>`;
+allBtn.innerHTML=`<span class="dot" style="background:var(--g)"></span>Tout <span class="cnt">${APPS.length}</span>`;
 allBtn.onclick=()=>setFilter(null);
 catBtns.appendChild(allBtn);
 
@@ -470,8 +470,7 @@ document.addEventListener('keydown',e=>{
 setInterval(()=>{document.getElementById('clock').textContent=new Date().toTimeString().slice(0,8)},1000);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

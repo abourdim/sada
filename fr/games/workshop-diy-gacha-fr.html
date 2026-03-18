@@ -77,7 +77,7 @@ body{background:#0a0a12;font-family:'JetBrains Mono',monospace;color:#fff;displa
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <div class="machine">
   <div class="m-title">APP GACHA</div>
-  <div class="m-sub">SPIN TO DISCOVER WORKSHOP-DIY APPS</div>
+  <div class="m-sub">TOURNEZ POUR DÉCOUVRIR LES APPS WORKSHOP-DIY</div>
 
   <div class="reels">
     <div class="reel"><div class="reel-strip" id="r0"></div></div>
@@ -92,26 +92,26 @@ body{background:#0a0a12;font-family:'JetBrains Mono',monospace;color:#fff;displa
   </div>
 
   <div class="lever-area">
-    <button class="lever-btn" id="spinBtn" onclick="spin()">🎰 SPIN</button>
-    <div class="spins-left">∞ spins remaining // it's free</div>
+    <button class="lever-btn" id="spinBtn" onclick="spin()">🎰 TOURNER</button>
+    <div class="spins-left">∞ tours restants // c'est gratuit</div>
   </div>
 
   <div class="stats">
-    <div class="stat"><div class="v" id="sTotal">0</div><div class="l">SPINS</div></div>
-    <div class="stat"><div class="v" id="sCollected">0</div><div class="l">COLLECTED</div></div>
-    <div class="stat"><div class="v" id="sLegendary">0</div><div class="l">LEGENDARY</div></div>
+    <div class="stat"><div class="v" id="sTotal">0</div><div class="l">TOURS</div></div>
+    <div class="stat"><div class="v" id="sCollected">0</div><div class="l">COLLECTÉES</div></div>
+    <div class="stat"><div class="v" id="sLegendary">0</div><div class="l">LÉGENDAIRES</div></div>
     <div class="stat"><div class="v" id="sStreak">0</div><div class="l">NOUVELLE SÉRIE</div></div>
   </div>
 
   <div style="text-align:center;margin-top:8px">
-    <button onclick="document.querySelector('.collection').classList.add('open')" style="background:none;border:1px solid rgba(255,255,255,.05);border-radius:4px;color:rgba(255,255,255,.2);font-family:inherit;font-size:8px;padding:3px 10px;cursor:pointer">📦 VIEW COLLECTION</button>
+    <button onclick="document.querySelector('.collection').classList.add('open')" style="background:none;border:1px solid rgba(255,255,255,.05);border-radius:4px;color:rgba(255,255,255,.2);font-family:inherit;font-size:8px;padding:3px 10px;cursor:pointer">📦 VOIR LA COLLECTION</button>
   </div>
 </div>
 
 <div class="collection">
   <div class="coll-box">
     <div class="coll-h">📦 COLLECTION</div>
-    <div class="coll-close"><button onclick="this.closest('.collection').classList.remove('open')">✕ CLOSE</button></div>
+    <div class="coll-close"><button onclick="this.closest('.collection').classList.remove('open')">✕ FERMER</button></div>
     <div class="coll-grid" id="collGrid"></div>
   </div>
 </div>
@@ -119,45 +119,45 @@ body{background:#0a0a12;font-family:'JetBrains Mono',monospace;color:#fff;displa
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",d:"Robot BLE control",r:"legendary"},
-{e:"🪄",n:"magic-hands",d:"Hand tracking magic",r:"legendary"},
-{e:"🕵️",n:"face-quest",d:"Face detection game",r:"legendary"},
-{e:"🧠",n:"teachable-machine",d:"Train AI gestures",r:"legendary"},
-{e:"💬",n:"talking-robot",d:"Voice robot",r:"epic"},
-{e:"😎",n:"face-tracking",d:"Face position",r:"epic"},
-{e:"🚀",n:"mission-control",d:"WebRTC dashboard",r:"epic"},
-{e:"🔐",n:"pentest-lab",d:"Ethical hacking",r:"epic"},
-{e:"🐧",n:"linux-kids-lab",d:"Browser Linux",r:"epic"},
-{e:"🧰",n:"claude-toolkit",d:"AI dev tools",r:"epic"},
-{e:"😄",n:"bitmoji-lab",d:"Emoji to LED",r:"rare"},
-{e:"🧩",n:"bit-playground",d:"micro:bit play",r:"rare"},
-{e:"🎛️",n:"rxy",d:"BLE remote builder",r:"rare"},
-{e:"🎨",n:"pixel-gateway",d:"Pixel art editor",r:"rare"},
-{e:"💡",n:"wled-kids-lab",d:"LED control",r:"rare"},
-{e:"⚡",n:"esp32-c3",d:"IoT lab",r:"rare"},
+{e:"🤖",n:"bit-bot",d:"Contrôle robot BLE",r:"legendary"},
+{e:"🪄",n:"magic-hands",d:"Magie du suivi des mains",r:"legendary"},
+{e:"🕵️",n:"face-quest",d:"Jeu de détection faciale",r:"legendary"},
+{e:"🧠",n:"teachable-machine",d:"Entraîner gestes IA",r:"legendary"},
+{e:"💬",n:"talking-robot",d:"Robot vocal",r:"epic"},
+{e:"😎",n:"face-tracking",d:"Position du visage",r:"epic"},
+{e:"🚀",n:"mission-control",d:"Tableau de bord WebRTC",r:"epic"},
+{e:"🔐",n:"pentest-lab",d:"Hacking éthique",r:"epic"},
+{e:"🐧",n:"linux-kids-lab",d:"Linux navigateur",r:"epic"},
+{e:"🧰",n:"claude-toolkit",d:"Outils dev IA",r:"epic"},
+{e:"😄",n:"bitmoji-lab",d:"Emoji vers LED",r:"rare"},
+{e:"🧩",n:"bit-playground",d:"Jeu micro:bit",r:"rare"},
+{e:"🎛️",n:"rxy",d:"Constructeur télécommande BLE",r:"rare"},
+{e:"🎨",n:"pixel-gateway",d:"Éditeur pixel art",r:"rare"},
+{e:"💡",n:"wled-kids-lab",d:"Contrôle LED",r:"rare"},
+{e:"⚡",n:"esp32-c3",d:"Labo IoT",r:"rare"},
 {e:"🪙",n:"crypto-academy",d:"Blockchain 101",r:"rare"},
-{e:"🏭",n:"production-chain",d:"Factory sim",r:"rare"},
-{e:"🏫",n:"classroom",d:"Cloud classroom",r:"rare"},
-{e:"🎭",n:"puppeteer",d:"Browser automation",r:"rare"},
-{e:"✨",n:"prompt-hero",d:"AI prompting",r:"rare"},
-{e:"🏡",n:"smart-home",d:"IoT dashboard",r:"rare"},
-{e:"🔌",n:"usb-logger",d:"USB serial",r:"common"},
-{e:"📡",n:"ble-logger",d:"BLE debugger",r:"common"},
-{e:"🔋",n:"circuit-lab",d:"Circuit sim",r:"common"},
-{e:"🛡️",n:"vpn-guide",d:"Network security",r:"common"},
-{e:"🧊",n:"3d-lab",d:"3D design",r:"common"},
-{e:"🔀",n:"git-lab",d:"Learn Git",r:"common"},
-{e:"🌍",n:"save-planet",d:"Eco lessons",r:"common"},
-{e:"📋",n:"ops-catalog",d:"DevOps tools",r:"common"},
+{e:"🏭",n:"production-chain",d:"Simulation usine",r:"rare"},
+{e:"🏫",n:"classroom",d:"Classe virtuelle",r:"rare"},
+{e:"🎭",n:"puppeteer",d:"Automatisation navigateur",r:"rare"},
+{e:"✨",n:"prompt-hero",d:"Prompting IA",r:"rare"},
+{e:"🏡",n:"smart-home",d:"Tableau de bord IoT",r:"rare"},
+{e:"🔌",n:"usb-logger",d:"USB série",r:"common"},
+{e:"📡",n:"ble-logger",d:"Débogueur BLE",r:"common"},
+{e:"🔋",n:"circuit-lab",d:"Simulation circuits",r:"common"},
+{e:"🛡️",n:"vpn-guide",d:"Sécurité réseau",r:"common"},
+{e:"🧊",n:"3d-lab",d:"Design 3D",r:"common"},
+{e:"🔀",n:"git-lab",d:"Apprendre Git",r:"common"},
+{e:"🌍",n:"save-planet",d:"Leçons écologie",r:"common"},
+{e:"📋",n:"ops-catalog",d:"Outils DevOps",r:"common"},
 {e:"💻",n:"code-kids",d:"HTML/CSS/JS",r:"common"},
-{e:"🧱",n:"makecode",d:"Block coding",r:"common"},
-{e:"🤖",n:"54-activities",d:"54 projects",r:"common"},
-{e:"💰",n:"crypto-vault",d:"Cryptography",r:"common"},
-{e:"🔗",n:"dhcp-lab",d:"DHCP server",r:"common"},
-{e:"🐳",n:"docker-lab",d:"Docker basics",r:"common"},
-{e:"🔴",n:"nodered-lab",d:"Node-RED flows",r:"common"},
-{e:"⛽",n:"ocpp",d:"EV charging",r:"common"},
-{e:"🖥️",n:"tty",d:"Serial terminal",r:"common"},
+{e:"🧱",n:"makecode",d:"Programmation blocs",r:"common"},
+{e:"🤖",n:"54-activities",d:"54 projets",r:"common"},
+{e:"💰",n:"crypto-vault",d:"Cryptographie",r:"common"},
+{e:"🔗",n:"dhcp-lab",d:"Serveur DHCP",r:"common"},
+{e:"🐳",n:"docker-lab",d:"Bases Docker",r:"common"},
+{e:"🔴",n:"nodered-lab",d:"Flux Node-RED",r:"common"},
+{e:"⛽",n:"ocpp",d:"Recharge EV",r:"common"},
+{e:"🖥️",n:"tty",d:"Terminal série",r:"common"},
 ];
 
 let spinning=false,totalSpins=0,collected=new Set(),legendary=0,streak=0;
@@ -228,10 +228,11 @@ function showResult(app){
     collected.add(app.n);
     if(isNew){streak++;if(app.r==='legendary')legendary++}else streak=0;
 
-    document.getElementById('resName').textContent=(isNew?'✨ NEW! ':'')+ app.e+' '+app.n;
+    document.getElementById('resName').textContent=(isNew?'✨ NOUVEAU ! ':'')+ app.e+' '+app.n;
     document.getElementById('resDesc').textContent=app.d;
     const rarEl=document.getElementById('resRar');
-    rarEl.textContent=app.r.toUpperCase();
+    const rarNames={legendary:'LÉGENDAIRE',epic:'ÉPIQUE',rare:'RARE',common:'COMMUN'};
+    rarEl.textContent=rarNames[app.r]||app.r.toUpperCase();
     rarEl.className='result-rarity rar-'+app.r;
 
     document.querySelectorAll('.result-name,.result-desc,.result-rarity').forEach(e=>e.classList.add('show'));
@@ -275,8 +276,7 @@ function updateCollection(){
 updateCollection();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

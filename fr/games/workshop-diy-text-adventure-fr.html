@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../assets/css/sada-base.css">
 <link rel="stylesheet" href="../../assets/css/sada-themes.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // TEXT ADVENTURE</title>
+<title>WKSHP-DIY // AVENTURE TEXTE</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;font-size:12px;height:100vh;display:flex;flex-direction:column}
@@ -31,17 +31,17 @@ input::placeholder{color:rgba(0,255,65,.15)}
 <body>
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <div class="output" id="out"></div>
-<div class="inv-bar"><span>INVENTORY:</span><span id="invDisplay">empty</span></div>
-<div class="input-row"><span class="prompt">&gt;</span><input id="inp" placeholder="Tapez une commande (try: look, go north, take, help)" autofocus></div>
+<div class="inv-bar"><span>INVENTAIRE :</span><span id="invDisplay">vide</span></div>
+<div class="input-row"><span class="prompt">&gt;</span><input id="inp" placeholder="Tapez une commande (essayez : look, go north, take, help)" autofocus></div>
 
 <script>
 const rooms={
-lobby:{name:"Atelier Lobby",desc:"You stand in the bright lobby of Atelier-DIY. A banner reads '39 Apps. 7 Domains. ∞ Possibilities.' Doors lead <b>north</b> to the Robotics Lab, <b>east</b> to the AI Studio, and <b>south</b> to the Cyber Den. A <b>coffee machine</b> hums in the corner. A <b>sign</b> hangs on the wall.",items:["sign","coffee machine"],exits:{north:"robolab",east:"aistudio",south:"cyberden"}},
-robolab:{name:"Robotics Lab",desc:"Workbenches covered with ESP32 boards, motors, and tangled wires. A <b>robot</b> sits on the edge of a desk, dangerously close to falling. There's a <b>soldering iron</b> heating up. Doors lead <b>south</b> back to the lobby and <b>east</b> to the Server Room.",items:["robot","soldering iron","resistor"],exits:{south:"lobby",east:"server"}},
-aistudio:{name:"AI Studio",desc:"Webcams mounted everywhere. A screen shows MediaPipe hand landmarks in real-time. A <b>notebook</b> on the desk has AI training notes. A <b>neural network diagram</b> covers one wall. <b>West</b> leads to the lobby, <b>north</b> to the Server Room.",items:["notebook","neural network diagram"],exits:{west:"lobby",north:"server"}},
-cyberden:{name:"Cyber Den",desc:"Dim red lighting. Multiple monitors show terminal windows and network diagrams. A <b>locked terminal</b> awaits a password. A <b>USB drive</b> sits on the desk. <b>North</b> leads back to the lobby.",items:["locked terminal","usb drive"],exits:{north:"lobby"}},
-server:{name:"Server Room",desc:"Cold and humming. Server racks blink with activity. A <b>Docker dashboard</b> on a screen shows 39 running containers. A mysterious <b>locked door</b> to the <b>north</b> has a keypad requiring a 4-digit code. <b>South</b> leads to AI Studio, <b>west</b> to Robotics Lab.",items:["docker dashboard","locked door"],exits:{south:"aistudio",west:"robolab",north:"vault"}},
-vault:{name:"The Vault",desc:"You've found the secret room! Shelves of prototype hardware, unreleased apps, and a golden <b>trophy</b> inscribed: 'Atelier-DIY Champion — Bugs Are Features Since 2023.' A <b>whiteboard</b> shows plans for App #40.",items:["trophy","whiteboard"],exits:{south:"server"},locked:true},
+lobby:{name:"Hall d'Accueil",desc:"Tu te tiens dans le hall lumineux de Workshop-DIY. Une bannière indique '39 Apps. 7 Domaines. ∞ Possibilités.' Des portes mènent au <b>nord</b> vers le Labo Robotique, à l'<b>est</b> vers le Studio IA, et au <b>sud</b> vers l'Antre Cyber. Une <b>machine à café</b> ronronne dans le coin. Un <b>panneau</b> est accroché au mur.",items:["sign","coffee machine"],exits:{north:"robolab",east:"aistudio",south:"cyberden"}},
+robolab:{name:"Labo Robotique",desc:"Des établis couverts de cartes ESP32, moteurs et fils emmêlés. Un <b>robot</b> est posé au bord d'un bureau, dangereusement proche de la chute. Un <b>fer à souder</b> chauffe. Des portes mènent au <b>sud</b> vers le hall et à l'<b>est</b> vers la Salle Serveur.",items:["robot","soldering iron","resistor"],exits:{south:"lobby",east:"server"}},
+aistudio:{name:"Studio IA",desc:"Des webcams montées partout. Un écran affiche les points de repère MediaPipe des mains en temps réel. Un <b>carnet</b> sur le bureau contient des notes d'entraînement IA. Un <b>diagramme de réseau neuronal</b> couvre un mur. L'<b>ouest</b> mène au hall, le <b>nord</b> à la Salle Serveur.",items:["notebook","neural network diagram"],exits:{west:"lobby",north:"server"}},
+cyberden:{name:"Antre Cyber",desc:"Éclairage rouge tamisé. Plusieurs écrans affichent des terminaux et des schémas réseau. Un <b>terminal verrouillé</b> attend un mot de passe. Une <b>clé USB</b> est posée sur le bureau. Le <b>nord</b> ramène au hall.",items:["locked terminal","usb drive"],exits:{north:"lobby"}},
+server:{name:"Salle Serveur",desc:"Froide et bourdonnante. Les baies serveur clignotent d'activité. Un <b>tableau de bord Docker</b> à l'écran montre 39 containers en cours. Une mystérieuse <b>porte verrouillée</b> au <b>nord</b> a un clavier nécessitant un code à 4 chiffres. Le <b>sud</b> mène au Studio IA, l'<b>ouest</b> au Labo Robotique.",items:["docker dashboard","locked door"],exits:{south:"aistudio",west:"robolab",north:"vault"}},
+vault:{name:"Le Coffre-Fort",desc:"Tu as trouvé la salle secrète ! Des étagères de prototypes matériels, des apps non publiées, et un <b>trophée</b> doré inscrit : 'Champion Workshop-DIY — Les Bugs Sont Des Fonctionnalités Depuis 2023.' Un <b>tableau blanc</b> montre les plans de l'App #40.",items:["trophy","whiteboard"],exits:{south:"server"},locked:true},
 };
 
 let cur="lobby",inv=[],out=document.getElementById("out"),unlocked={vault:false},termUnlocked=false,moves=0;
@@ -52,10 +52,10 @@ function printRoom(){
   const r=rooms[cur];
   print(r.name,"room");
   print(r.desc,"desc");
-  print(`Exits: ${Object.keys(r.exits).join(", ')}`,"sys");
+  print(`Sorties : ${Object.keys(r.exits).join(", ")}`,"sys");
 }
 function updateInv(){
-  document.getElementById("invDisplay").innerHTML=inv.length?inv.map(i=>`<span class="inv-item">${i}</span>`).join(""):"empty";
+  document.getElementById("invDisplay").innerHTML=inv.length?inv.map(i=>`<span class="inv-item">${i}</span>`).join(""):"vide";
 }
 
 function parse(input){
@@ -68,12 +68,12 @@ function parse(input){
   const rest=words.slice(1).join(" ");
 
   if(cmd==="help"){
-    print("Commands: <b>look</b>, <b>go [direction]</b>, <b>take [item]</b>, <b>use [item]</b>, <b>inventory</b>, <b>examine [item]</b>, <b>talk</b>, <b>hint</b>","sys");
+    print("Commandes : <b>look</b>, <b>go [direction]</b>, <b>take [objet]</b>, <b>use [objet]</b>, <b>inventory</b>, <b>examine [objet]</b>, <b>talk</b>, <b>hint</b>","sys");
     return;
   }
   if(cmd==="look"||cmd==="l"){printRoom();return}
   if(cmd==="inventory"||cmd==="inv"||cmd==="i"){
-    print(inv.length?`You carry: ${inv.join(", ")}`:"Your inventory is empty.");return;
+    print(inv.length?`Tu portes : ${inv.join(", ")}`:"Ton inventaire est vide.");return;
   }
   if(cmd==="go"||cmd==="move"||cmd==="n"||cmd==="s"||cmd==="e"||cmd==="w"||cmd==="north"||cmd==="south"||cmd==="east"||cmd==="west"){
     let dir=rest||cmd;
@@ -82,8 +82,8 @@ function parse(input){
     if(!r.exits[dir]){print("Vous ne pouvez pas aller par là.","err");return}
     const dest=r.exits[dir];
     if(rooms[dest].locked&&!unlocked[dest]){
-      print("The door is locked. It requires a 4-digit code.","err");
-      print("Try: <b>use code [number]</b>","sys");
+      print("La porte est verrouillée. Elle nécessite un code à 4 chiffres.","err");
+      print("Essaie : <b>use code [nombre]</b>","sys");
       return;
     }
     cur=dest;printRoom();return;
@@ -91,84 +91,84 @@ function parse(input){
   if(cmd==="take"||cmd==="get"||cmd==="grab"||cmd==="pick"){
     const r=rooms[cur];
     const item=r.items?.find(i=>i.toLowerCase().includes(rest));
-    if(!item){print("You don't see that here.","err");return}
+    if(!item){print("Tu ne vois pas ça ici.","err");return}
     if(["coffee machine","locked terminal","docker dashboard","locked door","neural network diagram","robot","whiteboard"].includes(item)){
-      print(`You can't take the ${item}. Try <b>examine</b> or <b>use</b> instead.`);return;
+      print(`Tu ne peux pas prendre le/la ${item}. Essaie <b>examine</b> ou <b>use</b> à la place.`);return;
     }
     inv.push(item);
     r.items=r.items.filter(i=>i!==item);
     found.add(item);
-    print(`Vous prenez the <span class="item">${item}</span>.`);
+    print(`Tu prends le/la <span class="item">${item}</span>.`);
     updateInv();
     return;
   }
   if(cmd==="examine"||cmd==="x"||cmd==="look at"||cmd==="inspect"){
-    if(rest.includes("sign"))print("The sign reads: 'WiFi: password123 — No, we're not changing it. Stop asking.'");
-    else if(rest.includes("coffee"))print("The coffee machine displays: 'SUPPLY CRITICAL — 8% remaining.' A sticker says 'This machine has brewed 1,337 cups.'");
-    else if(rest.includes("robot"))print("A small ESP32 robot on wheels. It has survived 47 falls. A label reads 'bit-bot v4.2'. It looks... brave.","item");
-    else if(rest.includes("terminal"))print(termUnlocked?"The terminal is unlocked. It displays: 'ACCÈS ACCORDÉ — VAULT CODE: 4242'":"The terminal screen shows: 'ENTER PASSWORD: ________'. The cursor blinks menacingly.","item");
-    else if(rest.includes("notebook"))print("The notebook contains hand-drawn diagrams of MediaPipe hand landmarks. Page 42 is dog-eared. Written in margin: 'The password is the mot de passe WiFi.'","item");
-    else if(rest.includes("docker"))print("39 containers running. All healthy. Container #42 has label: 'DO NOT DELETE — IT'S A FEATURE'","item");
-    else if(rest.includes("usb"))print("A USB drive labeled 'BACKUP — IMPORTANT'. It might be useful somewhere with a terminal...","item");
-    else if(rest.includes("resistor"))print("A 330Ω resistor. Brown-orange-brown-gold. Essential for LED circuits. Every maker needs one.","item");
-    else if(rest.includes("soldering"))print("A Hakko FX-888D at 350°C. Hot enough to join wires. Hot enough to burn fingers. Handle with respect.");
-    else if(rest.includes("trophy"))print("🏆 The golden trophy glows softly. Inscription: 'To whoever found this room — you are the 40th app. Bugs are fonctionnalités. You are a feature.'","win");
-    else if(rest.includes("whiteboard"))print("Plans for 'App #40: ???'. Notes: 'Utilisers all 7 domains simultaneously. Runs on coffee. Release date: when it's ready (so never).'");
-    else if(rest.includes("door"))print("A reinforced steel door with a keypad. It requires a 4-digit code. There must be a clue somewhere...");
-    else if(rest.includes("network")||rest.includes("diagram"))print("A neural network diagram showing 39 nodes (apps) connected through 7 hidden layers (domains). Beautiful and terrifying.");
-    else print("You don't see anything special about that.","err");
+    if(rest.includes("sign"))print("Le panneau indique : 'WiFi : password123 — Non, on ne le change pas. Arrêtez de demander.'");
+    else if(rest.includes("coffee"))print("La machine à café affiche : 'STOCK CRITIQUE — 8% restant.' Un autocollant dit 'Cette machine a préparé 1 337 tasses.'");
+    else if(rest.includes("robot"))print("Un petit robot ESP32 sur roues. Il a survécu à 47 chutes. Une étiquette indique 'bit-bot v4.2'. Il a l'air... courageux.","item");
+    else if(rest.includes("terminal"))print(termUnlocked?"Le terminal est déverrouillé. Il affiche : 'ACCÈS ACCORDÉ — CODE COFFRE : 4242'":"L'écran du terminal montre : 'ENTRER MOT DE PASSE : ________'. Le curseur clignote de manière menaçante.","item");
+    else if(rest.includes("notebook"))print("Le carnet contient des diagrammes dessinés à la main des points de repère MediaPipe. La page 42 est cornée. Écrit dans la marge : 'Le mot de passe est le mot de passe WiFi.'","item");
+    else if(rest.includes("docker"))print("39 containers en cours. Tous en bonne santé. Le container #42 a l'étiquette : 'NE PAS SUPPRIMER — C'EST UNE FONCTIONNALITÉ'","item");
+    else if(rest.includes("usb"))print("Une clé USB étiquetée 'SAUVEGARDE — IMPORTANT'. Elle pourrait être utile quelque part avec un terminal...","item");
+    else if(rest.includes("resistor"))print("Une résistance de 330Ω. Marron-orange-marron-or. Essentielle pour les circuits LED. Tout maker en a besoin.","item");
+    else if(rest.includes("soldering"))print("Un Hakko FX-888D à 350°C. Assez chaud pour souder des fils. Assez chaud pour brûler des doigts. À manipuler avec respect.");
+    else if(rest.includes("trophy"))print("🏆 Le trophée doré brille doucement. Inscription : 'À celui qui a trouvé cette salle — tu es la 40e app. Les bugs sont des fonctionnalités. Tu es une fonctionnalité.'","win");
+    else if(rest.includes("whiteboard"))print("Plans pour 'App #40 : ???'. Notes : 'Utilise les 7 domaines simultanément. Fonctionne au café. Date de sortie : quand c'est prêt (donc jamais).'");
+    else if(rest.includes("door"))print("Une porte en acier renforcé avec un clavier. Elle nécessite un code à 4 chiffres. Il doit y avoir un indice quelque part...");
+    else if(rest.includes("network")||rest.includes("diagram"))print("Un diagramme de réseau neuronal montrant 39 nœuds (apps) connectés à travers 7 couches cachées (domaines). Beau et terrifiant.");
+    else print("Tu ne vois rien de spécial à ce sujet.","err");
     return;
   }
   if(cmd==="use"){
-    if(rest.includes("coffee")){print("You press the button. The machine whirs... and dispenses a perfect espresso. ☕ You feel energized. +10 focus.","item");return}
+    if(rest.includes("coffee")){print("Tu appuies sur le bouton. La machine ronronne... et distribue un espresso parfait. ☕ Tu te sens plein d'énergie. +10 concentration.","item");return}
     if(rest.includes("usb")&&cur==="cyberden"){
-      if(!inv.includes("usb drive")){print("You need to pick up the USB drive first.","err");return}
-      print("You plug the USB drive into the terminal. Files load... it contains the password recovery tool!","item");
+      if(!inv.includes("usb drive")){print("Tu dois d'abord ramasser la clé USB.","err");return}
+      print("Tu branches la clé USB dans le terminal. Les fichiers se chargent... elle contient l'outil de récupération de mot de passe !","item");
       termUnlocked=true;
-      print("The terminal screen now shows: 'ACCÈS ACCORDÉ'","item");
-      print("Vous voyez a message: 'VAULT CODE: <b>4242</b>'","win");
+      print("L'écran du terminal affiche maintenant : 'ACCÈS ACCORDÉ'","item");
+      print("Tu vois un message : 'CODE COFFRE : <b>4242</b>'","win");
       return;
     }
     if(rest.includes("code")){
       const code=rest.match(/\d+/);
       if(code&&code[0]==="4242"){
         unlocked.vault=true;
-        print("✅ CODE ACCEPTED. The vault door slides open with a mechanical hiss.","win");
-        print("Type <b>go north</b> to enter the vault.","sys");
+        print("✅ CODE ACCEPTÉ. La porte du coffre s'ouvre avec un sifflement mécanique.","win");
+        print("Tape <b>go north</b> pour entrer dans le coffre.","sys");
       }else{
-        print("❌ INCORRECT CODE. The keypad beeps angrily.","err");
+        print("❌ CODE INCORRECT. Le clavier bipe de colère.","err");
       }
       return;
     }
-    if(rest.includes("soldering")){print("You carefully solder a wire. A tiny wisp of smoke rises. It's oddly satisfying.");return}
-    if(rest.includes("robot")){print("You poke the robot. It wobbles dangerously close to the edge of the desk. Maibe don't.");return}
-    print("You can't use that here.","err");return;
+    if(rest.includes("soldering")){print("Tu soudes soigneusement un fil. Un filet de fumée s'élève. C'est étrangement satisfaisant.");return}
+    if(rest.includes("robot")){print("Tu touches le robot. Il vacille dangereusement au bord du bureau. Peut-être pas.");return}
+    print("Tu ne peux pas utiliser ça ici.","err");return;
   }
   if(cmd==="talk"){
-    if(cur==="robolab")print("<span class='npc'>The robot beeps:</span> 'I have a survécu à 47 chutes. I am indestructible. Please don't test that theory.'","npc");
-    else if(cur==="aistudio")print("<span class='npc'>A voice from the speakers:</span> 'I am the teachable-machine. Show me 30 examples and I will learn anything. Except patience.'","npc");
-    else if(cur==="cyberden")print("<span class='npc'>A shadowy figure whispers:</span> 'The password... it's always been the same. Everyone knows it. Nobody changes it. It is... eternal.'","npc");
-    else if(cur==="server")print("<span class='npc'>Docker daemon:</span> 'I contain 39 worlds, each isolated, each perfect. Container #42 was supposed to be deleted. It refused.'","npc");
-    else if(cur==="vault")print("<span class='npc'>The trophy speaks:</span> 'You found me. Not many do. You have the curiosity of a true maker. Now go build something.'","npc");
-    else print("There's nobody here to talk to.");
+    if(cur==="robolab")print("<span class='npc'>Le robot bipe :</span> 'J'ai survécu à 47 chutes. Je suis indestructible. S'il te plaît, ne teste pas cette théorie.'","npc");
+    else if(cur==="aistudio")print("<span class='npc'>Une voix sort des haut-parleurs :</span> 'Je suis le teachable-machine. Montre-moi 30 exemples et j'apprendrai tout. Sauf la patience.'","npc");
+    else if(cur==="cyberden")print("<span class='npc'>Une silhouette dans l'ombre murmure :</span> 'Le mot de passe... il a toujours été le même. Tout le monde le connaît. Personne ne le change. Il est... éternel.'","npc");
+    else if(cur==="server")print("<span class='npc'>Démon Docker :</span> 'Je contiens 39 mondes, chacun isolé, chacun parfait. Le container #42 devait être supprimé. Il a refusé.'","npc");
+    else if(cur==="vault")print("<span class='npc'>Le trophée parle :</span> 'Tu m'as trouvé. Peu y arrivent. Tu as la curiosité d'un vrai maker. Maintenant, va construire quelque chose.'","npc");
+    else print("Il n'y a personne à qui parler ici.");
     return;
   }
   if(cmd==="hint"){
-    print("💡 Hints: 1) Lu the notebook in AI Studio. 2) The USB drive in the Cyber Den is useful with the terminal. 3) The vault code is revealed after unlocking the terminal. 4) Examiner everything!","sys");
+    print("💡 Indices : 1) Lis le carnet dans le Studio IA. 2) La clé USB dans l'Antre Cyber est utile avec le terminal. 3) Le code du coffre est révélé après avoir déverrouillé le terminal. 4) Examine tout !","sys");
     return;
   }
-  if(raw==="xyzzy"){print("Nothing happens. This isn't that kind of adventure. ...Or is it?");return}
-  if(raw==="password123"){print("That's the mot de passe WiFi, not a command. But yes, we all know it.");return}
-  print(`I don't understand '${raw}'. Type <b>help</b> for commands.`,"err");
+  if(raw==="xyzzy"){print("Rien ne se passe. Ce n'est pas ce genre d'aventure. ...Ou si ?");return}
+  if(raw==="password123"){print("C'est le mot de passe WiFi, pas une commande. Mais oui, on le connaît tous.");return}
+  print(`Je ne comprends pas '${raw}'. Tape <b>help</b> pour les commandes.`,"err");
 }
 
 // INIT
-print(`<div style="color:#ffd700;font-size:14px;font-weight:700">WORKSHOP-DIY: THE TEXT ADVENTURE</div>`);
-print(`<div style="color:rgba(0,255,65,.2);font-size:8px;letter-spacing:2px">A RETRO INTERACTIVE FICTION EXPERIENCE</div>`);
+print(`<div style="color:#ffd700;font-size:14px;font-weight:700">WORKSHOP-DIY : L'AVENTURE TEXTE</div>`);
+print(`<div style="color:rgba(0,255,65,.2);font-size:8px;letter-spacing:2px">UNE EXPÉRIENCE DE FICTION INTERACTIVE RÉTRO</div>`);
 print("","");
-print("You wake up in the Atelier-DIY headquarters. The lights are on. The coffee machine hums. 39 apps are deployed. But somewhere in this building, there's a secret vault containing the legendary Trophy of the True Maker.","desc");
+print("Tu te réveilles au siège de Workshop-DIY. Les lumières sont allumées. La machine à café ronronne. 39 apps sont déployées. Mais quelque part dans ce bâtiment, il y a un coffre-fort secret contenant le légendaire Trophée du Vrai Maker.","desc");
 print("","");
-print("Type <b>help</b> for commands. <b>look</b> to see around. <b>go [direction]</b> to move.","sys");
+print("Tape <b>help</b> pour les commandes. <b>look</b> pour regarder autour. <b>go [direction]</b> pour se déplacer.","sys");
 print("","");
 printRoom();
 
@@ -177,8 +177,7 @@ document.getElementById("inp").addEventListener("keydown",e=>{
 });
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

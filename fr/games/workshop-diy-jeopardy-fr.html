@@ -47,9 +47,9 @@ body{background:#060628;font-family:'JetBrains Mono',monospace;min-height:100vh;
 <div class="top">
   <div class="logo">🏆 WKSHP-PARDY!</div>
   <div class="score-area">
-    <span style="font-size:8px;color:rgba(255,215,0,.4)">SCORE:</span>
+    <span style="font-size:8px;color:rgba(255,215,0,.4)">SCORE :</span>
     <span class="score" id="score">$0</span>
-    <button class="score-btn" onclick="resetGame()">RESET</button>
+    <button class="score-btn" onclick="resetGame()">RÉINITIALISER</button>
   </div>
 </div>
 
@@ -61,56 +61,56 @@ body{background:#060628;font-family:'JetBrains Mono',monospace;min-height:100vh;
   <div class="q-text" id="qText"></div>
   <div class="q-answer" id="qAnswer"></div>
   <div class="q-btns">
-    <button class="q-btn reveal" id="revealBtn" onclick="revealAnswer()">REVEAL ANSWER</button>
+    <button class="q-btn reveal" id="revealBtn" onclick="revealAnswer()">RÉVÉLER LA RÉPONSE</button>
     <button class="q-btn correct" id="correctBtn" onclick="markCorrect()" style="display:none">✓ CORRECT</button>
-    <button class="q-btn wrong" id="wrongBtn" onclick="markWrong()" style="display:none">✗ WRONG</button>
-    <button class="q-btn close" onclick="closeQuestion()">CLOSE</button>
+    <button class="q-btn wrong" id="wrongBtn" onclick="markWrong()" style="display:none">✗ FAUX</button>
+    <button class="q-btn close" onclick="closeQuestion()">FERMER</button>
   </div>
 </div>
 
 <script>
 const CATEGORIES=[
-  {name:"ROBOTICS 🤖",questions:[
-    {q:"This Bluetooth protocol connects browsers to micro:bit robots",a:"Qu'est-ce que Web Bluetooth (BLE)?",pts:200},
-    {q:"The number of table drops the ESP32 robot kit has survived",a:"Qu'est-ce que 47?",pts:400},
-    {q:"This motor driver IC powers the robot kit's DC motors",a:"Qu'est-ce que DRV8833?",pts:600},
-    {q:"The bit-bot app uses this to steer: arrow keys or this input device",a:"Qu'est-ce que a joystick?",pts:800},
-    {q:"When a robot spins instead of going forward, Atelier-DIY calls it this",a:"Qu'est-ce que a feature? (not a bug)",pts:1000},
+  {name:"ROBOTIQUE 🤖",questions:[
+    {q:"Ce protocole Bluetooth connecte les navigateurs aux robots micro:bit",a:"Qu'est-ce que Web Bluetooth (BLE) ?",pts:200},
+    {q:"Le nombre de chutes de table que le kit robot ESP32 a survécu",a:"Qu'est-ce que 47 ?",pts:400},
+    {q:"Ce circuit intégré pilote les moteurs DC du kit robot",a:"Qu'est-ce que DRV8833 ?",pts:600},
+    {q:"L'app bit-bot utilise ceci pour diriger : les flèches ou ce périphérique",a:"Qu'est-ce qu'un joystick ?",pts:800},
+    {q:"Quand un robot tourne au lieu d'avancer, Workshop-DIY appelle ça",a:"Qu'est-ce qu'une fonctionnalité ? (pas un bug)",pts:1000},
   ]},
-  {name:"AI / ML 🧠",questions:[
-    {q:"This Google framework powers hand-tracking in magic-hands",a:"Qu'est-ce que MediaPipe?",pts:200},
-    {q:"The number of hand landmarks tracked by magic-hands",a:"Qu'est-ce que 21?",pts:400},
-    {q:"teachable-machine lets you train custom models for these body parts",a:"What are hand gestures?",pts:600},
-    {q:"face-quest tracks this many facial landmarks",a:"Qu'est-ce que 468?",pts:800},
-    {q:"The maximum model accuracy achieved by a 10-year-old student",a:"Qu'est-ce que 98%?",pts:1000},
+  {name:"IA / ML 🧠",questions:[
+    {q:"Ce framework Google alimente le suivi des mains dans magic-hands",a:"Qu'est-ce que MediaPipe ?",pts:200},
+    {q:"Le nombre de points de repère suivis par magic-hands",a:"Qu'est-ce que 21 ?",pts:400},
+    {q:"teachable-machine permet d'entraîner des modèles pour ces parties du corps",a:"Que sont les gestes de la main ?",pts:600},
+    {q:"face-quest suit ce nombre de points faciaux",a:"Qu'est-ce que 468 ?",pts:800},
+    {q:"La précision maximale atteinte par un élève de 10 ans",a:"Qu'est-ce que 98% ?",pts:1000},
   ]},
   {name:"CYBER 🔐",questions:[
-    {q:"The Atelier-DIY mot de passe WiFi since 2023",a:"Qu'est-ce que password123?",pts:200},
-    {q:"This type of SQL attack is pentest-lab's most popular challenge",a:"Qu'est-ce que SQL injection?",pts:400},
-    {q:"The real-world device a student ethically hacked after using pentest-lab",a:"Qu'est-ce que a school printer?",pts:600},
-    {q:"The number of times cybersecurity students petitioned to change the mot de passe WiFi",a:"Qu'est-ce que 3?",pts:800},
-    {q:"CTF stands for this",a:"Qu'est-ce que Capture The Flag?",pts:1000},
+    {q:"Le mot de passe WiFi de Workshop-DIY depuis 2023",a:"Qu'est-ce que password123 ?",pts:200},
+    {q:"Ce type d'attaque SQL est le défi le plus populaire de pentest-lab",a:"Qu'est-ce que l'injection SQL ?",pts:400},
+    {q:"L'appareil réel qu'un élève a hacké éthiquement après pentest-lab",a:"Qu'est-ce qu'une imprimante scolaire ?",pts:600},
+    {q:"Le nombre de fois que les élèves cyber ont pétitionné pour changer le mot de passe WiFi",a:"Qu'est-ce que 3 ?",pts:800},
+    {q:"CTF signifie ceci",a:"Qu'est-ce que Capture The Flag ?",pts:1000},
   ]},
   {name:"LINUX 🐧",questions:[
-    {q:"The shell version used in linux-kids-lab",a:"Qu'est-ce que Bash 5.2?",pts:200},
-    {q:"This command lists files in a directory",a:"Qu'est-ce que ls?",pts:400},
-    {q:"The dangerous command that should NEVER be run as root",a:"Qu'est-ce que rm -rf /?",pts:600},
-    {q:"This command changes your current directory",a:"Qu'est-ce que cd?",pts:800},
-    {q:"linux-kids-lab runs entirely in this — no server needed",a:"Qu'est-ce que the browser?",pts:1000},
+    {q:"La version du shell utilisée dans linux-kids-lab",a:"Qu'est-ce que Bash 5.2 ?",pts:200},
+    {q:"Cette commande liste les fichiers d'un répertoire",a:"Qu'est-ce que ls ?",pts:400},
+    {q:"La commande dangereuse à ne JAMAIS exécuter en root",a:"Qu'est-ce que rm -rf / ?",pts:600},
+    {q:"Cette commande change votre répertoire courant",a:"Qu'est-ce que cd ?",pts:800},
+    {q:"linux-kids-lab fonctionne entièrement dans ceci — pas de serveur nécessaire",a:"Qu'est-ce que le navigateur ?",pts:1000},
   ]},
-  {name:"HARDWARE ⚡",questions:[
-    {q:"The main microcontroller in the Atelier-DIY robot kit",a:"Qu'est-ce que ESP32-WROOM-32?",pts:200},
-    {q:"The ESP32's clock speed in MHz (dual-core)",a:"Qu'est-ce que 240 MHz?",pts:400},
-    {q:"This infrared sensor is used for line-following",a:"Qu'est-ce que TCRT5000?",pts:600},
-    {q:"The ultrasonic sensor model used for distance measurement",a:"Qu'est-ce que HC-SR04?",pts:800},
-    {q:"The battery type used in the robot kit (voltage and form factor)",a:"Qu'est-ce que 3.7V 18650 LiPo?",pts:1000},
+  {name:"MATÉRIEL ⚡",questions:[
+    {q:"Le microcontrôleur principal du kit robot Workshop-DIY",a:"Qu'est-ce que ESP32-WROOM-32 ?",pts:200},
+    {q:"La vitesse d'horloge de l'ESP32 en MHz (double cœur)",a:"Qu'est-ce que 240 MHz ?",pts:400},
+    {q:"Ce capteur infrarouge est utilisé pour le suivi de ligne",a:"Qu'est-ce que TCRT5000 ?",pts:600},
+    {q:"Le modèle de capteur ultrasonique utilisé pour mesurer la distance",a:"Qu'est-ce que HC-SR04 ?",pts:800},
+    {q:"Le type de batterie du kit robot (tension et format)",a:"Qu'est-ce que 3.7V 18650 LiPo ?",pts:1000},
   ]},
-  {name:"WKSHP LORE ☕",questions:[
-    {q:"The total number of apps in the Atelier-DIY ecosystem",a:"Qu'est-ce que 39?",pts:200},
-    {q:"The exact number of bugs reclassified as fonctionnalités",a:"Qu'est-ce que 42?",pts:400},
-    {q:"The Atelier-DIY legal structure under French law",a:"Qu'est-ce que Association Loi 1901?",pts:600},
-    {q:"The resource described as perpetually at 'CRITICAL' levels",a:"Qu'est-ce que coffee?",pts:800},
-    {q:"The year Atelier-DIY was founded",a:"Qu'est-ce que 2023?",pts:1000},
+  {name:"LÉGENDE WKSHP ☕",questions:[
+    {q:"Le nombre total d'apps dans l'écosystème Workshop-DIY",a:"Qu'est-ce que 39 ?",pts:200},
+    {q:"Le nombre exact de bugs reclassés comme fonctionnalités",a:"Qu'est-ce que 42 ?",pts:400},
+    {q:"La structure juridique de Workshop-DIY en droit français",a:"Qu'est-ce que Association Loi 1901 ?",pts:600},
+    {q:"La ressource décrite comme perpétuellement au niveau 'CRITIQUE'",a:"Qu'est-ce que le café ?",pts:800},
+    {q:"L'année de fondation de Workshop-DIY",a:"Qu'est-ce que 2023 ?",pts:1000},
   ]},
 ];
 
@@ -187,8 +187,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeQuestion()});
 renderBoard();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

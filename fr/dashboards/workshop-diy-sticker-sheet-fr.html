@@ -91,16 +91,16 @@ const apps=[
 document.getElementById('appStickers').innerHTML=apps.map(a=>`<div class="sticker ${a.c}"><span class="emoji">${a.e}</span><span class="name">${a.n}</span></div>`).join('');
 
 const achievements=[
-{e:"🏆",n:"ELITE HACKER",d:"Solved all CTF challenges",c:"#ffd700"},
-{e:"🤖",n:"ROBOT MASTER",d:"Built 5+ robots",c:"#00ff41"},
-{e:"🧠",n:"AI WIZARD",d:"Trained 10 models",c:"#bf00ff"},
-{e:"🔐",n:"CYBER KNIGHT",d:"Completed pentest-lab",c:"#ff0033"},
-{e:"🐧",n:"LINUX GURU",d:"100+ terminal commands",c:"#00d4ff"},
-{e:"⚡",n:"CIRCUIT SAGE",d:"Soldered without burns",c:"#ff8800"},
-{e:"☕",n:"CAFFEINATED",d:"Survived a marathon session",c:"#ffd700"},
-{e:"🐛",n:"BUG HUNTER",d:"Found 42 features",c:"#00ff41"},
-{e:"🎨",n:"PIXEL ARTIST",d:"Created 50 pixel art",c:"#bf00ff"},
-{e:"🔥",n:"ON FIRE",d:"7-day learning streak",c:"#ff0033"},
+{e:"🏆",n:"HACKER D'ÉLITE",d:"Résolu tous les défis CTF",c:"#ffd700"},
+{e:"🤖",n:"MAÎTRE ROBOT",d:"Construit 5+ robots",c:"#00ff41"},
+{e:"🧠",n:"MAGE DE L'IA",d:"Entraîné 10 modèles",c:"#bf00ff"},
+{e:"🔐",n:"CHEVALIER CYBER",d:"Terminé pentest-lab",c:"#ff0033"},
+{e:"🐧",n:"GOUROU LINUX",d:"100+ commandes terminal",c:"#00d4ff"},
+{e:"⚡",n:"SAGE DES CIRCUITS",d:"Soudé sans brûlures",c:"#ff8800"},
+{e:"☕",n:"CAFÉINÉ",d:"Survécu à une session marathon",c:"#ffd700"},
+{e:"🐛",n:"CHASSEUR DE BUGS",d:"Trouvé 42 fonctionnalités",c:"#00ff41"},
+{e:"🎨",n:"ARTISTE PIXEL",d:"Créé 50 pixel art",c:"#bf00ff"},
+{e:"🔥",n:"EN FEU",d:"7 jours de suite d'apprentissage",c:"#ff0033"},
 ];
 
 document.getElementById('achieveBadges').innerHTML=achievements.map(a=>{
@@ -109,18 +109,17 @@ document.getElementById('achieveBadges').innerHTML=achievements.map(a=>{
 }).join('');
 
 const skills=[
-{e:"🤖",n:"Robotics",c:"s-green"},{e:"🧠",n:"AI / ML",c:"s-purple"},{e:"⚡",n:"Electronics",c:"s-orange"},{e:"🔐",n:"Cybersecurity",c:"s-red"},{e:"💻",n:"Web Dev",c:"s-cyan"},{e:"🐳",n:"DevOps",c:"s-cyan"},{e:"🧊",n:"3D Print",c:"s-gold"},{e:"🔴",n:"Node-RED",c:"s-red"},{e:"📡",n:"BLE",c:"s-green"},{e:"🌍",n:"IoT",c:"s-orange"},{e:"🐧",n:"Linux",c:"s-green"},{e:"🔀",n:"Git",c:"s-purple"},
+{e:"🤖",n:"Robotique",c:"s-green"},{e:"🧠",n:"IA / ML",c:"s-purple"},{e:"⚡",n:"Électronique",c:"s-orange"},{e:"🔐",n:"Cybersécurité",c:"s-red"},{e:"💻",n:"Dév. Web",c:"s-cyan"},{e:"🐳",n:"DevOps",c:"s-cyan"},{e:"🧊",n:"Impression 3D",c:"s-gold"},{e:"🔴",n:"Node-RED",c:"s-red"},{e:"📡",n:"BLE",c:"s-green"},{e:"🌍",n:"IoT",c:"s-orange"},{e:"🐧",n:"Linux",c:"s-green"},{e:"🔀",n:"Git",c:"s-purple"},
 ];
 document.getElementById('skillTags').innerHTML=skills.map(s=>`<div class="rect ${s.c}"><span class="emoji">${s.e}</span><span class="name">${s.n}</span></div>`).join('');
 
 const memes=[
-{e:"☕",n:"NEED COFFEE",c:"s-gold"},{e:"🐛",n:"IT'S A FEATURE",c:"s-green"},{e:"🔑",n:"password123",c:"s-red"},{e:"🤷",n:"WORKS ON MY\nMACHINE",c:"s-cyan"},{e:"💀",n:"rm -rf /",c:"s-red"},{e:"🔥",n:"THIS IS FINE",c:"s-orange"},{e:"😅",n:"SHIP IT",c:"s-purple"},{e:"🤖",n:"I AM ROOT",c:"s-green"},
+{e:"☕",n:"BESOIN DE CAFÉ",c:"s-gold"},{e:"🐛",n:"C'EST UNE\nFONCTIONNALITÉ",c:"s-green"},{e:"🔑",n:"password123",c:"s-red"},{e:"🤷",n:"ÇA MARCHE SUR\nMA MACHINE",c:"s-cyan"},{e:"💀",n:"rm -rf /",c:"s-red"},{e:"🔥",n:"TOUT VA BIEN",c:"s-orange"},{e:"😅",n:"ON LIVRE",c:"s-purple"},{e:"🤖",n:"JE SUIS ROOT",c:"s-green"},
 ];
 document.getElementById('memeStickers').innerHTML=memes.map(m=>`<div class="sticker ${m.c}"><span class="emoji">${m.e}</span><span class="name">${m.n.replace('\n','<br>')}</span></div>`).join('');
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

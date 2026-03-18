@@ -80,26 +80,26 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <script>
 const BUGS=[
-{id:"#001",e:"🔄",title:"BLE Auto-Reconnect Dance",sev:"low",desc:"When bit-bot reconnects after a Bluetooth drop, it wiggles its wheels in a circular pattern for 1.3 seconds before resuming normal operation.",reporter:"Reported by: bit-bot firmware v4.2",answer:"feature"},
-{id:"#007",e:"🖥️",title:"Chrome Tab Limit Crash",sev:"high",desc:"Opening more than 47 Chrome tabs while running 3 WebRTC streams causes the browser to refresh. Exactly 47 tabs. Always 47.",reporter:"Reported by: QA intern",answer:"bug"},
-{id:"#012",e:"☕",title:"Machine à café API 418",sev:"critical",desc:"The coffee machine HTTP endpoint returns status 418 'I'm a teapot' instead of 200 when supply drops below 8%. This has been happening for 14 months.",reporter:"Reported by: The Machine à café",answer:"feature"},
-{id:"#018",e:"🎵",title:"Servo Motor Harmony",sev:"low",desc:"When 3 servo motors run simultaneously at different PWM frequencies, they produce a chord in B-flat minor. Élèves started composing songs.",reporter:"Reported by: Music teacher (confused)",answer:"feature"},
-{id:"#023",e:"🔑",title:"WiFi Password Persistence",sev:"critical",desc:"The mot de passe WiFi 'password123' cannot be changed. Three formal petitions filed. System accepts the change, then reverts within 24 hours.",reporter:"Reported by: Cybersecurity students ×3",answer:"feature"},
-{id:"#027",e:"🤖",title:"Robot Self-Centering",sev:"med",desc:"After being dropped from a desk, bit-bot automatically drives to the center of the nearest table. This behavior is not in the codebase.",reporter:"Reported by: ??? (no author found)",answer:"feature"},
-{id:"#031",e:"📊",title:"Tableau de bord Mémoire Leak",sev:"high",desc:"The live monitoring dashboard slowly consumes more RAM over 6 hours until it uses exactly 420MB, then stabilizes. The number never changes.",reporter:"Reported by: DevOps monitoring",answer:"bug"},
-{id:"#033",e:"🐧",title:"Terminal Easter Egg",sev:"low",desc:"En train d'écrire 'sudo make me a sandwich' in linux-kids-lab returns 'Okay. 🥪' instead of an error. This was not programmed by anyone on the team.",reporter:"Reported by: Student, age 11",answer:"feature"},
-{id:"#035",e:"🌡️",title:"Soldering Iron Timer",sev:"med",desc:"The ESP32 temperature display shows 350°C for the soldering iron, but also displays the room temperature in Kelvin. Nobody asked for Kelvin.",reporter:"Reported by: Physics teacher",answer:"bug"},
-{id:"#038",e:"💡",title:"LED Strip Mood Sync",sev:"low",desc:"The WLED strip changes color based on ambient noise levels. During loud workshops it goes red. During quiet focus time it's blue. Not programmed.",reporter:"Reported by: Several witnesses",answer:"feature"},
-{id:"#039",e:"🐳",title:"Container #42",sev:"critical",desc:"Docker container #42 appears in the dashboard but cannot be inspected, stopped, or deleted. Its status permanently reads: 'Running (always)'.",reporter:"Reported by: docker ps",answer:"feature"},
-{id:"#041",e:"📡",title:"WebRTC Echo Delay",sev:"med",desc:"mission-control's video feed has a 42ms delay that cannot be reduced below 42ms regardless of network conditions. Exactly 42ms. Always.",reporter:"Reported by: Network engineer",answer:"bug"},
-{id:"#042",e:"⬛",title:"The 40th App",sev:"critical",desc:"The app index shows 40 entries at 3h42. The 40th has no name, a black icon, and the description: 'This app was never built. This app has always existed.'",reporter:"Reported by: Night shift developer (shaken)",answer:"feature"},
-{id:"#044",e:"🎯",title:"Teachable Machine 98%",sev:"low",desc:"The accuracy display is hard-coded to show '98%' regardless of actual model accuracy. Real accuracy varies from 72% to 99.8%.",reporter:"Reported by: ML intern",answer:"bug"},
-{id:"#045",e:"🖨️",title:"Printer Port 9100 Open",sev:"high",desc:"The school printer's port 9100 was found open by a 14-year-old using pentest-lab techniques. The printer has been printing 'HELLO WORLD' every Mardi since.",reporter:"Reported by: Student (responsibly disclosed)",answer:"bug"},
-{id:"#047",e:"🔊",title:"Talking Robot Accent",sev:"low",desc:"talking-robot's speech synthesis occasionally switches to a French accent for exactly one word per sentence, regardless of language settings.",reporter:"Reported by: International students",answer:"feature"},
-{id:"#048",e:"🎮",title:"Pixel Gateway Enregistrer State",sev:"med",desc:"pixel-gateway saves pixel art to localStorage but also renders a tiny 1×1 pixel version in the favicon. Nobody sees it. Nobody asked for it.",reporter:"Reported by: Developer inspecting favicons",answer:"feature"},
-{id:"#049",e:"📶",title:"BLE Scanner Ghost Device",sev:"high",desc:"ble-scanner occasionally detects a device named '42' with no MAC address. It appears for exactly 3 seconds, then vanishes. Cannot be connected to.",reporter:"Reported by: Multiple workshop sessions",answer:"feature"},
-{id:"#050",e:"🔧",title:"Servo Angle Drift",sev:"med",desc:"servo-lab's servo drifts 0.42° clockwise per hour. After exactly 42 hours, it completes one full unexpected rotation, then resets.",reporter:"Reported by: Long-running demo session",answer:"bug"},
-{id:"#051",e:"📝",title:"git log Phantom Commit",sev:"critical",desc:"git-lab shows a commit with message 'Initial commit' dated Janvier 1, 1970 00:00:00 UTC. Auteur: 'The Codebase'. This repo was created in 2023.",reporter:"Reported by: git blame (terrified)",answer:"feature"},
+{id:"#001",e:"🔄",title:"Danse de Reconnexion BLE",sev:"low",desc:"Quand bit-bot se reconnecte après une coupure Bluetooth, il fait tourner ses roues en cercle pendant 1,3 seconde avant de reprendre son fonctionnement normal.",reporter:"Signalé par : bit-bot firmware v4.2",answer:"feature"},
+{id:"#007",e:"🖥️",title:"Crash Limite d'Onglets Chrome",sev:"high",desc:"Ouvrir plus de 47 onglets Chrome en faisant tourner 3 flux WebRTC provoque le rafraîchissement du navigateur. Exactement 47 onglets. Toujours 47.",reporter:"Signalé par : stagiaire QA",answer:"bug"},
+{id:"#012",e:"☕",title:"Machine à café API 418",sev:"critical",desc:"Le point d'accès HTTP de la machine à café retourne le statut 418 « I'm a teapot » au lieu de 200 quand le niveau descend sous 8%. Ça dure depuis 14 mois.",reporter:"Signalé par : la Machine à café",answer:"feature"},
+{id:"#018",e:"🎵",title:"Harmonie de Servomoteurs",sev:"low",desc:"Quand 3 servomoteurs tournent simultanément à des fréquences PWM différentes, ils produisent un accord en si bémol mineur. Les élèves ont commencé à composer des chansons.",reporter:"Signalé par : prof de musique (perplexe)",answer:"feature"},
+{id:"#023",e:"🔑",title:"Persistance du Mot de Passe WiFi",sev:"critical",desc:"Le mot de passe WiFi « password123 » ne peut pas être changé. Trois pétitions formelles déposées. Le système accepte le changement, puis revient en arrière sous 24 heures.",reporter:"Signalé par : élèves en cybersécurité ×3",answer:"feature"},
+{id:"#027",e:"🤖",title:"Auto-Centrage du Robot",sev:"med",desc:"Après être tombé d'un bureau, bit-bot se dirige automatiquement vers le centre de la table la plus proche. Ce comportement n'est pas dans le code.",reporter:"Signalé par : ??? (aucun auteur trouvé)",answer:"feature"},
+{id:"#031",e:"📊",title:"Fuite Mémoire du Tableau de Bord",sev:"high",desc:"Le tableau de bord de monitoring en direct consomme lentement plus de RAM sur 6 heures jusqu'à utiliser exactement 420 Mo, puis se stabilise. Le nombre ne change jamais.",reporter:"Signalé par : monitoring DevOps",answer:"bug"},
+{id:"#033",e:"🐧",title:"Easter Egg du Terminal",sev:"low",desc:"Taper « sudo make me a sandwich » dans linux-kids-lab retourne « Okay. 🥪 » au lieu d'une erreur. Personne dans l'équipe ne l'a programmé.",reporter:"Signalé par : élève, 11 ans",answer:"feature"},
+{id:"#035",e:"🌡️",title:"Timer du Fer à Souder",sev:"med",desc:"L'affichage de température de l'ESP32 montre 350°C pour le fer à souder, mais affiche aussi la température ambiante en Kelvin. Personne n'a demandé le Kelvin.",reporter:"Signalé par : prof de physique",answer:"bug"},
+{id:"#038",e:"💡",title:"Sync d'Ambiance du Bandeau LED",sev:"low",desc:"Le bandeau WLED change de couleur selon le niveau sonore ambiant. Pendant les ateliers bruyants il passe au rouge. Pendant les moments calmes il est bleu. Pas programmé.",reporter:"Signalé par : plusieurs témoins",answer:"feature"},
+{id:"#039",e:"🐳",title:"Conteneur #42",sev:"critical",desc:"Le conteneur Docker #42 apparaît dans le tableau de bord mais ne peut être inspecté, arrêté ou supprimé. Son statut affiche en permanence : « Running (always) ».",reporter:"Signalé par : docker ps",answer:"feature"},
+{id:"#041",e:"📡",title:"Délai d'Écho WebRTC",sev:"med",desc:"Le flux vidéo de mission-control a un délai de 42 ms qui ne peut pas être réduit en dessous de 42 ms quelles que soient les conditions réseau. Exactement 42 ms. Toujours.",reporter:"Signalé par : ingénieur réseau",answer:"bug"},
+{id:"#042",e:"⬛",title:"La 40e App",sev:"critical",desc:"L'index des apps montre 40 entrées à 3h42. La 40e n'a pas de nom, une icône noire, et la description : « Cette app n'a jamais été créée. Cette app a toujours existé. »",reporter:"Signalé par : développeur de nuit (secoué)",answer:"feature"},
+{id:"#044",e:"🎯",title:"Teachable Machine 98%",sev:"low",desc:"L'affichage de précision est codé en dur pour montrer « 98% » quelle que soit la précision réelle du modèle. La précision réelle varie de 72% à 99,8%.",reporter:"Signalé par : stagiaire ML",answer:"bug"},
+{id:"#045",e:"🖨️",title:"Port 9100 Imprimante Ouvert",sev:"high",desc:"Le port 9100 de l'imprimante de l'école a été découvert ouvert par un élève de 14 ans utilisant les techniques de pentest-lab. L'imprimante imprime « HELLO WORLD » tous les mardis depuis.",reporter:"Signalé par : élève (divulgation responsable)",answer:"bug"},
+{id:"#047",e:"🔊",title:"Accent du Robot Parlant",sev:"low",desc:"La synthèse vocale de talking-robot passe occasionnellement à un accent français pour exactement un mot par phrase, quel que soit le paramètre de langue.",reporter:"Signalé par : élèves internationaux",answer:"feature"},
+{id:"#048",e:"🎮",title:"Sauvegarde d'État de Pixel Gateway",sev:"med",desc:"pixel-gateway sauvegarde le pixel art dans le localStorage mais rend aussi une version minuscule 1×1 pixel dans le favicon. Personne ne le voit. Personne ne l'a demandé.",reporter:"Signalé par : développeur inspectant les favicons",answer:"feature"},
+{id:"#049",e:"📶",title:"Appareil Fantôme du Scanner BLE",sev:"high",desc:"ble-scanner détecte occasionnellement un appareil nommé « 42 » sans adresse MAC. Il apparaît pendant exactement 3 secondes, puis disparaît. Impossible de s'y connecter.",reporter:"Signalé par : plusieurs sessions d'atelier",answer:"feature"},
+{id:"#050",e:"🔧",title:"Dérive d'Angle du Servo",sev:"med",desc:"Le servo de servo-lab dérive de 0,42° dans le sens horaire par heure. Après exactement 42 heures, il complète une rotation inattendue complète, puis se réinitialise.",reporter:"Signalé par : session de démo longue durée",answer:"bug"},
+{id:"#051",e:"📝",title:"Commit Fantôme git log",sev:"critical",desc:"git-lab montre un commit avec le message « Initial commit » daté du 1er janvier 1970 00:00:00 UTC. Auteur : « The Codebase ». Ce dépôt a été créé en 2023.",reporter:"Signalé par : git blame (terrifié)",answer:"feature"},
 ];
 
 let idx=0,bugs=0,feats=0;
@@ -107,7 +107,7 @@ const area=document.getElementById('cardArea');
 
 function renderCard(){
   if(idx>=BUGS.length){
-    area.innerHTML=`<div style="text-align:center;padding:40px;color:#333"><div style="font-size:36px;margin-bottom:8px">🏁</div><div style="font-size:12px">Tous classifiés !</div><div style="font-size:9px;color:#222;margin-top:4px">${bugs} bugs · ${feats} fonctionnalités</div><div style="font-size:8px;color:#222;margin-top:8px">"In the end, aren't we all just<br>fonctionnalités en attente d'être comprises ?"<br>— Bug #42</div></div>`;
+    area.innerHTML=`<div style="text-align:center;padding:40px;color:#333"><div style="font-size:36px;margin-bottom:8px">🏁</div><div style="font-size:12px">Tous classifiés !</div><div style="font-size:9px;color:#222;margin-top:4px">${bugs} bugs · ${feats} fonctionnalités</div><div style="font-size:8px;color:#222;margin-top:8px">"Au fond, ne sommes-nous pas tous juste<br>des fonctionnalités en attente d\u2019être comprises ?"<br>— Bug #42</div></div>`;
     return;
   }
   const b=BUGS[idx];
@@ -136,8 +136,8 @@ function classify(choice){
   document.getElementById('totalCount').textContent=(idx+1);
   
   const v=document.getElementById('verdict');
-  if(correct){v.innerHTML=`<span style="color:#00cc66">✓ The team agrees: ${b.answer.toUpperCase()}</span>`}
-  else{v.innerHTML=`<span style="color:#ff4444">✗ The team says: ${b.answer.toUpperCase()}</span>`}
+  if(correct){v.innerHTML=`<span style="color:#00cc66">✓ L\u2019équipe est d\u2019accord : ${b.answer==='bug'?'BUG':'FONCTIONNALITÉ'}</span>`}
+  else{v.innerHTML=`<span style="color:#ff4444">✗ L\u2019équipe dit : ${b.answer==='bug'?'BUG':'FONCTIONNALITÉ'}</span>`}
   
   idx++;
   setTimeout(renderCard,400);
@@ -151,8 +151,7 @@ document.addEventListener('keydown',e=>{
 renderCard();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

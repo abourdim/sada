@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../assets/css/sada-base.css">
 <link rel="stylesheet" href="../../assets/css/sada-themes.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // METRO MAP</title>
+<title>WKSHP-DIY // PLAN MÉTRO</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;min-height:100vh;overflow:auto}
@@ -37,8 +37,8 @@ svg{width:100%;height:100%}
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
 <div class="header">
-  <div class="h-title">🚇 WKSHP TRANSIT MAP</div>
-  <div class="h-sub">WORKSHOP-DIY LEARNING NETWORK · 6 LINES · 19 STATIONS</div>
+  <div class="h-title">🚇 PLAN WKSHP TRANSIT</div>
+  <div class="h-sub">RÉSEAU D'APPRENTISSAGE WORKSHOP-DIY · 6 LIGNES · 19 STATIONS</div>
 </div>
 
 <div class="map-area">
@@ -71,36 +71,36 @@ svg{width:100%;height:100%}
 
   <!-- STATIONS -->
   <!-- Robotics Line -->
-  <circle cx="80" cy="120" r="8" fill="#0a0a14" stroke="#00cc66" stroke-width="3" class="station" data-name="bit-bot" data-desc="The OG robot controller. BLE, line-following, obstacle avoidance." data-line="ROBOTICS" data-color="#00cc66"/>
-  <circle cx="200" cy="120" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="bit-playground" data-desc="Transfer station: Full micro:bit sensor access. LEDs, accelerometer, compass." data-line="ROBOTICS · AI" data-color="#00cc66"/>
-  <circle cx="320" cy="120" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="rxy" data-desc="Transfer station: Custom Bluetooth remote builder." data-line="ROBOTICS · AI" data-color="#00cc66"/>
-  <circle cx="560" cy="200" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="mission-control" data-desc="Major hub: WebRTC command center. Video, chat, robot control." data-line="ROBOTICS · CYBER · TOOLS" data-color="#00cc66"/>
+  <circle cx="80" cy="120" r="8" fill="#0a0a14" stroke="#00cc66" stroke-width="3" class="station" data-name="bit-bot" data-desc="Le contrôleur robot originel. BLE, suivi de ligne, évitement d'obstacles." data-line="ROBOTIQUE" data-color="#00cc66"/>
+  <circle cx="200" cy="120" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="bit-playground" data-desc="Correspondance : Accès complet aux capteurs micro:bit. LEDs, accéléromètre, boussole." data-line="ROBOTIQUE · IA" data-color="#00cc66"/>
+  <circle cx="320" cy="120" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="rxy" data-desc="Correspondance : Créateur de télécommande Bluetooth personnalisée." data-line="ROBOTIQUE · IA" data-color="#00cc66"/>
+  <circle cx="560" cy="200" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="mission-control" data-desc="Hub majeur : Centre de commande WebRTC. Vidéo, chat, contrôle robot." data-line="ROBOTIQUE · CYBER · OUTILS" data-color="#00cc66"/>
 
   <!-- AI Line -->
-  <circle cx="440" cy="200" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="teachable-machine" data-desc="Transfer station: Train custom ML gestures. 98% accuracy." data-line="ROBOTICS · AI" data-color="#9966ff"/>
-  <circle cx="440" cy="320" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="face-quest" data-desc="Major hub: Face detection with 468 landmarks. Scoring game." data-line="AI · HARDWARE" data-color="#9966ff"/>
-  <circle cx="440" cy="440" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="magic-hands" data-desc="Transfer station: 21 hand landmarks, particle effects." data-line="AI · LEARNING" data-color="#9966ff"/>
+  <circle cx="440" cy="200" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="teachable-machine" data-desc="Correspondance : Entraînez des gestes ML personnalisés. 98 % de précision." data-line="ROBOTIQUE · IA" data-color="#9966ff"/>
+  <circle cx="440" cy="320" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="face-quest" data-desc="Hub majeur : Détection faciale avec 468 points de repère. Jeu de score." data-line="IA · HARDWARE" data-color="#9966ff"/>
+  <circle cx="440" cy="440" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="magic-hands" data-desc="Correspondance : 21 points de repère de la main, effets de particules." data-line="IA · APPRENTISSAGE" data-color="#9966ff"/>
 
   <!-- Cyber Line -->
   <circle cx="560" cy="80" r="8" fill="#0a0a14" stroke="#ff3344" stroke-width="3" class="station" data-name="pentest-lab" data-desc="Bac à sable de hacking éthique. SQL injection, XSS, CTF." data-line="CYBER" data-color="#ff3344"/>
-  <circle cx="560" cy="320" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="dhcp-lab" data-desc="Transfer station: Network protocol simulator." data-line="CYBER · HARDWARE" data-color="#ff3344"/>
-  <circle cx="680" cy="320" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="smart-home" data-desc="Transfer station: IoT dashboard simulator." data-line="CYBER · TOOLS" data-color="#ff3344"/>
+  <circle cx="560" cy="320" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="dhcp-lab" data-desc="Correspondance : Simulateur de protocoles réseau." data-line="CYBER · HARDWARE" data-color="#ff3344"/>
+  <circle cx="680" cy="320" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="smart-home" data-desc="Correspondance : Simulateur de tableau de bord IoT." data-line="CYBER · OUTILS" data-color="#ff3344"/>
 
   <!-- Hardware Line -->
-  <circle cx="80" cy="320" r="8" fill="#0a0a14" stroke="#ff8800" stroke-width="3" class="station" data-name="esp32-c3-lab" data-desc="ESP32-C3 IoT lab. 240MHz, WiFi, BLE." data-line="HARDWARE" data-color="#ff8800"/>
-  <circle cx="200" cy="320" r="8" fill="#0a0a14" stroke="#ff8800" stroke-width="3" class="station" data-name="wled-kids-lab" data-desc="Neopixel LED control. 16M colors over HTTP." data-line="HARDWARE" data-color="#ff8800"/>
-  <circle cx="320" cy="320" r="8" fill="#0a0a14" stroke="#ff8800" stroke-width="3" class="station" data-name="talking-robot" data-desc="Voice-controlled robot. Speech recognition + BLE." data-line="HARDWARE" data-color="#ff8800"/>
+  <circle cx="80" cy="320" r="8" fill="#0a0a14" stroke="#ff8800" stroke-width="3" class="station" data-name="esp32-c3-lab" data-desc="Labo IoT ESP32-C3. 240 MHz, WiFi, BLE." data-line="HARDWARE" data-color="#ff8800"/>
+  <circle cx="200" cy="320" r="8" fill="#0a0a14" stroke="#ff8800" stroke-width="3" class="station" data-name="wled-kids-lab" data-desc="Contrôle LED Neopixel. 16M de couleurs via HTTP." data-line="HARDWARE" data-color="#ff8800"/>
+  <circle cx="320" cy="320" r="8" fill="#0a0a14" stroke="#ff8800" stroke-width="3" class="station" data-name="talking-robot" data-desc="Robot à commande vocale. Reconnaissance vocale + BLE." data-line="HARDWARE" data-color="#ff8800"/>
 
   <!-- Learning Line -->
-  <circle cx="200" cy="440" r="8" fill="#0a0a14" stroke="#0088ff" stroke-width="3" class="station" data-name="linux-kids-lab" data-desc="Linux terminal in the browser. Bash commands." data-line="LEARNING" data-color="#0088ff"/>
-  <circle cx="320" cy="440" r="8" fill="#0a0a14" stroke="#0088ff" stroke-width="3" class="station" data-name="docker-lab" data-desc="Docker experiments. Containers for young makers." data-line="LEARNING" data-color="#0088ff"/>
-  <circle cx="560" cy="440" r="8" fill="#0a0a14" stroke="#0088ff" stroke-width="3" class="station" data-name="prompt-hero" data-desc="AI prompting playground. Craft perfect conversations." data-line="LEARNING" data-color="#0088ff"/>
-  <circle cx="680" cy="440" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="pixel-gateway" data-desc="Transfer station: Rétro pixel art editor." data-line="LEARNING · TOOLS" data-color="#0088ff"/>
+  <circle cx="200" cy="440" r="8" fill="#0a0a14" stroke="#0088ff" stroke-width="3" class="station" data-name="linux-kids-lab" data-desc="Terminal Linux dans le navigateur. Commandes Bash." data-line="APPRENTISSAGE" data-color="#0088ff"/>
+  <circle cx="320" cy="440" r="8" fill="#0a0a14" stroke="#0088ff" stroke-width="3" class="station" data-name="docker-lab" data-desc="Expériences Docker. Des conteneurs pour les jeunes makers." data-line="APPRENTISSAGE" data-color="#0088ff"/>
+  <circle cx="560" cy="440" r="8" fill="#0a0a14" stroke="#0088ff" stroke-width="3" class="station" data-name="prompt-hero" data-desc="Terrain de jeu du prompting IA. Créez des conversations parfaites." data-line="APPRENTISSAGE" data-color="#0088ff"/>
+  <circle cx="680" cy="440" r="10" fill="#0a0a14" stroke="#fff" stroke-width="3" class="station transfer" data-name="pixel-gateway" data-desc="Correspondance : Éditeur rétro de pixel art." data-line="APPRENTISSAGE · OUTILS" data-color="#0088ff"/>
 
   <!-- Tools Line -->
-  <circle cx="680" cy="120" r="8" fill="#0a0a14" stroke="#00cccc" stroke-width="3" class="station" data-name="nodered-lab" data-desc="Node-RED visual flow programming." data-line="TOOLS" data-color="#00cccc"/>
-  <circle cx="680" cy="200" r="8" fill="#0a0a14" stroke="#00cccc" stroke-width="3" class="station" data-name="face-tracking" data-desc="Face position to digital events mapper." data-line="TOOLS" data-color="#00cccc"/>
-  <circle cx="800" cy="440" r="8" fill="#0a0a14" stroke="#00cccc" stroke-width="3" class="station" data-name="tty" data-desc="Serial terminal for hardware debugging." data-line="TOOLS" data-color="#00cccc"/>
+  <circle cx="680" cy="120" r="8" fill="#0a0a14" stroke="#00cccc" stroke-width="3" class="station" data-name="nodered-lab" data-desc="Programmation visuelle de flux Node-RED." data-line="OUTILS" data-color="#00cccc"/>
+  <circle cx="680" cy="200" r="8" fill="#0a0a14" stroke="#00cccc" stroke-width="3" class="station" data-name="face-tracking" data-desc="Convertisseur de position faciale en événements numériques." data-line="OUTILS" data-color="#00cccc"/>
+  <circle cx="800" cy="440" r="8" fill="#0a0a14" stroke="#00cccc" stroke-width="3" class="station" data-name="tty" data-desc="Terminal série pour le débogage matériel." data-line="OUTILS" data-color="#00cccc"/>
 
   <!-- STATION LABELS -->
   <text x="80" y="105" text-anchor="middle" fill="#00cc66" font-size="8" font-family="JetBrains Mono">bit-bot</text>
@@ -126,18 +126,18 @@ svg{width:100%;height:100%}
 
   <!-- DECORATIVE -->
   <text x="450" y="560" text-anchor="middle" fill="rgba(255,255,255,.03)" font-size="60" font-family="Syne" font-weight="800">WKSHP TRANSIT</text>
-  <text x="450" y="600" text-anchor="middle" fill="rgba(255,255,255,.03)" font-size="10" font-family="JetBrains Mono">⚪ = Transfer Station · WiFi: password123 on all platforms</text>
+  <text x="450" y="600" text-anchor="middle" fill="rgba(255,255,255,.03)" font-size="10" font-family="JetBrains Mono">⚪ = Station de correspondance · WiFi : password123 sur tous les quais</text>
 </svg>
 </div>
 
 <div class="legend">
-  <div class="leg-item"><div class="leg-dot" style="background:#00cc66"></div>Robotics Line</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#9966ff"></div>AI Line</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#ff3344"></div>Cyber Line</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#ff8800"></div>Hardware Line</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#0088ff"></div>Learning Line</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#00cccc"></div>Tools Line</div>
-  <div class="leg-item"><div class="leg-dot" style="background:#fff;border-radius:50%;width:8px;height:8px"></div>Transfer</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#00cc66"></div>Ligne Robotique</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#9966ff"></div>Ligne IA</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#ff3344"></div>Ligne Cyber</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#ff8800"></div>Ligne Hardware</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#0088ff"></div>Ligne Apprentissage</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#00cccc"></div>Ligne Outils</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#fff;border-radius:50%;width:8px;height:8px"></div>Correspondance</div>
 </div>
 
 <div class="tooltip" id="tip">
@@ -146,7 +146,7 @@ svg{width:100%;height:100%}
   <div class="line-tag" id="tipLine"></div>
 </div>
 
-<div class="footer">WKSHP TRANSIT AUTHORITY · 6 LINES · 19 STATIONS · SERVICE: 24/7 · WIFI: password123 ON ALL PLATFORMS</div>
+<div class="footer">RÉGIE WKSHP TRANSIT · 6 LIGNES · 19 STATIONS · SERVICE : 24/7 · WIFI : password123 SUR TOUS LES QUAIS</div>
 
 <script>
 const tip=document.getElementById('tip');
@@ -174,8 +174,7 @@ document.querySelectorAll('.station').forEach(s=>{
 });
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

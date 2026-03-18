@@ -78,21 +78,21 @@ body{background:#0a1628;font-family:'JetBrains Mono',monospace;font-size:11px;co
 <body>
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <div class="grid-bg"></div>
-<div class="stamp">DRAFT REV 4.2</div>
+<div class="stamp">BROUILLON RÉV 4.2</div>
 <div class="app">
-<div class="hud"><span>BLUEPRINT_VIEWER v2.0</span><span>WORKSHOP-DIY // TECHNICAL DOCUMENTS</span><span id="clock">00:00:00</span></div>
+<div class="hud"><span>VISIONNEUR_PLANS v2.0</span><span>WORKSHOP-DIY // DOCUMENTS TECHNIQUES</span><span id="clock">00:00:00</span></div>
 
 <div class="tabs">
-  <div class="tab on" onclick="showTab(0)">📐 ROBOT KIT</div>
+  <div class="tab on" onclick="showTab(0)">📐 KIT ROBOT</div>
   <div class="tab" onclick="showTab(1)">⚡ CIRCUITS</div>
-  <div class="tab" onclick="showTab(2)">🔌 APP SCHEMATICS</div>
+  <div class="tab" onclick="showTab(2)">🔌 SCHÉMAS DES APPS</div>
 </div>
 
 <div class="content">
 <!-- TAB 0: ROBOT -->
 <div class="pane on" id="p0">
-  <div class="bp-title">ESP32 ROBOT KIT LITE</div>
-  <div class="bp-sub">TECHNICAL BLUEPRINT // REV 4.2 // WORKSHOP-DIY</div>
+  <div class="bp-title">KIT ROBOT ESP32 LITE</div>
+  <div class="bp-sub">PLAN TECHNIQUE // RÉV 4.2 // WORKSHOP-DIY</div>
 
   <div class="robot-diagram">
     <pre style="font-size:clamp(6px,1.2vw,10px);line-height:1.3;color:rgba(74,158,255,.3);text-align:center;font-family:'JetBrains Mono',monospace">
@@ -125,34 +125,34 @@ body{background:#0a1628;font-family:'JetBrains Mono',monospace;font-size:11px;co
   </div>
 
   <table class="spec-table">
-    <tr><th>PARAMETER</th><th>SPECIFICATION</th></tr>
+    <tr><th>PARAMÈTRE</th><th>SPÉCIFICATION</th></tr>
     <tr><td>MCU</td><td>ESP32-WROOM-32 (Xtensa LX6)</td></tr>
-    <tr><td>Clock Vitesse</td><td>240 MHz dual-core</td></tr>
+    <tr><td>Fréquence horloge</td><td>240 MHz double cœur</td></tr>
     <tr><td>SRAM</td><td>520 KB</td></tr>
     <tr><td>Flash</td><td>4 MB</td></tr>
     <tr><td>WiFi</td><td>802.11 b/g/n (2.4 GHz)</td></tr>
     <tr><td>Bluetooth</td><td>BLE 4.2</td></tr>
-    <tr><td>Motors</td><td>2× DC (N20) + 1× SG90 Servo</td></tr>
-    <tr><td>Motor Driver</td><td>DRV8833 H-Bridge</td></tr>
-    <tr><td>Sensors — IR</td><td>2× TCRT5000 (line follow)</td></tr>
-    <tr><td>Sensors — USS</td><td>HC-SR04 (obstacle detect)</td></tr>
-    <tr><td>Puissance</td><td>3.7V 18650 LiPo (2000mAh)</td></tr>
+    <tr><td>Moteurs</td><td>2× DC (N20) + 1× SG90 Servo</td></tr>
+    <tr><td>Pilote moteur</td><td>DRV8833 Pont en H</td></tr>
+    <tr><td>Capteurs — IR</td><td>2× TCRT5000 (suivi de ligne)</td></tr>
+    <tr><td>Capteurs — USS</td><td>HC-SR04 (détection d'obstacles)</td></tr>
+    <tr><td>Alimentation</td><td>3.7V 18650 LiPo (2000 mAh)</td></tr>
     <tr><td>Dimensions</td><td>150mm × 120mm × 80mm</td></tr>
-    <tr><td>Weight</td><td>~280g (with battery)</td></tr>
-    <tr><td>Drops Survived</td><td>47 (and counting)</td></tr>
-    <tr><td>Control Interface</td><td>Web BLE (bit-bot app)</td></tr>
+    <tr><td>Poids</td><td>~280g (avec batterie)</td></tr>
+    <tr><td>Chutes survivées</td><td>47 (et ça continue)</td></tr>
+    <tr><td>Interface de contrôle</td><td>Web BLE (app bit-bot)</td></tr>
   </table>
 
-  <div class="circuit-note">ALL DIMENSIONS IN MM // NOT TO SCALE // WORKSHOP-DIY © 2025</div>
+  <div class="circuit-note">TOUTES LES DIMENSIONS EN MM // PAS À L'ÉCHELLE // WORKSHOP-DIY © 2025</div>
 </div>
 
 <!-- TAB 1: CIRCUITS -->
 <div class="pane" id="p1">
-  <div class="bp-title">CIRCUIT SCHEMATICS</div>
-  <div class="bp-sub">COMMON WORKSHOP CIRCUITS // EDUCATIONAL REFERENCE</div>
+  <div class="bp-title">SCHÉMAS DE CIRCUITS</div>
+  <div class="bp-sub">CIRCUITS COURANTS DE L'ATELIER // RÉFÉRENCE PÉDAGOGIQUE</div>
 
   <div style="margin-bottom:20px">
-    <div style="font-size:10px;color:#4a9eff;font-weight:700;margin-bottom:6px">BASIC LED CIRCUIT</div>
+    <div style="font-size:10px;color:#4a9eff;font-weight:700;margin-bottom:6px">CIRCUIT LED DE BASE</div>
     <pre class="circuit-ascii">
     VCC (3.3V)
       │
@@ -162,11 +162,11 @@ body{background:#0a1628;font-family:'JetBrains Mono',monospace;font-size:11px;co
       │
      GND
     </pre>
-    <div class="circuit-note">R = (Vsource - Vled) / I = (3.3 - 2.0) / 0.02 = 65Ω → USE 220Ω</div>
+    <div class="circuit-note">R = (Vsource - Vled) / I = (3.3 - 2.0) / 0.02 = 65Ω → UTILISER 220Ω</div>
   </div>
 
   <div style="margin-bottom:20px">
-    <div style="font-size:10px;color:#4a9eff;font-weight:700;margin-bottom:6px">MOTOR DRIVER (H-BRIDGE)</div>
+    <div style="font-size:10px;color:#4a9eff;font-weight:700;margin-bottom:6px">PILOTE MOTEUR (PONT EN H)</div>
     <pre class="circuit-ascii">
     ESP32          DRV8833         MOTOR
     GPIO 25 ──────► AIN1 ──┐
@@ -177,11 +177,11 @@ body{background:#0a1628;font-family:'JetBrains Mono',monospace;font-size:11px;co
     VCC ──────────► VM ────┘
     GND ──────────► GND
     </pre>
-    <div class="circuit-note">MAX VOLTAGE: 10.8V // MAX CURRENT: 1.5A PER CHANNEL</div>
+    <div class="circuit-note">TENSION MAX : 10,8V // COURANT MAX : 1,5A PAR CANAL</div>
   </div>
 
   <div style="margin-bottom:20px">
-    <div style="font-size:10px;color:#4a9eff;font-weight:700;margin-bottom:6px">ULTRASONIC SENSOR (HC-SR04)</div>
+    <div style="font-size:10px;color:#4a9eff;font-weight:700;margin-bottom:6px">CAPTEUR ULTRASONIQUE (HC-SR04)</div>
     <pre class="circuit-ascii">
     ESP32          HC-SR04
     GPIO 12 ──────► TRIG
@@ -189,30 +189,30 @@ body{background:#0a1628;font-family:'JetBrains Mono',monospace;font-size:11px;co
     3.3V   ──────► VCC
     GND    ──────► GND
 
-    Distance = (Time × Speed of Sound) / 2
+    Distance = (Temps × Vitesse du son) / 2
     Distance = (pulse_μs × 0.0343) / 2 cm
     </pre>
   </div>
 
   <div>
-    <div style="font-size:10px;color:#4a9eff;font-weight:700;margin-bottom:6px">NEOPIXEL / WS2812B STRIP</div>
+    <div style="font-size:10px;color:#4a9eff;font-weight:700;margin-bottom:6px">RUBAN NEOPIXEL / WS2812B</div>
     <pre class="circuit-ascii">
     ESP32          WS2812B Strip
     GPIO 5  ──────► DIN (Data In)
-    5V      ──────► 5V  (external PSU recommended)
+    5V      ──────► 5V  (alim externe recommandée)
     GND     ──────► GND
 
-    ⚠ Add 300-500Ω resistor on data line
-    ⚠ Add 1000μF capacitor across power
-    ⚠ Max ~60mA per LED at full white
+    ⚠ Ajouter résistance 300-500Ω sur ligne de données
+    ⚠ Ajouter condensateur 1000μF sur alimentation
+    ⚠ Max ~60mA par LED à plein blanc
     </pre>
   </div>
 </div>
 
 <!-- TAB 2: APP SCHEMATICS -->
 <div class="pane" id="p2">
-  <div class="bp-title">APPLICATION ARCHITECTURE</div>
-  <div class="bp-sub">DATA FLOW DIAGRAMS // ALL 39 APPS</div>
+  <div class="bp-title">ARCHITECTURE DES APPLICATIONS</div>
+  <div class="bp-sub">DIAGRAMMES DE FLUX DE DONNÉES // LES 39 APPS</div>
   <div class="sch-grid" id="schGrid"></div>
 </div>
 </div>
@@ -220,18 +220,18 @@ body{background:#0a1628;font-family:'JetBrains Mono',monospace;font-size:11px;co
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",d:"Robot BLE control",io:["WebBLE","Joystick","PWM"],pins:"GPIO 25,26,27,14,12,13"},
-{e:"🪄",n:"magic-hands",d:"Hand tracking VFX",io:["Camera","MediaPipe","Canvas"],pins:"WebGL, 21 hand landmarks"},
-{e:"🕵️",n:"face-quest",d:"Face detection game",io:["Camera","FaceMesh","Scoring"],pins:"468 face landmarks"},
-{e:"🧠",n:"teachable-machine",d:"Gesture → micro:bit",io:["Camera","TM","WebBLE"],pins:"MobileNet, BLE UART"},
-{e:"💬",n:"talking-robot",d:"Voice + BLE robot",io:["SpeechAPI","NLP","WebBLE"],pins:"Web Speech API"},
-{e:"😎",n:"face-tracking",d:"Face → events",io:["Camera","FaceMesh","Events"],pins:"Position XY, tilt"},
-{e:"🚀",n:"mission-control",d:"WebRTC dashboard",io:["PeerJS","Video","Chat"],pins:"STUN/TURN, DataCanal"},
-{e:"🔐",n:"pentest-lab",d:"CTF sandbox",io:["Terminal","Challenges","Scoring"],pins:"Sandboxed VM"},
-{e:"🐧",n:"linux-lab",d:"Browser Linux",io:["xterm.js","Commands","FS"],pins:"Virtual filesystem"},
-{e:"💡",n:"wled-kids-lab",d:"LED control",io:["HTTP","JSON","WLED API"],pins:"REST, mDNS, WS2812"},
-{e:"⚡",n:"esp32-c3",d:"IoT lab",io:["WiFi","GPIO","Sensors"],pins:"ADC, I2C, SPI, UART"},
-{e:"🐳",n:"docker-lab",d:"Container lab",io:["Docker API","Terminal","Compose"],pins:"Dockerfile, volumes"},
+{e:"🤖",n:"bit-bot",d:"Contrôle robot BLE",io:["WebBLE","Joystick","PWM"],pins:"GPIO 25,26,27,14,12,13"},
+{e:"🪄",n:"magic-hands",d:"Effets suivi de mains",io:["Caméra","MediaPipe","Canvas"],pins:"WebGL, 21 repères de main"},
+{e:"🕵️",n:"face-quest",d:"Jeu détection faciale",io:["Caméra","FaceMesh","Score"],pins:"468 repères faciaux"},
+{e:"🧠",n:"teachable-machine",d:"Geste → micro:bit",io:["Caméra","TM","WebBLE"],pins:"MobileNet, BLE UART"},
+{e:"💬",n:"talking-robot",d:"Voix + robot BLE",io:["SpeechAPI","NLP","WebBLE"],pins:"Web Speech API"},
+{e:"😎",n:"face-tracking",d:"Visage → événements",io:["Caméra","FaceMesh","Événements"],pins:"Position XY, inclinaison"},
+{e:"🚀",n:"mission-control",d:"Tableau de bord WebRTC",io:["PeerJS","Vidéo","Chat"],pins:"STUN/TURN, DataChannel"},
+{e:"🔐",n:"pentest-lab",d:"Bac à sable CTF",io:["Terminal","Défis","Score"],pins:"VM sandboxée"},
+{e:"🐧",n:"linux-lab",d:"Linux navigateur",io:["xterm.js","Commandes","FS"],pins:"Système de fichiers virtuel"},
+{e:"💡",n:"wled-kids-lab",d:"Contrôle LED",io:["HTTP","JSON","WLED API"],pins:"REST, mDNS, WS2812"},
+{e:"⚡",n:"esp32-c3",d:"Labo IoT",io:["WiFi","GPIO","Capteurs"],pins:"ADC, I2C, SPI, UART"},
+{e:"🐳",n:"docker-lab",d:"Labo conteneurs",io:["Docker API","Terminal","Compose"],pins:"Dockerfile, volumes"},
 ];
 
 const grid=document.getElementById('schGrid');
@@ -246,8 +246,7 @@ function showTab(i){
 setInterval(()=>{document.getElementById('clock').textContent=new Date().toTimeString().slice(0,8)},1000);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

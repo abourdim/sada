@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../assets/css/sada-base.css">
 <link rel="stylesheet" href="../../assets/css/sada-themes.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // TECH HOROSCOPE</title>
+<title>WKSHP-DIY // HOROSCOPE TECH</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&family=Playfair+Display:ital,wght@0,700;1,400&Amiri&display=swap" rel="stylesheet">
 <style>
 body{background:#05050a;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;overflow-x:hidden}
@@ -50,23 +50,23 @@ body{background:#05050a;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="content">
 <div class="header">
-  <div class="h-pre">WORKSHOP-DIY PRESENTS</div>
-  <div class="h-title">Tech Horoscope</div>
+  <div class="h-pre">WORKSHOP-DIY PRÉSENTE</div>
+  <div class="h-title">Horoscope Tech</div>
   <div class="h-date" id="dateStr"></div>
 </div>
 
 <div class="fortune" id="fortune" onclick="newFortune()">
   <div class="fortune-emoji">🔮</div>
-  <div class="fortune-text" id="fortuneText">Click to receive your daily tech fortune...</div>
-  <div class="fortune-tip">TAP FOR NEW FORTUNE</div>
+  <div class="fortune-text" id="fortuneText">Cliquez pour recevoir votre fortune tech du jour...</div>
+  <div class="fortune-tip">APPUYEZ POUR UNE NOUVELLE FORTUNE</div>
 </div>
 
 <div class="signs" id="signs"></div>
 
 <div class="footer">
   WORKSHOP-DIY · ASSOCIATION LOI 1901 · FRANCE<br>
-  // FOR ENTERTAINMENT PURPOSES ONLY · BUGS ARE STILL FEATURES REGARDLESS OF YOUR SIGN<br>
-  // COFFEE COMPATIBILITY: UNIVERSAL
+  // À DES FINS DE DIVERTISSEMENT UNIQUEMENT · LES BUGS RESTENT DES FONCTIONNALITÉS QUEL QUE SOIT VOTRE SIGNE<br>
+  // COMPATIBILITÉ CAFÉ : UNIVERSELLE
 </div>
 </div>
 
@@ -87,28 +87,28 @@ document.head.appendChild(style);
 
 // Date
 const d=new Date();
-document.getElementById('dateStr').textContent=d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+document.getElementById('dateStr').textContent=d.toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
 
 // FORTUNES
 const FORTUNES=[
-  "The BLE connection you seek is closer than you think.",
-  "A bug will reveal itself today. It was a feature all along.",
-  "Mercury is in retrograde. Your Docker containers will restart unexpectedly.",
-  "Your WiFi password alignment is strong today. It remains password123.",
-  "A 10-year-old will teach you something profound about technology.",
-  "The stars indicate your robot will dance today — intentionally or otherwise.",
-  "Your coffee reserves are cosmically aligned. Drink abundantly.",
-  "Today's lucky number is 42. This is always the lucky number.",
-  "The universe whispers: 'Have you tried turning it off and on again?'",
-  "A pull request from the future awaits your review.",
-  "The ESP32 in your chart house suggests hardware experiments.",
-  "Your git commit messages will be unusually eloquent today.",
-  "Mars enters your debugging zone. Breakpoints will be powerful.",
-  "A wild Segfault appears. It is... actually a feature.",
-  "The cosmos suggest you shouldn't deploy to production today. (It's Friday.)",
-  "Your MediaPipe alignment is perfect. Wave your hands with confidence.",
-  "An old USB cable will resurface. Cherish it.",
-  "The stars foretell exactly 39 good things happening to you.",
+  "La connexion BLE que vous cherchez est plus proche que vous ne le pensez.",
+  "Un bug se révélera aujourd'hui. C'était une fonctionnalité depuis le début.",
+  "Mercure est en rétrograde. Vos conteneurs Docker redémarreront de manière inattendue.",
+  "L'alignement de votre mot de passe WiFi est fort aujourd'hui. Il reste password123.",
+  "Un enfant de 10 ans vous apprendra quelque chose de profond sur la technologie.",
+  "Les étoiles indiquent que votre robot dansera aujourd'hui — intentionnellement ou non.",
+  "Vos réserves de café sont cosmiquement alignées. Buvez abondamment.",
+  "Le chiffre porte-bonheur du jour est 42. C'est toujours le chiffre porte-bonheur.",
+  "L'univers murmure : « Avez-vous essayé de l'éteindre et de le rallumer ? »",
+  "Une pull request du futur attend votre relecture.",
+  "L'ESP32 dans votre maison astrale suggère des expériences matérielles.",
+  "Vos messages de commit git seront inhabituellement éloquents aujourd'hui.",
+  "Mars entre dans votre zone de débogage. Les breakpoints seront puissants.",
+  "Un Segfault sauvage apparaît. C'est en fait... une fonctionnalité.",
+  "Le cosmos suggère de ne pas déployer en production aujourd'hui. (C'est vendredi.)",
+  "Votre alignement MediaPipe est parfait. Agitez vos mains avec confiance.",
+  "Un vieux câble USB refait surface. Chérissez-le.",
+  "Les étoiles prédisent exactement 39 bonnes choses qui vous arriveront.",
 ];
 
 function newFortune(){
@@ -117,14 +117,14 @@ function newFortune(){
 
 // SIGNS
 const SIGNS=[
-{e:"🤖",n:"The Robot",dates:"Jan 1 - Feb 14",reading:"Your servo motors are aligned for success today. BLE connections will be strong and reliable. A younger maker will ask for your help — share your knowledge generously. Avoid firmware updates during Mercury retrograde.",stats:["Chancey port: GPIO 13","Power: 87%","Mood: Autonomous"],compat:"Best match: The Wizard 🧙"},
-{e:"🧙",n:"The Wizard",dates:"Feb 15 - Mar 31",reading:"MediaPipe energies surround you. Your hand gestures will be tracked with unusual precision today. Creative projects are strongly favored — pixel art may surprise you. Trust the particles.",stats:["Chancey framework: MediaPipe","Aura: Magical","Creativity: 95%"],compat:"Best match: The Robot 🤖"},
-{e:"🔐",n:"The Hacker",dates:"Apr 1 - May 15",reading:"Your ethical hacking skills peak today. Vulnerabilities will reveal themselves effortlessly. Remember: with great power comes great responsibility (and a better WiFi password, hopefully). SQL injections are especially potent.",stats:["Chancey exploit: XSS","Stealth: Maximum","Ethics: 100%"],compat:"Best match: The Penguin 🐧"},
-{e:"🐧",n:"The Penguin",dates:"May 16 - Jun 30",reading:"Terminal commands flow through you like water today. Your bash scripts will execute flawlessly on the first try (a rare cosmic event). Avoid `rm -rf` during this vulnerable alignment.",stats:["Chancey command: sudo","Shell: Blessed","Uptime: ∞"],compat:"Best match: The Hacker 🔐"},
-{e:"⚡",n:"The Circuit",dates:"Jul 1 - Aug 15",reading:"Electronic energies pulse strongly. Soldering will be precise, and your ESP32 projects will compile without errors. The stars warn against touching hot components without thermal protection.",stats:["Chancey voltage: 3.3V","Resistance: Low","Current: Flowing"],compat:"Best match: The Maker 🔧"},
-{e:"🧠",n:"The Neural Net",dates:"Aug 16 - Sep 30",reading:"Your AI training accuracy reaches cosmic highs today. Gesture recognition models will converge faster than usual. The universe suggests expanding your training dataset for even better results.",stats:["Chancey accuracy: 98%","Epochs: Aligned","Loss: Minimal"],compat:"Best match: The Wizard 🧙"},
-{e:"🐳",n:"The Container",dates:"Oct 1 - Nov 15",reading:"Docker energies are strong. Your containers will orchestrate harmoniously. Today is favorable for explaining containerization to family members — they might actually understand. Volumes are well-mounted in your chart.",stats:["Chancey image: alpine","Layers: Clean","Network: Bridge"],compat:"Best match: The Penguin 🐧"},
-{e:"☕",n:"The Caffeinator",dates:"Nov 16 - Dec 31",reading:"Coffee reserves are cosmically abundant today — a rare alignment. Your productivity will be superhuman between the hours of 9am and 11am. After that, seek a refill immediately. The stars are powered by caffeine.",stats:["Chancey brew: Espresso","Energy: Maximum","Cups today: ∞"],compat:"Best match: Everyone ❤️"},
+{e:"🤖",n:"Le Robot",dates:"1 jan - 14 fév",reading:"Vos servomoteurs sont alignés pour le succès aujourd'hui. Les connexions BLE seront fortes et fiables. Un jeune maker vous demandera de l'aide — partagez vos connaissances généreusement. Évitez les mises à jour de firmware pendant Mercure rétrograde.",stats:["Port chanceux : GPIO 13","Puissance : 87%","Humeur : Autonome"],compat:"Meilleur match : Le Sorcier 🧙"},
+{e:"🧙",n:"Le Sorcier",dates:"15 fév - 31 mar",reading:"Les énergies MediaPipe vous entourent. Vos gestes de la main seront suivis avec une précision inhabituelle aujourd'hui. Les projets créatifs sont fortement favorisés — le pixel art pourrait vous surprendre. Faites confiance aux particules.",stats:["Framework chanceux : MediaPipe","Aura : Magique","Créativité : 95%"],compat:"Meilleur match : Le Robot 🤖"},
+{e:"🔐",n:"Le Hacker",dates:"1 avr - 15 mai",reading:"Vos compétences en hacking éthique atteignent leur apogée aujourd'hui. Les vulnérabilités se révéleront sans effort. Souvenez-vous : un grand pouvoir implique de grandes responsabilités (et un meilleur mot de passe WiFi, espérons-le). Les injections SQL sont particulièrement puissantes.",stats:["Exploit chanceux : XSS","Furtivité : Maximale","Éthique : 100%"],compat:"Meilleur match : Le Pingouin 🐧"},
+{e:"🐧",n:"Le Pingouin",dates:"16 mai - 30 juin",reading:"Les commandes terminal coulent en vous comme de l'eau aujourd'hui. Vos scripts bash s'exécuteront parfaitement du premier coup (un événement cosmique rare). Évitez `rm -rf` pendant cet alignement vulnérable.",stats:["Commande chanceuse : sudo","Shell : Béni","Uptime : ∞"],compat:"Meilleur match : Le Hacker 🔐"},
+{e:"⚡",n:"Le Circuit",dates:"1 juil - 15 août",reading:"Les énergies électroniques pulsent fortement. La soudure sera précise, et vos projets ESP32 compileront sans erreurs. Les étoiles mettent en garde contre le contact avec des composants chauds sans protection thermique.",stats:["Tension chanceuse : 3.3V","Résistance : Faible","Courant : Fluide"],compat:"Meilleur match : Le Maker 🔧"},
+{e:"🧠",n:"Le Réseau Neuronal",dates:"16 août - 30 sep",reading:"La précision de votre entraînement IA atteint des sommets cosmiques aujourd'hui. Les modèles de reconnaissance gestuelle convergeront plus vite que d'habitude. L'univers suggère d'élargir votre jeu de données pour de meilleurs résultats.",stats:["Précision chanceuse : 98%","Époques : Alignées","Perte : Minimale"],compat:"Meilleur match : Le Sorcier 🧙"},
+{e:"🐳",n:"Le Conteneur",dates:"1 oct - 15 nov",reading:"Les énergies Docker sont fortes. Vos conteneurs s'orchestreront harmonieusement. Aujourd'hui est favorable pour expliquer la conteneurisation à votre famille — ils pourraient comprendre. Les volumes sont bien montés dans votre thème astral.",stats:["Image chanceuse : alpine","Couches : Propres","Réseau : Bridge"],compat:"Meilleur match : Le Pingouin 🐧"},
+{e:"☕",n:"Le Caféinateur",dates:"16 nov - 31 déc",reading:"Les réserves de café sont cosmiquement abondantes aujourd'hui — un alignement rare. Votre productivité sera surhumaine entre 9h et 11h. Après cela, cherchez un renouvellement immédiatement. Les étoiles fonctionnent à la caféine.",stats:["Breuvage chanceux : Espresso","Énergie : Maximale","Tasses aujourd'hui : ∞"],compat:"Meilleur match : Tout le monde ❤️"},
 ];
 
 document.getElementById('signs').innerHTML=SIGNS.map(s=>`<div class="sign">
@@ -136,8 +136,7 @@ document.getElementById('signs').innerHTML=SIGNS.map(s=>`<div class="sign">
 
 newFortune();
 </script>
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

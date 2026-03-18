@@ -86,8 +86,8 @@ body{background:#020408;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <div class="app">
 <div class="topbar">
   <div class="tb-logo">WKSHP MISSION CTRL</div>
-  <div class="tb-mission">MISSION: DEPLOY-39 // OPERATION MAKER STORM</div>
-  <div class="tb-live"><div class="dot"></div>LIVE</div>
+  <div class="tb-mission">MISSION : DEPLOY-39 // OPÉRATION TEMPÊTE MAKER</div>
+  <div class="tb-live"><div class="dot"></div>EN DIRECT</div>
   <div class="tb-clock" id="clock">T-00:00:00</div>
 </div>
 
@@ -96,79 +96,79 @@ body{background:#020408;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
   <div class="panel countdown" id="cdPanel">
     <div class="panel-h"><span>LANCEMENT COMPTE À REBOURS</span><span class="live">● ACTIVE</span></div>
     <div class="panel-body" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-      <div class="cd-label">TIME TO DEPLOYMENT</div>
+      <div class="cd-label">TEMPS AVANT DÉPLOIEMENT</div>
       <div class="cd-time" id="cdTime">T-00:30</div>
-      <div class="cd-status go" id="cdStatus">ALL SYSTEMS GO</div>
-      <button class="cd-btn" id="launchBtn" onclick="startLaunch()">▶ INITIATE LANCEMENT</button>
+      <div class="cd-status go" id="cdStatus">TOUS SYSTÈMES OK</div>
+      <button class="cd-btn" id="launchBtn" onclick="startLaunch()">▶ INITIER LE LANCEMENT</button>
     </div>
   </div>
 
   <!-- MAP -->
   <div class="panel map-panel">
-    <div class="panel-h"><span>ORBITAL DEPLOYMENT MAP</span><span class="live">● TRACKING</span></div>
+    <div class="panel-h"><span>CARTE DE DÉPLOIEMENT ORBITAL</span><span class="live">● SUIVI</span></div>
     <canvas class="map-canvas" id="mapCanvas"></canvas>
   </div>
 
   <!-- SYSTEMS -->
   <div class="panel">
-    <div class="panel-h"><span>SYSTEMS STATUT</span></div>
+    <div class="panel-h"><span>STATUT DES SYSTÈMES</span></div>
     <div class="panel-body" id="systems"></div>
   </div>
 
   <!-- TELEMETRY -->
   <div class="panel">
-    <div class="panel-h"><span>TELEMETRY</span><span class="live">● LIVE</span></div>
+    <div class="panel-h"><span>TÉLÉMÉTRIE</span><span class="live">● EN DIRECT</span></div>
     <div class="panel-body" id="telemetry"></div>
   </div>
 
   <!-- CREW (hidden behind map, uses remaining space) -->
   <!-- MISSION LOG -->
   <div class="panel">
-    <div class="panel-h"><span>MISSION LOG</span></div>
+    <div class="panel-h"><span>JOURNAL DE MISSION</span></div>
     <div class="panel-body" id="missionLog"></div>
   </div>
 </div>
 
 <div class="bottombar">
-  <span>WKSHP-DIY SPACE DIVISION</span>
-  <span>MISSION: DEPLOY-39</span>
-  <span>GROUND: FRANCE 🇫🇷</span>
-  <span>PAYLOAD: 39 APPS · 7 DOMAINES · 12 THEMES</span>
-  <span style="margin-left:auto">UPLINK: NOMINAL</span>
+  <span>DIVISION SPATIALE WKSHP-DIY</span>
+  <span>MISSION : DEPLOY-39</span>
+  <span>SOL : FRANCE 🇫🇷</span>
+  <span>CHARGE UTILE : 39 APPS · 7 DOMAINES · 12 THÈMES</span>
+  <span style="margin-left:auto">LIAISON MONTANTE : NOMINALE</span>
 </div>
 </div>
 
 <!-- LANCEMENT OVERLAY -->
 <div class="launch-overlay" id="launchOverlay">
   <div class="launch-count" id="launchCount">5</div>
-  <div class="launch-label" id="launchLabel">MAIN ENGINE DÉMARRER</div>
+  <div class="launch-label" id="launchLabel">ALLUMAGE MOTEUR PRINCIPAL</div>
   <div class="launch-fire" id="launchFire">🚀</div>
 </div>
 
 <script>
 // SYSTEMS
 const SYS=[
-{n:"Web Bluetooth",v:"ONLINE"},{n:"MediaPipe AI",v:"READY"},{n:"WebRTC Link",v:"NOMINAL"},
-{n:"ESP32 Uplink",v:"CONNECTED"},{n:"micro:bit Array",v:"3 PAIRED"},{n:"Docker Engine",v:"RUNNING"},
-{n:"Node-RED Flow",v:"ACTIVE"},{n:"WLED Controller",v:"SYNCED"},{n:"Camera Feed",v:"720p"},
-{n:"Terminal Shell",v:"BASH 5.2"},{n:"WiFi Network",v:"password123"},{n:"Coffee Supply",v:"CRITICAL"},
+{n:"Web Bluetooth",v:"EN LIGNE"},{n:"MediaPipe IA",v:"PRÊT"},{n:"Liaison WebRTC",v:"NOMINALE"},
+{n:"Liaison ESP32",v:"CONNECTÉ"},{n:"Réseau micro:bit",v:"3 APPAIRÉS"},{n:"Moteur Docker",v:"EN MARCHE"},
+{n:"Flux Node-RED",v:"ACTIF"},{n:"Contrôleur WLED",v:"SYNCHRONISÉ"},{n:"Flux Caméra",v:"720p"},
+{n:"Shell Terminal",v:"BASH 5.2"},{n:"Réseau WiFi",v:"password123"},{n:"Réserve Café",v:"CRITIQUE"},
 ];
 const sysEl=document.getElementById('systems');
 SYS.forEach(s=>{
-  const warn=s.n==='Coffee Supply';
+  const warn=s.n==='Réserve Café';
   sysEl.innerHTML+=`<div class="sys-item"><div class="sys-dot ${warn?'warn':'on'}"></div><span class="sys-name">${s.n}</span><span class="sys-val">${s.v}</span></div>`;
 });
 
 // TELEMETRY
 const TELEM=[
 {l:"ALTITUDE",v:"420",u:"km",p:70,c:"#0af"},
-{l:"VELOCITY",v:"7.8",u:"km/s",p:85,c:"#0f0"},
-{l:"APPS DEPLOYED",v:"39",u:"/39",p:100,c:"#ffd700"},
+{l:"VÉLOCITÉ",v:"7.8",u:"km/s",p:85,c:"#0f0"},
+{l:"APPS DÉPLOYÉES",v:"39",u:"/39",p:100,c:"#ffd700"},
 {l:"SIGNAL",v:"-67",u:"dBm",p:60,c:"#0af"},
-{l:"POWER",v:"87",u:"%",p:87,c:"#0f0"},
-{l:"CPU TEMP",v:"42",u:"°C",p:45,c:"#fa0"},
-{l:"BLE LINKS",v:"3",u:"active",p:30,c:"#0af"},
-{l:"BANDWIDTH",v:"54",u:"Mbps",p:65,c:"#0f0"},
+{l:"PUISSANCE",v:"87",u:"%",p:87,c:"#0f0"},
+{l:"TEMP CPU",v:"42",u:"°C",p:45,c:"#fa0"},
+{l:"LIAISONS BLE",v:"3",u:"actives",p:30,c:"#0af"},
+{l:"BANDE PASSANTE",v:"54",u:"Mbps",p:65,c:"#0f0"},
 ];
 const telemEl=document.getElementById('telemetry');
 function updateTelem(){
@@ -182,21 +182,21 @@ updateTelem();setInterval(updateTelem,2000);
 
 // MISSION LOG
 const LOGS=[
-  {t:"T-10:00",type:"info",m:"Mission DEPLOY-39 initialized"},
-  {t:"T-09:45",type:"ok",m:"All 39 app payloads loaded"},
-  {t:"T-09:30",type:"ok",m:"Web Bluetooth subsystem: GO"},
-  {t:"T-09:00",type:"ok",m:"MediaPipe AI core: NOMINAL"},
-  {t:"T-08:30",type:"ok",m:"ESP32 array handshake confirmed"},
-  {t:"T-08:00",type:"warn",m:"Coffee supply below threshold"},
-  {t:"T-07:30",type:"ok",m:"WebRTC peer connexions: STABLE"},
-  {t:"T-07:00",type:"ok",m:"Camera feed calibrated (720p)"},
-  {t:"T-06:00",type:"info",m:"Ground crew ready — France 🇫🇷"},
-  {t:"T-05:00",type:"ok",m:"micro:bit constellation: 3 units paired"},
-  {t:"T-04:00",type:"ok",m:"Docker containers: all healthy"},
-  {t:"T-03:00",type:"ok",m:"Terminal shell: bash 5.2 loaded"},
-  {t:"T-02:00",type:"warn",m:"mot de passe WiFi still password123"},
-  {t:"T-01:00",type:"ok",m:"Final systems check: ALL GO"},
-  {t:"T-00:30",type:"info",m:"Launch sequence armed"},
+  {t:"T-10:00",type:"info",m:"Mission DEPLOY-39 initialisée"},
+  {t:"T-09:45",type:"ok",m:"39 charges utiles d'apps chargées"},
+  {t:"T-09:30",type:"ok",m:"Sous-système Web Bluetooth : GO"},
+  {t:"T-09:00",type:"ok",m:"Cœur MediaPipe IA : NOMINAL"},
+  {t:"T-08:30",type:"ok",m:"Handshake réseau ESP32 confirmé"},
+  {t:"T-08:00",type:"warn",m:"Réserve café en dessous du seuil"},
+  {t:"T-07:30",type:"ok",m:"Connexions WebRTC pair-à-pair : STABLES"},
+  {t:"T-07:00",type:"ok",m:"Flux caméra calibré (720p)"},
+  {t:"T-06:00",type:"info",m:"Équipe au sol prête — France 🇫🇷"},
+  {t:"T-05:00",type:"ok",m:"Constellation micro:bit : 3 unités appairées"},
+  {t:"T-04:00",type:"ok",m:"Conteneurs Docker : tous opérationnels"},
+  {t:"T-03:00",type:"ok",m:"Shell terminal : bash 5.2 chargé"},
+  {t:"T-02:00",type:"warn",m:"Mot de passe WiFi toujours password123"},
+  {t:"T-01:00",type:"ok",m:"Vérification finale des systèmes : TOUS OK"},
+  {t:"T-00:30",type:"info",m:"Séquence de lancement armée"},
 ];
 const logEl=document.getElementById('missionLog');
 LOGS.forEach(l=>{
@@ -205,13 +205,13 @@ LOGS.forEach(l=>{
 
 // Auto-add log entries
 const autoLogs=[
-  {type:"info",m:"Telemetry stream nominal"},
-  {type:"ok",m:"bit-bot responding to commands"},
-  {type:"ok",m:"magic-hands: 21 landmarks tracked"},
-  {type:"info",m:"face-quest score: 847"},
-  {type:"warn",m:"Bug #42 detected — reclassified as feature"},
-  {type:"ok",m:"teachable-machine: model accuracy 98%"},
-  {type:"info",m:"Student connected from classroom"},
+  {type:"info",m:"Flux télémétrie nominal"},
+  {type:"ok",m:"bit-bot répond aux commandes"},
+  {type:"ok",m:"magic-hands : 21 landmarks suivis"},
+  {type:"info",m:"face-quest score : 847"},
+  {type:"warn",m:"Bug #42 détecté — reclassifié en fonctionnalité"},
+  {type:"ok",m:"teachable-machine : précision du modèle 98%"},
+  {type:"info",m:"Élève connecté depuis la classe"},
 ];
 let logIdx=0;
 setInterval(()=>{
@@ -286,9 +286,9 @@ function drawMap(){
 
   // Labels
   ctx.font='7px JetBrains Mono';ctx.fillStyle='rgba(0,170,255,.1)';ctx.textAlign='left';
-  ctx.fillText('ORBIT 1: CORE APPS',10,15);
-  ctx.fillText('ORBIT 2: EXTENDED',10,25);
-  ctx.fillText(`TRACKED: ${orbitApps.length} / 39`,10,cH-10);
+  ctx.fillText('ORBITE 1 : APPS PRINCIPALES',10,15);
+  ctx.fillText('ORBITE 2 : ÉTENDUES',10,25);
+  ctx.fillText(`SUIVIES : ${orbitApps.length} / 39`,10,cH-10);
 }
 drawMap();
 
@@ -305,24 +305,24 @@ function startLaunch(){
   const fireEl=document.getElementById('launchFire');
   overlay.classList.add('on');
   let count=5;
-  const labels=['MAIN ENGINE START','IGNITION SEQUENCE','BOOSTER SEPARATION','MAX-Q','LIFTOFF!'];
+  const labels=['ALLUMAGE MOTEUR PRINCIPAL','SÉQUENCE D\'IGNITION','SÉPARATION DES BOOSTERS','MAX-Q','DÉCOLLAGE !'];
   const interval=setInterval(()=>{
     countEl.textContent=count;
-    labelEl.textContent=labels[5-count]||'LIFTOFF!';
+    labelEl.textContent=labels[5-count]||'DÉCOLLAGE !';
     if(count===0){
       clearInterval(interval);
       countEl.textContent='🚀';
-      labelEl.textContent='39 APPS DEPLOYED SUCCESSFULLY';
+      labelEl.textContent='39 APPS DÉPLOYÉES AVEC SUCCÈS';
       fireEl.style.animation='rocketGo 2s ease-in forwards';
       fireEl.style.opacity='1';
       setTimeout(()=>{
         overlay.classList.remove('on');
-        document.getElementById('cdStatus').textContent='MISSION TERMINÉ';
+        document.getElementById('cdStatus').textContent='MISSION TERMINÉE';
         document.getElementById('cdStatus').className='cd-status go';
         document.getElementById('cdTime').textContent='T+00:00';
-        document.getElementById('launchBtn').textContent='✓ DEPLOYED';
+        document.getElementById('launchBtn').textContent='✓ DÉPLOYÉ';
         document.getElementById('launchBtn').disabled=true;
-        logEl.innerHTML+=`<div class="log-entry"><span class="log-time">${new Date().toTimeString().slice(0,5)}</span><span class="log-type ok"></span><span class="log-msg">🚀 LANCEMENT SUCCESSFUL — 39 apps in orbit</span></div>`;
+        logEl.innerHTML+=`<div class="log-entry"><span class="log-time">${new Date().toTimeString().slice(0,5)}</span><span class="log-type ok"></span><span class="log-msg">🚀 LANCEMENT RÉUSSI — 39 apps en orbite</span></div>`;
         logEl.scrollTop=logEl.scrollHeight;
       },3000);
     }
@@ -331,8 +331,7 @@ function startLaunch(){
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

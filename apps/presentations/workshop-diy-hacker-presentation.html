@@ -215,7 +215,7 @@ document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')goTo(cur+1);if(e
 let kSeq=[],kCode=[38,38,40,40,37,39,37,39,66,65];
 document.addEventListener('keydown',e=>{kSeq.push(e.keyCode);if(kSeq.length>10)kSeq.shift();if(kSeq.join(',')==kCode.join(','))document.getElementById('konami').style.display='flex'});
 </script>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

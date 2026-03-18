@@ -75,8 +75,8 @@ add('I (72) boot:  2 factory   factory app  00 00 00010000 00100000','dim',20);
 add('I (82) boot: End of partition table','dim',20);
 
 add('','',60);
-add('I (92) boot: <span class="white">Loaded app from partition at offset 0x10000</span>','',40);
-add('I (92) boot: <span class="white">Disabling RNG early entropy source...</span>','',30);
+add('I (92) boot: <span class="white">Application chargée depuis partition à l\'offset 0x10000</span>','',40);
+add('I (92) boot: <span class="white">Désactivation source entropie RNG précoce...</span>','',30);
 
 add('','',100);
 sep();
@@ -100,59 +100,59 @@ add('I (192) <span class="info">flash</span>: <span class="white">4MB Flash · Q
 
 add('','',100);
 add('I (202) <span class="bright">WKSHP</span>: ╔═══════════════════════════════════════╗','',40);
-add('I (202) <span class="bright">WKSHP</span>: ║  🤖  bit-bot Firmware Initializing    ║','',30);
+add('I (202) <span class="bright">WKSHP</span>: ║  🤖  Firmware bit-bot en initialisation ║','',30);
 add('I (202) <span class="bright">WKSHP</span>: ╚═══════════════════════════════════════╝','',30);
 
 add('','',80);
-add('I (212) <span class="info">GPIO</span>: Configuring pin map...','',50);
-add('I (222) <span class="info">GPIO</span>:   GPIO4  → NeoPixel Data  [OUTPUT]  <span class="bright">✓</span>','',40);
-add('I (232) <span class="info">GPIO</span>:   GPIO6  → Motor Left     [PWM]     <span class="bright">✓</span>','',40);
-add('I (242) <span class="info">GPIO</span>:   GPIO7  → Motor Right    [PWM]     <span class="bright">✓</span>','',40);
-add('I (252) <span class="info">GPIO</span>:   GPIO10 → Servo          [PWM]     <span class="bright">✓</span>','',40);
-add('I (262) <span class="info">GPIO</span>:   GPIO0  → IR Left        [ADC]     <span class="bright">✓</span>','',40);
-add('I (272) <span class="info">GPIO</span>:   GPIO1  → IR Right       [ADC]     <span class="bright">✓</span>','',40);
-add('I (282) <span class="info">GPIO</span>:   GPIO8  → RGB LED        [WS2812]  <span class="bright">✓</span>','',40);
-add('I (292) <span class="info">GPIO</span>:   GPIO9  → Boot Button    [INPUT↑]  <span class="bright">✓</span>','',40);
+add('I (212) <span class="info">GPIO</span>: Configuration des broches...','',50);
+add('I (222) <span class="info">GPIO</span>:   GPIO4  → Données NeoPixel [SORTIE]  <span class="bright">✓</span>','',40);
+add('I (232) <span class="info">GPIO</span>:   GPIO6  → Moteur Gauche    [PWM]     <span class="bright">✓</span>','',40);
+add('I (242) <span class="info">GPIO</span>:   GPIO7  → Moteur Droit     [PWM]     <span class="bright">✓</span>','',40);
+add('I (252) <span class="info">GPIO</span>:   GPIO10 → Servo            [PWM]     <span class="bright">✓</span>','',40);
+add('I (262) <span class="info">GPIO</span>:   GPIO0  → IR Gauche        [ADC]     <span class="bright">✓</span>','',40);
+add('I (272) <span class="info">GPIO</span>:   GPIO1  → IR Droit         [ADC]     <span class="bright">✓</span>','',40);
+add('I (282) <span class="info">GPIO</span>:   GPIO8  → LED RGB          [WS2812]  <span class="bright">✓</span>','',40);
+add('I (292) <span class="info">GPIO</span>:   GPIO9  → Bouton Boot      [ENTRÉE↑] <span class="bright">✓</span>','',40);
 
 add('','',80);
-add('I (302) <span class="info">NEO</span>: NeoPixel strip initialized','',40);
-add('I (302) <span class="info">NEO</span>:   Pixels: <span class="white">8</span> · Pin: <span class="white">GPIO4</span> · Type: <span class="white">GRB 800KHz</span>','',30);
-add('I (312) <span class="info">NEO</span>:   Brightness: <span class="white">50/255 (19%)</span>','',30);
-add('I (322) <span class="info">NEO</span>:   Self-test: <span class="bright">■ ■ ■ ■ ■ ■ ■ ■ PASS</span>','',50);
+add('I (302) <span class="info">NEO</span>: Ruban NeoPixel initialisé','',40);
+add('I (302) <span class="info">NEO</span>:   Pixels: <span class="white">8</span> · Broche: <span class="white">GPIO4</span> · Type: <span class="white">GRB 800KHz</span>','',30);
+add('I (312) <span class="info">NEO</span>:   Luminosité: <span class="white">50/255 (19%)</span>','',30);
+add('I (322) <span class="info">NEO</span>:   Auto-test: <span class="bright">■ ■ ■ ■ ■ ■ ■ ■ OK</span>','',50);
 
 add('','',60);
-add('I (332) <span class="info">SERVO</span>: Servo attached to GPIO10','',40);
-add('I (332) <span class="info">SERVO</span>:   Range: <span class="white">0-180°</span> · Default: <span class="white">90°</span> · Freq: <span class="white">50Hz</span>','',30);
-add('I (342) <span class="info">SERVO</span>:   Self-test: 0° → 90° → 180° → 90° <span class="bright">PASS</span>','',50);
+add('I (332) <span class="info">SERVO</span>: Servo attaché à GPIO10','',40);
+add('I (332) <span class="info">SERVO</span>:   Plage: <span class="white">0-180°</span> · Défaut: <span class="white">90°</span> · Fréq: <span class="white">50Hz</span>','',30);
+add('I (342) <span class="info">SERVO</span>:   Auto-test: 0° → 90° → 180° → 90° <span class="bright">OK</span>','',50);
 
 add('','',60);
-add('I (352) <span class="info">MOTOR</span>: Motor driver initialized','',40);
-add('I (352) <span class="info">MOTOR</span>:   L=GPIO6 R=GPIO7 · PWM: <span class="white">5KHz 8-bit</span>','',30);
-add('I (362) <span class="info">MOTOR</span>:   Self-test: L▸ R▸ L◂ R◂ STOP <span class="bright">PASS</span>','',50);
+add('I (352) <span class="info">MOTOR</span>: Pilote moteur initialisé','',40);
+add('I (352) <span class="info">MOTOR</span>:   G=GPIO6 D=GPIO7 · PWM: <span class="white">5KHz 8-bit</span>','',30);
+add('I (362) <span class="info">MOTOR</span>:   Auto-test: G▸ D▸ G◂ D◂ STOP <span class="bright">OK</span>','',50);
 
 add('','',60);
-add('I (372) <span class="info">IR</span>: Line sensors calibrating...','',60);
-add('I (432) <span class="info">IR</span>:   Left:  <span class="white">3042</span> (floor) · Right: <span class="white">3108</span> (floor)','',40);
-add('I (432) <span class="info">IR</span>:   Threshold: <span class="white">2000</span> · Status: <span class="bright">CALIBRATED</span>','',30);
+add('I (372) <span class="info">IR</span>: Calibration des capteurs de ligne...','',60);
+add('I (432) <span class="info">IR</span>:   Gauche: <span class="white">3042</span> (sol) · Droit: <span class="white">3108</span> (sol)','',40);
+add('I (432) <span class="info">IR</span>:   Seuil: <span class="white">2000</span> · Statut: <span class="bright">CALIBRÉ</span>','',30);
 
 add('','',100);
 sep();
 add('  <span class="info">BLUETOOTH LOW ENERGY</span>','',60);
 sep();
 add('','',40);
-add('I (442) <span class="info">BLE</span>: Initializing NimBLE stack...','',60);
-add('I (452) <span class="info">BLE</span>: Device name: <span class="bright">WKSHP-bitbot-42</span>','',40);
-add('I (462) <span class="info">BLE</span>: MAC Adresse : <span class="white">AA:BB:CC:42:42:42</span>','',30);
+add('I (442) <span class="info">BLE</span>: Initialisation de la pile NimBLE...','',60);
+add('I (452) <span class="info">BLE</span>: Nom de l\'appareil: <span class="bright">WKSHP-bitbot-42</span>','',40);
+add('I (462) <span class="info">BLE</span>: Adresse MAC : <span class="white">AA:BB:CC:42:42:42</span>','',30);
 add('I (472) <span class="info">BLE</span>: TX Power: <span class="white">+3 dBm</span>','',30);
 add('','',40);
-add('I (482) <span class="info">BLE</span>: Creating UART Service...','',40);
+add('I (482) <span class="info">BLE</span>: Création du Service UART...','',40);
 add('I (482) <span class="info">BLE</span>:   Service : <span class="dim">6E400001-B5A3-F393-E0A9-E50E24DCCA9E</span>','',30);
 add('I (492) <span class="info">BLE</span>:   TX Char : <span class="dim">6E400003-...  [NOTIFY]</span>','',20);
 add('I (492) <span class="info">BLE</span>:   RX Char : <span class="dim">6E400002-...  [WRITE]</span>','',20);
-add('I (502) <span class="info">BLE</span>: Service started <span class="bright">✓</span>','',30);
+add('I (502) <span class="info">BLE</span>: Service démarré <span class="bright">✓</span>','',30);
 add('','',40);
-add('I (512) <span class="info">BLE</span>: Starting advertisement...','',40);
-add('I (522) <span class="info">BLE</span>: <span class="bright">📡 ADVERTISING</span> — Waiting for browser connection','',50);
+add('I (512) <span class="info">BLE</span>: Démarrage de la diffusion...','',40);
+add('I (522) <span class="info">BLE</span>: <span class="bright">📡 DIFFUSION</span> — En attente de connexion navigateur','',50);
 
 add('','',100);
 sep();
@@ -160,46 +160,45 @@ add('  <span class="bright">SYSTÈME PRÊT</span>','',60);
 sep();
 add('','',40);
 add('I (532) <span class="bright">WKSHP</span>: ┌──────────────────────────────────────┐','',30);
-add('I (532) <span class="bright">WKSHP</span>: │  🤖 bit-bot is READY                 │','',30);
-add('I (532) <span class="bright">WKSHP</span>: │  📡 BLE: Advertising                 │','',30);
-add('I (532) <span class="bright">WKSHP</span>: │  💡 NeoPixels: 8 LEDs on GPIO4       │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  🤖 bit-bot est PRÊT                 │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  📡 BLE: Diffusion                   │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  💡 NeoPixels: 8 LEDs sur GPIO4      │','',30);
 add('I (532) <span class="bright">WKSHP</span>: │  🔧 Servo: GPIO10 @ 90°              │','',30);
-add('I (532) <span class="bright">WKSHP</span>: │  ⚡ Motors: GPIO6/7 PWM               │','',30);
-add('I (532) <span class="bright">WKSHP</span>: │  👁️ IR Sensors: Calibrated            │','',30);
-add('I (532) <span class="bright">WKSHP</span>: │  🔑 WiFi: password123 (just kidding)  │','',30);
-add('I (532) <span class="bright">WKSHP</span>: │  ☕ Coffee: 8%                        │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  ⚡ Moteurs: GPIO6/7 PWM              │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  👁️ Capteurs IR: Calibrés             │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  🔑 WiFi: password123 (c\'est une blague) │','',30);
+add('I (532) <span class="bright">WKSHP</span>: │  ☕ Café: 8%                          │','',30);
 add('I (532) <span class="bright">WKSHP</span>: └──────────────────────────────────────┘','',30);
 add('','',40);
-add('I (542) <span class="bright">WKSHP</span>: Free heap: <span class="white">287,456 bytes</span>','',30);
-add('I (542) <span class="bright">WKSHP</span>: Disponibilité: <span class="white">542ms</span>','',30);
-add('I (542) <span class="bright">WKSHP</span>: Drops survived: <span class="white">47</span> (colle chaude structural)','',30);
-add('I (542) <span class="bright">WKSHP</span>: Bug #42 status: <span class="warn">PRESENT</span> (cannot be removed)','',30);
+add('I (542) <span class="bright">WKSHP</span>: Mémoire libre: <span class="white">287 456 octets</span>','',30);
+add('I (542) <span class="bright">WKSHP</span>: Temps de démarrage: <span class="white">542ms</span>','',30);
+add('I (542) <span class="bright">WKSHP</span>: Chutes survécues: <span class="white">47</span> (colle chaude structurelle)','',30);
+add('I (542) <span class="bright">WKSHP</span>: Bug #42 statut: <span class="warn">PRÉSENT</span> (impossible à supprimer)','',30);
 
 add('','',200);
-add('I (4042) <span class="bright">BLE</span>: <span class="bright">✓ DEVICE CONNECTED</span> — Chrome browser','',80);
-add('I (4042) <span class="bright">BLE</span>: MTU negotiated: <span class="white">247 bytes</span>','',30);
-add('I (4052) <span class="bright">BLE</span>: Connection interval: <span class="white">42ms</span>','',30);
+add('I (4042) <span class="bright">BLE</span>: <span class="bright">✓ APPAREIL CONNECTÉ</span> — Navigateur Chrome','',80);
+add('I (4042) <span class="bright">BLE</span>: MTU négocié: <span class="white">247 octets</span>','',30);
+add('I (4052) <span class="bright">BLE</span>: Intervalle de connexion: <span class="white">42ms</span>','',30);
 add('','',60);
 add('I (4102) <span class="info">RX</span>: NEO:00FF00','',40);
-add('I (4102) <span class="info">NEO</span>: Setting color: <span class="bright">#00FF00</span> (green)','',30);
+add('I (4102) <span class="info">NEO</span>: Couleur définie: <span class="bright">#00FF00</span> (vert)','',30);
 add('I (4202) <span class="info">TX</span>: IR:3042,3108','',40);
 add('I (4302) <span class="info">RX</span>: SERVO:45','',40);
-add('I (4302) <span class="info">SERVO</span>: Moving to <span class="white">45°</span>','',30);
+add('I (4302) <span class="info">SERVO</span>: Déplacement vers <span class="white">45°</span>','',30);
 add('I (4402) <span class="info">TX</span>: IR:3055,3091','',40);
 add('I (4502) <span class="info">RX</span>: MOTOR:L80,R80','',40);
-add('I (4502) <span class="info">MOTOR</span>: L=<span class="white">80</span> R=<span class="white">80</span> (forward)','',30);
+add('I (4502) <span class="info">MOTOR</span>: G=<span class="white">80</span> D=<span class="white">80</span> (avant)','',30);
 add('I (4602) <span class="info">TX</span>: IR:1205,3890','',40);
-add('I (4602) <span class="warn">LINE</span>: Line detected LEFT — sending event','',30);
+add('I (4602) <span class="warn">LINE</span>: Ligne détectée GAUCHE — envoi événement','',30);
 add('I (4702) <span class="info">RX</span>: MOTOR:L0,R80','',40);
-add('I (4702) <span class="info">MOTOR</span>: L=<span class="white">0</span> R=<span class="white">80</span> (turning left)','',30);
+add('I (4702) <span class="info">MOTOR</span>: G=<span class="white">0</span> D=<span class="white">80</span> (tourne à gauche)','',30);
 add('I (4802) <span class="info">TX</span>: IR:3102,3044','',40);
 
 add('','',100);
 add('<span class="dim">█</span><span class="blink">_</span>','',30);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

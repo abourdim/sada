@@ -210,7 +210,7 @@ function togglePlay(){
 let prog=35;
 setInterval(()=>{if(isPlaying){prog=(prog+0.5)%100;document.getElementById('plFill').style.width=prog+'%';const m=Math.floor(prog*2.2/60),s=Math.floor(prog*2.2%60);document.getElementById('plTime').textContent=m+':'+(s<10?'0':'')+s}},500);
 </script>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

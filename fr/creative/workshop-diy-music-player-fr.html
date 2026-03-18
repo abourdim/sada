@@ -101,20 +101,20 @@ a{color:#1db954;text-decoration:none}
 <div class="app">
 <div class="nav">
   <div class="nav-logo">🤖 WKSHP Joueur</div>
-  <input class="nav-search" placeholder="Search apps, tracks..." readonly>
-  <div class="nav-links"><span>Explore</span><span>Library</span><span>👤 Maker</span></div>
+  <input class="nav-search" placeholder="Rechercher applis, pistes..." readonly>
+  <div class="nav-links"><span>Explorer</span><span>Bibliothèque</span><span>👤 Maker</span></div>
 </div>
 <div class="bod">
 <div class="side">
   <div class="side-item on"><span class="e">🏠</span> Accueil</div>
   <div class="side-item"><span class="e">🔍</span> Rechercher</div>
-  <div class="side-item"><span class="e">📚</span> Library</div>
+  <div class="side-item"><span class="e">📚</span> Bibliothèque</div>
   <div class="side-h">PLAYLISTS</div>
-  <div class="side-pl"><div class="cover" style="background:#0a2a0a">🤖</div><div class="info"><div class="n">Robot Beats</div>Playlist · 16 tracks</div></div>
-  <div class="side-pl"><div class="cover" style="background:#1a0033">🧠</div><div class="info"><div class="n">AI Lo-Fi</div>Playlist · 6 tracks</div></div>
-  <div class="side-pl"><div class="cover" style="background:#330011">🔐</div><div class="info"><div class="n">Hack the Planet</div>Playlist · 8 tracks</div></div>
-  <div class="side-pl"><div class="cover" style="background:#1a1a00">⚡</div><div class="info"><div class="n">Solder Sessions</div>Playlist · 5 tracks</div></div>
-  <div class="side-pl"><div class="cover" style="background:#001a1a">🐧</div><div class="info"><div class="n">Terminal Vibes</div>Playlist · 7 tracks</div></div>
+  <div class="side-pl"><div class="cover" style="background:#0a2a0a">🤖</div><div class="info"><div class="n">Robot Beats</div>Playlist · 16 pistes</div></div>
+  <div class="side-pl"><div class="cover" style="background:#1a0033">🧠</div><div class="info"><div class="n">AI Lo-Fi</div>Playlist · 6 pistes</div></div>
+  <div class="side-pl"><div class="cover" style="background:#330011">🔐</div><div class="info"><div class="n">Hack the Planet</div>Playlist · 8 pistes</div></div>
+  <div class="side-pl"><div class="cover" style="background:#1a1a00">⚡</div><div class="info"><div class="n">Solder Sessions</div>Playlist · 5 pistes</div></div>
+  <div class="side-pl"><div class="cover" style="background:#001a1a">🐧</div><div class="info"><div class="n">Terminal Vibes</div>Playlist · 7 pistes</div></div>
 </div>
 <div class="main">
   <div class="album-h">
@@ -122,14 +122,14 @@ a{color:#1db954;text-decoration:none}
     <div class="album-info">
       <div class="album-type">Album</div>
       <div class="album-title">Atelier Sessions Vol. 1</div>
-      <div class="album-meta"><b>Atelier-DIY</b> · 2025 · 39 tracks · 4h 20min</div>
+      <div class="album-meta"><b>Workshop-DIY</b> · 2025 · 39 pistes · 4h 20min</div>
     </div>
   </div>
   <div class="play-row">
     <button class="play-big" onclick="togglePlay()">▶</button>
   </div>
   <div class="track-header">
-    <span class="num">#</span><span class="ttl" style="margin-left:32px">TITLE</span><span class="plays">PLAYS</span><span class="dur">⏱</span>
+    <span class="num">#</span><span class="ttl" style="margin-left:32px">TITRE</span><span class="plays">ÉCOUTES</span><span class="dur">⏱</span>
   </div>
   <div id="tracks"></div>
 </div>
@@ -137,7 +137,7 @@ a{color:#1db954;text-decoration:none}
 <div class="player">
   <div class="pl-left">
     <div class="pl-cover" id="plCover">🤖</div>
-    <div class="pl-info"><div class="n" id="plName">bit-bot (BLE Connection)</div><div class="a">Atelier-DIY</div></div>
+    <div class="pl-info"><div class="n" id="plName">bit-bot (BLE Connection)</div><div class="a">Workshop-DIY</div></div>
   </div>
   <div class="pl-center">
     <div class="pl-controls">
@@ -212,8 +212,7 @@ let prog=35;
 setInterval(()=>{if(isPlaying){prog=(prog+0.5)%100;document.getElementById('plFill').style.width=prog+'%';const m=Math.floor(prog*2.2/60),s=Math.floor(prog*2.2%60);document.getElementById('plTime').textContent=m+':'+(s<10?'0':'')+s}},500);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

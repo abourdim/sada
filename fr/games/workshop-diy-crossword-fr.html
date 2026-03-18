@@ -49,7 +49,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 
 <div class="header">
   <div class="h-title">WKSHP MOTS CROISÉS</div>
-  <div class="h-sub">TEST YOUR WORKSHOP-DIY KNOWLEDGE</div>
+  <div class="h-sub">TESTEZ VOS CONNAISSANCES WORKSHOP-DIY</div>
 </div>
 
 <div class="game">
@@ -57,18 +57,18 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
     <div class="grid" id="grid" style="grid-template-columns:repeat(10,32px)"></div>
     <div class="controls">
       <button class="ctrl" onclick="checkAll()">✓ VÉRIFIER</button>
-      <button class="ctrl" onclick="revealAll()">👁 REVEAL</button>
-      <button class="ctrl" onclick="clearAll()">🗑 CLEAR</button>
+      <button class="ctrl" onclick="revealAll()">👁 RÉVÉLER</button>
+      <button class="ctrl" onclick="clearAll()">🗑 EFFACER</button>
     </div>
-    <div class="status" id="status">Click a cell, then type · Arrow keys to move</div>
+    <div class="status" id="status">Cliquez sur une case, puis tapez · Flèches pour se déplacer</div>
   </div>
   <div class="clues">
     <div class="clue-section">
-      <div class="clue-h">ACROSS →</div>
+      <div class="clue-h">HORIZONTAL →</div>
       <div id="acrossIndices"></div>
     </div>
     <div class="clue-section">
-      <div class="clue-h">DOWN ↓</div>
+      <div class="clue-h">VERTICAL ↓</div>
       <div id="downIndices"></div>
     </div>
   </div>
@@ -91,20 +91,20 @@ const SOLUTION=[
 ];
 
 const ACROSS={
-  1:{r:0,c:0,clue:"Web ___ connects bit-bot to browser",answer:"BLUETOOTH"},
-  3:{r:2,c:1,clue:"Container whale; confuses parents",answer:"DOCKER"},
-  5:{r:4,c:0,clue:"ESP32-powered creature; a survécu à 47 chutes",answer:"ROBOT"},
-  6:{r:5,c:5,clue:"Password: password123 (network type)",answer:"WIFI"},
-  7:{r:6,c:1,clue:"___Pipe: hand-tracking framework",answer:"MEDIA"},
-  9:{r:8,c:1,clue:"Bug #42's favorite number; the ___th app",answer:"FORTY"},
+  1:{r:0,c:0,clue:"Web ___ connecte bit-bot au navigateur",answer:"BLUETOOTH"},
+  3:{r:2,c:1,clue:"La baleine des containers ; déroute les parents",answer:"DOCKER"},
+  5:{r:4,c:0,clue:"Créature alimentée par ESP32 ; a survécu à 47 chutes",answer:"ROBOT"},
+  6:{r:5,c:5,clue:"Mot de passe : password123 (type de réseau)",answer:"WIFI"},
+  7:{r:6,c:1,clue:"___Pipe : framework de suivi des mains",answer:"MEDIA"},
+  9:{r:8,c:1,clue:"Le nombre préféré du Bug #42 ; la ___ième app",answer:"FORTY"},
 };
 
 const DOWN={
-  1:{r:0,c:0,clue:"___ bot: le premier Atelier-DIY app",answer:"BIT"},
-  2:{r:0,c:6,clue:"Teaching machine's output destination (micro:___)",answer:"ROBOT"},
-  3:{r:2,c:7,clue:"ESP32-C3: an IoT micro_____",answer:"ESP"},
-  4:{r:4,c:8,clue:"#42 is not a ___; c'est une fonctionnalité",answer:"BUG"},
-  7:{r:6,c:5,clue:"Face detection counts 468 of these (abbr)",answer:"CODE"},
+  1:{r:0,c:0,clue:"___ bot : la première app Workshop-DIY",answer:"BIT"},
+  2:{r:0,c:6,clue:"Destination de sortie de teachable-machine (micro:___)",answer:"ROBOT"},
+  3:{r:2,c:7,clue:"ESP32-C3 : un micro_____ IoT",answer:"ESP"},
+  4:{r:4,c:8,clue:"#42 n'est pas un ___ ; c'est une fonctionnalité",answer:"BUG"},
+  7:{r:6,c:5,clue:"La détection faciale compte 468 de ces éléments (abrév.)",answer:"CODE"},
 };
 
 // Build grid
@@ -172,7 +172,7 @@ document.addEventListener('keydown',e=>{
     }else movePrev();
   }else if(e.key==='ArrowRight'){if(activeC<9&&SOLUTION[activeR][activeC+1]!=='.')selectCell(activeR,activeC+1)}
   else if(e.key==='ArrowLeft'){if(activeC>0&&SOLUTION[activeR][activeC-1]!=='.')selectCell(activeR,activeC-1)}
-  else if(e.key==='ArrowVertical'){if(activeR<9&&SOLUTION[activeR+1]&&SOLUTION[activeR+1][activeC]!=='.')selectCell(activeR+1,activeC)}
+  else if(e.key==='ArrowDown'){if(activeR<9&&SOLUTION[activeR+1]&&SOLUTION[activeR+1][activeC]!=='.')selectCell(activeR+1,activeC)}
   else if(e.key==='ArrowUp'){if(activeR>0&&SOLUTION[activeR-1][activeC]!=='.')selectCell(activeR-1,activeC)}
 });
 
@@ -204,7 +204,7 @@ function checkAll(){
       else if(cells[r][c].val){cells[r][c].el.classList.add('wrong');cells[r][c].el.classList.remove('correct')}
     }
   }
-  document.getElementById('status').textContent=correct===total?'🏆 PERFECT! All correct!':  `${correct}/${total} correct`;
+  document.getElementById('status').textContent=correct===total?'🏆 PARFAIT ! Tout est correct !':  `${correct}/${total} correct`;
 }
 
 function revealAll(){
@@ -236,8 +236,7 @@ Object.entries(DOWN).forEach(([n,d])=>{
 });
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

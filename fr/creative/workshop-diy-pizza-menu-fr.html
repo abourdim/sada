@@ -70,7 +70,7 @@ body{background:#1a0800;color:#f0e0c0;font-family:'JetBrains Mono',monospace;fon
   <div class="emoji">🤖</div>
   <div class="info">
     <div class="name">La Spéciale Bluetooth</div>
-    <div class="desc">Our flagship pie. Hand-crafted with ESP32 mushrooms, BLE mozzarella, and a thin crust of firmware.</div>
+    <div class="desc">Notre pizza phare. Fabriquée à la main avec des champignons ESP32, de la mozzarella BLE et une pâte fine au firmware.</div>
     <div class="toppings">Garnitures: ESP32 · BLE · Servo Motor · Colle chaude Drizzle</div>
   </div>
   <div class="price">€12.99</div>
@@ -80,7 +80,7 @@ body{background:#1a0800;color:#f0e0c0;font-family:'JetBrains Mono',monospace;fon
   <div class="emoji">🐳</div>
   <div class="info">
     <div class="name">La Full Stack</div>
-    <div class="desc">Layered like a Docker container. Frontend on top, backend in the middle, database at the bottom. Each layer isolated for maximum flavor.</div>
+    <div class="desc">Superposée comme un conteneur Docker. Le frontend au-dessus, le backend au milieu, la base de données en bas. Chaque couche isolée pour un maximum de saveur.</div>
     <div class="toppings">Garnitures: HTML · CSS · JavaScript · Node.js · MongoDB</div>
   </div>
   <div class="price">€15.99</div>
@@ -90,7 +90,7 @@ body{background:#1a0800;color:#f0e0c0;font-family:'JetBrains Mono',monospace;fon
   <div class="emoji">🔐</div>
   <div class="info">
     <div class="name">Le Hack Éthique</div>
-    <div class="desc">Penetration-tested crust. Every ingredient has been SQL-injected for maximum flavor extraction. Served in a sandbox.</div>
+    <div class="desc">Pâte testée en pénétration. Chaque ingrédient a été injecté en SQL pour une extraction maximale de saveur. Servie dans un bac à sable.</div>
     <div class="toppings">Garnitures: SQL Injection Sauce · XSS Olives · CTF Peppers · Firewall Pâte</div>
   </div>
   <div class="price">€14.99</div>
@@ -99,8 +99,8 @@ body{background:#1a0800;color:#f0e0c0;font-family:'JetBrains Mono',monospace;fon
 <div class="pizza" onclick="addToCommander('The AI Supreme',16.99,this)">
   <div class="emoji">🧠</div>
   <div class="info">
-    <div class="name">The AI Supreme</div>
-    <div class="desc">Trained on 30 samples of artisan toppings. 98% accuracy in flavor detection. MediaPipe hand-tracked for optimal distribution.</div>
+    <div class="name">La Suprême IA</div>
+    <div class="desc">Entraînée sur 30 échantillons de garnitures artisanales. 98 % de précision en détection de saveur. Suivi manuel par MediaPipe pour une distribution optimale.</div>
     <div class="toppings">Garnitures: TensorFlow Tomatoes · Neural Network Cheese · 468 Landmark Herbs</div>
   </div>
   <div class="price">€16.99</div>
@@ -109,34 +109,34 @@ body{background:#1a0800;color:#f0e0c0;font-family:'JetBrains Mono',monospace;fon
 <div class="pizza" onclick="addToCommander('The Bug #42',0.00,this)">
   <div class="emoji">🐛</div>
   <div class="info">
-    <div class="name">The Bug #42</div>
-    <div class="desc">We're not sure what's on it. Nobody ordered it. It just appeared on the menu. We tried removing it. It came back. Now it's our most popular item.</div>
-    <div class="toppings">Garnitures: ???. Honestly we don't know. It changes every time.</div>
+    <div class="name">Le Bug #42</div>
+    <div class="desc">On n'est pas sûrs de ce qu'il y a dessus. Personne ne l'a commandée. Elle est juste apparue sur le menu. On a essayé de l'enlever. Elle est revenue. C'est maintenant notre article le plus populaire.</div>
+    <div class="toppings">Garnitures : ???. Honnêtement on ne sait pas. Ça change à chaque fois.</div>
   </div>
-  <div class="price">FREE*</div>
+  <div class="price">GRATUIT*</div>
 </div>
 
-<div class="sec-h">🥤 Sides & Drinks</div>
+<div class="sec-h">🥤 Accompagnements & Boissons</div>
 <div class="sides">
-  <div class="side" onclick="addToCommander('Coffee (Critical)',2.99)"><div class="emoji">☕</div><div class="name">Coffee (Critical Level)</div><div class="price">€2.99</div></div>
-  <div class="side" onclick="addToCommander('Breadsticks',4.99)"><div class="emoji">🥖</div><div class="name">USB-C Breadsticks</div><div class="price">€4.99</div></div>
-  <div class="side" onclick="addToCommander('Debug Juice',3.49)"><div class="emoji">🧃</div><div class="name">Debug Juice</div><div class="price">€3.49</div></div>
-  <div class="side" onclick="addToCommander('Pixel Salad',5.99)"><div class="emoji">🥗</div><div class="name">8-Bit Pixel Salad</div><div class="price">€5.99</div></div>
+  <div class="side" onclick="addToCommander('Café (Critique)',2.99)"><div class="emoji">☕</div><div class="name">Café (Niveau Critique)</div><div class="price">€2.99</div></div>
+  <div class="side" onclick="addToCommander('Gressins',4.99)"><div class="emoji">🥖</div><div class="name">Gressins USB-C</div><div class="price">€4.99</div></div>
+  <div class="side" onclick="addToCommander('Jus de Débogage',3.49)"><div class="emoji">🧃</div><div class="name">Jus de Débogage</div><div class="price">€3.49</div></div>
+  <div class="side" onclick="addToCommander('Salade Pixel',5.99)"><div class="emoji">🥗</div><div class="name">Salade Pixel 8-Bit</div><div class="price">€5.99</div></div>
 </div>
 
 <div class="order">
-  <h3>Your Commander 🛒</h3>
-  <div id="orderItems" style="font-size:9px;color:rgba(240,224,192,.4);min-height:20px">No items yet. Click a pizza!</div>
+  <h3>Votre Commande 🛒</h3>
+  <div id="orderItems" style="font-size:9px;color:rgba(240,224,192,.4);min-height:20px">Aucun article pour le moment. Cliquez sur une pizza !</div>
   <div class="order-total"><span>Total</span><span id="orderTotal">€0.00</span></div>
-  <button class="order-btn" onclick="placeCommander()">🍕 PLACE ORDER 🍕</button>
-  <div class="order-note">* The Bug #42 pizza is free because nobody knows how to charge for it. Delivery via Web Bluetooth. Arrivée : 42 minutes. WiFi required (password: password123).</div>
+  <button class="order-btn" onclick="placeCommander()">🍕 PASSER LA COMMANDE 🍕</button>
+  <div class="order-note">* La pizza Bug #42 est gratuite parce que personne ne sait comment la facturer. Livraison via Web Bluetooth. Arrivée : 42 minutes. WiFi requis (mot de passe : password123).</div>
 </div>
 
 </div>
 
 <div class="footer">
   WKSHP PIZZA CO. · EST. 2023 · PAS UN VRAI RESTAURANT<br>
-  NO ACTUAL FOOD DELIVERED · BUGS ARE TOPPINGS · password123
+  AUCUNE VRAIE NOURRITURE LIVRÉE · LES BUGS SONT DES GARNITURES · password123
 </div>
 
 <script>
@@ -153,16 +153,15 @@ function addToCommander(name,price,el){
 
 function placeCommander(){
   if(items.length===0)return;
-  alert('🍕 ORDER CONFIRMED!\n\nDelivery via WebRTC in approximately 42 minutes.\nTracking: BLE-'+Math.floor(Math.random()*9000+1000)+'\n\nWiFi: password123\n\nBugs are fonctionnalités. Enjoy your pizza!');
+  alert('🍕 COMMANDE CONFIRMÉE !\n\nLivraison via WebRTC dans environ 42 minutes.\nSuivi : BLE-'+Math.floor(Math.random()*9000+1000)+'\n\nWiFi : password123\n\nLes bugs sont des fonctionnalités. Bon appétit !');
   items=[];total=0;
-  document.getElementById('orderItems').innerHTML='Commander placed! 🎉';
+  document.getElementById('orderItems').innerHTML='Commande passée ! 🎉';
   document.getElementById('orderTotal').textContent='€0.00';
   document.querySelectorAll('.pizza').forEach(p=>p.classList.remove('selected'));
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

@@ -63,7 +63,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <!-- SCREEN 0: TERMINAL BOOT -->
 <div class="screen on" id="s0">
   <div class="s-logo">WKSHP-OS</div>
-  <div class="s-sub">BOOTING SYSTEM</div>
+  <div class="s-sub">DÉMARRAGE DU SYSTÈME</div>
   <div class="term-lines" id="termLines"></div>
   <div class="s-bar"><div class="fill" id="bar0"></div></div>
   <div class="s-pct" id="pct0">0%</div>
@@ -72,7 +72,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <!-- SCREEN 1: RADAR -->
 <div class="screen" id="s1">
   <div class="s-logo">ANALYSE</div>
-  <div class="s-sub">DETECTING APPS IN RANGE</div>
+  <div class="s-sub">DÉTECTION DES APPS À PORTÉE</div>
   <div class="radar" id="radar">
     <div class="cross-h"></div><div class="cross-v"></div>
     <div class="radar-ring" style="inset:20%;"></div>
@@ -86,14 +86,14 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
   <div class="s-sub">CONNEXION</div>
   <div class="pulse-ring"><span class="pulse-emoji" id="pulseEmoji">🤖</span></div>
   <div class="s-logo" id="pulseName">BIT-BOT</div>
-  <div class="s-pct">ESTABLISHING BLE LINK...</div>
+  <div class="s-pct">ÉTABLISSEMENT DU LIEN BLE...</div>
   <div class="s-bar"><div class="fill" id="bar2"></div></div>
 </div>
 
 <!-- SCREEN 3: HEX GRID -->
 <div class="screen" id="s3">
   <div class="s-logo">DÉCRYPTAGE</div>
-  <div class="s-sub">CHARGEMENT APP MATRIX</div>
+  <div class="s-sub">CHARGEMENT DE LA MATRICE DES APPS</div>
   <div class="hex-grid" id="hexGrid"></div>
   <div class="s-bar"><div class="fill" id="bar3"></div></div>
   <div class="s-pct" id="pct3">DÉCRYPTAGE PAYLOAD...</div>
@@ -101,24 +101,24 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 
 <!-- SCREEN 4: SYSTEM VÉRIFIER -->
 <div class="screen" id="s4">
-  <div class="s-logo">SYSTEM VÉRIFIER</div>
-  <div class="s-sub">PRE-VOL DIAGNOSTICS</div>
+  <div class="s-logo">VÉRIFICATION SYSTÈME</div>
+  <div class="s-sub">DIAGNOSTICS PRÉ-VOL</div>
   <div class="term-lines" id="sysCheck" style="font-size:9px;max-width:300px"></div>
 </div>
 
 <!-- SCREEN 5: COMPILE -->
 <div class="screen" id="s5">
-  <div class="s-sub">COMPILATION</div>
+  <div class="s-sub">EN COURS DE COMPILATION</div>
   <div style="font-size:48px;margin-bottom:6px;animation:spin 2s linear infinite" id="compileEmoji">⚙️</div>
-  <div class="s-logo">BUILDING 39 APPS</div>
+  <div class="s-logo">CONSTRUCTION DE 39 APPS</div>
   <div class="s-bar" style="width:280px"><div class="fill" id="bar5"></div></div>
   <div class="s-pct" id="pct5">gcc workshop-diy.c -o awesome</div>
-  <div class="s-tip">// Compiling... this might take a while. Maibe get a coffee.</div>
+  <div class="s-tip">// Compilation... ça peut prendre un moment. Peut-être un café.</div>
 </div>
 
 <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 
-<div class="nav-label">AUTO-CYCLING · CLICK DOT TO JUMP</div>
+<div class="nav-label">DÉFILEMENT AUTO · CLIQUEZ SUR UN POINT POUR SAUTER</div>
 <div class="nav" id="nav"></div>
 
 <script>
@@ -146,18 +146,18 @@ setInterval(()=>goTo((curScreen+1)%TOTAL_SCREENS),6000);
 
 // SCREEN 0: Terminal Boot
 const bootLines=[
-  {t:"[  OK  ] Starting WKSHP-OS v4.2.0...",c:"ok"},
-  {t:"[  OK  ] Loading 39 applications",c:"ok"},
-  {t:"[  OK  ] Web Bluetooth: initialized",c:"ok"},
-  {t:"[  OK  ] MediaPipe AI: loaded",c:"ok"},
-  {t:"[  OK  ] Camera subsystem: ready",c:"ok"},
-  {t:"[ WARN ] Coffee level: CRITICAL",c:"warn"},
-  {t:"[  OK  ] ESP32 uplink: connected",c:"ok"},
-  {t:"[  OK  ] micro:bit array: 3 paired",c:"ok"},
-  {t:"[ WARN ] mot de passe WiFi: still password123",c:"warn"},
-  {t:"[  OK  ] Docker engine: running",c:"ok"},
-  {t:"[  OK  ] Bug #42: reclassified as feature",c:"ok"},
-  {t:"[  OK  ] Système prêt. 39 apps deployed.",c:"ok"},
+  {t:"[  OK  ] Démarrage WKSHP-OS v4.2.0...",c:"ok"},
+  {t:"[  OK  ] Chargement de 39 applications",c:"ok"},
+  {t:"[  OK  ] Web Bluetooth : initialisé",c:"ok"},
+  {t:"[  OK  ] MediaPipe IA : chargé",c:"ok"},
+  {t:"[  OK  ] Sous-système caméra : prêt",c:"ok"},
+  {t:"[ AVERT ] Niveau de café : CRITIQUE",c:"warn"},
+  {t:"[  OK  ] Liaison ESP32 : connectée",c:"ok"},
+  {t:"[  OK  ] Réseau micro:bit : 3 appairés",c:"ok"},
+  {t:"[ AVERT ] Mot de passe WiFi : toujours password123",c:"warn"},
+  {t:"[  OK  ] Moteur Docker : en cours d'exécution",c:"ok"},
+  {t:"[  OK  ] Bug #42 : reclassifié en fonctionnalité",c:"ok"},
+  {t:"[  OK  ] Système prêt. 39 apps déployées.",c:"ok"},
 ];
 const termEl=document.getElementById('termLines');
 let bootIdx=0;
@@ -185,7 +185,7 @@ setInterval(()=>{
   blip.style.top=(80+Math.sin(angle)*dist-2)+'px';
   radarEl.appendChild(blip);
   radarIdx++;
-  document.getElementById('radarCount').textContent=`${Math.min(radarIdx,39)} / 39 APPS DETECTED`;
+  document.getElementById('radarCount').textContent=`${Math.min(radarIdx,39)} / 39 APPS DÉTECTÉES`;
   if(radarEl.querySelectorAll('.radar-blip').length>39){radarEl.querySelector('.radar-blip').remove()}
 },400);
 
@@ -215,40 +215,39 @@ setInterval(()=>{
     hexes[hexLit].classList.add('lit');
     hexLit++;
     document.getElementById('bar3').style.width=(hexLit/hexes.length*100)+'%';
-    document.getElementById('pct3').textContent=`BLOCK ${hexLit}/${hexes.length} DECRYPTED`;
+    document.getElementById('pct3').textContent=`BLOC ${hexLit}/${hexes.length} DÉCRYPTÉ`;
   }else{hexLit=0;hexes.forEach(h=>{h.classList.remove('lit');h.textContent=hexChars[Math.floor(Math.random()*16)]})}
 },150);
 
 // SCREEN 4: System Check
 const checks=[
-  {n:"Web Bluetooth",s:"GO"},{n:"MediaPipe",s:"GO"},{n:"Camera",s:"GO"},
-  {n:"WebRTC",s:"GO"},{n:"ESP32 Link",s:"GO"},{n:"BLE Array",s:"GO"},
-  {n:"Docker",s:"GO"},{n:"Terminal",s:"GO"},{n:"Coffee",s:"LOW"},
-  {n:"WiFi (password123)",s:"GO"},{n:"39 Apps",s:"LOADED"},{n:"Bug #42",s:"FEATURED"},
+  {n:"Web Bluetooth",s:"OK"},{n:"MediaPipe",s:"OK"},{n:"Caméra",s:"OK"},
+  {n:"WebRTC",s:"OK"},{n:"Liaison ESP32",s:"OK"},{n:"Réseau BLE",s:"OK"},
+  {n:"Docker",s:"OK"},{n:"Terminal",s:"OK"},{n:"Café",s:"BAS"},
+  {n:"WiFi (password123)",s:"OK"},{n:"39 Apps",s:"CHARGÉES"},{n:"Bug #42",s:"FONCTIONNALITÉ"},
 ];
 const sysEl=document.getElementById('sysCheck');
 let sysIdx=0;
 function addSysCheck(){
   if(sysIdx>=checks.length){sysIdx=0;sysEl.innerHTML=''}
   const c=checks[sysIdx];
-  const color=c.s==='LOW'?'warn':c.s==='FEATURED'?'warn':'ok';
+  const color=c.s==='BAS'?'warn':c.s==='FONCTIONNALITÉ'?'warn':'ok';
   sysEl.innerHTML+=`<div style="display:flex;justify-content:space-between"><span style="color:rgba(0,255,65,.4)">${c.n}</span><span class="${color}">[${c.s}]</span></div>`;
   sysIdx++;
 }
 setInterval(addSysCheck,600);
 
 // SCREEN 5: Compile
-const compileLines=["bit-bot.js","magic-hands.js","face-quest.js","teachable-machine.js","pentest-lab.js","linux-lab.js","docker-lab.js","mission-control.js","... 31 more files"];
+const compileLines=["bit-bot.js","magic-hands.js","face-quest.js","teachable-machine.js","pentest-lab.js","linux-lab.js","docker-lab.js","mission-control.js","... 31 fichiers de plus"];
 let compIdx=0;
 setInterval(()=>{
   compIdx=(compIdx+1)%compileLines.length;
-  document.getElementById('pct5').textContent=`compiling: ${compileLines[compIdx]}`;
+  document.getElementById('pct5').textContent=`compilation : ${compileLines[compIdx]}`;
   document.getElementById('bar5').style.width=((compIdx+1)/compileLines.length*100)+'%';
 },700);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

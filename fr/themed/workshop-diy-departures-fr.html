@@ -62,7 +62,7 @@ body{background:#0a0a0e;color:#ffd700;font-family:'JetBrains Mono',monospace;fon
     <div class="board-clock" id="clock">00:00:00</div>
   </div>
   <div class="table-h">
-    <span>VOL</span><span>TIME</span><span>DESTINATION</span><span>GATE</span><span>TERM</span><span>STATUT</span>
+    <span>VOL</span><span>HEURE</span><span>DESTINATION</span><span>PORTE</span><span>TERM</span><span>STATUT</span>
   </div>
   <div class="flights" id="flights"></div>
   <div class="info-bar">
@@ -77,25 +77,25 @@ body{background:#0a0a0e;color:#ffd700;font-family:'JetBrains Mono',monospace;fon
 
 <script>
 const VOLS=[
-{code:"WK-001",time:"08:00",dest:"Robotics Island",emoji:"🤖",gate:"BLE-1",term:"T1",status:"departed"},
-{code:"WK-002",time:"08:30",dest:"AI Mountain",emoji:"🧠",gate:"GPU-3",term:"T2",status:"departed"},
-{code:"WK-003",time:"09:00",dest:"Cyber Fortress",emoji:"🔐",gate:"FW-7",term:"T3",status:"boarding"},
-{code:"WK-004",time:"09:30",dest:"Hand-Tracking Bay",emoji:"🪄",gate:"CAM-2",term:"T1",status:"boarding"},
-{code:"WK-005",time:"10:00",dest:"Linux Peninsula",emoji:"🐧",gate:"SSH-4",term:"T2",status:"ontime"},
-{code:"WK-006",time:"10:30",dest:"Docker Harbor",emoji:"🐳",gate:"CTR-1",term:"T3",status:"ontime"},
-{code:"WK-007",time:"11:00",dest:"Face Detection City",emoji:"🕵️",gate:"ML-5",term:"T1",status:"ontime"},
-{code:"WK-008",time:"11:30",dest:"LED Strip Beach",emoji:"💡",gate:"RGB-6",term:"T2",status:"ontime"},
-{code:"WK-009",time:"12:00",dest:"ESP32 Valley",emoji:"⚡",gate:"IOT-8",term:"T3",status:"ontime"},
-{code:"WK-010",time:"13:00",dest:"Voice Command Peaks",emoji:"💬",gate:"MIC-3",term:"T1",status:"ontime"},
-{code:"WK-011",time:"13:30",dest:"WebRTC Central",emoji:"🚀",gate:"P2P-9",term:"T2",status:"ontime"},
-{code:"WK-012",time:"14:00",dest:"Pixel Art Cove",emoji:"🎨",gate:"PXL-4",term:"T1",status:"ontime"},
-{code:"WK-013",time:"14:30",dest:"Prompt Engineering Hills",emoji:"✨",gate:"LLM-2",term:"T2",status:"delayed"},
-{code:"WK-014",time:"15:00",dest:"Coffee Refill Station",emoji:"☕",gate:"MUG-1",term:"ALL",status:"delayed"},
-{code:"WK-042",time:"??:??",dest:"Bug #42 Dimension",emoji:"🐛",gate:"???",term:"??",status:"cancelled"},
+{code:"WK-001",time:"08:00",dest:"Île de la Robotique",emoji:"🤖",gate:"BLE-1",term:"T1",status:"departed"},
+{code:"WK-002",time:"08:30",dest:"Mont de l'IA",emoji:"🧠",gate:"GPU-3",term:"T2",status:"departed"},
+{code:"WK-003",time:"09:00",dest:"Forteresse Cyber",emoji:"🔐",gate:"FW-7",term:"T3",status:"boarding"},
+{code:"WK-004",time:"09:30",dest:"Baie du Suivi de Main",emoji:"🪄",gate:"CAM-2",term:"T1",status:"boarding"},
+{code:"WK-005",time:"10:00",dest:"Péninsule Linux",emoji:"🐧",gate:"SSH-4",term:"T2",status:"ontime"},
+{code:"WK-006",time:"10:30",dest:"Port Docker",emoji:"🐳",gate:"CTR-1",term:"T3",status:"ontime"},
+{code:"WK-007",time:"11:00",dest:"Cité de la Détection Faciale",emoji:"🕵️",gate:"ML-5",term:"T1",status:"ontime"},
+{code:"WK-008",time:"11:30",dest:"Plage des Rubans LED",emoji:"💡",gate:"RGB-6",term:"T2",status:"ontime"},
+{code:"WK-009",time:"12:00",dest:"Vallée ESP32",emoji:"⚡",gate:"IOT-8",term:"T3",status:"ontime"},
+{code:"WK-010",time:"13:00",dest:"Sommets de la Commande Vocale",emoji:"💬",gate:"MIC-3",term:"T1",status:"ontime"},
+{code:"WK-011",time:"13:30",dest:"Central WebRTC",emoji:"🚀",gate:"P2P-9",term:"T2",status:"ontime"},
+{code:"WK-012",time:"14:00",dest:"Crique du Pixel Art",emoji:"🎨",gate:"PXL-4",term:"T1",status:"ontime"},
+{code:"WK-013",time:"14:30",dest:"Collines du Prompt Engineering",emoji:"✨",gate:"LLM-2",term:"T2",status:"delayed"},
+{code:"WK-014",time:"15:00",dest:"Station Recharge Café",emoji:"☕",gate:"MUG-1",term:"ALL",status:"delayed"},
+{code:"WK-042",time:"??:??",dest:"Dimension Bug #42",emoji:"🐛",gate:"???",term:"??",status:"cancelled"},
 ];
 
 const statusClasses={ontime:'status-ontime',boarding:'status-boarding',departed:'status-departed',delayed:'status-delayed',cancelled:'status-cancelled'};
-const statusLabels={ontime:'À L'HEURE',boarding:'EMBARQUEMENT',departed:'DEPARTED',delayed:'RETARDÉ',cancelled:'ANNULÉ'};
+const statusLabels={ontime:'À L\u2019HEURE',boarding:'EMBARQUEMENT',departed:'PARTI',delayed:'RETARDÉ',cancelled:'ANNULÉ'};
 
 function renderVols(){
   const el=document.getElementById('flights');
@@ -135,22 +135,21 @@ setInterval(()=>{
 
 // TICKER
 const tickerItems=[
-  "✈ Welcome to WKSHP International Learning Airport — 39 destinations served daily",
-  "☕ CAFÉ ALERT: Coffee supply critical. Restocking in progress.",
-  "🔑 WiFi: WKSHP-GUEST / Password: password123 (no, we still haven't changed it)",
-  "🤖 Porte BLE-1: bit-bot flight departed with 2,847 passengers this month",
-  "🐛 Vol WK-042 to Bug #42 Dimension permanently cancelled. It was a feature, not a destination.",
-  "⚡ ESP32 robots must be stowed in overhead bins during workshops",
-  "🔐 Security reminder: Ne pas tenter SQL injection on the airport kiosks",
-  "🐳 Docker containers must go through customs before deployment",
+  "✈ Bienvenue à l'Aéroport International d'Apprentissage WKSHP — 39 destinations desservies quotidiennement",
+  "☕ ALERTE CAFÉ : Réserve de café critique. Réapprovisionnement en cours.",
+  "🔑 WiFi : WKSHP-GUEST / Mot de passe : password123 (non, on ne l'a toujours pas changé)",
+  "🤖 Porte BLE-1 : vol bit-bot parti avec 2 847 passagers ce mois-ci",
+  "🐛 Vol WK-042 vers la Dimension Bug #42 annulé définitivement. C'était une fonctionnalité, pas une destination.",
+  "⚡ Les robots ESP32 doivent être rangés dans les compartiments supérieurs pendant les ateliers",
+  "🔐 Rappel sécurité : ne pas tenter d'injection SQL sur les bornes de l'aéroport",
+  "🐳 Les conteneurs Docker doivent passer la douane avant le déploiement",
 ];
 const ticker=document.getElementById('ticker');
 const html=tickerItems.map(t=>`<span>${t}</span>`).join('');
 ticker.innerHTML=html+html;
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

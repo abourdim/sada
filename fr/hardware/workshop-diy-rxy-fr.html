@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../../assets/css/sada-base.css">
 <link rel="stylesheet" href="../../assets/css/sada-themes.css">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WKSHP-DIY // RXY — MICRO:BIT REMOTE</title>
+<title>WKSHP-DIY // RXY — TÉLÉCOMMANDE MICRO:BIT</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Syne:wght@700;800&Amiri&family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-size:11px;min-height:100vh;display:flex;flex-direction:column}
@@ -117,7 +117,7 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="hdr">
   <span class="logo">📡 RXY</span>
-  <span class="tag">MICRO:BIT REMOTE CONTROL · WORKSHOP-DIY</span>
+  <span class="tag">TÉLÉCOMMANDE MICRO:BIT · WORKSHOP-DIY</span>
   <div class="ble"><div class="ble-dot"></div><span style="color:rgba(255,255,255,.15)">BLE Connecté</span></div>
 </div>
 
@@ -125,23 +125,23 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <!-- PHONE REMOTE -->
 <div class="phone-area">
-  <div class="phone-label">YOUR REMOTE</div>
+  <div class="phone-label">VOTRE TÉLÉCOMMANDE</div>
   <div class="phone">
     <div class="phone-screen">
-      <div class="ps-title">🎮 MY ROBOT REMOTE</div>
+      <div class="ps-title">🎮 MA TÉLÉCOMMANDE ROBOT</div>
 
       <div class="widget">
-        <div class="w-label">NEOPIXEL COLORS</div>
+        <div class="w-label">COULEURS NEOPIXEL</div>
         <div class="w-btns">
-          <div class="w-btn red" onclick="setNeo('red')">🔴 RED</div>
-          <div class="w-btn green" onclick="setNeo('green')">🟢 GREEN</div>
-          <div class="w-btn blue" onclick="setNeo('blue')">🟣 BLUE</div>
-          <div class="w-btn yellow" onclick="setNeo('off')">⚫ OFF</div>
+          <div class="w-btn red" onclick="setNeo('red')">🔴 ROUGE</div>
+          <div class="w-btn green" onclick="setNeo('green')">🟢 VERT</div>
+          <div class="w-btn blue" onclick="setNeo('blue')">🟣 BLEU</div>
+          <div class="w-btn yellow" onclick="setNeo('off')">⚫ ÉTEINT</div>
         </div>
       </div>
 
       <div class="widget">
-        <div class="w-label">SERVO ANGLE</div>
+        <div class="w-label">ANGLE SERVO</div>
         <div class="w-slider">
           <input type="range" min="0" max="180" value="90" id="servoSlider" oninput="setServo(this.value)">
           <span class="val" id="servoVal">90°</span>
@@ -149,7 +149,7 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
       </div>
 
       <div class="widget">
-        <div class="w-label">DRIVE</div>
+        <div class="w-label">CONDUITE</div>
         <div style="display:flex;justify-content:center">
           <div class="w-joy" id="joystick">
             <div class="joy-cross"></div>
@@ -159,10 +159,10 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
       </div>
 
       <div class="widget">
-        <div class="w-label">LED MATRIX</div>
+        <div class="w-label">MATRICE LED</div>
         <div class="w-toggle" onclick="toggleLed()">
           <div class="toggle-track" id="ledToggle"><div class="toggle-thumb"></div></div>
-          <span class="toggle-label" id="ledLabel">Heart Pattern: OFF</span>
+          <span class="toggle-label" id="ledLabel">Motif Coeur : OFF</span>
         </div>
       </div>
 
@@ -180,7 +180,7 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <!-- DEVICE SIMULATION -->
 <div class="device-area">
-  <div class="device-label">CONNECTED DEVICES</div>
+  <div class="device-label">APPAREILS CONNECTÉS</div>
 
   <div class="microbit">
     <div class="mb-label">MICRO:BIT V2</div>
@@ -209,7 +209,7 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
   </div>
 
   <div class="device-box">
-    <div class="db-title">🤖 ROBOT (Motors P1/P2)</div>
+    <div class="db-title">🤖 ROBOT (Moteurs P1/P2)</div>
     <div class="robot-field" id="robotField">
       <div class="robot-sprite" id="robotSprite">🤖</div>
     </div>
@@ -236,7 +236,7 @@ function toggleLed(){
   ledOn=!ledOn;
   const t=document.getElementById('ledToggle');
   t.classList.toggle('on',ledOn);
-  document.getElementById('ledLabel').textContent='Heart Pattern: '+(ledOn?'ON':'OFF');
+  document.getElementById('ledLabel').textContent='Motif Coeur : '+(ledOn?'ON':'OFF');
   for(let i=0;i<25;i++){
     document.getElementById('led'+i).classList.toggle('on',ledOn&&HEART[i]);
   }
@@ -368,14 +368,13 @@ function addLog(msg){
 // INIT
 robot.style.left='50%';
 robot.style.top='50%';
-addLog('BLE: Connecté to micro:bit [wkshp-42]');
-addLog('UART: Service discovered');
-addLog('RXY: Remote layout loaded (5 widgets)');
-addLog('SYS: Luy — drag joystick, tap buttons, slide sliders');
+addLog('BLE: Connecté au micro:bit [wkshp-42]');
+addLog('UART: Service découvert');
+addLog('RXY: Interface télécommande chargée (5 widgets)');
+addLog('SYS: Prêt — glissez le joystick, appuyez sur les boutons, bougez les curseurs');
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

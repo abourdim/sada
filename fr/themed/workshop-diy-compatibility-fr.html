@@ -58,14 +58,14 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="header">
   <div class="h-title">💕 COMPATIBILITÉ TEST</div>
-  <div class="h-sub">ARE YOU WORKSHOP-DIY MATERIAL?</div>
+  <div class="h-sub">ÊTES-VOUS FAIT(E) POUR WORKSHOP-DIY ?</div>
 </div>
 
 <div class="game" id="game">
   <div class="progress"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
   <div class="question" id="qArea"></div>
   <div class="nav">
-    <button class="btn" id="prevBtn" onclick="prev()" disabled>← BACK</button>
+    <button class="btn" id="prevBtn" onclick="prev()" disabled>← RETOUR</button>
     <button class="btn" id="nextBtn" onclick="next()" disabled>SUIV →</button>
   </div>
 </div>
@@ -75,72 +75,72 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
   <div class="verdict" id="verdict"></div>
   <div class="match-emoji" id="matchEmoji"></div>
   <div class="match" id="match"></div>
-  <div class="retry"><button class="btn" onclick="restart()" style="max-width:160px;margin:0 auto">🔄 RETAKE</button></div>
+  <div class="retry"><button class="btn" onclick="restart()" style="max-width:160px;margin:0 auto">🔄 RECOMMENCER</button></div>
 </div>
 
-<div class="footer">WORKSHOP-DIY · RESULTS NOT SCIENTIFICALLY VALIDATED · BUGS ARE COMPATIBLE WITH FEATURES</div>
+<div class="footer">WORKSHOP-DIY · RÉSULTATS NON SCIENTIFIQUEMENT VALIDÉS · LES BUGS SONT COMPATIBLES AVEC LES FONCTIONNALITÉS</div>
 
 <script>
 const QS=[
-{q:"Your code has a bug. What do you do?",opts:[
-  {t:"Fix it immediately, properly",s:{r:1,a:1,c:0,l:1}},
-  {t:"Call it a feature and ship it",s:{r:2,a:0,c:0,l:0}},
-  {t:"Google the error message",s:{r:0,a:1,c:0,l:2}},
-  {t:"Blame the compiler",s:{r:1,a:0,c:1,l:0}},
+{q:"Ton code a un bug. Que fais-tu ?",opts:[
+  {t:"Je le corrige immédiatement, proprement",s:{r:1,a:1,c:0,l:1}},
+  {t:"Je le déclare fonctionnalité et je déploie",s:{r:2,a:0,c:0,l:0}},
+  {t:"Je google le message d'erreur",s:{r:0,a:1,c:0,l:2}},
+  {t:"Je blâme le compilateur",s:{r:1,a:0,c:1,l:0}},
 ]},
-{q:"How do you feel about password123?",opts:[
-  {t:"It's a security nightmare",s:{r:0,a:0,c:3,l:0}},
-  {t:"It's tradition. I respect it.",s:{r:2,a:1,c:0,l:1}},
-  {t:"I've already changed it... wait, it reverted?",s:{r:0,a:0,c:2,l:1}},
-  {t:"I am password123",s:{r:1,a:0,c:0,l:0}},
+{q:"Que penses-tu de password123 ?",opts:[
+  {t:"C'est un cauchemar sécuritaire",s:{r:0,a:0,c:3,l:0}},
+  {t:"C'est la tradition. Je la respecte.",s:{r:2,a:1,c:0,l:1}},
+  {t:"Je l'ai changé... attends, il est revenu ?",s:{r:0,a:0,c:2,l:1}},
+  {t:"JE SUIS password123",s:{r:1,a:0,c:0,l:0}},
 ]},
-{q:"A robot falls off a desk. Your reaction?",opts:[
-  {t:"Catch it! Enregistrer the robot!",s:{r:3,a:0,c:0,l:0}},
-  {t:"Document the drop for science",s:{r:1,a:2,c:0,l:1}},
-  {t:"It's a survécu à 47 chutes. It'll be fine.",s:{r:2,a:0,c:0,l:0}},
-  {t:"Build a bumper for next time",s:{r:2,a:0,c:0,l:2}},
+{q:"Un robot tombe du bureau. Ta réaction ?",opts:[
+  {t:"Le rattraper ! Sauver le robot !",s:{r:3,a:0,c:0,l:0}},
+  {t:"Documenter la chute pour la science",s:{r:1,a:2,c:0,l:1}},
+  {t:"Il a survécu à 47 chutes. Ça ira.",s:{r:2,a:0,c:0,l:0}},
+  {t:"Construire un pare-chocs pour la prochaine fois",s:{r:2,a:0,c:0,l:2}},
 ]},
-{q:"Pick your preferred development environment:",opts:[
-  {t:"Just a browser. Nothing else.",s:{r:1,a:1,c:1,l:1}},
-  {t:"VS Code with 47 extensions",s:{r:0,a:1,c:0,l:3}},
-  {t:"A terminal and vim",s:{r:0,a:0,c:2,l:2}},
-  {t:"Notepad. Fight me.",s:{r:2,a:0,c:1,l:0}},
+{q:"Choisis ton environnement de développement préféré :",opts:[
+  {t:"Juste un navigateur. Rien d'autre.",s:{r:1,a:1,c:1,l:1}},
+  {t:"VS Code avec 47 extensions",s:{r:0,a:1,c:0,l:3}},
+  {t:"Un terminal et vim",s:{r:0,a:0,c:2,l:2}},
+  {t:"Bloc-notes. Viens te battre.",s:{r:2,a:0,c:1,l:0}},
 ]},
-{q:"The coffee machine shows 8% remaining. You:",opts:[
-  {t:"Panic and refill immediately",s:{r:0,a:0,c:0,l:1}},
-  {t:"It's been à 8% for 14 months. It's fine.",s:{r:2,a:1,c:0,l:0}},
-  {t:"Switch to tea",s:{r:0,a:0,c:0,l:0}},
-  {t:"Write a monitoring script for it",s:{r:0,a:1,c:1,l:2}},
+{q:"La machine à café affiche 8% restant. Tu :",opts:[
+  {t:"Panique et remplis immédiatement",s:{r:0,a:0,c:0,l:1}},
+  {t:"Ça fait 14 mois qu'elle est à 8%. Tout va bien.",s:{r:2,a:1,c:0,l:0}},
+  {t:"Passer au thé",s:{r:0,a:0,c:0,l:0}},
+  {t:"Écrire un script de monitoring pour elle",s:{r:0,a:1,c:1,l:2}},
 ]},
-{q:"How would you explain Docker to a child?",opts:[
-  {t:"Livraison containers for software!",s:{r:0,a:1,c:0,l:3}},
-  {t:"It's like having separate rooms for each toy",s:{r:1,a:1,c:0,l:2}},
-  {t:"I can't explain it to adults, let alone children",s:{r:0,a:0,c:0,l:0}},
-  {t:"Let the child explain it to ME",s:{r:2,a:2,c:0,l:1}},
+{q:"Comment expliques-tu Docker à un enfant ?",opts:[
+  {t:"Des conteneurs de livraison pour logiciels !",s:{r:0,a:1,c:0,l:3}},
+  {t:"C'est comme avoir des pièces séparées pour chaque jouet",s:{r:1,a:1,c:0,l:2}},
+  {t:"Je ne sais même pas l'expliquer aux adultes",s:{r:0,a:0,c:0,l:0}},
+  {t:"Laisser l'enfant me l'expliquer à MOI",s:{r:2,a:2,c:0,l:1}},
 ]},
-{q:"What's your WiFi debugging strategy?",opts:[
-  {t:"Turn it off and on again",s:{r:1,a:0,c:0,l:1}},
-  {t:"Check the router logs",s:{r:0,a:0,c:2,l:2}},
-  {t:"Blame Chrome",s:{r:2,a:0,c:0,l:0}},
-  {t:"The WiFi is fine. The password is password123.",s:{r:1,a:0,c:1,l:0}},
+{q:"Ta stratégie de débogage WiFi ?",opts:[
+  {t:"Éteindre et rallumer",s:{r:1,a:0,c:0,l:1}},
+  {t:"Vérifier les logs du routeur",s:{r:0,a:0,c:2,l:2}},
+  {t:"Accuser Chrome",s:{r:2,a:0,c:0,l:0}},
+  {t:"Le WiFi va bien. Le mot de passe est password123.",s:{r:1,a:0,c:1,l:0}},
 ]},
-{q:"AI accuracy: what's acceptable?",opts:[
+{q:"Précision de l'IA : qu'est-ce qui est acceptable ?",opts:[
   {t:"98% minimum",s:{r:0,a:3,c:0,l:1}},
-  {t:"If it works more than half the time, ship it",s:{r:2,a:0,c:0,l:0}},
-  {t:"Accuracy is a social construct",s:{r:1,a:0,c:0,l:0}},
-  {t:"Whatever teachable-machine gives me",s:{r:0,a:2,c:0,l:1}},
+  {t:"Si ça marche plus de la moitié du temps, on déploie",s:{r:2,a:0,c:0,l:0}},
+  {t:"La précision est une construction sociale",s:{r:1,a:0,c:0,l:0}},
+  {t:"Ce que teachable-machine me donne, je prends",s:{r:0,a:2,c:0,l:1}},
 ]},
-{q:"Soldering iron: friend or foe?",opts:[
-  {t:"Friend! 350°C of possibility!",s:{r:3,a:0,c:0,l:1}},
-  {t:"Foe. I've been burned. Literally.",s:{r:1,a:0,c:0,l:0}},
-  {t:"I use colle chaude for everything",s:{r:2,a:0,c:0,l:0}},
-  {t:"What's a soldering iron?",s:{r:0,a:0,c:0,l:0}},
+{q:"Fer à souder : ami ou ennemi ?",opts:[
+  {t:"Ami ! 350°C de possibilités !",s:{r:3,a:0,c:0,l:1}},
+  {t:"Ennemi. Je me suis brûlé. Littéralement.",s:{r:1,a:0,c:0,l:0}},
+  {t:"J'utilise la colle chaude pour tout",s:{r:2,a:0,c:0,l:0}},
+  {t:"C'est quoi un fer à souder ?",s:{r:0,a:0,c:0,l:0}},
 ]},
-{q:"Bug #42 appears in your codebase. You:",opts:[
-  {t:"Supprimer it immediately",s:{r:0,a:0,c:2,l:0}},
-  {t:"Investigate its origin",s:{r:0,a:2,c:1,l:2}},
-  {t:"Accept it. Bugs are fonctionnalités.",s:{r:3,a:1,c:0,l:0}},
-  {t:"Put it on trial",s:{r:1,a:0,c:1,l:1}},
+{q:"Bug #42 apparaît dans ton code. Tu :",opts:[
+  {t:"Le supprimer immédiatement",s:{r:0,a:0,c:2,l:0}},
+  {t:"Enquêter sur son origine",s:{r:0,a:2,c:1,l:2}},
+  {t:"L'accepter. Les bugs sont des fonctionnalités.",s:{r:3,a:1,c:0,l:0}},
+  {t:"Le mettre en procès",s:{r:1,a:0,c:1,l:1}},
 ]},
 ];
 
@@ -150,7 +150,7 @@ function render(){
   const q=QS[cur];
   document.getElementById('progFill').style.width=((cur/QS.length)*100)+'%';
   document.getElementById('qArea').innerHTML=`
-    <div class="q-num">QUESTION ${cur+1} OF ${QS.length}</div>
+    <div class="q-num">QUESTION ${cur+1} SUR ${QS.length}</div>
     <div class="q-text">${q.q}</div>
     <div class="options">${q.opts.map((o,i)=>`
       <div class="option${answers[cur]===i?' selected':''}" onclick="select(${i})">
@@ -160,7 +160,7 @@ function render(){
     </div>`;
   document.getElementById('prevBtn').disabled=cur===0;
   document.getElementById('nextBtn').disabled=answers[cur]<0;
-  document.getElementById('nextBtn').textContent=cur===QS.length-1?'SEE RESULTS →':'SUIV →';
+  document.getElementById('nextBtn').textContent=cur===QS.length-1?'VOIR RÉSULTATS →':'SUIV →';
 }
 
 function select(i){answers[cur]=i;render()}
@@ -182,14 +182,14 @@ function showResult(){
   const pct=Math.min(100,Math.round((total/max)*100)+15);
   
   const top=Object.entries(scores).sort((a,b)=>b[1]-a[1])[0][0];
-  const matches={r:{e:"🤖",n:"bit-bot",d:"You're a maker at heart. Hardware, robots, and the courage to drop things from desks."},a:{e:"🧠",n:"teachable-machine",d:"You're an AI thinker. Data in, intelligence out. 98% of the time, you're right."},c:{e:"🔐",n:"pentest-lab",d:"You're a digital sentinel. Security-minded, detail-oriented, and very concerned about password123."},l:{e:"🐧",n:"linux-kids-lab",d:"You're a learner and builder. Command lines, documentation, and the joy of understanding."}};
+  const matches={r:{e:"🤖",n:"bit-bot",d:"Tu es un maker dans l'âme. Du matériel, des robots, et le courage de faire tomber des trucs des bureaux."},a:{e:"🧠",n:"teachable-machine",d:"Tu es un penseur IA. Des données en entrée, de l'intelligence en sortie. 98% du temps, tu as raison."},c:{e:"🔐",n:"pentest-lab",d:"Tu es une sentinelle numérique. L'esprit sécurité, le souci du détail, et très inquiet pour password123."},l:{e:"🐧",n:"linux-kids-lab",d:"Tu es un apprenant et un bâtisseur. La ligne de commande, la doc, et la joie de comprendre."}};
   const m=matches[top];
   
   let vt="";
-  if(pct>=90)vt="PERFECT MATCH! You ARE Atelier-DIY.";
-  else if(pct>=70)vt="Highly compatible! Welcome aboard.";
-  else if(pct>=50)vt="Good potential! With coffee, anything is possible.";
-  else vt="You might need more coffee. Try again.";
+  if(pct>=90)vt="COMPATIBILITÉ PARFAITE ! Tu ES Workshop-DIY.";
+  else if(pct>=70)vt="Très compatible ! Bienvenue à bord.";
+  else if(pct>=50)vt="Bon potentiel ! Avec du café, tout est possible.";
+  else vt="Tu as peut-être besoin de plus de café. Réessaie.";
 
   document.getElementById('game').style.display='none';
   const r=document.getElementById('result');
@@ -197,7 +197,7 @@ function showResult(){
   document.getElementById('pct').textContent=pct+'%';
   document.getElementById('verdict').textContent=vt;
   document.getElementById('matchEmoji').textContent=m.e;
-  document.getElementById('match').innerHTML=`Your spirit app: <b style="color:#ff0066">${m.n}</b><br>${m.d}`;
+  document.getElementById('match').innerHTML=`Ton app totem : <b style="color:#ff0066">${m.n}</b><br>${m.d}`;
 }
 
 function restart(){
@@ -210,8 +210,7 @@ function restart(){
 render();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

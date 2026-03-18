@@ -54,8 +54,8 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
 <div class="header">
-  <div class="h-title">🦈 WKSHP SHARK TANK</div>
-  <div class="h-sub">PITCH YOUR APP IN 60 SECONDS · SECURE THE INVESTMENT</div>
+  <div class="h-title">🦈 WKSHP DANS LA FOSSE AUX REQUINS</div>
+  <div class="h-sub">PITCHEZ VOTRE APP EN 60 SECONDES · DÉCROCHEZ L'INVESTISSEMENT</div>
 </div>
 
 <div class="timer-label">TEMPS RESTANT</div>
@@ -63,38 +63,38 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="pitcher" id="pitcher">
   <div class="emoji" id="pEmoji">🚀</div>
-  <div class="name" id="pName">Press START to begin</div>
-  <div class="pitch" id="pPitch">Apps will take turns pitching to the sharks. Each gets 60 seconds. Will the sharks invest?</div>
+  <div class="name" id="pName">Appuyez sur DÉMARRER</div>
+  <div class="pitch" id="pPitch">Les apps pitchent chacune leur tour devant les requins. Chacune a 60 secondes. Les requins investiront-ils ?</div>
   <div class="ask" id="pAsk"></div>
 </div>
 
 <div class="sharks">
-  <div class="shark"><div class="emoji">🧠</div><div class="name">Mr. Algorithm</div><div class="verdict" id="s1"></div></div>
-  <div class="shark"><div class="emoji">💰</div><div class="name">Ms. Venture</div><div class="verdict" id="s2"></div></div>
+  <div class="shark"><div class="emoji">🧠</div><div class="name">M. Algorithme</div><div class="verdict" id="s1"></div></div>
+  <div class="shark"><div class="emoji">💰</div><div class="name">Mme Venture</div><div class="verdict" id="s2"></div></div>
   <div class="shark"><div class="emoji">🔧</div><div class="name">Dr. Hardware</div><div class="verdict" id="s3"></div></div>
-  <div class="shark"><div class="emoji">☕</div><div class="name">The Investor</div><div class="verdict" id="s4"></div></div>
+  <div class="shark"><div class="emoji">☕</div><div class="name">L'Investisseur</div><div class="verdict" id="s4"></div></div>
 </div>
 
 <div class="controls">
   <button class="ctrl go" id="startBtn" onclick="startPitch()">▶ DÉMARRER</button>
-  <button class="ctrl" onclick="skipPitch()">⏭ SKIP</button>
-  <button class="ctrl" onclick="resetAll()">🔄 RESET</button>
+  <button class="ctrl" onclick="skipPitch()">⏭ PASSER</button>
+  <button class="ctrl" onclick="resetAll()">🔄 RÉINITIALISER</button>
 </div>
 
 <div class="score-bar" id="scoreBar"></div>
 
-<div class="footer">WKSHP SHARK TANK · NO REAL INVESTMENTS · ALL VALUATIONS IN COFFEE CUPS</div>
+<div class="footer">FOSSE AUX REQUINS WKSHP · AUCUN VRAI INVESTISSEMENT · TOUTES LES VALORISATIONS EN TASSES DE CAFÉ</div>
 
 <script>
 const PITCHES=[
-{e:"🤖",name:"bit-bot",pitch:"Sharks, imagine controlling a robot from your browser. No app download. No installation. Just Chrome and Bluetooth. We've a survécu à 47 chutes and we're still driving. Our user retention is 100% because no one has figured out how to close the tab.",ask:"Asking: 500 cups of coffee for 10% equity",deal:.85},
-{e:"🪄",name:"magic-hands",pitch:"We track 21 landmarks per hand in real-time using nothing but a webcam and a browser. No SDK. No C++ bindings. No crying in the bathroom. Just wave your hands and particles appear. We call it magic. Google calls it MediaPipe. Same thing.",ask:"Asking: 300 coffee cups + 1 GPU",deal:.9},
-{e:"🔐",name:"pentest-lab",pitch:"We teach ethical hacking to teenagers. SQL injection. XSS. Privilege escalation. In a SANDBOX. One student found a school printer vulnerability. Responsibly disclosed. The school said 'thank you' and also 'please stop.' Our mot de passe WiFi is password123. Yes, on purpose.",ask:"Asking: 1,000 coffee cups for 5% equity",deal:.7},
-{e:"🐳",name:"docker-lab",pitch:"Sharks, we teach Docker to 14-year-olds. And they explain it to their parents. Who are software engineers. We've inadvertently created the best Docker tutorial that has ever existed, and it was an accident. Our containers always start. Our dreams never stop.",ask:"Asking: 200 coffee cups + harbor space",deal:.8},
-{e:"🧠",name:"teachable-machine",pitch:"Give us 30 photos and 15 minutes. We'll give you a custom AI model. Running in your browser. At 98% accuracy. No Python. No Jupyter notebooks. No existential crisis about whether AI will take your job. Just a webcam and ambition.",ask:"Asking: 400 coffee cups for 8% equity",deal:.88},
-{e:"☕",name:"Machine à café",pitch:"I've brewed 1,337 cups. I've been à 8% for 14 months. My drainage tray is a biohazard. But I'm the reason any of this exists. Without me, there are no apps. There is no workshop. There is only darkness and decaf. Invest in me.",ask:"Asking: 1 maintenance visit for 51% equity",deal:.6},
-{e:"🐛",name:"Bug #42",pitch:"I don't have a pitch deck. I don't have a business plan. I don't have an author, a creation date, or a commit hash. But I have something no other app has: I cannot be deleted. I've tried to be removed. I come back. Invest in inevitability.",ask:"Asking: Recognition for 0% equity",deal:.95},
-{e:"🔑",name:"password123",pitch:"I am the mot de passe WiFi. I have been the mot de passe WiFi since 2023. Three petitions to change me have been denied. My market position is unassailable. My brand recognition is 100%. My security rating is... let's not discuss that.",ask:"Asking: Eternal persistence for 0% equity",deal:.5},
+{e:"🤖",name:"bit-bot",pitch:"Requins, imaginez contrôler un robot depuis votre navigateur. Aucun téléchargement. Aucune installation. Juste Chrome et le Bluetooth. On a survécu à 47 chutes et on roule toujours. Notre rétention utilisateur est de 100% parce que personne n'a trouvé comment fermer l'onglet.",ask:"Demande : 500 tasses de café pour 10% du capital",deal:.85},
+{e:"🪄",name:"magic-hands",pitch:"On traque 21 landmarks par main en temps réel avec rien d'autre qu'une webcam et un navigateur. Pas de SDK. Pas de bindings C++. Pas de larmes dans les toilettes. Agitez vos mains et des particules apparaissent. On appelle ça de la magie. Google appelle ça MediaPipe. Même chose.",ask:"Demande : 300 tasses de café + 1 GPU",deal:.9},
+{e:"🔐",name:"pentest-lab",pitch:"On enseigne le hacking éthique aux ados. Injection SQL. XSS. Escalade de privilèges. Dans un BAC À SABLE. Un élève a trouvé une faille sur l'imprimante de l'école. Divulguée de manière responsable. L'école a dit « merci » et aussi « arrêtez s'il vous plaît ». Notre mot de passe WiFi est password123. Oui, exprès.",ask:"Demande : 1 000 tasses de café pour 5% du capital",deal:.7},
+{e:"🐳",name:"docker-lab",pitch:"Requins, on enseigne Docker à des ados de 14 ans. Et ils l'expliquent à leurs parents. Qui sont ingénieurs logiciels. On a involontairement créé le meilleur tutoriel Docker qui ait jamais existé, et c'était un accident. Nos conteneurs démarrent toujours. Nos rêves ne s'arrêtent jamais.",ask:"Demande : 200 tasses de café + espace portuaire",deal:.8},
+{e:"🧠",name:"teachable-machine",pitch:"Donnez-nous 30 photos et 15 minutes. On vous donne un modèle IA personnalisé. Qui tourne dans votre navigateur. À 98% de précision. Pas de Python. Pas de notebooks Jupyter. Pas de crise existentielle sur l'IA qui prendrait votre travail. Juste une webcam et de l'ambition.",ask:"Demande : 400 tasses de café pour 8% du capital",deal:.88},
+{e:"☕",name:"Machine à café",pitch:"J'ai préparé 1 337 tasses. Je suis à 8% depuis 14 mois. Mon bac de récupération est un risque biologique. Mais je suis la raison pour laquelle tout ça existe. Sans moi, pas d'apps. Pas d'atelier. Juste les ténèbres et le décaféiné. Investissez en moi.",ask:"Demande : 1 visite de maintenance pour 51% du capital",deal:.6},
+{e:"🐛",name:"Bug #42",pitch:"Je n'ai pas de pitch deck. Je n'ai pas de business plan. Je n'ai pas d'auteur, de date de création, ni de hash de commit. Mais j'ai quelque chose qu'aucune autre app n'a : je ne peux pas être supprimé. On a essayé de me retirer. Je reviens. Investissez dans l'inévitabilité.",ask:"Demande : Reconnaissance pour 0% du capital",deal:.95},
+{e:"🔑",name:"password123",pitch:"Je suis le mot de passe WiFi. Je suis le mot de passe WiFi depuis 2023. Trois pétitions pour me changer ont été refusées. Ma position sur le marché est inattaquable. Ma notoriété est de 100%. Mon niveau de sécurité est... ne parlons pas de ça.",ask:"Demande : Persistance éternelle pour 0% du capital",deal:.5},
 ];
 
 let pIdx=0,sec=60,interval=null,deals=0,outs=0;
@@ -133,7 +133,7 @@ function sharkDecisions(){
     const invested=Math.random()<p.deal;
     const el=document.getElementById('s'+i);
     setTimeout(()=>{
-      el.textContent=invested?"I'M IN ✅":"I'M OUT ❌";
+      el.textContent=invested?"J'INVESTIS ✅":"JE PASSE ❌";
       el.className='verdict '+(invested?'v-in':'v-out');
     },i*500);
   }
@@ -162,8 +162,8 @@ function resetAll(){
   document.getElementById('timer').className='timer';
   clearSharks();
   document.getElementById('pEmoji').textContent='🚀';
-  document.getElementById('pName').textContent='Press START to begin';
-  document.getElementById('pPitch').textContent='Apps will take turns pitching. Each gets 60 seconds.';
+  document.getElementById('pName').textContent='Appuyez sur DÉMARRER';
+  document.getElementById('pPitch').textContent='Les apps pitchent chacune leur tour. Chacune a 60 secondes.';
   document.getElementById('pAsk').textContent='';
   updateScore();
 }
@@ -171,14 +171,13 @@ function resetAll(){
 function updateScore(){
   document.getElementById('scoreBar').innerHTML=
     `<span class="score-item" style="color:#00cc66">✅ Accords: ${deals}</span>`+
-    `<span class="score-item" style="color:#ff4444">❌ Outs: ${outs}</span>`+
+    `<span class="score-item" style="color:#ff4444">❌ Refus: ${outs}</span>`+
     `<span class="score-item" style="color:#555">📊 ${pIdx} pitches</span>`;
 }
 updateScore();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

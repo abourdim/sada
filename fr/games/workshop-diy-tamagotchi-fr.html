@@ -14,11 +14,11 @@ body{background:#1a1a2e;display:flex;align-items:center;justify-content:center;m
 
 .egg{width:280px;background:radial-gradient(ellipse at 50% 40%,#2a6a4a,#1a3a2a);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;padding:20px;box-shadow:0 12px 40px rgba(0,0,0,.4),inset 0 -4px 12px rgba(0,0,0,.2),inset 0 4px 8px rgba(255,255,255,.05);border:3px solid #3a8a5a;position:relative}
 
-/* SCREEN */
+/* ÉCRAN */
 .screen{background:#9bbc0f;border-radius:8px;border:3px solid #1a1a1a;padding:4px;box-shadow:inset 0 2px 8px rgba(0,0,0,.3)}
 .screen-inner{background:#8bac0f;border-radius:4px;padding:8px;min-height:200px;display:flex;flex-direction:column;position:relative;image-rendering:pixelated}
 
-/* PET */
+/* ANIMAL */
 .pet-area{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:100px}
 .pet{font-size:48px;transition:all .2s;animation:bounce 2s ease-in-out infinite}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
@@ -35,11 +35,11 @@ body{background:#1a1a2e;display:flex;align-items:center;justify-content:center;m
 .stat-icon{font-size:8px;width:14px}.stat-bar{flex:1;height:6px;background:#306230;border-radius:1px;overflow:hidden}.stat-fill{height:100%;border-radius:1px;transition:width .5s}
 .stat-fill.hp{background:#0f380f}.stat-fill.food{background:#0f380f}.stat-fill.fun{background:#0f380f}.stat-fill.skill{background:#0f380f}
 
-/* NAME */
+/* NOM */
 .pet-name{text-align:center;font-size:8px;color:#0f380f;margin:4px 0 2px;letter-spacing:1px}
 .pet-xp{text-align:center;font-size:5px;color:#306230;letter-spacing:1px}
 
-/* BUTTONS */
+/* BOUTONS */
 .buttons{display:flex;justify-content:center;gap:8px;margin-top:14px}
 .btn{width:40px;height:40px;border-radius:50%;border:2px solid #2a5a3a;background:#1a3a2a;color:#6aaa6a;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;transition:all .1s;box-shadow:0 2px 6px rgba(0,0,0,.2)}
 .btn:hover{background:#2a5a3a;color:#aaffaa;transform:scale(1.05)}
@@ -52,7 +52,7 @@ body{background:#1a1a2e;display:flex;align-items:center;justify-content:center;m
 .msg{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:5px;color:#0f380f;white-space:nowrap;animation:msgFade 2s forwards;letter-spacing:.5px}
 @keyframes msgFade{0%{opacity:1;transform:translateX(-50%) translateY(0)}100%{opacity:0;transform:translateX(-50%) translateY(-10px)}}
 
-/* CORNER DECORATION */
+/* DÉCORATION */
 .egg::before{content:'🤖';position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:10px;opacity:.3}
 </style>
 </head>
@@ -68,13 +68,13 @@ body{background:#1a1a2e;display:flex;align-items:center;justify-content:center;m
         <div class="stat"><span class="stat-icon">😊</span><div class="stat-bar"><div class="stat-fill fun" id="barFun" style="width:70%"></div></div></div>
         <div class="stat"><span class="stat-icon">🧠</span><div class="stat-bar"><div class="stat-fill skill" id="barSkill" style="width:30%"></div></div></div>
       </div>
-      <div class="level-badge" id="levelBadge">LV.1 NOOB</div>
+      <div class="level-badge" id="levelBadge">NV.1 DÉBUTANT</div>
       <div class="pet-area">
         <div class="pet" id="pet">🤖</div>
         <div class="mood" id="mood">😊</div>
       </div>
       <div class="pet-name" id="petName">BIT-BUDDY</div>
-      <div class="pet-xp" id="petXp">XP: 0 / 100 · AGE: 0</div>
+      <div class="pet-xp" id="petXp">XP : 0 / 100 · ÂGE : 0</div>
     </div>
   </div>
 
@@ -88,28 +88,28 @@ body{background:#1a1a2e;display:flex;align-items:center;justify-content:center;m
   <div class="btn-labels">
     <div class="btn-label">NOURRIR</div>
     <div class="btn-label">JOUER</div>
-    <div class="btn-label">CODE</div>
-    <div class="btn-label">HEAL</div>
+    <div class="btn-label">CODER</div>
+    <div class="btn-label">SOIGNER</div>
     <div class="btn-label">INFO</div>
   </div>
 </div>
 
 <script>
 const EVOLUTIONS=[
-  {lv:1,name:"NOOB",emoji:"🤖",need:100},
-  {lv:2,name:"CODER",emoji:"👾",need:250},
+  {lv:1,name:"DÉBUTANT",emoji:"🤖",need:100},
+  {lv:2,name:"CODEUR",emoji:"👾",need:250},
   {lv:3,name:"HACKER",emoji:"🦾",need:500},
-  {lv:4,name:"WIZARD",emoji:"🧙",need:1000},
-  {lv:5,name:"LEGEND",emoji:"👑",need:Infinity},
+  {lv:4,name:"SORCIER",emoji:"🧙",need:1000},
+  {lv:5,name:"LÉGENDE",emoji:"👑",need:Infinity},
 ];
 
-const FOODS=["☕ coffee","🍕 pizza","🍜 ramen","🌮 taco","🍩 donut","🧃 juice"];
-const GAMES=["🎯 CTF challenge","🎮 bit-bot race","🧩 puzzle","🎪 code golf","🏓 pong"];
+const FOODS=["☕ café","🍕 pizza","🍜 ramen","🌮 taco","🍩 beignet","🧃 jus"];
+const GAMES=["🎯 défi CTF","🎮 course bit-bot","🧩 puzzle","🎪 code golf","🏓 pong"];
 const SKILLS=["JavaScript","Python","BLE","MediaPipe","Docker","Linux","ESP32","Git"];
-const MSGS_NOURRIR=["yum!","delicious!","more please!","*munch*","tasty code fuel!"];
-const MSGS_JOUER=["wheee!","so fun!","again!","haha!","best game!"];
-const MSGS_CODE=["learned!","leveling up!","big brain!","compiled!","no bugs... yet"];
-const MSGS_HEAL=["feeling better!","recharged!","full power!","thanks doc!"];
+const MSGS_NOURRIR=["miam !","délicieux !","encore !","*munch*","carburant de code !"];
+const MSGS_JOUER=["ouiii !","trop fun !","encore !","haha !","meilleur jeu !"];
+const MSGS_CODE=["appris !","en progression !","gros cerveau !","compilé !","pas de bugs... pour l'instant"];
+const MSGS_SOIGNER=["ça va mieux !","rechargé !","pleine puissance !","merci doc !"];
 
 let state={hp:100,food:80,fun:70,skill:30,xp:0,age:0,level:0};
 
@@ -130,10 +130,10 @@ function update(){
 
   const evo=EVOLUTIONS[state.level];
   document.getElementById('pet').textContent=evo.emoji;
-  document.getElementById('levelBadge').textContent=`LV.${evo.lv} ${evo.name}`;
-  document.getElementById('petXp').textContent=`XP: ${state.xp} / ${evo.need} · AGE: ${state.age}`;
+  document.getElementById('levelBadge').textContent=`NV.${evo.lv} ${evo.name}`;
+  document.getElementById('petXp').textContent=`XP : ${state.xp} / ${evo.need} · ÂGE : ${state.age}`;
 
-  // Mood
+  // Humeur
   const avg=(state.hp+state.food+state.fun)/3;
   let mood='😊';
   if(avg<30)mood='😢';else if(avg<50)mood='😐';else if(avg>80)mood='🥰';
@@ -143,16 +143,16 @@ function update(){
   pet.className='pet';
   if(avg<30)pet.classList.add('sad');else if(avg>70)pet.classList.add('happy');
 
-  // Level up
+  // Monter de niveau
   if(state.xp>=evo.need&&state.level<EVOLUTIONS.length-1){
     state.level++;state.xp=0;
-    showMsg('🎉 EVOLVED!');
+    showMsg('🎉 ÉVOLUTION !');
     update();
   }
 }
 
 function feed(){
-  if(state.food>=100)return showMsg("I'm full!");
+  if(state.food>=100)return showMsg("J'ai plus faim !");
   state.food=clamp(state.food+20);
   state.hp=clamp(state.hp+5);
   state.xp+=10;
@@ -163,7 +163,7 @@ function feed(){
 }
 
 function play(){
-  if(state.fun>=100)return showMsg("Too tired to play!");
+  if(state.fun>=100)return showMsg("Trop fatigué pour jouer !");
   state.fun=clamp(state.fun+25);
   state.food=clamp(state.food-10);
   state.xp+=15;
@@ -184,16 +184,16 @@ function code(){
 function heal(){
   state.hp=clamp(state.hp+30);
   state.xp+=5;
-  showMsg(MSGS_HEAL[Math.floor(Math.random()*MSGS_HEAL.length)]);
+  showMsg(MSGS_SOIGNER[Math.floor(Math.random()*MSGS_SOIGNER.length)]);
   update();
 }
 
 function info(){
   const evo=EVOLUTIONS[state.level];
-  alert(`🤖 BIT-BUDDY STATUT\n\nLevel: ${evo.lv} (${evo.name})\nXP: ${state.xp}/${evo.need}\nÂge : ${state.age}\n\n⚡ HP: ${state.hp}%\n🍕 Food: ${state.food}%\n😊 Fun: ${state.fun}%\n🧠 Skill: ${state.skill}%\n\nAtelier-DIY Virtual Pet`);
+  alert(`🤖 STATUT DE BIT-BUDDY\n\nNiveau : ${evo.lv} (${evo.name})\nXP : ${state.xp}/${evo.need}\nÂge : ${state.age}\n\n⚡ PV : ${state.hp}%\n🍕 Nourriture : ${state.food}%\n😊 Plaisir : ${state.fun}%\n🧠 Compétence : ${state.skill}%\n\nAnimal virtuel Workshop-DIY`);
 }
 
-// Decay over time
+// Déclin au fil du temps
 setInterval(()=>{
   state.food=clamp(state.food-2);
   state.fun=clamp(state.fun-1);
@@ -205,8 +205,7 @@ setInterval(()=>{
 update();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

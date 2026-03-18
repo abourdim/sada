@@ -60,34 +60,34 @@ const CELLS=[
   // BOTTOM ROW (indices 0-8)
   {t:"corner",e:"🚀",n:"GO",p:"Recevez €200"},
   {t:"prop",e:"🤖",n:"bit-bot",p:"€60",bar:"#8b4513",side:"top"},
-  {t:"chance",e:"❓",n:"Bug Report",p:"",side:"top"},
+  {t:"chance",e:"❓",n:"Rapport Bug",p:"",side:"top"},
   {t:"prop",e:"🪄",n:"magic-hands",p:"€60",bar:"#8b4513",side:"top"},
-  {t:"tax",e:"☕",n:"Coffee Taxe",p:"Pay €50",side:"top"},
+  {t:"tax",e:"☕",n:"Taxe Café",p:"Payez €50",side:"top"},
   {t:"prop",e:"🎛️",n:"rxy",p:"€100",bar:"#0088cc",side:"top"},
   {t:"prop",e:"💬",n:"talking-bot",p:"€100",bar:"#0088cc",side:"top"},
   {t:"chance",e:"🎫",n:"Atelier",p:"",side:"top"},
-  {t:"corner",e:"🔐",n:"CYBER JAIL",p:"Just visiting"},
+  {t:"corner",e:"🔐",n:"CYBER PRISON",p:"Simple visite"},
   // RIGHT COL (indices 9-15, bottom to top, excluding corners)
   {t:"prop",e:"🧠",n:"teach-ML",p:"€140",bar:"#cc0066",side:"left"},
   {t:"util",e:"📡",n:"WiFi",p:"€150 (pw:123)",side:"left"},
   {t:"prop",e:"🕵️",n:"face-quest",p:"€140",bar:"#cc0066",side:"left"},
   {t:"prop",e:"🔐",n:"pentest",p:"€160",bar:"#cc0066",side:"left"},
-  {t:"chance",e:"❓",n:"Bug Report",p:"",side:"left"},
+  {t:"chance",e:"❓",n:"Rapport Bug",p:"",side:"left"},
   {t:"prop",e:"🐧",n:"linux-lab",p:"€200",bar:"#ff8800",side:"left"},
   // TOP ROW (R→L, indices 16-22, plus corner 23)
-  {t:"corner",e:"🅿️",n:"FREE CODE",p:"Free parking"},
+  {t:"corner",e:"🅿️",n:"CODE LIBRE",p:"Parking gratuit"},
   {t:"prop",e:"🐳",n:"docker",p:"€220",bar:"#ff0044",side:"bot"},
   {t:"chance",e:"🎫",n:"Atelier",p:"",side:"bot"},
   {t:"prop",e:"🚀",n:"mission-ctrl",p:"€220",bar:"#ff0044",side:"bot"},
   {t:"prop",e:"💡",n:"wled-lab",p:"€240",bar:"#ff0044",side:"bot"},
-  {t:"tax",e:"🐛",n:"Bug #42 Taxe",p:"Pay €42",side:"bot"},
+  {t:"tax",e:"🐛",n:"Taxe Bug #42",p:"Payez €42",side:"bot"},
   {t:"prop",e:"⚡",n:"esp32",p:"€260",bar:"#00aa44",side:"bot"},
-  {t:"corner",e:"⬇️",n:"GO TO JAIL",p:"Go directly"},
+  {t:"corner",e:"⬇️",n:"EN PRISON",p:"Directement"},
   // LEFT COL (T→B, indices 24-30, excluding corners)
   {t:"prop",e:"✨",n:"prompt-hero",p:"€260",bar:"#00aa44",side:"right"},
   {t:"prop",e:"🎨",n:"pixel-gw",p:"€280",bar:"#00aa44",side:"right"},
   {t:"util",e:"☕",n:"Coffee Co.",p:"€150",side:"right"},
-  {t:"chance",e:"❓",n:"Bug Report",p:"",side:"right"},
+  {t:"chance",e:"❓",n:"Rapport Bug",p:"",side:"right"},
   {t:"prop",e:"🏠",n:"smart-home",p:"€350",bar:"#0000cc",side:"right"},
   {t:"chance",e:"🎫",n:"Atelier",p:"",side:"right"},
   {t:"prop",e:"🔧",n:"nodered",p:"€400",bar:"#0000cc",side:"right"},
@@ -141,16 +141,16 @@ for(let r=0;r<9;r++){
 // DICE
 const faces=['⚀','⚁','⚂','⚃','⚄','⚅'];
 const EVENTS=[
-  "🤖 bit-bot dances! Advance 3 spaces.",
-  "☕ Coffee break! Miss a turn but feel great.",
-  "🐛 Bug #42 appears! Pay €42 in debugging costs.",
-  "📡 WiFi connected! (Password: password123) Recevez €50.",
-  "🔐 You hacked the printer! Go to Cyber Jail.",
-  "🐳 Docker pull successful! Advance to docker-lab.",
-  "🪄 Magic hands detected! Roll again!",
-  "⚡ ESP32 overheats! Pay €30 for a new one.",
-  "🎉 Atelier complete! Recevez €100 bonus.",
-  "🐧 sudo make sandwich → Permission granted! Free turn.",
+  "🤖 bit-bot danse ! Avancez de 3 cases.",
+  "☕ Pause café ! Passez un tour mais sentez-vous bien.",
+  "🐛 Bug #42 apparaît ! Payez €42 en frais de débogage.",
+  "📡 WiFi connecté ! (Mot de passe : password123) Recevez €50.",
+  "🔐 Vous avez hacké l'imprimante ! Allez en Cyber Prison.",
+  "🐳 Docker pull réussi ! Avancez jusqu'à docker-lab.",
+  "🪄 Mains magiques détectées ! Relancez les dés !",
+  "⚡ ESP32 surchauffe ! Payez €30 pour un nouveau.",
+  "🎉 Atelier terminé ! Recevez €100 de bonus.",
+  "🐧 sudo make sandwich → Permission accordée ! Tour gratuit.",
 ];
 function roll(){
   const d1=document.getElementById('d1'),d2=document.getElementById('d2');
@@ -161,13 +161,12 @@ function roll(){
     d1.classList.remove('rolling');d2.classList.remove('rolling');
     const total=v1+v2+2;
     const ev=EVENTS[Math.floor(Math.random()*EVENTS.length)];
-    document.getElementById('result').textContent=`Rolled ${total}! — ${ev}`;
+    document.getElementById('result').textContent=`Lancé ${total} ! — ${ev}`;
   },300);
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

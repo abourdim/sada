@@ -56,39 +56,39 @@ body{background:#0a0a0e;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <div class="crt"></div>
 <div class="app">
-<div class="hud"><span>DONJON_CRAWLER v1.0</span><span>WORKSHOP-DIY // TEXT ADVENTURE</span></div>
+<div class="hud"><span>DONJON_CRAWLER v1.0</span><span>WORKSHOP-DIY // AVENTURE TEXTUELLE</span></div>
 <div class="game">
 <div class="map-panel">
-  <div class="map-h">DONJON MAP</div>
+  <div class="map-h">CARTE DU DONJON</div>
   <div class="map-grid" id="mapGrid"></div>
   <div class="stat-box">
     <div class="stat-row"><span class="l">HP</span><span class="v" id="hpVal">100/100</span></div>
     <div class="hp-bar"><div class="hp-fill" id="hpFill" style="width:100%"></div></div>
     <div class="stat-row" style="margin-top:4px"><span class="l">NIVEAU</span><span class="v" id="lvl">1</span></div>
     <div class="stat-row"><span class="l">XP</span><span class="v" id="xp">0/100</span></div>
-    <div class="stat-row"><span class="l">BUGS FIXED</span><span class="v" id="bugs">0</span></div>
-    <div class="stat-row"><span class="l">COFFEE</span><span class="v" id="coffee">☕☕☕</span></div>
+    <div class="stat-row"><span class="l">BUGS CORRIGÉS</span><span class="v" id="bugs">0</span></div>
+    <div class="stat-row"><span class="l">CAFÉ</span><span class="v" id="coffee">☕☕☕</span></div>
   </div>
   <div class="inv">
-    <div class="inv-h">INVENTORY</div>
-    <div id="invList"><div class="inv-item">📝 Empty...</div></div>
+    <div class="inv-h">INVENTAIRE</div>
+    <div id="invList"><div class="inv-item">📝 Vide...</div></div>
   </div>
 </div>
 <div class="output-area">
   <div class="output" id="output"></div>
   <div class="cmd-btns">
-    <button class="cmd-btn" onclick="cmd('north')">⬆ north</button>
-    <button class="cmd-btn" onclick="cmd('south')">⬇ south</button>
-    <button class="cmd-btn" onclick="cmd('east')">➡ east</button>
-    <button class="cmd-btn" onclick="cmd('west')">⬅ west</button>
-    <button class="cmd-btn" onclick="cmd('look')">👁 look</button>
-    <button class="cmd-btn" onclick="cmd('take')">🤚 take</button>
-    <button class="cmd-btn" onclick="cmd('fight')">⚔ fight</button>
-    <button class="cmd-btn" onclick="cmd('use coffee')">☕ coffee</button>
-    <button class="cmd-btn" onclick="cmd('help')">❓ help</button>
+    <button class="cmd-btn" onclick="cmd('north')">⬆ nord</button>
+    <button class="cmd-btn" onclick="cmd('south')">⬇ sud</button>
+    <button class="cmd-btn" onclick="cmd('east')">➡ est</button>
+    <button class="cmd-btn" onclick="cmd('west')">⬅ ouest</button>
+    <button class="cmd-btn" onclick="cmd('look')">👁 regarder</button>
+    <button class="cmd-btn" onclick="cmd('take')">🤚 prendre</button>
+    <button class="cmd-btn" onclick="cmd('fight')">⚔ combattre</button>
+    <button class="cmd-btn" onclick="cmd('use coffee')">☕ café</button>
+    <button class="cmd-btn" onclick="cmd('help')">❓ aide</button>
   </div>
   <div class="input-area">
-    <input type="text" id="inp" placeholder="Enter command..." onkeydown="if(event.key==='Enter')cmd(this.value)">
+    <input type="text" id="inp" placeholder="Entrez une commande..." onkeydown="if(event.key==='Enter')cmd(this.value)">
   </div>
 </div>
 </div>
@@ -96,16 +96,16 @@ body{background:#0a0a0e;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 
 <script>
 const ROOMS={
-  "0,2":{name:"🚪 Atelier Entrance",desc:"You stand at the gates of the Atelier-DIY dungeon. Fluorescent lights flicker. The smell of solder and coffee fills the air. Exits lead <b>north</b> and <b>east</b>.",exits:{north:"1,2",east:"0,3"},item:"📝 Atelier Map",ascii:`   ┌───────────┐
+  "0,2":{name:"🚪 Entrée de l'Atelier",desc:"Tu te tiens aux portes du donjon Workshop-DIY. Les néons clignotent. L'odeur de soudure et de café remplit l'air. Les sorties mènent au <b>nord</b> et à l'<b>est</b>.",exits:{north:"1,2",east:"0,3"},item:"📝 Carte de l'Atelier",ascii:`   ┌───────────┐
    │ WORKSHOP  │
    │   -DIY-   │
-   │  ENTER →  │
+   │  ENTRER → │
    └───────────┘`},
-  "1,2":{name:"🤖 Robot Arena",desc:"A vast room filled with tiny ESP32 robots zooming around. One has been doing donuts for 3 hours. A <span class='enemy'>Bug Swarm (PV : 30)</span> blocks the north exit.",exits:{south:"0,2",north:"2,2",east:"1,3"},enemy:{name:"Bug Swarm",hp:30,dmg:8,xp:40},item:"🔧 Wrench of Debugging"},
-  "2,2":{name:"🧠 AI Laboratory",desc:"Neural networks pulse on holographic screens. A <b>teachable-machine</b> waits to learn from you. Gesture controls flicker in mid-air.",exits:{south:"1,2",east:"2,3"},item:"🧠 AI Cortex Module"},
-  "0,3":{name:"💡 LED Chamber",desc:"Every surface is covered in Neopixel strips. They cycle through rainbow patterns. It's like a rave, but educational. A treasure chest glows in the corner.",exits:{west:"0,2",north:"1,3"},item:"💡 RGB Power Crystal"},
-  "1,3":{name:"🐧 Terminal Room",desc:"Rows of terminals. Someone typed <code>sudo rm -rf /</code> and the room laughed. A <span class='enemy'>Kernel Panic (PV : 45)</span> lurks here.",exits:{south:"0,3",west:"1,2",north:"2,3"},enemy:{name:"Kernel Panic",hp:45,dmg:12,xp:60},item:"🐧 Root Access Key"},
-  "2,3":{name:"🔐 Cyber Vault",desc:"Firewalls shimmer like force fields. Encrypted data streams flow across the walls. The <b>Final Bug</b> guards the exit — a massive <span class='enemy'>Segmentation Fault (PV : 80)</span>.",exits:{south:"1,3",west:"2,2"},enemy:{name:"Segmentation Fault",hp:80,dmg:18,xp:100},item:"🏆 Golden Semicolon"},
+  "1,2":{name:"🤖 Arène Robot",desc:"Une vaste salle remplie de petits robots ESP32 qui foncent partout. L'un fait des tours sur lui-même depuis 3 heures. Un <span class='enemy'>Essaim de Bugs (PV : 30)</span> bloque la sortie nord.",exits:{south:"0,2",north:"2,2",east:"1,3"},enemy:{name:"Essaim de Bugs",hp:30,dmg:8,xp:40},item:"🔧 Clé de Débogage"},
+  "2,2":{name:"🧠 Laboratoire IA",desc:"Des réseaux neuronaux pulsent sur des écrans holographiques. Un <b>teachable-machine</b> attend d'apprendre de toi. Des contrôles gestuels scintillent dans les airs.",exits:{south:"1,2",east:"2,3"},item:"🧠 Module Cortex IA"},
+  "0,3":{name:"💡 Chambre LED",desc:"Chaque surface est couverte de rubans Neopixel. Ils parcourent des motifs arc-en-ciel. C'est comme une rave, mais éducative. Un coffre au trésor brille dans le coin.",exits:{west:"0,2",north:"1,3"},item:"💡 Cristal de Puissance RGB"},
+  "1,3":{name:"🐧 Salle des Terminaux",desc:"Des rangées de terminaux. Quelqu'un a tapé <code>sudo rm -rf /</code> et la salle a ri. Un <span class='enemy'>Kernel Panic (PV : 45)</span> rôde ici.",exits:{south:"0,3",west:"1,2",north:"2,3"},enemy:{name:"Kernel Panic",hp:45,dmg:12,xp:60},item:"🐧 Clé d'Accès Root"},
+  "2,3":{name:"🔐 Coffre Cyber",desc:"Les pare-feux scintillent comme des champs de force. Des flux de données chiffrées coulent sur les murs. Le <b>Bug Final</b> garde la sortie — un énorme <span class='enemy'>Segmentation Fault (PV : 80)</span>.",exits:{south:"1,3",west:"2,2"},enemy:{name:"Segmentation Fault",hp:80,dmg:18,xp:100},item:"🏆 Point-Virgule Doré"},
 };
 
 let state={pos:"0,2",hp:100,maxHp:100,lvl:1,xp:0,bugs:0,coffee:3,inv:[],visited:new Set(["0,2"]),enemies:{}};
@@ -115,63 +115,63 @@ function print(html,cls=''){out.innerHTML+=`<div class="${cls}">${html}</div>`;o
 
 function look(){
   const r=ROOMS[state.pos];
-  if(!r){print("You're in the void. This shouldn't happen.",'sys');return}
+  if(!r){print("Tu es dans le vide. Ça ne devrait pas arriver.",'sys');return}
   print(`<br><span class="room">${r.name}</span>`);
   if(r.ascii)print(`<pre class="ascii">${r.ascii}</pre>`);
   let desc=r.desc;
   if(r.enemy&&!state.enemies[state.pos])desc=desc;
-  else if(r.enemy)desc=desc.replace(/<span class='enemy'>.*?<\/span>/,'<span class="item">✓ defeated</span>');
+  else if(r.enemy)desc=desc.replace(/<span class='enemy'>.*?<\/span>/,'<span class="item">✓ vaincu</span>');
   print(desc,'desc');
-  if(r.item&&!state.inv.includes(r.item))print(`You see: <span class="item">${r.item}</span>`,'action');
+  if(r.item&&!state.inv.includes(r.item))print(`Tu vois : <span class="item">${r.item}</span>`,'action');
   const exits=Object.keys(r.exits).join(', ');
-  print(`Exits: ${exits}`,'sys');
+  print(`Sorties : ${exits}`,'sys');
 }
 
 function move(dir){
   const r=ROOMS[state.pos];
-  if(!r||!r.exits[dir]){print("You can't go that way.",'sys');return}
-  if(r.enemy&&!state.enemies[state.pos]){print(`The ${r.enemy.name} blocks your path! You must <b>fight</b> first.`,'enemy');return}
+  if(!r||!r.exits[dir]){print("Tu ne peux pas aller par là.",'sys');return}
+  if(r.enemy&&!state.enemies[state.pos]){print(`Le ${r.enemy.name} bloque ton chemin ! Tu dois d'abord <b>combattre</b>.`,'enemy');return}
   state.pos=r.exits[dir];state.visited.add(state.pos);
   look();updateMap();updateStats();
 }
 
 function fight(){
   const r=ROOMS[state.pos];
-  if(!r?.enemy||state.enemies[state.pos]){print("Nothing to fight here.",'sys');return}
+  if(!r?.enemy||state.enemies[state.pos]){print("Rien à combattre ici.",'sys');return}
   const e={...r.enemy};
-  print(`<br>⚔ BATTLE: You vs ${e.name} (PV : ${e.hp})`,'enemy');
-  const atk=15+(state.inv.includes('🔧 Wrench of Debugging')?10:0)+(state.inv.includes('🧠 AI Cortex Module')?8:0);
+  print(`<br>⚔ COMBAT : Toi vs ${e.name} (PV : ${e.hp})`,'enemy');
+  const atk=15+(state.inv.includes('🔧 Clé de Débogage')?10:0)+(state.inv.includes('🧠 Module Cortex IA')?8:0);
   while(e.hp>0&&state.hp>0){
     const dmg=Math.floor(Math.random()*atk)+5;
-    e.hp-=dmg;print(`You deal ${dmg} damage!`,'action');
+    e.hp-=dmg;print(`Tu infliges ${dmg} dégâts !`,'action');
     if(e.hp<=0)break;
     const eDmg=Math.floor(Math.random()*e.dmg)+3;
-    state.hp-=eDmg;print(`${e.name} hits you for ${eDmg}!`,'enemy');
+    state.hp-=eDmg;print(`${e.name} te frappe pour ${eDmg} !`,'enemy');
   }
   if(state.hp<=0){
-    state.hp=1;print("You barely survived! Drink coffee to heal.",'enemy');
+    state.hp=1;print("Tu as survécu de justesse ! Bois du café pour te soigner.",'enemy');
   }
   if(e.hp<=0){
-    print(`<span class="item">✓ ${e.name} defeated! +${e.xp} XP</span>`);
+    print(`<span class="item">✓ ${e.name} vaincu ! +${e.xp} XP</span>`);
     state.enemies[state.pos]=true;state.xp+=e.xp;state.bugs++;
-    if(state.xp>=state.lvl*100){state.lvl++;state.xp=0;state.maxHp+=20;state.hp=state.maxHp;print(`<span class="action">🎉 LEVEL UP! You are now level ${state.lvl}!</span>`)}
-    if(state.pos==="2,3")print(`<br><span class="action">🏆 YOU HAVE CONQUERED THE WORKSHOP-DIY DONJON!</span><br><span class="action">Final stats: Level ${state.lvl} | Bugs fixed: ${state.bugs} | Items: ${state.inv.length}</span><br><span class="sys">// all bugs are now fonctionnalités. you did it.</span>`);
+    if(state.xp>=state.lvl*100){state.lvl++;state.xp=0;state.maxHp+=20;state.hp=state.maxHp;print(`<span class="action">🎉 NIVEAU SUPÉRIEUR ! Tu es maintenant niveau ${state.lvl} !</span>`)}
+    if(state.pos==="2,3")print(`<br><span class="action">🏆 TU AS CONQUIS LE DONJON WORKSHOP-DIY !</span><br><span class="action">Stats finales : Niveau ${state.lvl} | Bugs corrigés : ${state.bugs} | Objets : ${state.inv.length}</span><br><span class="sys">// tous les bugs sont maintenant des fonctionnalités. bravo.</span>`);
   }
   updateStats();
 }
 
 function take(){
   const r=ROOMS[state.pos];
-  if(!r?.item||state.inv.includes(r.item)){print("Nothing to take.",'sys');return}
-  state.inv.push(r.item);print(`<span class="item">Picked up: ${r.item}</span>`);
+  if(!r?.item||state.inv.includes(r.item)){print("Rien à prendre.",'sys');return}
+  state.inv.push(r.item);print(`<span class="item">Ramassé : ${r.item}</span>`);
   updateStats();
 }
 
 function useCoffee(){
-  if(state.coffee<=0){print("No coffee left. This is a crisis.",'enemy');return}
+  if(state.coffee<=0){print("Plus de café. C'est une crise.",'enemy');return}
   state.coffee--;state.hp=Math.min(state.hp+40,state.maxHp);
-  print(`<span class="action">☕ You drink coffee. HP restored! (+40 HP)</span>`);
-  if(state.coffee===0)print(`<span class="enemy">⚠ COFFEE DEPLETED. CRITICAL STATUT.</span>`);
+  print(`<span class="action">☕ Tu bois du café. PV restaurés ! (+40 PV)</span>`);
+  if(state.coffee===0)print(`<span class="enemy">⚠ CAFÉ ÉPUISÉ. STATUT CRITIQUE.</span>`);
   updateStats();
 }
 
@@ -187,9 +187,9 @@ function cmd(c){
   else if(c==='take'||c==='get'||c==='grab')take();
   else if(c==='fight'||c==='attack'||c==='kill')fight();
   else if(c.includes('coffee')||c==='heal')useCoffee();
-  else if(c==='inventory'||c==='inv'||c==='i'){print('Inventory: '+(state.inv.length?state.inv.join(', '):'empty'),'action')}
-  else if(c==='help')print(`Commands: <b>north/south/east/west</b> — move | <b>look</b> — examine room | <b>take</b> — pick up item | <b>fight</b> — battle enemy | <b>use coffee</b> — heal +40 HP | <b>inventory</b> — show items`,'sys');
-  else print(`Unknown command: "${c}". Type <b>help</b>.`,'sys');
+  else if(c==='inventory'||c==='inv'||c==='i'){print('Inventaire : '+(state.inv.length?state.inv.join(', '):'vide'),'action')}
+  else if(c==='help')print(`Commandes : <b>north/south/east/west</b> — se déplacer | <b>look</b> — examiner la salle | <b>take</b> — ramasser un objet | <b>fight</b> — combattre l'ennemi | <b>use coffee</b> — soigner +40 PV | <b>inventory</b> — afficher les objets`,'sys');
+  else print(`Commande inconnue : "${c}". Tapez <b>help</b>.`,'sys');
 }
 
 // MAP
@@ -211,8 +211,8 @@ function updateStats(){
   document.getElementById('lvl').textContent=state.lvl;
   document.getElementById('xp').textContent=`${state.xp}/${state.lvl*100}`;
   document.getElementById('bugs').textContent=state.bugs;
-  document.getElementById('coffee').textContent='☕'.repeat(state.coffee)||(state.coffee<=0?'💀 EMPTY':'');
-  document.getElementById('invList').innerHTML=state.inv.length?state.inv.map(i=>`<div class="inv-item">${i}</div>`).join(''):'<div class="inv-item">📝 Empty...</div>';
+  document.getElementById('coffee').textContent='☕'.repeat(state.coffee)||(state.coffee<=0?'💀 VIDE':'');
+  document.getElementById('invList').innerHTML=state.inv.length?state.inv.map(i=>`<div class="inv-item">${i}</div>`).join(''):'<div class="inv-item">📝 Vide...</div>';
 }
 
 // INIT
@@ -220,17 +220,16 @@ print(`<pre class="ascii">
  ╔══════════════════════════════════════╗
  ║   WORKSHOP-DIY DONJON CRAWLER      ║
  ║   ──────────────────────────────     ║
- ║   Navigate rooms. Collect items.     ║
- ║   Combattre bugs. Drink coffee.          ║
- ║   Type HELP for commands.            ║
+ ║   Explore les salles. Collecte.      ║
+ ║   Combats les bugs. Bois du café.   ║
+ ║   Tape HELP pour les commandes.     ║
  ╚══════════════════════════════════════╝
 </pre>`);
 look();updateMap();updateStats();
 document.getElementById('inp').focus();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

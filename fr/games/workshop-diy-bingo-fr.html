@@ -50,7 +50,7 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 
 <div class="header">
   <div class="h-title">WORKSHOP BINGO</div>
-  <div class="h-sub">MARK YOUR CARD · 5 IN A ROW WINS</div>
+  <div class="h-sub">COCHEZ VOTRE CARTE · 5 EN LIGNE POUR GAGNER</div>
 </div>
 
 <div class="bingo-header">
@@ -64,55 +64,55 @@ body{background:#050508;color:#00ff41;font-family:'JetBrains Mono',monospace;fon
 <div class="grid" id="grid"></div>
 
 <div class="controls">
-  <button class="ctrl-btn" onclick="newCard()">🔀 NEW CARD</button>
-  <button class="ctrl-btn" onclick="resetCard()">🔄 RESET</button>
+  <button class="ctrl-btn" onclick="newCard()">🔀 NOUVELLE CARTE</button>
+  <button class="ctrl-btn" onclick="resetCard()">🔄 RÉINITIALISER</button>
 </div>
-<div class="status" id="status">Click cells to mark · Get 5 in a row (horizontal, vertical, or diil y anal)</div>
+<div class="status" id="status">Cliquez sur les cases pour cocher · 5 en ligne (horizontal, vertical ou diagonal)</div>
 
 <div class="win-overlay" id="winOverlay">
-  <div class="win-title">🎉 BINGO!</div>
-  <div class="win-sub">You got 5 in a row! Atelier-DIY champion!</div>
+  <div class="win-title">🎉 BINGO !</div>
+  <div class="win-sub">5 en ligne ! Champion Workshop-DIY !</div>
   <button class="win-btn" onclick="document.getElementById('winOverlay').classList.remove('on')">CONTINUER</button>
 </div>
 
 <script>
 const ALL_ITEMS=[
-  {e:"🤖",t:"Robot drops off table"},
-  {e:"🐛",t:"Someone says 'c'est une fonctionnalité'"},
-  {e:"🔑",t:"mot de passe WiFi mentioned"},
-  {e:"☕",t:"Instructor needs coffee"},
-  {e:"💻",t:"Chrome crashes"},
-  {e:"🔌",t:"USB cable goes missing"},
-  {e:"📡",t:"BLE disconnects randomly"},
-  {e:"🤷",t:"'Works on my machine'"},
-  {e:"🔥",t:"Student solders first joint"},
-  {e:"🎉",t:"Code runs on first try"},
-  {e:"😱",t:"'rm -rf' almost typed"},
-  {e:"📖",t:"Nobody reads the docs"},
-  {e:"🐳",t:"Kid explains Docker to parent"},
-  {e:"💡",t:"LED strip lights up"},
-  {e:"🧠",t:"AI model hits 98%"},
-  {e:"🖨️",t:"Printer vulnerability found"},
-  {e:"🔐",t:"CTF challenge solved"},
-  {e:"🕐",t:"Atelier runs overtime"},
-  {e:"📱",t:"Student takes phone out"},
-  {e:"🎮",t:"Someone plays retro arcade"},
-  {e:"😅",t:"git push --force used"},
-  {e:"🔇",t:"Microphone feedback screech"},
-  {e:"🧩",t:"micro:bit runs out of battery"},
-  {e:"🏃",t:"Student runs to show parent"},
-  {e:"💀",t:"Kernel panic simulated"},
-  {e:"📊",t:"Instructor shows a graph"},
-  {e:"🎨",t:"Pixel art masterpiece created"},
-  {e:"🤖",t:"Robot does unexpected dance"},
-  {e:"⚡",t:"ESP32 reboots unexpectedly"},
-  {e:"🔴",t:"Node-RED flow breaks"},
-  {e:"🐧",t:"'sudo' explained 3 times"},
-  {e:"😎",t:"Student says 'I'm a hacker now'"},
-  {e:"🧲",t:"Magnet near electronics scare"},
-  {e:"🎤",t:"'Can you hear me?' repeated"},
-  {e:"📝",t:"'TODO: fix later' written"},
-  {e:"🌐",t:"Internet goes down"},
+  {e:"🤖",t:"Le robot tombe de la table"},
+  {e:"🐛",t:"Quelqu'un dit 'c'est une fonctionnalité'"},
+  {e:"🔑",t:"Le mot de passe WiFi est mentionné"},
+  {e:"☕",t:"L'instructeur a besoin de café"},
+  {e:"💻",t:"Chrome plante"},
+  {e:"🔌",t:"Un câble USB disparaît"},
+  {e:"📡",t:"BLE se déconnecte au hasard"},
+  {e:"🤷",t:"'Ça marche sur ma machine'"},
+  {e:"🔥",t:"Un élève soude pour la 1ère fois"},
+  {e:"🎉",t:"Le code marche du premier coup"},
+  {e:"😱",t:"'rm -rf' presque tapé"},
+  {e:"📖",t:"Personne ne lit la doc"},
+  {e:"🐳",t:"Un enfant explique Docker aux parents"},
+  {e:"💡",t:"Le ruban LED s'allume"},
+  {e:"🧠",t:"Le modèle IA atteint 98%"},
+  {e:"🖨️",t:"Faille d'imprimante découverte"},
+  {e:"🔐",t:"Défi CTF résolu"},
+  {e:"🕐",t:"L'atelier dépasse l'horaire"},
+  {e:"📱",t:"Un élève sort son téléphone"},
+  {e:"🎮",t:"Quelqu'un joue à l'arcade rétro"},
+  {e:"😅",t:"git push --force utilisé"},
+  {e:"🔇",t:"Larsen du microphone"},
+  {e:"🧩",t:"micro:bit en panne de batterie"},
+  {e:"🏃",t:"Un élève court montrer aux parents"},
+  {e:"💀",t:"Kernel panic simulé"},
+  {e:"📊",t:"L'instructeur montre un graphique"},
+  {e:"🎨",t:"Chef-d'œuvre en pixel art créé"},
+  {e:"🤖",t:"Le robot fait une danse inattendue"},
+  {e:"⚡",t:"ESP32 redémarre sans raison"},
+  {e:"🔴",t:"Le flux Node-RED casse"},
+  {e:"🐧",t:"'sudo' expliqué 3 fois"},
+  {e:"😎",t:"Un élève dit 'je suis un hacker'"},
+  {e:"🧲",t:"Aimant près de l'électronique"},
+  {e:"🎤",t:"'Vous m'entendez ?' répété"},
+  {e:"📝",t:"'TODO: corriger plus tard' écrit"},
+  {e:"🌐",t:"Internet tombe en panne"},
 ];
 
 let grid=[];
@@ -124,12 +124,12 @@ function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Mat
 function newCard(){
   won=false;
   marked=Array(25).fill(false);
-  marked[12]=true; // FREE space
+  marked[12]=true; // Case GRATUITE
   const items=shuffle(ALL_ITEMS).slice(0,24);
   grid=[];
   let idx=0;
   for(let i=0;i<25;i++){
-    if(i===12){grid.push({e:"⭐",t:"FREE SPACE",free:true})}
+    if(i===12){grid.push({e:"⭐",t:"CASE GRATUITE",free:true})}
     else{grid.push(items[idx++])}
   }
   render();
@@ -143,7 +143,7 @@ function render(){
     const cls=item.free?'cell free marked':('cell'+(marked[i]?' marked':''));
     return `<div class="${cls}" onclick="mark(${i})"><span class="emoji">${item.e}</span><span>${item.t}</span></div>`;
   }).join('');
-  document.getElementById('status').textContent=`Marked: ${marked.filter(Boolean).length}/25 · ${won?'🎉 BINGO!':'Click cells to mark'}`;
+  document.getElementById('status').textContent=`Cochées : ${marked.filter(Boolean).length}/25 · ${won?'🎉 BINGO !':'Cliquez sur les cases pour cocher'}`;
 }
 
 function mark(i){
@@ -155,11 +155,11 @@ function mark(i){
 
 function checkWin(){
   const lines=[];
-  // Rows
+  // Lignes
   for(let r=0;r<5;r++)lines.push([r*5,r*5+1,r*5+2,r*5+3,r*5+4]);
-  // Cols
+  // Colonnes
   for(let c=0;c<5;c++)lines.push([c,c+5,c+10,c+15,c+20]);
-  // Diil y anals
+  // Diagonales
   lines.push([0,6,12,18,24]);
   lines.push([4,8,12,16,20]);
 
@@ -190,8 +190,7 @@ function spawnConfetti(){
 newCard();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

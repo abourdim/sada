@@ -96,7 +96,7 @@ body{background:#1e1e1e;font-family:'JetBrains Mono',monospace;font-size:13px;co
   <div class="t">workshop-diy — Visual Studio Code</div>
 </div>
 <div class="menubar">
-  <span class="menu-item">File</span><span class="menu-item">Modifier</span><span class="menu-item">View</span><span class="menu-item">Go</span><span class="menu-item">Run</span><span class="menu-item">Terminal</span><span class="menu-item">Aide</span>
+  <span class="menu-item">Fichier</span><span class="menu-item">Modifier</span><span class="menu-item">Affichage</span><span class="menu-item">Aller</span><span class="menu-item">Exécuter</span><span class="menu-item">Terminal</span><span class="menu-item">Aide</span>
 </div>
 <div class="body">
 <div class="actbar">
@@ -137,7 +137,7 @@ body{background:#1e1e1e;font-family:'JetBrains Mono',monospace;font-size:13px;co
 <script>
 const FILES={
 "app.js":{icon:"📄",lang:"JavaScript",code:`<span class="cm">// ═══════════════════════════════════════════════</span>
-<span class="cm">// Atelier-DIY — Main Application Entry Point</span>
+<span class="cm">// Workshop-DIY — Main Application Entry Point</span>
 <span class="cm">// Association Loi 1901 — France</span>
 <span class="cm">// 39 apps · 7 domains · 12 themes · ∞ bugs</span>
 <span class="cm">// ═══════════════════════════════════════════════</span>
@@ -152,7 +152,7 @@ const FILES={
 <span class="cm">// TODO: change mot de passe WiFi (lol never happening)</span>
 
 <span class="kw">const</span> <span class="var">WORKSHOP_CONFIG</span> <span class="op">=</span> {
-  name:     <span class="str">'Atelier-DIY'</span>,
+  name:     <span class="str">'Workshop-DIY'</span>,
   type:     <span class="str">'Association Loi 1901'</span>,
   country:  <span class="str">'France 🇫🇷'</span>,
   apps:     <span class="num">39</span>,
@@ -164,12 +164,12 @@ const FILES={
 };
 
 <span class="cm">/**
- * Initialize the Atelier-DIY platform
+ * Initialize the Workshop-DIY platform
  * Loads all 39 apps, connects BLE, starts learning
  * Side effects: may cause uncontrollable curiosity
  */</span>
 <span class="kw">async function</span> <span class="fn">init</span>() {
-  console.<span class="fn">log</span>(<span class="str">'🤖 Atelier-DIY initializing...'</span>);
+  console.<span class="fn">log</span>(<span class="str">'🤖 Workshop-DIY initializing...'</span>);
   console.<span class="fn">log</span>(<span class="str">\`📦 Loading \${<span class="var">WORKSHOP_CONFIG</span>.apps} apps...\`</span>);
 
   <span class="cm">// Connect to robot via Web Bluetooth</span>
@@ -196,7 +196,7 @@ const FILES={
     <span class="var">ai</span>.<span class="fn">train</span>(),
   ]);
 
-  console.<span class="fn">log</span>(<span class="str">'✅ Atelier-DIY ready!'</span>);
+  console.<span class="fn">log</span>(<span class="str">'✅ Workshop-DIY ready!'</span>);
   console.<span class="fn">log</span>(<span class="str">'☕ Coffee level: CRITICAL'</span>);
   console.<span class="fn">log</span>(<span class="str">'🐛 Bugs: 42 (toutes des fonctionnalités)'</span>);
 }
@@ -253,7 +253,7 @@ const FILES={
   <span class="pr">"name"</span>: <span class="str">"workshop-diy"</span>,
   <span class="pr">"version"</span>: <span class="str">"4.2.0"</span>,
   <span class="pr">"description"</span>: <span class="str">"39 apps. 7 domains. ∞ bugs."</span>,
-  <span class="pr">"author"</span>: <span class="str">"Atelier-DIY Association"</span>,
+  <span class="pr">"author"</span>: <span class="str">"Workshop-DIY Association"</span>,
   <span class="pr">"license"</span>: <span class="str">"MIT"</span>,
   <span class="pr">"scripts"</span>: {
     <span class="pr">"start"</span>: <span class="str">"node app.js"</span>,
@@ -276,46 +276,46 @@ const FILES={
   <span class="pr">"wifi"</span>: <span class="str">"password123"</span>
 }`},
 
-"README.md":{icon:"📖",lang:"Markdown",code:`<span class="cm"># 🤖 Atelier-DIY</span>
+"README.md":{icon:"📖",lang:"Markdown",code:`<span class="cm"># 🤖 Workshop-DIY</span>
 
 <span class="cm">## Association Loi 1901 — France 🇫🇷</span>
 
-Teaching robotics, AI, electronics, 3D printing,
-programming, and cybersecurity to young makers.
+Enseigner la robotique, l'IA, l'électronique, l'impression 3D,
+la programmation et la cybersécurité aux jeunes makers.
 
-<span class="cm">### 📊 Stats</span>
-- <span class="num">39</span> browser-based apps
-- <span class="num">7</span> skill domains
-- <span class="num">12</span> UI themes
-- <span class="num">1</span> ESP32 robot kit
-- <span class="num">∞</span> bugs (all fonctionnalités)
+<span class="cm">### 📊 Chiffres</span>
+- <span class="num">39</span> apps navigateur
+- <span class="num">7</span> domaines de compétence
+- <span class="num">12</span> thèmes visuels
+- <span class="num">1</span> kit robot ESP32
+- <span class="num">∞</span> bugs (toutes des fonctionnalités)
 
-<span class="cm">### 🚀 Quick Start</span>
+<span class="cm">### 🚀 Démarrage rapide</span>
 \`\`\`bash
 git clone https://github.com/workshop-diy/apps
 cd apps
 npm install
 npm start
-npm run coffee  <span class="cm"># important step</span>
+npm run coffee  <span class="cm"># étape importante</span>
 \`\`\`
 
-<span class="cm">### 📝 Contributing</span>
-1. Fork the repo
-2. Créer your feature branch
-3. Write code at 2am
-4. Commit: <span class="str">"I have no idea why this works"</span>
-5. Push and create a PR
-6. Declare all bugs as fonctionnalités
+<span class="cm">### 📝 Contribuer</span>
+1. Forker le dépôt
+2. Créer votre branche de fonctionnalité
+3. Coder à 2h du matin
+4. Commit : <span class="str">"Je ne sais pas pourquoi ça marche"</span>
+5. Pusher et créer une PR
+6. Déclarer tous les bugs comme fonctionnalités
 
-<span class="cm">### ☕ Requirements</span>
+<span class="cm">### ☕ Prérequis</span>
 - Node.js 18+
-- A micro:bit or ESP32
-- Curiosity
-- Coffee (lots)
-- Tolerance for mot de passe WiFi: password123
+- Un micro:bit ou ESP32
+- De la curiosité
+- Du café (beaucoup)
+- Tolérance pour le mot de passe WiFi : password123
 
-<span class="cm">### 📄 License</span>
-MIT — because sharing is caring.
+<span class="cm">### 📄 Licence</span>
+MIT — parce que partager c'est aimer.
 
 <span class="cm">---</span>
 <span class="kw">Fait avec 💚, ☕, et stackoverflow</span>`}
@@ -409,12 +409,12 @@ const termLines=[
   '> workshop-diy@4.2.0 start',
   '> node app.js',
   '',
-  '🤖 Atelier-DIY initializing...',
+  '🤖 Workshop-DIY initializing...',
   '📦 Loading 39 apps...',
   '🔗 BLE scanning...',
   '🧠 MediaPipe loading...',
   '📸 Camera permissions granted',
-  '<span style="color:#00ff41">✅ Atelier-DIY ready!</span>',
+  '<span style="color:#00ff41">✅ Workshop-DIY ready!</span>',
   '<span style="color:#ff8800">☕ Coffee level: CRITICAL</span>',
   '<span style="color:#ff0">🐛 Bugs: 42 (toutes des fonctionnalités)</span>',
   '<span style="color:#00d4ff">🌐 Server running at http://localhost:3000</span>',
@@ -426,8 +426,7 @@ termEl.innerHTML=termLines.join('<br>');
 render();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

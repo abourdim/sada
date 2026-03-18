@@ -86,16 +86,16 @@ body{background:#0a0a0a;font-family:'JetBrains Mono',monospace;font-size:12px;co
   <div class="sb-crt"></div>
   <div class="sb-h">
     <div class="sb-logo">WKSHP-DIY</div>
-    <div class="sb-sub">CLASSIFIÉ FILES</div>
+    <div class="sb-sub">FICHIERS CLASSIFIÉS</div>
   </div>
   <div class="sb-list" id="sbList"></div>
   <div class="sb-stamp"><div class="stamp">TOP SECRET</div></div>
 </div>
 <div class="main">
   <div class="main-bar">
-    <span>DOCUMENT VIEWER // CLEARANCE: LEVEL ∞</span>
+    <span>VISIONNEUSE DE DOCUMENTS // HABILITATION : NIVEAU ∞</span>
     <span id="clock" style="color:var(--r)">00:00:00</span>
-    <span>WORKSHOP-DIY INTELLIGENCE DIVISION</span>
+    <span>DIVISION DU RENSEIGNEMENT WORKSHOP-DIY</span>
   </div>
   <div class="dossier" id="dossier"></div>
 </div>
@@ -103,19 +103,19 @@ body{background:#0a0a0a;font-family:'JetBrains Mono',monospace;font-size:12px;co
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",c:["microbit"],cl:"TOP SECRET",d:"Drive a Bit:Bot robot from your browser over Bluetooth. Features virtual joystick, line-follow mode, and obstacle avoidance. The flagship project that proved browser-to-robot communication was not only possible, but fun.",code:"BB-001",threat:"CRITICAL",status:"ACTIVE",pw:95,cx:70,fn:90,redact:"Bluetooth Low Energy protocol reverse-engineered"},
-{e:"🪄",n:"magic-hands",c:["camera","ai"],cl:"TOP SECRET",d:"Hand tracking via MediaPipe generates real-time visual effects. Confetti, neon trails, particle explosions, all triggered by hand gestures detected at 30fps in-browser.",code:"MH-002",threat:"HIGH",status:"ACTIVE",pw:90,cx:60,fn:99,redact:"MediaPipe hand landmark detection model v0.4"},
-{e:"🕵️",n:"face-quest",c:["camera","ai"],cl:"SECRET",d:"A gamified face detection expérience. Users score points by smiling, blinking, and turning their heads. Zero data leaves the browser — all processing is local via MediaPipe Face Mesh.",code:"FQ-003",threat:"MODERATE",status:"ACTIVE",pw:85,cx:55,fn:95,redact:"Face mesh 468 landmark points analyzed per frame"},
-{e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],cl:"TOP SECRET",d:"The bridge between human and machine. Train gestures or sounds in-browser with Google's Teachable Machine, then send classification results to micro:bit via Web Bluetooth.",code:"TM-004",threat:"CRITICAL",status:"ACTIVE",pw:98,cx:80,fn:88,redact:"Transfer learning on MobileNet v2 backbone"},
-{e:"🐧",n:"linux-kids-lab",c:["learning"],cl:"SECRET",d:"A safe browser-based Linux sandbox. Users learn to navigate files, use pipes, write scripts, and master the terminal. No actual system access — everything runs in an emulated shell.",code:"LX-016",threat:"MODERATE",status:"ACTIVE",pw:70,cx:60,fn:75,redact:"xterm.js with custom command interpreter"},
-{e:"🔐",n:"pentest-lab",c:["learning"],cl:"TOP SECRET",d:"Ethical hacking challenges in a sandboxed environment. Users learn reconnaissance, vulnerability scanning, and basic exploitation techniques — all within legal and ethical boundaries.",code:"PT-015",threat:"HIGH",status:"ACTIVE",pw:80,cx:70,fn:85,redact:"Simulated network with 12 vulnerable services"},
-{e:"💬",n:"talking-robot",c:["microbit","ai"],cl:"SECRET",d:"A conversational robot interface that processes text and voice input, generates emotional responses, and communicates results to a physical micro:bit robot via BLE.",code:"TR-005",threat:"MODERATE",status:"ACTIVE",pw:80,cx:65,fn:85,redact:"Web Speech API + emotion classification model"},
-{e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],cl:"SECRET",d:"Hands-on ESP32-C3 IoT laboratory. Users learn to blink LEDs, read sensors, connect to WiFi, and build basic IoT systems. Real hardware, real learning.",code:"EC-013",threat:"LOW",status:"ACTIVE",pw:75,cx:65,fn:70,redact:"ESP-IDF firmware v5.1 with custom web server"},
-{e:"🐳",n:"docker-lab",c:["learning"],cl:"CONFIDENTIEL",d:"Docker containerization experiments. Users create, run, and manage containers, understand images and volumes, and learn the fundamentals of modern deployment.",code:"DK-036",threat:"LOW",status:"ACTIVE",pw:60,cx:60,fn:60,redact:"Alpine Linux base images, isolated runtime"},
-{e:"🏫",n:"classroom",c:["classroom"],cl:"SECRET",d:"PeerJS-powered cloud classroom. Créer rooms, share screens, chat in real-time. Built for Atelier-DIY sessions but works for any collaborative learning environment.",code:"CL-018",threat:"LOW",status:"ACTIVE",pw:65,cx:55,fn:65,redact:"WebRTC peer mesh with signaling server"}
+{e:"🤖",n:"bit-bot",c:["microbit"],cl:"TOP SECRET",d:"Pilotez un robot Bit:Bot depuis votre navigateur via Bluetooth. Joystick virtuel, mode suivi de ligne et évitement d'obstacles. Le projet phare qui a prouvé que la communication navigateur-robot était non seulement possible, mais fun.",code:"BB-001",threat:"CRITIQUE",status:"ACTIF",pw:95,cx:70,fn:90,redact:"Protocole Bluetooth Low Energy rétro-ingénieré"},
+{e:"🪄",n:"magic-hands",c:["camera","ai"],cl:"TOP SECRET",d:"Le suivi des mains via MediaPipe génère des effets visuels en temps réel. Confettis, traînées néon, explosions de particules, tout déclenché par des gestes détectés à 30fps dans le navigateur.",code:"MH-002",threat:"ÉLEVÉ",status:"ACTIF",pw:90,cx:60,fn:99,redact:"Modèle de détection de landmarks de la main MediaPipe v0.4"},
+{e:"🕵️",n:"face-quest",c:["camera","ai"],cl:"SECRET",d:"Une expérience ludique de détection faciale. Les utilisateurs marquent des points en souriant, clignant des yeux et tournant la tête. Aucune donnée ne quitte le navigateur — tout le traitement est local via MediaPipe Face Mesh.",code:"FQ-003",threat:"MODÉRÉ",status:"ACTIF",pw:85,cx:55,fn:95,redact:"Face mesh : 468 points de landmark analysés par image"},
+{e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],cl:"TOP SECRET",d:"Le pont entre l'humain et la machine. Entraînez des gestes ou des sons dans le navigateur avec Teachable Machine de Google, puis envoyez les résultats de classification au micro:bit via Web Bluetooth.",code:"TM-004",threat:"CRITIQUE",status:"ACTIF",pw:98,cx:80,fn:88,redact:"Apprentissage par transfert sur backbone MobileNet v2"},
+{e:"🐧",n:"linux-kids-lab",c:["learning"],cl:"SECRET",d:"Un bac à sable Linux sécurisé dans le navigateur. Les utilisateurs apprennent à naviguer dans les fichiers, utiliser les pipes, écrire des scripts et maîtriser le terminal. Aucun accès système réel — tout tourne dans un shell émulé.",code:"LX-016",threat:"MODÉRÉ",status:"ACTIF",pw:70,cx:60,fn:75,redact:"xterm.js avec interpréteur de commandes personnalisé"},
+{e:"🔐",n:"pentest-lab",c:["learning"],cl:"TOP SECRET",d:"Défis de hacking éthique dans un environnement isolé. Les utilisateurs apprennent la reconnaissance, le scan de vulnérabilités et les techniques d'exploitation de base — dans les limites légales et éthiques.",code:"PT-015",threat:"ÉLEVÉ",status:"ACTIF",pw:80,cx:70,fn:85,redact:"Réseau simulé avec 12 services vulnérables"},
+{e:"💬",n:"talking-robot",c:["microbit","ai"],cl:"SECRET",d:"Une interface conversationnelle pour robot qui traite le texte et la voix, génère des réponses émotionnelles et communique les résultats à un robot micro:bit physique via BLE.",code:"TR-005",threat:"MODÉRÉ",status:"ACTIF",pw:80,cx:65,fn:85,redact:"API Web Speech + modèle de classification des émotions"},
+{e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],cl:"SECRET",d:"Laboratoire IoT ESP32-C3 pratique. Les utilisateurs apprennent à faire clignoter des LEDs, lire des capteurs, se connecter au WiFi et construire des systèmes IoT basiques. Du vrai matériel, du vrai apprentissage.",code:"EC-013",threat:"FAIBLE",status:"ACTIF",pw:75,cx:65,fn:70,redact:"Firmware ESP-IDF v5.1 avec serveur web personnalisé"},
+{e:"🐳",n:"docker-lab",c:["learning"],cl:"CONFIDENTIEL",d:"Expériences de conteneurisation Docker. Les utilisateurs créent, exécutent et gèrent des conteneurs, comprennent les images et volumes, et apprennent les fondamentaux du déploiement moderne.",code:"DK-036",threat:"FAIBLE",status:"ACTIF",pw:60,cx:60,fn:60,redact:"Images Alpine Linux de base, runtime isolé"},
+{e:"🏫",n:"classroom",c:["classroom"],cl:"SECRET",d:"Salle de classe cloud propulsée par PeerJS. Créez des salles, partagez des écrans, chattez en temps réel. Conçu pour les sessions Workshop-DIY mais fonctionne pour tout environnement d'apprentissage collaboratif.",code:"CL-018",threat:"FAIBLE",status:"ACTIF",pw:65,cx:55,fn:65,redact:"Maillage WebRTC pair-à-pair avec serveur de signalisation"}
 ];
 
-const CATS={microbit:{n:"MICRO:BIT OPS",apps:["bit-bot","magic-hands","teachable-machine","talking-robot"]},ai:{n:"AI DIVISION",apps:["magic-hands","face-quest","teachable-machine","pentest-lab"]},learning:{n:"TRAINING CORPS",apps:["linux-kids-lab","esp32-c3-kids-lab","docker-lab","pentest-lab"]},hardware:{n:"HARDWARE LAB",apps:["esp32-c3-kids-lab"]},camera:{n:"VISUAL INTEL",apps:["magic-hands","face-quest"]},classroom:{n:"FIELD OPS",apps:["classroom"]},tools:{n:"TOOLSMITH UNIT",apps:[]}};
+const CATS={microbit:{n:"OPS MICRO:BIT",apps:["bit-bot","magic-hands","teachable-machine","talking-robot"]},ai:{n:"DIVISION IA",apps:["magic-hands","face-quest","teachable-machine","pentest-lab"]},learning:{n:"CORPS DE FORMATION",apps:["linux-kids-lab","esp32-c3-kids-lab","docker-lab","pentest-lab"]},hardware:{n:"LABO MATÉRIEL",apps:["esp32-c3-kids-lab"]},camera:{n:"RENSEIGNEMENT VISUEL",apps:["magic-hands","face-quest"]},classroom:{n:"OPS TERRAIN",apps:["classroom"]},tools:{n:"UNITÉ OUTILLAGE",apps:[]}};
 
 // BUILD SIDEBAR
 const sbList=document.getElementById('sbList');
@@ -141,44 +141,44 @@ const dossierEl=document.getElementById('dossier');
 function showDossier(a){
   const clCol=a.cl==='TOP SECRET'?'#cc0000':a.cl==='SECRET'?'#cc6600':'#888';
   const stampCol=a.status==='ACTIVE'?'rgba(0,160,0,.3)':'rgba(200,0,0,.3)';
-  const stampText=a.status==='ACTIVE'?'CLEARED':'SUSPENDED';
+  const stampText=a.status==='ACTIF'?'AUTORISÉ':'SUSPENDU';
   dossierEl.innerHTML=`<div class="paper">
     <div class="doc-header">
-      <div class="doc-agency">WORKSHOP-DIY // INTELLIGENCE DIVISION</div>
-      <div class="doc-title">DOSSIER: ${a.n.toUpperCase()}</div>
+      <div class="doc-agency">WORKSHOP-DIY // DIVISION DU RENSEIGNEMENT</div>
+      <div class="doc-title">DOSSIER : ${a.n.toUpperCase()}</div>
       <div class="doc-class" style="border-color:${clCol};color:${clCol}">${a.cl}</div>
     </div>
     <div class="doc-emoji">${a.e}</div>
     <div class="doc-meta">
-      <div><span class="k">CODENAME:</span> ${a.code}</div>
-      <div><span class="k">STATUT:</span> <span style="color:${a.status==='ACTIVE'?'green':'red'}">${a.status}</span></div>
-      <div><span class="k">THREAT LEVEL:</span> ${a.threat}</div>
-      <div><span class="k">CLASSIFICATION:</span> ${a.cl}</div>
-      <div><span class="k">CATEGORY:</span> ${a.c.join(', ').toUpperCase()}</div>
-      <div><span class="k">LAST UPDATED:</span> 2025-Q4</div>
+      <div><span class="k">NOM DE CODE :</span> ${a.code}</div>
+      <div><span class="k">STATUT :</span> <span style="color:${a.status==='ACTIF'?'green':'red'}">${a.status}</span></div>
+      <div><span class="k">NIVEAU DE MENACE :</span> ${a.threat}</div>
+      <div><span class="k">CLASSIFICATION :</span> ${a.cl}</div>
+      <div><span class="k">CATÉGORIE :</span> ${a.c.join(', ').toUpperCase()}</div>
+      <div><span class="k">DERNIÈRE MAJ :</span> 2025-Q4</div>
     </div>
     <div class="doc-section">
-      <div class="doc-section-h">MISSION BRIEF</div>
+      <div class="doc-section-h">RÉSUMÉ DE MISSION</div>
       <div class="doc-p">${a.d}</div>
     </div>
     <div class="doc-section">
-      <div class="doc-section-h">TECHNICAL INTEL [CENSURÉ]</div>
-      <div class="doc-p">Core technology: <span class="redacted" onclick="this.classList.toggle('revealed')">${a.redact}</span>. Deployment via static hosting on GitHub Pages. Zero backend dependencies. All processing occurs client-side.</div>
+      <div class="doc-section-h">RENSEIGNEMENT TECHNIQUE [CENSURÉ]</div>
+      <div class="doc-p">Technologie principale : <span class="redacted" onclick="this.classList.toggle('revealed')">${a.redact}</span>. Déploiement via hébergement statique sur GitHub Pages. Zéro dépendance backend. Tout le traitement s'effectue côté client.</div>
     </div>
     <div class="doc-section">
-      <div class="doc-section-h">CAPABILITY ASSESSMENT</div>
+      <div class="doc-section-h">ÉVALUATION DES CAPACITÉS</div>
       <div class="doc-stats">
-        <div class="doc-stat"><div class="v">${a.pw}</div><div class="l">POWER</div></div>
-        <div class="doc-stat"><div class="v">${a.cx}</div><div class="l">COMPLEXITY</div></div>
-        <div class="doc-stat"><div class="v">${a.fn}</div><div class="l">FUN FACTOR</div></div>
+        <div class="doc-stat"><div class="v">${a.pw}</div><div class="l">PUISSANCE</div></div>
+        <div class="doc-stat"><div class="v">${a.cx}</div><div class="l">COMPLEXITÉ</div></div>
+        <div class="doc-stat"><div class="v">${a.fn}</div><div class="l">FACTEUR FUN</div></div>
       </div>
     </div>
     <div class="doc-section">
-      <div class="doc-section-h">FIELD DEPLOYMENT</div>
-      <div class="doc-p">Asset is deployed at <a href="https://abourdim.github.io/${a.n}/" target="_blank" style="color:var(--r)">abourdim.github.io/${a.n}</a>. Available 24/7. No authentication required. Free and open-source.</div>
+      <div class="doc-section-h">DÉPLOIEMENT TERRAIN</div>
+      <div class="doc-p">L'actif est déployé sur <a href="https://abourdim.github.io/${a.n}/" target="_blank" style="color:var(--r)">abourdim.github.io/${a.n}</a>. Disponible 24h/24. Aucune authentification requise. Gratuit et open-source.</div>
     </div>
     <div class="doc-stamp"><div class="doc-stamp-box" style="border-color:${stampCol};color:${stampCol}">${stampText}</div></div>
-    <div class="doc-footer">WKSHP-DIY INTELLIGENCE // DOCUMENT ${a.code} // PAGE 1 OF 1<br>UNAUTHORIZED DISTRIBUTION WILL RESULT IN MANDATORY ROBOT-BUILDING WORKSHOP</div>
+    <div class="doc-footer">RENSEIGNEMENT WKSHP-DIY // DOCUMENT ${a.code} // PAGE 1 SUR 1<br>TOUTE DISTRIBUTION NON AUTORISÉE ENTRAÎNERA UN ATELIER OBLIGATOIRE DE CONSTRUCTION DE ROBOT</div>
   </div>`;
 }
 
@@ -190,8 +190,7 @@ document.querySelector('.dossier-btn').classList.add('on');
 setInterval(()=>{document.getElementById('clock').textContent=new Date().toTimeString().slice(0,8)},1000);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

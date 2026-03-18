@@ -86,11 +86,11 @@ body{background:#050508;color:var(--g);font-family:'JetBrains Mono',monospace;fo
   <div class="content"><div class="start">
     <div class="start-logo">CTF CHALLENGE</div>
     <div class="start-sub">WORKSHOP-DIY EDITION</div>
-    <div class="start-desc">Test your knowledge of the Atelier-DIY ecosystem.<br>39 apps. 7 domains. How well do you know them?<br><span style="color:rgba(0,255,65,.15)">// no googling. honor system.</span></div>
+    <div class="start-desc">Testez vos connaissances de l'écosystème Workshop-DIY.<br>39 apps. 7 domaines. Les connaissez-vous bien ?<br><span style="color:rgba(0,255,65,.15)">// pas de Google. Système d'honneur.</span></div>
     <div class="diff-btns">
-      <button class="diff-btn easy" onclick="startGame('easy')">🟢 EASY<div class="dl">10 questions · 20s each</div></button>
-      <button class="diff-btn med" onclick="startGame('med')">🟡 MEDIUM<div class="dl">15 questions · 15s each</div></button>
-      <button class="diff-btn hard" onclick="startGame('hard')">🔴 HARD<div class="dl">20 questions · 10s each</div></button>
+      <button class="diff-btn easy" onclick="startGame('easy')">🟢 FACILE<div class="dl">10 questions · 20s chacune</div></button>
+      <button class="diff-btn med" onclick="startGame('med')">🟡 MOYEN<div class="dl">15 questions · 15s chacune</div></button>
+      <button class="diff-btn hard" onclick="startGame('hard')">🔴 DIFFICILE<div class="dl">20 questions · 10s chacune</div></button>
     </div>
   </div></div>
 </div>
@@ -105,7 +105,7 @@ body{background:#050508;color:var(--g);font-family:'JetBrains Mono',monospace;fo
     <div class="q-card">
       <div class="q-cat" id="qCat">ROBOTICS</div>
       <div class="q-pts" id="qPts">+100 pts</div>
-      <div class="q-text" id="qText">Loading...</div>
+      <div class="q-text" id="qText">Chargement...</div>
       <div class="q-hint" id="qHint"></div>
       <div class="opts" id="opts"></div>
       <div class="result-msg" id="resultMsg"></div>
@@ -121,36 +121,36 @@ body{background:#050508;color:var(--g);font-family:'JetBrains Mono',monospace;fo
 
 <script>
 const QUESTIONS=[
-  {q:"Which app lets you drive a robot from your browser via Bluetooth?",a:"bit-bot",o:["magic-hands","face-quest","talking-robot"],cat:"ROBOTICS",pts:100,diff:"easy"},
-  {q:"What technology does magic-hands use for hand tracking?",a:"MediaPipe",o:["TensorFlow","OpenCV","WebGL"],cat:"AI",pts:100,diff:"easy"},
-  {q:"Which app is a face-detection scoring game?",a:"face-quest",o:["face-tracking","bitmoji-lab","magic-hands"],cat:"AI",pts:100,diff:"easy"},
-  {q:"How many apps are in the Atelier-DIY ecosystem?",a:"39",o:["25","42","33"],cat:"GENERAL",pts:50,diff:"easy"},
-  {q:"What microcontroller powers the Atelier-DIY robot kit?",a:"ESP32",o:["Arduino Uno","Raspberry Pi","STM32"],cat:"HARDWARE",pts:100,diff:"easy"},
-  {q:"Which app teaches Linux commands in a browser sandbox?",a:"linux-kids-lab",o:["tty","docker-lab","pentest-lab"],cat:"LINUX",pts:100,diff:"easy"},
-  {q:"What protocol does bit-bot use to communicate with the robot?",a:"Bluetooth Low Energy (BLE)",o:["WiFi","USB Serial","MQTT"],cat:"ROBOTICS",pts:150,diff:"med"},
-  {q:"Which app lets you train AI gestures and send results to micro:bit?",a:"teachable-machine",o:["face-quest","magic-hands","prompt-hero"],cat:"AI",pts:150,diff:"med"},
-  {q:"What does WLED control in wled-kids-lab?",a:"Neopixel/WS2812 LED strips",o:["LCD screens","Servo motors","Speakers"],cat:"HARDWARE",pts:150,diff:"med"},
-  {q:"Which app is a PeerJS-powered cloud classroom?",a:"classroom",o:["mission-control","bit-playground","ops-catalog"],cat:"CLASSROOM",pts:100,diff:"easy"},
-  {q:"How many UI themes does Atelier-DIY offer?",a:"12",o:["8","15","10"],cat:"GENERAL",pts:100,diff:"easy"},
-  {q:"Which app simulates an industrial production chain?",a:"production-chain",o:["ops-catalog","circuit-lab","smart-home"],cat:"LEARNING",pts:150,diff:"med"},
-  {q:"What does the OCPP app simulate?",a:"EV charging stations",o:["Network routing","3D printing","Robot movement"],cat:"TOOLS",pts:200,diff:"hard"},
-  {q:"Which app lets you build custom Bluetooth remotes with drag-and-drop?",a:"rxy",o:["bit-playground","ble-logger","mission-control"],cat:"ROBOTICS",pts:150,diff:"med"},
-  {q:"What is the ESP32-C3's CPU clock speed in the robot kit?",a:"240 MHz",o:["80 MHz","160 MHz","400 MHz"],cat:"HARDWARE",pts:200,diff:"hard"},
-  {q:"Which app converts emojis to 5×5 LED pixel art?",a:"bitmoji-lab",o:["pixel-gateway","magic-hands","code-kids"],cat:"MICROBIT",pts:100,diff:"easy"},
-  {q:"What peer-to-peer technology does mission-control use?",a:"WebRTC",o:["WebSocket","MQTT","HTTP Polling"],cat:"CLASSROOM",pts:200,diff:"hard"},
-  {q:"Which app is a cybersecurity sandbox with hacking challenges?",a:"pentest-lab",o:["vpn-guide","crypto-vault","linux-kids-lab"],cat:"CYBER",pts:150,diff:"med"},
-  {q:"What does TTY stand for in the tty app?",a:"Teletypewriter (serial terminal)",o:["Text Transfer Yield","Terminal Type Hier","Teach The Youth"],cat:"HARDWARE",pts:200,diff:"hard"},
-  {q:"Which app teaches cryptography — encrypt, hash, generate keys?",a:"crypto-vault",o:["crypto-academy","pentest-lab","vpn-guide"],cat:"CYBER",pts:150,diff:"med"},
-  {q:"What visual programming tool does nodered-lab use?",a:"Node-RED",o:["Scratch","Blockly","MakeCode"],cat:"DEVOPS",pts:150,diff:"med"},
-  {q:"Which Atelier-DIY app has 54 hands-on activities?",a:"54-activities (bit-54-activities)",o:["bit-playground","makecode","code-kids"],cat:"MICROBIT",pts:150,diff:"med"},
-  {q:"What container technology does docker-lab teach?",a:"Docker",o:["Kubernetes","Podman","LXC"],cat:"DEVOPS",pts:100,diff:"easy"},
-  {q:"Atelier-DIY is registered as what type of French organization?",a:"Association Loi 1901",o:["SARL","SAS","Auto-entrepreneur"],cat:"GENERAL",pts:200,diff:"hard"},
-  {q:"Which app helps master AI prompting for LLMs?",a:"prompt-hero",o:["claude-toolkit","teachable-machine","code-kids"],cat:"AI",pts:150,diff:"med"},
-  {q:"What does DHCP stand for in dhcp-lab?",a:"Dynamic Host Configuration Protocol",o:["Digital Host Control Platform","Data Handling Config Program","Direct Hardware Connection Port"],cat:"NETWORKING",pts:200,diff:"hard"},
-  {q:"Which app provides a visual guide to VPNs?",a:"vpn-guide (rocket-shield-vpn)",o:["pentest-lab","ble-logger","ops-catalog"],cat:"CYBER",pts:100,diff:"easy"},
-  {q:"pixel-gateway is primarily used for what?",a:"Rétro pixel art creation and animation",o:["Photo editing","3D modeling","Video streaming"],cat:"TOOLS",pts:100,diff:"easy"},
-  {q:"What protocol does ble-logger inspect?",a:"Bluetooth Low Energy characteristics",o:["HTTP headers","MQTT topics","WiFi channels"],cat:"MICROBIT",pts:150,diff:"med"},
-  {q:"How many app categories does Atelier-DIY have?",a:"7",o:["5","9","12"],cat:"GENERAL",pts:100,diff:"easy"},
+  {q:"Quelle app permet de piloter un robot depuis le navigateur via Bluetooth ?",a:"bit-bot",o:["magic-hands","face-quest","talking-robot"],cat:"ROBOTIQUE",pts:100,diff:"easy"},
+  {q:"Quelle technologie magic-hands utilise-t-il pour le suivi des mains ?",a:"MediaPipe",o:["TensorFlow","OpenCV","WebGL"],cat:"IA",pts:100,diff:"easy"},
+  {q:"Quelle app est un jeu de score par détection faciale ?",a:"face-quest",o:["face-tracking","bitmoji-lab","magic-hands"],cat:"IA",pts:100,diff:"easy"},
+  {q:"Combien d'apps compte l'écosystème Workshop-DIY ?",a:"39",o:["25","42","33"],cat:"GÉNÉRAL",pts:50,diff:"easy"},
+  {q:"Quel microcontrôleur alimente le kit robot Workshop-DIY ?",a:"ESP32",o:["Arduino Uno","Raspberry Pi","STM32"],cat:"MATÉRIEL",pts:100,diff:"easy"},
+  {q:"Quelle app enseigne les commandes Linux dans un bac à sable navigateur ?",a:"linux-kids-lab",o:["tty","docker-lab","pentest-lab"],cat:"LINUX",pts:100,diff:"easy"},
+  {q:"Quel protocole bit-bot utilise-t-il pour communiquer avec le robot ?",a:"Bluetooth Low Energy (BLE)",o:["WiFi","USB Serial","MQTT"],cat:"ROBOTIQUE",pts:150,diff:"med"},
+  {q:"Quelle app permet d'entraîner des gestes IA et envoyer les résultats au micro:bit ?",a:"teachable-machine",o:["face-quest","magic-hands","prompt-hero"],cat:"IA",pts:150,diff:"med"},
+  {q:"Que contrôle WLED dans wled-kids-lab ?",a:"Neopixel/WS2812 LED strips",o:["Écrans LCD","Servomoteurs","Haut-parleurs"],cat:"MATÉRIEL",pts:150,diff:"med"},
+  {q:"Quelle app est une classe virtuelle alimentée par PeerJS ?",a:"classroom",o:["mission-control","bit-playground","ops-catalog"],cat:"CLASSE",pts:100,diff:"easy"},
+  {q:"Combien de thèmes d'interface Workshop-DIY propose-t-il ?",a:"12",o:["8","15","10"],cat:"GÉNÉRAL",pts:100,diff:"easy"},
+  {q:"Quelle app simule une chaîne de production industrielle ?",a:"production-chain",o:["ops-catalog","circuit-lab","smart-home"],cat:"APPRENTISSAGE",pts:150,diff:"med"},
+  {q:"Que simule l'app OCPP ?",a:"Stations de recharge EV",o:["Routage réseau","Impression 3D","Mouvement robot"],cat:"OUTILS",pts:200,diff:"hard"},
+  {q:"Quelle app permet de créer des télécommandes Bluetooth en glisser-déposer ?",a:"rxy",o:["bit-playground","ble-logger","mission-control"],cat:"ROBOTIQUE",pts:150,diff:"med"},
+  {q:"Quelle est la vitesse d'horloge CPU de l'ESP32-C3 dans le kit robot ?",a:"240 MHz",o:["80 MHz","160 MHz","400 MHz"],cat:"MATÉRIEL",pts:200,diff:"hard"},
+  {q:"Quelle app convertit les emojis en pixel art LED 5×5 ?",a:"bitmoji-lab",o:["pixel-gateway","magic-hands","code-kids"],cat:"MICROBIT",pts:100,diff:"easy"},
+  {q:"Quelle technologie pair-à-pair mission-control utilise-t-il ?",a:"WebRTC",o:["WebSocket","MQTT","HTTP Polling"],cat:"CLASSE",pts:200,diff:"hard"},
+  {q:"Quelle app est un bac à sable cybersécurité avec des défis de hacking ?",a:"pentest-lab",o:["vpn-guide","crypto-vault","linux-kids-lab"],cat:"CYBER",pts:150,diff:"med"},
+  {q:"Que signifie TTY dans l'app tty ?",a:"Teletypewriter (terminal série)",o:["Text Transfer Yield","Terminal Type Hier","Teach The Youth"],cat:"MATÉRIEL",pts:200,diff:"hard"},
+  {q:"Quelle app enseigne la cryptographie — chiffrer, hacher, générer des clés ?",a:"crypto-vault",o:["crypto-academy","pentest-lab","vpn-guide"],cat:"CYBER",pts:150,diff:"med"},
+  {q:"Quel outil de programmation visuelle nodered-lab utilise-t-il ?",a:"Node-RED",o:["Scratch","Blockly","MakeCode"],cat:"DEVOPS",pts:150,diff:"med"},
+  {q:"Quelle app Workshop-DIY a 54 activités pratiques ?",a:"54-activities (bit-54-activities)",o:["bit-playground","makecode","code-kids"],cat:"MICROBIT",pts:150,diff:"med"},
+  {q:"Quelle technologie de containers docker-lab enseigne-t-il ?",a:"Docker",o:["Kubernetes","Podman","LXC"],cat:"DEVOPS",pts:100,diff:"easy"},
+  {q:"Workshop-DIY est enregistré comme quel type d'organisation française ?",a:"Association Loi 1901",o:["SARL","SAS","Auto-entrepreneur"],cat:"GÉNÉRAL",pts:200,diff:"hard"},
+  {q:"Quelle app aide à maîtriser le prompting IA pour les LLMs ?",a:"prompt-hero",o:["claude-toolkit","teachable-machine","code-kids"],cat:"IA",pts:150,diff:"med"},
+  {q:"Que signifie DHCP dans dhcp-lab ?",a:"Dynamic Host Configuration Protocol",o:["Digital Host Control Platform","Data Handling Config Program","Direct Hardware Connection Port"],cat:"RÉSEAU",pts:200,diff:"hard"},
+  {q:"Quelle app fournit un guide visuel sur les VPN ?",a:"vpn-guide (rocket-shield-vpn)",o:["pentest-lab","ble-logger","ops-catalog"],cat:"CYBER",pts:100,diff:"easy"},
+  {q:"À quoi sert principalement pixel-gateway ?",a:"Création et animation de pixel art rétro",o:["Retouche photo","Modélisation 3D","Streaming vidéo"],cat:"OUTILS",pts:100,diff:"easy"},
+  {q:"Quel protocole ble-logger inspecte-t-il ?",a:"Caractéristiques Bluetooth Low Energy",o:["En-têtes HTTP","Topics MQTT","Canaux WiFi"],cat:"MICROBIT",pts:150,diff:"med"},
+  {q:"Combien de catégories d'apps Workshop-DIY possède-t-il ?",a:"7",o:["5","9","12"],cat:"GÉNÉRAL",pts:100,diff:"easy"},
 ];
 
 let gameState={diff:'easy',total:10,timePerQ:20,qIdx:0,score:0,correct:0,wrong:0,streak:0,bestStreak:0,timer:20,interval:null,questions:[]};
@@ -178,7 +178,7 @@ function loadQuestion(){
   document.getElementById('qCat').textContent=q.cat;
   document.getElementById('qPts').textContent=`+${q.pts} pts`;
   document.getElementById('qText').textContent=q.q;
-  document.getElementById('qHint').textContent=q.diff==='hard'?'// this one is tricky':'';
+  document.getElementById('qHint').textContent=q.diff==='hard'?'// celle-ci est piégeuse':'';
   document.getElementById('resultMsg').className='result-msg';
   // Shuffle options
   const opts=shuffle([q.a,...q.o]);
@@ -213,13 +213,13 @@ function answer(btn,ans){
     gameState.correct++;
     gameState.streak++;
     gameState.bestStreak=Math.max(gameState.bestStreak,gameState.streak);
-    msg.textContent=`✓ CORRECT! +${q.pts+bonus} pts (${bonus} speed bonus)`;
+    msg.textContent=`✓ CORRECT ! +${q.pts+bonus} pts (${bonus} bonus vitesse)`;
     msg.className='result-msg show correct';
   }else{
     btn.classList.add('wrong');
     gameState.wrong++;
     gameState.streak=0;
-    msg.textContent=`✗ WRONG. Answer: ${q.a}`;
+    msg.textContent=`✗ FAUX. Réponse : ${q.a}`;
     msg.className='result-msg show wrong';
   }
   document.getElementById('gScore').textContent=gameState.score;
@@ -231,7 +231,7 @@ function timeOut(){
   gameState.wrong++;gameState.streak=0;
   document.querySelectorAll('.opt').forEach(o=>{o.classList.add('disabled');if(o.textContent.includes(q.a))o.classList.add('correct')});
   const msg=document.getElementById('resultMsg');
-  msg.textContent=`⏰ TIME'S UP! Answer: ${q.a}`;
+  msg.textContent=`⏰ TEMPS ÉCOULÉ ! Réponse : ${q.a}`;
   msg.className='result-msg show wrong';
   setTimeout(()=>{gameState.qIdx++;loadQuestion()},1800);
 }
@@ -240,30 +240,30 @@ function endGame(){
   clearInterval(gameState.interval);
   const pct=Math.round(gameState.correct/gameState.questions.length*100);
   const ranks=[
-    {min:90,n:"🏆 ELITE HACKER",d:"You basically built these apps."},
-    {min:70,n:"⭐ CYBER WARRIOR",d:"Impressive knowledge. The association needs you."},
-    {min:50,n:"🔧 APPRENTICE MAKER",d:"Getting there. Keep exploring the apps!"},
-    {min:25,n:"🌱 ROOKIE",d:"Just getting started. Try all 39 apps!"},
-    {min:0,n:"🔒 VERROUILLÉ OUT",d:"Time to visit workshop-diy.org and study up."}
+    {min:90,n:"🏆 HACKER D'ÉLITE",d:"Tu as pratiquement construit ces apps."},
+    {min:70,n:"⭐ CYBER GUERRIER",d:"Connaissances impressionnantes. L'association a besoin de toi."},
+    {min:50,n:"🔧 MAKER APPRENTI",d:"Tu y arrives. Continue à explorer les apps !"},
+    {min:25,n:"🌱 DÉBUTANT",d:"Tu commences juste. Essaie les 39 apps !"},
+    {min:0,n:"🔒 VERROUILLÉ",d:"Il est temps de visiter workshop-diy.org et de réviser."}
   ];
   const rank=ranks.find(r=>pct>=r.min);
   document.getElementById('resultsBox').innerHTML=`
-    <div class="res-title" style="color:${pct>=70?'var(--g)':pct>=50?'var(--o)':'var(--r)'}">CHALLENGE TERMINÉ</div>
-    <div class="res-sub">DIFFICULTY: ${gameState.diff.toUpperCase()}</div>
+    <div class="res-title" style="color:${pct>=70?'var(--g)':pct>=50?'var(--o)':'var(--r)'}">DÉFI TERMINÉ</div>
+    <div class="res-sub">DIFFICULTÉ : ${gameState.diff.toUpperCase()}</div>
     <div class="res-score">${gameState.score}</div>
-    <div class="res-max">POINTS EARNED</div>
+    <div class="res-max">POINTS GAGNÉS</div>
     <div class="res-stats">
-      <div class="res-stat good"><div class="v">${gameState.correct}</div><div class="l">CORRECT</div></div>
-      <div class="res-stat bad"><div class="v">${gameState.wrong}</div><div class="l">WRONG</div></div>
-      <div class="res-stat gold"><div class="v">${pct}%</div><div class="l">ACCURACY</div></div>
-      <div class="res-stat" style="color:var(--c)"><div class="v" style="color:var(--c)">${gameState.bestStreak}</div><div class="l">BEST STREAK</div></div>
+      <div class="res-stat good"><div class="v">${gameState.correct}</div><div class="l">CORRECTS</div></div>
+      <div class="res-stat bad"><div class="v">${gameState.wrong}</div><div class="l">FAUX</div></div>
+      <div class="res-stat gold"><div class="v">${pct}%</div><div class="l">PRÉCISION</div></div>
+      <div class="res-stat" style="color:var(--c)"><div class="v" style="color:var(--c)">${gameState.bestStreak}</div><div class="l">MEILLEURE SÉRIE</div></div>
     </div>
     <div class="rank-box">
-      <div class="rank-title">YOUR RANK</div>
+      <div class="rank-title">VOTRE RANG</div>
       <div class="rank-name">${rank.n}</div>
       <div class="rank-desc">${rank.d}</div>
     </div>
-    <button class="res-btn" onclick="showScreen('scrStart')">▸ PLAY AGAIN ◂</button>
+    <button class="res-btn" onclick="showScreen('scrStart')">▸ REJOUER ◂</button>
   `;
   showScreen('scrResults');
 }
@@ -274,8 +274,7 @@ function showScreen(id){
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

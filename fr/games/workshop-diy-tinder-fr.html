@@ -71,7 +71,7 @@ body{background:#0a0a0e;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="header">
   <div class="h-logo">WKSHP-MATCH 🔥</div>
-  <div class="h-sub">SWIPE RIGHT ON YOUR NEXT FAVORITE APP</div>
+  <div class="h-sub">SWIPEZ À DROITE SUR VOTRE PROCHAINE APP PRÉFÉRÉE</div>
 </div>
 
 <div class="stack" id="stack"></div>
@@ -82,38 +82,38 @@ body{background:#0a0a0e;color:#fff;font-family:'JetBrains Mono',monospace;font-s
   <div class="btn-circle btn-like" onclick="swipe('right')">♥</div>
 </div>
 
-<div class="counter" id="counter">0 / 0 APPS MATCHED</div>
+<div class="counter" id="counter">0 / 0 APPS TROUVÉES</div>
 
 <div class="match-screen" id="matchScreen">
-  <div class="match-title">IT'S A MATCH!</div>
+  <div class="match-title">C'EST UN MATCH !</div>
   <div class="match-emoji" id="matchEmoji">🤖</div>
   <div class="match-name" id="matchName">bit-bot</div>
-  <div class="match-desc" id="matchDesc">You and this app have a connection.</div>
-  <button class="match-btn" onclick="closeCorrespondance()">KEEP SWIPING</button>
+  <div class="match-desc" id="matchDesc">Toi et cette app avez une connexion.</div>
+  <button class="match-btn" onclick="closeCorrespondance()">CONTINUER À SWIPER</button>
 </div>
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",d:"Drive robots via Bluetooth. Joystick control, line-follow, dance mode. The OG.",t:["robo"],bg:"robo",pwr:95,fun:90},
-{e:"🪄",n:"magic-hands",d:"Hand tracking magic effects. 21 landmarks. You WILL wave at your screen.",t:["ai","cam"],bg:"ai",pwr:88,fun:99},
-{e:"🕵️",n:"face-quest",d:"Face detection turned into a game. Score 847 or you're a rookie.",t:["ai","cam"],bg:"cam",pwr:82,fun:95},
-{e:"🧠",n:"teachable-machine",d:"Train AI in browser. Send results to robot. Feel like a genius.",t:["ai","robo"],bg:"ai",pwr:92,fun:85},
-{e:"💬",n:"talking-robot",d:"Talk to your robot. It listens. It moves. It judges silently.",t:["robo","ai"],bg:"robo",pwr:78,fun:88},
-{e:"🚀",n:"mission-control",d:"WebRTC dashboard. Video, chat, robot control. NASA vibes on a budget.",t:["tool","robo"],bg:"tool",pwr:90,fun:75},
-{e:"🔐",n:"pentest-lab",d:"Bac à sable de hacking éthique. SQL injection, XSS. Break things responsibly.",t:["cyber"],bg:"cyber",pwr:92,fun:90},
-{e:"🐧",n:"linux-kids-lab",d:"Linux terminal in a browser. ls, cd, grep. No rm -rf allowed.",t:["learn"],bg:"learn",pwr:85,fun:78},
-{e:"💡",n:"wled-kids-lab",d:"Control LED strips from your phone. Rainbow everything.",t:["hw"],bg:"hw",pwr:65,fun:88},
-{e:"⚡",n:"esp32-c3-lab",d:"ESP32-C3 IoT lab. The hardware gateway drug. You'll want more.",t:["hw"],bg:"hw",pwr:75,fun:70},
-{e:"🎨",n:"pixel-gateway",d:"Rétro pixel art editor. Therapeutic. Creative. Secretly educational.",t:["learn"],bg:"learn",pwr:60,fun:92},
-{e:"🐳",n:"docker-lab",d:"Containers for kids. Will cause generational knowledge inversion.",t:["learn"],bg:"learn",pwr:75,fun:68},
-{e:"🧩",n:"bit-playground",d:"The ultimate micro:bit sandbox. Every sensor. Every output. All BLE.",t:["robo"],bg:"robo",pwr:80,fun:90},
-{e:"✨",n:"prompt-hero",d:"Learn to talk to AI. The art of the question. Surprisingly deep.",t:["ai","learn"],bg:"ai",pwr:70,fun:80},
-{e:"🏡",n:"smart-home",d:"IoT dashboard sim. Build your dream smart home. Thermostat wars training.",t:["hw","learn"],bg:"hw",pwr:65,fun:75},
-{e:"🎛️",n:"rxy",d:"Drag-and-drop BLE remote builder. Your robot, your rules.",t:["robo","tool"],bg:"robo",pwr:70,fun:82},
-{e:"😎",n:"face-tracking",d:"Your face controls the robot. XY position tracking. Mind → machine.",t:["cam","robo"],bg:"cam",pwr:72,fun:80},
-{e:"😄",n:"bitmoji-lab",d:"Emojis become LED art. Digital creativity meets physical pixels.",t:["robo","learn"],bg:"robo",pwr:55,fun:85},
-{e:"🔴",n:"nodered-lab",d:"Visual programming flows. Drag, connect, deploy. Code without typing.",t:["learn","tool"],bg:"tool",pwr:70,fun:72},
-{e:"⛽",n:"ocpp",d:"EV charging simulator. Niche? Yes. Cool? Also yes.",t:["learn","hw"],bg:"hw",pwr:60,fun:55},
+{e:"🤖",n:"bit-bot",d:"Pilote des robots via Bluetooth. Joystick, suivi de ligne, mode danse. L'original.",t:["robo"],bg:"robo",pwr:95,fun:90},
+{e:"🪄",n:"magic-hands",d:"Effets magiques par suivi des mains. 21 points de repère. Tu VAS agiter tes mains devant l'écran.",t:["ai","cam"],bg:"ai",pwr:88,fun:99},
+{e:"🕵️",n:"face-quest",d:"Détection faciale transformée en jeu. Score de 847 ou tu es un débutant.",t:["ai","cam"],bg:"cam",pwr:82,fun:95},
+{e:"🧠",n:"teachable-machine",d:"Entraîne une IA dans le navigateur. Envoie les résultats au robot. Sens-toi comme un génie.",t:["ai","robo"],bg:"ai",pwr:92,fun:85},
+{e:"💬",n:"talking-robot",d:"Parle à ton robot. Il écoute. Il bouge. Il juge en silence.",t:["robo","ai"],bg:"robo",pwr:78,fun:88},
+{e:"🚀",n:"mission-control",d:"Tableau de bord WebRTC. Vidéo, chat, contrôle robot. Ambiance NASA à petit budget.",t:["tool","robo"],bg:"tool",pwr:90,fun:75},
+{e:"🔐",n:"pentest-lab",d:"Bac à sable de hacking éthique. SQL injection, XSS. Casse des trucs de manière responsable.",t:["cyber"],bg:"cyber",pwr:92,fun:90},
+{e:"🐧",n:"linux-kids-lab",d:"Terminal Linux dans le navigateur. ls, cd, grep. Pas de rm -rf autorisé.",t:["learn"],bg:"learn",pwr:85,fun:78},
+{e:"💡",n:"wled-kids-lab",d:"Contrôle des rubans LED depuis ton téléphone. Arc-en-ciel partout.",t:["hw"],bg:"hw",pwr:65,fun:88},
+{e:"⚡",n:"esp32-c3-lab",d:"Labo IoT ESP32-C3. La drogue d'initiation au hardware. Tu en voudras plus.",t:["hw"],bg:"hw",pwr:75,fun:70},
+{e:"🎨",n:"pixel-gateway",d:"Éditeur de pixel art rétro. Thérapeutique. Créatif. Secrètement éducatif.",t:["learn"],bg:"learn",pwr:60,fun:92},
+{e:"🐳",n:"docker-lab",d:"Les containers pour les jeunes. Provoquera une inversion générationnelle des connaissances.",t:["learn"],bg:"learn",pwr:75,fun:68},
+{e:"🧩",n:"bit-playground",d:"Le bac à sable ultime micro:bit. Chaque capteur. Chaque sortie. Tout en BLE.",t:["robo"],bg:"robo",pwr:80,fun:90},
+{e:"✨",n:"prompt-hero",d:"Apprends à parler à l'IA. L'art de la question. Étonnamment profond.",t:["ai","learn"],bg:"ai",pwr:70,fun:80},
+{e:"🏡",n:"smart-home",d:"Simulateur de tableau de bord IoT. Construis ta maison connectée de rêve.",t:["hw","learn"],bg:"hw",pwr:65,fun:75},
+{e:"🎛️",n:"rxy",d:"Constructeur de télécommande BLE en glisser-déposer. Ton robot, tes règles.",t:["robo","tool"],bg:"robo",pwr:70,fun:82},
+{e:"😎",n:"face-tracking",d:"Ton visage contrôle le robot. Suivi de position XY. Esprit → machine.",t:["cam","robo"],bg:"cam",pwr:72,fun:80},
+{e:"😄",n:"bitmoji-lab",d:"Les emojis deviennent de l'art LED. Créativité numérique rencontre pixels physiques.",t:["robo","learn"],bg:"robo",pwr:55,fun:85},
+{e:"🔴",n:"nodered-lab",d:"Programmation visuelle par flux. Glisse, connecte, déploie. Coder sans taper.",t:["learn","tool"],bg:"tool",pwr:70,fun:72},
+{e:"⛽",n:"ocpp",d:"Simulateur de recharge EV. Niche ? Oui. Cool ? Aussi oui.",t:["learn","hw"],bg:"hw",pwr:60,fun:55},
 ];
 
 let deck=[...APPS].sort(()=>Math.random()-.5);
@@ -148,8 +148,8 @@ function renderStack(){
     }
     stack.appendChild(card);
   });
-  document.getElementById('counter').textContent=`${matches} / ${Math.min(idx,total)} APPS ÉVALUÉES · ${matches} MATCHED`;
-  if(idx>=deck.length){stack.innerHTML='<div style="text-align:center;padding:40px;color:rgba(0,255,65,.2)"><div style="font-size:40px;margin-bottom:8px">🎉</div><div style="font-size:12px">No more apps!</div><div style="font-size:8px;margin-top:4px">You matched with '+matches+'/'+total+' apps</div></div>'}
+  document.getElementById('counter').textContent=`${matches} / ${Math.min(idx,total)} APPS ÉVALUÉES · ${matches} MATCHÉES`;
+  if(idx>=deck.length){stack.innerHTML='<div style="text-align:center;padding:40px;color:rgba(0,255,65,.2)"><div style="font-size:40px;margin-bottom:8px">🎉</div><div style="font-size:12px">Plus d\'apps !</div><div style="font-size:8px;margin-top:4px">Tu as matché avec '+matches+'/'+total+' apps</div></div>'}
 }
 
 function startDrag(x,card){
@@ -204,8 +204,7 @@ function closeCorrespondance(){document.getElementById('matchScreen').classList.
 renderStack();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

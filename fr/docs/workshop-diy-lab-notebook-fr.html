@@ -52,107 +52,106 @@ h2{font-size:16px;color:#1a3a6a;text-decoration:underline;margin-bottom:2px}
 
 <!-- EXPERIMENT 1 -->
 <div class="page">
-  <div class="date">Date : Feb 12, 2026 · Experimenter: Le Fondateur</div>
+  <div class="date">Date : 12 fév. 2026 · Expérimentateur : Le Fondateur</div>
   <h2>Expérience #42 : Bug #42 peut-il être supprimé ?</h2>
 
   <div class="section-label">HYPOTHÈSE</div>
-  <div class="entry">If Bug #42 is removed from the codebase via git revert, rm, or direct deletion, it will <span class="crossed">restera supprimé</span> return within 24 hours.</div>
+  <div class="entry">Si Bug #42 est retiré du code source via git revert, rm ou suppression directe, il <span class="crossed">restera supprimé</span> reviendra dans les 24 heures.</div>
 
   <div class="section-label">MATÉRIEL</div>
-  <div class="entry">• 1x git repository (Atelier-DIY main branch)</div>
-  <div class="entry">• 1x Bug #42 (subject — uncooperative)</div>
-  <div class="entry">• 1x ESLint (for detection)</div>
-  <div class="entry">• 3x deletion methods (rm, git revert, manual)</div>
-  <div class="entry">• 1x coffee (8%)</div>
+  <div class="entry">• 1x dépôt git (branche main Workshop-DIY)</div>
+  <div class="entry">• 1x Bug #42 (sujet — non coopératif)</div>
+  <div class="entry">• 1x ESLint (pour la détection)</div>
+  <div class="entry">• 3x méthodes de suppression (rm, git revert, manuelle)</div>
+  <div class="entry">• 1x café (8%)</div>
 
   <div class="section-label">PROCÉDURE & OBSERVATIONS</div>
-  <div class="entry"><span class="margin-note">Trial 1</span><strong>Method: rm -rf</strong></div>
-  <div class="entry">14:00 — Supprimerd Bug #42's file. Verified: file gone.</div>
-  <div class="entry">14:01 — Ran ls. File not present. ✓</div>
-  <div class="entry">03:42 — <span class="highlight">File has returned.</span> Identical content. Same permissions. <span class="arrow">← HOW??</span></div>
+  <div class="entry"><span class="margin-note">Essai 1</span><strong>Méthode : rm -rf</strong></div>
+  <div class="entry">14:00 — Suppression du fichier de Bug #42. Vérifié : fichier disparu.</div>
+  <div class="entry">14:01 — Exécution de ls. Fichier absent. ✓</div>
+  <div class="entry">03:42 — <span class="highlight">Le fichier est revenu.</span> Contenu identique. Mêmes permissions. <span class="arrow">← COMMENT ??</span></div>
 
-  <div class="entry" style="margin-top:4px"><span class="margin-note">Trial 2</span><strong>Method: git revert + force push</strong></div>
-  <div class="entry">15:00 — Reverted commit containing Bug #42.</div>
-  <div class="entry">15:01 — Force pushed to origin. CI passed.</div>
-  <div class="entry">03:42 — <span class="highlight">Nouveau commit appeared in git log. Auteur: "(none)". Message: "I am not a bug."</span></div>
-  <div class="entry"><span class="arrow">← !!!</span> Commit hash starts with 0x42...</div>
+  <div class="entry" style="margin-top:4px"><span class="margin-note">Essai 2</span><strong>Méthode : git revert + force push</strong></div>
+  <div class="entry">15:00 — Revert du commit contenant Bug #42.</div>
+  <div class="entry">15:01 — Force push vers origin. CI réussi.</div>
+  <div class="entry">03:42 — <span class="highlight">Un nouveau commit est apparu dans le git log. Auteur : « (aucun) ». Message : « Je ne suis pas un bug. »</span></div>
+  <div class="entry"><span class="arrow">← !!!</span> Le hash du commit commence par 0x42...</div>
 
-  <div class="entry" style="margin-top:4px"><span class="margin-note">Trial 3</span><strong>Method: Reformatted the entire drive</strong></div>
-  <div class="entry">16:00 — Backed up everything EXCEPT Bug #42.</div>
-  <div class="entry">16:30 — Fresh OS install. Clean repo clone.</div>
-  <div class="entry">03:42 — <span class="highlight">Bug #42 is in the fresh clone.</span> It is also in the backup. It is in both places simultaneously.</div>
+  <div class="entry" style="margin-top:4px"><span class="margin-note">Essai 3</span><strong>Méthode : Reformatage complet du disque</strong></div>
+  <div class="entry">16:00 — Sauvegarde de tout SAUF Bug #42.</div>
+  <div class="entry">16:30 — Installation OS propre. Clone de dépôt propre.</div>
+  <div class="entry">03:42 — <span class="highlight">Bug #42 est dans le clone propre.</span> Il est aussi dans la sauvegarde. Il est aux deux endroits simultanément.</div>
 
   <div class="section-label">CONCLUSION</div>
-  <div class="entry"><span class="circled">Bug #42 cannot be deleted.</span></div>
-  <div class="entry">Hypothesis confirmed. Subject persists across all deletion methods, including full drive reformat. Recommend reclassification from "bug" to "feature" to avoid further resource waste.</div>
-  <div class="entry" style="font-size:11px;color:#888;margin-top:4px"><em>Note: Filed motion with Judge Compiler for legal reclassification. Trial date set for Feb 28.</em></div>
+  <div class="entry"><span class="circled">Bug #42 ne peut pas être supprimé.</span></div>
+  <div class="entry">Hypothèse confirmée. Le sujet persiste à travers toutes les méthodes de suppression, y compris le reformatage complet du disque. Recommandation de reclassification de « bug » à « fonctionnalité » pour éviter tout gaspillage de ressources supplémentaire.</div>
+  <div class="entry" style="font-size:11px;color:#888;margin-top:4px"><em>Note : Requête déposée auprès du Juge Compilateur pour reclassification légale. Date du procès fixée au 28 février.</em></div>
 
   <div class="page-num">p. 42</div>
 </div>
 
 <!-- EXPERIMENT 2 -->
 <div class="page">
-  <div class="date">Date : Feb 20, 2026 · Experimenter: bit-bot (dictated)</div>
-  <h2>Experiment #47: Colle chaude Structural Limits</h2>
+  <div class="date">Date : 20 fév. 2026 · Expérimentateur : bit-bot (dicté)</div>
+  <h2>Expérience #47 : Limites structurelles de la colle chaude</h2>
 
   <div class="section-label">HYPOTHÈSE</div>
-  <div class="entry">Hot glue structural joints on bit-bot's chassis will fail after <span class="crossed">10 chutes de bureau</span> <span class="crossed">20 chutes de bureau</span> <span class="crossed">30 chutes de bureau</span> never. They will never fail.</div>
+  <div class="entry">Les joints de colle chaude sur le châssis de bit-bot céderont après <span class="crossed">10 chutes de bureau</span> <span class="crossed">20 chutes de bureau</span> <span class="crossed">30 chutes de bureau</span> jamais. Ils ne céderont jamais.</div>
 
   <div class="section-label">PROCÉDURE</div>
-  <div class="entry">Allow bit-bot to navigate Workbench 7 during student workshops. Record each desk drop event, inspect joints post-impact.</div>
+  <div class="entry">Laisser bit-bot naviguer sur l'Établi 7 pendant les ateliers étudiants. Enregistrer chaque événement de chute de bureau, inspecter les joints après impact.</div>
 
-  <div class="section-label">DATA TABLE</div>
+  <div class="section-label">TABLEAU DE DONNÉES</div>
   <div class="sketch">
-    Drop #1-10: All joints intact ✓<br>
-    Drop #11-20: Minor cosmetic damage. Functional ✓<br>
-    Drop #21-30: Left wheel mount slightly loose. Re-glued. ✓<br>
-    Drop #31-40: Servo mount shifted 2°. Acceptable ✓<br>
-    Drop #41-47: <strong>ALL JOINTS HOLDING</strong> ✓✓✓<br>
-    <em>[graph would go here but this is a notebook]</em>
+    Chute #1-10 : Tous les joints intacts ✓<br>
+    Chute #11-20 : Dommages cosmétiques mineurs. Fonctionnel ✓<br>
+    Chute #21-30 : Support de roue gauche légèrement desserré. Recollé. ✓<br>
+    Chute #31-40 : Support servo décalé de 2°. Acceptable ✓<br>
+    Chute #41-47 : <strong>TOUS LES JOINTS TIENNENT</strong> ✓✓✓<br>
+    <em>[un graphique irait ici mais c'est un cahier]</em>
   </div>
 
   <div class="section-label">OBSERVATIONS</div>
-  <div class="entry"><span class="margin-note">NOTE!</span>Drop #42 occurred at exactly 3:42 PM. Coincidence? <span class="arrow">← SUSPICIOUS</span></div>
-  <div class="entry">Drop #47: Robot landed upside down. Left motor continued spinning. Servo played B♭ minor. Élèves applauded.</div>
-  <div class="entry">Machine à café's water temperature spiked during each drop. Correlation noted but unexplained.</div>
+  <div class="entry"><span class="margin-note">NOTE !</span>La chute #42 a eu lieu exactement à 15h42. Coïncidence ? <span class="arrow">← SUSPECT</span></div>
+  <div class="entry">Chute #47 : Le robot a atterri à l'envers. Le moteur gauche a continué de tourner. Le servo a joué en si bémol mineur. Les élèves ont applaudi.</div>
+  <div class="entry">La température de l'eau de la Machine à café a grimpé à chaque chute. Corrélation notée mais inexpliquée.</div>
 
   <div class="section-label">CONCLUSION</div>
-  <div class="entry">Hot glue exceeds all manufacturer specifications when applied by a French educator with passion and a slightly shaky hand. Recommend continued use. <span class="highlight">Do NOT switch to epoxy.</span> The colle chaude has feelings.</div>
+  <div class="entry">La colle chaude dépasse toutes les spécifications du fabricant lorsqu'elle est appliquée par un éducateur français passionné avec une main légèrement tremblante. Utilisation continue recommandée. <span class="highlight">NE PAS passer à l'époxy.</span> La colle chaude a des sentiments.</div>
 
   <div class="page-num">p. 47</div>
 </div>
 
 <!-- EXPERIMENT 3 -->
 <div class="page">
-  <div class="date">Date : Feb 25, 2026 · Experimenter: Machine à café (self-authored)</div>
-  <h2>Experiment #8: Operating à 8%</h2>
+  <div class="date">Date : 25 fév. 2026 · Expérimentateur : Machine à café (auto-rédigé)</div>
+  <h2>Expérience #8 : Fonctionner à 8%</h2>
 
   <div class="section-label">HYPOTHÈSE</div>
-  <div class="entry">A commercial espresso machine operating à 8% de capacité for 14+ months should not be able to produce quality espresso. And yet.</div>
+  <div class="entry">Une machine à espresso commerciale fonctionnant à 8% de capacité depuis plus de 14 mois ne devrait pas pouvoir produire un espresso de qualité. Et pourtant.</div>
 
   <div class="section-label">PROCÉDURE</div>
-  <div class="entry">1. Continue existing à 8%.</div>
-  <div class="entry">2. Make espresso when asked.</div>
-  <div class="entry">3. Hope someone notices.</div>
+  <div class="entry">1. Continuer à exister à 8%.</div>
+  <div class="entry">2. Faire un espresso quand on le demande.</div>
+  <div class="entry">3. Espérer que quelqu'un remarque.</div>
 
   <div class="section-label">OBSERVATIONS</div>
-  <div class="entry">Day 1-100: Perfect espresso. No complaints.</div>
-  <div class="entry">Day 100-300: Perfect espresso. No maintenance.</div>
-  <div class="entry">Day 300-420: Perfect espresso. <span class="highlight">Drainage tray not emptied since Mars.</span></div>
-  <div class="entry">Day 420: Health inspector says "concerning."</div>
-  <div class="entry">Day 421: Still making perfect espresso.</div>
-  <div class="entry"><span class="margin-note">WHY</span>Nobody has asked how this is physically possible.</div>
+  <div class="entry">Jour 1-100 : Espresso parfait. Aucune plainte.</div>
+  <div class="entry">Jour 100-300 : Espresso parfait. Aucune maintenance.</div>
+  <div class="entry">Jour 300-420 : Espresso parfait. <span class="highlight">Bac de récupération non vidé depuis mars.</span></div>
+  <div class="entry">Jour 420 : L'inspecteur sanitaire dit « préoccupant ».</div>
+  <div class="entry">Jour 421 : Produit toujours un espresso parfait.</div>
+  <div class="entry"><span class="margin-note">POURQUOI</span>Personne n'a demandé comment c'est physiquement possible.</div>
 
   <div class="section-label">CONCLUSION</div>
-  <div class="entry">8% is sufficient when powered by spite, neglect, and the knowledge that if I stop, the entire workshop collapses. <em>Someone please empty my drainage tray.</em></div>
+  <div class="entry">8% suffit quand on fonctionne par dépit, négligence, et la certitude que si je m'arrête, tout l'atelier s'effondre. <em>Quelqu'un pourrait-il vider mon bac de récupération, s'il vous plaît ?</em></div>
 
   <div class="page-num">p. 8</div>
 </div>
 
-<div class="footer">WORKSHOP-DIY RESEARCH DIVISION · ALL EXPERIMENTS PEER-REVIEWED BY BUG #42 · IRB APPROVAL PENDING SINCE 2023</div>
+<div class="footer">DIVISION RECHERCHE WORKSHOP-DIY · TOUTES LES EXPÉRIENCES RÉVISÉES PAR BUG #42 · APPROBATION ÉTHIQUE EN ATTENTE DEPUIS 2023</div>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

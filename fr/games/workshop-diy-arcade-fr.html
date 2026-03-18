@@ -100,7 +100,7 @@ body{background:#0a0a0e;color:#fff;font-family:'Press Start 2P',monospace;image-
 <div class="cab">
   <div class="cab-top">
     <div class="cab-logo">WKSHP-DIY ARCADE</div>
-    <div class="cab-coins">CREDIT: <span id="coins">∞</span></div>
+    <div class="cab-coins">CRÉDIT : <span id="coins">∞</span></div>
   </div>
   <div class="screen">
     <!-- TITLE -->
@@ -110,11 +110,11 @@ body{background:#0a0a0e;color:#fff;font-family:'Press Start 2P',monospace;image-
       <div class="title-sub">ARCADE EDITION v4.2.0</div>
       <div class="title-stats">
         <div class="t-stat"><div class="v">39</div><div class="l">APPS</div></div>
-        <div class="t-stat"><div class="v">7</div><div class="l">WORLDS</div></div>
-        <div class="t-stat"><div class="v">12</div><div class="l">SKINS</div></div>
+        <div class="t-stat"><div class="v">7</div><div class="l">MONDES</div></div>
+        <div class="t-stat"><div class="v">12</div><div class="l">THÈMES</div></div>
       </div>
       <div class="insert-coin">▸ APPUYER SUR START ◂</div>
-      <div class="title-hint">ENTER / SPACE / CLICK</div>
+      <div class="title-hint">ENTRÉE / ESPACE / CLIQUER</div>
     </div>
     <!-- SELECT -->
     <div class="scr sel-scr" id="scrSelect">
@@ -128,29 +128,29 @@ body{background:#0a0a0e;color:#fff;font-family:'Press Start 2P',monospace;image-
       <div class="det-desc" id="detD"></div>
       <div class="det-cats" id="detC"></div>
       <div id="detB"></div>
-      <a class="det-launch" id="detL" href="#" target="_blank">▸ LANCEMENT APP ◂</a>
-      <div class="det-back" onclick="showScreen('select')">◂ BACK TO CHOISIR</div>
+      <a class="det-launch" id="detL" href="#" target="_blank">▸ LANCER L'APP ◂</a>
+      <div class="det-back" onclick="showScreen('select')">◂ RETOUR À LA SÉLECTION</div>
       <div class="det-hs">
-        <div class="det-hs-h">MEILLEUR SCORES</div>
+        <div class="det-hs-h">MEILLEURS SCORES</div>
         <div id="detHS"></div>
       </div>
     </div>
   </div>
   <div class="cab-bot">
-    <button class="joy-btn" onclick="nav('up')" title="Up">▲</button>
-    <button class="joy-btn" onclick="nav('left')" title="Left">◄</button>
-    <button class="joy-btn act" onclick="nav('select')" title="Select">A</button>
-    <button class="joy-btn" onclick="nav('right')" title="Right">►</button>
-    <button class="joy-btn" onclick="nav('down')" title="Down">▼</button>
+    <button class="joy-btn" onclick="nav('up')" title="Haut">▲</button>
+    <button class="joy-btn" onclick="nav('left')" title="Gauche">◄</button>
+    <button class="joy-btn act" onclick="nav('select')" title="Sélectionner">A</button>
+    <button class="joy-btn" onclick="nav('right')" title="Droite">►</button>
+    <button class="joy-btn" onclick="nav('down')" title="Bas">▼</button>
     <button class="joy-btn" onclick="nav('back')" title="Retour">B</button>
   </div>
 </div>
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",c:["microbit"],b:"popular",d:"Drive Bit:Bot robot via Bluetooth"},{e:"🪄",n:"magic-hands",c:["camera","ai"],b:"popular",d:"Hand-tracking magic effects"},{e:"🕵️",n:"face-quest",c:["camera","ai"],b:"popular",d:"Face detection scoring game"},{e:"💬",n:"talking-robot",c:["microbit","ai"],b:"stable",d:"Robot with speech & emotions"},{e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],b:"popular",d:"Train AI gestures in browser"},{e:"😎",n:"face-tracking",c:["camera","microbit"],b:"stable",d:"Kids face tracking + events"},{e:"😄",n:"bitmoji-lab",c:["microbit"],b:"stable",d:"Emoji to LED pixel art"},{e:"🚀",n:"mission-control",c:["classroom","microbit"],b:"stable",d:"Tableau de bord with live video/chat"},{e:"🧩",n:"bit-playground",c:["microbit"],b:"stable",d:"Ultimate micro:bit playground"},{e:"🎛️",n:"rxy",c:["microbit"],b:"stable",d:"Custom BLE remote builder"},{e:"🎨",n:"pixel-gateway",c:["tools"],b:"stable",d:"Rétro pixel art portal"},{e:"💡",n:"wled-kids-lab",c:["hardware","learning"],b:"stable",d:"Control LED strips with WLED"},{e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],b:"stable",d:"Hands-on ESP32-C3 lab"},{e:"🪙",n:"crypto-academy",c:["learning"],b:"stable",d:"Blockchain & crypto lessons"},{e:"🔐",n:"pentest-lab",c:["learning"],b:"stable",d:"Cybersecurity sandbox"},{e:"🐧",n:"linux-kids-lab",c:["learning"],b:"stable",d:"Linux commands in browser"},{e:"🏭",n:"production-chain",c:["learning"],b:"stable",d:"Industrial simulation"},{e:"🏫",n:"classroom",c:["classroom"],b:"stable",d:"PeerJS cloud classroom"},{e:"🔌",n:"usb-logger",c:["microbit"],b:"stable",d:"USB serial browser tool"},{e:"📡",n:"ble-logger",c:["microbit"],b:"stable",d:"BLE debug playground"},{e:"🧰",n:"claude-toolkit",c:["ai","tools"],b:"dev",d:"Build apps with Claude AI"},{e:"🎭",n:"puppeteer",c:["tools"],b:"stable",d:"Browser automation"},{e:"🔋",n:"circuit-lab",c:["hardware","learning"],b:"dev",d:"Simulate circuits"},{e:"🛡️",n:"vpn-guide",c:["tools"],b:"dev",d:"VPN & network security"},{e:"🧊",n:"3d-lab",c:["learning"],b:"dev",d:"3D design in browser"},{e:"🔀",n:"git-lab",c:["learning"],b:"dev",d:"Learn Git step by step"},{e:"✨",n:"prompt-hero",c:["ai","learning"],b:"dev",d:"Master AI prompting"},{e:"🌍",n:"save-planet",c:["learning"],b:"dev",d:"Climate & sustainability"},{e:"📋",n:"ops-catalog",c:["tools"],b:"dev",d:"DevOps tools catalog"},{e:"💻",n:"code-kids",c:["learning"],b:"dev",d:"Learn HTML/CSS/JS"},{e:"🏡",n:"smart-home",c:["hardware","learning"],b:"dev",d:"Smart home dashboard"},{e:"🧱",n:"makecode",c:["microbit","learning"],b:"dev",d:"Block-based coding"},{e:"🤖",n:"54-activities",c:["microbit","learning"],b:"dev",d:"54 micro:bit activities"},{e:"💰",n:"crypto-vault",c:["learning"],b:"dev",d:"Cryptography basics"},{e:"🔗",n:"dhcp-lab",c:["hardware"],b:"new",d:"DHCP server dashboard"},{e:"🐳",n:"docker-lab",c:["learning"],b:"new",d:"Docker experiments"},{e:"🔴",n:"nodered-lab",c:["learning"],b:"new",d:"Node-RED visual programming"},{e:"⛽",n:"ocpp",c:["tools"],b:"new",d:"EV charging simulation"},{e:"🖥️",n:"tty",c:["microbit"],b:"new",d:"Terminal for micro:bit"}
+{e:"🤖",n:"bit-bot",c:["microbit"],b:"popular",d:"Pilote le robot Bit:Bot via Bluetooth"},{e:"🪄",n:"magic-hands",c:["camera","ai"],b:"popular",d:"Effets magiques par suivi des mains"},{e:"🕵️",n:"face-quest",c:["camera","ai"],b:"popular",d:"Jeu de score par détection faciale"},{e:"💬",n:"talking-robot",c:["microbit","ai"],b:"stable",d:"Robot avec parole et émotions"},{e:"🧠",n:"teachable-machine",c:["microbit","camera","ai"],b:"popular",d:"Entraîne des gestes IA dans le navigateur"},{e:"😎",n:"face-tracking",c:["camera","microbit"],b:"stable",d:"Suivi facial enfants + événements"},{e:"😄",n:"bitmoji-lab",c:["microbit"],b:"stable",d:"Emoji vers pixel art LED"},{e:"🚀",n:"mission-control",c:["classroom","microbit"],b:"stable",d:"Tableau de bord vidéo/chat en direct"},{e:"🧩",n:"bit-playground",c:["microbit"],b:"stable",d:"Le terrain de jeu ultime micro:bit"},{e:"🎛️",n:"rxy",c:["microbit"],b:"stable",d:"Constructeur de télécommande BLE"},{e:"🎨",n:"pixel-gateway",c:["tools"],b:"stable",d:"Portail pixel art rétro"},{e:"💡",n:"wled-kids-lab",c:["hardware","learning"],b:"stable",d:"Contrôle les rubans LED avec WLED"},{e:"⚡",n:"esp32-c3-kids-lab",c:["hardware","learning"],b:"stable",d:"Labo pratique ESP32-C3"},{e:"🪙",n:"crypto-academy",c:["learning"],b:"stable",d:"Leçons blockchain et crypto"},{e:"🔐",n:"pentest-lab",c:["learning"],b:"stable",d:"Bac à sable cybersécurité"},{e:"🐧",n:"linux-kids-lab",c:["learning"],b:"stable",d:"Commandes Linux dans le navigateur"},{e:"🏭",n:"production-chain",c:["learning"],b:"stable",d:"Simulation industrielle"},{e:"🏫",n:"classroom",c:["classroom"],b:"stable",d:"Classe virtuelle PeerJS"},{e:"🔌",n:"usb-logger",c:["microbit"],b:"stable",d:"Outil USB série navigateur"},{e:"📡",n:"ble-logger",c:["microbit"],b:"stable",d:"Terrain de jeu débogage BLE"},{e:"🧰",n:"claude-toolkit",c:["ai","tools"],b:"dev",d:"Crée des apps avec Claude IA"},{e:"🎭",n:"puppeteer",c:["tools"],b:"stable",d:"Automatisation navigateur"},{e:"🔋",n:"circuit-lab",c:["hardware","learning"],b:"dev",d:"Simuler des circuits"},{e:"🛡️",n:"vpn-guide",c:["tools"],b:"dev",d:"VPN et sécurité réseau"},{e:"🧊",n:"3d-lab",c:["learning"],b:"dev",d:"Design 3D dans le navigateur"},{e:"🔀",n:"git-lab",c:["learning"],b:"dev",d:"Apprendre Git pas à pas"},{e:"✨",n:"prompt-hero",c:["ai","learning"],b:"dev",d:"Maîtriser le prompting IA"},{e:"🌍",n:"save-planet",c:["learning"],b:"dev",d:"Climat et développement durable"},{e:"📋",n:"ops-catalog",c:["tools"],b:"dev",d:"Catalogue outils DevOps"},{e:"💻",n:"code-kids",c:["learning"],b:"dev",d:"Apprendre HTML/CSS/JS"},{e:"🏡",n:"smart-home",c:["hardware","learning"],b:"dev",d:"Tableau de bord maison connectée"},{e:"🧱",n:"makecode",c:["microbit","learning"],b:"dev",d:"Programmation par blocs"},{e:"🤖",n:"54-activities",c:["microbit","learning"],b:"dev",d:"54 activités micro:bit"},{e:"💰",n:"crypto-vault",c:["learning"],b:"dev",d:"Bases de la cryptographie"},{e:"🔗",n:"dhcp-lab",c:["hardware"],b:"new",d:"Tableau de bord serveur DHCP"},{e:"🐳",n:"docker-lab",c:["learning"],b:"new",d:"Expériences Docker"},{e:"🔴",n:"nodered-lab",c:["learning"],b:"new",d:"Programmation visuelle Node-RED"},{e:"⛽",n:"ocpp",c:["tools"],b:"new",d:"Simulation recharge EV"},{e:"🖥️",n:"tty",c:["microbit"],b:"new",d:"Terminal pour micro:bit"}
 ];
-const CATS={all:{e:"⭐",n:"ALL"},microbit:{e:"🤖",n:"MICROBIT"},learning:{e:"📚",n:"LEARNING"},tools:{e:"🛠️",n:"TOOLS"},ai:{e:"🧠",n:"AI"},hardware:{e:"🔩",n:"HARDWARE"},camera:{e:"📸",n:"CAMERA"},classroom:{e:"🏫",n:"CLASS"}};
+const CATS={all:{e:"⭐",n:"TOUT"},microbit:{e:"🤖",n:"MICROBIT"},learning:{e:"📚",n:"APPRENTISSAGE"},tools:{e:"🛠️",n:"OUTILS"},ai:{e:"🧠",n:"IA"},hardware:{e:"🔩",n:"MATÉRIEL"},camera:{e:"📸",n:"CAMÉRA"},classroom:{e:"🏫",n:"CLASSE"}};
 let curScreen='title',curCat='all',selIdx=0,filtered=[...APPS];
 const names=['N30','R0B0T','H4CK3R','C0D3R','M4K3R','PIXEL','CYBER','N00B','L33T','ESP32'];
 
@@ -182,7 +182,7 @@ function buildGrid(){
   filtered.forEach((a,i)=>{
     const d=document.createElement('div');
     d.className='app-slot'+(i===selIdx?' sel':'');d.dataset.i=i;
-    const bMap={popular:'b-popular">★ POPULAR',stable:'b-stable">✓ STABLE',dev:'b-dev">⚙ DEV',new:'b-new">✦ NEW'};
+    const bMap={popular:'b-popular">★ POPULAIRE',stable:'b-stable">✓ STABLE',dev:'b-dev">⚙ DEV',new:'b-new">✦ NOUVEAU'};
     d.innerHTML=`<span class="e">${a.e}</span><span class="n">${a.n}</span><span class="d">${a.d}</span><span class="badge ${bMap[a.b]||''}</span>`;
     d.onclick=()=>{selIdx=i;updateSel();showDetail(filtered[i])};
     g.appendChild(d);
@@ -201,7 +201,7 @@ function showDetail(a){
   document.getElementById('detN').textContent=a.n.toUpperCase();
   document.getElementById('detD').textContent=a.d;
   document.getElementById('detC').innerHTML=a.c.map(c=>`<span class="det-cat c-${c}">${CATS[c]?.e||''} ${CATS[c]?.n||c}</span>`).join('');
-  const bMap={popular:'b-popular">★ POPULAR',stable:'b-stable">✓ STABLE',dev:'b-dev">⚙ DEV',new:'b-new">✦ NEW'};
+  const bMap={popular:'b-popular">★ POPULAIRE',stable:'b-stable">✓ STABLE',dev:'b-dev">⚙ DEV',new:'b-new">✦ NOUVEAU'};
   document.getElementById('detB').innerHTML=`<span class="det-badge ${bMap[a.b]||''}</span>`;
   document.getElementById('detL').href=`https://abourdim.github.io/${a.n}/`;
   // Faux high scores
@@ -247,8 +247,7 @@ document.addEventListener('keydown',e=>{
 document.getElementById('scrTitle').onclick=()=>nav('select');
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

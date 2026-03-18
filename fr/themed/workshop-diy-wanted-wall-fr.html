@@ -49,18 +49,18 @@ body{background:#3a2a1a;background-image:url("data:image/svg+xml,%3Csvg width='4
 
 <script>
 const POSTERS=[
-{e:"🤖",n:"BIT-BOT",alias:"The Bluetooth Bandit",charges:["Driving without a license (BLE)","Evading line-follow sensors","47 counts of surviving desk drops"],reward:"2,847 XP",seen:"Vu pour la dernière fois: micro:bit playground, armed with servos",r:-2},
-{e:"🪄",n:"MAGIC-HANDS",alias:"The Hand Wizard",charges:["Unauthorized particle conjuring","Tracking 21 landmarks without consent","Making kids wave at screens for hours"],reward:"2,103 XP",seen:"Vu pour la dernière fois: any device with a webcam",r:1.5},
-{e:"🕵️",n:"FACE-QUEST",alias:"The Face Detective",charges:["468 counts of face landmark detection","Scoring without permission","Zero data sent anywhere (suspicious)"],reward:"1,892 XP",seen:"Vu pour la dernière fois: scoring 847 points",r:-1},
-{e:"🧠",n:"TEACHABLE-M",alias:"The Brain",charges:["Training AI models in browsers","98% accuracy (showing off)","Teaching machines without a degree"],reward:"1,654 XP",seen:"Vu pour la dernière fois: connected to micro:bit via BLE",r:2},
-{e:"🔐",n:"PENTEST-LAB",alias:"The Ethical Outlaw",charges:["SQL injection (educational only)","School printer vulnerability discovery","Making cybersecurity too fun"],reward:"1,500 XP",seen:"Vu pour la dernière fois: sandboxed environment, heavily armed",r:-1.5},
-{e:"🐧",n:"LINUX-LAB",alias:"The Penguin",charges:["Teaching terminal commands to minors","Simulating entire filesystems","Making 'ls -la' seem exciting"],reward:"1,400 XP",seen:"Vu pour la dernière fois: bash shell v5.2, in /home/maker/",r:1},
-{e:"🐳",n:"DOCKER-LAB",alias:"The Container Whale",charges:["Confusing parents at dinner","Containerizing everything in sight","Teaching DevOps to teenagers"],reward:"650 XP",seen:"Vu pour la dernière fois: explaining volumes to a 14-year-old",r:-2.5},
-{e:"💬",n:"TALKING-BOT",alias:"The Chatterbox",charges:["Responding to voice commands","Making robots emotional","Speaking without being spoken to"],reward:"1,300 XP",seen:"Vu pour la dernière fois: dancing to voice commands",r:1.5},
-{e:"💡",n:"WLED-LAB",alias:"The Neon Ghost",charges:["Unauthorized LED illumination","Addictive color animations","Neopixel protocol manipulation"],reward:"890 XP",seen:"Vu pour la dernière fois: glowing suspiciously on an ESP32",r:-1},
-{e:"🚀",n:"MISSION-CTRL",alias:"The Commander",charges:["Peer-to-peer video streaming","WebRTC without a warrant","Commanding robots from across the room"],reward:"980 XP",seen:"Vu pour la dernière fois: commanding 3 micro:bits simultaneously",r:2},
-{e:"☕",n:"CAFFEINE",alias:"The Real MVP",charges:["Fueling every line of code","Keeping instructors alive","Being critically low at all times"],reward:"∞ XP",seen:"Vu pour la dernière fois: empty. Always empty.",r:-0.5},
-{e:"🐛",n:"BUG #42",alias:"The Feature",charges:["Pretending to be a bug","Actually being a feature","42 counts of identity fraud"],reward:"42 XP",seen:"Vu pour la dernière fois: everywhere. C'est une fonctionnalité.",r:1.8},
+{e:"🤖",n:"BIT-BOT",alias:"Le Bandit Bluetooth",charges:["Conduite sans permis (BLE)","Évasion des capteurs de suivi de ligne","47 chefs d\u2019accusation de survie à des chutes de bureau"],reward:"2 847 XP",seen:"Vu pour la dernière fois : micro:bit playground, armé de servos",r:-2},
+{e:"🪄",n:"MAGIC-HANDS",alias:"Le Magicien des Mains",charges:["Invocation de particules non autorisée","Suivi de 21 points de repère sans consentement","Faire agiter les mains des enfants devant des écrans pendant des heures"],reward:"2 103 XP",seen:"Vu pour la dernière fois : n\u2019importe quel appareil avec webcam",r:1.5},
+{e:"🕵️",n:"FACE-QUEST",alias:"Le Détective Facial",charges:["468 chefs d\u2019accusation de détection faciale","Comptage de points sans autorisation","Zéro donnée envoyée nulle part (suspect)"],reward:"1 892 XP",seen:"Vu pour la dernière fois : en train de marquer 847 points",r:-1},
+{e:"🧠",n:"TEACHABLE-M",alias:"Le Cerveau",charges:["Entraînement de modèles IA dans des navigateurs","98% de précision (pour frimer)","Enseigner aux machines sans diplôme"],reward:"1 654 XP",seen:"Vu pour la dernière fois : connecté au micro:bit via BLE",r:2},
+{e:"🔐",n:"PENTEST-LAB",alias:"Le Hors-la-loi Éthique",charges:["Injection SQL (éducative uniquement)","Découverte de vulnérabilité de l\u2019imprimante de l\u2019école","Rendre la cybersécurité trop amusante"],reward:"1 500 XP",seen:"Vu pour la dernière fois : environnement sandboxé, lourdement armé",r:-1.5},
+{e:"🐧",n:"LINUX-LAB",alias:"Le Pingouin",charges:["Enseignement de commandes terminal à des mineurs","Simulation de systèmes de fichiers entiers","Faire paraître \u2019ls -la\u2019 passionnant"],reward:"1 400 XP",seen:"Vu pour la dernière fois : bash shell v5.2, dans /home/maker/",r:1},
+{e:"🐳",n:"DOCKER-LAB",alias:"La Baleine à Conteneurs",charges:["Confusion des parents au dîner","Conteneurisation de tout ce qui bouge","Enseignement du DevOps à des ados"],reward:"650 XP",seen:"Vu pour la dernière fois : en train d\u2019expliquer les volumes à un ado de 14 ans",r:-2.5},
+{e:"💬",n:"TALKING-BOT",alias:"Le Bavard",charges:["Réponse aux commandes vocales","Rendre les robots émotifs","Parler sans qu\u2019on lui adresse la parole"],reward:"1 300 XP",seen:"Vu pour la dernière fois : en train de danser sur des commandes vocales",r:1.5},
+{e:"💡",n:"WLED-LAB",alias:"Le Fantôme Néon",charges:["Illumination LED non autorisée","Animations de couleurs addictives","Manipulation du protocole Neopixel"],reward:"890 XP",seen:"Vu pour la dernière fois : en train de briller de façon suspecte sur un ESP32",r:-1},
+{e:"🚀",n:"MISSION-CTRL",alias:"Le Commandant",charges:["Streaming vidéo pair-à-pair","WebRTC sans mandat","Commander des robots depuis l\u2019autre bout de la pièce"],reward:"980 XP",seen:"Vu pour la dernière fois : en train de commander 3 micro:bits simultanément",r:2},
+{e:"☕",n:"CAFÉINE",alias:"Le Vrai MVP",charges:["Alimentation de chaque ligne de code","Maintien des instructeurs en vie","Niveau critique en permanence"],reward:"∞ XP",seen:"Vu pour la dernière fois : vide. Toujours vide.",r:-0.5},
+{e:"🐛",n:"BUG #42",alias:"La Fonctionnalité",charges:["Se faire passer pour un bug","Être en réalité une fonctionnalité","42 chefs d\u2019accusation d\u2019usurpation d\u2019identité"],reward:"42 XP",seen:"Vu pour la dernière fois : partout. C\u2019est une fonctionnalité.",r:1.8},
 ];
 
 const board=document.getElementById('board');
@@ -79,8 +79,7 @@ POSTERS.forEach(p=>{
 });
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

@@ -77,11 +77,11 @@ body{background:#000;font-family:'JetBrains Mono',monospace}
 <div class="slide g2" data-i="1">
   <div class="s-pre">Cette année tu as exploré</div>
   <div class="s-num">39</div>
-  <div class="s-label">APPS</div>
-  <div class="s-sub">From robot control to cybersecurity sandboxes. All free. All browser-based. Zero installations.</div>
+  <div class="s-label">APPLIS</div>
+  <div class="s-sub">Du contrôle de robots aux bacs à sable cybersécurité. Toutes gratuites. Toutes dans le navigateur. Zéro installation.</div>
 </div>
 <div class="slide g3" data-i="2">
-  <div class="s-pre">You spent roughly</div>
+  <div class="s-pre">Tu as passé environ</div>
   <div class="s-num fire">847</div>
   <div class="s-label">HEURES D'APPRENTISSAGE</div>
   <div class="s-sub">Ça fait 35 jours non-stop à construire, déboguer, et se dire "encore un fix" à 2h du mat.</div>
@@ -94,38 +94,38 @@ body{background:#000;font-family:'JetBrains Mono',monospace}
 <div class="slide g5" data-i="4">
   <div class="s-pre">Compétences débloquées cette année</div>
   <div class="s-num gold">7</div>
-  <div class="s-label">DOMAINS MASTERED</div>
+  <div class="s-label">DOMAINES MAÎTRISÉS</div>
   <div class="bars" id="skillBars"></div>
 </div>
 <div class="slide g6" data-i="5">
-  <div class="s-pre">You created</div>
+  <div class="s-pre">Tu as créé</div>
   <div class="s-num pink">42</div>
-  <div class="s-label">BUGS (FEATURES)</div>
-  <div class="s-sub">Every single one was eventually declared "a feature" after enough debugging. That's the spirit.</div>
+  <div class="s-label">BUGS (FONCTIONNALITÉS)</div>
+  <div class="s-sub">Chacun a été finalement déclaré « fonctionnalité » après assez de débogage. C'est l'esprit.</div>
 </div>
 <div class="slide g2" data-i="6">
-  <div class="s-pre">You survived</div>
+  <div class="s-pre">Tu as survécu à</div>
   <div class="s-num cyan">47</div>
-  <div class="s-label">ROBOT DROPS</div>
-  <div class="s-sub">The ESP32 robot kit took every fall and came back. Respect.</div>
+  <div class="s-label">CHUTES DE ROBOT</div>
+  <div class="s-sub">Le kit robot ESP32 a encaissé chaque chute et est revenu. Respect.</div>
 </div>
 <div class="slide g3" data-i="7">
-  <div class="s-pre">Caffeine consumed</div>
+  <div class="s-pre">Caféine consommée</div>
   <div class="s-num fire">∞</div>
-  <div class="s-label">CUPS OF COFFEE</div>
-  <div class="s-sub">The fuel behind every line of code, every soldered joint, and every "it works on my machine."</div>
+  <div class="s-label">TASSES DE CAFÉ</div>
+  <div class="s-sub">Le carburant derrière chaque ligne de code, chaque soudure, et chaque « ça marche sur ma machine ».</div>
 </div>
 <div class="slide g4" data-i="8">
   <div class="s-pre">Ta personnalité maker est</div>
   <div class="s-emoji">🏴‍☠️</div>
-  <div class="s-label" style="font-family:'Syne',sans-serif;font-size:clamp(20px,5vw,36px);font-weight:800;color:#00ff41">THE HACKER</div>
-  <div class="s-sub">You don't just use tools — you bend them. Terminal is your home. Bugs fear you. The WiFi password is password123 and you're OK with that.</div>
+  <div class="s-label" style="font-family:'Syne',sans-serif;font-size:clamp(20px,5vw,36px);font-weight:800;color:#00ff41">LE HACKER</div>
+  <div class="s-sub">Tu n'utilises pas les outils — tu les détournes. Le terminal est ta maison. Les bugs te craignent. Le mot de passe WiFi est password123 et ça te va.</div>
 </div>
 <div class="slide g1" data-i="9">
-  <div class="s-pre">Looking ahead to 2026</div>
+  <div class="s-pre">En route vers 2026</div>
   <div class="s-num">∞</div>
-  <div class="s-label">POSSIBILITIES</div>
-  <div class="s-sub">More apps. More robots. More workshops. More bugs that are actually features.<br><br><span style="color:rgba(0,255,65,.4)">workshop-diy.org · abourdim.github.io/apps</span><br><span style="color:rgba(255,255,255,.1)">// fait avec 💚, ☕, et stackoverflow</span></div>
+  <div class="s-label">POSSIBILITÉS</div>
+  <div class="s-sub">Plus d'applis. Plus de robots. Plus d'ateliers. Plus de bugs qui sont en fait des fonctionnalités.<br><br><span style="color:rgba(0,255,65,.4)">workshop-diy.org · abourdim.github.io/apps</span><br><span style="color:rgba(255,255,255,.1)">// fait avec 💚, ☕, et stackoverflow</span></div>
 </div>
 </div>
 
@@ -168,7 +168,7 @@ document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx
 
 // TOP APPLIS
 function buildTopApps(){
-  const apps=[{e:"🤖",n:"bit-bot",s:"2,847 sessions"},{e:"🪄",n:"magic-hands",s:"2,103 sessions"},{e:"🕵️",n:"face-quest",s:"1,892 sessions"},{e:"🧠",n:"teachable-machine",s:"1,654 sessions"},{e:"🔐",n:"pentest-lab",s:"1,201 sessions"}];
+  const apps=[{e:"🤖",n:"bit-bot",s:"2 847 séances"},{e:"🪄",n:"magic-hands",s:"2 103 séances"},{e:"🕵️",n:"face-quest",s:"1 892 séances"},{e:"🧠",n:"teachable-machine",s:"1 654 séances"},{e:"🔐",n:"pentest-lab",s:"1 201 séances"}];
   const el=document.getElementById('topApps');el.innerHTML='';
   apps.forEach((a,i)=>{
     const d=document.createElement('div');d.className='s-list-item';d.style.animationDelay=(i*.15)+'s';
@@ -179,7 +179,7 @@ function buildTopApps(){
 
 // SKILL BARS
 function buildSkills(){
-  const skills=[{n:"Robotique",p:92,c:"#00d4ff"},{n:"Code",p:85,c:"#00ff41"},{n:"AI/ML",p:78,c:"#bf00ff"},{n:"Cyber",p:72,c:"#ff0033"},{n:"Electronics",p:65,c:"#ff8800"},{n:"3D Print",p:58,c:"#ffd700"},{n:"DevOps",p:45,c:"#0066ff"}];
+  const skills=[{n:"Robotique",p:92,c:"#00d4ff"},{n:"Code",p:85,c:"#00ff41"},{n:"IA/ML",p:78,c:"#bf00ff"},{n:"Cyber",p:72,c:"#ff0033"},{n:"Électronique",p:65,c:"#ff8800"},{n:"Impression 3D",p:58,c:"#ffd700"},{n:"DevOps",p:45,c:"#0066ff"}];
   const el=document.getElementById('skillBars');el.innerHTML='';
   skills.forEach((s,i)=>{
     const d=document.createElement('div');d.className='bar-row';
@@ -188,8 +188,7 @@ function buildSkills(){
   });
 }
 </script>
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

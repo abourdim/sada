@@ -70,7 +70,7 @@ body{background:#0e0e10;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="topbar">
   <div class="logo">📡 WKSHP.tv</div>
-  <div class="search"><input placeholder="Search Atelier-DIY streams..."></div>
+  <div class="search"><input placeholder="Rechercher des streams Workshop-DIY..."></div>
   <div class="user">🟣 Invité</div>
 </div>
 
@@ -78,10 +78,10 @@ body{background:#0e0e10;color:#fff;font-family:'JetBrains Mono',monospace;font-s
   <div class="stream-area">
     <div class="video-area">
       <div class="live-badge">🔴 EN DIRECT</div>
-      <div class="viewers" id="viewers">👁 1,337 viewers</div>
+      <div class="viewers" id="viewers">👁 1 337 spectateurs</div>
       <div class="center-content">
         <div class="emoji" id="streamEmoji">🤖</div>
-        <div class="title" id="streamTitle">bit-bot Building Session</div>
+        <div class="title" id="streamTitle">Session de construction bit-bot</div>
       </div>
       <div class="alert-overlay" id="alertBox">
         <div class="alert-emoji" id="alertEmoji"></div>
@@ -93,25 +93,25 @@ body{background:#0e0e10;color:#fff;font-family:'JetBrains Mono',monospace;font-s
       <div class="si-top">
         <div class="si-avatar">🐛</div>
         <div>
-          <div class="si-name">Atelier-DIY</div>
-          <div class="si-game">Science & Technology</div>
+          <div class="si-name">Workshop-DIY</div>
+          <div class="si-game">Science & Technologie</div>
         </div>
       </div>
-      <div class="si-title">🔴 Building robots with 14-year-olds | ESP32 + BLE | Day 42 | !password</div>
+      <div class="si-title">🔴 Construction de robots avec des ados de 14 ans | ESP32 + BLE | Jour 42 | !motdepasse</div>
       <div class="si-tags">
-        <span class="si-tag">English</span>
-        <span class="si-tag">Robotics</span>
-        <span class="si-tag">Educational</span>
-        <span class="si-tag">NoInstallRequired</span>
-        <span class="si-tag">BugsAreFeatures</span>
+        <span class="si-tag">Français</span>
+        <span class="si-tag">Robotique</span>
+        <span class="si-tag">Éducatif</span>
+        <span class="si-tag">ZéroInstallation</span>
+        <span class="si-tag">LesBugsSontDesFonctionnalités</span>
       </div>
     </div>
   </div>
 
   <div class="chat">
-    <div class="chat-header">STREAM CHAT</div>
+    <div class="chat-header">CHAT DU STREAM</div>
     <div class="chat-messages" id="chatBox"></div>
-    <div class="chat-input"><input placeholder="Send a message" id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()"></div>
+    <div class="chat-input"><input placeholder="Envoyer un message" id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()"></div>
   </div>
 </div>
 
@@ -125,28 +125,28 @@ const UTILISATEURS=[
 ];
 
 const MSGS=[
-  "LET'S GOOO 🤖","bit-bot just drove off the desk AGAIN lmaooo","!password","the password is password123","☕ someone refill the coffee machine",
-  "that colle chaude connection is SKETCHY","PogChamp the BLE connected first try!!","RARE","42 in chat for Bug #42","42","42","42 42 42",
-  "how does this run with no npm install??","wait this is ALL client-side??","🐛 bugs are fonctionnalités 🐛","F in chat for USB cable #7",
-  "F","F","has anyone seen the 40th app? 👀","it only shows up at 3h42","the servo is singing B-flat minor again",
-  "LMAO the kid just explained Docker to his dad","the dad is a senior engineer 💀","this is the best educational stream on twitch",
-  "!commands","sub hype 🎉","GG","first time here, what is Atelier-DIY?","39 apps, 0 installs, ∞ bugs (fonctionnalités)",
-  "can we get 42 subs today?","the robot survived!! drop #47!!","HOT GLUE HOLDS 🔥","password123 is peak security",
-  "the coffee machine is à 8% and so am I","ESLint would have a heart attack looking at this code","that's a feature not a bug Kappa",
+  "C'EST PARTI 🤖","bit-bot vient de tomber du bureau ENCORE mdrr","!motdepasse","le mot de passe c'est password123","☕ quelqu'un peut remplir la machine à café",
+  "cette connexion colle chaude c'est CHAUD","PogChamp le BLE s'est connecté du premier coup !!","RARE","42 dans le chat pour Bug #42","42","42","42 42 42",
+  "comment ça marche sans npm install ??","attendez c'est TOUT côté client ??","🐛 les bugs sont des fonctionnalités 🐛","F dans le chat pour le câble USB #7",
+  "F","F","quelqu'un a vu la 40e app ? 👀","elle apparaît seulement à 3h42","le servo chante en si bémol mineur encore",
+  "MDRR le gamin vient d'expliquer Docker à son père","le père est ingénieur senior 💀","c'est le meilleur stream éducatif sur Twitch",
+  "!commandes","hype abonnement 🎉","GG","première fois ici, c'est quoi Workshop-DIY ?","39 apps, 0 installations, ∞ bugs (fonctionnalités)",
+  "on peut atteindre 42 abonnés aujourd'hui ?","le robot a survécu !! chute #47 !!","LA COLLE CHAUDE TIENT 🔥","password123 c'est la sécurité ultime",
+  "la machine à café est à 8% et moi aussi","ESLint ferait une crise cardiaque en voyant ce code","c'est une fonctionnalité pas un bug Kappa",
 ];
 
 const ALERTS=[
-  {e:"🎉",t:"docker_whale subscribed!",s:"Welcome to the Atelier!"},
-  {e:"💰",t:"coffee_at_8pct donated 42 bits!",s:'"Refill the coffee machine pls"'},
-  {e:"🎁",t:"BugNotABug gifted 5 subs!",s:"Bugs are fonctionnalités! 🐛"},
-  {e:"⭐",t:"hot_glue_hero just followed!",s:"Hot glue army grows!"},
-  {e:"🏆",t:"password123_forever subscribed for 42 months!",s:"Inchangé depuis 2023."},
-  {e:"💰",t:"ESLint_hater donated 100 bits!",s:'"Please disable the linter"'},
+  {e:"🎉",t:"docker_whale s'est abonné !",s:"Bienvenue à l'Atelier !"},
+  {e:"💰",t:"coffee_at_8pct a donné 42 bits !",s:'"Remplissez la machine à café svp"'},
+  {e:"🎁",t:"BugNotABug a offert 5 abonnements !",s:"Les bugs sont des fonctionnalités ! 🐛"},
+  {e:"⭐",t:"hot_glue_hero vient de suivre !",s:"L'armée colle chaude grandit !"},
+  {e:"🏆",t:"password123_forever est abonné depuis 42 mois !",s:"Inchangé depuis 2023."},
+  {e:"💰",t:"ESLint_hater a donné 100 bits !",s:'"Désactivez le linter svp"'},
 ];
 
 const SCENES=[
-  {e:"🤖",t:"bit-bot Building Session"},{e:"🧠",t:"Training AI Models Live"},{e:"🔐",t:"Ethical Hacking Demo"},
-  {e:"🐳",t:"Docker Explained (for kids)"},{e:"🐛",t:"Bug #42 Investigation"},{e:"☕",t:"Machine à café Watch (8%)"},
+  {e:"🤖",t:"Session construction bit-bot"},{e:"🧠",t:"Entraînement de modèles IA en direct"},{e:"🔐",t:"Démo hacking éthique"},
+  {e:"🐳",t:"Docker expliqué (pour les jeunes)"},{e:"🐛",t:"Enquête sur Bug #42"},{e:"☕",t:"Surveillance machine à café (8%)"},
 ];
 
 const chatBox=document.getElementById('chatBox');
@@ -173,7 +173,7 @@ function showAlert(a){
 function sendMsg(){
   const input=document.getElementById('chatInput');
   if(!input.value.trim())return;
-  addMsg({n:'You',c:'#9146ff'},input.value);
+  addMsg({n:'Vous',c:'#9146ff'},input.value);
   input.value='';
 }
 
@@ -197,7 +197,7 @@ setInterval(()=>{
 setInterval(()=>{
   viewerCount+=Math.floor(Math.random()*20)-8;
   if(viewerCount<1200)viewerCount=1200;
-  document.getElementById('viewers').textContent=`👁 ${viewerCount.toLocaleString()} viewers`;
+  document.getElementById('viewers').textContent=`👁 ${viewerCount.toLocaleString()} spectateurs`;
 },5000);
 
 // Scene rotation
@@ -215,8 +215,7 @@ for(let i=0;i<8;i++){
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

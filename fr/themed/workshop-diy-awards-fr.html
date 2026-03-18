@@ -55,72 +55,72 @@ body{background:#0a0a10;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="header">
   <div class="trophy">🏆</div>
-  <div class="h-title">THE WKSHPIES</div>
-  <div class="h-sub">1ST ANNUAL WORKSHOP-DIY CÉRÉMONIE DES PRIX · 2026</div>
+  <div class="h-title">LES WKSHPIES</div>
+  <div class="h-sub">1ÈRE CÉRÉMONIE ANNUELLE DES PRIX WORKSHOP-DIY · 2026</div>
 </div>
 
 <div class="categories" id="cats"></div>
 
 <div class="footer">
-  THE WKSHPIES™ · WORKSHOP-DIY · NO APPS WERE HARMED · BUGS REMAIN FEATURES<br>
-  SPONSORED BY: THE COFFEE MACHINE (OFFICIAL BEVERAGE) · PASSWORD123 (OFFICIAL WIFI)
+  LES WKSHPIES™ · WORKSHOP-DIY · AUCUNE APP N'A ÉTÉ MALTRAITÉE · LES BUGS RESTENT DES FONCTIONNALITÉS<br>
+  SPONSORISÉ PAR : LA MACHINE À CAFÉ (BOISSON OFFICIELLE) · PASSWORD123 (WIFI OFFICIEL)
 </div>
 
 <script>
-const CÉRÉMONIE DES PRIX=[
-{icon:"⭐",cat:"Meilleur App",nominees:[
-  {e:"🤖",n:"bit-bot",r:"The app that started it all. Robot control via BLE.",w:true,speech:"I'd like to thank Web Bluetooth, Chrome DevTools, and the 47 desk drops that made me who I am today. This one's for every robot that survived."},
-  {e:"🪄",n:"magic-hands",r:"21 hand landmarks. Pure visual magic."},
-  {e:"🔐",n:"pentest-lab",r:"Ethical hacking made educational and fun."},
-  {e:"🧠",n:"teachable-machine",r:"Train AI in your browser. 98% accurate."},
+const AWARDS=[
+{icon:"⭐",cat:"Meilleure App",nominees:[
+  {e:"🤖",n:"bit-bot",r:"L'app qui a tout lancé. Pilotage de robot via BLE.",w:true,speech:"Je voudrais remercier Web Bluetooth, Chrome DevTools, et les 47 chutes de bureau qui ont fait de moi ce que je suis. Celle-ci est pour chaque robot qui a survécu."},
+  {e:"🪄",n:"magic-hands",r:"21 points de suivi de la main. Magie visuelle pure."},
+  {e:"🔐",n:"pentest-lab",r:"Le hacking éthique rendu éducatif et fun."},
+  {e:"🧠",n:"teachable-machine",r:"Entraîne une IA dans ton navigateur. 98% de précision."},
 ]},
-{icon:"🐛",cat:"Meilleur Bug (Feature)",nominees:[
-  {e:"🐛",n:"Bug #42",r:"Neither bug nor feature. The 40th.",w:true,speech:"I wasn't supposed to exist. I appeared without a commit, without a pull request, without a code review. And yet here I am. Receiving an award. The defense rests."},
-  {e:"🔇",n:"BLE Disconnect",r:"Random disconnects that keep you on your toes."},
-  {e:"📡",n:"Chrome BLE Limit",r:"Only 7 Bluetooth devices. Educational constraint."},
+{icon:"🐛",cat:"Meilleur Bug (Fonctionnalité)",nominees:[
+  {e:"🐛",n:"Bug #42",r:"Ni bug ni fonctionnalité. Le 40e.",w:true,speech:"Je n'étais pas censé exister. Je suis apparu sans commit, sans pull request, sans code review. Et pourtant me voilà. En train de recevoir un prix. La défense se repose."},
+  {e:"🔇",n:"BLE Disconnect",r:"Des déconnexions aléatoires qui vous tiennent en haleine."},
+  {e:"📡",n:"Limite BLE Chrome",r:"Seulement 7 appareils Bluetooth. Contrainte pédagogique."},
 ]},
-{icon:"🏋️",cat:"Le plus Durable",nominees:[
-  {e:"🤖",n:"ESP32 Robot Kit",r:"47 drops survived. Still running.",w:true,speech:"I'm held together with hot glue, hope, and a 3.7V LiPo battery. 47 drops, zero failures. I didn't choose durability testing. Durability testing chose me."},
-  {e:"🔑",n:"password123",r:"Unchanged since 2023. Unbreakable (by policy)."},
-  {e:"☕",n:"Machine à café",r:"1,337 cups served. Never stopped brewing."},
+{icon:"🏋️",cat:"Le plus Résistant",nominees:[
+  {e:"🤖",n:"ESP32 Robot Kit",r:"47 chutes survécues. Toujours opérationnel.",w:true,speech:"Je tiens avec de la colle chaude, de l'espoir et une batterie LiPo 3,7V. 47 chutes, zéro panne. Je n'ai pas choisi les tests de résistance. Les tests de résistance m'ont choisi."},
+  {e:"🔑",n:"password123",r:"Inchangé depuis 2023. Incassable (par principe)."},
+  {e:"☕",n:"Machine à café",r:"1 337 tasses servies. Jamais arrêtée."},
 ]},
-{icon:"😂",cat:"Le plus Unintentionally Funny",nominees:[
-  {e:"🐳",n:"docker-lab",r:"14-year-olds explaining Docker to engineer parents.",w:true,speech:"I never meant to be funny. I'm a serious containerization education tool. But when a teenager explains volumes better than a senior DevOps engineer... comedy writes itself."},
-  {e:"🔑",n:"WiFi password policy",r:"Teaching cybersecurity. Password: password123."},
-  {e:"🖨️",n:"Printer vulnerability",r:"Student hacked the school printer. Ethically."},
+{icon:"😂",cat:"Le plus Involontairement Drôle",nominees:[
+  {e:"🐳",n:"docker-lab",r:"Des ados de 14 ans qui expliquent Docker à leurs parents ingénieurs.",w:true,speech:"Je n'ai jamais voulu être drôle. Je suis un outil sérieux d'éducation à la conteneurisation. Mais quand un ado explique les volumes mieux qu'un ingénieur DevOps senior... la comédie s'écrit toute seule."},
+  {e:"🔑",n:"Politique du mot de passe WiFi",r:"Enseigner la cybersécurité. Mot de passe : password123."},
+  {e:"🖨️",n:"Vulnérabilité de l'imprimante",r:"Un élève a piraté l'imprimante de l'école. Éthiquement."},
 ]},
-{icon:"🎓",cat:"Lifetime Achievement",nominees:[
-  {e:"☕",n:"The Machine à café",r:"Fuel behind every line of code since day one.",w:true,speech:"1,337 cups. That's one for every line of code that actually worked on the first try. I've been at 8% capacity since 2023. I've seen developers come and go. I remain. I pour. I am the real founder."},
+{icon:"🎓",cat:"Prix d'honneur",nominees:[
+  {e:"☕",n:"La Machine à café",r:"Le carburant derrière chaque ligne de code depuis le premier jour.",w:true,speech:"1 337 tasses. C'est une pour chaque ligne de code qui a marché du premier coup. Je suis à 8% depuis 2023. J'ai vu des développeurs aller et venir. Moi, je reste. Je verse. Je suis la vraie fondatrice."},
 ]},
-{icon:"🌟",cat:"Breakthrough App",nominees:[
-  {e:"✨",n:"prompt-hero",r:"Teaching the art of AI conversation.",w:true,speech:"In a world of LLMs, someone had to teach the humans how to talk to the machines. That someone was me. Remember: specificity is the soul of a good prompt."},
-  {e:"🕵️",n:"face-quest",r:"468 facial landmarks turned into a game."},
-  {e:"💡",n:"wled-kids-lab",r:"16 million colors via one HTTP request."},
+{icon:"🌟",cat:"App Révélation",nominees:[
+  {e:"✨",n:"prompt-hero",r:"Enseigner l'art de la conversation avec l'IA.",w:true,speech:"Dans un monde de LLMs, quelqu'un devait apprendre aux humains à parler aux machines. Ce quelqu'un, c'était moi. Souvenez-vous : la précision est l'âme d'un bon prompt."},
+  {e:"🕵️",n:"face-quest",r:"468 points du visage transformés en jeu."},
+  {e:"💡",n:"wled-kids-lab",r:"16 millions de couleurs via une requête HTTP."},
 ]},
-{icon:"🤝",cat:"Meilleur Supporting App",nominees:[
-  {e:"🧩",n:"bit-playground",r:"Quietly powering every micro:bit interaction."},
-  {e:"🎛️",n:"rxy",r:"Custom BLE remotes that make everything work.",w:true,speech:"I don't get the headlines. I don't get the glory. But when you need a custom Bluetooth remote with exactly the right layout... you call me. And I deliver. Every. Time."},
-  {e:"🚀",n:"mission-control",r:"Connecting peers when it matters most."},
+{icon:"🤝",cat:"Meilleure App de soutien",nominees:[
+  {e:"🧩",n:"bit-playground",r:"Alimente discrètement chaque interaction micro:bit."},
+  {e:"🎛️",n:"rxy",r:"Des télécommandes BLE sur mesure qui font tout fonctionner.",w:true,speech:"Je ne fais pas les gros titres. Je n'ai pas la gloire. Mais quand vous avez besoin d'une télécommande Bluetooth personnalisée avec exactement le bon agencement... vous m'appelez. Et je livre. À. Chaque. Fois."},
+  {e:"🚀",n:"mission-control",r:"Connecter les pairs quand ça compte le plus."},
 ]},
-{icon:"💀",cat:"Meilleur Plot Twist",nominees:[
-  {e:"🐛",n:"Bug #42's identity",r:"Was it a bug? Was it a feature? The trial revealed all.",w:true,speech:"NOT GUILTY. That's all I have to say. Talk to my lawyer: try { } catch(e) { }."},
-  {e:"🔑",n:"WiFi password protest #3",r:"Third petition to change password123. Denied again."},
-  {e:"🤖",n:"Robot's 47th drop",r:"Survived. Again. Against all odds."},
+{icon:"💀",cat:"Meilleur Coup de théâtre",nominees:[
+  {e:"🐛",n:"L'identité de Bug #42",r:"Était-ce un bug ? Une fonctionnalité ? Le procès a tout révélé.",w:true,speech:"NON COUPABLE. C'est tout ce que j'ai à dire. Parlez à mon avocat : try { } catch(e) { }."},
+  {e:"🔑",n:"Pétition WiFi n°3",r:"Troisième pétition pour changer password123. Refusée. Encore."},
+  {e:"🤖",n:"47e chute du robot",r:"A survécu. Encore. Contre toute attente."},
 ]},
 ];
 
 const catsEl=document.getElementById('cats');
-CÉRÉMONIE DES PRIX.forEach((a,ai)=>{
+AWARDS.forEach((a,ai)=>{
   const winner=a.nominees.find(n=>n.w);
   catsEl.innerHTML+=`
   <div class="award" id="aw${ai}">
     <div class="award-h" onclick="reveal(${ai})">
       <span class="icon">${a.icon}</span>
       <span class="cat">${a.cat}</span>
-      <button class="reveal-btn" id="btn${ai}">OPEN ENVELOPE</button>
+      <button class="reveal-btn" id="btn${ai}">OUVRIR L'ENVELOPPE</button>
     </div>
     <div class="nominees" id="nom${ai}">
-      ${a.nominees.map((n,ni)=>`<div class="nominee" id="n${ai}_${ni}"><span class="emoji">${n.e}</span><span class="name">${n.n}<span class="winner-badge">★ WINNER</span></span><span class="reason">${n.r}</span></div>`).join('')}
+      ${a.nominees.map((n,ni)=>`<div class="nominee" id="n${ai}_${ni}"><span class="emoji">${n.e}</span><span class="name">${n.n}<span class="winner-badge">★ LAURÉAT</span></span><span class="reason">${n.r}</span></div>`).join('')}
     </div>
     <div class="speech" id="sp${ai}">${winner?.speech||''}</div>
   </div>`;
@@ -130,8 +130,8 @@ function reveal(i){
   const btn=document.getElementById('btn'+i);
   if(btn.classList.contains('opened'))return;
   btn.classList.add('opened');
-  btn.textContent='★ WINNER ANNOUNCED';
-  const a=CÉRÉMONIE DES PRIX[i];
+  btn.textContent='★ LAURÉAT ANNONCÉ';
+  const a=AWARDS[i];
   a.nominees.forEach((n,ni)=>{
     if(n.w)document.getElementById(`n${i}_${ni}`).classList.add('winner');
   });
@@ -153,8 +153,7 @@ function confetti(){
   }
 }
 </script>
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

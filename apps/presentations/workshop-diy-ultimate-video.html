@@ -466,7 +466,7 @@ document.getElementById('plB').onclick=function(){playing=!playing;this.textCont
 (function tick(){if(playing){const n=Date.now();elapsed+=n-lastT;lastT=n;tbar.style.width=(Math.min(elapsed/DUR,1)*100)+'%';if(elapsed>=DUR)goTo(cur+1)}else lastT=Date.now();requestAnimationFrame(tick)})();
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')goTo(cur+1);if(e.key==='ArrowLeft')goTo(cur-1);if(e.key===' '){e.preventDefault();document.getElementById('plB').click()}});
 </script>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

@@ -102,8 +102,8 @@ body{background:#ecf0f1;font-family:'JetBrains Mono',monospace;font-size:11px;mi
   <div class="logo"><div class="logo-icon">▶</div><div class="logo-text">MakeCode</div></div>
   <div class="project">📁 workshop-diy-rxy-firmware</div>
   <div class="actions">
-    <button class="mc-btn sim">▶ Simulate</button>
-    <button class="mc-btn download">⬇ Download .hex</button>
+    <button class="mc-btn sim">▶ Simuler</button>
+    <button class="mc-btn download">⬇ Télécharger .hex</button>
   </div>
 </div>
 
@@ -111,16 +111,16 @@ body{background:#ecf0f1;font-family:'JetBrains Mono',monospace;font-size:11px;mi
 
 <!-- TOOLBOX -->
 <div class="toolbox">
-  <div class="tb-cat" style="--c:#5c2d91"><div class="icon">⬛</div><div class="label">Basic</div></div>
-  <div class="tb-cat" style="--c:#b4009e"><div class="icon">↩️</div><div class="label">Input</div></div>
-  <div class="tb-cat" style="--c:#107c10"><div class="icon">🔁</div><div class="label">Loops</div></div>
-  <div class="tb-cat" style="--c:#006cb5"><div class="icon">⚡</div><div class="label">Logic</div></div>
+  <div class="tb-cat" style="--c:#5c2d91"><div class="icon">⬛</div><div class="label">Base</div></div>
+  <div class="tb-cat" style="--c:#b4009e"><div class="icon">↩️</div><div class="label">Entrée</div></div>
+  <div class="tb-cat" style="--c:#107c10"><div class="icon">🔁</div><div class="label">Boucles</div></div>
+  <div class="tb-cat" style="--c:#006cb5"><div class="icon">⚡</div><div class="label">Logique</div></div>
   <div class="tb-cat" style="--c:#dc3c00"><div class="icon">📦</div><div class="label">Variables</div></div>
   <div class="tb-cat" style="--c:#0071c5"><div class="icon">📡</div><div class="label">Bluetooth</div></div>
-  <div class="tb-cat" style="--c:#a84000"><div class="icon">📌</div><div class="label">Pins</div></div>
+  <div class="tb-cat" style="--c:#a84000"><div class="icon">📌</div><div class="label">Broches</div></div>
   <div class="tb-cat" style="--c:#7d4800"><div class="icon">🔧</div><div class="label">Servos</div></div>
   <div class="tb-cat" style="--c:#c95d00"><div class="icon">💡</div><div class="label">NeoPixel</div></div>
-  <div class="tb-cat" style="--c:#e63022"><div class="icon">🎵</div><div class="label">Music</div></div>
+  <div class="tb-cat" style="--c:#e63022"><div class="icon">🎵</div><div class="label">Musique</div></div>
 </div>
 
 <!-- ESPACE DE TRAVAIL -->
@@ -129,107 +129,107 @@ body{background:#ecf0f1;font-family:'JetBrains Mono',monospace;font-size:11px;mi
 <!-- ON START -->
 <div class="block-group" style="position:relative">
   <div class="block c-basic block-c">
-    <div class="c-header">on start</div>
+    <div class="c-header">au démarrage</div>
     <div class="c-body">
-      <div class="block c-bluetooth block-stmt">bluetooth start UART service<div class="notch"></div></div>
-      <div class="block c-neopixel block-stmt">set <span class="input-drop">strip</span> to NeoPixel at pin <span class="input-drop">P0</span> with <span class="input-oval">8</span> leds<div class="notch"></div></div>
-      <div class="block c-variables block-stmt">set <span class="input-drop">btConnecté</span> to <span class="input-oval">false</span><div class="notch"></div></div>
-      <div class="block c-basic block-stmt">show icon <span class="input-drop">♥</span><div class="notch"></div></div>
+      <div class="block c-bluetooth block-stmt">bluetooth démarrer le service UART<div class="notch"></div></div>
+      <div class="block c-neopixel block-stmt">définir <span class="input-drop">strip</span> à NeoPixel sur broche <span class="input-drop">P0</span> avec <span class="input-oval">8</span> leds<div class="notch"></div></div>
+      <div class="block c-variables block-stmt">définir <span class="input-drop">btConnected</span> à <span class="input-oval">false</span><div class="notch"></div></div>
+      <div class="block c-basic block-stmt">montrer l'icône <span class="input-drop">♥</span><div class="notch"></div></div>
     </div>
     <div class="c-footer"></div>
   </div>
-  <div class="comment">Initialize BLE UART, NeoPixel strip on P0 (8 LEDs), show heart on boot</div>
+  <div class="comment">Initialiser le service BLE UART, le ruban NeoPixel sur P0 (8 LEDs), afficher un coeur au démarrage</div>
 </div>
 
 <!-- ON BLE CONNECTED -->
 <div class="block-group" style="position:relative;margin-top:10px">
   <div class="block c-bluetooth block-c">
-    <div class="c-header">on bluetooth connected</div>
+    <div class="c-header">quand bluetooth connecté</div>
     <div class="c-body">
-      <div class="block c-variables block-stmt">set <span class="input-drop">btConnecté</span> to <span class="input-oval">true</span><div class="notch"></div></div>
-      <div class="block c-basic block-stmt">show icon <span class="input-drop">✓</span><div class="notch"></div></div>
+      <div class="block c-variables block-stmt">définir <span class="input-drop">btConnected</span> à <span class="input-oval">true</span><div class="notch"></div></div>
+      <div class="block c-basic block-stmt">montrer l'icône <span class="input-drop">✓</span><div class="notch"></div></div>
     </div>
     <div class="c-footer"></div>
   </div>
-  <div class="comment">When phone/browser connects via BLE, show checkmark</div>
+  <div class="comment">Quand un téléphone/navigateur se connecte via BLE, afficher une coche</div>
 </div>
 
 <!-- ON UART DATA RECEIVED -->
 <div class="block-group" style="position:relative;margin-top:10px">
   <div class="block c-bluetooth block-c">
-    <div class="c-header">on bluetooth UART data received <span class="input-drop">newline ↵</span></div>
+    <div class="c-header">quand bluetooth UART données reçues <span class="input-drop">retour ligne ↵</span></div>
     <div class="c-body">
-      <div class="block c-variables block-stmt">set <span class="input-drop">line</span> to bluetooth UART read until <span class="input-drop">newline ↵</span><div class="notch"></div></div>
+      <div class="block c-variables block-stmt">définir <span class="input-drop">line</span> à bluetooth UART lire jusqu'à <span class="input-drop">retour ligne ↵</span><div class="notch"></div></div>
       <div class="block c-logic block-c">
-        <div class="c-header">if <span class="input-oval">line</span> starts with <span class="input-rect">"SERVO:"</span></div>
+        <div class="c-header">si <span class="input-oval">line</span> commence par <span class="input-rect">"SERVO:"</span></div>
         <div class="c-body">
-          <div class="block c-servos block-stmt">set servo <span class="input-drop">P8</span> angle to <span class="input-oval">parseFloat(line)</span><div class="notch"></div></div>
+          <div class="block c-servos block-stmt">régler servo <span class="input-drop">P8</span> angle à <span class="input-oval">parseFloat(line)</span><div class="notch"></div></div>
         </div>
       </div>
       <div class="block c-logic block-c">
-        <div class="c-header">else if <span class="input-oval">line</span> starts with <span class="input-rect">"NEO:"</span></div>
+        <div class="c-header">sinon si <span class="input-oval">line</span> commence par <span class="input-rect">"NEO:"</span></div>
         <div class="c-body">
-          <div class="block c-neopixel block-stmt"><span class="input-drop">strip</span> show color <span class="input-oval">parseColor(line)</span><div class="notch"></div></div>
+          <div class="block c-neopixel block-stmt"><span class="input-drop">strip</span> afficher couleur <span class="input-oval">parseColor(line)</span><div class="notch"></div></div>
         </div>
       </div>
       <div class="block c-logic block-c">
-        <div class="c-header">else if <span class="input-oval">line</span> starts with <span class="input-rect">"BUZZ:"</span></div>
+        <div class="c-header">sinon si <span class="input-oval">line</span> commence par <span class="input-rect">"BUZZ:"</span></div>
         <div class="c-body">
-          <div class="block c-music block-stmt">play tone <span class="input-oval">Hz</span> for <span class="input-oval">200</span> ms<div class="notch"></div></div>
+          <div class="block c-music block-stmt">jouer tonalité <span class="input-oval">Hz</span> pendant <span class="input-oval">200</span> ms<div class="notch"></div></div>
         </div>
       </div>
       <div class="block c-logic block-c">
-        <div class="c-header">else if <span class="input-oval">line</span> starts with <span class="input-rect">"MOTOR:"</span></div>
+        <div class="c-header">sinon si <span class="input-oval">line</span> commence par <span class="input-rect">"MOTOR:"</span></div>
         <div class="c-body">
-          <div class="block c-pins block-stmt">analog write pin <span class="input-drop">P1</span> to <span class="input-oval">leftSpeed</span><div class="notch"></div></div>
-          <div class="block c-pins block-stmt">analog write pin <span class="input-drop">P2</span> to <span class="input-oval">rightSpeed</span><div class="notch"></div></div>
+          <div class="block c-pins block-stmt">écriture analogique broche <span class="input-drop">P1</span> à <span class="input-oval">leftSpeed</span><div class="notch"></div></div>
+          <div class="block c-pins block-stmt">écriture analogique broche <span class="input-drop">P2</span> à <span class="input-oval">rightSpeed</span><div class="notch"></div></div>
         </div>
       </div>
-      <div class="block c-bluetooth block-stmt">bluetooth UART write line <span class="input-rect">"ACK:" + line</span><div class="notch"></div></div>
+      <div class="block c-bluetooth block-stmt">bluetooth UART écrire ligne <span class="input-rect">"ACK:" + line</span><div class="notch"></div></div>
     </div>
     <div class="c-footer"></div>
   </div>
-  <div class="comment">Parse commands from RXY browser app: SERVO, NEO, BUZZ, MOTOR. Send ACK back. Servos on P8 to avoid pin conflict with sensor reads!</div>
+  <div class="comment">Analyser les commandes de l'appli RXY : SERVO, NEO, BUZZ, MOTOR. Renvoyer un ACK. Servos sur P8 pour éviter le conflit de broches avec la lecture capteurs !</div>
 </div>
 
 <!-- TELEMETRY LOOP -->
 <div class="block-group" style="position:relative;margin-top:10px">
   <div class="block c-loops block-c">
-    <div class="c-header">forever</div>
+    <div class="c-header">toujours</div>
     <div class="c-body">
       <div class="block c-logic block-c">
-        <div class="c-header">if <span class="input-oval">btConnecté</span></div>
+        <div class="c-header">si <span class="input-oval">btConnected</span></div>
         <div class="c-body">
-          <div class="block c-bluetooth block-stmt">bluetooth UART write line <span class="input-rect">"T:" + temperature(°C)</span><div class="notch"></div></div>
-          <div class="block c-bluetooth block-stmt">bluetooth UART write line <span class="input-rect">"L:" + light level</span><div class="notch"></div></div>
-          <div class="block c-bluetooth block-stmt">bluetooth UART write line <span class="input-rect">"A:" + accelX + "," + accelY + "," + accelZ</span><div class="notch"></div></div>
+          <div class="block c-bluetooth block-stmt">bluetooth UART écrire ligne <span class="input-rect">"T:" + température(°C)</span><div class="notch"></div></div>
+          <div class="block c-bluetooth block-stmt">bluetooth UART écrire ligne <span class="input-rect">"L:" + niveau lumière</span><div class="notch"></div></div>
+          <div class="block c-bluetooth block-stmt">bluetooth UART écrire ligne <span class="input-rect">"A:" + accélX + "," + accélY + "," + accélZ</span><div class="notch"></div></div>
         </div>
       </div>
-      <div class="block c-basic block-stmt">pause <span class="input-oval">100</span> ms<div class="notch"></div></div>
+      <div class="block c-basic block-stmt">mettre en pause <span class="input-oval">100</span> ms<div class="notch"></div></div>
     </div>
     <div class="c-footer"></div>
   </div>
-  <div class="comment">Envoyer sensor telemetry to browser every 100ms (10Hz) when BLE connected</div>
+  <div class="comment">Envoyer la télémétrie des capteurs au navigateur toutes les 100ms (10Hz) quand le BLE est connecté</div>
 </div>
 
 </div>
 
 <!-- SIMULATOR -->
 <div class="sim-panel">
-  <div class="sim-label">SIMULATOR</div>
+  <div class="sim-label">SIMULATEUR</div>
   <div class="sim-board">
     <div class="sim-btns"><div class="sim-btn-hw"></div><div style="flex:1"></div><div class="sim-btn-hw"></div></div>
     <div class="sim-leds" id="simLeds"></div>
     <div class="sim-pins"><div class="sim-pin"></div><div class="sim-pin"></div><div class="sim-pin"></div><div style="width:8px"></div><div class="sim-pin"></div><div class="sim-pin"></div></div>
   </div>
-  <div class="sim-label">NEOPIXEL STRIP</div>
+  <div class="sim-label">RUBAN NEOPIXEL</div>
   <div class="sim-strip" id="simStrip"></div>
   <div style="font-size:7px;color:#444;text-align:center;margin-top:4px">📡 BLE: Connecté<br>🔧 Servo: P8 @ 90°<br>💡 NeoPixels: P0 × 8</div>
 </div>
 
 </div>
 
-<div class="footer">WORKSHOP-DIY · MAKECODE BLOCK EDITOR · MICRO:BIT V2 · RXY FIRMWARE · SERVOS ON P8 TO AVOID PIN CONFLICT</div>
+<div class="footer">WORKSHOP-DIY · ÉDITEUR DE BLOCS MAKECODE · MICRO:BIT V2 · FIRMWARE RXY · SERVOS SUR P8 POUR ÉVITER LE CONFLIT DE BROCHES</div>
 
 <script>
 // SIM LEDs
@@ -241,8 +241,7 @@ const ss=document.getElementById('simStrip');
 for(let i=0;i<8;i++){const d=document.createElement('div');d.className='sim-neo on';ss.appendChild(d);}
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

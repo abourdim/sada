@@ -56,7 +56,7 @@ body{background:#f5f3ef;color:#222;font-family:'Playfair Display',serif;font-siz
 </div>
 
 <div class="wings">
-  <div class="wing active" onclick="showAile('all',this)">ALL</div>
+  <div class="wing active" onclick="showAile('all',this)">TOUT</div>
   <div class="wing" onclick="showAile('robotics',this)">ROBOTIQUE</div>
   <div class="wing" onclick="showAile('ai',this)">AI</div>
   <div class="wing" onclick="showAile('cyber',this)">CYBER</div>
@@ -73,14 +73,14 @@ body{background:#f5f3ef;color:#222;font-family:'Playfair Display',serif;font-siz
 
 <script>
 const EXPOSITIONS=[
-{e:"🤖",title:"bit-bot (Study for Robot in Chrome)",artist:"Workshop-DIY, 2023",desc:"The foundational work of the collection. A browser-based robot controller utilizing Web Bluetooth — a technique considered radical at the time of its creation. The work has survived 47 physical impacts, each adding to its patina.",meta:{medium:"HTML/CSS/JS, Web Bluetooth",dims:"Infinite × Responsive",acquired:"2023, Founding Collection"},wing:"robotics",audio:"The artist began with a single question: what if a child could control a robot without installing anything?"},
-{e:"🪄",title:"magic-hands (Particles in Space)",artist:"Workshop-DIY × MediaPipe, 2024",desc:"A mesmerizing work in which the viewer becomes the art. 21 hand landmarks are tracked in real-time, conjuring particles that respond to the observer's gestures. A meditation on the boundary between physical and digital.",meta:{medium:"MediaPipe, Canvas API",dims:"21 landmarks × ∞ particles",acquired:"2024"},wing:"ai",audio:"The hand is simultaneously the brush, the canvas, and the audience."},
-{e:"🕵️",title:"face-quest (468 Points of Light)",artist:"Workshop-DIY × TensorFlow, 2024",desc:"The artist maps 468 facial landmarks into a scoring system, turning the human face into a game board. Notable for its strict privacy-first approach: no data leaves the browser. A statement on surveillance culture.",meta:{medium:"TensorFlow.js, Face Mesh",dims:"468 landmarks",acquired:"2024"},wing:"ai",audio:"In an age of facial recognition, this work turns the camera inward — a mirror that plays back."},
-{e:"🔐",title:"pentest-lab (Fortress, Deconstructed)",artist:"Workshop-DIY, 2024",desc:"A controversial work that teaches ethical hacking through interactive simulation. SQL injection, XSS, and privilege escalation are presented as puzzles rather than threats. Acquired after a student used techniques learned here to responsibly disclose a school printer vulnerability.",meta:{medium:"Sandboxed JavaScript",dims:"Variable (attack surface dependent)",acquired:"2024"},wing:"cyber",audio:"The line between hacker and defender is drawn in documentation."},
-{e:"🐧",title:"linux-kids-lab (The Terminal Garden)",artist:"Workshop-DIY, 2024",desc:"A complete Linux filesystem simulated in the browser. The viewer navigates through directories as one might walk through rooms. Commands like 'ls' and 'cd' become gestures of exploration. A love letter to the command line.",meta:{medium:"JavaScript, Virtual FS",dims:"∞ directories deep",acquired:"2024"},wing:"learning",audio:"There is poetry in 'ls -la'. There is power in 'chmod'. There is danger in 'rm -rf'."},
-{e:"🐳",title:"docker-lab (Whale, Contained)",artist:"Workshop-DIY, 2025",desc:"A pedagogical work that has become inadvertently humorous. Young visitors consistently explain containerization concepts more clearly than their professional software engineer parents. The artist did not intend this.",meta:{medium:"Docker concepts, Browser simulation",dims:"N containers × M volumes",acquired:"2025"},wing:"learning",audio:"The whale carries worlds within worlds. Each container a universe. Each 'docker-compose up' a creation myth."},
-{e:"🧠",title:"teachable-machine (The Student Becomes the Teacher)",artist:"Workshop-DIY × TensorFlow.js, 2024",desc:"In this interactive installation, the viewer trains a machine learning model by demonstrating gestures. The model achieves 98% accuracy — a figure that has become legendary in the collection's lore.",meta:{medium:"TensorFlow.js, Webcam",dims:"30 samples × 98% accuracy",acquired:"2024"},wing:"ai",audio:"Show me three times and I will know you forever."},
-{e:"☕",title:"Untitled (Coffee Machine at 8%)",artist:"Anonymous (The Coffee Machine), 2023–present",desc:"A readymade. The association's coffee machine, permanently displaying '8% remaining,' has become the de facto mascot and spiritual center of Workshop-DIY. It has brewed approximately 1,337 cups. Its supply level has never exceeded critical.",meta:{medium:"Espresso, electricity, desperation",dims:"Standard commercial unit",acquired:"2023, found object"},wing:"all",audio:"I was not made to be art. I was made to pour espresso. And yet here I stand, in a museum."},
+{e:"🤖",title:"bit-bot (Étude pour Robot dans Chrome)",artist:"Workshop-DIY, 2023",desc:"L'œuvre fondatrice de la collection. Un contrôleur de robot basé navigateur utilisant le Web Bluetooth — une technique considérée radicale au moment de sa création. L'œuvre a survécu à 47 impacts physiques, chacun ajoutant à sa patine.",meta:{medium:"HTML/CSS/JS, Web Bluetooth",dims:"Infini × Responsive",acquired:"2023, Collection fondatrice"},wing:"robotics",audio:"L'artiste a commencé avec une seule question : et si un enfant pouvait contrôler un robot sans rien installer ?"},
+{e:"🪄",title:"magic-hands (Particules dans l'Espace)",artist:"Workshop-DIY × MediaPipe, 2024",desc:"Une œuvre fascinante dans laquelle le spectateur devient l'art. 21 points de repère de la main sont suivis en temps réel, conjurant des particules qui répondent aux gestes de l'observateur. Une méditation sur la frontière entre physique et numérique.",meta:{medium:"MediaPipe, Canvas API",dims:"21 points × ∞ particules",acquired:"2024"},wing:"ai",audio:"La main est simultanément le pinceau, la toile et le public."},
+{e:"🕵️",title:"face-quest (468 Points de Lumière)",artist:"Workshop-DIY × TensorFlow, 2024",desc:"L'artiste cartographie 468 points de repère faciaux en un système de score, transformant le visage humain en plateau de jeu. Remarquable pour son approche strictement privacy-first : aucune donnée ne quitte le navigateur. Une déclaration sur la culture de surveillance.",meta:{medium:"TensorFlow.js, Face Mesh",dims:"468 points de repère",acquired:"2024"},wing:"ai",audio:"À l'ère de la reconnaissance faciale, cette œuvre retourne la caméra vers l'intérieur — un miroir qui rejoue."},
+{e:"🔐",title:"pentest-lab (Forteresse, Déconstruite)",artist:"Workshop-DIY, 2024",desc:"Une œuvre controversée qui enseigne le hacking éthique par simulation interactive. L'injection SQL, le XSS et l'escalade de privilèges sont présentés comme des puzzles plutôt que des menaces. Acquise après qu'un élève a utilisé les techniques apprises ici pour divulguer de manière responsable une vulnérabilité d'imprimante scolaire.",meta:{medium:"JavaScript sandboxé",dims:"Variable (selon la surface d'attaque)",acquired:"2024"},wing:"cyber",audio:"La ligne entre hacker et défenseur se dessine dans la documentation."},
+{e:"🐧",title:"linux-kids-lab (Le Jardin Terminal)",artist:"Workshop-DIY, 2024",desc:"Un système de fichiers Linux complet simulé dans le navigateur. Le visiteur navigue dans les répertoires comme on traverserait des pièces. Des commandes comme 'ls' et 'cd' deviennent des gestes d'exploration. Une lettre d'amour à la ligne de commande.",meta:{medium:"JavaScript, FS virtuel",dims:"∞ répertoires de profondeur",acquired:"2024"},wing:"learning",audio:"Il y a de la poésie dans 'ls -la'. Il y a du pouvoir dans 'chmod'. Il y a du danger dans 'rm -rf'."},
+{e:"🐳",title:"docker-lab (Baleine, Contenue)",artist:"Workshop-DIY, 2025",desc:"Une œuvre pédagogique devenue involontairement comique. Les jeunes visiteurs expliquent systématiquement les concepts de conteneurisation plus clairement que leurs parents ingénieurs logiciels professionnels. L'artiste n'avait pas prévu cela.",meta:{medium:"Concepts Docker, Simulation navigateur",dims:"N conteneurs × M volumes",acquired:"2025"},wing:"learning",audio:"La baleine porte des mondes dans des mondes. Chaque conteneur un univers. Chaque 'docker-compose up' un mythe de création."},
+{e:"🧠",title:"teachable-machine (L'Élève Devient le Maître)",artist:"Workshop-DIY × TensorFlow.js, 2024",desc:"Dans cette installation interactive, le visiteur entraîne un modèle de machine learning en démontrant des gestes. Le modèle atteint 98 % de précision — un chiffre devenu légendaire dans la collection.",meta:{medium:"TensorFlow.js, Webcam",dims:"30 échantillons × 98 % de précision",acquired:"2024"},wing:"ai",audio:"Montre-moi trois fois et je te reconnaîtrai pour toujours."},
+{e:"☕",title:"Sans titre (Machine à café à 8 %)",artist:"Anonyme (La Machine à café), 2023–présent",desc:"Un readymade. La machine à café de l'association, affichant en permanence « 8 % restant », est devenue la mascotte de facto et le centre spirituel de Workshop-DIY. Elle a préparé environ 1 337 tasses. Son niveau d'approvisionnement n'a jamais dépassé le seuil critique.",meta:{medium:"Espresso, électricité, désespoir",dims:"Unité commerciale standard",acquired:"2023, objet trouvé"},wing:"all",audio:"Je n'ai pas été faite pour être de l'art. J'ai été faite pour servir des espressos. Et pourtant me voilà, dans un musée."},
 ];
 
 function render(wing){
@@ -98,8 +98,8 @@ function render(wing){
         <div class="placard-desc">${ex.desc}</div>
         <div class="placard-meta">
           <span>Médium : ${ex.meta.medium}</span>
-          <span>Dimensions: ${ex.meta.dims}</span>
-          <span>Acquired: ${ex.meta.acquired}</span>
+          <span>Dimensions : ${ex.meta.dims}</span>
+          <span>Acquis : ${ex.meta.acquired}</span>
         </div>
         <div class="audio-tag" onclick="this.textContent=this.textContent.includes('🔊')?'🎧 Audioguide':'🔊 ${ex.audio}'">🎧 Audioguide</div>
       </div>
@@ -116,8 +116,7 @@ function showAile(w,el){
 render('all');
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

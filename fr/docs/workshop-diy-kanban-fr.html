@@ -71,30 +71,30 @@ body{background:#0a0a0e;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 <script>
 const COLS=[
   {name:"BACKLOG",color:"#555",cards:[
-    {t:"Voice control for ESP32 robots",labels:["robo","ai"],desc:"Add Web Speech API to esp32 robot control app",tags:["enhancement"],avs:["🧠"],due:"Mar 15",dueClass:"due-ok",check:"0/4"},
-    {t:"Add MQTT support to smart-home",labels:["hw"],desc:"Enable MQTT protocol for real IoT device communication",tags:["feature"],avs:["⚡"],due:"Mar 20",dueClass:"due-ok"},
-    {t:"Multiplayer pentest challenges",labels:["cyber"],desc:"Competitive CTF mode where students race to solve challenges",tags:["feature","multiplayer"],avs:["🔐"],due:"Apr 1",dueClass:"due-ok"},
-    {t:"Dark/light theme toggle for all apps",labels:["feat"],desc:"User preference for theme across entire ecosystem",tags:["UX"],avs:["🎨"],check:"0/39"},
-    {t:"PWA support — offline mode",labels:["feat"],desc:"Service worker + cache for offline access to apps",tags:["infrastructure"],avs:["💻"]},
-    {t:"Gamepad API for robot control",labels:["robo"],desc:"Use USB/BT game controllers as robot input",tags:["feature"],avs:["🎮"]},
+    {t:"Contrôle vocal pour robots ESP32",labels:["robo","ai"],desc:"Ajouter l'API Web Speech à l'application de contrôle robot ESP32",tags:["amélioration"],avs:["🧠"],due:"15 mars",dueClass:"due-ok",check:"0/4"},
+    {t:"Ajouter support MQTT à smart-home",labels:["hw"],desc:"Activer le protocole MQTT pour la communication avec de vrais appareils IoT",tags:["fonctionnalité"],avs:["⚡"],due:"20 mars",dueClass:"due-ok"},
+    {t:"Défis pentest multijoueurs",labels:["cyber"],desc:"Mode CTF compétitif où les élèves font la course pour résoudre les défis",tags:["fonctionnalité","multijoueur"],avs:["🔐"],due:"1 avr",dueClass:"due-ok"},
+    {t:"Bascule thème sombre/clair pour toutes les apps",labels:["feat"],desc:"Préférence utilisateur pour le thème dans tout l'écosystème",tags:["UX"],avs:["🎨"],check:"0/39"},
+    {t:"Support PWA — mode hors ligne",labels:["feat"],desc:"Service worker + cache pour l'accès hors ligne aux apps",tags:["infrastructure"],avs:["💻"]},
+    {t:"API Gamepad pour contrôle robot",labels:["robo"],desc:"Utiliser des manettes USB/BT comme entrée robot",tags:["fonctionnalité"],avs:["🎮"]},
   ]},
-  {name:"IN PROGRESS",color:"#00d4ff",cards:[
-    {t:"🐛 BLE disconnect on Chrome 122+",labels:["robo","bug"],desc:"Web Bluetooth drops connection after ~2 min on latest Chrome. Investigating keepAlive workaround.",tags:["bug","P1"],avs:["👨‍💻","🤖"],due:"Feb 28",dueClass:"due-overdue",check:"2/5"},
-    {t:"Teachable Machine → ESP32 bridge",labels:["ai","robo"],desc:"Direct gesture model output to ESP32 via WebSocket instead of micro:bit BLE only",tags:["feature"],avs:["🧠","⚡"],due:"Mar 5",dueClass:"due-soon",check:"3/6"},
-    {t:"New CTF challenge pack: Network",labels:["cyber"],desc:"10 new challenges covering DNS, ARP, DHCP, packet analysis",tags:["content"],avs:["🔐"],due:"Mar 8",dueClass:"due-soon",check:"6/10"},
-    {t:"Docker Compose tutorial module",labels:["learn","devops"],desc:"Step-by-step docker-compose lab with multi-container setup",tags:["content"],avs:["🐳"],due:"Mar 10",dueClass:"due-ok",check:"2/4"},
+  {name:"EN COURS",color:"#00d4ff",cards:[
+    {t:"🐛 Déconnexion BLE sur Chrome 122+",labels:["robo","bug"],desc:"Web Bluetooth perd la connexion après ~2 min sur le dernier Chrome. Investigation du contournement keepAlive.",tags:["bug","P1"],avs:["👨‍💻","🤖"],due:"28 fév",dueClass:"due-overdue",check:"2/5"},
+    {t:"Pont Teachable Machine → ESP32",labels:["ai","robo"],desc:"Sortie directe du modèle de gestes vers ESP32 via WebSocket au lieu de BLE micro:bit uniquement",tags:["fonctionnalité"],avs:["🧠","⚡"],due:"5 mars",dueClass:"due-soon",check:"3/6"},
+    {t:"Nouveau pack de défis CTF : Réseau",labels:["cyber"],desc:"10 nouveaux défis couvrant DNS, ARP, DHCP, analyse de paquets",tags:["contenu"],avs:["🔐"],due:"8 mars",dueClass:"due-soon",check:"6/10"},
+    {t:"Module tutoriel Docker Compose",labels:["learn","devops"],desc:"Lab docker-compose étape par étape avec configuration multi-conteneurs",tags:["contenu"],avs:["🐳"],due:"10 mars",dueClass:"due-ok",check:"2/4"},
   ]},
-  {name:"REVIEW",color:"#ffd700",cards:[
-    {t:"linux-kids-lab: Add 10 new commands",labels:["learn"],desc:"grep, awk, sed, chmod, chown, tar, curl, wget, ssh, scp — all simulated in browser sandbox",tags:["content"],avs:["🐧","👨‍💻"],due:"Feb 25",dueClass:"due-overdue",check:"10/10"},
-    {t:"pixel-gateway: Export to micro:bit",labels:["learn","robo"],desc:"Send pixel art directly to micro:bit LED matrix via BLE",tags:["feature"],avs:["🎨"],check:"4/4"},
-    {t:"Homepage redesign v3",labels:["feat"],desc:"New landing page with interactive demo, app showcase grid, and animated stats",tags:["design"],avs:["🎨","👩‍💻"],check:"5/5"},
+  {name:"REVUE",color:"#ffd700",cards:[
+    {t:"linux-kids-lab : Ajouter 10 nouvelles commandes",labels:["learn"],desc:"grep, awk, sed, chmod, chown, tar, curl, wget, ssh, scp — toutes simulées dans un bac à sable navigateur",tags:["contenu"],avs:["🐧","👨‍💻"],due:"25 fév",dueClass:"due-overdue",check:"10/10"},
+    {t:"pixel-gateway : Export vers micro:bit",labels:["learn","robo"],desc:"Envoyer du pixel art directement à la matrice LED micro:bit via BLE",tags:["fonctionnalité"],avs:["🎨"],check:"4/4"},
+    {t:"Refonte de la page d'accueil v3",labels:["feat"],desc:"Nouvelle page d'accueil avec démo interactive, grille de présentation des apps et statistiques animées",tags:["design"],avs:["🎨","👩‍💻"],check:"5/5"},
   ]},
-  {name:"DONE ✓",color:"#00ff41",cards:[
-    {t:"✅ bit-bot v3.2 — BLE reconnection fix",labels:["robo"],desc:"Fixed auto-reconnect, smoother servo transitions, added dance() method",tags:["release"],avs:["👨‍💻"],due:"Feb 20",dueClass:"due-ok"},
-    {t:"✅ 39th app: tty serial terminal",labels:["tool"],desc:"Web Serial API terminal for direct USB communication with microcontrollers",tags:["release"],avs:["🔌"]},
-    {t:"✅ magic-hands v2: particle effects",labels:["ai"],desc:"New confetti, fire, and lightning particle effects triggered by hand gestures",tags:["release"],avs:["🪄"]},
-    {t:"✅ App catalog page redesign",labels:["feat"],desc:"New grid layout with filtering, search, and category badges. 39 apps organized.",tags:["design"],avs:["🎨"]},
-    {t:"✅ Bug #42 declared a feature",labels:["bug"],desc:"After 3 months of investigation, bug #42 was formally reclassified as 'intended behavior.'",tags:["tradition"],avs:["🤖","☕"]},
+  {name:"TERMINÉ ✓",color:"#00ff41",cards:[
+    {t:"✅ bit-bot v3.2 — Correction reconnexion BLE",labels:["robo"],desc:"Correction de la reconnexion auto, transitions servo plus fluides, ajout de la méthode dance()",tags:["version"],avs:["👨‍💻"],due:"20 fév",dueClass:"due-ok"},
+    {t:"✅ 39e app : terminal série tty",labels:["tool"],desc:"Terminal API Web Serial pour communication USB directe avec les microcontrôleurs",tags:["version"],avs:["🔌"]},
+    {t:"✅ magic-hands v2 : effets de particules",labels:["ai"],desc:"Nouveaux effets de particules confettis, feu et éclairs déclenchés par les gestes de la main",tags:["version"],avs:["🪄"]},
+    {t:"✅ Refonte de la page catalogue des apps",labels:["feat"],desc:"Nouvelle disposition en grille avec filtrage, recherche et badges de catégorie. 39 apps organisées.",tags:["design"],avs:["🎨"]},
+    {t:"✅ Bug #42 déclaré fonctionnalité",labels:["bug"],desc:"Après 3 mois d'investigation, bug #42 a été officiellement reclassifié comme « comportement intentionnel ».",tags:["tradition"],avs:["🤖","☕"]},
   ]},
 ];
 
@@ -116,8 +116,7 @@ COLS.forEach(col=>{
 });
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

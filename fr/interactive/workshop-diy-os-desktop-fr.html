@@ -110,32 +110,32 @@ body{background:#0a0e14;font-family:'JetBrains Mono',monospace;font-size:11px;co
 <div class="win" id="winFM" style="width:500px;height:360px;top:80px;left:280px">
   <div class="win-bar" onmousedown="startDrag(event,'winFM')"><div class="wb-dot wb-r" onclick="closeWin('winFM')"></div><div class="wb-dot wb-y"></div><div class="wb-dot wb-g"></div><div class="win-title">files — /workshop/apps</div></div>
   <div class="win-body">
-    <div class="fm-bar"><span>📁</span><span class="path">/workshop/apps/</span><span>39 items</span></div>
+    <div class="fm-bar"><span>📁</span><span class="path">/workshop/apps/</span><span>39 éléments</span></div>
     <div class="fm-grid" id="fmGrid"></div>
   </div>
 </div>
 
 <div class="win" id="winÀ propos" style="width:320px;height:300px;top:100px;left:320px">
-  <div class="win-bar" onmousedown="startDrag(event,'winÀ propos')"><div class="wb-dot wb-r" onclick="closeWin('winÀ propos')"></div><div class="wb-dot wb-y"></div><div class="wb-dot wb-g"></div><div class="win-title">about WKSHP-OS</div></div>
+  <div class="win-bar" onmousedown="startDrag(event,'winÀ propos')"><div class="wb-dot wb-r" onclick="closeWin('winÀ propos')"></div><div class="wb-dot wb-y"></div><div class="wb-dot wb-g"></div><div class="win-title">à propos de WKSHP-OS</div></div>
   <div class="win-body">
     <div class="about-body">
       <div style="font-size:48px;margin-bottom:8px">🤖</div>
       <div class="about-logo">WKSHP-OS</div>
       <div class="about-ver">Version 4.2.0 (Build 1337)</div>
       <div class="about-info">
-        Atelier-DIY Operating System<br>Association Loi 1901 — France<br><br>
-        39 Apps · 7 Domains · 12 Themes<br>
-        Kernel: ESP32 + micro:bit<br>
-        Shell: bash 5.1<br>
-        Bugs: 42 (toutes des fonctionnalités)<br><br>
-        <span style="color:#333">© 2024 Atelier-DIY<br>No rights reserved. It's open source.</span>
+        Système d'exploitation Workshop-DIY<br>Association Loi 1901 — France<br><br>
+        39 Apps · 7 Domaines · 12 Thèmes<br>
+        Noyau : ESP32 + micro:bit<br>
+        Shell : bash 5.1<br>
+        Bugs : 42 (toutes des fonctionnalités)<br><br>
+        <span style="color:#333">© 2024 Workshop-DIY<br>Aucun droit réservé. C'est open source.</span>
       </div>
     </div>
   </div>
 </div>
 
 <div class="win" id="winClock" style="width:240px;height:280px;top:50px;right:50px;left:auto">
-  <div class="win-bar" onmousedown="startDrag(event,'winClock')"><div class="wb-dot wb-r" onclick="closeWin('winClock')"></div><div class="wb-dot wb-y"></div><div class="wb-dot wb-g"></div><div class="win-title">clock widget</div></div>
+  <div class="win-bar" onmousedown="startDrag(event,'winClock')"><div class="wb-dot wb-r" onclick="closeWin('winClock')"></div><div class="wb-dot wb-y"></div><div class="wb-dot wb-g"></div><div class="win-title">widget horloge</div></div>
   <div class="win-body">
     <div class="clock-widget">
       <div class="cw-time" id="cwTime">00:00:00</div>
@@ -143,8 +143,8 @@ body{background:#0a0e14;font-family:'JetBrains Mono',monospace;font-size:11px;co
       <div class="cw-stats">
         <div class="cw-s"><div class="v">39</div><div class="l">APPS</div></div>
         <div class="cw-s"><div class="v">7</div><div class="l">DOMAINES</div></div>
-        <div class="cw-s"><div class="v">12</div><div class="l">THEMES</div></div>
-        <div class="cw-s"><div class="v">∞</div><div class="l">POTENTIAL</div></div>
+        <div class="cw-s"><div class="v">12</div><div class="l">THÈMES</div></div>
+        <div class="cw-s"><div class="v">∞</div><div class="l">POTENTIEL</div></div>
       </div>
     </div>
   </div>
@@ -155,30 +155,30 @@ body{background:#0a0e14;font-family:'JetBrains Mono',monospace;font-size:11px;co
   <div class="sm-header"><div class="sm-avatar">🤖</div><div><div class="sm-name">MAKER</div><div class="sm-sub">workshop@diy</div></div></div>
   <div class="sm-section">
     <div class="sm-label">APPLICATIONS</div>
-    <div class="sm-item" onclick="openWin('winFM')"><span class="e">📁</span>Files</div>
+    <div class="sm-item" onclick="openWin('winFM')"><span class="e">📁</span>Fichiers</div>
     <div class="sm-item" onclick="openWin('winTerm')"><span class="e">💻</span>Terminal</div>
-    <div class="sm-item" onclick="openWin('winClock')"><span class="e">🕐</span>Clock</div>
+    <div class="sm-item" onclick="openWin('winClock')"><span class="e">🕐</span>Horloge</div>
     <div class="sm-item" onclick="openWin('winÀ propos')"><span class="e">ℹ️</span>À propos</div>
   </div>
   <div class="sm-section">
     <div class="sm-label">WORKSHOP APPS</div>
-    <div class="sm-item" onclick="window.open('https://abourdim.github.io/apps/')"><span class="e">🚀</span>Launch All Apps</div>
+    <div class="sm-item" onclick="window.open('https://abourdim.github.io/apps/')"><span class="e">🚀</span>Lancer toutes les apps</div>
     <div class="sm-item" onclick="window.open('https://workshop-diy.org')"><span class="e">🌐</span>workshop-diy.org</div>
   </div>
   <div class="sm-section">
-    <div class="sm-item" style="color:#555"><span class="e">⚡</span>Shutdown <span style="font-size:7px;color:#333;margin-left:auto">// nice try</span></div>
+    <div class="sm-item" style="color:#555"><span class="e">⚡</span>Éteindre <span style="font-size:7px;color:#333;margin-left:auto">// bien essayé</span></div>
   </div>
 </div>
 
 <!-- CONTEXT MENU -->
 <div class="ctx-menu" id="ctxMenu">
-  <div class="ctx-item" onclick="openWin('winTerm')">💻 Open Terminal</div>
-  <div class="ctx-item" onclick="openWin('winFM')">📁 Open File Manager</div>
+  <div class="ctx-item" onclick="openWin('winTerm')">💻 Ouvrir le Terminal</div>
+  <div class="ctx-item" onclick="openWin('winFM')">📁 Ouvrir le Gestionnaire de Fichiers</div>
   <div class="ctx-sep"></div>
-  <div class="ctx-item" onclick="openWin('winClock')">🕐 Clock Widget</div>
-  <div class="ctx-item" onclick="openWin('winÀ propos')">ℹ️ À propos WKSHP-OS</div>
+  <div class="ctx-item" onclick="openWin('winClock')">🕐 Widget Horloge</div>
+  <div class="ctx-item" onclick="openWin('winÀ propos')">ℹ️ À propos de WKSHP-OS</div>
   <div class="ctx-sep"></div>
-  <div class="ctx-item" style="color:#555">🎨 Change Wallpaper <span style="font-size:7px;color:#333;margin-left:auto">soon™</span></div>
+  <div class="ctx-item" style="color:#555">🎨 Changer le Fond d'écran <span style="font-size:7px;color:#333;margin-left:auto">bientôt™</span></div>
 </div>
 
 <!-- TASKBAR -->
@@ -199,7 +199,7 @@ const APPS=[
 
 // Desktop icons
 const dskEl=document.getElementById('dskIcons');
-[{e:"💻",n:"Terminal",win:"winTerm"},{e:"📁",n:"Files",win:"winFM"},{e:"🕐",n:"Clock",win:"winClock"},{e:"ℹ️",n:"À propos",win:"winÀ propos"},...APPS.slice(0,8)].forEach(a=>{
+[{e:"💻",n:"Terminal",win:"winTerm"},{e:"📁",n:"Fichiers",win:"winFM"},{e:"🕐",n:"Horloge",win:"winClock"},{e:"ℹ️",n:"À propos",win:"winÀ propos"},...APPS.slice(0,8)].forEach(a=>{
   const d=document.createElement('div');d.className='dsk-icon';
   d.innerHTML=`<span class="e">${a.e}</span><span class="n">${a.n}</span>`;
   d.ondblclick=()=>{if(a.win)openWin(a.win);else window.open(`https://abourdim.github.io/${a.n}/`)};
@@ -272,8 +272,7 @@ setInterval(()=>{
 setTimeout(()=>openWin('winTerm'),500);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

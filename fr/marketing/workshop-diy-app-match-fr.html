@@ -90,35 +90,35 @@ body{background:#0a0a14;font-family:'JetBrains Mono',monospace;display:flex;flex
 </div>
 
 <div class="match-overlay" id="matchOverlay">
-  <div class="match-title">IT'S A MATCH!</div>
-  <div class="match-sub">You and this app have liked each other</div>
+  <div class="match-title">C'EST UN MATCH !</div>
+  <div class="match-sub">Vous et cette app vous êtes mutuellement likés</div>
   <div class="match-emoji" id="matchEmoji"></div>
   <div class="match-name" id="matchName"></div>
   <div class="match-desc" id="matchDesc"></div>
   <div class="match-btns">
     <a class="match-btn launch" id="matchLink" href="#" target="_blank">LANCEMENT APP →</a>
-    <button class="match-btn keep" onclick="closeCorrespondance()">KEEP SWIPING</button>
+    <button class="match-btn keep" onclick="closeCorrespondance()">CONTINUER À SWIPER</button>
   </div>
 </div>
 
-<div class="footer">APPMATCH™ BY WORKSHOP-DIY · NO REAL DATING · JUST APPS · LES BUGS SONT DES FONCTIONNALITÉS</div>
+<div class="footer">APPMATCH™ PAR WORKSHOP-DIY · PAS DE VRAIS RENDEZ-VOUS · JUSTE DES APPS · LES BUGS SONT DES FONCTIONNALITÉS</div>
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",age:"Est. 2023",bio:"Strong, silent type. Loves Bluetooth dates and long drives (on line-following tracks). Survived 47 falls. Looking for someone who won't drop me.",tags:["Robotics","BLE","Loyal"],g:"g0",url:"bit-bot"},
-{e:"🪄",n:"magic-hands",age:"21 landmarks",bio:"I'll make sparks fly... literally. Wave at me and I'll conjure particles. MediaPipe enthusiast. My love language is gestures.",tags:["AI","Camera","Magic"],g:"g1",url:"magic-hands"},
-{e:"🕵️",n:"face-quest",age:"468 landmarks",bio:"I see your face and I like what I see (scoring-wise). 100% local — I never share your data with anyone. Privacy is my love language.",tags:["AI","Games","Private"],g:"g3",url:"face-quest"},
-{e:"🧠",n:"teachable-machine",age:"98% accurate",bio:"I learn fast. Show me a few examples and I'll understand your gestures perfectly. Looking for someone who teaches me new tricks.",tags:["AI","ML","Smart"],g:"g1",url:"teachable-machine"},
-{e:"💬",n:"talking-robot",age:"Voice-enabled",bio:"Good listener. Great talker. I understand what you say and I'll respond with actions. Say 'dance' and watch what happens.",tags:["Voice","NLP","Fun"],g:"g0",url:"talking-robot"},
-{e:"🔐",n:"pentest-lab",age:"Sandboxed",bio:"I like breaking things... ethically. Looking for someone who can handle my SQL injection tenters. I promise it's educational.",tags:["Cyber","CTF","Edgy"],g:"g2",url:"pentest-lab"},
-{e:"🐧",n:"linux-kids-lab",age:"Bash 5.2",bio:"I'm an open book (source). I'll teach you my commands if you respect my filesystem. Don't even think about rm -rf /.",tags:["Linux","Terminal","Wise"],g:"g5",url:"linux-kids-lab"},
-{e:"🚀",n:"mission-control",age:"P2P ready",bio:"I connect people. WebRTC is my thing. Looking for a peer who's not afraid of real-time commitment. Video dates preferred.",tags:["WebRTC","Video","Social"],g:"g4",url:"mission-control"},
-{e:"💡",n:"wled-kids-lab",age:"RGB vibes",bio:"I'll light up your life — literally. 16 million colors to choose from. Looking for someone who appreciates a good Neopixel glow.",tags:["LEDs","IoT","Colorful"],g:"g4",url:"wled-kids-lab"},
-{e:"⚡",n:"esp32-c3-lab",age:"240 MHz",bio:"Dual-core personality. WiFi AND Bluetooth. I'm well-connected and I have 520KB of memories. Looking for IoT soulmate.",tags:["Hardware","IoT","Fast"],g:"g4",url:"esp32-c3-kids-lab"},
-{e:"🐳",n:"docker-lab",age:"Containerized",bio:"I keep my life organized in containers. Some say I'm isolated — I say I'm well-defined. Looking for someone to share volumes with.",tags:["DevOps","Containers","Neat"],g:"g3",url:"docker-lab"},
-{e:"🎨",n:"pixel-gateway",age:"8-bit heart",bio:"I see the world in pixels. Rétro soul, creative spirit. Export my art to your LED matrix and I'm yours forever.",tags:["Art","Creative","Retro"],g:"g1",url:"pixel-gateway"},
-{e:"✨",n:"prompt-hero",age:"LLM whisperer",bio:"I know exactly what to say. I'll teach you the art of conversation — with AI, that is. My prompts are *chef's kiss*.",tags:["AI","Prompts","Smooth"],g:"g1",url:"prompt-hero"},
-{e:"☕",n:"coffee-supply",age:"Always critical",bio:"I'm the real MVP behind every line of code. I'm warm, energizing, and always running low. Looking for a refill.",tags:["Essential","Warm","Depleting"],g:"g4",url:""},
+{e:"🤖",n:"bit-bot",age:"Depuis 2023",bio:"Le type fort et silencieux. Adore les rendez-vous Bluetooth et les longues balades (sur des pistes de suivi de ligne). A survécu à 47 chutes. Cherche quelqu'un qui ne me laissera pas tomber.",tags:["Robotique","BLE","Fidèle"],g:"g0",url:"bit-bot"},
+{e:"🪄",n:"magic-hands",age:"21 repères",bio:"Je fais jaillir des étincelles... littéralement. Fais-moi coucou et je ferai apparaître des particules. Fan de MediaPipe. Mon langage amoureux, ce sont les gestes.",tags:["IA","Caméra","Magie"],g:"g1",url:"magic-hands"},
+{e:"🕵️",n:"face-quest",age:"468 repères",bio:"Je vois ton visage et j'aime ce que je vois (côté score). 100% local — je ne partage jamais tes données. La vie privée est mon langage amoureux.",tags:["IA","Jeux","Discret"],g:"g3",url:"face-quest"},
+{e:"🧠",n:"teachable-machine",age:"98% de précision",bio:"J'apprends vite. Montre-moi quelques exemples et je comprendrai tes gestes parfaitement. Cherche quelqu'un pour m'apprendre de nouveaux tours.",tags:["IA","ML","Intelligent"],g:"g1",url:"teachable-machine"},
+{e:"💬",n:"talking-robot",age:"Commande vocale",bio:"Bon auditeur. Grand parleur. Je comprends ce que tu dis et je réponds par des actions. Dis 'danse' et regarde ce qui se passe.",tags:["Voix","NLP","Fun"],g:"g0",url:"talking-robot"},
+{e:"🔐",n:"pentest-lab",age:"Sandboxé",bio:"J'aime casser des trucs... éthiquement. Cherche quelqu'un qui peut gérer mes injections SQL. Promis, c'est éducatif.",tags:["Cyber","CTF","Rebelle"],g:"g2",url:"pentest-lab"},
+{e:"🐧",n:"linux-kids-lab",age:"Bash 5.2",bio:"Je suis un livre ouvert (source). Je t'apprendrai mes commandes si tu respectes mon système de fichiers. N'y pense même pas, rm -rf /.",tags:["Linux","Terminal","Sage"],g:"g5",url:"linux-kids-lab"},
+{e:"🚀",n:"mission-control",age:"P2P ready",bio:"Je connecte les gens. WebRTC, c'est mon truc. Cherche un pair qui n'a pas peur de l'engagement en temps réel. Rendez-vous vidéo de préférence.",tags:["WebRTC","Vidéo","Social"],g:"g4",url:"mission-control"},
+{e:"💡",n:"wled-kids-lab",age:"Vibes RGB",bio:"J'illuminerai ta vie — littéralement. 16 millions de couleurs au choix. Cherche quelqu'un qui apprécie un bon Neopixel.",tags:["LEDs","IoT","Coloré"],g:"g4",url:"wled-kids-lab"},
+{e:"⚡",n:"esp32-c3-lab",age:"240 MHz",bio:"Personnalité double cœur. WiFi ET Bluetooth. Je suis bien connecté et j'ai 520Ko de souvenirs. Cherche âme sœur IoT.",tags:["Matériel","IoT","Rapide"],g:"g4",url:"esp32-c3-kids-lab"},
+{e:"🐳",n:"docker-lab",age:"Conteneurisé",bio:"Je garde ma vie organisée dans des conteneurs. Certains disent que je suis isolé — moi je dis bien défini. Cherche quelqu'un avec qui partager des volumes.",tags:["DevOps","Conteneurs","Ordonné"],g:"g3",url:"docker-lab"},
+{e:"🎨",n:"pixel-gateway",age:"Cœur 8-bit",bio:"Je vois le monde en pixels. Âme rétro, esprit créatif. Exporte mon art sur ta matrice LED et je suis à toi pour toujours.",tags:["Art","Créatif","Rétro"],g:"g1",url:"pixel-gateway"},
+{e:"✨",n:"prompt-hero",age:"Chuchoteur de LLM",bio:"Je sais exactement quoi dire. Je t'enseignerai l'art de la conversation — avec l'IA, bien sûr. Mes prompts sont *chef's kiss*.",tags:["IA","Prompts","Charmeur"],g:"g1",url:"prompt-hero"},
+{e:"☕",n:"coffee-supply",age:"Toujours critique",bio:"Le vrai MVP derrière chaque ligne de code. Je suis chaud, énergisant, et toujours en baisse. Cherche un remplissage.",tags:["Essentiel","Chaud","En baisse"],g:"g4",url:""},
 ];
 
 let idx=0,likes=0,matches=0;
@@ -206,8 +206,7 @@ document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx
 renderCards();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

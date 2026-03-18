@@ -46,12 +46,12 @@ body{background:#1a0008;color:#ffd700;font-family:'JetBrains Mono',monospace;fon
 <div class="glow"></div>
 
 <div class="title">🥠 WKSHP FORTUNE</div>
-<div class="subtitle">OUVRIR YOUR DESTINY</div>
+<div class="subtitle">OUVREZ VOTRE DESTINÉE</div>
 
 <div class="cookie-area" id="cookieArea" onclick="crack()">
   <div class="cookie" id="cookie">🥠</div>
 </div>
-<div class="click-hint" id="hint">CLICK THE COOKIE</div>
+<div class="click-hint" id="hint">CLIQUEZ SUR LE BISCUIT</div>
 
 <div class="fortune" id="fortune">
   <div class="slip">
@@ -59,32 +59,32 @@ body{background:#1a0008;color:#ffd700;font-family:'JetBrains Mono',monospace;fon
     <div class="fortune-lucky" id="fortuneLucky"></div>
     <div class="fortune-app" id="fortuneApp"></div>
   </div>
-  <button class="new-btn" onclick="reset()">🥠 NEW FORTUNE</button>
+  <button class="new-btn" onclick="reset()">🥠 NOUVELLE FORTUNE</button>
 </div>
 
-<div class="counter" id="counter">Fortunes read: 0</div>
-<div class="footer">WKSHP BISCUIT DE FORTUNE CO. · NOT ACTUAL PREDICTIONS · LES BUGS SONT DES FONCTIONNALITÉS IN ALL FRISE CHRONOLOGIQUES</div>
+<div class="counter" id="counter">Fortunes lues : 0</div>
+<div class="footer">WKSHP BISCUIT DE FORTUNE CO. · PAS DE VRAIES PRÉDICTIONS · LES BUGS SONT DES FONCTIONNALITÉS DANS TOUTES LES CHRONOLOGIES</div>
 
 <script>
 const FORTUNES=[
-  {text:"A bug in your code will reveal itself as a feature in disguise. Embrace it.",lucky:"42, 39, 7, 12, 47, 8",app:"Lucky App: Bug #42"},
-  {text:"The WiFi password you seek has been in front of you all along. It is password123.",lucky:"1, 2, 3, 39, 42, 0",app:"Lucky App: password123"},
-  {text:"A wise robot once said: 'It's not falling — it's testing gravity.' You will survive.",lucky:"47, 3, 7, 12, 42, 1",app:"Lucky App: bit-bot"},
-  {text:"Your next project will run perfectly on the first try. Just kidding. Check the console.",lucky:"500, 404, 200, 301, 42, 0",app:"Lucky App: pentest-lab"},
-  {text:"You will explain a complex topic so well that an expert learns from you.",lucky:"14, 42, 7, 39, 3, 99",app:"Lucky App: docker-lab"},
-  {text:"Coffee is not the answer. Coffee is the question. The answer is yes.",lucky:"8, 1337, 42, 7, 3, 0",app:"Lucky App: coffee-supply"},
-  {text:"The best code you will ever write has zero comments. And somehow it works.",lucky:"0, 42, 39, 7, 1, 23",app:"Lucky App: linux-kids-lab"},
-  {text:"A hand gesture will change your destiny. Wave at your webcam and see what happens.",lucky:"21, 42, 7, 3, 98, 5",app:"Lucky App: magic-hands"},
-  {text:"Your face holds 468 secrets. One of them is your high score.",lucky:"468, 42, 7, 39, 100, 3",app:"Lucky App: face-quest"},
-  {text:"Teach a machine, and it learns. Teach a child, and they teach their parents Docker.",lucky:"98, 42, 14, 7, 39, 3",app:"Lucky App: teachable-machine"},
-  {text:"In a world of GUIs, the one who knows 'ls -la' is king.",lucky:"755, 644, 777, 42, 0, 1",app:"Lucky App: linux-kids-lab"},
-  {text:"16 million colors, and you will pick the one that matches nothing. That's creativity.",lucky:"16, 777, 215, 255, 0, 42",app:"Lucky App: wled-kids-lab"},
-  {text:"Hot glue is temporary. The friendships you make in a workshop are forever.",lucky:"350, 42, 7, 39, 47, 1",app:"Lucky App: esp32-c3-lab"},
-  {text:"The container that holds your future is already running. Just check the dashboard.",lucky:"80, 443, 3000, 42, 8, 27",app:"Lucky App: docker-lab"},
-  {text:"There are 39 paths before you. Choose any. They all lead to learning.",lucky:"39, 7, 12, 42, 1, 0",app:"Lucky App: all of them"},
-  {text:"The soldering iron is hot. So is your potential. Handle both with care.",lucky:"350, 42, 330, 5, 3, 7",app:"Lucky App: esp32-c3-lab"},
-  {text:"Someone will try to change the WiFi password tomorrow. They will fail.",lucky:"1, 2, 3, 42, 0, 39",app:"Lucky App: password123"},
-  {text:"Your robot will survive its next drop. It always does.",lucky:"47, 48, 49, 42, 7, 1",app:"Lucky App: bit-bot"},
+  {text:"Un bug dans ton code se révélera être une fonctionnalité déguisée. Accepte-le.",lucky:"42, 39, 7, 12, 47, 8",app:"Appli chanceuse : Bug #42"},
+  {text:"Le mot de passe WiFi que tu cherches est devant toi depuis le début. C'est password123.",lucky:"1, 2, 3, 39, 42, 0",app:"Appli chanceuse : password123"},
+  {text:"Un sage robot a dit un jour : « Ce n'est pas une chute — c'est un test de gravité. » Tu survivras.",lucky:"47, 3, 7, 12, 42, 1",app:"Appli chanceuse : bit-bot"},
+  {text:"Ton prochain projet fonctionnera parfaitement du premier coup. Non, je rigole. Vérifie la console.",lucky:"500, 404, 200, 301, 42, 0",app:"Appli chanceuse : pentest-lab"},
+  {text:"Tu expliqueras un sujet complexe si bien qu'un expert apprendra de toi.",lucky:"14, 42, 7, 39, 3, 99",app:"Appli chanceuse : docker-lab"},
+  {text:"Le café n'est pas la réponse. Le café est la question. La réponse est oui.",lucky:"8, 1337, 42, 7, 3, 0",app:"Appli chanceuse : coffee-supply"},
+  {text:"Le meilleur code que tu écriras jamais n'aura aucun commentaire. Et pourtant il fonctionnera.",lucky:"0, 42, 39, 7, 1, 23",app:"Appli chanceuse : linux-kids-lab"},
+  {text:"Un geste de la main changera ton destin. Fais signe à ta webcam et regarde ce qui se passe.",lucky:"21, 42, 7, 3, 98, 5",app:"Appli chanceuse : magic-hands"},
+  {text:"Ton visage renferme 468 secrets. L'un d'eux est ton meilleur score.",lucky:"468, 42, 7, 39, 100, 3",app:"Appli chanceuse : face-quest"},
+  {text:"Enseigne à une machine, et elle apprend. Enseigne à un enfant, et il apprend Docker à ses parents.",lucky:"98, 42, 14, 7, 39, 3",app:"Appli chanceuse : teachable-machine"},
+  {text:"Dans un monde de GUI, celui qui connaît 'ls -la' est roi.",lucky:"755, 644, 777, 42, 0, 1",app:"Appli chanceuse : linux-kids-lab"},
+  {text:"16 millions de couleurs, et tu choisiras celle qui ne va avec rien. C'est ça, la créativité.",lucky:"16, 777, 215, 255, 0, 42",app:"Appli chanceuse : wled-kids-lab"},
+  {text:"La colle chaude est temporaire. Les amitiés créées en atelier sont éternelles.",lucky:"350, 42, 7, 39, 47, 1",app:"Appli chanceuse : esp32-c3-lab"},
+  {text:"Le conteneur qui renferme ton avenir tourne déjà. Vérifie le tableau de bord.",lucky:"80, 443, 3000, 42, 8, 27",app:"Appli chanceuse : docker-lab"},
+  {text:"Il y a 39 chemins devant toi. Choisis n'importe lequel. Ils mènent tous à l'apprentissage.",lucky:"39, 7, 12, 42, 1, 0",app:"Appli chanceuse : toutes"},
+  {text:"Le fer à souder est chaud. Ton potentiel aussi. Manipule les deux avec soin.",lucky:"350, 42, 330, 5, 3, 7",app:"Appli chanceuse : esp32-c3-lab"},
+  {text:"Quelqu'un essaiera de changer le mot de passe WiFi demain. Il échouera.",lucky:"1, 2, 3, 42, 0, 39",app:"Appli chanceuse : password123"},
+  {text:"Ton robot survivra à sa prochaine chute. Il survit toujours.",lucky:"47, 48, 49, 42, 7, 1",app:"Appli chanceuse : bit-bot"},
 ];
 
 let count=0;
@@ -94,13 +94,13 @@ function crack(){
   
   const f=FORTUNES[Math.floor(Math.random()*FORTUNES.length)];
   document.getElementById('fortuneText').textContent=f.text;
-  document.getElementById('fortuneLucky').textContent='Numéros chanceux: '+f.lucky;
+  document.getElementById('fortuneLucky').textContent='Numéros chanceux : '+f.lucky;
   document.getElementById('fortuneApp').textContent=f.app;
   
   setTimeout(()=>{
     document.getElementById('fortune').classList.add('show');
     count++;
-    document.getElementById('counter').textContent='Fortunes read: '+count;
+    document.getElementById('counter').textContent='Fortunes lues : '+count;
   },500);
 }
 
@@ -110,8 +110,7 @@ function reset(){
   document.getElementById('hint').classList.remove('hide');
 }
 </script>
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(0,0,0,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

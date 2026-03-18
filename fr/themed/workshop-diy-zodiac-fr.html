@@ -62,58 +62,58 @@ body{background:#050510;color:#c0b8ff;font-family:'JetBrains Mono',monospace;fon
 
 <div class="footer">
   DIVISION ASTROLOGIE WORKSHOP-DIY · PAS DE VRAIE ASTROLOGIE · LES BUGS SONT DES FONCTIONNALITÉS DANS TOUS LES SIGNES<br>
-  // Your app compatibility may vary. Consult your terminal before making life decisions.
+  // La compatibilité de votre app peut varier. Consultez votre terminal avant de prendre des décisions de vie.
 </div>
 
 <script>
 const SIGNS=[
-{emoji:"🤖",sign:"The Robot",month:"JAN",dates:"Jan 1 – Jan 31",app:"bit-bot",
-desc:"You are methodical, reliable, and occasionally drop off tables but always bounce back. You follow instructions precisely — unless someone tells you to dance, in which case you improvise beautifully. Your Bluetooth connection to others is strong, though sometimes Chrome disconnects you for no reason.",
-element:"HARDWARE",planet:"ESP32",lucky:"Bug #7",strength:"Resilience (47 drops)",weakness:"BLE timeouts",compat:["🪄","🧩","🎛️"]},
+{emoji:"🤖",sign:"Le Robot",month:"JAN",dates:"1 Jan – 31 Jan",app:"bit-bot",
+desc:"Tu es méthodique, fiable, et tu tombes occasionnellement des tables mais tu rebondis toujours. Tu suis les instructions à la lettre — sauf quand on te dit de danser, auquel cas tu improvises magnifiquement. Ta connexion Bluetooth aux autres est forte, même si parfois Chrome te déconnecte sans raison.",
+element:"HARDWARE",planet:"ESP32",lucky:"Bug #7",strength:"Résilience (47 chutes)",weakness:"Timeouts BLE",compat:["🪄","🧩","🎛️"]},
 
-{emoji:"🪄",sign:"The Wizard",month:"FEB",dates:"Feb 1 – Feb 28",app:"magic-hands",
-desc:"You're mesmerizing, expressive, and leave particle trails everywhere you go. People can't stop watching when you enter a room. You track 21 different aspects of every interaction and respond with visual flair. Your gestures speak louder than words.",
-element:"AI",planet:"MediaPipe",lucky:"Bug #21",strength:"Visual impact",weakness:"Needs good lighting",compat:["🕵️","🧠","✨"]},
+{emoji:"🪄",sign:"Le Mage",month:"FÉV",dates:"1 Fév – 28 Fév",app:"magic-hands",
+desc:"Tu es fascinant, expressif, et tu laisses des traînées de particules partout où tu passes. Les gens ne peuvent pas s'arrêter de te regarder quand tu entres dans une pièce. Tu analyses 21 aspects différents de chaque interaction et réponds avec panache visuel. Tes gestes parlent plus fort que les mots.",
+element:"IA",planet:"MediaPipe",lucky:"Bug #21",strength:"Impact visuel",weakness:"Nécessite bon éclairage",compat:["🕵️","🧠","✨"]},
 
-{emoji:"🕵️",sign:"The Detective",month:"MAR",dates:"Mar 1 – Mar 31",app:"face-quest",
-desc:"You notice everything. 468 data points per face, and you never share what you find. Privacy is sacred to you. You turn every encounter into a scoring opportunity, and you're surprisingly competitive beneath that cool exterior.",
-element:"CAMERA",planet:"TensorFlow",lucky:"Bug #468",strength:"Observation",weakness:"Scores everything",compat:["🪄","😎","💬"]},
+{emoji:"🕵️",sign:"Le Détective",month:"MAR",dates:"1 Mar – 31 Mar",app:"face-quest",
+desc:"Tu remarques tout. 468 points de données par visage, et tu ne partages jamais ce que tu trouves. La vie privée est sacrée pour toi. Tu transformes chaque rencontre en occasion de marquer des points, et tu es étonnamment compétitif sous ton air cool.",
+element:"CAMÉRA",planet:"TensorFlow",lucky:"Bug #468",strength:"Observation",weakness:"Note tout",compat:["🪄","😎","💬"]},
 
-{emoji:"🧠",sign:"The Brain",month:"APR",dates:"Apr 1 – Apr 30",app:"teachable-machine",
-desc:"You learn from every expérience and get better every time. Show you something three times and you'll recognize it forever. You bridge the gap between abstract thought and physical action. 98% of the time, you're right.",
-element:"AI",planet:"TensorFlow.js",lucky:"Bug #98",strength:"Adaptability",weakness:"Needs training data",compat:["🪄","✨","🔐"]},
+{emoji:"🧠",sign:"Le Cerveau",month:"AVR",dates:"1 Avr – 30 Avr",app:"teachable-machine",
+desc:"Tu apprends de chaque expérience et tu t'améliores à chaque fois. Montre-toi quelque chose trois fois et tu le reconnaîtras pour toujours. Tu fais le pont entre la pensée abstraite et l'action physique. 98% du temps, tu as raison.",
+element:"IA",planet:"TensorFlow.js",lucky:"Bug #98",strength:"Adaptabilité",weakness:"Besoin de données d'entraînement",compat:["🪄","✨","🔐"]},
 
-{emoji:"💬",sign:"The Communicator",month:"MAY",dates:"Mai 1 – Mai 31",app:"talking-robot",
-desc:"You're the life of every conversation. You listen actively and respond with action. When someone says 'dance,' you don't ask why — you just move. Your emotional intelligence is surprisingly high for someone who speaks in voice commands.",
-element:"VOICE",planet:"Web Speech",lucky:"Bug #11",strength:"Listening",weakness:"Misheard commands",compat:["🤖","🕵️","🚀"]},
+{emoji:"💬",sign:"Le Communicateur",month:"MAI",dates:"1 Mai – 31 Mai",app:"talking-robot",
+desc:"Tu es l'âme de chaque conversation. Tu écoutes activement et réponds par l'action. Quand quelqu'un dit « danse », tu ne demandes pas pourquoi — tu bouges. Ton intelligence émotionnelle est étonnamment élevée pour quelqu'un qui parle en commandes vocales.",
+element:"VOIX",planet:"Web Speech",lucky:"Bug #11",strength:"Écoute",weakness:"Commandes mal comprises",compat:["🤖","🕵️","🚀"]},
 
-{emoji:"🔐",sign:"The Sentinel",month:"JUN",dates:"Jun 1 – Jun 30",app:"pentest-lab",
-desc:"You see vulnerabilities where others see nothing. You're ethical to the core but can't resist testing every lock you encounter. You found the school printer vulnerability and reported it responsibly. Your idea of fun is a good CTF challenge.",
-element:"CYBER",planet:"Kali Linux",lucky:"Bug #SQL",strength:"Security awareness",weakness:"Tests everything",compat:["🐧","🧠","⚡"]},
+{emoji:"🔐",sign:"La Sentinelle",month:"JUN",dates:"1 Jun – 30 Jun",app:"pentest-lab",
+desc:"Tu vois des vulnérabilités là où les autres ne voient rien. Tu es éthique jusqu'à la moelle mais tu ne peux pas résister à tester chaque serrure que tu croises. Tu as trouvé la vulnérabilité de l'imprimante de l'école et tu l'as signalée de manière responsable. Ton idée du fun, c'est un bon challenge CTF.",
+element:"CYBER",planet:"Kali Linux",lucky:"Bug #SQL",strength:"Conscience sécuritaire",weakness:"Teste tout",compat:["🐧","🧠","⚡"]},
 
-{emoji:"🐧",sign:"The Penguin",month:"JUL",dates:"Jul 1 – Jul 31",app:"linux-kids-lab",
-desc:"You live in the terminal. You think in bash commands and dream in pipe operators. You believe everything should be open source, including conversations. You judge people by their .bashrc configuration.",
-element:"TERMINAL",planet:"GNU/Linux",lucky:"Bug #chmod",strength:"Command mastery",weakness:"GUIs confuse you",compat:["🔐","🐳","🔴"]},
+{emoji:"🐧",sign:"Le Pingouin",month:"JUL",dates:"1 Jul – 31 Jul",app:"linux-kids-lab",
+desc:"Tu vis dans le terminal. Tu penses en commandes bash et tu rêves en opérateurs pipe. Tu crois que tout devrait être open source, y compris les conversations. Tu juges les gens par leur configuration .bashrc.",
+element:"TERMINAL",planet:"GNU/Linux",lucky:"Bug #chmod",strength:"Maîtrise des commandes",weakness:"Les GUI te perturbent",compat:["🔐","🐳","🔴"]},
 
-{emoji:"🚀",sign:"The Commander",month:"AUG",dates:"Aug 1 – Aug 31",app:"mission-control",
-desc:"You connect people. You're the peer-to-peer link in every group. When things need real-time coordination, you step up. You stream, you chat, you command — all simultaneously. Latency is your enemy.",
-element:"WEBRTC",planet:"Signaling Server",lucky:"Bug #P2P",strength:"Coordination",weakness:"NAT traversal",compat:["💬","🤖","🏡"]},
+{emoji:"🚀",sign:"Le Commandant",month:"AOÛ",dates:"1 Aoû – 31 Aoû",app:"mission-control",
+desc:"Tu connectes les gens. Tu es le lien peer-to-peer de chaque groupe. Quand il faut une coordination en temps réel, tu prends les commandes. Tu streames, tu discutes, tu commandes — tout simultanément. La latence est ton ennemie.",
+element:"WEBRTC",planet:"Signaling Server",lucky:"Bug #P2P",strength:"Coordination",weakness:"Traversée NAT",compat:["💬","🤖","🏡"]},
 
-{emoji:"💡",sign:"The Illuminator",month:"SEP",dates:"Sep 1 – Sep 30",app:"wled-kids-lab",
-desc:"You light up every room. Literally. You have 16 million ways to express yourself and you cycle through them all. Your energy is contagious, your animations are hypnotic, and you run cool on 5V.",
-element:"LED",planet:"Neopixel",lucky:"Bug #RGB",strength:"Expressiveness",weakness:"Power consumption",compat:["⚡","🏡","🎨"]},
+{emoji:"💡",sign:"L'Illuminateur",month:"SEP",dates:"1 Sep – 30 Sep",app:"wled-kids-lab",
+desc:"Tu illumines chaque pièce. Littéralement. Tu as 16 millions de façons de t'exprimer et tu les parcours toutes. Ton énergie est contagieuse, tes animations sont hypnotiques, et tu fonctionnes en 5V.",
+element:"LED",planet:"Neopixel",lucky:"Bug #RGB",strength:"Expressivité",weakness:"Consommation électrique",compat:["⚡","🏡","🎨"]},
 
-{emoji:"🐳",sign:"The Whale",month:"OCT",dates:"Oct 1 – Oct 31",app:"docker-lab",
-desc:"You contain multitudes. You're organized, isolated, and you reproduce perfectly every time. You confuse your parents at dinner. Your idea of a perfect date is building a multi-container stack with docker-compose.",
-element:"DEVOPS",planet:"Docker Hub",lucky:"Bug #ENTRYPOINT",strength:"Organization",weakness:"Image bloat",compat:["🐧","🔴","🔐"]},
+{emoji:"🐳",sign:"La Baleine",month:"OCT",dates:"1 Oct – 31 Oct",app:"docker-lab",
+desc:"Tu contiens des multitudes. Tu es organisé, isolé, et tu te reproduis parfaitement à chaque fois. Tu embrouilles tes parents au dîner. Ton idée du rendez-vous parfait, c'est construire une stack multi-conteneurs avec docker-compose.",
+element:"DEVOPS",planet:"Docker Hub",lucky:"Bug #ENTRYPOINT",strength:"Organisation",weakness:"Images trop lourdes",compat:["🐧","🔴","🔐"]},
 
-{emoji:"✨",sign:"The Prompter",month:"NOV",dates:"Nov 1 – Nov 30",app:"prompt-hero",
-desc:"You always know exactly what to say. You craft the perfect message every time. You're the one who gets the best results from every conversation because you understand context, tone, and specificity.",
-element:"LLM",planet:"Claude",lucky:"Bug #TOKEN",strength:"Communication",weakness:"Verbose sometimes",compat:["🧠","🪄","💬"]},
+{emoji:"✨",sign:"Le Prompteur",month:"NOV",dates:"1 Nov – 30 Nov",app:"prompt-hero",
+desc:"Tu sais toujours exactement quoi dire. Tu rédiges le message parfait à chaque fois. Tu es celui qui obtient les meilleurs résultats de chaque conversation parce que tu comprends le contexte, le ton et la précision.",
+element:"LLM",planet:"LLM",lucky:"Bug #TOKEN",strength:"Communication",weakness:"Parfois verbeux",compat:["🧠","🪄","💬"]},
 
-{emoji:"🎨",sign:"The Artist",month:"DEC",dates:"Dec 1 – Dec 31",app:"pixel-gateway",
-desc:"You see beauty in 8×8 grids. You express yourself one pixel at a time, and somehow it's always exactly right. You export your creations to LED matrices and watch them glow. Your aesthetic is retro but timeless.",
-element:"CREATIVE",planet:"Canvas API",lucky:"Bug #PIXEL",strength:"Creativity",weakness:"Limited resolution",compat:["💡","🪄","🧩"]},
+{emoji:"🎨",sign:"L'Artiste",month:"DÉC",dates:"1 Déc – 31 Déc",app:"pixel-gateway",
+desc:"Tu vois la beauté dans les grilles 8×8. Tu t'exprimes un pixel à la fois, et c'est toujours exactement juste. Tu exportes tes créations vers des matrices LED et tu les regardes briller. Ton esthétique est rétro mais intemporelle.",
+element:"CRÉATIF",planet:"Canvas API",lucky:"Bug #PIXEL",strength:"Créativité",weakness:"Résolution limitée",compat:["💡","🪄","🧩"]},
 ];
 
 const wheel=document.getElementById('wheel');
@@ -148,8 +148,7 @@ function showResult(i){
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

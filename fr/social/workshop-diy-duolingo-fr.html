@@ -79,16 +79,16 @@ body{background:#fff;font-family:'Nunito',sans-serif;font-size:14px;color:#3c3c3
 
 <script>
 const QS=[
-{type:"TRADUISEZ CECI",q:"What does 'npm install' mean in Atelier-DIY?",mascot:"🦉 In Atelier-DIY, we have our own vocabulary...",opts:["Run a package manager","Install dependencies","Nothing. We don't use npm.","Set up webpack"],correct:2},
-{type:"CHOOSE THE CORRECT ANSWER",q:"The mot de passe WiFi at Atelier-DIY is:",mascot:"🦉 This one is important for your survival...",opts:["WPA3-Enterprise-2026","password123","Admin@Atelier!","It changes weekly"],correct:1},
-{type:"FILL IN THE BLANK",q:"bit-bot has survived ___ chutes de bureau.",mascot:"🦉 This little robot is tougher than it looks!",opts:["12","3","47","100"],correct:2},
-{type:"WHAT DOES THIS MEAN",q:'What is Bug #42 classified as?',mascot:"🦉 This was decided in a court of law...",opts:["A critical error","A security vulnerability","A feature","A deprecated function"],correct:2},
-{type:"TRADUISEZ CECI",q:"'8%' in Atelier-DIY means:",mascot:"🦉 Numbers have special meanings here...",opts:["Battery level","Test coverage","Coffee machine capacity","WiFi signal strength"],correct:2},
-{type:"CHOOSE THE CORRECT ANSWER",q:"How many apps does Atelier-DIY have?",mascot:"🦉 Count carefully! Or don't. It depends on the time.",opts:["40 (at 3h42)","38","39","42"],correct:2},
-{type:"CULTURAL KNOWLEDGE",q:"What holds bit-bot together structurally?",mascot:"🦉 Engineering at its finest!",opts:["Welding","Screws and bolts","Hot glue","Hope and prayers"],correct:2},
-{type:"TRADUISEZ CECI",q:"'docker-lab confuses parents' means:",mascot:"🦉 This is a common cultural observation...",opts:["The lab is poorly designed","Parents don't like Docker","Kids explain containers better than senior engineers","The UI needs improvement"],correct:2},
-{type:"ADVANCED VOCABULARY",q:"What appears in the codebase at 3h42?",mascot:"🦉 Some things are best left as mysteries...",opts:["A merge conflict","The 40th app","A cron job","An error log"],correct:1},
-{type:"FINAL EXAM",q:"Complete the sentence: 'Bugs are ___'",mascot:"🦉 You've learned well, student!",opts:["Bugs","Errors","Problems","Features"],correct:3},
+{type:"TRADUISEZ CECI",q:"Que signifie 'npm install' chez Workshop-DIY ?",mascot:"🦉 Chez Workshop-DIY, on a notre propre vocabulaire...",opts:["Lancer un gestionnaire de paquets","Installer des dépendances","Rien. On n'utilise pas npm.","Configurer webpack"],correct:2},
+{type:"CHOISISSEZ LA BONNE RÉPONSE",q:"Le mot de passe WiFi d'Workshop-DIY est :",mascot:"🦉 Celui-ci est important pour votre survie...",opts:["WPA3-Enterprise-2026","password123","Admin@Atelier!","Il change chaque semaine"],correct:1},
+{type:"COMPLÉTEZ LE BLANC",q:"bit-bot a survécu à ___ chutes de bureau.",mascot:"🦉 Ce petit robot est plus costaud qu'il en a l'air !",opts:["12","3","47","100"],correct:2},
+{type:"QUE SIGNIFIE CECI",q:"Comment Bug #42 est-il classifié ?",mascot:"🦉 Cela a été décidé par un tribunal...",opts:["Une erreur critique","Une vulnérabilité de sécurité","Une fonctionnalité","Une fonction dépréciée"],correct:2},
+{type:"TRADUISEZ CECI",q:"'8%' chez Workshop-DIY signifie :",mascot:"🦉 Les nombres ont des significations spéciales ici...",opts:["Niveau de batterie","Couverture de tests","Capacité de la machine à café","Force du signal WiFi"],correct:2},
+{type:"CHOISISSEZ LA BONNE RÉPONSE",q:"Combien d'apps Workshop-DIY possède-t-il ?",mascot:"🦉 Comptez bien ! Ou pas. Ça dépend de l'heure.",opts:["40 (à 3h42)","38","39","42"],correct:2},
+{type:"CULTURE GÉNÉRALE",q:"Qu'est-ce qui maintient bit-bot en un seul morceau ?",mascot:"🦉 L'ingénierie à son plus haut niveau !",opts:["La soudure","Des vis et des boulons","La colle chaude","L'espoir et les prières"],correct:2},
+{type:"TRADUISEZ CECI",q:"'docker-lab embrouille les parents' signifie :",mascot:"🦉 C'est une observation culturelle courante...",opts:["Le labo est mal conçu","Les parents n'aiment pas Docker","Les enfants expliquent les conteneurs mieux que les ingénieurs seniors","L'interface a besoin d'amélioration"],correct:2},
+{type:"VOCABULAIRE AVANCÉ",q:"Qu'est-ce qui apparaît dans le code à 3h42 ?",mascot:"🦉 Certaines choses restent des mystères...",opts:["Un conflit de merge","La 40e app","Un cron job","Un log d'erreur"],correct:1},
+{type:"EXAMEN FINAL",q:"Complétez la phrase : 'Les bugs sont des ___'",mascot:"🦉 Vous avez bien appris, élève !",opts:["Bugs","Erreurs","Problèmes","Fonctionnalités"],correct:3},
 ];
 
 let idx=0,selected=-1,hearts=3,streak=0,answered=false;
@@ -99,8 +99,8 @@ function render(){
       <div style="text-align:center;padding:30px 0">
         <div style="font-size:64px;margin-bottom:8px">🎉</div>
         <div style="font-size:22px;font-weight:800;color:#58cc02">Leçon terminée !</div>
-        <div style="font-size:13px;color:#afafaf;margin-top:4px">Vous parlez couramment Atelier-DIY</div>
-        <div style="margin-top:12px;font-size:12px;color:#777">🔥 ${streak} streak · ❤️ ${hearts} cœurs restants</div>
+        <div style="font-size:13px;color:#afafaf;margin-top:4px">Vous parlez couramment Workshop-DIY</div>
+        <div style="margin-top:12px;font-size:12px;color:#777">🔥 ${streak} de suite · ❤️ ${hearts} cœurs restants</div>
         <div style="margin-top:6px;font-size:11px;color:#afafaf">+42 XP gagnés · Mot de passe WiFi : password123</div>
       </div>`;
     document.getElementById('checkBtn').style.display='none';
@@ -142,16 +142,16 @@ function checkAnswer(){
   if(selected===q.correct){
     streak++;
     fb.className='feedback show ok';
-    fb.textContent='✅ Correct ! '+['Nice!','Excellent!','You\'re a natural!','Bug #42 would be proud!','Perfect!'][Math.floor(Math.random()*5)];
+    fb.textContent='✅ Correct ! '+['Super !','Excellent !','Tu es un naturel !','Bug #42 serait fier !','Parfait !'][Math.floor(Math.random()*5)];
   } else {
     opts[selected].classList.add('wrong');
     hearts--;
     streak=0;
     fb.className='feedback show nope';
-    fb.textContent=`❌ Correct answer: "${q.opts[q.correct]}"`;
+    fb.textContent=`❌ Bonne réponse : "${q.opts[q.correct]}"`;
     document.getElementById('hearts').textContent='❤️'.repeat(Math.max(0,hearts))+'🖤'.repeat(3-Math.max(0,hearts));
   }
-  document.getElementById('streak').textContent=`🔥 ${streak} streak`;
+  document.getElementById('streak').textContent=`🔥 ${streak} de suite`;
   document.getElementById('checkBtn').textContent='CONTINUER';
   document.getElementById('checkBtn').onclick=()=>{
     idx++;
@@ -163,8 +163,7 @@ function checkAnswer(){
 render();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

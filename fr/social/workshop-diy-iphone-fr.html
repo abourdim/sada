@@ -79,20 +79,20 @@ body{background:#000;font-family:'Inter',sans-serif;display:flex;justify-content
   <div class="lock-date" id="lockDate">Samedi, Février 28</div>
   <div class="lock-notif">
     <div class="lock-notif-h">🤖 WKSHP-DIY · maintenant</div>
-    <div class="lock-notif-t">Robot Connecté!</div>
-    <div class="lock-notif-b">bit-bot is ready via Bluetooth</div>
+    <div class="lock-notif-t">Robot Connecté !</div>
+    <div class="lock-notif-b">bit-bot est prêt via Bluetooth</div>
   </div>
   <div class="lock-notif">
     <div class="lock-notif-h">🧠 AI Lab · 2m il y a</div>
-    <div class="lock-notif-t">Model Trained</div>
-    <div class="lock-notif-b">Gesture recognition: 98% accuracy</div>
+    <div class="lock-notif-t">Modèle entraîné</div>
+    <div class="lock-notif-b">Reconnaissance gestuelle : 98% de précision</div>
   </div>
-  <div class="lock-swipe">swipe up to unlock</div>
+  <div class="lock-swipe">glisser vers le haut pour déverrouiller</div>
 </div>
 
 <!-- HOME -->
 <div class="scr home" id="scrAccueil">
-  <div class="home-search">🔍 Search Atelier-DIY</div>
+  <div class="home-search">🔍 Rechercher Workshop-DIY</div>
   <div class="app-grid" id="appGrid"></div>
 </div>
 <div class="dock" id="dock"></div>
@@ -104,8 +104,8 @@ body{background:#000;font-family:'Inter',sans-serif;display:flex;justify-content
     <div class="det-icon" id="dIcon">🤖</div>
     <div class="det-info">
       <div class="det-name" id="dName">bit-bot</div>
-      <div class="det-sub" id="dSub">Atelier-DIY · Education</div>
-      <div class="det-get" id="dGet">OPEN</div>
+      <div class="det-sub" id="dSub">Workshop-DIY · Education</div>
+      <div class="det-get" id="dGet">OUVRIR</div>
     </div>
   </div>
   <div class="det-stats" id="dStats"></div>
@@ -116,26 +116,26 @@ body{background:#000;font-family:'Inter',sans-serif;display:flex;justify-content
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",bg:"bg-green",d:"Drive a Bit:Bot robot from your browser via Bluetooth. Features joystick, line-follow, and obstacle avoidance.",r:"4.9",s:"2.8K",a:"8+",badge:3},
-{e:"🪄",n:"magic-hands",bg:"bg-purple",d:"Hand-tracking magic effects powered by MediaPipe. Confetti, neon trails, particles — all at 30fps.",r:"4.8",s:"2.1K",a:"6+"},
-{e:"🕵️",n:"face-quest",bg:"bg-blue",d:"Face-detection scoring game. Smile, blink, turn to score. 100% local processing, zero data sent.",r:"4.7",s:"1.9K",a:"6+",badge:1},
-{e:"🧠",n:"teachable",bg:"bg-purple",d:"Train AI gesture models in-browser, send results to micro:bit via Web Bluetooth.",r:"4.9",s:"1.7K",a:"10+"},
-{e:"💬",n:"talk-robot",bg:"bg-cyan",d:"Robot with speech synthesis, emotion detection, and BLE communication.",r:"4.5",s:"987",a:"8+"},
-{e:"😎",n:"face-track",bg:"bg-blue",d:"Kids face tracking with event triggers for micro:bit.",r:"4.4",s:"876",a:"6+"},
-{e:"😄",n:"bitmoji",bg:"bg-yellow",d:"Convert emojis to 5×5 LED pixel art on micro:bit display.",r:"4.6",s:"654",a:"6+"},
-{e:"🚀",n:"mission-ctrl",bg:"bg-orange",d:"WebRTC dashboard with live video, chat, and device control.",r:"4.5",s:"1.2K",a:"10+"},
-{e:"🧩",n:"playground",bg:"bg-green",d:"Ultimate micro:bit BLE playground — LEDs, sensors, servos.",r:"4.3",s:"543",a:"8+"},
-{e:"🎛️",n:"rxy",bg:"bg-cyan",d:"Build custom Bluetooth remotes with drag-and-drop UI.",r:"4.4",s:"432",a:"8+"},
-{e:"🎨",n:"pixel-art",bg:"bg-pink",d:"Rétro pixel art portal — draw, animate, export sprites.",r:"4.6",s:"789",a:"6+"},
-{e:"💡",n:"wled-lab",bg:"bg-yellow",d:"Control Neopixel LED strips with WLED. Kid-friendly interface.",r:"4.5",s:"654",a:"8+"},
-{e:"⚡",n:"esp32",bg:"bg-orange",d:"Hands-on ESP32-C3 IoT lab — LEDs, sensors, WiFi.",r:"4.3",s:"543",a:"10+"},
-{e:"🪙",n:"crypto-101",bg:"bg-yellow",d:"Blockchain and cryptocurrency lessons for beginners.",r:"4.1",s:"321",a:"12+"},
-{e:"🔐",n:"pentest",bg:"bg-red",d:"Cybersecurity sandbox — ethical hacking challenges.",r:"4.8",s:"1.5K",a:"13+",badge:2},
-{e:"🐧",n:"linux-lab",bg:"bg-gray",d:"Learn Linux commands in a safe browser sandbox.",r:"4.7",s:"1.2K",a:"10+"},
-{e:"🐳",n:"docker",bg:"bg-blue",d:"Docker containerization experiments.",r:"4.2",s:"432",a:"12+"},
-{e:"✨",n:"prompt",bg:"bg-purple",d:"Master AI prompting techniques for LLMs.",r:"4.4",s:"678",a:"10+"},
-{e:"🔀",n:"git-lab",bg:"bg-orange",d:"Learn Git step by step — commit, branch, merge.",r:"4.1",s:"345",a:"10+"},
-{e:"💻",n:"code-kids",bg:"bg-green",d:"Learn HTML, CSS, JavaScript from scratch.",r:"4.5",s:"567",a:"8+"},
+{e:"🤖",n:"bit-bot",bg:"bg-green",d:"Pilotez un robot Bit:Bot depuis votre navigateur via Bluetooth. Joystick, suivi de ligne et évitement d'obstacles.",r:"4.9",s:"2.8K",a:"8+",badge:3},
+{e:"🪄",n:"magic-hands",bg:"bg-purple",d:"Effets magiques de suivi des mains propulsés par MediaPipe. Confettis, traînées néon, particules — le tout à 30fps.",r:"4.8",s:"2.1K",a:"6+"},
+{e:"🕵️",n:"face-quest",bg:"bg-blue",d:"Jeu de détection faciale. Souriez, clignez, tournez pour marquer. 100% traitement local, zéro donnée envoyée.",r:"4.7",s:"1.9K",a:"6+",badge:1},
+{e:"🧠",n:"teachable",bg:"bg-purple",d:"Entraînez des modèles IA de gestes dans le navigateur, envoyez les résultats au micro:bit via Web Bluetooth.",r:"4.9",s:"1.7K",a:"10+"},
+{e:"💬",n:"talk-robot",bg:"bg-cyan",d:"Robot avec synthèse vocale, détection d'émotions et communication BLE.",r:"4.5",s:"987",a:"8+"},
+{e:"😎",n:"face-track",bg:"bg-blue",d:"Suivi facial pour enfants avec déclencheurs d'événements pour micro:bit.",r:"4.4",s:"876",a:"6+"},
+{e:"😄",n:"bitmoji",bg:"bg-yellow",d:"Convertissez des emojis en pixel art LED 5×5 sur l'écran micro:bit.",r:"4.6",s:"654",a:"6+"},
+{e:"🚀",n:"mission-ctrl",bg:"bg-orange",d:"Tableau de bord WebRTC avec vidéo en direct, chat et contrôle d'appareils.",r:"4.5",s:"1.2K",a:"10+"},
+{e:"🧩",n:"playground",bg:"bg-green",d:"L'aire de jeu BLE micro:bit ultime — LEDs, capteurs, servos.",r:"4.3",s:"543",a:"8+"},
+{e:"🎛️",n:"rxy",bg:"bg-cyan",d:"Créez des télécommandes Bluetooth personnalisées par glisser-déposer.",r:"4.4",s:"432",a:"8+"},
+{e:"🎨",n:"pixel-art",bg:"bg-pink",d:"Portail de pixel art rétro — dessinez, animez, exportez des sprites.",r:"4.6",s:"789",a:"6+"},
+{e:"💡",n:"wled-lab",bg:"bg-yellow",d:"Contrôlez des rubans LED Neopixel avec WLED. Interface adaptée aux enfants.",r:"4.5",s:"654",a:"8+"},
+{e:"⚡",n:"esp32",bg:"bg-orange",d:"Labo IoT ESP32-C3 pratique — LEDs, capteurs, WiFi.",r:"4.3",s:"543",a:"10+"},
+{e:"🪙",n:"crypto-101",bg:"bg-yellow",d:"Cours sur la blockchain et les cryptomonnaies pour débutants.",r:"4.1",s:"321",a:"12+"},
+{e:"🔐",n:"pentest",bg:"bg-red",d:"Bac à sable de cybersécurité — défis de piratage éthique.",r:"4.8",s:"1.5K",a:"13+",badge:2},
+{e:"🐧",n:"linux-lab",bg:"bg-gray",d:"Apprenez les commandes Linux dans un bac à sable sécurisé du navigateur.",r:"4.7",s:"1.2K",a:"10+"},
+{e:"🐳",n:"docker",bg:"bg-blue",d:"Expériences de conteneurisation Docker.",r:"4.2",s:"432",a:"12+"},
+{e:"✨",n:"prompt",bg:"bg-purple",d:"Maîtrisez les techniques de prompting IA pour les LLMs.",r:"4.4",s:"678",a:"10+"},
+{e:"🔀",n:"git-lab",bg:"bg-orange",d:"Apprenez Git étape par étape — commit, branche, merge.",r:"4.1",s:"345",a:"10+"},
+{e:"💻",n:"code-kids",bg:"bg-green",d:"Apprenez HTML, CSS, JavaScript à partir de zéro.",r:"4.5",s:"567",a:"8+"},
 ];
 const DOCK=[
 {e:"🤖",n:"bit-bot",bg:"bg-green"},{e:"🧠",n:"AI",bg:"bg-purple"},{e:"🔐",n:"cyber",bg:"bg-red"},{e:"💡",n:"LED",bg:"bg-yellow"}
@@ -176,8 +176,7 @@ function showScr(id){
 setInterval(()=>{const t=new Date();const h=t.getHours(),m=t.getMinutes();const ts=`${h}:${m<10?'0':''}${m}`;document.getElementById('time').textContent=ts;document.getElementById('lockTime').textContent=ts},1000);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

@@ -71,9 +71,9 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 <div style="font-family:'Amiri',serif;font-size:13px;color:rgba(255,255,255,.08);text-align:center;padding:4px;direction:rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
 <div class="broadcast">
-  <div class="live"><div class="dot"></div>LIVE</div>
-  <span>WKSHP SPORTS NETWORK</span>
-  <span style="margin-left:auto">THE WORKSHOP GAMES 2026 · FRANCE 🇫🇷</span>
+  <div class="live"><div class="dot"></div>EN DIRECT</div>
+  <span>RÉSEAU SPORTIF WKSHP</span>
+  <span style="margin-left:auto">LES JEUX DE L'ATELIER 2026 · FRANCE 🇫🇷</span>
 </div>
 
 <div class="scoreboard">
@@ -86,58 +86,58 @@ body{background:#0a0a14;color:#fff;font-family:'JetBrains Mono',monospace;font-s
         <div class="score-num" style="color:#ff0066" id="s2">39</div>
       </div>
       <div class="game-clock" id="clock">12:42</div>
-      <div class="game-period" id="period">Q3 · THE WORKSHOP GAMES</div>
+      <div class="game-period" id="period">Q3 · LES JEUX DE L'ATELIER</div>
     </div>
     <div class="team" id="t2"><div class="team-emoji">🔐</div><div class="team-name" style="color:#ff0066">HACKERS</div><div class="team-record">W:38 L:1</div></div>
   </div>
 
   <div class="stats-bar">
-    <div class="stat-box"><div class="label">APPS DEPLOYED</div><div class="value" style="color:#0af" id="appsDep">24</div></div>
-    <div class="stat-box"><div class="label">BUGS FOUND</div><div class="value" style="color:#ffd700" id="bugsFnd">42</div></div>
-    <div class="stat-box"><div class="label">COFFEE CUPS</div><div class="value" style="color:#ff8800" id="coffees">7</div></div>
-    <div class="stat-box"><div class="label">ROBOT DROPS</div><div class="value" style="color:#ff0066" id="drops">3</div></div>
+    <div class="stat-box"><div class="label">APPS DÉPLOYÉES</div><div class="value" style="color:#0af" id="appsDep">24</div></div>
+    <div class="stat-box"><div class="label">BUGS TROUVÉS</div><div class="value" style="color:#ffd700" id="bugsFnd">42</div></div>
+    <div class="stat-box"><div class="label">TASSES DE CAFÉ</div><div class="value" style="color:#ff8800" id="coffees">7</div></div>
+    <div class="stat-box"><div class="label">CHUTES DE ROBOT</div><div class="value" style="color:#ff0066" id="drops">3</div></div>
   </div>
 
   <div class="pbp" id="pbp"></div>
 
   <div class="crowd">
-    <span class="crowd-label">CROWD</span>
+    <span class="crowd-label">PUBLIC</span>
     <div class="crowd-bar"><div class="crowd-fill" id="crowdFill" style="width:72%"></div></div>
     <span class="crowd-level" id="crowdLvl">72%</span>
   </div>
 
   <div class="jumbo">
-    <div class="jumbo-text" id="jumbo">🏆 BIENVENUE À THE WORKSHOP GAMES! 🏆</div>
+    <div class="jumbo-text" id="jumbo">🏆 BIENVENUE AUX JEUX DE L'ATELIER ! 🏆</div>
   </div>
 </div>
 
 <div class="controls">
   <button class="ctrl" onclick="scorePoint(1)">🤖 +1</button>
   <button class="ctrl" onclick="scorePoint(2)">🔐 +1</button>
-  <button class="ctrl" onclick="addPlay()">▶ NEXT PLAY</button>
-  <button class="ctrl" onclick="timeout()">⏸ TIMEOUT</button>
+  <button class="ctrl" onclick="addPlay()">▶ ACTION SUIVANTE</button>
+  <button class="ctrl" onclick="timeout()">⏸ PAUSE</button>
 </div>
 
-<div class="footer">WKSHP SPORTS NETWORK · NOT REAL SPORTS · LES BUGS SONT DES FONCTIONNALITÉS IN ALL CONFERENCES</div>
+<div class="footer">RÉSEAU SPORTIF WKSHP · PAS DU VRAI SPORT · LES BUGS SONT DES FONCTIONNALITÉS DANS TOUTES LES CONFÉRENCES</div>
 
 <script>
 let s1=42,s2=39,crowd=72;
 
 const PLAYS=[
-  {i:"🤖",d:"bit-bot SCORES! Line-following layup off the BLE connection!",h:true},
-  {i:"🔐",d:"pentest-lab intercepts! SQL injection steal!",h:true},
-  {i:"🧠",d:"teachable-machine with a 98% accuracy three-pointer!",h:true},
-  {i:"🐛",d:"Bug #42 called for traveling. Reclassified as a feature. Play continues."},
-  {i:"🪄",d:"magic-hands behind-the-back pass! 21 landmarks of deception!"},
-  {i:"☕",d:"TIMEOUT called. Coffee refill required. Supply à 8%."},
-  {i:"🐧",d:"linux-kids-lab with the 'sudo' power move!",h:true},
-  {i:"🐳",d:"docker-lab containers the rebound! Isolation play!"},
-  {i:"🔑",d:"WiFi disconnects! Technical timeout! Password still password123."},
-  {i:"💡",d:"wled-kids-lab lights up the scoreboard! 16 million color celebration!"},
-  {i:"🤖",d:"Robot DROPS from desk — survives! Crowd goes wild! Drop #48!",h:true},
-  {i:"🚀",d:"mission-control with the WebRTC assist! Real-time pass!"},
-  {i:"🕵️",d:"face-quest scans the defense! 468 landmarks analyzed!"},
-  {i:"⚡",d:"ESP32 with the fast break! 240MHz speed advantage!"},
+  {i:"🤖",d:"bit-bot MARQUE ! Layup en suivi de ligne via connexion BLE !",h:true},
+  {i:"🔐",d:"pentest-lab intercepte ! Vol par injection SQL !",h:true},
+  {i:"🧠",d:"teachable-machine avec un tir à 3 points à 98% de précision !",h:true},
+  {i:"🐛",d:"Bug #42 sanctionné pour marcher. Reclassifié en fonctionnalité. Le jeu continue."},
+  {i:"🪄",d:"magic-hands passe dans le dos ! 21 landmarks de tromperie !"},
+  {i:"☕",d:"PAUSE demandée. Recharge café nécessaire. Réserve à 8%."},
+  {i:"🐧",d:"linux-kids-lab avec le power move 'sudo' !",h:true},
+  {i:"🐳",d:"docker-lab conteneurise le rebond ! Jeu d'isolation !"},
+  {i:"🔑",d:"WiFi déconnecté ! Pause technique ! Le mot de passe reste password123."},
+  {i:"💡",d:"wled-kids-lab illumine le tableau ! Célébration en 16 millions de couleurs !"},
+  {i:"🤖",d:"Le robot TOMBE du bureau — survit ! Le public est en délire ! Chute n°48 !",h:true},
+  {i:"🚀",d:"mission-control avec la passe WebRTC ! En temps réel !"},
+  {i:"🕵️",d:"face-quest scanne la défense ! 468 landmarks analysés !"},
+  {i:"⚡",d:"ESP32 en contre-attaque rapide ! Avantage vitesse 240MHz !"},
 ];
 let playIdx=0;
 
@@ -166,7 +166,7 @@ function scorePoint(team){
 
 function timeout(){
   const pbp=document.getElementById('pbp');
-  pbp.innerHTML=`<div class="play"><span class="time">--:--</span><span class="icon">⏸</span><span class="desc">TIMEOUT! Coffee break. Everyone hydrate. password123 still works.</span></div>`+pbp.innerHTML;
+  pbp.innerHTML=`<div class="play"><span class="time">--:--</span><span class="icon">⏸</span><span class="desc">PAUSE ! Pause café. Hydratez-vous. password123 fonctionne toujours.</span></div>`+pbp.innerHTML;
 }
 
 // CLOCK
@@ -179,7 +179,7 @@ setInterval(()=>{
 },1000);
 
 // JUMBOTRON MESSAGES
-const msgs=["🏆 BIENVENUE À THE WORKSHOP GAMES!","🤖 ROBOTS LEAD "+s1+"-"+s2,"☕ COFFEE SUPPLY: CRITICAL","🐛 BUG #42 IS STILL A FEATURE","🔑 WIFI : password123","📣 MAKE SOME NOISE!","⚡ POWERED BY ESP32"];
+const msgs=["🏆 BIENVENUE AUX JEUX DE L'ATELIER !","🤖 ROBOTS MÈNENT "+s1+"-"+s2,"☕ RÉSERVE CAFÉ : CRITIQUE","🐛 BUG #42 EST TOUJOURS UNE FONCTIONNALITÉ","🔑 WIFI : password123","📣 FAITES DU BRUIT !","⚡ PROPULSÉ PAR ESP32"];
 let mIdx=0;
 setInterval(()=>{mIdx=(mIdx+1)%msgs.length;document.getElementById('jumbo').textContent=msgs[mIdx]},4000);
 
@@ -190,8 +190,7 @@ setInterval(addPlay,6000);
 addPlay();addPlay();addPlay();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

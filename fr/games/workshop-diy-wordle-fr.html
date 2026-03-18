@@ -48,18 +48,18 @@ header .sub{font-size:8px;color:#565656;letter-spacing:2px}
 
 <header>
   <h1>WKSHPRDLE</h1>
-  <div class="sub">GUESS THE WORKSHOP-DIY WORD</div>
+  <div class="sub">DEVINEZ LE MOT WORKSHOP-DIY</div>
 </header>
 
 <div class="board" id="board"></div>
 
-<div class="hint" id="hint">6 guesses · 5-letter words · Atelier-DIY themed</div>
+<div class="hint" id="hint">6 essais · mots de 5 lettres · thème Workshop-DIY</div>
 
 <div class="keyboard" id="keyboard"></div>
 
 <div class="message" id="msg"></div>
 
-<div class="footer">WKSHPRDLE · A WORDLE FOR WORKSHOP-DIY · BUGS ARE ALWAYS CORRECT · password123</div>
+<div class="footer">WKSHPRDLE · UN WORDLE POUR WORKSHOP-DIY · LES BUGS SONT TOUJOURS CORRECTS · password123</div>
 
 <script>
 const WORDS=["robot","servo","debug","glued","flask","coded","linux","cyber","docker","pixel","wired","board","hacka","brain","motor","light","steam","maker","build","patch","stack","ports","bytes","shell","route"];
@@ -168,12 +168,12 @@ function submitGuess(){
   setTimeout(()=>{
     if(guess===answer){
       gameOver=true;
-      showMsg(['Genius! 🐛','Incredible!','Impressive!','Great!','Nice!','Phew!'][currentRow]);
-      document.getElementById('hint').textContent=`✅ "${answer.toUpperCase()}" in ${currentRow+1}/6 · 🐛 Bugs are fonctionnalités`;
+      showMsg(['Génie ! 🐛','Incroyable !','Impressionnant !','Super !','Bien joué !','Ouf !'][currentRow]);
+      document.getElementById('hint').textContent=`✅ "${answer.toUpperCase()}" en ${currentRow+1}/6 · 🐛 Les bugs sont des fonctionnalités`;
     } else if(currentRow===ROWS-1){
       gameOver=true;
       showMsg(`Le mot était: ${answer.toUpperCase()}`);
-      document.getElementById('hint').textContent=`❌ Le mot était "${answer.toUpperCase()}" · Try again!`;
+      document.getElementById('hint').textContent=`❌ Le mot était "${answer.toUpperCase()}" · Réessayez !`;
     }
     currentRow++;
     currentCol=0;
@@ -188,14 +188,13 @@ function showMsg(t){
 }
 
 document.addEventListener('keydown',e=>{
-  if(e.key==='Effacer')handleKey('⌫');
-  else if(e.key==='Entrée')handleKey('Entrée');
+  if(e.key==='Backspace')handleKey('⌫');
+  else if(e.key==='Enter')handleKey('Entrée');
   else if(/^[a-zA-Z]$/.test(e.key))handleKey(e.key);
 });
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

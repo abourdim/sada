@@ -79,8 +79,7 @@ const flakes=[];for(let i=0;i<60;i++)flakes.push({x:Math.random()*2000,y:Math.ra
 (function draw(){requestAnimationFrame(draw);ctx.clearRect(0,0,W,H);flakes.forEach(f=>{f.y+=f.s;f.x+=Math.sin(f.w+=.01)*.3;if(f.y>H)f.y=-5;if(f.x>W)f.x=0;if(f.x<0)f.x=W;ctx.beginPath();ctx.arc(f.x%W,f.y,f.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.15)';ctx.fill()})})();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

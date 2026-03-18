@@ -212,8 +212,7 @@ let prog=35;
 setInterval(()=>{if(isPlaying){prog=(prog+0.5)%100;document.getElementById('plFill').style.width=prog+'%';const m=Math.floor(prog*2.2/60),s=Math.floor(prog*2.2%60);document.getElementById('plTime').textContent=m+':'+(s<10?'0':'')+s}},500);
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

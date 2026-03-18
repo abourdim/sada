@@ -83,9 +83,9 @@ body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSyst
 <div class="featured" onclick="scrollToId('top5')">
   <div class="feat-emoji">🤖</div>
   <div class="feat-content">
-    <div class="feat-cat">Collection of the Year</div>
-    <div class="feat-title">Atelier-DIY</div>
-    <div class="feat-sub">39 apps that teach robots, AI, code & more</div>
+    <div class="feat-cat">Collection de l'année</div>
+    <div class="feat-title">Workshop-DIY</div>
+    <div class="feat-sub">39 apps qui enseignent la robotique, l'IA, le code & plus</div>
   </div>
 </div>
 
@@ -94,19 +94,19 @@ body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSyst
 
 <!-- FEATURED APPS -->
 <div class="section">
-  <div class="section-h"><h2>Must-Have Apps</h2><a href="#">See All</a></div>
+  <div class="section-h"><h2>Apps indispensables</h2><a href="#">Voir tout</a></div>
   <div class="app-row" id="featuredApps"></div>
 </div>
 
 <!-- TOP CHARTS -->
 <div class="section" id="top5">
-  <div class="section-h"><h2>Top Classements — Gratuit</h2><a href="#">See All</a></div>
+  <div class="section-h"><h2>Top Classements — Gratuit</h2><a href="#">Voir tout</a></div>
   <div id="topClassements"></div>
 </div>
 
 <!-- NEW THIS WEEK -->
 <div class="section">
-  <div class="section-h"><h2>Nouveau This Week</h2></div>
+  <div class="section-h"><h2>Nouveautés de la semaine</h2></div>
   <div class="app-row" id="newApps"></div>
 </div>
 
@@ -114,7 +114,7 @@ body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSyst
 <div class="section">
   <div class="section-h"><h2>Notes & Avis</h2></div>
   <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
-    <div style="text-align:center"><div style="font-size:40px;font-weight:800">4.9</div><div class="stars">★★★★★</div><div style="font-size:10px;color:var(--t2)">847 ratings</div></div>
+    <div style="text-align:center"><div style="font-size:40px;font-weight:800">4.9</div><div class="stars">★★★★★</div><div style="font-size:10px;color:var(--t2)">847 évaluations</div></div>
     <div style="flex:1" id="ratingBars"></div>
   </div>
   <div id="revues"></div>
@@ -123,34 +123,34 @@ body{background:var(--bg);color:var(--t1);font-family:-apple-system,BlinkMacSyst
 <!-- NAV -->
 <div class="nav">
   <div class="nav-item on"><div class="icon">🏠</div><div class="label">Aujourd'hui</div></div>
-  <div class="nav-item"><div class="icon">🎮</div><div class="label">Games</div></div>
+  <div class="nav-item"><div class="icon">🎮</div><div class="label">Jeux</div></div>
   <div class="nav-item"><div class="icon">📱</div><div class="label">Apps</div></div>
   <div class="nav-item"><div class="icon">🔍</div><div class="label">Rechercher</div></div>
 </div>
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",d:"Drive robots via Bluetooth",dev:"Atelier-DIY",cat:"robo",r:5.0,dl:"2.8K"},
-{e:"🪄",n:"magic-hands",d:"Hand-tracking magic effects",dev:"Atelier-DIY",cat:"ai",r:4.9,dl:"2.1K"},
-{e:"🕵️",n:"face-quest",d:"Face detection scoring game",dev:"Atelier-DIY",cat:"cam",r:4.8,dl:"1.9K"},
-{e:"🧠",n:"teachable-machine",d:"Train AI gestures in browser",dev:"Atelier-DIY",cat:"ai",r:4.9,dl:"1.7K"},
-{e:"💬",n:"talking-robot",d:"Voice-controlled robot",dev:"Atelier-DIY",cat:"robo",r:4.7,dl:"1.3K"},
-{e:"😎",n:"face-tracking",d:"Face position tracker",dev:"Atelier-DIY",cat:"cam",r:4.6,dl:"1.1K"},
-{e:"🚀",n:"mission-control",d:"WebRTC command center",dev:"Atelier-DIY",cat:"tool",r:4.8,dl:"980"},
-{e:"🔐",n:"pentest-lab",d:"Cybersecurity sandbox",dev:"Atelier-DIY",cat:"cyber",r:4.9,dl:"1.5K"},
-{e:"🐧",n:"linux-kids-lab",d:"Linux in your browser",dev:"Atelier-DIY",cat:"learn",r:4.8,dl:"1.4K"},
-{e:"💡",n:"wled-kids-lab",d:"Neopixel LED control",dev:"Atelier-DIY",cat:"hw",r:4.7,dl:"890"},
-{e:"⚡",n:"esp32-c3-lab",d:"ESP32-C3 IoT lab",dev:"Atelier-DIY",cat:"hw",r:4.6,dl:"780"},
-{e:"🧩",n:"bit-playground",d:"micro:bit BLE playground",dev:"Atelier-DIY",cat:"robo",r:4.7,dl:"960"},
-{e:"🎨",n:"pixel-gateway",d:"Rétro pixel art editor",dev:"Atelier-DIY",cat:"learn",r:4.5,dl:"720"},
-{e:"🐳",n:"docker-lab",d:"Learn Docker basics",dev:"Atelier-DIY",cat:"learn",r:4.6,dl:"650"},
-{e:"🎛️",n:"rxy",d:"Custom BLE remote builder",dev:"Atelier-DIY",cat:"robo",r:4.5,dl:"540"},
-{e:"✨",n:"prompt-hero",d:"AI prompting playground",dev:"Atelier-DIY",cat:"ai",r:4.7,dl:"820"},
-{e:"🏡",n:"smart-home",d:"IoT dashboard sim",dev:"Atelier-DIY",cat:"hw",r:4.4,dl:"470"},
-{e:"🔗",n:"dhcp-lab",d:"DHCP server lab",dev:"Atelier-DIY",cat:"learn",r:4.3,dl:"380"},
+{e:"🤖",n:"bit-bot",d:"Pilotez des robots via Bluetooth",dev:"Workshop-DIY",cat:"robo",r:5.0,dl:"2,8K"},
+{e:"🪄",n:"magic-hands",d:"Effets magiques par suivi de mains",dev:"Workshop-DIY",cat:"ai",r:4.9,dl:"2,1K"},
+{e:"🕵️",n:"face-quest",d:"Jeu de détection faciale",dev:"Workshop-DIY",cat:"cam",r:4.8,dl:"1,9K"},
+{e:"🧠",n:"teachable-machine",d:"Entraînez des gestes IA dans le navigateur",dev:"Workshop-DIY",cat:"ai",r:4.9,dl:"1,7K"},
+{e:"💬",n:"talking-robot",d:"Robot à commande vocale",dev:"Workshop-DIY",cat:"robo",r:4.7,dl:"1,3K"},
+{e:"😎",n:"face-tracking",d:"Suivi de position du visage",dev:"Workshop-DIY",cat:"cam",r:4.6,dl:"1,1K"},
+{e:"🚀",n:"mission-control",d:"Centre de commande WebRTC",dev:"Workshop-DIY",cat:"tool",r:4.8,dl:"980"},
+{e:"🔐",n:"pentest-lab",d:"Bac à sable cybersécurité",dev:"Workshop-DIY",cat:"cyber",r:4.9,dl:"1,5K"},
+{e:"🐧",n:"linux-kids-lab",d:"Linux dans votre navigateur",dev:"Workshop-DIY",cat:"learn",r:4.8,dl:"1,4K"},
+{e:"💡",n:"wled-kids-lab",d:"Contrôle LED Neopixel",dev:"Workshop-DIY",cat:"hw",r:4.7,dl:"890"},
+{e:"⚡",n:"esp32-c3-lab",d:"Labo IoT ESP32-C3",dev:"Workshop-DIY",cat:"hw",r:4.6,dl:"780"},
+{e:"🧩",n:"bit-playground",d:"Terrain de jeu BLE micro:bit",dev:"Workshop-DIY",cat:"robo",r:4.7,dl:"960"},
+{e:"🎨",n:"pixel-gateway",d:"Éditeur rétro de pixel art",dev:"Workshop-DIY",cat:"learn",r:4.5,dl:"720"},
+{e:"🐳",n:"docker-lab",d:"Apprenez les bases de Docker",dev:"Workshop-DIY",cat:"learn",r:4.6,dl:"650"},
+{e:"🎛️",n:"rxy",d:"Constructeur de télécommande BLE",dev:"Workshop-DIY",cat:"robo",r:4.5,dl:"540"},
+{e:"✨",n:"prompt-hero",d:"Terrain de jeu prompting IA",dev:"Workshop-DIY",cat:"ai",r:4.7,dl:"820"},
+{e:"🏡",n:"smart-home",d:"Simulation tableau de bord IoT",dev:"Workshop-DIY",cat:"hw",r:4.4,dl:"470"},
+{e:"🔗",n:"dhcp-lab",d:"Labo serveur DHCP",dev:"Workshop-DIY",cat:"learn",r:4.3,dl:"380"},
 ];
 
-const CATS=[{n:"All",id:"all"},{n:"🤖 Robotics",id:"robo"},{n:"🧠 AI",id:"ai"},{n:"🔐 Cyber",id:"cyber"},{n:"💻 Learning",id:"learn"},{n:"⚡ Hardware",id:"hw"},{n:"📷 Camera",id:"cam"},{n:"🧰 Tools",id:"tool"}];
+const CATS=[{n:"Tout",id:"all"},{n:"🤖 Robotique",id:"robo"},{n:"🧠 IA",id:"ai"},{n:"🔐 Cyber",id:"cyber"},{n:"💻 Apprentissage",id:"learn"},{n:"⚡ Matériel",id:"hw"},{n:"📷 Caméra",id:"cam"},{n:"🧰 Outils",id:"tool"}];
 
 // PILLS
 const pills=document.getElementById('pills');
@@ -160,7 +160,7 @@ let currentFilter='all';
 function filterApps(cat){currentFilter=cat;renderAll()}
 
 function makeAppCard(a){
-  return `<div class="app-card"><div class="app-card-h"><div class="app-icon ${a.cat}">${a.e}</div><div class="app-info"><div class="name">${a.n}</div><div class="dev">${a.d}</div></div><button class="get-btn">GET</button></div><div class="app-meta"><span class="stars">${'★'.repeat(Math.round(a.r))}${'☆'.repeat(5-Math.round(a.r))}</span><span>${a.r}</span><span>·</span><span>${a.dl} downloads</span></div></div>`;
+  return `<div class="app-card"><div class="app-card-h"><div class="app-icon ${a.cat}">${a.e}</div><div class="app-info"><div class="name">${a.n}</div><div class="dev">${a.d}</div></div><button class="get-btn">OBTENIR</button></div><div class="app-meta"><span class="stars">${'★'.repeat(Math.round(a.r))}${'☆'.repeat(5-Math.round(a.r))}</span><span>${a.r}</span><span>·</span><span>${a.dl} téléchargements</span></div></div>`;
 }
 
 function renderAll(){
@@ -171,7 +171,7 @@ function renderAll(){
 
   // Top charts
   document.getElementById('topClassements').innerHTML=filtered.slice(0,5).map((a,i)=>
-    `<div class="app-list-item"><span class="app-rank">${i+1}</span><div class="app-icon ${a.cat}" style="width:40px;height:40px;border-radius:10px;font-size:18px">${a.e}</div><div class="app-info" style="flex:1"><div class="name" style="font-size:13px">${a.n}</div><div class="dev" style="font-size:10px;color:var(--t2)">${a.d}</div><div class="app-meta"><span class="stars">${'★'.repeat(Math.round(a.r))}</span><span style="font-size:10px;color:var(--t2)">${a.r} · ${a.dl}</span></div></div><button class="get-btn">GET</button></div>`
+    `<div class="app-list-item"><span class="app-rank">${i+1}</span><div class="app-icon ${a.cat}" style="width:40px;height:40px;border-radius:10px;font-size:18px">${a.e}</div><div class="app-info" style="flex:1"><div class="name" style="font-size:13px">${a.n}</div><div class="dev" style="font-size:10px;color:var(--t2)">${a.d}</div><div class="app-meta"><span class="stars">${'★'.repeat(Math.round(a.r))}</span><span style="font-size:10px;color:var(--t2)">${a.r} · ${a.dl}</span></div></div><button class="get-btn">OBTENIR</button></div>`
   ).join('');
 
   // New
@@ -185,18 +185,17 @@ document.getElementById('ratingBars').innerHTML=bars.map(b=>`<div style="display
 
 // REVIEWS
 const revs=[
-  {n:"CyberYassine",d:"Feb 2025",s:5,t:"These apps turned my kids into robot engineers. The bit-bot app is insanely fun. My 8-year-old won't stop coding now. Send help."},
-  {n:"MakerAmira",d:"Jan 2025",s:5,t:"magic-hands is mind-blowing. Hand tracking that works in a browser?! My students went crazy for it. All 39 apps are gems."},
-  {n:"LinuxLucas",d:"Dec 2024",s:5,t:"linux-kids-lab taught my students terminal commands in one session. The faux bash environment is shockingly realistic."},
-  {n:"RoboParent42",d:"Nov 2024",s:4,t:"Great collection. Only complaint: my kid now explains Docker to me and I'm a software engineer. Slightly humbling."},
+  {n:"CyberYassine",d:"Fév 2025",s:5,t:"Ces apps ont transformé mes enfants en ingénieurs robots. L'app bit-bot est incroyablement fun. Mon fils de 8 ans n'arrête plus de coder. Envoyez de l'aide."},
+  {n:"MakerAmira",d:"Jan 2025",s:5,t:"magic-hands est époustouflant. Du suivi de mains qui marche dans un navigateur ?! Mes élèves sont devenus fous. Les 39 apps sont des pépites."},
+  {n:"LinuxLucas",d:"Déc 2024",s:5,t:"linux-kids-lab a appris les commandes terminal à mes élèves en une seule session. L'environnement bash simulé est étonnamment réaliste."},
+  {n:"RoboParent42",d:"Nov 2024",s:4,t:"Super collection. Seule plainte : mon enfant m'explique Docker maintenant et je suis ingénieur logiciel. Légèrement humiliant."},
 ];
 document.getElementById('revues').innerHTML=revs.map(r=>`<div class="review"><div class="review-h"><span class="review-name">${r.n}</span><span class="review-date">${r.d}</span></div><div class="review-stars">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</div><div class="review-text">${r.t}</div></div>`).join('');
 
 function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

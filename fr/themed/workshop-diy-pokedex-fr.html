@@ -105,31 +105,31 @@ body{background:#1a0000;font-family:'JetBrains Mono',monospace;font-size:11px;co
 
 <script>
 const APPS=[
-{e:"🤖",n:"bit-bot",d:"Drives Bit:Bot robots via Web Bluetooth. Joystick control, line-following, obstacle avoidance. The first app ever created.",t:["robo"],pwr:95,cpx:60,fun:90,ht:"150mm",wt:"280g",ab:"BLE-01",catch:"Very Common"},
-{e:"🪄",n:"magic-hands",d:"Hand-tracking visual effects powered by MediaPipe. 21 hand landmarks. Warning: you will wave at your screen for hours.",t:["ai","cam"],pwr:88,cpx:70,fun:99,ht:"21pts",wt:"Light",ab:"MP-02",catch:"Uncommon"},
-{e:"🕵️",n:"face-quest",d:"Gamified face detection. Score points with expressions. 468 face landmarks. Zero data leaves the browser.",t:["ai","cam"],pwr:82,cpx:65,fun:95,ht:"468pts",wt:"Light",ab:"FM-03",catch:"Common"},
-{e:"🧠",n:"teachable-machine",d:"Train AI gesture models in-browser, then send results to micro:bit via BLE. Browser-based machine learning.",t:["ai","robo"],pwr:92,cpx:80,fun:85,ht:"N/A",wt:"Heavy",ab:"TM-04",catch:"Rare"},
-{e:"💬",n:"talking-robot",d:"Voice-controlled robot. Speech recognition meets BLE motor control. Say 'dance' at your own risk.",t:["robo","ai"],pwr:78,cpx:75,fun:88,ht:"N/A",wt:"Med",ab:"SR-05",catch:"Uncommon"},
-{e:"😎",n:"face-tracking",d:"Kid-friendly face position tracker with event triggers for micro:bit. XY position, tilt, expression detection.",t:["cam","robo"],pwr:72,cpx:55,fun:80,ht:"XY",wt:"Light",ab:"FT-06",catch:"Common"},
-{e:"😄",n:"bitmoji-lab",d:"Transform emojis into 5×5 LED pixel art on micro:bit. Digital art meets physical computing.",t:["robo","learn"],pwr:55,cpx:40,fun:85,ht:"5×5",wt:"Light",ab:"BM-07",catch:"Very Common"},
-{e:"🚀",n:"mission-control",d:"WebRTC command center. Live video, chat, and micro:bit control through peer-to-peer connexions.",t:["tool","robo"],pwr:90,cpx:85,fun:75,ht:"P2P",wt:"Heavy",ab:"MC-08",catch:"Rare"},
-{e:"🧩",n:"bit-playground",d:"Ultimate micro:bit BLE playground. LEDs, buttons, accelerometer, servos, temperature — all from browser.",t:["robo"],pwr:80,cpx:50,fun:90,ht:"All",wt:"Med",ab:"BP-09",catch:"Common"},
-{e:"🎛️",n:"rxy",d:"Custom Bluetooth remote builder. Drag-and-drop UI to create personalized robot control interfaces.",t:["robo","tool"],pwr:70,cpx:65,fun:82,ht:"Custom",wt:"Med",ab:"RX-10",catch:"Uncommon"},
-{e:"🎨",n:"pixel-gateway",d:"Rétro pixel art editor. Draw, animate, export. A creative tool disguised as a portal to another dimension.",t:["learn"],pwr:60,cpx:35,fun:92,ht:"Grid",wt:"Light",ab:"PG-11",catch:"Very Common"},
-{e:"💡",n:"wled-kids-lab",d:"Control Neopixel LED strips with WLED over WiFi. Colors, effects, animations — all from a browser.",t:["hw"],pwr:65,cpx:50,fun:88,ht:"Strip",wt:"Med",ab:"WL-12",catch:"Uncommon"},
-{e:"⚡",n:"esp32-c3-lab",d:"Hands-on ESP32-C3 IoT lab. WiFi, GPIO, sensors, ADC. The hardware gateway drug.",t:["hw"],pwr:75,cpx:70,fun:70,ht:"C3",wt:"Heavy",ab:"ES-13",catch:"Rare"},
-{e:"🪙",n:"crypto-academy",d:"Blockchain and cryptocurrency lessons. Educational, not financial advice. Don't YOLO your allowance.",t:["learn"],pwr:50,cpx:55,fun:65,ht:"Chain",wt:"Med",ab:"CA-14",catch:"Common"},
-{e:"🔐",n:"pentest-lab",d:"Cybersecurity CTF sandbox. SQL injection, XSS, brute force — all in a safe environment. Hack ethically.",t:["cyber"],pwr:92,cpx:85,fun:90,ht:"CTF",wt:"Heavy",ab:"PL-15",catch:"Rare"},
-{e:"🐧",n:"linux-kids-lab",d:"Full Linux terminal in browser. ls, cd, grep, pipes — safe sandbox. No 'rm -rf /' allowed.",t:["learn"],pwr:85,cpx:60,fun:78,ht:"Bash",wt:"Med",ab:"LL-16",catch:"Common"},
-{e:"🐳",n:"docker-lab",d:"Docker basics in browser. Containers, images, volumes. Has caused inter-generational knowledge inversions.",t:["learn","tool"],pwr:75,cpx:75,fun:68,ht:"Docker",wt:"Heavy",ab:"DL-17",catch:"Uncommon"},
-{e:"🏡",n:"smart-home",d:"IoT dashboard simulator. Build and control a virtual smart home. Thermostat wars training included.",t:["hw","learn"],pwr:65,cpx:55,fun:75,ht:"IoT",wt:"Med",ab:"SH-18",catch:"Common"},
-{e:"✨",n:"prompt-hero",d:"AI prompting playground. Learn to talk to LLMs effectively. The art of the question.",t:["ai","learn"],pwr:70,cpx:45,fun:80,ht:"LLM",wt:"Light",ab:"PH-19",catch:"Common"},
+{e:"🤖",n:"bit-bot",d:"Pilote les robots Bit:Bot via Web Bluetooth. Contrôle joystick, suivi de ligne, évitement d'obstacles. La toute première app créée.",t:["robo"],pwr:95,cpx:60,fun:90,ht:"150mm",wt:"280g",ab:"BLE-01",catch:"Très Commun"},
+{e:"🪄",n:"magic-hands",d:"Effets visuels de suivi de mains propulsés par MediaPipe. 21 points de repère. Attention : vous allez agiter vos mains devant l'écran pendant des heures.",t:["ai","cam"],pwr:88,cpx:70,fun:99,ht:"21pts",wt:"Léger",ab:"MP-02",catch:"Peu Commun"},
+{e:"🕵️",n:"face-quest",d:"Détection faciale ludique. Marquez des points avec vos expressions. 468 points de repère. Aucune donnée ne quitte le navigateur.",t:["ai","cam"],pwr:82,cpx:65,fun:95,ht:"468pts",wt:"Léger",ab:"FM-03",catch:"Commun"},
+{e:"🧠",n:"teachable-machine",d:"Entraînez des modèles IA de gestes dans le navigateur, puis envoyez les résultats au micro:bit via BLE. Machine learning dans le navigateur.",t:["ai","robo"],pwr:92,cpx:80,fun:85,ht:"N/A",wt:"Lourd",ab:"TM-04",catch:"Rare"},
+{e:"💬",n:"talking-robot",d:"Robot contrôlé par la voix. Reconnaissance vocale + contrôle moteur BLE. Dites « danse » à vos risques et périls.",t:["robo","ai"],pwr:78,cpx:75,fun:88,ht:"N/A",wt:"Moyen",ab:"SR-05",catch:"Peu Commun"},
+{e:"😎",n:"face-tracking",d:"Suivi facial adapté aux enfants avec déclencheurs d'événements pour micro:bit. Position XY, inclinaison, détection d'expressions.",t:["cam","robo"],pwr:72,cpx:55,fun:80,ht:"XY",wt:"Léger",ab:"FT-06",catch:"Commun"},
+{e:"😄",n:"bitmoji-lab",d:"Transformez des emojis en pixel art LED 5×5 sur micro:bit. L'art numérique rencontre l'informatique physique.",t:["robo","learn"],pwr:55,cpx:40,fun:85,ht:"5×5",wt:"Léger",ab:"BM-07",catch:"Très Commun"},
+{e:"🚀",n:"mission-control",d:"Centre de commande WebRTC. Vidéo en direct, chat et contrôle micro:bit en pair-à-pair.",t:["tool","robo"],pwr:90,cpx:85,fun:75,ht:"P2P",wt:"Lourd",ab:"MC-08",catch:"Rare"},
+{e:"🧩",n:"bit-playground",d:"Le terrain de jeu BLE ultime pour micro:bit. LEDs, boutons, accéléromètre, servos, température — tout depuis le navigateur.",t:["robo"],pwr:80,cpx:50,fun:90,ht:"Tout",wt:"Moyen",ab:"BP-09",catch:"Commun"},
+{e:"🎛️",n:"rxy",d:"Constructeur de télécommande Bluetooth personnalisée. Interface glisser-déposer pour créer vos contrôles robot.",t:["robo","tool"],pwr:70,cpx:65,fun:82,ht:"Perso",wt:"Moyen",ab:"RX-10",catch:"Peu Commun"},
+{e:"🎨",n:"pixel-gateway",d:"Éditeur de pixel art rétro. Dessinez, animez, exportez. Un outil créatif déguisé en portail vers une autre dimension.",t:["learn"],pwr:60,cpx:35,fun:92,ht:"Grille",wt:"Léger",ab:"PG-11",catch:"Très Commun"},
+{e:"💡",n:"wled-kids-lab",d:"Contrôlez des rubans LED Neopixel avec WLED en WiFi. Couleurs, effets, animations — tout depuis un navigateur.",t:["hw"],pwr:65,cpx:50,fun:88,ht:"Ruban",wt:"Moyen",ab:"WL-12",catch:"Peu Commun"},
+{e:"⚡",n:"esp32-c3-lab",d:"Labo IoT pratique ESP32-C3. WiFi, GPIO, capteurs, ADC. La drogue d'entrée du matériel.",t:["hw"],pwr:75,cpx:70,fun:70,ht:"C3",wt:"Lourd",ab:"ES-13",catch:"Rare"},
+{e:"🪙",n:"crypto-academy",d:"Leçons sur la blockchain et les cryptomonnaies. Éducatif, pas un conseil financier. Ne misez pas votre argent de poche.",t:["learn"],pwr:50,cpx:55,fun:65,ht:"Chaîne",wt:"Moyen",ab:"CA-14",catch:"Commun"},
+{e:"🔐",n:"pentest-lab",d:"Bac à sable CTF de cybersécurité. Injection SQL, XSS, force brute — le tout en environnement sécurisé. Hackez éthiquement.",t:["cyber"],pwr:92,cpx:85,fun:90,ht:"CTF",wt:"Lourd",ab:"PL-15",catch:"Rare"},
+{e:"🐧",n:"linux-kids-lab",d:"Terminal Linux complet dans le navigateur. ls, cd, grep, pipes — bac à sable sécurisé. Pas de 'rm -rf /' autorisé.",t:["learn"],pwr:85,cpx:60,fun:78,ht:"Bash",wt:"Moyen",ab:"LL-16",catch:"Commun"},
+{e:"🐳",n:"docker-lab",d:"Les bases de Docker dans le navigateur. Conteneurs, images, volumes. A causé des inversions de connaissances intergénérationnelles.",t:["learn","tool"],pwr:75,cpx:75,fun:68,ht:"Docker",wt:"Lourd",ab:"DL-17",catch:"Peu Commun"},
+{e:"🏡",n:"smart-home",d:"Simulateur de tableau de bord IoT. Construisez et contrôlez une maison connectée virtuelle. Entraînement aux guerres de thermostat inclus.",t:["hw","learn"],pwr:65,cpx:55,fun:75,ht:"IoT",wt:"Moyen",ab:"SH-18",catch:"Commun"},
+{e:"✨",n:"prompt-hero",d:"Terrain de jeu de prompts IA. Apprenez à parler efficacement aux LLMs. L'art de la question.",t:["ai","learn"],pwr:70,cpx:45,fun:80,ht:"LLM",wt:"Léger",ab:"PH-19",catch:"Commun"},
 ];
 
 let cur=0;
 const entries=document.getElementById('entries');
 const counter=document.getElementById('counter');
-const cats=[{n:"ALL",id:"all"},{n:"ROBO",id:"robo"},{n:"AI",id:"ai"},{n:"CYBER",id:"cyber"},{n:"LEARN",id:"learn"},{n:"HW",id:"hw"},{n:"CAM",id:"cam"}];
+const cats=[{n:"TOUT",id:"all"},{n:"ROBO",id:"robo"},{n:"IA",id:"ai"},{n:"CYBER",id:"cyber"},{n:"ÉDUC",id:"learn"},{n:"MATOS",id:"hw"},{n:"CAM",id:"cam"}];
 let filtered=[...APPS];let curFilter='all';
 
 // NAV
@@ -158,18 +158,18 @@ function render(){
     <div class="entry-emoji">${a.e}</div>
     <div class="entry-desc">${a.d}</div>
     <div class="stats-grid">
-      <div class="stat pwr"><div class="v">${a.pwr}</div><div class="l">POWER</div></div>
-      <div class="stat cpx"><div class="v">${a.cpx}</div><div class="l">COMPLEXITY</div></div>
+      <div class="stat pwr"><div class="v">${a.pwr}</div><div class="l">PUISSANCE</div></div>
+      <div class="stat cpx"><div class="v">${a.cpx}</div><div class="l">COMPLEXITÉ</div></div>
       <div class="stat fun"><div class="v">${a.fun}</div><div class="l">FUN</div></div>
     </div>
     <div class="stat-bar"><span class="lbl">PWR</span><div class="track"><div class="fill" style="width:${a.pwr}%;background:#ff0033"></div></div></div>
     <div class="stat-bar"><span class="lbl">CPX</span><div class="track"><div class="fill" style="width:${a.cpx}%;background:#00d4ff"></div></div></div>
     <div class="stat-bar"><span class="lbl">FUN</span><div class="track"><div class="fill" style="width:${a.fun}%;background:#ffd700"></div></div></div>
     <div class="info-grid">
-      <div class="info-item"><div class="lbl">HEIGHT</div><div class="val">${a.ht}</div></div>
-      <div class="info-item"><div class="lbl">WEIGHT</div><div class="val">${a.wt}</div></div>
-      <div class="info-item"><div class="lbl">ABILITY</div><div class="val">${a.ab}</div></div>
-      <div class="info-item"><div class="lbl">CATCH RATE</div><div class="val">${a.catch}</div></div>
+      <div class="info-item"><div class="lbl">TAILLE</div><div class="val">${a.ht}</div></div>
+      <div class="info-item"><div class="lbl">POIDS</div><div class="val">${a.wt}</div></div>
+      <div class="info-item"><div class="lbl">CAPACITÉ</div><div class="val">${a.ab}</div></div>
+      <div class="info-item"><div class="lbl">TAUX CAPTURE</div><div class="val">${a.catch}</div></div>
     </div>
   </div>`;
 }
@@ -181,8 +181,7 @@ let sx=0;document.addEventListener('touchstart',e=>sx=e.touches[0].clientX);
 document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(dx<0?1:-1)});
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

@@ -61,7 +61,7 @@ h1{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:rgba(255,2
 </div>
 
 <div class="ask">
-  <input type="text" id="question" placeholder="Ask a Atelier-DIY question..." onkeydown="if(event.key==='Enter')shake()">
+  <input type="text" id="question" placeholder="Posez une question Workshop-DIY..." onkeydown="if(event.key==='Enter')shake()">
 </div>
 
 <div class="instruction">CLIQUEZ SUR LA BOULE OU APPUYEZ SUR ENTRÉE POUR RECEVOIR LA SAGESSE</div>
@@ -71,37 +71,37 @@ h1{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:rgba(255,2
 
 <script>
 const ANSWERS=[
-  // POSITIVE
-  "IT IS CERTAIN\n(like password123)",
-  "WITHOUT A\nDOUBT",
-  "YES — THE\nHOT GLUE\nWILL HOLD",
-  "SIGNS POINT\nTO YES\n(and to Bug #42)",
-  "ABSOLUTELY.\nNO NPM\nREQUIRED.",
-  "THE COFFEE\nMACHINE\nAPPROVES",
-  "AS SURE AS\nDROP #47",
-  "YES. IT'S\nA FEATURE.",
-  
-  // NEUTRAL
-  "ASK AGAIN\nAT 3h42",
-  "REPLY HAZY —\nBLE RECONNEXION",
-  "LA 40E APP\nKNOWS BUT\nWON'T TELL",
-  "CONCENTRATE\nAND ASK\nAGAIN",
-  "BETTER NOT\nTELL YOU\n(for now)",
-  "THE SERVO\nIS THINKING\n(in B♭ minor)",
-  
-  // NEGATIVE
-  "DON'T\nCOUNT ON IT",
-  "MY REPLY IS\nNO — LIKE\nPETITION #3",
-  "OUTLOOK\nNOT SO GOOD\n(8% capacity)",
-  "VERY\nDOUBTFUL",
-  "ESLINT\nSAYS NO\n(17 violations)",
-  
-  // SPECIAL
-  "BUG #42\nWAS HERE\nBEFORE YOU",
-  "THE ANSWER\nIS 42.\nALWAYS 42.",
-  "PASSWORD\nREMAINS\n123",
-  "I AM NOT\nA BUG.\nI AM A\nFEATURE.",
-  "VÉRIFIER\nLINE 42\nOF THE\nCODE SOURCE",
+  // POSITIF
+  "C'EST CERTAIN\n(comme password123)",
+  "SANS AUCUN\nDOUTE",
+  "OUI — LA\nCOLLE CHAUDE\nTIENDRA",
+  "TOUT INDIQUE\nQUE OUI\n(et le Bug #42)",
+  "ABSOLUMENT.\nPAS DE NPM\nNÉCESSAIRE.",
+  "LA MACHINE\nÀ CAFÉ\nAPPROUVE",
+  "AUSSI SÛR\nQUE LA\nCHUTE #47",
+  "OUI. C'EST\nUNE\nFONCTIONNALITÉ.",
+
+  // NEUTRE
+  "REPOSEZ LA\nQUESTION\nÀ 3H42",
+  "RÉPONSE FLOUE\n— RECONNEXION\nBLE",
+  "LA 40E APP\nSAIT MAIS\nNE DIT RIEN",
+  "CONCENTREZ-\nVOUS ET\nREDEMANDEZ",
+  "MIEUX VAUT\nNE PAS DIRE\n(pour l'instant)",
+  "LE SERVO\nRÉFLÉCHIT\n(en si♭ mineur)",
+
+  // NÉGATIF
+  "N'Y COMPTEZ\nPAS",
+  "MA RÉPONSE\nEST NON —\nCOMME PÉTITION #3",
+  "PERSPECTIVES\nPAS BONNES\n(8% capacité)",
+  "TRÈS\nDOUTEUX",
+  "ESLINT\nDIT NON\n(17 violations)",
+
+  // SPÉCIAL
+  "LE BUG #42\nÉTAIT LÀ\nAVANT TOI",
+  "LA RÉPONSE\nEST 42.\nTOUJOURS 42.",
+  "MOT DE PASSE\nRESTÉ\n123",
+  "JE NE SUIS\nPAS UN BUG.\nJE SUIS UNE\nFONCTIONNALITÉ.",
+  "VÉRIFIEZ\nLA LIGNE 42\nDU CODE\nSOURCE",
 ];
 
 let count=0;
@@ -120,13 +120,12 @@ function shake(){
     ans.textContent=a;
     tri.classList.add('show');
     count++;
-    document.getElementById('counter').textContent=`Consultations: ${count}`;
+    document.getElementById('counter').textContent=`Consultations : ${count}`;
   },600);
 }
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>

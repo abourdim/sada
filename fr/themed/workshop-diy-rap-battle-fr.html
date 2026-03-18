@@ -62,14 +62,14 @@ body{background:#0a0a0e;color:#fff;font-family:'JetBrains Mono',monospace;font-s
 
 <div class="header">
   <div class="h-title">🎤 APP RAP BATTLE 🎤</div>
-  <div class="h-sub">WORKSHOP-DIY · WHERE APPS SETTLE THEIR DIFFERENCES</div>
+  <div class="h-sub">WORKSHOP-DIY · LÀ OÙ LES APPS RÈGLENT LEURS DIFFÉRENDS</div>
 </div>
 
 <div class="stage">
   <div class="vs-bar">
-    <div class="fighter"><div class="emoji" id="f1e">🤖</div><div class="name" id="f1n">BIT-BOT</div><div class="title" id="f1t">The OG Robot</div></div>
+    <div class="fighter"><div class="emoji" id="f1e">🤖</div><div class="name" id="f1n">BIT-BOT</div><div class="title" id="f1t">Le Robot OG</div></div>
     <div class="vs">VS</div>
-    <div class="fighter"><div class="emoji" id="f2e">🐳</div><div class="name" id="f2n">DOCKER-LAB</div><div class="title" id="f2t">The Container Whale</div></div>
+    <div class="fighter"><div class="emoji" id="f2e">🐳</div><div class="name" id="f2n">DOCKER-LAB</div><div class="title" id="f2t">La Baleine à Conteneurs</div></div>
   </div>
   <div class="meter">
     <div class="meter-label" id="ml">50%</div>
@@ -79,54 +79,54 @@ body{background:#0a0a0e;color:#fff;font-family:'JetBrains Mono',monospace;font-s
   <div class="round-indicator" id="round">ROUND 1 / 4</div>
   <div class="battle" id="battle"></div>
   <div class="controls">
-    <button class="ctrl-btn vote-l" onclick="vote('left')">👈 VOTE LEFT</button>
-    <button class="ctrl-btn fire" onclick="nextRound()">🎤 NEXT ROUND</button>
-    <button class="ctrl-btn vote-r" onclick="vote('right')">VOTE RIGHT 👉</button>
+    <button class="ctrl-btn vote-l" onclick="vote('left')">👈 VOTER GAUCHE</button>
+    <button class="ctrl-btn fire" onclick="nextRound()">🎤 ROUND SUIVANT</button>
+    <button class="ctrl-btn vote-r" onclick="vote('right')">VOTER DROITE 👉</button>
   </div>
 </div>
 
 <div style="display:flex;gap:4px;margin-top:8px">
-  <button class="ctrl-btn" onclick="newBattle()" style="background:#111;border:1px solid #222;color:#555;font-size:8px;padding:4px 12px;border-radius:4px;cursor:pointer">🔀 NEW MATCHUP</button>
+  <button class="ctrl-btn" onclick="newBattle()" style="background:#111;border:1px solid #222;color:#555;font-size:8px;padding:4px 12px;border-radius:4px;cursor:pointer">🔀 NOUVEAU COMBAT</button>
 </div>
-<div class="footer">NO APPS WERE HARMED · BATTLES ARE FICTIONAL · BUGS REMAIN FEATURES</div>
+<div class="footer">AUCUNE APP N'A ÉTÉ MALTRAITÉE · LES COMBATS SONT FICTIFS · LES BUGS RESTENT DES FONCTIONNALITÉS</div>
 
 <script>
 const FIGHTERS=[
-{e:"🤖",n:"BIT-BOT",t:"The OG Robot",bars:[
-  "I'm the <b>first app</b> built, the OG in the game,\nWhile you're sitting in containers, I'm out earning fame.",
-  "47 drops from a desk and I'm <b>still standing tall</b>,\nYour Dockerfile breaks if you miss one install.",
-  "I got <b>BLE connexions</b> stronger than your network bridge,\nKids drive me through mazes while you explain an image.",
-  "I'm the <b>reason</b> Atelier-DIY exists at all,\nWithout me there'd be no ecosystem — just an empty hall.",
+{e:"🤖",n:"BIT-BOT",t:"Le Robot OG",bars:[
+  "Je suis la <b>première app</b>, l'OG du game,\nPendant que tu croupis dans tes conteneurs, moi je récolte la fame.",
+  "47 chutes du bureau et je suis <b>toujours debout</b>,\nTon Dockerfile plante si t'oublies un seul bout.",
+  "Mes <b>connexions BLE</b> sont plus solides que ton bridge réseau,\nLes gamins me pilotent dans des labyrinthes pendant que t'expliques un layer niveau.",
+  "Je suis la <b>raison</b> pour laquelle Workshop-DIY existe,\nSans moi y'aurait pas d'écosystème — juste une salle vide et triste.",
 ]},
-{e:"🐳",n:"DOCKER-LAB",t:"The Container Whale",bars:[
-  "I <b>contain multitudes</b>, you contain two motors and a prayer,\nI orchestrate services, you can barely drive in a square.",
-  "docker-compose up and my <b>whole stack rises</b>,\nYou need a charged battery just to handle surprises.",
-  "14-year-olds explain me to their <b>engineer parents</b>,\nYou get explained to 8-year-olds. Know the difference?",
-  "I'm <b>reproducible</b>, scalable, enterprise-grade,\nYou're held together with colle chaude. No shade... okay, shade.",
+{e:"🐳",n:"DOCKER-LAB",t:"La Baleine à Conteneurs",bars:[
+  "Je <b>contiens des multitudes</b>, toi tu contiens deux moteurs et une prière,\nJ'orchestre des services, toi tu roules même pas en ligne droite, mon frère.",
+  "docker-compose up et toute ma <b>stack se lève</b>,\nToi t'as besoin d'une batterie chargée juste pour pas tomber en grève.",
+  "Des ados de 14 ans m'expliquent à leurs <b>parents ingénieurs</b>,\nToi on t'explique à des gamins de 8 ans. Tu vois la différence, farceur ?",
+  "Je suis <b>reproductible</b>, scalable, enterprise-grade,\nToi t'es tenu par de la colle chaude. Pas de shade... bon, un peu de shade.",
 ]},
-{e:"🪄",n:"MAGIC-HANDS",t:"The Hand Wizard",bars:[
-  "I track <b>21 landmarks</b> on every single hand,\nYou couldn't track your own code if it was pre-planned.",
-  "I make <b>particles fly</b> with just a wave of my finger,\nYour loading spinner's the only effect that lingers.",
-  "MediaPipe flows through me like <b>digital sorcery</b>,\nYour feature list is shorter than your WiFi security.",
-  "Kids wave at screens for <b>hours</b> when I'm on the stage,\nYour app gets closed faster than an empty README page.",
+{e:"🪄",n:"MAGIC-HANDS",t:"Le Sorcier des Mains",bars:[
+  "Je traque <b>21 landmarks</b> sur chaque main,\nToi tu pourrais même pas tracer ton propre code, c'est certain.",
+  "Je fais <b>voler les particules</b> d'un geste du doigt,\nTon spinner de chargement, c'est le seul effet que t'as, toi.",
+  "MediaPipe coule en moi comme de la <b>sorcellerie digitale</b>,\nTa liste de fonctionnalités est plus courte que ta sécurité WiFi, c'est fatal.",
+  "Les gamins agitent les mains pendant des <b>heures</b> quand je suis en scène,\nTon app se ferme plus vite qu'un README vide, quelle peine.",
 ]},
-{e:"🔐",n:"PENTEST-LAB",t:"The Ethical Outlaw",bars:[
-  "I <b>break systems</b> — ethically, of course,\nYou couldn't hack a printer if it was open source.",
-  "SQL injection, XSS — I teach the <b>real deal</b>,\nYour sandbox environment? More like a hamster wheel.",
-  "I found the school printer vuln before <b>lunch was served</b>,\nYour biggest achievement? A successfully parsed word.",
-  "CTF champions train with me, I'm the <b>cyber sensei</b>,\nYou're still trying to figure out what 'chmod' means, hey.",
+{e:"🔐",n:"PENTEST-LAB",t:"Le Hors-la-loi Éthique",bars:[
+  "Je <b>casse des systèmes</b> — éthiquement, bien sûr,\nToi tu pourrais pas pirater une imprimante même open source, c'est dur.",
+  "Injection SQL, XSS — j'enseigne le <b>vrai truc</b>,\nTon environnement bac à sable ? Plutôt une roue de hamster, mec.",
+  "J'ai trouvé la faille de l'imprimante avant le <b>déjeuner</b>,\nTon plus grand exploit ? Un mot correctement parsé.",
+  "Les champions de CTF s'entraînent avec moi, je suis le <b>cyber sensei</b>,\nToi t'essaies encore de comprendre ce que 'chmod' veut dire, hey.",
 ]},
-{e:"🐧",n:"LINUX-LAB",t:"The Penguin Sage",bars:[
-  "I live in the <b>terminal</b>, where real makers reside,\nYou live behind a GUI trying to find the right slide.",
-  "bash, grep, sed, awk — I'm the <b>command-line king</b>,\nYou crash when someone types something other than a string.",
-  "I taught kids 'sudo' before they could <b>spell it</b>,\nYour error handling strategy is just 'don't tell it'.",
-  "Open source is my <b>DNA</b>, freedom is my cause,\nYou hide behind abstractions with your enterprise laws.",
+{e:"🐧",n:"LINUX-LAB",t:"Le Sage Pingouin",bars:[
+  "Je vis dans le <b>terminal</b>, là où les vrais makers résident,\nToi tu vis derrière un GUI en cherchant le bon slide.",
+  "bash, grep, sed, awk — je suis le <b>roi de la ligne de commande</b>,\nToi tu plantes quand quelqu'un tape autre chose qu'un string, quelle arnaque.",
+  "J'ai appris 'sudo' aux gamins avant qu'ils sachent <b>l'épeler</b>,\nTa stratégie de gestion d'erreurs c'est juste 'faut pas en parler'.",
+  "L'open source c'est mon <b>ADN</b>, la liberté ma cause,\nToi tu te caches derrière des abstractions avec tes lois enterprise, sans pause.",
 ]},
-{e:"💡",n:"WLED-LAB",t:"The Neon Ghost",bars:[
-  "<b>16 million colors</b> and I use every one,\nYour interface is grayscale, my show's never done.",
-  "I light up the room — <b>literally, not metaphor</b>,\nYou light up the error log, is that what you're here for?",
-  "Neopixels dance when I send <b>one HTTP request</b>,\nYou need a 20-step tutorial just to do your best.",
-  "RGB is my language, <b>every hue is my weapon</b>,\nYour color palette is 'default gray.' Step up, peasant.",
+{e:"💡",n:"WLED-LAB",t:"Le Fantôme Néon",bars:[
+  "<b>16 millions de couleurs</b> et j'en utilise chacune,\nTon interface est en niveaux de gris, mon show ne s'éteint sous aucune lune.",
+  "J'éclaire la salle — <b>littéralement, pas une métaphore</b>,\nToi t'éclaires le journal d'erreurs, c'est ton seul décor.",
+  "Les Neopixels dansent quand j'envoie <b>une seule requête HTTP</b>,\nToi t'as besoin d'un tuto en 20 étapes juste pour faire ton truc.",
+  "Le RGB c'est mon langage, <b>chaque teinte est mon arme</b>,\nTa palette c'est 'gris par défaut'. Monte d'un cran, sans larme.",
 ]},
 ];
 
@@ -154,7 +154,7 @@ function newBattle(){
 function nextRound(){
   if(round>=4){
     const winner=scoreL>scoreR?f1:f2;
-    battleEl.innerHTML+=`<div style="text-align:center;padding:10px;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#ffd700">🏆 ${winner.e} ${winner.n} WINS! 🏆</div>`;
+    battleEl.innerHTML+=`<div style="text-align:center;padding:10px;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#ffd700">🏆 ${winner.e} ${winner.n} GAGNE ! 🏆</div>`;
     return;
   }
   // Left verse
@@ -196,8 +196,7 @@ function updateRound(){
 newBattle();
 </script>
 
-<div style="text-align:center;padding:4px"><a href="https://workshop-diy.org" style="color:rgba(255,255,255,.04);text-decoration:none;font-size:7px;font-family:monospace">workshop-diy.org</a></div>
-<script src="../../assets/js/sada-footer.js"></script>
+<script src="../../assets/js/sada-footer.js?v=2"></script>
 <script src="../../assets/js/sada-nav.js"></script>
 </body>
 </html>
