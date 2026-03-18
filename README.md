@@ -1,4 +1,4 @@
-# صدى sada · v6.0
+# صدى sada · V1.0
 
 **564 self-contained HTML files** across 3 languages (EN/FR/AR) for the Workshop-DIY educational ecosystem.
 
@@ -21,9 +21,9 @@ VIDEO (5) · INTERACTIVE (10) · GAME (12) · TOOL (14) · AMBIENT (5)
 
 ## Languages
 
-- 🇬🇧 English — root files
-- 🇫🇷 Français — /fr/ directory
-- 🇸🇦 العربية — /ar/ directory (RTL, Amiri font, Bismillah)
+- English — root files
+- Francais — /fr/ directory
+- العربية — /ar/ directory (RTL, Amiri font, Bismillah)
 
 ## Tutorials (30 files)
 
@@ -32,11 +32,11 @@ CowSay · BitBot · OllamaBot · SDR · Crypto · Hacktivist · Pentest · Plane
 
 ## Links
 
-- 🌐 workshop-diy.org
-- 💻 github.com/abourdim
-- 📞 06 19 51 51 73
-- ✉️ contact@workshop-diy.org
-- 📍 Chelles 77500
+- workshop-diy.org
+- github.com/abourdim
+- 06 19 51 51 73
+- contact@workshop-diy.org
+- Chelles 77500
 
 ---
-*sada (صدى) — Workshop-DIY · v6.0 · March 2026*
+*sada (صدى) — Workshop-DIY · V1.0 · March 2026*
